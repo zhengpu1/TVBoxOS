@@ -1,0 +1,90 @@
+<application>
+  <component name="Translation.Cache">
+    <option name="lastTrimTime" value="1692431369138" />
+  </component>
+  <component name="Translation.Settings">
+    <option name="translator" value="MICROSOFT" />
+  </component>
+  <component name="Translation.States">
+    <option name="newTranslationDialogHeight" value="478" />
+    <option name="newTranslationDialogWidth" value="847" />
+    <option name="newTranslationDialogX" value="815" />
+    <option name="newTranslationDialogY" value="451" />
+    <histories>
+      <item value="fatal: unable to access 'https:github.comzzh628TVBoxOS': Recv failure: Connection was reset" />
+      <item value="error: RPC failed; curl 28 Recv failure: Connection was reset fatal: expected flush after ref listing" />
+      <item value="refsheadsdav_:refsheadsdav_ [new branch] branch 'dav_' set up to track 'origindav_'. Done" />
+      <item value="fatal: unable to access 'https:github.comzzh628TVBoxOS': Recv failure: Connection was reset 22:41:25.337: [TVBoxOS666] git -c credential.helper= -c core.quotepath=false -c log.showSignature=false fetch origin --recurse-submodules=no --progress --prune fatal: unable to access 'https:github.comzzh628TVBoxOS': Failed to connect to github.com port 443 after 21028 ms: Couldn't connect to server 22:42:19.809: [TVBoxOS666] git -c credential.helper= -c core.quotepath=false -c log.showSignature=false push --progress --porcelain origin refsheadsmain:main fatal: unable to access 'https:github.comzzh628TVBoxOS': Recv failure: Connection was reset" />
+      <item value="sort Focused" />
+      <item value="FOCUS UP" />
+      <item value="fatal: unable to access 'https:github.comzzh628TVBoxOS': Recv failure: Connection was reset 19:42:11.225: [TVBoxOS666] git -c credential.helper= -c core.quotepath=false -c log.showSignature=false push --progress --porcelain origin refsheadsmain:main fatal: unable to access 'https:github.comzzh628TVBoxOS': Recv failure: Connection was reset" />
+      <item value="SHOW SSPREVIEW" />
+      <item value="ACTION UP" />
+      <item value="is Click Back Btn" />
+      <item value="lock Runnable" />
+      <item value="post Delayed" />
+      <item value="remove Callbacks" />
+      <item value="INVISIBLE" />
+      <item value="on Back Pressed" />
+      <item value="choose play" />
+      <item value="choose Play" />
+      <item value="Long press to trigger Delete Mode for VOD History on Home Page" />
+      <item value="delete Vod Collect" />
+      <item value="delete Vod Collect All" />
+      <item value="get Source Bean List" />
+      <item value="Additional Check if" />
+      <item value="delete Vod Record" />
+      <item value="tv Slide Start" />
+      <item value="Bottom Channel View" />
+      <item value="delta V" />
+      <item value="slide To Change Volume" />
+      <item value="stream Max Volume" />
+      <item value="Decrements the count of the latch, releasing all waiting threads if the count reaches zero. If the current count is greater than zero then it is decremented. If the new count is zero then all waiting threads are re-enabled for thread scheduling purposes. If the current count equals zero then nothing happens." />
+      <item value="Count Down Latch" />
+      <item value="Creates a thread pool that creates new threads as needed, but will reuse previously constructed threads when they are available. These pools will typically improve the performance of programs that execute many short-lived asynchronous tasks. Calls to execute will reuse previously constructed threads if available. If no existing thread is available, a new thread will be created and added to the pool. Threads that have not been used for sixty seconds are terminated and removed from the cache. Thus, a pool that remains idle for long enough will not consume any resources. Note that pools with similar properties but different details (for example, timeout parameters) may be created using ThreadPoolExecutor constructors." />
+      <item value="show Popup Window" />
+      <item value="on Dismiss" />
+      <item value="on Create Show Animation" />
+      <item value="on Window Focus Changed" />
+      <item value="SEARCH HISTORY" />
+      <item value="search Data" />
+      <item value="FAST SEARCH MODE" />
+      <item value="Unknown Source:2" />
+      <item value="Handle system messages here." />
+      <item value="Subclasses must implement this to receive messages." />
+      <item value="java.lang.RuntimeException: Unable to destroy activity {com.github.tvbox.tkcom.github.tvbox.osc.ui.activity.DetailActivity}: java.lang.NullPointerException: Parameter specified as non-null is null: method com.github.tvbox.osc.base.App.setDashData, parameter data" />
+      <item value="java.lang.RuntimeException: Unable to instantiate application com.github.tvbox.osc.base.App: java.lang.InstantiationException: java.lang.Class&lt;com.github.tvbox.osc.base.App&gt; cannot be instantiated" />
+      <item value="Shutting down VM" />
+      <item value="When a coded character set is used exclusively with a single character-encoding scheme then the corresponding charset is usually named for the coded character set; otherwise a charset is usually named for the encoding scheme and, possibly, the locale of the coded character sets that it supports. Hence US-ASCII is both the name of a coded character set and of the charset that encodes it, while EUC-JP is the name of the charset that encodes the JIS X 0201, JIS X 0208, and JIS X 0212 coded character sets for the Japanese language. The native character encoding of the Java programming language is UTF-16. A charset in the Java platform therefore defines a mapping between sequences of sixteen-bit UTF-16 code units (that is, sequences of chars) and sequences of bytes." />
+      <item value="Sets the default text encoding name to use when decoding html pages. The default is &quot;UTF-8&quot;." />
+      <item value="A binary encoding scheme for reversibly translating between byte sequences and printable ASCII strings. This class includes several constants for encoding schemes specified by RFC 4648 . For example, the expression:" />
+      <item value="All instances of this class are immutable, so they may be stored safely as static constants." />
+      <item value="get Video Size" />
+      <item value="m Control Wrapper" />
+    </histories>
+    <option name="languageScores">
+      <map>
+        <entry key="BENGALI" value="3" />
+        <entry key="CATALAN" value="2" />
+        <entry key="CHINESE" value="3258" />
+        <entry key="DANISH" value="1" />
+        <entry key="ENGLISH" value="3259" />
+        <entry key="FILIPINO" value="1" />
+        <entry key="FRENCH" value="1" />
+        <entry key="GERMAN" value="2" />
+        <entry key="GREEK" value="1" />
+        <entry key="INDONESIAN" value="2" />
+        <entry key="IRISH" value="2" />
+        <entry key="ITALIAN" value="1" />
+        <entry key="JAVANESE" value="1" />
+        <entry key="KINYARWANDA" value="1" />
+        <entry key="LUXEMBOURGISH" value="1" />
+        <entry key="MALAY" value="1" />
+        <entry key="ROMANIAN" value="1" />
+        <entry key="SLOVAK" value="1" />
+        <entry key="SPANISH" value="1" />
+        <entry key="SWEDISH" value="2" />
+      </map>
+    </option>
+  </component>
+</application>
