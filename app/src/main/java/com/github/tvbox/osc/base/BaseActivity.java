@@ -2,45 +2,66 @@ package com.github.tvbox.osc.base;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.AssetManager;
 import android.content.res.Resources;
+import android.content.res.TypedArray;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.BitmapShader;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import android.graphics.RectF;
+import android.graphics.Shader;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.StateListDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Looper;
 import android.util.DisplayMetrics;
+import android.util.TypedValue;
 import android.view.View;
+import android.view.WindowManager;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
+import androidx.annotation.AttrRes;
+import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.PermissionChecker;
 
 import com.github.tvbox.osc.R;
 import com.github.tvbox.osc.callback.EmptyCallback;
 import com.github.tvbox.osc.callback.LoadingCallback;
 import com.github.tvbox.osc.util.AppManager;
+import com.github.tvbox.osc.util.HawkConfig;
 import com.kingja.loadsir.callback.Callback;
 import com.kingja.loadsir.core.LoadService;
 import com.kingja.loadsir.core.LoadSir;
+import com.orhanobut.hawk.Hawk;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.IOException;
-import java.io.InputStreamReader;
 
 import me.jessyan.autosize.AutoSizeCompat;
 import me.jessyan.autosize.internal.CustomAdapt;
+import me.jessyan.autosize.utils.AutoSizeUtils;
 import xyz.doikki.videoplayer.util.CutoutUtil;
 
 /**
  * @author pj567
  * @date :2020/12/17
- * @description:
+ * &#064;description:
  */
 public abstract class BaseActivity extends AppCompatActivity implements CustomAdapt {
-    protected Context mContext;
+    protected static Context mContext;
     private LoadService mLoadService;
+
 
     private static float screenRatio = -100.0f;
 
@@ -57,12 +78,30 @@ public abstract class BaseActivity extends AppCompatActivity implements CustomAd
         } catch (Throwable th) {
             th.printStackTrace();
         }
+
+        // takagen99 : Set Theme Color
+        if (Hawk.get(HawkConfig.THEME_SELECT, 0) == 0) {
+            setTheme(R.style.NetfxTheme);
+        } else if (Hawk.get(HawkConfig.THEME_SELECT, 0) == 1) {
+            setTheme(R.style.DoraeTheme);
+        } else if (Hawk.get(HawkConfig.THEME_SELECT, 0) == 2) {
+            setTheme(R.style.PepsiTheme);
+        } else if (Hawk.get(HawkConfig.THEME_SELECT, 0) == 3) {
+            setTheme(R.style.NarutoTheme);
+        } else if (Hawk.get(HawkConfig.THEME_SELECT, 0) == 4) {
+            setTheme(R.style.MinionTheme);
+        } else if (Hawk.get(HawkConfig.THEME_SELECT, 0) == 5) {
+            setTheme(R.style.YagamiTheme);
+        } else {
+            setTheme(R.style.SakuraTheme);
+        }
         super.onCreate(savedInstanceState);
         setContentView(getLayoutResID());
         mContext = this;
         CutoutUtil.adaptCutoutAboveAndroidP(mContext, true);//设置刘海
         AppManager.getInstance().addActivity(this);
         init();
+        setScreenOn();
     }
 
     @Override
@@ -70,6 +109,235 @@ public abstract class BaseActivity extends AppCompatActivity implements CustomAd
         super.onResume();
         hideSysBar();
         changeWallpaper(false);
+    }
+
+    public static void LParams(@NonNull FrameLayout RIDD, int w, int h) {
+        FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) RIDD.getLayoutParams();
+        params.width = AutoSizeUtils.mm2px(mContext,w);
+        params.height = AutoSizeUtils.mm2px(mContext,h);
+        RIDD.setLayoutParams(params);
+    }
+
+    public static void LParamsa(@NonNull LinearLayout RIDD, int w, int h) {
+        FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) RIDD.getLayoutParams();
+        params.width = AutoSizeUtils.mm2px(mContext,w);
+        params.height = AutoSizeUtils.mm2px(mContext,h);
+        RIDD.setLayoutParams(params);
+    }
+
+    public static void colorTextView(TextView str, @NonNull LinearLayout esdrs) {
+        esdrs.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus) {
+                    str.setTextColor(mContext.getResources().getColor(R.color.color_FFF5E8DC));
+                } else {
+                    str.setTextColor(mContext.getResources().getColor(R.color.color_80FFFFFF));
+                }
+            }
+        });
+    }
+
+    public static void drawableTextView(@NonNull TextView[] str, int esdrs) {
+        for (TextView textView : str) {
+            textView.setBackground(createDrawableSelector(mContext, esdrs));
+        }
+    }
+
+    public static void drawableLinearLayout(@NonNull LinearLayout[] strs, int esdrs) {
+        for (LinearLayout str : strs) {
+            str.setBackground(createDrawableSelector(mContext, esdrs));
+        }
+    }
+    public static void drawableLinearLayouts(@NonNull LinearLayout strs, int esdrs) {
+            strs.setBackground(createDrawableSelector(mContext, esdrs));
+    }
+    public static void drawableTextViews(@NonNull TextView strs, int esdrs) {
+        strs.setBackground(createDrawableSelector(mContext, esdrs));
+    }
+
+    public static void drawableFrameLayout(@NonNull FrameLayout[] strs, int esdrs) {
+        for (FrameLayout str : strs) {
+            str.setBackground(createDrawableSelector(mContext, esdrs));
+        }
+    }
+
+    public static void drawableConstraintLayout(@NonNull ConstraintLayout[] strs, int esdrs) {
+        for (ConstraintLayout str : strs) {
+            str.setBackground(createDrawableSelector(mContext, esdrs));
+        }
+    }
+
+    public static void drawableImageView(@NonNull ImageView[] strs, int esdrs) {
+        for (ImageView str : strs) {
+            str.setBackground(createDrawableSelector(mContext, esdrs));
+        }
+    }
+    @NonNull
+    public static Drawable createDrawableSelector(Context context, int bg) {
+        StateListDrawable stateDrawable = new StateListDrawable();
+        GradientDrawable normalDrawable = new GradientDrawable();
+        GradientDrawable pressedDrawable = new GradientDrawable();
+        GradientDrawable selectedDrawable = new GradientDrawable();
+
+        int[][] states = new int[4][];
+        states[0] = new int[]{android.R.attr.state_enabled, android.R.attr.state_pressed};
+        states[1] = new int[]{android.R.attr.state_enabled, android.R.attr.state_focused};
+        states[3] = new int[]{android.R.attr.state_enabled, android.R.attr.state_selected}; // disabled state
+        states[2] = new int[]{android.R.attr.state_enabled};
+        int[] colors = { getColorByAttrId(context, R.attr.color_theme_70), getColorByAttrId(context, R.attr.color_theme_80), getColorByAttrId(context, R.attr.color_theme_70) };
+        // 为各种状态下的 drawable 设置 attr 颜色值
+        if (bg == 1) {
+            pressedDrawable.setOrientation(GradientDrawable.Orientation.RIGHT_LEFT);
+            pressedDrawable.setColors(colors);
+            if (Hawk.get(HawkConfig.THEME_SELECT, 0) == 6) {
+                normalDrawable.setColor(getColorByAttrId(context, R.attr.color_theme_20));
+                normalDrawable.setStroke(1, mContext.getResources().getColor(R.color.color_33FFFFFF));
+            } else {
+                normalDrawable.setColor(mContext.getResources().getColor(R.color.color_32364E_40));
+            }
+            pressedDrawable.setStroke(2, getColorByAttrId(context, R.attr.color_theme_h));
+            normalDrawable.setCornerRadius(AutoSizeUtils.mm2px(mContext,5));
+            pressedDrawable.setCornerRadius(AutoSizeUtils.mm2px(mContext,5));
+        } else
+        if (bg == 2) {
+            normalDrawable.setColor(mContext.getResources().getColor(R.color.color_theme_0));
+            pressedDrawable.setOrientation(GradientDrawable.Orientation.RIGHT_LEFT);
+            pressedDrawable.setColors(colors);
+            pressedDrawable.setStroke(2, getColorByAttrId(context, R.attr.color_theme_h));
+            normalDrawable.setCornerRadius(AutoSizeUtils.mm2px(mContext,5));
+            pressedDrawable.setCornerRadius(AutoSizeUtils.mm2px(mContext,5));
+        } else if (bg == 3) {
+            int[] colorss = { getColorByAttrId(context, R.attr.color_theme_80), getColorByAttrId(context, R.attr.color_theme_70) };
+            if (Hawk.get(HawkConfig.THEME_SELECT, 0) == 6) {
+                normalDrawable.setGradientCenter((float)0.5, (float)0.5);
+                normalDrawable.setGradientRadius(AutoSizeUtils.mm2px(mContext,130));
+                normalDrawable.setGradientType(GradientDrawable.RADIAL_GRADIENT);
+                normalDrawable.setColors(colorss);
+                normalDrawable.setStroke(1, mContext.getResources().getColor(R.color.color_33FFFFFF));
+            } else {
+                normalDrawable.setColor(mContext.getResources().getColor(R.color.color_32364E_80));
+            }
+            normalDrawable.setCornerRadius(AutoSizeUtils.mm2px(mContext,5));
+            pressedDrawable.setGradientCenter((float)0.5, (float)0.5);
+            pressedDrawable.setGradientRadius(AutoSizeUtils.mm2px(mContext,100));
+            pressedDrawable.setGradientType(GradientDrawable.RADIAL_GRADIENT);
+            selectedDrawable.setStroke(2, getColorByAttrId(context, R.attr.color_theme_h));
+            selectedDrawable.setColors(colorss);
+            selectedDrawable.setCornerRadius(AutoSizeUtils.mm2px(mContext,5));
+            pressedDrawable.setColors(colorss);
+            pressedDrawable.setStroke(2, getColorByAttrId(context, R.attr.color_theme_h));
+            pressedDrawable.setCornerRadius(AutoSizeUtils.mm2px(mContext,5));
+        } else if (bg == 4) {
+            Bitmap bitmap;
+            if (globalWp == null) {
+                bitmap = BitmapFactory.decodeResource(mContext.getResources(),R.drawable.app_bg);
+            } else {
+                BitmapDrawable bd = globalWp;
+                bitmap = bd.getBitmap();
+            }
+            return new BitmapDrawable(getRoundBitmapByShader(bitmap,1000,720,20,4));
+        } else  if (bg == 5) {
+            pressedDrawable.setOrientation(GradientDrawable.Orientation.TR_BL);
+            normalDrawable.setColor(mContext.getResources().getColor(R.color.color_32364E_80));
+            pressedDrawable.setColors(colors);
+            normalDrawable.setCornerRadius(AutoSizeUtils.mm2px(mContext,5));
+            pressedDrawable.setCornerRadius(AutoSizeUtils.mm2px(mContext,5));
+            pressedDrawable.setStroke(2, getColorByAttrId(context, R.attr.color_theme_h));
+        } else if (bg == 6) {
+            normalDrawable.setColor(getColorByAttrId(context, R.attr.color_theme_40));
+            pressedDrawable.setOrientation(GradientDrawable.Orientation.RIGHT_LEFT);
+            pressedDrawable.setColors(colors);
+            normalDrawable.setStroke(1, mContext.getResources().getColor(R.color.color_33FFFFFF));
+            pressedDrawable.setStroke(2, getColorByAttrId(context, R.attr.color_theme_h));
+            normalDrawable.setCornerRadius(AutoSizeUtils.mm2px(mContext,2));
+            pressedDrawable.setCornerRadius(AutoSizeUtils.mm2px(mContext,2));
+        } else if (bg == 7) {
+            normalDrawable.setColor(mContext.getResources().getColor(R.color.color_theme_0));
+            pressedDrawable.setOrientation(GradientDrawable.Orientation.RIGHT_LEFT);
+            pressedDrawable.setColors(colors);
+            pressedDrawable.setStroke(2, getColorByAttrId(context, R.attr.color_theme_h));
+            normalDrawable.setCornerRadius(AutoSizeUtils.mm2px(mContext,10));
+            pressedDrawable.setCornerRadius(AutoSizeUtils.mm2px(mContext,10));
+        } else if (bg == 8) {
+            normalDrawable.setColor(mContext.getResources().getColor(R.color.color_theme_0));
+            pressedDrawable.setColor(getColorByAttrId(context, R.attr.color_theme_40));
+            pressedDrawable.setCornerRadius(AutoSizeUtils.mm2px(mContext,50));
+        } else if (bg == 9) {
+            normalDrawable.setColor(mContext.getResources().getColor(R.color.color_theme_0));
+            pressedDrawable.setColor(mContext.getResources().getColor(R.color.color_theme_s));
+            selectedDrawable.setStroke(3, getColorByAttrId(context, R.attr.color_theme_h));
+            selectedDrawable.setColor(mContext.getResources().getColor(R.color.color_theme_s));
+            pressedDrawable.setStroke(3, getColorByAttrId(context, R.attr.color_theme_h));
+            normalDrawable.setCornerRadius(AutoSizeUtils.mm2px(mContext,5));
+            selectedDrawable.setCornerRadius(AutoSizeUtils.mm2px(mContext,5));
+        } else if (bg == 10) {
+            normalDrawable.setColor(mContext.getResources().getColor(R.color.color_theme_0));
+            pressedDrawable.setColor(mContext.getResources().getColor(R.color.color_theme_s));
+            selectedDrawable.setStroke(3, getColorByAttrId(context, R.attr.color_theme_h));
+            selectedDrawable.setColor(mContext.getResources().getColor(R.color.color_theme_s));
+            pressedDrawable.setStroke(3, getColorByAttrId(context, R.attr.color_theme_h));
+            normalDrawable.setCornerRadius(AutoSizeUtils.mm2px(mContext,8));
+            selectedDrawable.setCornerRadius(AutoSizeUtils.mm2px(mContext,8));
+            pressedDrawable.setCornerRadius(AutoSizeUtils.mm2px(mContext,8));
+        } else if (bg == 11) {
+            Bitmap bitmap;
+            if (globalWp == null) {
+                bitmap = BitmapFactory.decodeResource(mContext.getResources(),R.drawable.app_bg);
+            } else {
+                BitmapDrawable bd = globalWp;
+                bitmap = bd.getBitmap();
+            }
+            return new BitmapDrawable(getRoundBitmapByShader(bitmap,1280,720,0,0));
+        }
+
+        stateDrawable.addState(states[0], pressedDrawable);
+        stateDrawable.addState(states[1], pressedDrawable);
+        stateDrawable.addState(states[3], selectedDrawable);
+        stateDrawable.addState(states[2], normalDrawable);
+
+        return stateDrawable;
+    }
+
+    @ColorInt
+    public static int getColorByAttrId(Context context, @AttrRes int attrIdForColor) {
+        TypedValue typedValue = new TypedValue();
+        Resources.Theme theme = context.getTheme();
+        theme.resolveAttribute(attrIdForColor, typedValue, true);
+        return typedValue.data;
+    }
+    public int getThemeColor() {
+        TypedArray a = mContext.obtainStyledAttributes(R.styleable.themeColor);
+        int themeColor = a.getColor(R.styleable.themeColor_color_theme, 0);
+        return themeColor;
+    }
+
+    public static Bitmap getRoundBitmapByShader(Bitmap bitmap, int outWidth, int outHeight, int radius, int boarder) {
+        if (bitmap == null) {
+            return null;
+        }
+        int height = bitmap.getHeight();
+        int width = bitmap.getWidth();
+        float widthScale = outWidth * 1f / width;
+        float heightScale = outHeight * 1f / height;
+        Matrix matrix = new Matrix();
+        matrix.setScale(widthScale, heightScale);
+        Bitmap desBitmap = Bitmap.createBitmap(outWidth, outHeight, Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(desBitmap);
+        Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        BitmapShader bitmapShader = new BitmapShader(bitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
+        bitmapShader.setLocalMatrix(matrix);
+        paint.setShader(bitmapShader);
+        RectF rect = new RectF(boarder, boarder, outWidth - boarder, outHeight - boarder);
+        canvas.drawRoundRect(rect, radius, radius, paint);
+        if (boarder  > 0) {
+            Paint boarderPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+            boarderPaint.setColor(mContext.getResources().getColor(R.color.color_33FFFFFF));
+            boarderPaint.setStyle(Paint.Style.STROKE);
+            boarderPaint.setStrokeWidth(boarder);
+            canvas.drawRoundRect(rect, radius, radius, boarderPaint);
+        }
+        return desBitmap;
     }
 
     public void hideSysBar() {
@@ -82,6 +350,22 @@ public abstract class BaseActivity extends AppCompatActivity implements CustomAd
             uiOptions |= View.SYSTEM_UI_FLAG_FULLSCREEN;
             uiOptions |= View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
             getWindow().getDecorView().setSystemUiVisibility(uiOptions);
+        }
+    }
+
+    public void hideSystemUI(boolean shownavbar) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            int uiVisibility = getWindow().getDecorView().getSystemUiVisibility();
+            uiVisibility |= View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
+            uiVisibility |= View.SYSTEM_UI_FLAG_LOW_PROFILE;
+            uiVisibility |= View.SYSTEM_UI_FLAG_FULLSCREEN;
+            uiVisibility |= View.SYSTEM_UI_FLAG_IMMERSIVE;
+            uiVisibility |= View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
+            if (!shownavbar) {
+                uiVisibility |= View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
+                uiVisibility |= View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION;
+            }
+            getWindow().getDecorView().setSystemUiVisibility(uiVisibility);
         }
     }
 
@@ -116,7 +400,6 @@ public abstract class BaseActivity extends AppCompatActivity implements CustomAd
             });
         }
     }
-
     protected void showLoading() {
         if (mLoadService != null) {
             mLoadService.showCallback(LoadingCallback.class);
@@ -152,22 +435,6 @@ public abstract class BaseActivity extends AppCompatActivity implements CustomAd
         startActivity(intent);
     }
 
-    protected String getAssetText(String fileName) {
-        StringBuilder stringBuilder = new StringBuilder();
-        try {
-            AssetManager assets = getAssets();
-            BufferedReader bf = new BufferedReader(new InputStreamReader(assets.open(fileName)));
-            String line;
-            while ((line = bf.readLine()) != null) {
-                stringBuilder.append(line);
-            }
-            return stringBuilder.toString();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return "";
-    }
-
     @Override
     public float getSizeInDp() {
         return isBaseOnWidth() ? 1280 : 720;
@@ -176,6 +443,18 @@ public abstract class BaseActivity extends AppCompatActivity implements CustomAd
     @Override
     public boolean isBaseOnWidth() {
         return !(screenRatio >= 4.0f);
+    }
+
+    public boolean supportsPiPMode() {
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.O;
+    }
+
+    public boolean supportsTouch() {
+        return getPackageManager().hasSystemFeature("android.hardware.touchscreen");
+    }
+
+    public void setScreenOn() {
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
     }
 
     protected static BitmapDrawable globalWp = null;
@@ -214,9 +493,11 @@ public abstract class BaseActivity extends AppCompatActivity implements CustomAd
             throwable.printStackTrace();
             globalWp = null;
         }
-        if (globalWp != null)
+        if (globalWp != null) {
             getWindow().setBackgroundDrawable(globalWp);
-        else
-            getWindow().setBackgroundDrawableResource(R.drawable.app_bg);
+        } else {
+            getWindow().setBackgroundDrawableResource(R.drawable.princess_bg);
+        }
+
     }
 }

@@ -1,13 +1,15 @@
 package com.github.tvbox.osc.ui.dialog;
 
+import static com.github.tvbox.osc.base.BaseActivity.drawableConstraintLayout;
+
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.DiffUtil;
 
 import com.github.tvbox.osc.R;
@@ -45,6 +47,9 @@ public class SearchRemoteTvDialog extends BaseDialog{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ConstraintLayout dongbg = ((ConstraintLayout) findViewById(R.id.remot));
+        ConstraintLayout[] str = {dongbg};
+        drawableConstraintLayout(str,4);
     }
 
     public void setTip(String tip) {
@@ -80,6 +85,10 @@ public class SearchRemoteTvDialog extends BaseDialog{
 
             @Override
             public String getDisplay(String val) {
+ //               String[] temp = null;
+//                temp = val.split(":");
+//                Hawk.put(HawkConfig.PUSH_TO_ADDR, temp[0]);
+//                Hawk.put(HawkConfig.PUSH_TO_PORT, temp[1]);
                 return val;
             }
         }, new DiffUtil.ItemCallback<String>() {

@@ -1,0 +1,99 @@
+package com.github.tvbox.osc.ui.view
+
+import android.app.Activity
+import android.content.Context
+import android.graphics.Color
+import android.view.View
+import android.view.WindowManager
+import android.view.animation.Animation
+import android.widget.LinearLayout
+import android.widget.TextView
+import com.github.tvbox.osc.R
+import com.github.tvbox.osc.base.BaseActivity
+import com.github.tvbox.osc.base.BaseActivity.drawableLinearLayouts
+import com.github.tvbox.osc.base.BaseActivity.drawableTextViews
+import com.github.tvbox.osc.event.ServerEvent
+import com.github.tvbox.osc.event.ServerEvent.SERVER_SEARCH
+import com.github.tvbox.osc.ui.adapter.SearchHistoryAdapter
+import com.github.tvbox.osc.util.HawkConfig
+import com.google.android.flexbox.FlexDirection
+import com.google.android.flexbox.FlexWrap
+import com.google.android.flexbox.FlexboxLayoutManager
+import com.orhanobut.hawk.Hawk
+import com.owen.tvrecyclerview.widget.TvRecyclerView
+import org.greenrobot.eventbus.EventBus
+import razerdp.basepopup.BasePopupWindow
+import razerdp.util.animation.AnimationHelper
+import razerdp.util.animation.TranslationConfig
+
+
+/**
+ * <pre>
+ *     author : derek
+ *     time   : 2022/10/18
+ *     desc   :
+ *     version:
+ * </pre>
+ */
+class SearchHistoryPopUp(context: Context) : BasePopupWindow(context) {
+    private var historyAdapter: SearchHistoryAdapter? = null
+    private var mGridView: TvRecyclerView? = null
+    private var mClearHistory: TextView? = null
+
+    init {
+        setContentView(R.layout.search_history_layout)
+        mGridView = contentView.findViewById(R.id.mGridView)
+        mGridView = findViewById(R.id.mGridView)
+        historyAdapter = SearchHistoryAdapter()
+        mGridView?.run {
+            setHasFixedSize(true)
+            layoutManager = FlexboxLayoutManager(getContext(), FlexDirection.ROW, FlexWrap.WRAP)
+            adapter = historyAdapter
+            isFocusableInTouchMode = true
+            requestFocus()
+        }
+        setBackgroundColor(Color.TRANSPARENT)
+        historyAdapter?.setOnItemClickListener { adapter, view, position ->
+            EventBus.getDefault()
+                .post(ServerEvent(SERVER_SEARCH, historyAdapter?.getItem(position)))
+            dismiss()
+        }
+        mClearHistory = contentView?.findViewById(R.id.clear_history_data)
+        mClearHistory?.setOnClickListener {
+            Hawk.delete(HawkConfig.SEARCH_HISTORY)
+            historyAdapter?.data?.clear()
+            historyAdapter?.notifyDataSetChanged()
+        }
+        drawableTextViews(findViewById(R.id.clear_history_data), 1);
+        drawableLinearLayouts(findViewById(R.id.llhistorys), 11);
+    }
+
+    override fun onWindowFocusChanged(popupDecorViewProxy: View?, hasWindowFocus: Boolean) {
+        super.onWindowFocusChanged(popupDecorViewProxy, hasWindowFocus)
+        mGridView?.isFocusable = true
+        mGridView?.requestFocus()
+    }
+
+
+    override fun onCreateShowAnimation(): Animation {
+        return AnimationHelper.asAnimation().withTranslation(TranslationConfig.FROM_LEFT).toShow()
+
+    }
+
+    override fun onCreateDismissAnimation(): Animation {
+        return AnimationHelper.asAnimation().withTranslation(TranslationConfig.TO_LEFT)
+            .toDismiss()
+    }
+
+    override fun showPopupWindow() {
+        super.showPopupWindow()
+        popupWindow.isFocusable = true
+        (context as? Activity)?.window?.addFlags(WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM)
+        historyAdapter?.setNewData(Hawk.get(HawkConfig.SEARCH_HISTORY, ArrayList<String>()))
+    }
+
+    override fun onDismiss() {
+        (context as? Activity)?.window?.clearFlags(WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM)
+        super.onDismiss()
+    }
+}

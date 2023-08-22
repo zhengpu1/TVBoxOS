@@ -1,5 +1,11 @@
 package com.github.tvbox.osc.ui.adapter;
 
+import static com.github.tvbox.osc.base.BaseActivity.drawableFrameLayout;
+
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.TextView;
+
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.github.tvbox.osc.R;
@@ -21,16 +27,34 @@ public class QuickSearchAdapter extends BaseQuickAdapter<Movie.Video, BaseViewHo
     @Override
     protected void convert(BaseViewHolder helper, Movie.Video item) {
         // lite
-        helper.setText(R.id.tvName, String.format("%s  %s %s %s", ApiConfig.get().getSource(item.sourceKey).getName(), item.name, item.type == null ? "" : item.type, item.note == null ? "" : item.note));
+        //helper.setText(R.id.tvName, String.format("%s  %s %s %s", ApiConfig.get().getSource(item.sourceKey).getName(), item.name, item.type == null ? "" : item.type, item.note == null ? "" : item.note));
         // with preview
-        /*
+
         helper.setText(R.id.tvName, item.name);
         helper.setText(R.id.tvSite, ApiConfig.get().getSource(item.sourceKey).getName());
-        helper.setVisible(R.id.tvNote, item.note != null && !item.note.isEmpty());
+        //helper.setVisible(R.id.tvNote, item.note != null && !item.note.isEmpty());
         if (item.note != null && !item.note.isEmpty()) {
             helper.setText(R.id.tvNote, item.note);
         }
-        ImageView ivThumb = helper.getView(R.id.ivThumb);
+        TextView tvTyName = helper.getView(R.id.tvTyName);
+        if (item.tyid > 0) {
+            if (item.tyid == 1) {
+                tvTyName.setText("电影");
+            } else if (item.tyid == 2) {
+                tvTyName.setText("电视剧");
+            } else if (item.tyid == 3) {
+                tvTyName.setText("综艺");
+            } else {
+                tvTyName.setText("动漫");
+            }
+            tvTyName.setVisibility(View.VISIBLE);
+        } else {
+            tvTyName.setVisibility(View.GONE);
+        }
+        FrameLayout tvquick = helper.getView(R.id.tvQuick);
+        FrameLayout[] str = {tvquick};
+        drawableFrameLayout(str, 1);
+       /* ImageView ivThumb = helper.getView(R.id.ivThumb);
         if (!TextUtils.isEmpty(item.pic)) {
             Picasso.get()
                     .load(item.pic)

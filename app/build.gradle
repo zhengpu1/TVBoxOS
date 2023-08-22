@@ -1,14 +1,20 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'org.jetbrains.kotlin.android'
+
+def static buildTime() {
+    return new Date().format("yyyyMMddHH", TimeZone.getTimeZone("GMT+08:00"))
+}
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 33
 
     defaultConfig {
-        applicationId 'com.github.tvbox.osc'
+        applicationId 'com.github.tvbox.tk'
         minSdkVersion 16
         targetSdkVersion 26
         versionCode 1
-        versionName '1.0.0'
+        versionName '1.8.'.concat(buildTime())
         multiDexEnabled true
         //设置room的Schema的位置
         javaCompileOptions {
@@ -56,22 +62,28 @@ android {
         additionalParameters += '--set-max-idx-number=48000'
         additionalParameters += '--minimal-main-dex'
     }
+    buildFeatures {
+        dataBinding = true
+    }
 }
 
 dependencies {
     api fileTree(dir: "libs", include: ["*.jar"])
-
-
-    implementation 'org.nanohttpd:nanohttpd:2.3.1'
-    implementation 'com.google.zxing:core:3.4.1'
+    implementation('com.github.thegrizzlylabs:sardine-android:0.5') {
+        exclude group: 'com.squareup.okhttp3'
+    }
+    implementation 'com.github.NanoHttpd.nanohttpd:nanohttpd:nanohttpd-project-2.3.1'
+    implementation 'com.github.NanoHttpd.nanohttpd:nanohttpd:nanohttpd-websocket-2.3.1'
+    implementation 'com.google.zxing:core:3.3.0'
     implementation 'androidx.appcompat:appcompat:1.3.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
     implementation files('libs/thunder.jar')
     implementation files('libs/commons-lang3-3.12.0.jar')
-
     implementation 'com.squareup.okhttp3:okhttp:3.12.11'
+    implementation 'androidx.core:core-ktx:1.10.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'
     annotationProcessor 'androidx.room:room-compiler:2.3.0'
     implementation 'androidx.room:room-runtime:2.3.0'
     implementation 'androidx.multidex:multidex:2.0.1'
@@ -86,20 +98,47 @@ dependencies {
     }
     implementation 'org.greenrobot:eventbus:3.2.0'
     implementation 'com.orhanobut:hawk:2.0.1'
-
+    implementation 'xyz.doikki.android.dkplayer:videocache:3.3.7'
     implementation project(":player")
     implementation project(":quickjs")
-
     implementation('org.xwalk:xwalk_shared_library:23.53.589.4') {
         exclude group: 'com.android.support'
     }
     implementation 'com.lzy.net:okgo:3.0.4'
-    // implementation 'com.tencent.bugly:crashreport_upgrade:latest.release'
     implementation 'com.owen:tv-recyclerview:3.0.0'
-
     implementation 'com.github.getActivity:XXPermissions:13.6'
     implementation 'org.jsoup:jsoup:1.14.1'
     implementation 'com.github.hedzr:android-file-chooser:v1.2.0-final'
     implementation 'commons-io:commons-io:2.11.0'
     implementation 'com.googlecode.juniversalchardet:juniversalchardet:1.0.3'
+    implementation 'com.tencent.bugly:crashreport:latest.release' //最新Bugly SDK
+    implementation 'com.github.seven332:jcifs:1.3.19'
+    implementation 'com.tencent:mmkv:1.2.14'
+    implementation 'io.github.idisfkj:android-startup:1.0.7'
+    implementation 'com.google.android:flexbox:2.0.1'
+    implementation 'com.tencent.bugly:crashreport:4.1.9'
+    implementation 'com.blankj:utilcodex:1.31.0'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.9.1'
+    implementation 'io.github.razerdp:BasePopup:3.2.0'
+    implementation 'com.github.hedzr:android-file-chooser:v1.2.0-final'
+    implementation 'commons-io:commons-io:2.11.0'
+    implementation 'com.googlecode.juniversalchardet:juniversalchardet:1.0.3'
+    configurations {
+        all {
+            exclude group: 'xpp3', module: 'xpp3'
+        }
+    }
+
+}
+
+android.applicationVariants.all {
+    variant ->
+        variant.outputs.all { output ->
+            if (variant.buildType.name == 'debug'){
+                output.outputFileName = "tvbox_${android.defaultConfig.versionName}_debug.apk"
+            }else if (variant.buildType.name == 'release'){
+                output.outputFileName = "HRTV_${android.defaultConfig.versionName}.apk"
+                println(String.format("UpdateUrl->http://www.hrystv.top:38/apk/%s", URLEncoder.encode(output.outputFileName, "UTF-8")));
+            }
+        }
 }

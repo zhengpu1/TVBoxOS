@@ -1,5 +1,6 @@
 package com.github.tvbox.osc.player.controller;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.media.AudioManager;
@@ -13,11 +14,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import com.github.tvbox.osc.util.HawkConfig;
+import com.orhanobut.hawk.Hawk;
 
 import java.util.Map;
 
@@ -71,6 +76,22 @@ public abstract class BaseController extends BaseVideoController implements Gest
                         mSlideInfo.setVisibility(GONE);
                         break;
                     }
+                    case 201: { // Show Volume Dialog
+                        mDialogVolume.setVisibility(VISIBLE);
+                        break;
+                    }
+                    case 202: { // Hide Volume Dialog
+                        mDialogVolume.setVisibility(GONE);
+                        break;
+                    }
+                    case 203: { // Show Volume Dialog
+                        mDialogBrightness.setVisibility(VISIBLE);
+                        break;
+                    }
+                    case 204: { // Hide Volume Dialog
+                        mDialogBrightness.setVisibility(GONE);
+                        break;
+                    }
                     default: {
                         if (mHandlerCallback != null)
                             mHandlerCallback.callback(msg);
@@ -95,6 +116,11 @@ public abstract class BaseController extends BaseVideoController implements Gest
     private ViewGroup mPauseRoot;
     private TextView mPauseTime;
 
+    private LinearLayout mDialogVolume;
+    private LinearLayout mDialogBrightness;
+    private ProgressBar mDialogVolumeProgressBar;
+    private ProgressBar mDialogBrightnessProgressBar;
+
     @Override
     protected void initView() {
         super.initView();
@@ -105,6 +131,11 @@ public abstract class BaseController extends BaseVideoController implements Gest
         mLoading = findViewWithTag("vod_control_loading");
         mPauseRoot = findViewWithTag("vod_control_pause");
         mPauseTime = findViewWithTag("vod_control_pause_t");
+
+        mDialogVolume = findViewWithTag("dialog_volume");
+        mDialogBrightness = findViewWithTag("dialog_brightness");
+        mDialogVolumeProgressBar = findViewWithTag("progressbar_volume");
+        mDialogBrightnessProgressBar = findViewWithTag("progressbar_brightness");
     }
 
     @Override
@@ -242,13 +273,16 @@ public abstract class BaseController extends BaseVideoController implements Gest
      */
     @Override
     public boolean onDoubleTap(MotionEvent e) {
-        if (mIsDoubleTapTogglePlayEnabled && !isLocked() && isInPlaybackState()) togglePlay();
+        if (!Hawk.get(HawkConfig.SHOW_SSPREVIEW, false)) {
+            if (mIsDoubleTapTogglePlayEnabled && !isLocked() && isInPlaybackState()) togglePlay();
+        }
         return true;
     }
 
     /**
      * 在屏幕上滑动
      */
+    @SuppressLint("SuspiciousIndentation")
     @Override
     public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
         if (!isInPlaybackState() //不处于播放状态
@@ -287,11 +321,14 @@ public abstract class BaseController extends BaseVideoController implements Gest
             mFirstTouch = false;
         }
         if (mChangePosition) {
-            slideToChangePosition(deltaX);
+            if (!Hawk.get(HawkConfig.SHOW_SSPREVIEW, false))
+                slideToChangePosition(deltaX);
         } else if (mChangeBrightness) {
-            slideToChangeBrightness(deltaY);
+            if (!Hawk.get(HawkConfig.SHOW_SSPREVIEW, false))
+                slideToChangeBrightness(deltaY);
         } else if (mChangeVolume) {
-            slideToChangeVolume(deltaY);
+            if (!Hawk.get(HawkConfig.SHOW_SSPREVIEW, false))
+                slideToChangeVolume(deltaY);
         }
         return true;
     }
@@ -324,12 +361,18 @@ public abstract class BaseController extends BaseVideoController implements Gest
         Window window = activity.getWindow();
         WindowManager.LayoutParams attributes = window.getAttributes();
         int height = getMeasuredHeight();
-        if (mBrightness == -1.0f) mBrightness = 0.5f;
-        float brightness = deltaY * 2 / height * 1.0f + mBrightness;
-        if (brightness < 0) {
-            brightness = 0f;
+//        if (mBrightness == -1.0f) mBrightness = 0.5f;
+        if (mBrightness <= 0.00f) {
+            mBrightness = 0.50f;
+        } else if (mBrightness < 0.01f) {
+            mBrightness = 0.01f;
         }
-        if (brightness > 1.0f) brightness = 1.0f;
+        float brightness = deltaY * 2 / height + mBrightness;
+        if (brightness > 1.0f) {
+            brightness = 1.0f;
+        } else if (brightness < 0.01f) {
+            brightness = 0.01f;
+        }
         int percent = (int) (brightness * 100);
         attributes.screenBrightness = brightness;
         window.setAttributes(attributes);
@@ -339,12 +382,13 @@ public abstract class BaseController extends BaseVideoController implements Gest
                 ((IGestureComponent) component).onBrightnessChange(percent);
             }
         }
+        mDialogBrightnessProgressBar.setProgress(percent);
         Message msg = Message.obtain();
-        msg.what = 100;
-        msg.obj = "亮度" + percent + "%";
+        msg.what = 203;
+        msg.obj = "亮度 " + percent + "%";
         mHandler.sendMessage(msg);
-        mHandler.removeMessages(101);
-        mHandler.sendEmptyMessageDelayed(101, 1000);
+        mHandler.removeMessages(204);
+        mHandler.sendEmptyMessageDelayed(204, 600);
     }
 
     protected void slideToChangeVolume(float deltaY) {
@@ -362,12 +406,13 @@ public abstract class BaseController extends BaseVideoController implements Gest
                 ((IGestureComponent) component).onVolumeChange(percent);
             }
         }
+        mDialogVolumeProgressBar.setProgress(percent);
         Message msg = Message.obtain();
-        msg.what = 100;
-        msg.obj = "音量" + percent + "%";
+        msg.what = 201;
+        msg.obj = "音量 " + percent + "%";
         mHandler.sendMessage(msg);
-        mHandler.removeMessages(101);
-        mHandler.sendEmptyMessageDelayed(101, 1000);
+        mHandler.removeMessages(202);
+        mHandler.sendEmptyMessageDelayed(202, 600);
     }
 
     @Override

@@ -2,19 +2,19 @@ package com.github.tvbox.osc.ui.fragment;
 
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.BounceInterpolator;
+import android.widget.Toast;
 
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.github.tvbox.osc.R;
-import com.github.tvbox.osc.api.ApiConfig;
 import com.github.tvbox.osc.base.BaseLazyFragment;
 import com.github.tvbox.osc.bean.AbsXml;
 import com.github.tvbox.osc.bean.Movie;
 import com.github.tvbox.osc.bean.MovieSort;
-import com.github.tvbox.osc.bean.SourceBean;
 import com.github.tvbox.osc.event.RefreshEvent;
 import com.github.tvbox.osc.ui.activity.DetailActivity;
 import com.github.tvbox.osc.ui.activity.FastSearchActivity;
@@ -29,11 +29,10 @@ import com.orhanobut.hawk.Hawk;
 import com.owen.tvrecyclerview.widget.TvRecyclerView;
 import com.owen.tvrecyclerview.widget.V7GridLayoutManager;
 import com.owen.tvrecyclerview.widget.V7LinearLayoutManager;
-import java.util.Stack;
-import android.view.ViewGroup;
-import android.widget.Toast;
 
 import org.greenrobot.eventbus.EventBus;
+
+import java.util.Stack;
 
 /**
  * @author pj567
@@ -46,7 +45,7 @@ public class GridFragment extends BaseLazyFragment {
     private SourceViewModel sourceViewModel;
     private GridFilterDialog gridFilterDialog;
     private GridAdapter gridAdapter;
-    private int page = 1;
+    public int page = 1;
     private int maxPage = 1;
     private boolean isLoad = false;
     private boolean isTop = true;
@@ -68,6 +67,9 @@ public class GridFragment extends BaseLazyFragment {
 
     public GridFragment setArguments(MovieSort.SortData sortData) {
         this.sortData = sortData;
+        if (sortData == null) {
+            this.sortData = new MovieSort.SortData();
+        }
         return this;
     }
 
@@ -83,9 +85,17 @@ public class GridFragment extends BaseLazyFragment {
         initData();
     }
 
-    private void changeView(String id){
+    private void changeView(String id,Boolean isFolder){
+        if(isFolder){
+            this.sortData.flag ="1"; // 修改sortData.flag
+        }else {
+            this.sortData.flag ="2"; // 修改sortData.flag
+        }
         initView();
-        this.sortData.id =id; // 修改sortData.id为新的ID
+        if (sortData == null) {
+            return;
+        }
+        this.sortData.id = id; // 修改sortData.id为新的ID
         initViewModel();
         initData();
     }
@@ -96,7 +106,7 @@ public class GridFragment extends BaseLazyFragment {
         return (sortData == null || sortData.flag == null || sortData.flag.length() ==0 ) ?  '0' : sortData.flag.charAt(0);
     }
     // 是否允许聚合搜索 sortData.flag的第二个字符为‘1’时允许聚搜
-    public boolean enableFastSearch(){  return (sortData.flag == null || sortData.flag.length() < 2 ) ?  true : (sortData.flag.charAt(1) =='1'); }
+    public boolean enableFastSearch(){  return sortData.flag == null || sortData.flag.length() < 2 || (sortData.flag.charAt(1) == '1'); }
     // 保存当前页面
     private void saveCurrentView(){
         if(this.mGridView == null) return;
@@ -145,7 +155,7 @@ public class GridFragment extends BaseLazyFragment {
             mGridView.setVisibility(View.VISIBLE);
         }
         mGridView.setHasFixedSize(true);
-        gridAdapter = new GridAdapter(isFolederMode());
+            gridAdapter = new GridAdapter(isFolederMode());
         this.page =1;
         this.maxPage =1;
         this.isLoad = false;
@@ -157,9 +167,24 @@ public class GridFragment extends BaseLazyFragment {
         if(isFolederMode()){
             mGridView.setLayoutManager(new V7LinearLayoutManager(this.mContext, 1, false));
         }else{
-            mGridView.setLayoutManager(new V7GridLayoutManager(this.mContext, isBaseOnWidth() ? 5 : 6));
+            if(Hawk.get(HawkConfig.PIC_SIZE, false)) {
+                if(Hawk.get(HawkConfig.HOME_LSTIMG, 0) == 0) {
+                    mGridView.setLayoutManager(new V7GridLayoutManager(this.mContext, isBaseOnWidth() ? 4 : 5));
+                } else if(Hawk.get(HawkConfig.HOME_LSTIMG, 0) == 1) {
+                    mGridView.setLayoutManager(new V7GridLayoutManager(this.mContext, isBaseOnWidth() ? 5 : 6));
+                } else{
+                    mGridView.setLayoutManager(new V7GridLayoutManager(this.mContext, isBaseOnWidth() ? 4 : 5));
+                }
+            } else {
+                if(Hawk.get(HawkConfig.HOME_LSTIMG, 0) == 0) {
+                    mGridView.setLayoutManager(new V7GridLayoutManager(this.mContext, isBaseOnWidth() ? 5 : 6));
+                } else if(Hawk.get(HawkConfig.HOME_LSTIMG, 0) == 1) {
+                    mGridView.setLayoutManager(new V7GridLayoutManager(this.mContext, isBaseOnWidth() ? 7 : 8));
+                } else{
+                    mGridView.setLayoutManager(new V7GridLayoutManager(this.mContext, isBaseOnWidth() ? 6 : 7));
+                }
+            }
         }
-
         gridAdapter.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {
             @Override
             public void onLoadMoreRequested() {
@@ -170,11 +195,13 @@ public class GridFragment extends BaseLazyFragment {
         mGridView.setOnItemListener(new TvRecyclerView.OnItemListener() {
             @Override
             public void onItemPreSelected(TvRecyclerView parent, View itemView, int position) {
+                itemView.findViewById(R.id.tvName).setSelected(false);
                 itemView.animate().scaleX(1.0f).scaleY(1.0f).setDuration(300).setInterpolator(new BounceInterpolator()).start();
             }
 
             @Override
             public void onItemSelected(TvRecyclerView parent, View itemView, int position) {
+                itemView.findViewById(R.id.tvName).setSelected(true);
                 itemView.animate().scaleX(1.05f).scaleY(1.05f).setDuration(300).setInterpolator(new BounceInterpolator()).start();
             }
 
@@ -201,16 +228,15 @@ public class GridFragment extends BaseLazyFragment {
                     bundle.putString("id", video.id);
                     bundle.putString("sourceKey", video.sourceKey);
                     bundle.putString("title", video.name);
-
-                    SourceBean homeSourceBean = ApiConfig.get().getHomeSourceBean();
-                    if(("12".indexOf(getUITag()) != -1) && video.tag.equals("folder")){
+                    if(("12".indexOf(getUITag()) != -1) && (video.tag.equals("folder") || video.tag.equals("cover"))){
                         focusedView = view;
-                        changeView(video.id);
+                        changeView(video.id,video.tag.equals("folder"));
                     }
-                    else if(homeSourceBean.isQuickSearch() && Hawk.get(HawkConfig.FAST_SEARCH_MODE, false) && enableFastSearch()){
-                        jumpActivity(FastSearchActivity.class, bundle);
-                    }else{
-                        if(video.id == null || video.id.isEmpty() || video.id.startsWith("msearch:")){
+//                    else if(homeSourceBean.isQuickSearch() && Hawk.get(HawkConfig.EPISODE_GROUPING, false) && enableFastSearch()){
+//                        jumpActivity(FastSearchActivity.class, bundle);
+//                    }
+                    else{
+                        if(video.id.isEmpty() || video.id.startsWith("msearch:")){
                             jumpActivity(SearchActivity.class, bundle);
                         }else {
                             jumpActivity(DetailActivity.class, bundle);
@@ -230,6 +256,7 @@ public class GridFragment extends BaseLazyFragment {
                     bundle.putString("id", video.id);
                     bundle.putString("sourceKey", video.sourceKey);
                     bundle.putString("title", video.name);
+                    bundle.putString("pic", video.pic);
                     jumpActivity(FastSearchActivity.class, bundle);
                 }
                 return true;
@@ -245,7 +272,7 @@ public class GridFragment extends BaseLazyFragment {
         sourceViewModel.listResult.observe(this, new Observer<AbsXml>() {
             @Override
             public void onChanged(AbsXml absXml) {
-//                if(mGridView != null) mGridView.requestFocus();
+//                if(mGridView != null) mGridView.requestFocus();java.lang.NoClassDefFoundError: Failed resolution of: Lcom/google/zxing/EncodeHintType;
                 if (absXml != null && absXml.movie != null && absXml.movie.videoList != null && absXml.movie.videoList.size() > 0) {
                     if (page == 1) {
                         showSuccess();
@@ -257,7 +284,7 @@ public class GridFragment extends BaseLazyFragment {
                     page++;
                     maxPage = absXml.movie.pagecount;
 
-                    if (page > maxPage) {
+                    if (maxPage>0 && page > maxPage) {
                         gridAdapter.loadMoreEnd();
                         gridAdapter.setEnableLoadMore(false);
                         if(page>2)Toast.makeText(getContext(), "没有更多了", Toast.LENGTH_SHORT).show();
@@ -268,9 +295,7 @@ public class GridFragment extends BaseLazyFragment {
                 } else {
                     if(page == 1){
                         showEmpty();
-                    }else{
                         Toast.makeText(getContext(), "没有更多了", Toast.LENGTH_SHORT).show();
-                        gridAdapter.loadMoreEnd();
                     }
                     gridAdapter.setEnableLoadMore(false);
                 }
@@ -282,7 +307,7 @@ public class GridFragment extends BaseLazyFragment {
         return isLoad || !mGrids.empty(); //如果有缓存页的话也可以认为是加载了数据的
     }
 
-    private void initData() {
+    public void initData() {
         showLoading();
         isLoad = false;
         scrollTop();
@@ -310,15 +335,19 @@ public class GridFragment extends BaseLazyFragment {
         if (!sortData.filters.isEmpty() && gridFilterDialog == null) {
             gridFilterDialog = new GridFilterDialog(mContext);
             gridFilterDialog.setData(sortData);
-            gridFilterDialog.setOnDismiss(new GridFilterDialog.Callback() {
-                @Override
-                public void change() {
-                    page = 1;
-                    initData();
-                }
-            });
+//            gridFilterDialog.setOnDismiss(new GridFilterDialog.Callback() {
+//                @Override
+//                public void change() {
+//                    page = 1;
+//                    initData();
+//                }
+//            });
         }
         if (gridFilterDialog != null)
             gridFilterDialog.show();
+    }
+    public void forceRefresh() {
+        page = 1;
+        initData();
     }
 }

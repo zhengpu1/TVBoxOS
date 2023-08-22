@@ -1,19 +1,20 @@
 package com.github.tvbox.osc.ui.adapter;
 
+import static com.github.tvbox.osc.base.BaseActivity.drawableLinearLayout;
+import static com.github.tvbox.osc.base.BaseActivity.getColorByAttrId;
+
 import android.graphics.Color;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.github.tvbox.osc.R;
-import com.github.tvbox.osc.bean.LiveChannelGroup;
 import com.github.tvbox.osc.bean.LiveEpgDate;
 
 import java.util.ArrayList;
 
-
 public class LiveEpgDateAdapter extends BaseQuickAdapter<LiveEpgDate, BaseViewHolder> {
-
     private int selectedIndex = -1;
     private int focusedIndex = -1;
 
@@ -26,10 +27,17 @@ public class LiveEpgDateAdapter extends BaseQuickAdapter<LiveEpgDate, BaseViewHo
         TextView tvGroupName = holder.getView(R.id.tvChannelGroupName);
         tvGroupName.setText(item.getDatePresented());
         tvGroupName.setBackgroundColor(Color.TRANSPARENT);
+        LinearLayout tvChannelGroupNames = holder.getView(R.id.tvChannelGroupNames);
+        LinearLayout[] str = {tvChannelGroupNames};
+        drawableLinearLayout(str, 7);
         if (item.getIndex() == selectedIndex && item.getIndex() != focusedIndex) {
-            tvGroupName.setTextColor(mContext.getResources().getColor(R.color.color_1890FF));
-        }else {
-            tvGroupName.setTextColor(mContext.getResources().getColor(R.color.color_CCFFFFFF));
+            // takagen99: Added Theme Color
+//            tvGroupName.setTextColor(mContext.getResources().getColor(R.color.color_theme));
+            tvGroupName.setTextColor(getColorByAttrId(mContext, R.attr.color_theme));
+        } else if (item.getIndex() == selectedIndex && item.getIndex() == focusedIndex) {
+            tvGroupName.setTextColor(mContext.getResources().getColor(R.color.color_FFFFFF));
+        } else {
+            tvGroupName.setTextColor(mContext.getResources().getColor(R.color.color_FFFFFF));
         }
     }
 
@@ -48,11 +56,13 @@ public class LiveEpgDateAdapter extends BaseQuickAdapter<LiveEpgDate, BaseViewHo
     }
 
     public void setFocusedIndex(int focusedIndex) {
-        int preSelectedIndex = this.selectedIndex;
+        int preFocusedIndex = this.focusedIndex;
         this.focusedIndex = focusedIndex;
-        if(preSelectedIndex != -1)
-            notifyItemChanged(preSelectedIndex);
+        if (preFocusedIndex != -1)
+            notifyItemChanged(preFocusedIndex);
         if (this.focusedIndex != -1)
             notifyItemChanged(this.focusedIndex);
+        else if (this.selectedIndex != -1)
+            notifyItemChanged(this.selectedIndex);
     }
 }

@@ -9,8 +9,8 @@ import com.github.catvod.crawler.JarLoader;
 import com.github.catvod.crawler.JsLoader;
 import com.github.catvod.crawler.Spider;
 import com.github.tvbox.osc.base.App;
-import com.github.tvbox.osc.bean.LiveChannelGroup;
 import com.github.tvbox.osc.bean.IJKCode;
+import com.github.tvbox.osc.bean.LiveChannelGroup;
 import com.github.tvbox.osc.bean.LiveChannelItem;
 import com.github.tvbox.osc.bean.ParseBean;
 import com.github.tvbox.osc.bean.SourceBean;
@@ -19,7 +19,9 @@ import com.github.tvbox.osc.util.AES;
 import com.github.tvbox.osc.util.AdBlocker;
 import com.github.tvbox.osc.util.DefaultConfig;
 import com.github.tvbox.osc.util.HawkConfig;
+import com.github.tvbox.osc.util.LOG;
 import com.github.tvbox.osc.util.MD5;
+import com.github.tvbox.osc.util.RemoteConfig;
 import com.github.tvbox.osc.util.VideoParseRuler;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -30,6 +32,7 @@ import com.lzy.okgo.callback.AbsCallback;
 import com.lzy.okgo.model.Response;
 import com.orhanobut.hawk.Hawk;
 
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -52,29 +55,33 @@ import java.util.regex.Pattern;
  */
 public class ApiConfig {
     private static ApiConfig instance;
-    private LinkedHashMap<String, SourceBean> sourceBeanList;
+    private final LinkedHashMap<String, SourceBean> sourceBeanList;
     private SourceBean mHomeSource;
     private ParseBean mDefaultParse;
-    private List<LiveChannelGroup> liveChannelGroupList;
-    private List<ParseBean> parseBeanList;
+    private final List<LiveChannelGroup> liveChannelGroupList;
+    private final List<ParseBean> parseBeanList;
     private List<String> vipParseFlags;
     private List<IJKCode> ijkCodes;
     private String spider = null;
     public String wallpaper = "";
+    public String Steturl = "";
+    public String  adblockUrl = "";
+    public String  tuijianUrl = "";
+    public String  souyeUrl = "";
+    private final SourceBean emptyHome = new SourceBean();
 
-    private SourceBean emptyHome = new SourceBean();
+    private final JarLoader jarLoader = new JarLoader();
+    private final JsLoader jsLoader = new JsLoader();
 
-    private JarLoader jarLoader = new JarLoader();
-    private JsLoader jsLoader = new JsLoader();
+    private final String userAgent = "okhttp/3.15";
 
-    private String userAgent = "okhttp/3.15";
-
-    private String requestAccept = "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9";
+    private final String requestAccept = "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9";
 
     private ApiConfig() {
         sourceBeanList = new LinkedHashMap<>();
         liveChannelGroupList = new ArrayList<>();
         parseBeanList = new ArrayList<>();
+//        wallpaperList = new ArrayList<>();
     }
 
     public static ApiConfig get() {
@@ -94,8 +101,8 @@ public class ApiConfig {
             if (AES.isJson(content)) return content;
             Pattern pattern = Pattern.compile("[A-Za-z0]{8}\\*\\*");
             Matcher matcher = pattern.matcher(content);
-            if(matcher.find()){
-                content=content.substring(content.indexOf(matcher.group()) + 10);
+            if (matcher.find()) {
+                content = content.substring(content.indexOf(matcher.group()) + 10);
                 content = new String(Base64.decode(content, Base64.DEFAULT));
             }
             if (content.startsWith("2423")) {
@@ -104,10 +111,9 @@ public class ApiConfig {
                 String key = AES.rightPadding(content.substring(content.indexOf("$#") + 2, content.indexOf("#$")), "0", 16);
                 String iv = AES.rightPadding(content.substring(content.length() - 13), "0", 16);
                 json = AES.CBC(data, key, iv);
-            }else if (configKey !=null && !AES.isJson(content)) {
+            } else if (configKey != null && !AES.isJson(content)) {
                 json = AES.ECB(content, configKey);
-            }
-            else{
+            } else {
                 json = content;
             }
         } catch (Exception e) {
@@ -116,18 +122,22 @@ public class ApiConfig {
         return json;
     }
 
-    private static byte[] getImgJar(String body){
+    private static byte[] getImgJar(String body) {
         Pattern pattern = Pattern.compile("[A-Za-z0]{8}\\*\\*");
         Matcher matcher = pattern.matcher(body);
-        if(matcher.find()){
+        if (matcher.find()) {
             body = body.substring(body.indexOf(matcher.group()) + 10);
             return Base64.decode(body, Base64.DEFAULT);
         }
         return "".getBytes();
     }
-
     public void loadConfig(boolean useCache, LoadConfigCallback callback, Activity activity) {
         String apiUrl = Hawk.get(HawkConfig.API_URL, "");
+//        if (StringUtils.isBlank(apiUrl)) {
+//            apiUrl = "\"" + RemoteConfig.checkUpdateA(RemoteConfigName.APIUrl) + "\"";
+//            //Hawk.put(HawkConfig.API_URL,apiUrl);
+//        }
+        LOG.i("ApiConfig: loadConfig: "+apiUrl);
         if (apiUrl.isEmpty()) {
             callback.error("-1");
             return;
@@ -143,14 +153,15 @@ public class ApiConfig {
             }
         }
         String TempKey = null, configUrl = "", pk = ";pk;";
+        apiUrl = apiUrl.replace("\"","");
         if (apiUrl.contains(pk)) {
             String[] a = apiUrl.split(pk);
             TempKey = a[1];
-            if (apiUrl.startsWith("clan")){
+            if (apiUrl.startsWith("clan")) {
                 configUrl = clanToAddress(a[0]);
-            }else if (apiUrl.startsWith("http")){
+            } else if (apiUrl.startsWith("http")) {
                 configUrl = a[0];
-            }else {
+            } else {
                 configUrl = "http://" + a[0];
             }
         } else if (apiUrl.startsWith("clan")) {
@@ -160,7 +171,9 @@ public class ApiConfig {
         } else {
             configUrl = apiUrl;
         }
+        System.out.println("API URL :" + configUrl);
         String configKey = TempKey;
+        String finalApiUrl = apiUrl;
         OkGo.<String>get(configUrl)
                 .headers("User-Agent", userAgent)
                 .headers("Accept", requestAccept)
@@ -169,7 +182,7 @@ public class ApiConfig {
                     public void onSuccess(Response<String> response) {
                         try {
                             String json = response.body();
-                            parseJson(apiUrl, json);
+                            parseJson(finalApiUrl, json);
                             try {
                                 File cacheDir = cache.getParentFile();
                                 if (!cacheDir.exists())
@@ -195,14 +208,13 @@ public class ApiConfig {
                         super.onError(response);
                         if (cache.exists()) {
                             try {
-                                parseJson(apiUrl, cache);
+                                parseJson(finalApiUrl, cache);
                                 callback.success();
                                 return;
                             } catch (Throwable th) {
                                 th.printStackTrace();
                             }
                         }
-                        callback.error("拉取配置失败\n" + (response.getException() != null ? response.getException().getMessage() : ""));
                     }
 
                     public String convertResponse(okhttp3.Response response) throws Throwable {
@@ -212,17 +224,14 @@ public class ApiConfig {
                         } else {
                             result = FindResult(response.body().string(), configKey);
                         }
-
-                        if (apiUrl.startsWith("clan")) {
-                            result = clanContentFix(clanToAddress(apiUrl), result);
+                        if (finalApiUrl.startsWith("clan")) {
+                            result = clanContentFix(clanToAddress(finalApiUrl), result);
                         }
-                        //假相對路徑
-                        result = fixContentPath(apiUrl,result);
+                        result = fixContentPath(finalApiUrl, result);
                         return result;
                     }
                 });
     }
-
 
     public void loadJar(boolean useCache, String spider, LoadConfigCallback callback) {
         String[] urls = spider.split(";md5;");
@@ -248,45 +257,45 @@ public class ApiConfig {
                 .headers("Accept", requestAccept)
                 .execute(new AbsCallback<File>() {
 
-            @Override
-            public File convertResponse(okhttp3.Response response) throws Throwable {
-                File cacheDir = cache.getParentFile();
-                if (!cacheDir.exists())
-                    cacheDir.mkdirs();
-                if (cache.exists())
-                    cache.delete();
-                FileOutputStream fos = new FileOutputStream(cache);
-                if(isJarInImg) {
-                    String respData = response.body().string();
-                    byte[] imgJar = getImgJar(respData);
-                    fos.write(imgJar);
-                } else {
-                    fos.write(response.body().bytes());
-                }
-                fos.flush();
-                fos.close();
-                return cache;
-            }
+                    @Override
+                    public File convertResponse(okhttp3.Response response) throws Throwable {
+                        File cacheDir = cache.getParentFile();
+                        if (!cacheDir.exists())
+                            cacheDir.mkdirs();
+                        if (cache.exists())
+                            cache.delete();
+                        FileOutputStream fos = new FileOutputStream(cache);
+                        if (isJarInImg) {
+                            String respData = response.body().string();
+                            byte[] imgJar = getImgJar(respData);
+                            fos.write(imgJar);
+                        } else {
+                            fos.write(response.body().bytes());
+                        }
+                        fos.flush();
+                        fos.close();
+                        return cache;
+                    }
 
-            @Override
-            public void onSuccess(Response<File> response) {
-                if (response.body().exists()) {
-                    if (jarLoader.load(response.body().getAbsolutePath())) {
-                        callback.success();
-                    } else {
+                    @Override
+                    public void onSuccess(Response<File> response) {
+                        if (response.body().exists()) {
+                            if (jarLoader.load(response.body().getAbsolutePath())) {
+                                callback.success();
+                            } else {
+                                callback.error("");
+                            }
+                        } else {
+                            callback.error("");
+                        }
+                    }
+
+                    @Override
+                    public void onError(Response<File> response) {
+                        super.onError(response);
                         callback.error("");
                     }
-                } else {
-                    callback.error("");
-                }
-            }
-
-            @Override
-            public void onError(Response<File> response) {
-                super.onError(response);
-                callback.error("");
-            }
-        });
+                });
     }
 
     private void parseJson(String apiUrl, File f) throws Throwable {
@@ -302,11 +311,20 @@ public class ApiConfig {
     }
 
     private void parseJson(String apiUrl, String jsonStr) {
+
         JsonObject infoJson = new Gson().fromJson(jsonStr, JsonObject.class);
         // spider
         spider = DefaultConfig.safeJsonString(infoJson, "spider", "");
         // wallpaper
         wallpaper = DefaultConfig.safeJsonString(infoJson, "wallpaper", "");
+        //片头片尾
+        Steturl = DefaultConfig.safeJsonString(infoJson, "Steturl", "http://www.hrystv.top:38/jx/jxx.php?url=");
+        //去广告
+        adblockUrl = DefaultConfig.safeJsonString(infoJson, "adblockUrl", "http://www.hrystv.top:38/lz.php?s=");
+        //首页推荐URL
+        tuijianUrl = DefaultConfig.safeJsonString(infoJson, "tuijianUrl", "http://www.hrystv.top:38/api.php/vodhrystj?stype=5");
+        //首页URL
+        souyeUrl = DefaultConfig.safeJsonString(infoJson, "souyeUrl", "http://www.hrystv.top:38/api.php/vodSOUYE");
         // 远端站点源
         SourceBean firstSite = null;
         for (JsonElement opt : infoJson.get("sites").getAsJsonArray()) {
@@ -321,9 +339,10 @@ public class ApiConfig {
             sb.setQuickSearch(DefaultConfig.safeJsonInt(obj, "quickSearch", 1));
             sb.setFilterable(DefaultConfig.safeJsonInt(obj, "filterable", 1));
             sb.setPlayerUrl(DefaultConfig.safeJsonString(obj, "playUrl", ""));
-            if(obj.has("ext") && (obj.get("ext").isJsonObject() || obj.get("ext").isJsonArray())){
+            sb.setHide(DefaultConfig.safeJsonInt(obj, "hide", 0));
+            if (obj.has("ext") && (obj.get("ext").isJsonObject() || obj.get("ext").isJsonArray())) {
                 sb.setExt(obj.get("ext").toString());
-            }else {
+            } else {
                 sb.setExt(DefaultConfig.safeJsonString(obj, "ext", ""));
             }
             sb.setJar(DefaultConfig.safeJsonString(obj, "jar", ""));
@@ -346,7 +365,7 @@ public class ApiConfig {
         vipParseFlags = DefaultConfig.safeJsonStringList(infoJson, "flags");
         // 解析地址
         parseBeanList.clear();
-        if(infoJson.has("parses")){
+        if (infoJson.has("parses")) {
             JsonArray parses = infoJson.get("parses").getAsJsonArray();
             for (JsonElement opt : parses) {
                 JsonObject obj = (JsonObject) opt;
@@ -372,6 +391,13 @@ public class ApiConfig {
         }
         // 直播源
         liveChannelGroupList.clear();           //修复从后台切换重复加载频道列表
+        String liveURL = Hawk.get(HawkConfig.LIVE_URL, "");
+        String epgURL  = Hawk.get(HawkConfig.EPG_URL, "");
+        String liveUrls = RemoteConfig.checkUpdateA("APILIVEUrl");
+        if (StringUtils.isBlank(liveURL)) {
+            liveURL = liveUrls;
+        }
+        String liveURL_final = null;
         try {
             JsonObject livesOBJ = infoJson.get("lives").getAsJsonArray().get(0).getAsJsonObject();
             String lives = livesOBJ.toString();
@@ -394,51 +420,87 @@ public class ApiConfig {
                     if (extUrlFix.startsWith("clan://")) {
                         extUrlFix = clanContentFix(clanToAddress(apiUrl), extUrlFix);
                     }
-                    extUrlFix = Base64.encodeToString(extUrlFix.getBytes("UTF-8"), Base64.DEFAULT | Base64.URL_SAFE | Base64.NO_WRAP);
-                    url = url.replace(extUrl, extUrlFix);
-                }
-//                System.out.println("urlLive :"+url);
 
-                //设置epg
-                if(livesOBJ.has("epg")){
-                    String epg =livesOBJ.get("epg").getAsString();
-                    Hawk.put(HawkConfig.EPG_URL,epg);
+                    // takagen99: Capture Live URL into Config
+                    System.out.println("Live URL :" + extUrlFix);
+                    putLiveHistory(extUrlFix);
+                    // Overwrite with Live URL from Settings
+                    if (StringUtils.isBlank(liveURL)) {
+                        Hawk.put(HawkConfig.LIVE_URL, extUrlFix);
+                    } else {
+                        extUrlFix = liveURL;
+                    }
+
+                    // Final Live URL
+                    liveURL_final = extUrlFix;
+
+                }
+                if (livesOBJ.has("epg")) {
+                    String epg = livesOBJ.get("epg").getAsString();
+                    System.out.println("EPG URL :" + epg);
+                    putEPGHistory(epg);
+                    // Overwrite with EPG URL from Settings
+                    if (StringUtils.isBlank(epgURL)) {
+                        Hawk.put(HawkConfig.EPG_URL, epg);
+                    } else {
+                        Hawk.put(HawkConfig.EPG_URL, epgURL);
+                    }
                 }
 
-                LiveChannelGroup liveChannelGroup = new LiveChannelGroup();
-                liveChannelGroup.setGroupName(url);
-                liveChannelGroupList.add(liveChannelGroup);
             } else {
-                if(!lives.contains("type")){
+                if (!lives.contains("type")) {
                     loadLives(infoJson.get("lives").getAsJsonArray());
-                }else {
+                } else {
                     JsonObject fengMiLives = infoJson.get("lives").getAsJsonArray().get(0).getAsJsonObject();
-                    String type=fengMiLives.get("type").getAsString();
-                    if(type.equals("0")){
-                        String url =fengMiLives.get("url").getAsString();
-                        //设置epg
-                        if(fengMiLives.has("epg")){
-                            String epg =fengMiLives.get("epg").getAsString();
-                            Hawk.put(HawkConfig.EPG_URL,epg);
+                    String type = fengMiLives.get("type").getAsString();
+                    if (type.equals("0")) {
+                        String url = fengMiLives.get("url").getAsString();
+
+                        if (fengMiLives.has("epg")) {
+                            String epg = fengMiLives.get("epg").getAsString();
+                            System.out.println("EPG URL :" + epg);
+                            putEPGHistory(epg);
+                            // Overwrite with EPG URL from Settings
+                            if (StringUtils.isBlank(epgURL)) {
+                                Hawk.put(HawkConfig.EPG_URL, epg);
+                            } else {
+                                Hawk.put(HawkConfig.EPG_URL, epgURL);
+                            }
                         }
 
-                        if(url.startsWith("http")){
-                            url = Base64.encodeToString(url.getBytes("UTF-8"), Base64.DEFAULT | Base64.URL_SAFE | Base64.NO_WRAP);
+                        if (url.startsWith("http")) {
+                            // takagen99: Capture Live URL into Settings
+                            putLiveHistory(url);
+                            // Overwrite with Live URL from Settings
+                            if (StringUtils.isBlank(liveURL)) {
+                                Hawk.put(HawkConfig.LIVE_URL, url);
+                            } else {
+                                url = liveURL;
+                            }
+                            System.out.println("Live URL :" + url);
+                            // Final Live URL
+                            liveURL_final = url;
+
                         }
-                        url ="http://127.0.0.1:9978/proxy?do=live&type=txt&ext="+url;
-                        LiveChannelGroup liveChannelGroup = new LiveChannelGroup();
-                        liveChannelGroup.setGroupName(url);
-                        liveChannelGroupList.add(liveChannelGroup);
                     }
                 }
             }
+            if (StringUtils.isBlank(liveURL_final)) {
+                liveURL_final = liveURL;
+            }
+            liveURL_final = Base64.encodeToString(liveURL_final.getBytes("UTF-8"), Base64.DEFAULT | Base64.URL_SAFE | Base64.NO_WRAP);
+            liveURL_final = "http://127.0.0.1:9978/proxy?do=live&type=txt&ext=" + liveURL_final;
+            LiveChannelGroup liveChannelGroup = new LiveChannelGroup();
+            liveChannelGroup.setGroupName(liveURL_final);
+            liveChannelGroupList.add(liveChannelGroup);
+
         } catch (Throwable th) {
             th.printStackTrace();
         }
-        //video parse rule for host
+
         if (infoJson.has("rules")) {
             VideoParseRuler.clearRule();
-            for(JsonElement oneHostRule : infoJson.getAsJsonArray("rules")) {
+            for (JsonElement oneHostRule : infoJson.getAsJsonArray("rules")) {
                 JsonObject obj = (JsonObject) oneHostRule;
                 if (obj.has("host")) {
                     String host = obj.get("host").getAsString();
@@ -481,16 +543,17 @@ public class ApiConfig {
             }
         }
 
-        String defaultIJKADS="{\"ijk\":[{\"options\":[{\"name\":\"opensles\",\"category\":4,\"value\":\"0\"},{\"name\":\"overlay-format\",\"category\":4,\"value\":\"842225234\"},{\"name\":\"framedrop\",\"category\":4,\"value\":\"1\"},{\"name\":\"soundtouch\",\"category\":4,\"value\":\"1\"},{\"name\":\"start-on-prepared\",\"category\":4,\"value\":\"1\"},{\"name\":\"http-detect-rangeupport\",\"category\":1,\"value\":\"0\"},{\"name\":\"fflags\",\"category\":1,\"value\":\"fastseek\"},{\"name\":\"skip_loop_filter\",\"category\":2,\"value\":\"48\"},{\"name\":\"reconnect\",\"category\":4,\"value\":\"1\"},{\"name\":\"enable-accurate-seek\",\"category\":4,\"value\":\"0\"},{\"name\":\"mediacodec\",\"category\":4,\"value\":\"1\"},{\"name\":\"mediacodec-auto-rotate\",\"category\":4,\"value\":\"0\"},{\"name\":\"mediacodec-handle-resolution-change\",\"category\":4,\"value\":\"0\"},{\"name\":\"mediacodec-hevc\",\"category\":4,\"value\":\"0\"},{\"name\":\"dns_cache_timeout\",\"category\":1,\"value\":\"600000000\"}],\"group\":\"软解码\"},{\"options\":[{\"name\":\"opensles\",\"category\":4,\"value\":\"0\"},{\"name\":\"overlay-format\",\"category\":4,\"value\":\"842225234\"},{\"name\":\"framedrop\",\"category\":4,\"value\":\"1\"},{\"name\":\"soundtouch\",\"category\":4,\"value\":\"1\"},{\"name\":\"start-on-prepared\",\"category\":4,\"value\":\"1\"},{\"name\":\"http-detect-rangeupport\",\"category\":1,\"value\":\"0\"},{\"name\":\"fflags\",\"category\":1,\"value\":\"fastseek\"},{\"name\":\"skip_loop_filter\",\"category\":2,\"value\":\"48\"},{\"name\":\"reconnect\",\"category\":4,\"value\":\"1\"},{\"name\":\"enable-accurate-seek\",\"category\":4,\"value\":\"0\"},{\"name\":\"mediacodec\",\"category\":4,\"value\":\"1\"},{\"name\":\"mediacodec-auto-rotate\",\"category\":4,\"value\":\"1\"},{\"name\":\"mediacodec-handle-resolution-change\",\"category\":4,\"value\":\"1\"},{\"name\":\"mediacodec-hevc\",\"category\":4,\"value\":\"1\"},{\"name\":\"dns_cache_timeout\",\"category\":1,\"value\":\"600000000\"}],\"group\":\"硬解码\"}],\"ads\":[\"mimg.0c1q0l.cn\",\"www.googletagmanager.com\",\"www.google-analytics.com\",\"mc.usihnbcq.cn\",\"mg.g1mm3d.cn\",\"mscs.svaeuzh.cn\",\"cnzz.hhttm.top\",\"tp.vinuxhome.com\",\"cnzz.mmstat.com\",\"www.baihuillq.com\",\"s23.cnzz.com\",\"z3.cnzz.com\",\"c.cnzz.com\",\"stj.v1vo.top\",\"z12.cnzz.com\",\"img.mosflower.cn\",\"tips.gamevvip.com\",\"ehwe.yhdtns.com\",\"xdn.cqqc3.com\",\"www.jixunkyy.cn\",\"sp.chemacid.cn\",\"hm.baidu.com\",\"s9.cnzz.com\",\"z6.cnzz.com\",\"um.cavuc.com\",\"mav.mavuz.com\",\"wofwk.aoidf3.com\",\"z5.cnzz.com\",\"xc.hubeijieshikj.cn\",\"tj.tianwenhu.com\",\"xg.gars57.cn\",\"k.jinxiuzhilv.com\",\"cdn.bootcss.com\",\"ppl.xunzhuo123.com\",\"xomk.jiangjunmh.top\",\"img.xunzhuo123.com\",\"z1.cnzz.com\",\"s13.cnzz.com\",\"xg.huataisangao.cn\",\"z7.cnzz.com\",\"xg.huataisangao.cn\",\"z2.cnzz.com\",\"s96.cnzz.com\",\"q11.cnzz.com\",\"thy.dacedsfa.cn\",\"xg.whsbpw.cn\",\"s19.cnzz.com\",\"z8.cnzz.com\",\"s4.cnzz.com\",\"f5w.as12df.top\",\"ae01.alicdn.com\",\"www.92424.cn\",\"k.wudejia.com\",\"vivovip.mmszxc.top\",\"qiu.xixiqiu.com\",\"cdnjs.hnfenxun.com\",\"cms.qdwght.com\"]}";
-        JsonObject defaultJson=new Gson().fromJson(defaultIJKADS, JsonObject.class);
+        String defaultIJKADS="{\"ijk\":[{\"options\":[{\"name\":\"opensles\",\"category\":4,\"value\":\"0\"},{\"name\":\"framedrop\",\"category\":4,\"value\":\"1\"},{\"name\":\"soundtouch\",\"category\":4,\"value\":\"1\"},{\"name\":\"start-on-prepared\",\"category\":4,\"value\":\"1\"},{\"name\":\"http-detect-rangeupport\",\"category\":1,\"value\":\"0\"},{\"name\":\"fflags\",\"category\":1,\"value\":\"fastseek\"},{\"name\":\"skip_loop_filter\",\"category\":2,\"value\":\"48\"},{\"name\":\"reconnect\",\"category\":4,\"value\":\"1\"},{\"name\":\"enable-accurate-seek\",\"category\":4,\"value\":\"0\"},{\"name\":\"mediacodec\",\"category\":4,\"value\":\"0\"},{\"name\":\"mediacodec-all-videos\",\"category\":4,\"value\":\"0\"},{\"name\":\"mediacodec-auto-rotate\",\"category\":4,\"value\":\"0\"},{\"name\":\"mediacodec-handle-resolution-change\",\"category\":4,\"value\":\"0\"},{\"name\":\"mediacodec-hevc\",\"category\":4,\"value\":\"0\"},{\"name\":\"max-buffer-size\",\"category\":4,\"value\":\"15728640\"}],\"group\":\"软解码\"},{\"options\":[{\"name\":\"opensles\",\"category\":4,\"value\":\"0\"},{\"name\":\"framedrop\",\"category\":4,\"value\":\"1\"},{\"name\":\"soundtouch\",\"category\":4,\"value\":\"1\"},{\"name\":\"start-on-prepared\",\"category\":4,\"value\":\"1\"},{\"name\":\"http-detect-rangeupport\",\"category\":1,\"value\":\"0\"},{\"name\":\"fflags\",\"category\":1,\"value\":\"fastseek\"},{\"name\":\"skip_loop_filter\",\"category\":2,\"value\":\"48\"},{\"name\":\"reconnect\",\"category\":4,\"value\":\"1\"},{\"name\":\"enable-accurate-seek\",\"category\":4,\"value\":\"0\"},{\"name\":\"mediacodec\",\"category\":4,\"value\":\"1\"},{\"name\":\"mediacodec-all-videos\",\"category\":4,\"value\":\"1\"},{\"name\":\"mediacodec-auto-rotate\",\"category\":4,\"value\":\"1\"},{\"name\":\"mediacodec-handle-resolution-change\",\"category\":4,\"value\":\"1\"},{\"name\":\"mediacodec-hevc\",\"category\":4,\"value\":\"1\"},{\"name\":\"max-buffer-size\",\"category\":4,\"value\":\"15728640\"}],\"group\":\"硬解码\"}],\"ads\":[\"mimg.0c1q0l.cn\",\"www.googletagmanager.com\",\"www.google-analytics.com\",\"mc.usihnbcq.cn\",\"mg.g1mm3d.cn\",\"mscs.svaeuzh.cn\",\"cnzz.hhttm.top\",\"tp.vinuxhome.com\",\"cnzz.mmstat.com\",\"www.baihuillq.com\",\"s23.cnzz.com\",\"z3.cnzz.com\",\"c.cnzz.com\",\"stj.v1vo.top\",\"z12.cnzz.com\",\"img.mosflower.cn\",\"tips.gamevvip.com\",\"ehwe.yhdtns.com\",\"xdn.cqqc3.com\",\"www.jixunkyy.cn\",\"sp.chemacid.cn\",\"hm.baidu.com\",\"s9.cnzz.com\",\"z6.cnzz.com\",\"um.cavuc.com\",\"mav.mavuz.com\",\"wofwk.aoidf3.com\",\"z5.cnzz.com\",\"xc.hubeijieshikj.cn\",\"tj.tianwenhu.com\",\"xg.gars57.cn\",\"k.jinxiuzhilv.com\",\"cdn.bootcss.com\",\"ppl.xunzhuo123.com\",\"xomk.jiangjunmh.top\",\"img.xunzhuo123.com\",\"z1.cnzz.com\",\"s13.cnzz.com\",\"xg.huataisangao.cn\",\"z7.cnzz.com\",\"xg.huataisangao.cn\",\"z2.cnzz.com\",\"s96.cnzz.com\",\"q11.cnzz.com\",\"thy.dacedsfa.cn\",\"xg.whsbpw.cn\",\"s19.cnzz.com\",\"z8.cnzz.com\",\"s4.cnzz.com\",\"f5w.as12df.top\",\"ae01.alicdn.com\",\"www.92424.cn\",\"k.wudejia.com\",\"vivovip.mmszxc.top\",\"qiu.xixiqiu.com\",\"cdnjs.hnfenxun.com\",\"cms.qdwght.com\"]}";
+        JsonObject defaultJson = new Gson().fromJson(defaultIJKADS, JsonObject.class);
         // 广告地址
-        if(AdBlocker.isEmpty()){
+        if (AdBlocker.isEmpty()) {
+//            AdBlocker.clear();
             //默认广告拦截
             for (JsonElement host : defaultJson.getAsJsonArray("ads")) {
                 AdBlocker.addAdHost(host.getAsString());
             }
             //追加的广告拦截
-            if(infoJson.has("ads")){
+            if (infoJson.has("ads")) {
                 for (JsonElement host : infoJson.getAsJsonArray("ads")) {
                     if(!AdBlocker.hasHost(host.getAsString())){
                         AdBlocker.addAdHost(host.getAsString());
@@ -499,11 +562,11 @@ public class ApiConfig {
             }
         }
         // IJK解码配置
-        if(ijkCodes==null){
+        if (ijkCodes == null) {
             ijkCodes = new ArrayList<>();
             boolean foundOldSelect = false;
             String ijkCodec = Hawk.get(HawkConfig.IJK_CODEC, "");
-            JsonArray ijkJsonArray = infoJson.has("ijk")?infoJson.get("ijk").getAsJsonArray():defaultJson.get("ijk").getAsJsonArray();
+            JsonArray ijkJsonArray = infoJson.has("ijk") ? infoJson.get("ijk").getAsJsonArray() : defaultJson.get("ijk").getAsJsonArray();
             for (JsonElement opt : ijkJsonArray) {
                 JsonObject obj = (JsonObject) opt;
                 String name = obj.get("group").getAsString();
@@ -532,9 +595,31 @@ public class ApiConfig {
         }
     }
 
+    private void putLiveHistory(String url) {
+        if (!url.isEmpty()) {
+            ArrayList<String> liveHistory = Hawk.get(HawkConfig.LIVE_HISTORY, new ArrayList<String>());
+            if (!liveHistory.contains(url))
+                liveHistory.add(0, url);
+            if (liveHistory.size() > 20)
+                liveHistory.remove(20);
+            Hawk.put(HawkConfig.LIVE_HISTORY, liveHistory);
+        }
+    }
+
+    public static void putEPGHistory(String url) {
+        if (!url.isEmpty()) {
+            ArrayList<String> epgHistory = Hawk.get(HawkConfig.EPG_HISTORY, new ArrayList<String>());
+            if (!epgHistory.contains(url))
+                epgHistory.add(0, url);
+            if (epgHistory.size() > 20)
+                epgHistory.remove(20);
+            Hawk.put(HawkConfig.EPG_HISTORY, epgHistory);
+        }
+    }
+
     public void loadLives(JsonArray livesArray) {
         liveChannelGroupList.clear();
-        int groupIndex = 0;
+        int groupIndex = 1;
         int channelIndex = 0;
         int channelNum = 0;
         for (JsonElement groupElement : livesArray) {
@@ -565,7 +650,7 @@ public class ApiConfig {
                     if (splitText.length > 1)
                         sourceNames.add(splitText[1]);
                     else
-                        sourceNames.add("源" + Integer.toString(sourceIndex));
+                        sourceNames.add("源" + sourceIndex);
                     sourceIndex++;
                 }
                 liveChannelItem.setChannelSourceNames(sourceNames);
@@ -574,6 +659,12 @@ public class ApiConfig {
             }
             liveChannelGroupList.add(liveChannelGroup);
         }
+        if (!liveChannelGroupList.isEmpty()) {
+            LiveChannelGroup collectedGroup = Hawk.get(HawkConfig.LIVE_CHANELE_COLLECTD, new LiveChannelGroup());
+            collectedGroup.setGroupName("收藏频道");
+            collectedGroup.isCollected = true;
+            liveChannelGroupList.add(0,collectedGroup);
+        }
     }
 
     public String getSpider() {
@@ -581,8 +672,12 @@ public class ApiConfig {
     }
 
     public Spider getCSP(SourceBean sourceBean) {
-        boolean js = sourceBean.getApi().endsWith(".js") || sourceBean.getApi().contains(".js?");
-        if (js) return jsLoader.getSpider(sourceBean.getKey(), sourceBean.getApi(), sourceBean.getExt(), sourceBean.getJar());
+
+        // Getting js api
+        if (sourceBean.getApi().endsWith(".js") || sourceBean.getApi().contains(".js?")) {
+            return jsLoader.getSpider(sourceBean.getKey(), sourceBean.getApi(), sourceBean.getExt(), sourceBean.getJar());
+        }
+
         return jarLoader.getSpider(sourceBean.getKey(), sourceBean.getApi(), sourceBean.getExt(), sourceBean.getJar());
     }
 
@@ -689,12 +784,20 @@ public class ApiConfig {
 
     String fixContentPath(String url, String content) {
         if (content.contains("\"./")) {
-            if(!url.startsWith("http") && !url.startsWith("clan://")){
+            if (!url.startsWith("http") && !url.startsWith("clan://")) {
                 url = "http://" + url;
             }
-            if(url.startsWith("clan://"))url=clanToAddress(url);
-            content = content.replace("./", url.substring(0,url.lastIndexOf("/") + 1));
+            if (url.startsWith("clan://")) url = clanToAddress(url);
+            content = content.replace("./", url.substring(0, url.lastIndexOf("/") + 1));
         }
         return content;
     }
+
+    String miTV(String url) {
+        if (url.startsWith("p") || url.startsWith("mitv")) {
+
+        }
+        return url;
+    }
+
 }

@@ -1,13 +1,19 @@
 package com.github.tvbox.osc.ui.dialog;
 
+import static com.github.tvbox.osc.base.BaseActivity.drawableConstraintLayout;
+import static com.github.tvbox.osc.base.BaseActivity.drawableTextView;
+
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Environment;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.github.tvbox.osc.R;
@@ -41,6 +47,11 @@ public class BackupDialog extends BaseDialog {
         BackupAdapter adapter = new BackupAdapter();
         tvRecyclerView.setAdapter(adapter);
         adapter.setNewData(allBackup());
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) ConstraintLayout dongbg = ((ConstraintLayout) findViewById(R.id.dongbgs));
+        ConstraintLayout[] strc = {dongbg};
+        drawableConstraintLayout(strc,4);
+        TextView[] str = {findViewById(R.id.backupNow), findViewById(R.id.storagePermission)};
+        drawableTextView(str, 1);
         adapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
             @Override
             public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {

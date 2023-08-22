@@ -1,6 +1,10 @@
 package com.github.tvbox.osc.ui.adapter;
 
+import static com.github.tvbox.osc.base.BaseActivity.drawableLinearLayout;
+import static com.github.tvbox.osc.base.BaseActivity.getColorByAttrId;
+
 import android.graphics.Color;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -9,7 +13,6 @@ import com.github.tvbox.osc.R;
 import com.github.tvbox.osc.bean.LiveSettingItem;
 
 import java.util.ArrayList;
-
 
 /**
  * @author pj567
@@ -27,9 +30,14 @@ public class LiveSettingItemAdapter extends BaseQuickAdapter<LiveSettingItem, Ba
     protected void convert(BaseViewHolder holder, LiveSettingItem item) {
         TextView tvItemName = holder.getView(R.id.tvSettingItemName);
         tvItemName.setText(item.getItemName());
+        LinearLayout tvSettingItemNames = holder.getView(R.id.tvSettingItemNames);
+        LinearLayout[] str = {tvSettingItemNames};
+        drawableLinearLayout(str, 7);
         int itemIndex = item.getItemIndex();
         if (item.isItemSelected() && itemIndex != focusedItemIndex) {
-            tvItemName.setTextColor(mContext.getResources().getColor(R.color.color_1890FF));
+            // takagen99: Added Theme Color
+//            tvItemName.setTextColor(mContext.getResources().getColor(R.color.color_theme));
+            tvItemName.setTextColor(getColorByAttrId(mContext, R.attr.color_theme));
         } else {
             tvItemName.setTextColor(Color.WHITE);
         }

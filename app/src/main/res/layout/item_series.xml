@@ -1,21 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tvSeriesdd"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:layout_margin="@dimen/vs_5"
-    android:background="@drawable/shape_source_series_focus"
+    android:background="@drawable/button_detail_play"
     android:focusable="true">
 
     <TextView
         android:id="@+id/tvSeries"
+        android:layout_height="@dimen/vs_40"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/vs_50"
-        android:ellipsize="marquee"
-        android:gravity="center"
-        android:marqueeRepeatLimit="marquee_forever"
-        android:padding="@dimen/vs_10"
         android:singleLine="true"
-        android:textColor="@android:color/white"
-        android:textSize="@dimen/ts_20" />
+        android:ellipsize="marquee"
+        android:focusableInTouchMode="true"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:shadowColor="@color/color_FF000000"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="1.0"
+        android:gravity="center"
+        android:padding="@dimen/vs_5"
+        android:textColor="@color/font_deta_color"
+        android:textSize="@dimen/ts_18" />
 </LinearLayout>

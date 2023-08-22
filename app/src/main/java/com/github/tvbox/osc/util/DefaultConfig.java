@@ -3,7 +3,6 @@ package com.github.tvbox.osc.util;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.text.TextUtils;
 
 import com.github.tvbox.osc.api.ApiConfig;
@@ -106,29 +105,30 @@ public class DefaultConfig {
         return start > -1 ? fileName.substring(0, start) : fileName;
     }
 
+    // takagen99 : 增加对flv|avi|mkv|rm|wmv|mpg等几种视频格式的支持
     private static final Pattern snifferMatch = Pattern.compile(
-            "http((?!http).){12,}?\\.(m3u8|mp4|flv|avi|mkv|rm|wmv|mpg|m4a)\\?.*|" +
-            "http((?!http).){12,}\\.(m3u8|mp4|flv|avi|mkv|rm|wmv|mpg|m4a)|" +
-            "http((?!http).)*?video/tos*|" +
-            "http((?!http).){20,}?/m3u8\\?pt=m3u8.*|" +
-            "http((?!http).)*?default\\.ixigua\\.com/.*|" +
-            "http((?!http).)*?dycdn-tos\\.pstatp[^\\?]*|" +
-            "http.*?/player/m3u8play\\.php\\?url=.*|" +
-            "http.*?/player/.*?[pP]lay\\.php\\?url=.*|" +
-            "http.*?/playlist/m3u8/\\?vid=.*|" +
-            "http.*?\\.php\\?type=m3u8&.*|" +
-            "http.*?/download.aspx\\?.*|" +
-            "http.*?/api/up_api.php\\?.*|" +
-            "https.*?\\.66yk\\.cn.*|" +
-            "http((?!http).)*?netease\\.com/file/.*"
+            "http((?!http).){20,}?\\.(m3u8|mp4|flv|avi|mkv|rm|wmv|mpg)\\?.*|" +
+                    "http((?!http).){20,}\\.(m3u8|mp4|flv|avi|mkv|rm|wmv|mpg)|" +
+                    "http((?!http).)*?video/tos*|" +
+                    "http((?!http).){20,}?/m3u8\\?pt=m3u8.*|" +
+                    "http((?!http).)*?default\\.ixigua\\.com/.*|" +
+                    "http((?!http).)*?dycdn-tos\\.pstatp[^\\?]*|" +
+                    "http.*?/player/m3u8play\\.php\\?url=.*|" +
+                    "http.*?/player/.*?[pP]lay\\.php\\?url=.*|" +
+                    "http.*?/playlist/m3u8/\\?vid=.*|" +
+                    "http.*?\\.php\\?type=m3u8&.*|" +
+                    "http.*?/download.aspx\\?.*|" +
+                    "http.*?/api/up_api.php\\?.*|" +
+                    "https.*?\\.66yk\\.cn.*|" +
+                    "http((?!http).)*?netease\\.com/file/.*"
     );
     public static boolean isVideoFormat(String url) {
-        Uri uri = Uri.parse(url);
-        String path = uri.getPath();
-        if (TextUtils.isEmpty(path)) {
+        if (url.contains("=http")) {
             return false;
         }
-        if (snifferMatch.matcher(url).find()) return true;
+        if (snifferMatch.matcher(url).find()) {
+            return !url.contains(".js") && !url.contains(".css") && !url.contains(".jpg") && !url.contains(".png") && !url.contains(".gif") && !url.contains(".ico") && !url.contains("rl=") && !url.contains(".html");
+        }
         return false;
     }
 
@@ -177,4 +177,5 @@ public class DefaultConfig {
             return urlOri.replace("proxy://", ControlManager.get().getAddress(true) + "proxy?");
         return urlOri;
     }
+
 }

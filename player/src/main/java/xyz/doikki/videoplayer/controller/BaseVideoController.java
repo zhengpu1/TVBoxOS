@@ -15,6 +15,8 @@ import androidx.annotation.AttrRes;
 import androidx.annotation.CallSuper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.OnLifecycleEvent;
 
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -665,6 +667,10 @@ public abstract class BaseVideoController extends FrameLayout
      */
     protected void onLockStateChanged(boolean isLocked) {
 
+    }
+    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+    protected void destroy() {
+        mActivity = null;
     }
 
     //------------------------ end handle event change ------------------------//

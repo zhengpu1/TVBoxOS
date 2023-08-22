@@ -1,8 +1,9 @@
 package com.github.tvbox.osc.ui.adapter;
 
+import static com.github.tvbox.osc.base.BaseActivity.drawableTextView;
+
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewParent;
 import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -10,7 +11,6 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import com.github.tvbox.osc.R;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class FastListAdapter extends BaseQuickAdapter<String, BaseViewHolder> {
     public FastListAdapter() {
@@ -20,6 +20,9 @@ public class FastListAdapter extends BaseQuickAdapter<String, BaseViewHolder> {
     @Override
     protected void convert(BaseViewHolder helper, String item) {
         helper.setText(R.id.tvSearchWord, item);
+        TextView tvSearchW = helper.getView(R.id.tvSearchWord);
+        TextView[] str = {tvSearchW};
+        drawableTextView(str, 1);
     }
 
 
@@ -47,19 +50,19 @@ public class FastListAdapter extends BaseQuickAdapter<String, BaseViewHolder> {
                 return  -1;
             }
         }
-        lostFocusTimestamp =0;
+        lostFocusTimestamp = 0;
         focusView = child;
-        setp =1;
+        setp = 1;
         return 1;
     }
 
     public void  reset(){
-        lostFocusTimestamp =0;
-        setp =0;
+        lostFocusTimestamp = 0;
+        setp = 0;
         focusView = null;
     }
 
-    public long lostFocusTimestamp=0;   // 控件失去焦点的时间
-    public int setp =0; //步长
+    public long lostFocusTimestamp = 0;   // 控件失去焦点的时间
+    public int setp = 0; //步长
     View focusView;     // 当前获得焦点的控件
 }

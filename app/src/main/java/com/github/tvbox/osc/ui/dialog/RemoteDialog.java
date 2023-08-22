@@ -1,7 +1,11 @@
 package com.github.tvbox.osc.ui.dialog;
 
+import static com.github.tvbox.osc.base.BaseActivity.drawableLinearLayout;
+
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -17,14 +21,19 @@ import me.jessyan.autosize.utils.AutoSizeUtils;
 public class RemoteDialog extends BaseDialog {
     private ImageView ivQRCode;
     private TextView tvAddress;
+    private LinearLayout ivQRCodedd;
 
+    @SuppressLint("MissingInflatedId")
     public RemoteDialog(@NonNull @NotNull Context context) {
         super(context);
         setContentView(R.layout.dialog_remote);
         setCanceledOnTouchOutside(false);
         ivQRCode = findViewById(R.id.ivQRCode);
         tvAddress = findViewById(R.id.tvAddress);
+        ivQRCodedd = findViewById(R.id.ivQRCodedd);
         refreshQRCode();
+        LinearLayout[] strl = {ivQRCodedd};
+        drawableLinearLayout(strl, 4);
     }
 
     private void refreshQRCode() {

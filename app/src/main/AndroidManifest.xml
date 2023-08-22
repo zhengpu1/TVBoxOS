@@ -17,6 +17,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
 
     <application
         android:name=".base.App"
@@ -55,6 +56,9 @@
             android:configChanges="orientation|screenSize"
             android:screenOrientation="sensorLandscape" />
         <activity
+            android:name=".ui.activity.DriveActivity"
+            android:screenOrientation="sensorLandscape" />
+        <activity
             android:name=".ui.activity.PushActivity"
             android:screenOrientation="sensorLandscape" />
         <activity
@@ -81,6 +85,11 @@
         <receiver android:name=".receiver.CustomWebReceiver">
             <intent-filter>
                 <action android:name="android.content.movie.custom.web.Action" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".receiver.DetailReceiver">
+            <intent-filter>
+                <action android:name="android.content.movie.detail.Action" />
             </intent-filter>
         </receiver>
 

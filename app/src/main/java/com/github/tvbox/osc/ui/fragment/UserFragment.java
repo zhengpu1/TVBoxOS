@@ -1,10 +1,16 @@
 package com.github.tvbox.osc.ui.fragment;
 
+import static com.github.tvbox.osc.base.BaseActivity.drawableLinearLayout;
+
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.BounceInterpolator;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import androidx.recyclerview.widget.GridLayoutManager;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.github.tvbox.osc.R;
@@ -16,6 +22,7 @@ import com.github.tvbox.osc.cache.RoomDataManger;
 import com.github.tvbox.osc.event.ServerEvent;
 import com.github.tvbox.osc.ui.activity.CollectActivity;
 import com.github.tvbox.osc.ui.activity.DetailActivity;
+import com.github.tvbox.osc.ui.activity.DriveActivity;
 import com.github.tvbox.osc.ui.activity.FastSearchActivity;
 import com.github.tvbox.osc.ui.activity.HistoryActivity;
 import com.github.tvbox.osc.ui.activity.LivePlayActivity;
@@ -23,6 +30,8 @@ import com.github.tvbox.osc.ui.activity.PushActivity;
 import com.github.tvbox.osc.ui.activity.SearchActivity;
 import com.github.tvbox.osc.ui.activity.SettingActivity;
 import com.github.tvbox.osc.ui.adapter.HomeHotVodAdapter;
+import com.github.tvbox.osc.ui.adapter.HomeHotVodAdaptera;
+import com.github.tvbox.osc.ui.adapter.HomeHotVodAdapterc;
 import com.github.tvbox.osc.util.FastClickCheckUtil;
 import com.github.tvbox.osc.util.HawkConfig;
 import com.github.tvbox.osc.util.UA;
@@ -36,7 +45,6 @@ import com.lzy.okgo.model.Response;
 import com.orhanobut.hawk.Hawk;
 import com.owen.tvrecyclerview.widget.TvRecyclerView;
 import com.owen.tvrecyclerview.widget.V7GridLayoutManager;
-import com.owen.tvrecyclerview.widget.V7LinearLayoutManager;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -52,16 +60,27 @@ import java.util.List;
  * @description:
  */
 public class UserFragment extends BaseLazyFragment implements View.OnClickListener {
-    private LinearLayout tvLive;
-    private LinearLayout tvSearch;
-    private LinearLayout tvSetting;
-    private LinearLayout tvHistory;
-    private LinearLayout tvCollect;
-    private LinearLayout tvPush;
+    public static int kasd;
+    public static int tyssy;
+    public static LinearLayout tvDrive;
+    public static LinearLayout tvDrives;
+    public static LinearLayout tvLive;
+    public static LinearLayout tvLives;
+    public static LinearLayout tvSearch;
+    public static LinearLayout tvSetting;
+    public static LinearLayout tvHistory;
+    public static LinearLayout tvHistorys;
+    public static LinearLayout tvCollect;
+    public static LinearLayout tvCollects;
+    public static LinearLayout tvPush;
+    public static TextView tvtxt;
     private HomeHotVodAdapter homeHotVodAdapter;
+    private HomeHotVodAdaptera homeHotVodAdaptera;
+    private HomeHotVodAdapterc homeHotVodAdapterc;
     private List<Movie.Video> homeSourceRec;
-    TvRecyclerView tvHotList1;
-    TvRecyclerView tvHotList2;
+    public static TvRecyclerView tvHotList1;
+    public static TvRecyclerView tvHotList4;
+    public static TvRecyclerView tvHotList2;
 
     public static UserFragment newInstance() {
         return new UserFragment();
@@ -78,16 +97,12 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
 
     @Override
     protected void onFragmentResume() {
-        if(Hawk.get(HawkConfig.HOME_REC_STYLE, false)){
-            tvHotList1.setVisibility(View.VISIBLE);
-            tvHotList2.setVisibility(View.GONE);
-            tvHotList1.setHasFixedSize(true);
-            tvHotList1.setLayoutManager(new V7GridLayoutManager(this.mContext, 5));
-        }else {
-            tvHotList1.setVisibility(View.GONE);
-            tvHotList2.setVisibility(View.VISIBLE);
-        }
+        // takagen99: Initialize Icon Placement
         super.onFragmentResume();
+        LinearLayout[] strl = {tvSearch, tvSetting, tvHistory, tvLive, tvPush, tvDrive, tvCollect, tvHistorys, tvLives, tvDrives, tvCollects};
+        drawableLinearLayout(strl, 3);
+        LinearLayout[] strls = {tvHistorys, tvLives, tvDrives, tvCollects};
+        drawableLinearLayout(strls, 10);
         if (Hawk.get(HawkConfig.HOME_REC, 0) == 2) {
             List<VodInfo> allVodRecord = RoomDataManger.getAllVodRecord(30);
             List<Movie.Video> vodList = new ArrayList<>();
@@ -102,6 +117,8 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
                 vodList.add(vod);
             }
             homeHotVodAdapter.setNewData(vodList);
+            homeHotVodAdaptera.setNewData(vodList);
+            homeHotVodAdapterc.setNewData(vodList);
         }
     }
 
@@ -113,27 +130,50 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
     @Override
     protected void init() {
         EventBus.getDefault().register(this);
+        tvDrive = findViewById(R.id.tvDrive);
+        tvDrives = findViewById(R.id.tvDrives);
         tvLive = findViewById(R.id.tvLive);
+        tvLives = findViewById(R.id.tvLives);
         tvSearch = findViewById(R.id.tvSearch);
         tvSetting = findViewById(R.id.tvSetting);
         tvCollect = findViewById(R.id.tvFavorite);
+        tvCollects = findViewById(R.id.tvFavorites);
         tvHistory = findViewById(R.id.tvHistory);
+        tvHistorys = findViewById(R.id.tvHistorys);
+        tvtxt = findViewById(R.id.tvtxt);
         tvPush = findViewById(R.id.tvPush);
+        tvDrive.setOnClickListener(this);
+        tvDrives.setOnClickListener(this);
         tvLive.setOnClickListener(this);
+        tvLives.setOnClickListener(this);
         tvSearch.setOnClickListener(this);
         tvSetting.setOnClickListener(this);
         tvHistory.setOnClickListener(this);
+        tvHistorys.setOnClickListener(this);
         tvPush.setOnClickListener(this);
         tvCollect.setOnClickListener(this);
+        tvCollects.setOnClickListener(this);
+        tvDrive.setOnFocusChangeListener(focusChangeListener);;
         tvLive.setOnFocusChangeListener(focusChangeListener);
+        tvDrives.setOnFocusChangeListener(focusChangeListeners);;
+        tvLives.setOnFocusChangeListener(focusChangeListeners);
         tvSearch.setOnFocusChangeListener(focusChangeListener);
         tvSetting.setOnFocusChangeListener(focusChangeListener);
         tvHistory.setOnFocusChangeListener(focusChangeListener);
+        tvHistorys.setOnFocusChangeListener(focusChangeListeners);
         tvPush.setOnFocusChangeListener(focusChangeListener);
         tvCollect.setOnFocusChangeListener(focusChangeListener);
+        tvCollects.setOnFocusChangeListener(focusChangeListeners);
         tvHotList1 = findViewById(R.id.tvHotList1);
+        tvHotList1.setHasFixedSize(true);
+        tvHotList1.setLayoutManager(new V7GridLayoutManager(this.mContext, 4));
+        tvHotList4 = findViewById(R.id.tvHotList4);
+        tvHotList4.setHasFixedSize(true);
+        tvHotList4.setLayoutManager(new V7GridLayoutManager(this.mContext, 4));
         tvHotList2 = findViewById(R.id.tvHotList2);
         homeHotVodAdapter = new HomeHotVodAdapter();
+        homeHotVodAdaptera = new HomeHotVodAdaptera();
+        homeHotVodAdapterc = new HomeHotVodAdapterc();
         homeHotVodAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
@@ -144,23 +184,95 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
                     Bundle bundle = new Bundle();
                     bundle.putString("id", vod.id);
                     bundle.putString("sourceKey", vod.sourceKey);
-                    if(Hawk.get(HawkConfig.HOME_REC, 0)==1 && Hawk.get(HawkConfig.FAST_SEARCH_MODE, false)){
-                        bundle.putString("title", vod.name);
-                        jumpActivity(FastSearchActivity.class, bundle);
-                    }else {
-                        jumpActivity(DetailActivity.class, bundle);
-                    }
+                    jumpActivity(DetailActivity.class, bundle);
                 } else {
                     Intent newIntent;
-                    if(Hawk.get(HawkConfig.FAST_SEARCH_MODE, false)){
-                        newIntent = new Intent(mContext, FastSearchActivity.class);
-                    }else {
-                        newIntent = new Intent(mContext, SearchActivity.class);
-                    }
+                    newIntent = new Intent(mContext, SearchActivity.class);
                     newIntent.putExtra("title", vod.name);
                     newIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     mActivity.startActivity(newIntent);
                 }
+            }
+        });
+        homeHotVodAdaptera.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                if (ApiConfig.get().getSourceBeanList().isEmpty())
+                    return;
+                Movie.Video vod = ((Movie.Video) adapter.getItem(position));
+                if (vod.id != null && !vod.id.isEmpty()) {
+                    Bundle bundle = new Bundle();
+                    bundle.putString("id", vod.id);
+                    bundle.putString("sourceKey", vod.sourceKey);
+                    jumpActivity(DetailActivity.class, bundle);
+                } else {
+                    Intent newIntent;
+                    newIntent = new Intent(mContext, SearchActivity.class);
+                    newIntent.putExtra("title", vod.name);
+                    newIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    mActivity.startActivity(newIntent);
+                }
+            }
+        });
+
+        homeHotVodAdaptera.setOnItemLongClickListener(new BaseQuickAdapter.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(BaseQuickAdapter adapter, View view, int position) {
+                if (ApiConfig.get().getSourceBeanList().isEmpty()) return true;
+                Movie.Video vod = ((Movie.Video) adapter.getItem(position));
+                Bundle bundle = new Bundle();
+                bundle.putString("title", vod.name);
+                bundle.putString("pic", vod.pic);
+                jumpActivity(FastSearchActivity.class, bundle);
+                return true;
+            }
+        });
+
+        homeHotVodAdapterc.setSpanSizeLookup(new BaseQuickAdapter.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(GridLayoutManager gridLayoutManager, int position) {
+                tyssy = position;
+                if (position < 2) {
+                    return 2;
+                } else if (position == 10) {
+                    return 4;
+                }
+                return 1;
+            }
+        });
+        homeHotVodAdapterc.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                if (ApiConfig.get().getSourceBeanList().isEmpty())
+                    return;
+                Movie.Video vod = ((Movie.Video) adapter.getItem(position));
+                if (vod != null) {
+                    if (vod.id != null && !vod.id.isEmpty()) {
+                        Bundle bundle = new Bundle();
+                        bundle.putString("id", vod.id);
+                        bundle.putString("sourceKey", vod.sourceKey);
+                        jumpActivity(DetailActivity.class, bundle);
+                    } else {
+                        Intent newIntent;
+                        newIntent = new Intent(mContext, SearchActivity.class);
+                        newIntent.putExtra("title", vod.name);
+                        newIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        mActivity.startActivity(newIntent);
+                    }
+                }
+            }
+        });
+
+        homeHotVodAdapterc.setOnItemLongClickListener(new BaseQuickAdapter.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(BaseQuickAdapter adapter, View view, int position) {
+                if (ApiConfig.get().getSourceBeanList().isEmpty()) return true;
+                Movie.Video vod = ((Movie.Video) adapter.getItem(position));
+                Bundle bundle = new Bundle();
+                bundle.putString("title", vod.name);
+                bundle.putString("pic", vod.pic);
+                jumpActivity(FastSearchActivity.class, bundle);
+                return true;
             }
         });
 
@@ -171,11 +283,29 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
                 Movie.Video vod = ((Movie.Video) adapter.getItem(position));
                 Bundle bundle = new Bundle();
                 bundle.putString("title", vod.name);
+                bundle.putString("pic", vod.pic);
                 jumpActivity(FastSearchActivity.class, bundle);
                 return true;
             }
         });
+        tvHotList4.setOnItemListener(new TvRecyclerView.OnItemListener() {
+            @Override
+            public void onItemPreSelected(TvRecyclerView parent, View itemView, int position) {
+                itemView.animate().scaleX(1.0f).scaleY(1.0f).setDuration(300).setInterpolator(new BounceInterpolator()).start();
+            }
 
+            @Override
+            public void onItemSelected(TvRecyclerView parent, View itemView, int position) {
+                itemView.animate().scaleX(1.05f).scaleY(1.05f).setDuration(300).setInterpolator(new BounceInterpolator()).start();
+            }
+
+            @Override
+            public void onItemClick(TvRecyclerView parent, View itemView, int position) {
+
+            }
+        });
+        tvHotList4.setAdapter(homeHotVodAdapterc);
+        initHomeHotVod3(homeHotVodAdapterc);
         tvHotList1.setOnItemListener(new TvRecyclerView.OnItemListener() {
             @Override
             public void onItemPreSelected(TvRecyclerView parent, View itemView, int position) {
@@ -192,7 +322,8 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
 
             }
         });
-        tvHotList1.setAdapter(homeHotVodAdapter);
+        tvHotList1.setAdapter(homeHotVodAdaptera);
+        initHomeHotVod2(homeHotVodAdaptera);
         tvHotList2.setOnItemListener(new TvRecyclerView.OnItemListener() {
             @Override
             public void onItemPreSelected(TvRecyclerView parent, View itemView, int position) {
@@ -209,20 +340,85 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
 
             }
         });
-        tvHotList2.setAdapter(homeHotVodAdapter);
 
+        tvHotList2.setAdapter(homeHotVodAdapter);
         initHomeHotVod(homeHotVodAdapter);
+        if(Hawk.get(HawkConfig.HOME_REC_STYLE, false)){
+            tvHotList4.setVisibility(View.GONE);
+            tvHotList1.setVisibility(View.GONE);
+            tvDrives.setVisibility(View.GONE);
+            tvCollects.setVisibility(View.GONE);
+            tvHistorys.setVisibility(View.GONE);
+            tvLives.setVisibility(View.GONE);
+            tvtxt.setVisibility(View.GONE);
+            tvHotList2.setVisibility(View.VISIBLE);
+            tvSearch.setVisibility(View.VISIBLE);
+            tvSetting.setVisibility(View.GONE);
+            tvHistory.setVisibility(View.VISIBLE);
+            tvLive.setVisibility(View.VISIBLE);
+            tvPush.setVisibility(View.VISIBLE);
+            tvDrive.setVisibility(View.VISIBLE);
+            tvCollect.setVisibility(View.VISIBLE);
+        }else {
+            tvHotList4.setVisibility(View.VISIBLE);
+            tvHotList1.setVisibility(View.VISIBLE);
+            tvHistorys.setVisibility(View.VISIBLE);
+            tvtxt.setVisibility(View.VISIBLE);
+            tvLives.setVisibility(View.VISIBLE);
+            tvDrives.setVisibility(View.VISIBLE);
+            tvCollects.setVisibility(View.VISIBLE);
+            tvHotList2.setVisibility(View.GONE);
+            tvSearch.setVisibility(View.GONE);
+            tvSetting.setVisibility(View.GONE);
+            tvHistory.setVisibility(View.GONE);
+            tvLive.setVisibility(View.GONE);
+            tvPush.setVisibility(View.GONE);
+            tvDrive.setVisibility(View.GONE);
+            tvCollect.setVisibility(View.GONE);
+        }
+
+    }
+    private void initHomeHotVod3(HomeHotVodAdapterc adapter) {
+        setDouBanDatas(adapter);
     }
 
+    private void setDouBanDatas(HomeHotVodAdapterc adapter) {
+        try {
+            String doubanUrl = ApiConfig.get().souyeUrl;
+            OkGo.<String>get(doubanUrl)
+                    .headers("User-Agent", UA.randomOne())
+                    .execute(new AbsCallback<String>() {
+                        public void onSuccess(Response<String> response) {
+                            String netJson = response.body();
+                            mActivity.runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    adapter.setNewData(loadHots(netJson));
+                                }
+                            });
+                        }
+                        @Override
+                        public String convertResponse(okhttp3.Response response) throws Throwable {
+                            return response.body().string();
+                        }
+                    });
+        } catch (Throwable th) {
+            th.printStackTrace();
+        }
+    }
     private void initHomeHotVod(HomeHotVodAdapter adapter) {
         if (Hawk.get(HawkConfig.HOME_REC, 0) == 1) {
             if (homeSourceRec != null) {
                 adapter.setNewData(homeSourceRec);
+                return;
             }
-            return;
         } else if (Hawk.get(HawkConfig.HOME_REC, 0) == 2) {
             return;
         }
+        setDouBanData(adapter);
+    }
+
+    private void setDouBanData(HomeHotVodAdapter adapter) {
         try {
             Calendar cal = Calendar.getInstance();
             int year = cal.get(Calendar.YEAR);
@@ -234,40 +430,113 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
                 String json = Hawk.get("home_hot", "");
                 if (!json.isEmpty()) {
                     ArrayList<Movie.Video> hotMovies = loadHots(json);
+                    if(Hawk.get(HawkConfig.HOME_REC, 0) == 0) {
+                        hotMovies = loadHotss(json);
+                    }
                     if (hotMovies != null && hotMovies.size() > 0) {
                         adapter.setNewData(hotMovies);
                         return;
                     }
                 }
             }
-            String doubanUrl = "https://movie.douban.com/j/new_search_subjects?sort=U&range=0,10&tags=&playable=1&start=0&year_range=" + year + "," + year;
+            String doubanUrl = ApiConfig.get().tuijianUrl;
+            if(Hawk.get(HawkConfig.HOME_REC, 0) == 0) {
+                doubanUrl = "https://movie.douban.com/j/new_search_subjects?sort=U&range=0,10&tags=&playable=1&start=0&year_range=" + year + "," + year;
+            }
             OkGo.<String>get(doubanUrl)
                     .headers("User-Agent", UA.randomOne())
                     .execute(new AbsCallback<String>() {
-                @Override
-                public void onSuccess(Response<String> response) {
-                    String netJson = response.body();
-                    Hawk.put("home_hot_day", today);
-                    Hawk.put("home_hot", netJson);
-                    mActivity.runOnUiThread(new Runnable() {
+                        public void onSuccess(Response<String> response) {
+                            String netJson = response.body();
+                            Hawk.put("home_hot_day", today);
+                            Hawk.put("home_hot", netJson);
+                            mActivity.runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    if(Hawk.get(HawkConfig.HOME_REC, 0) == 0) {
+                                        adapter.setNewData(loadHotss(netJson));
+                                    } else {
+                                        adapter.setNewData(loadHots(netJson));
+                                    }
+                                }
+                            });
+                        }
+                            @Override
+                            public String convertResponse(okhttp3.Response response) throws Throwable {
+                                return response.body().string();
+                            }
+                        });
+        } catch (Throwable th) {
+            th.printStackTrace();
+        }
+    }
+    private void initHomeHotVod2(HomeHotVodAdaptera adapter) {
+        if (Hawk.get(HawkConfig.HOME_REC, 0) == 1) {
+            if (homeSourceRec != null) {
+                adapter.setNewData(homeSourceRec);
+                return;
+            }
+        } else if (Hawk.get(HawkConfig.HOME_REC, 0) == 2) {
+            return;
+        }
+        setDouBanDataa(adapter);
+    }
+
+    private void setDouBanDataa(HomeHotVodAdaptera adapter) {
+        try {
+            Calendar cal = Calendar.getInstance();
+            int year = cal.get(Calendar.YEAR);
+            int month = cal.get(Calendar.MONTH) + 1;
+            int day = cal.get(Calendar.DATE);
+            @SuppressLint("DefaultLocale") String today = String.format("%d%d%d", year, month, day);
+            String requestDay = Hawk.get("home_hot_day", "");
+            if (requestDay.equals(today)) {
+                String json = Hawk.get("home_hot", "");
+                if (!json.isEmpty()) {
+                    ArrayList<Movie.Video> hotMovies = loadHots(json);
+                    if(Hawk.get(HawkConfig.HOME_REC, 0) == 0) {
+                        hotMovies = loadHotss(json);
+                    }
+                    if (hotMovies != null && hotMovies.size() > 0) {
+                        adapter.setNewData(hotMovies);
+                        return;
+                    }
+                }
+            }
+            String doubanUrl = ApiConfig.get().tuijianUrl;
+            if(Hawk.get(HawkConfig.HOME_REC, 0) == 0) {
+                doubanUrl = "https://movie.douban.com/j/new_search_subjects?sort=U&range=0,10&tags=&playable=1&start=0&year_range=" + year + "," + year;
+            }
+            OkGo.<String>get(doubanUrl)
+                    .headers("User-Agent", UA.randomOne())
+                    .execute(new AbsCallback<String>() {
+                        public void onSuccess(Response<String> response) {
+                            String netJson = response.body();
+                            Hawk.put("home_hot_day", today);
+                            Hawk.put("home_hot", netJson);
+                            mActivity.runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    if(Hawk.get(HawkConfig.HOME_REC, 0) == 0) {
+                                        adapter.setNewData(loadHotss(netJson));
+                                    } else {
+                                        adapter.setNewData(loadHots(netJson));
+                                    }
+                                }
+                            });
+                        }
+
                         @Override
-                        public void run() {
-                            adapter.setNewData(loadHots(netJson));
+                        public String convertResponse(okhttp3.Response response) throws Throwable {
+                            return response.body().string();
                         }
                     });
-                }
-
-                @Override
-                public String convertResponse(okhttp3.Response response) throws Throwable {
-                    return response.body().string();
-                }
-            });
         } catch (Throwable th) {
             th.printStackTrace();
         }
     }
 
-    private ArrayList<Movie.Video> loadHots(String json) {
+    private ArrayList<Movie.Video> loadHotss(String json) {
         ArrayList<Movie.Video> result = new ArrayList<>();
         try {
             JsonObject infoJson = new Gson().fromJson(json, JsonObject.class);
@@ -277,8 +546,7 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
                 Movie.Video vod = new Movie.Video();
                 vod.name = obj.get("title").getAsString();
                 vod.note = obj.get("rate").getAsString();
-                if(!vod.note.isEmpty())vod.note+=" 分";
-                vod.pic = obj.get("cover").getAsString()+"@User-Agent=com.douban.frodo";
+                vod.pic = obj.get("cover").getAsString()+"@User-Agent="+ UA.randomOne()+"@Referer=https://www.douban.com/";
                 result.add(vod);
             }
         } catch (Throwable th) {
@@ -286,14 +554,51 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
         }
         return result;
     }
+    private ArrayList<Movie.Video> loadHots(String json) {
+        ArrayList<Movie.Video> result = new ArrayList<>();
+        try {
+            JsonObject infoJson = new Gson().fromJson(json, JsonObject.class);
+            JsonArray array = infoJson.getAsJsonArray("data");
+            for (JsonElement ele : array) {
+                JsonObject obj = (JsonObject) ele;
+                Movie.Video vod = new Movie.Video();
+                vod.id = obj.get("vod_id").getAsString();
+                vod.name = obj.get("vod_name").getAsString();
+                vod.note = obj.get("vod_remarks").getAsString();
+                vod.isend = Integer.parseInt(obj.get("vod_isend").getAsString());
+                vod.pic = obj.get("vod_pic").getAsString();
+                vod.picthumb = obj.get("vod_pic_thumb").getAsString();
+                vod.picslide = obj.get("vod_pic_slide").getAsString();
+                vod.sourceKey = "htv_hrys";
+                result.add(vod);
+            }
+        } catch (Throwable th) {
 
-    private View.OnFocusChangeListener focusChangeListener = new View.OnFocusChangeListener() {
+        }
+        return result;
+    }
+    private final View.OnFocusChangeListener focusChangeListener = new View.OnFocusChangeListener() {
         @Override
         public void onFocusChange(View v, boolean hasFocus) {
-            if (hasFocus)
+            TextView tView = v.findViewById(R.id.tView);
+            if (hasFocus) {
+                tView.setTextColor(getResources().getColor(R.color.color_FFF5E8DC));
                 v.animate().scaleX(1.05f).scaleY(1.05f).setDuration(300).setInterpolator(new BounceInterpolator()).start();
-            else
+            }else {
+                tView.setTextColor(getResources().getColor(R.color.color_80FFFFFF));
                 v.animate().scaleX(1.0f).scaleY(1.0f).setDuration(300).setInterpolator(new BounceInterpolator()).start();
+            }
+        }
+    };
+
+    private final View.OnFocusChangeListener focusChangeListeners = new View.OnFocusChangeListener() {
+        @Override
+        public void onFocusChange(View v, boolean hasFocus) {
+            if (hasFocus) {
+                v.animate().scaleX(1.0f).scaleY(1.0f).setDuration(300).setInterpolator(new BounceInterpolator()).start();
+            }else {
+                v.animate().scaleX(1.0f).scaleY(1.0f).setDuration(300).setInterpolator(new BounceInterpolator()).start();
+            }
         }
     };
 
@@ -312,6 +617,16 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
             jumpActivity(PushActivity.class);
         } else if (v.getId() == R.id.tvFavorite) {
             jumpActivity(CollectActivity.class);
+        } else if(v.getId() == R.id.tvDrive) {
+            jumpActivity(DriveActivity.class);
+        }else if(v.getId() == R.id.tvHistorys) {
+            jumpActivity(HistoryActivity.class);
+        }else if(v.getId() == R.id.tvLives) {
+            jumpActivity(LivePlayActivity.class);
+        }else if(v.getId() == R.id.tvFavorites) {
+            jumpActivity(CollectActivity.class);
+        }else if(v.getId() == R.id.tvDrives) {
+            jumpActivity(DriveActivity.class);
         }
     }
 

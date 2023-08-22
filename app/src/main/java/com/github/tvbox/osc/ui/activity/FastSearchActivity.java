@@ -1,9 +1,12 @@
 package com.github.tvbox.osc.ui.activity;
 
+import static com.github.tvbox.osc.ui.activity.SearchActivity.searchs;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.animation.BounceInterpolator;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,6 +28,8 @@ import com.github.tvbox.osc.ui.adapter.FastListAdapter;
 import com.github.tvbox.osc.ui.adapter.FastSearchAdapter;
 import com.github.tvbox.osc.ui.adapter.SearchWordAdapter;
 import com.github.tvbox.osc.util.FastClickCheckUtil;
+import com.github.tvbox.osc.util.HawkConfig;
+import com.github.tvbox.osc.util.HistoryHelper;
 import com.github.tvbox.osc.util.SearchHelper;
 import com.github.tvbox.osc.util.js.JSEngine;
 import com.github.tvbox.osc.viewmodel.SourceViewModel;
@@ -34,6 +39,7 @@ import com.google.gson.JsonElement;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.AbsCallback;
 import com.lzy.okgo.model.Response;
+import com.orhanobut.hawk.Hawk;
 import com.owen.tvrecyclerview.widget.TvRecyclerView;
 import com.owen.tvrecyclerview.widget.V7GridLayoutManager;
 import com.owen.tvrecyclerview.widget.V7LinearLayoutManager;
@@ -64,23 +70,19 @@ public class FastSearchActivity extends BaseActivity {
     private TvRecyclerView mGridViewWord;
     private TvRecyclerView mGridViewWordFenci;
     SourceViewModel sourceViewModel;
-    //    private EditText etSearch;
-//    private TextView tvSearch;
-//    private TextView tvClear;
-//    private SearchKeyboard keyboard;
-//    private TextView tvAddress;
-//    private ImageView ivQRCode;
     private SearchWordAdapter searchWordAdapter;
     private FastSearchAdapter searchAdapter;
     private FastSearchAdapter searchAdapterFilter;
     private FastListAdapter spListAdapter;
     private String searchTitle = "";
+    public static String wBpic;
     private HashMap<String, String> spNames;
     private boolean isFilterMode = false;
     private String searchFilterKey = "";    // 过滤的key
     private HashMap<String, ArrayList<Movie.Video>> resultVods; // 搜索结果
     private List<String> quickSearchWord = new ArrayList<>();
     private HashMap<String, String> mCheckSources = null;
+    private final int xiancc = Integer.parseInt(HistoryHelper.getHistoryNumNamex(Hawk.get(HawkConfig.XIANC_NUM, 0)));
 
     private View.OnFocusChangeListener focusChangeListener = new View.OnFocusChangeListener() {
         @Override
@@ -122,7 +124,7 @@ public class FastSearchActivity extends BaseActivity {
     protected void onResume() {
         super.onResume();
         if (pauseRunnable != null && pauseRunnable.size() > 0) {
-            searchExecutorService = Executors.newFixedThreadPool(5);
+            searchExecutorService = Executors.newFixedThreadPool(xiancc);
             allRunCount.set(pauseRunnable.size());
             for (Runnable runnable : pauseRunnable) {
                 searchExecutorService.execute(runnable);
@@ -181,7 +183,11 @@ public class FastSearchActivity extends BaseActivity {
         });
 
         mGridView.setHasFixedSize(true);
-        mGridView.setLayoutManager(new V7GridLayoutManager(this.mContext, 5));
+        if(Hawk.get(HawkConfig.HOME_LSTIMG, 0) == 1) {
+            mGridView.setLayoutManager(new V7GridLayoutManager(this.mContext, 6));
+        } else{
+            mGridView.setLayoutManager(new V7GridLayoutManager(this.mContext, 5));
+        }
 
         searchAdapter = new FastSearchAdapter();
         mGridView.setAdapter(searchAdapter);
@@ -209,8 +215,28 @@ public class FastSearchActivity extends BaseActivity {
             }
         });
 
+        mGridView.setOnItemListener(new TvRecyclerView.OnItemListener() {
+            @Override
+            public void onItemPreSelected(TvRecyclerView parent, View itemView, int position) {
+                itemView.animate().scaleX(1.0f).scaleY(1.0f).setDuration(300).setInterpolator(new BounceInterpolator()).start();
+            }
 
-        mGridViewFilter.setLayoutManager(new V7GridLayoutManager(this.mContext, 5));
+            @Override
+            public void onItemSelected(TvRecyclerView parent, View itemView, int position) {
+                itemView.animate().scaleX(1.01f).scaleY(1.01f).setDuration(300).setInterpolator(new BounceInterpolator()).start();
+            }
+
+            @Override
+            public void onItemClick(TvRecyclerView parent, View itemView, int position) {
+
+            }
+        });
+
+        if(Hawk.get(HawkConfig.HOME_LSTIMG, 0) == 1) {
+            mGridViewFilter.setLayoutManager(new V7GridLayoutManager(this.mContext, 6));
+        } else{
+            mGridViewFilter.setLayoutManager(new V7GridLayoutManager(this.mContext, 5));
+        }
         searchAdapterFilter = new FastSearchAdapter();
         mGridViewFilter.setAdapter(searchAdapterFilter);
         searchAdapterFilter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
@@ -318,6 +344,7 @@ public class FastSearchActivity extends BaseActivity {
         Intent intent = getIntent();
         if (intent != null && intent.hasExtra("title")) {
             String title = intent.getStringExtra("title");
+            wBpic = intent.getStringExtra("pic");
             showLoading();
             search(title);
         }
@@ -347,7 +374,7 @@ public class FastSearchActivity extends BaseActivity {
             }
         }
         if (mSearchTitle != null) {
-            mSearchTitle.setText(String.format("搜索(%d/%d)", resultVods.size(), spNames.size()));
+            mSearchTitle.setText(String.format("搜索站点%d/%d", resultVods.size(), spNames.size()));
         }
     }
 
@@ -364,7 +391,16 @@ public class FastSearchActivity extends BaseActivity {
         mGridViewFilter.setVisibility(View.GONE);
         searchAdapter.setNewData(new ArrayList<>());
         searchAdapterFilter.setNewData(new ArrayList<>());
-
+        if (searchs) {
+            List<String> list = Hawk.get(HawkConfig.SEARCH_HISTORY, new ArrayList<>());
+            if (list.size() > 20) {
+                list.remove(list.size() - 1);
+            }
+            if (!list.contains(title)) {
+                list.add(0, title);
+            }
+            Hawk.put(HawkConfig.SEARCH_HISTORY, list);
+        }
         spListAdapter.reset();
         resultVods.clear();
         searchFilterKey = "";
@@ -391,7 +427,7 @@ public class FastSearchActivity extends BaseActivity {
             searchAdapterFilter.setNewData(new ArrayList<>());
             allRunCount.set(0);
         }
-        searchExecutorService = Executors.newFixedThreadPool(5);
+        searchExecutorService = Executors.newFixedThreadPool(xiancc);
         List<SourceBean> searchRequestList = new ArrayList<>();
         searchRequestList.addAll(ApiConfig.get().getSourceBeanList());
         SourceBean home = ApiConfig.get().getHomeSourceBean();
@@ -415,7 +451,6 @@ public class FastSearchActivity extends BaseActivity {
             this.spNames.put(bean.getName(), bean.getKey());
             allRunCount.incrementAndGet();
         }
-
         for (String key : siteKey) {
             searchExecutorService.execute(new Runnable() {
                 @Override
@@ -482,7 +517,6 @@ public class FastSearchActivity extends BaseActivity {
                     lastSourceKey = this.addWordAdapterIfNeed(video.sourceKey);
                 }
             }
-
             if (searchAdapter.getData().size() > 0) {
                 searchAdapter.addData(data);
             } else {

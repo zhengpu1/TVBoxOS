@@ -1,5 +1,9 @@
 package com.github.tvbox.osc.ui.adapter;
 
+import static com.github.tvbox.osc.base.BaseActivity.drawableTextView;
+
+import android.widget.TextView;
+
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.github.tvbox.osc.R;
@@ -14,5 +18,8 @@ public class GridFilterKVAdapter extends BaseQuickAdapter<String, BaseViewHolder
     @Override
     protected void convert(BaseViewHolder helper, String item) {
         helper.setText(R.id.filterValue, item);
+        TextView tvfilterValue = helper.getView(R.id.filterValue);
+        TextView[] str = { tvfilterValue };
+        drawableTextView(str, 2);
     }
 }

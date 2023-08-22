@@ -1,8 +1,8 @@
 package com.github.tvbox.osc.ui.adapter;
 
+import static com.github.tvbox.osc.base.BaseActivity.drawableTextView;
+
 import android.annotation.SuppressLint;
-import android.graphics.Color;
-import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +21,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SelectDialogAdapter<T> extends ListAdapter<T, SelectDialogAdapter.SelectViewHolder> {
+
+    private boolean muteCheck = false;
 
     class SelectViewHolder extends RecyclerView.ViewHolder {
 
@@ -54,11 +56,16 @@ public class SelectDialogAdapter<T> extends ListAdapter<T, SelectDialogAdapter.S
 
     private int select = 0;
 
-    private SelectDialogInterface dialogInterface;
+    private SelectDialogInterface dialogInterface = null;
 
     public SelectDialogAdapter(SelectDialogInterface dialogInterface, DiffUtil.ItemCallback diffCallback) {
+        this(dialogInterface, diffCallback, false);
+    }
+
+    public SelectDialogAdapter(SelectDialogInterface dialogInterface, DiffUtil.ItemCallback diffCallback, boolean muteCheck) {
         super(diffCallback);
         this.dialogInterface = dialogInterface;
+        this.muteCheck = muteCheck;
     }
 
     public void setData(List<T> newData, int defaultSelect) {
@@ -83,19 +90,24 @@ public class SelectDialogAdapter<T> extends ListAdapter<T, SelectDialogAdapter.S
     public void onBindViewHolder(@NonNull @NotNull SelectDialogAdapter.SelectViewHolder holder, @SuppressLint("RecyclerView") int position) {
         T value = data.get(position);
         String name = dialogInterface.getDisplay(value);
-        TextView view = holder.itemView.findViewById(R.id.tvName);
-        if (position == select) {
-            view.setTextColor(0xff02f8e1);
+        if (!muteCheck && position == select)
+            name = "√ " + name;
+        ((TextView) holder.itemView.findViewById(R.id.tvName)).setText(name);
+       /* if (position == select) {
+            view.setTextColor(0xff4c1717);
             view .setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
         }else {
             view.setTextColor(Color.WHITE);
             view .setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
         }
-        view.setText(name);
+        view.setText(name);*/
+        TextView tvqname = holder.itemView.findViewById(R.id.tvName);
+        TextView[] str = {tvqname};
+        drawableTextView(str, 1);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (position == select)
+                if (!muteCheck && position == select)
                     return;
                 notifyItemChanged(select);
                 select = position;

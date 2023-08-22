@@ -189,8 +189,21 @@
 -keep class com.google.android.exoplayer2.** { *; }
 -dontwarn com.google.android.exoplayer2.**
 
+# sardine webdav
+-keep class com.thegrizzlylabs.sardineandroid.** { *; }
+-dontwarn com.thegrizzlylabs.sardineandroid.**
+
+# filepicker
+-keep class com.obsez.android.lib.filechooser.** { *; }
+-dontwarn com.obsez.android.lib.filechooser.**
+
+# jcifs (smb)
+-keep class jcifs.** { *; }
+-dontwarn jcifs.**
+
 # 实体类
 #-keep class com.github.tvbox.osc.bean.** { *; }
+-keep class com.github.tvbox.osc.ui.fragment.homes.**{*;}
 #CardView
 -keep class com.github.tvbox.osc.ui.tv.widget.card.**{*;}
 #ViewObj
@@ -199,9 +212,23 @@
 }
 
 -keep class com.github.catvod.crawler.*{*;}
-# 迅雷下载模块
+
+# magnet：解决模拟器推送 磁力链接 闪退
 -keep class com.xunlei.downloadlib.** {*;}
 # quickjs引擎
 -keep class com.github.tvbox.quickjs.** {*;}
 # 支持影视的ali相关的jar
 -keep class com.google.gson.**{*;}
+#阿里云播放器
+-keep class com.alivc.**{*;}
+-keep class com.aliyun.**{*;}
+-keep class com.cicada.**{*;}
+-dontwarn com.alivc.**
+-dontwarn com.aliyun.**
+-dontwarn com.cicada.**
+# Zxing
+-keep class com.google.zxing.**{*;}
+-keepclassmembers enum * {
+    public static [] values();
+    public static ** valueOf(java.lang.String);
+}

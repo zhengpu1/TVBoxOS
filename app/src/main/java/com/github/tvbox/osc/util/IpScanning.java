@@ -52,7 +52,7 @@ public class IpScanning {
 
         //扫描对应网段中的所有Ip
         BlockingQueue<IpScanningVo> queue = new ArrayBlockingQueue<>(total);
-        for (int i = 1; i < total; i++) {
+        for (int i = 2; i < total; i++) {
             String iip = substring + i;
             threadPool.submit(new PingIp(iip, queue));
         }

@@ -3,17 +3,36 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:background="@drawable/shape_dialog_bg_main"
+    android:background="@drawable/tooltip_frame_light"
     android:orientation="vertical"
     android:padding="@dimen/vs_30">
 
     <TextView
+        android:id="@+id/tvVersions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5mm"
+        android:text="软件版本：TVBox-TV"
+        android:textColor="@color/color_themec_dark_70"
+        android:textSize="@dimen/ts_24" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:lineSpacingExtra="@dimen/ts_40"
+        android:layout_marginBottom="5mm"
+        android:lineSpacingMultiplier="0"
+        android:text="软件使用支持：本软件适用于电视TV\n软件版本支持：android 4.1以上版本"
+        android:textColor="#F87203"
+        android:textSize="@dimen/ts_24" />
+
+    <TextView
         android:layout_width="@dimen/vs_600"
         android:layout_height="wrap_content"
-        android:lineSpacingExtra="@dimen/ts_50"
+        android:lineSpacingExtra="@dimen/ts_40"
         android:lineSpacingMultiplier="0"
-        android:text="本软件只提供聚合展示功能，所有资源来自网上, 软件不参与任何制作, 上传, 储存, 下载等内容. 软件仅供学习参考, 请于安装后24小时内删除。\n\n打包分发请保留出处\nhttps://github.com/CatVodTVOfficial/TVBoxOSC\nhttps://github.com/q215613905/TVBoxOS"
-        android:textColor="@color/color_CC000000"
-        android:textSize="@dimen/ts_24" />
+        android:text="免责声明：本软件只提供聚合展示功能，所有资源来自网上, 软件不参与任何制作, 上传, 储存, 下载等内容. 软件仅供学习参考, 请于安装后24小时内删除。\n鸣谢：https://github.com/CatVodTVOfficial/TVBoxOSC\n             https://github.com/q215613905/TVBoxOS"
+        android:textColor="#0569CA"
+        android:textSize="@dimen/ts_20" />
 
 </LinearLayout>

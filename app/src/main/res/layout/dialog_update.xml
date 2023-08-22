@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llupdate"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@drawable/shape_dialog_bg_main"
+    android:orientation="vertical"
+    android:padding="@dimen/vs_15">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:layout_gravity="center"
+        android:text="发现新版本"
+        android:textColor="@color/color_FFF5E8DC"
+        android:textSize="22sp" />
+
+        <TextView
+            android:id="@+id/log_head"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/line"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:textColor="@color/color_theme_h"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/msg_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/log_head"
+            android:lineSpacingExtra="@dimen/vs_15"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            android:text="更新日志"
+            android:textColor="@color/color_FFFFFF"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_below="@+id/msg_tv"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/yes_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_gravity="left"
+                android:layout_marginLeft="0dp"
+                android:layout_marginRight="30dp"
+                android:focusable="true"
+                android:layout_weight="1"
+                android:background="@drawable/button_dialog_main"
+                android:gravity="center"
+                android:text="立即更新"
+                android:textColor="@color/font_deta_color"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/no_btn"
+                android:layout_width="wrap_content"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_height="35dp"
+                android:layout_gravity="right"
+                android:focusable="true"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_dialog_main"
+                android:gravity="center"
+                android:text="以后再说"
+                android:textColor="@color/font_deta_color"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/storagePermissions"
+                android:layout_width="wrap_content"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_height="35dp"
+                android:layout_gravity="right"
+                android:focusable="true"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_dialog_main"
+                android:gravity="center"
+                android:text="存储权限"
+                android:textColor="@color/font_deta_color"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/radius_10"
+            android:layout_alignBottom="@id/msg_tv"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="-30dp"
+            android:max="100"
+            android:progress="0" />
+
+        <TextView
+            android:id="@+id/progressBarText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/msg_tv"
+            android:layout_marginLeft="140dp"
+            android:layout_marginBottom="-28dp"
+            android:text="0%" />
+    </LinearLayout>

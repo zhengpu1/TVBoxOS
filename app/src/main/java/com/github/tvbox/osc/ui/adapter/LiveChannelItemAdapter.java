@@ -1,6 +1,10 @@
 package com.github.tvbox.osc.ui.adapter;
 
+import static com.github.tvbox.osc.base.BaseActivity.drawableLinearLayout;
+import static com.github.tvbox.osc.base.BaseActivity.getColorByAttrId;
+
 import android.graphics.Color;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -30,9 +34,15 @@ public class LiveChannelItemAdapter extends BaseQuickAdapter<LiveChannelItem, Ba
         tvChannelNum.setText(String.format("%s", item.getChannelNum()));
         tvChannel.setText(item.getChannelName());
         int channelIndex = item.getChannelIndex();
+        LinearLayout tvChannelNums = holder.getView(R.id.tvChannelNums);
+        LinearLayout[] str = {tvChannelNums};
+        drawableLinearLayout(str, 7);
         if (channelIndex == selectedChannelIndex && channelIndex != focusedChannelIndex) {
-            tvChannelNum.setTextColor(mContext.getResources().getColor(R.color.color_1890FF));
-            tvChannel.setTextColor(mContext.getResources().getColor(R.color.color_1890FF));
+            // takagen99: Added Theme Color
+//            tvChannelNum.setTextColor(mContext.getResources().getColor(R.color.color_theme));
+//            tvChannel.setTextColor(mContext.getResources().getColor(R.color.color_theme));
+            tvChannelNum.setTextColor(getColorByAttrId(mContext, R.attr.color_theme));
+            tvChannel.setTextColor(getColorByAttrId(mContext, R.attr.color_theme));
         }
         else{
             tvChannelNum.setTextColor(Color.WHITE);

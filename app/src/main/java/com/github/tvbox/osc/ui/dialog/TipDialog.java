@@ -1,8 +1,13 @@
 package com.github.tvbox.osc.ui.dialog;
 
+import static com.github.tvbox.osc.base.BaseActivity.drawableLinearLayout;
+import static com.github.tvbox.osc.base.BaseActivity.drawableTextView;
+
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -20,6 +25,7 @@ public class TipDialog extends BaseDialog {
         TextView tipInfo = findViewById(R.id.tipInfo);
         TextView leftBtn = findViewById(R.id.leftBtn);
         TextView rightBtn = findViewById(R.id.rightBtn);
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) LinearLayout dongbg = findViewById(R.id.lltipInfo);
         tipInfo.setText(tip);
         leftBtn.setText(left);
         rightBtn.setText(right);
@@ -41,6 +47,10 @@ public class TipDialog extends BaseDialog {
                 listener.cancel();
             }
         });
+        LinearLayout[] strl = {dongbg};
+        drawableLinearLayout(strl, 4);
+        TextView[] str = {leftBtn, rightBtn};
+        drawableTextView(str, 1);
     }
 
     public interface OnListener {

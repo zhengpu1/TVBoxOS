@@ -16,6 +16,8 @@ import com.github.tvbox.osc.cache.VodCollect;
 import com.github.tvbox.osc.event.RefreshEvent;
 import com.github.tvbox.osc.ui.adapter.CollectAdapter;
 import com.github.tvbox.osc.util.FastClickCheckUtil;
+import com.github.tvbox.osc.util.HawkConfig;
+import com.orhanobut.hawk.Hawk;
 import com.owen.tvrecyclerview.widget.TvRecyclerView;
 import com.owen.tvrecyclerview.widget.V7GridLayoutManager;
 
@@ -29,7 +31,6 @@ import java.util.List;
 public class CollectActivity extends BaseActivity {
     private TextView tvDel;
     private TextView tvDelTip;
-    private TvRecyclerView mGridView;
     private CollectAdapter collectAdapter;
     private boolean delMode = false;
 
@@ -45,18 +46,30 @@ public class CollectActivity extends BaseActivity {
     }
 
     private void toggleDelMode() {
+        HawkConfig.hotVodDelete =  !HawkConfig.hotVodDelete;
+        collectAdapter.notifyDataSetChanged();
+
         delMode = !delMode;
         tvDelTip.setVisibility(delMode ? View.VISIBLE : View.GONE);
-        tvDel.setTextColor(delMode ? getResources().getColor(R.color.color_FF0057) : Color.WHITE);
+
+        // takagen99: Added Theme Color
+//        tvDel.setTextColor(delMode ? getResources().getColor(R.color.color_theme) : Color.WHITE);
+        tvDel.setTextColor(delMode ? getColorByAttrId(mContext, R.attr.color_theme_80) : Color.WHITE);
     }
 
     private void initView() {
         EventBus.getDefault().register(this);
         tvDel = findViewById(R.id.tvDel);
         tvDelTip = findViewById(R.id.tvDelTip);
-        mGridView = findViewById(R.id.mGridView);
+        TvRecyclerView mGridView = findViewById(R.id.mGridView);
         mGridView.setHasFixedSize(true);
-        mGridView.setLayoutManager(new V7GridLayoutManager(this.mContext, isBaseOnWidth() ? 5 : 6));
+        if(Hawk.get(HawkConfig.HOME_LSTIMG, 0) == 0) {
+            mGridView.setLayoutManager(new V7GridLayoutManager(mContext, isBaseOnWidth() ? 5 : 6));
+        } else if(Hawk.get(HawkConfig.HOME_LSTIMG, 0) == 1) {
+            mGridView.setLayoutManager(new V7GridLayoutManager(mContext, isBaseOnWidth() ? 7 : 8));
+        } else{
+            mGridView.setLayoutManager(new V7GridLayoutManager(mContext, isBaseOnWidth() ? 6 : 7));
+        }
         collectAdapter = new CollectAdapter();
         mGridView.setAdapter(collectAdapter);
         tvDel.setOnClickListener(new View.OnClickListener() {
@@ -75,6 +88,8 @@ public class CollectActivity extends BaseActivity {
                 return false;
             }
         });
+        TextView[] str = {tvDel};
+        drawableTextView(str, 2);
         mGridView.setOnItemListener(new TvRecyclerView.OnItemListener() {
             @Override
             public void onItemPreSelected(TvRecyclerView parent, View itemView, int position) {
@@ -116,14 +131,23 @@ public class CollectActivity extends BaseActivity {
                 }
             }
         });
+        collectAdapter.setOnItemLongClickListener(new BaseQuickAdapter.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(BaseQuickAdapter adapter, View view, int position) {
+//                FastClickCheckUtil.check(view);
+//                VodCollect vodInfo = collectAdapter.getData().get(position);
+//                collectAdapter.remove(position);
+//                RoomDataManger.deleteVodCollect(vodInfo.getId());
+                tvDel.setFocusable(true);
+                toggleDelMode();
+                return true;
+            }
+        });
     }
 
     private void initData() {
         List<VodCollect> allVodRecord = RoomDataManger.getAllVodCollect();
-        List<VodCollect> vodInfoList = new ArrayList<>();
-        for (VodCollect vodInfo : allVodRecord) {
-            vodInfoList.add(vodInfo);
-        }
+        List<VodCollect> vodInfoList = new ArrayList<>(allVodRecord);
         collectAdapter.setNewData(vodInfoList);
     }
 

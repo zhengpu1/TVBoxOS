@@ -1,8 +1,9 @@
 package com.github.tvbox.osc.bean;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class LiveChannelGroup {
+public class LiveChannelGroup implements Serializable {
     /**
      * groupIndex : 分组索引号
      * groupName : 分组名称
@@ -10,8 +11,10 @@ public class LiveChannelGroup {
      */
     private int groupIndex;
     private String groupName;
-    private String groupPassword;
-    private ArrayList<LiveChannelItem> liveChannelItems;
+    private String groupPassword = "";
+    private ArrayList<LiveChannelItem> liveChannelItems = new ArrayList<>();
+
+    public boolean isCollected;
 
     public int getGroupIndex() {
         return groupIndex;

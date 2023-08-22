@@ -14,6 +14,10 @@ import java.util.Random;
 
 public class AudioWaveView extends View {
     private Paint paint;
+    private Paint paint1;
+    private Paint paint2;
+    private Paint paint3;
+    private Paint paint4;
     private RectF rectF1;
     private RectF rectF2;
     private RectF rectF3;
@@ -59,8 +63,20 @@ public class AudioWaveView extends View {
 
     private void init() {
         paint = new Paint();
-        paint.setColor(Color.RED);//字节跳动颜色
+        paint.setColor(Color.MAGENTA);//字节跳动颜色
         paint.setStyle(Paint.Style.FILL);
+        paint1 = new Paint();
+        paint1.setColor(Color.RED);//字节跳动颜色
+        paint1.setStyle(Paint.Style.FILL);
+        paint2 = new Paint();
+        paint2.setColor(Color.GREEN);//字节跳动颜色
+        paint2.setStyle(Paint.Style.FILL);
+        paint3 = new Paint();
+        paint3.setColor(Color.YELLOW);//字节跳动颜色
+        paint3.setStyle(Paint.Style.FILL);
+        paint4 = new Paint();
+        paint4.setColor(Color.CYAN);//字节跳动颜色
+        paint4.setStyle(Paint.Style.FILL);
         random = new Random();
 
         initRect();
@@ -93,10 +109,10 @@ public class AudioWaveView extends View {
         rectF5.set(left * 4, randomHeight, left * 4 + rectWidth, viewHeight);
 
         canvas.drawRect(rectF1, paint);
-        canvas.drawRect(rectF2, paint);
-        canvas.drawRect(rectF3, paint);
-        canvas.drawRect(rectF4, paint);
-        canvas.drawRect(rectF5, paint);
+        canvas.drawRect(rectF2, paint1);
+        canvas.drawRect(rectF3, paint2);
+        canvas.drawRect(rectF4, paint3);
+        canvas.drawRect(rectF5, paint4);
 
         handler.sendEmptyMessageDelayed(0, 200); //每间隔200毫秒发送消息刷新
     }

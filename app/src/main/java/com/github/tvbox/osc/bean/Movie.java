@@ -35,6 +35,8 @@ public class Movie implements Serializable {
         public String id;
         @XStreamAlias("tid")//父级id
         public int tid;
+        @XStreamAlias("tyid")//父级id
+        public int tyid;
         @XStreamAlias("name")//影片名称 <![CDATA[老爸当家]]>
         public String name;
         @XStreamAlias("type")//类型名称
@@ -43,12 +45,26 @@ public class Movie implements Serializable {
         public String dt;*/
         @XStreamAlias("pic")//图片
         public String pic;
+        @XStreamAlias("picthumb")//图片
+        public String picthumb;
+        @XStreamAlias("picslide")//图片
+        public String picslide;
         @XStreamAlias("lang")//语言
         public String lang;
         @XStreamAlias("area")//地区
         public String area;
+        @XStreamAlias("weekday")//介绍
+        public String weekday;
+        @XStreamAlias("score")//评分
+        public String score;
+        @XStreamAlias("douban")//豆瓣
+        public String douban;
+        @XStreamAlias("writer")//编剧
+        public String writer;
         @XStreamAlias("year")//年份
         public int year;
+        @XStreamAlias("isend")//年份
+        public int isend;
         @XStreamAlias("state")
         public String state;
         @XStreamAlias("note")//描述集数或者影片信息<![CDATA[共40集]]>
@@ -59,6 +75,8 @@ public class Movie implements Serializable {
         public String director;
         @XStreamAlias("dl")
         public UrlBean urlBean;
+        @XStreamAlias("vodlist")
+        public String vodlist;
         @XStreamAlias("des")
         public String des;// <![CDATA[权来]
         public String sourceKey;

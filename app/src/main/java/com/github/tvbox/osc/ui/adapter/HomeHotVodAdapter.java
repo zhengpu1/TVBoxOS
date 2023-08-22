@@ -1,7 +1,10 @@
 package com.github.tvbox.osc.ui.adapter;
 
+import static com.github.tvbox.osc.base.BaseActivity.drawableFrameLayout;
+
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -26,7 +29,6 @@ public class HomeHotVodAdapter extends BaseQuickAdapter<Movie.Video, BaseViewHol
     public HomeHotVodAdapter() {
         super(R.layout.item_user_hot_vod, new ArrayList<>());
     }
-
     @Override
     protected void convert(BaseViewHolder helper, Movie.Video item) {
         TextView tvRate = helper.getView(R.id.tvRate);
@@ -45,19 +47,36 @@ public class HomeHotVodAdapter extends BaseQuickAdapter<Movie.Video, BaseViewHol
             tvNote.setText(item.note);
             tvNote.setVisibility(View.VISIBLE);
         }
+        TextView tvIsend = helper.getView(R.id.tvIsend);
+        if (item.isend == 2) {
+            tvIsend.setText("VIP");
+            tvIsend.setVisibility(View.VISIBLE);
+        } else {
+            tvIsend.setVisibility(View.GONE);
+        }
+        TextView tvArea = helper.getView(R.id.tvArea);
+        if (TextUtils.isEmpty(item.area)) {
+            tvArea.setVisibility(View.GONE);
+        } else {
+            tvArea.setText(item.area);
+            tvArea.setVisibility(View.VISIBLE);
+        }
         helper.setText(R.id.tvName, item.name);
         ImageView ivThumb = helper.getView(R.id.ivThumb);
         //由于部分电视机使用glide报错
+        FrameLayout tvHotvod = helper.getView(R.id.Hotvod);
+        FrameLayout[] str = { tvHotvod };
+        drawableFrameLayout(str, 9);
         if (!TextUtils.isEmpty(item.pic)) {
-            Picasso.get()
-                    .load(DefaultConfig.checkReplaceProxy(item.pic))
-                    .transform(new RoundTransformation(MD5.string2MD5(item.pic + "position=" + helper.getLayoutPosition()))
-                            .centerCorp(true)
-                            .override(AutoSizeUtils.mm2px(mContext, 300), AutoSizeUtils.mm2px(mContext, 400))
-                            .roundRadius(AutoSizeUtils.mm2px(mContext, 10), RoundTransformation.RoundType.ALL))
-                    .placeholder(R.drawable.img_loading_placeholder)
-                    .error(R.drawable.img_loading_placeholder)
-                    .into(ivThumb);
+                Picasso.get()
+                        .load(DefaultConfig.checkReplaceProxy(item.pic))
+                        .transform(new RoundTransformation(MD5.string2MD5(item.pic + "position=" + helper.getLayoutPosition()))
+                                .centerCorp(true)
+                                .override(AutoSizeUtils.mm2px(mContext, 300), AutoSizeUtils.mm2px(mContext, 400))
+                                .roundRadius(AutoSizeUtils.mm2px(mContext, 6), RoundTransformation.RoundType.ALL))
+                        .placeholder(R.drawable.img_loading_placeholder)
+                        .error(R.drawable.img_loading_placeholder)
+                        .into(ivThumb);
         } else {
             ivThumb.setImageResource(R.drawable.img_loading_placeholder);
         }

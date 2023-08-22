@@ -1,12 +1,17 @@
 package com.github.tvbox.osc.ui.dialog;
 
+import static com.github.tvbox.osc.base.BaseActivity.drawableFrameLayout;
+
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.res.TypedArray;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -14,8 +19,11 @@ import androidx.annotation.NonNull;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.github.tvbox.osc.R;
+import com.github.tvbox.osc.base.BaseLazyFragment;
 import com.github.tvbox.osc.bean.MovieSort;
+import com.github.tvbox.osc.ui.activity.HomeActivity;
 import com.github.tvbox.osc.ui.adapter.GridFilterKVAdapter;
+import com.github.tvbox.osc.ui.fragment.GridFragment;
 import com.owen.tvrecyclerview.widget.TvRecyclerView;
 import com.owen.tvrecyclerview.widget.V7LinearLayoutManager;
 
@@ -24,14 +32,16 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 
 public class GridFilterDialog extends BaseDialog {
-    private LinearLayout filterRoot;
+    private final LinearLayout filterRoot;
 
     public GridFilterDialog(@NonNull @NotNull Context context) {
         super(context);
-        setCanceledOnTouchOutside(false);
+        setCanceledOnTouchOutside(true);
         setCancelable(true);
         setContentView(R.layout.dialog_grid_filter);
         filterRoot = findViewById(R.id.filterRoot);
+        FrameLayout[] str = { findViewById(R.id.filterRoos) };
+        drawableFrameLayout(str,11);
     }
 
     public interface Callback {
@@ -39,7 +49,7 @@ public class GridFilterDialog extends BaseDialog {
     }
 
     public void setOnDismiss(Callback callback) {
-        setOnDismissListener(new DialogInterface.OnDismissListener() {
+        setOnDismissListener(new OnDismissListener() {
             @Override
             public void onDismiss(DialogInterface dialogInterface) {
                 if (selectChange) {
@@ -74,18 +84,25 @@ public class GridFilterDialog extends BaseDialog {
                         if (pre != null) {
                             TextView val = pre.findViewById(R.id.filterValue);
                             val.getPaint().setFakeBoldText(false);
-                            val.setTextColor(getContext().getResources().getColor(R.color.color_FFFFFF));
+                            val.setTextColor(getContext().getResources().getColor(R.color.color_FFF5E8DC));
                         }
                         TextView val = view.findViewById(R.id.filterValue);
                         val.getPaint().setFakeBoldText(true);
-                        val.setTextColor(getContext().getResources().getColor(R.color.color_02F8E1));
+                        @SuppressLint("Recycle") TypedArray a = getContext().obtainStyledAttributes(R.styleable.themeColor);
+                        int themeColor = a.getColor(R.styleable.themeColor_color_theme, 0);
+                        val.setTextColor(themeColor);
                         pre = view;
+
                     } else {
                         sortData.filterSelect.remove(key);
                         TextView val = pre.findViewById(R.id.filterValue);
                         val.getPaint().setFakeBoldText(false);
-                        val.setTextColor(getContext().getResources().getColor(R.color.color_FFFFFF));
+                        val.setTextColor(getContext().getResources().getColor(R.color.color_FFF5E8DC));
                         pre = null;
+                    }
+                    BaseLazyFragment baseLazyFragment = HomeActivity.fragmentsa.get(HomeActivity.sortFocuseda);
+                    if ((baseLazyFragment instanceof GridFragment) ) {
+                        ((GridFragment) baseLazyFragment).forceRefresh();
                     }
                 }
             });
@@ -103,7 +120,7 @@ public class GridFilterDialog extends BaseDialog {
         layoutParams.gravity = Gravity.BOTTOM;
         layoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT;
         layoutParams.height = ViewGroup.LayoutParams.WRAP_CONTENT;
-        layoutParams.dimAmount = 0f;
+        // layoutParams.dimAmount = 0f;
         getWindow().getDecorView().setPadding(0, 0, 0, 0);
         getWindow().setAttributes(layoutParams);
     }

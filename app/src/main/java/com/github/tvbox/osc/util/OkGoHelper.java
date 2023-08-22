@@ -1,5 +1,6 @@
 package com.github.tvbox.osc.util;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 
 import com.github.tvbox.osc.base.App;
@@ -13,11 +14,15 @@ import com.orhanobut.hawk.Hawk;
 import com.squareup.picasso.Picasso;
 
 import java.io.File;
+import java.io.IOException;
+import java.net.InetAddress;
+import java.net.Socket;
 import java.security.cert.CertificateException;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 
+import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.X509TrustManager;
 
@@ -25,11 +30,12 @@ import okhttp3.Cache;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.dnsoverhttps.DnsOverHttps;
-import okhttp3.internal.Version;
 import xyz.doikki.videoplayer.exo.ExoMediaSourceHelper;
 
 public class OkGoHelper {
-    public static final long DEFAULT_MILLISECONDS = 10000;      //默认的超时时间
+    public static final long DEFAULT_MILLISECONDS = 5 * 1000;      //默认的超时时间
+
+    public static boolean isInit = false;
 
     static void initExoOkHttpClient() {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
@@ -75,6 +81,15 @@ public class OkGoHelper {
             case 3: {
                 return "https://doh.360.cn/dns-query";
             }
+            case 4: {
+                return "https://dns.google/dns-query";
+            }
+            case 5: {
+                return "https://dns.adguard.com/dns-query";
+            }
+            case 6: {
+                return "https://dns.quad9.net/dns-query";
+            }
         }
         return "";
     }
@@ -84,6 +99,9 @@ public class OkGoHelper {
         dnsHttpsList.add("腾讯");
         dnsHttpsList.add("阿里");
         dnsHttpsList.add("360");
+        dnsHttpsList.add("谷歌");
+        dnsHttpsList.add("AdGuard");
+        dnsHttpsList.add("Quad9");
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
         HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor("OkExoPlayer");
         if (Hawk.get(HawkConfig.DEBUG_OPEN, false)) {
@@ -99,12 +117,11 @@ public class OkGoHelper {
         } catch (Throwable th) {
             th.printStackTrace();
         }
-        builder.cache(new Cache(new File(App.getInstance().getCacheDir().getAbsolutePath(), "dohcache"), 10 * 1024 * 1024));
+        builder.cache(new Cache(new File(App.getInstance().getCacheDir().getAbsolutePath(), "dohcache"), 100 * 1024 * 1024));
         OkHttpClient dohClient = builder.build();
         String dohUrl = getDohUrl(Hawk.get(HawkConfig.DOH_URL, 0));
         dnsOverHttps = new DnsOverHttps.Builder().client(dohClient).url(dohUrl.isEmpty() ? null : HttpUrl.get(dohUrl)).build();
     }
-
 
     static OkHttpClient defaultClient = null;
     static OkHttpClient noRedirectClient = null;
@@ -117,7 +134,11 @@ public class OkGoHelper {
         return noRedirectClient;
     }
 
-    public static void init() {
+    public static void init(Context context) {
+        isInit = true;
+//        if (!Hawk.isBuilt()) {
+//            Hawk.init(context).build();
+//        }
         initDnsOverHttps();
 
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
@@ -146,7 +167,7 @@ public class OkGoHelper {
             th.printStackTrace();
         }
 
-        HttpHeaders.setUserAgent(Version.userAgent());
+        HttpHeaders.setUserAgent("okhttp/3.12.11");
 
         OkHttpClient okHttpClient = builder.build();
         OkGo.getInstance().setOkHttpClient(okHttpClient);
@@ -194,6 +215,60 @@ public class OkGoHelper {
             builder.hostnameVerifier(HttpsUtils.UnSafeHostnameVerifier);
         } catch (Exception e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    private static class Tls12SocketFactory extends SSLSocketFactory {
+
+        private static final String[] TLS_SUPPORT_VERSION = {"TLSv1.1", "TLSv1.2"};
+
+        final SSLSocketFactory delegate;
+
+        private Tls12SocketFactory(SSLSocketFactory base) {
+            this.delegate = base;
+        }
+
+        @Override
+        public String[] getDefaultCipherSuites() {
+            return delegate.getDefaultCipherSuites();
+        }
+
+        @Override
+        public String[] getSupportedCipherSuites() {
+            return delegate.getSupportedCipherSuites();
+        }
+
+        @Override
+        public Socket createSocket(Socket s, String host, int port, boolean autoClose) throws IOException {
+            return patch(delegate.createSocket(s, host, port, autoClose));
+        }
+
+        @Override
+        public Socket createSocket(String host, int port) throws IOException {
+            return patch(delegate.createSocket(host, port));
+        }
+
+        @Override
+        public Socket createSocket(String host, int port, InetAddress localHost, int localPort) throws IOException {
+            return patch(delegate.createSocket(host, port, localHost, localPort));
+        }
+
+        @Override
+        public Socket createSocket(InetAddress host, int port) throws IOException {
+            return patch(delegate.createSocket(host, port));
+        }
+
+        @Override
+        public Socket createSocket(InetAddress address, int port, InetAddress localAddress, int localPort) throws IOException {
+            return patch(delegate.createSocket(address, port, localAddress, localPort));
+        }
+
+        private Socket patch(Socket s) {
+            //代理SSLSocketFactory在创建一个Socket连接的时候，会设置Socket的可用的TLS版本。
+            if (s instanceof SSLSocket) {
+                ((SSLSocket) s).setEnabledProtocols(TLS_SUPPORT_VERSION);
+            }
+            return s;
         }
     }
 }

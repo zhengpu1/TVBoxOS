@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import tv.danmaku.ijk.media.player.IjkLibLoader;
+import xyz.doikki.videoplayer.aliplayer.AliyunMediaPlayerFactory;
 import xyz.doikki.videoplayer.exo.ExoMediaPlayerFactory;
 import xyz.doikki.videoplayer.player.AndroidMediaPlayerFactory;
 import xyz.doikki.videoplayer.player.PlayerFactory;
@@ -31,6 +32,9 @@ import xyz.doikki.videoplayer.render.TextureRenderViewFactory;
 
 public class PlayerHelper {
     public static void updateCfg(VideoView videoView, JSONObject playerCfg) {
+        updateCfg(videoView,playerCfg,-1);
+    }
+    public static void updateCfg(VideoView videoView, JSONObject playerCfg,int forcePlayerType) {
         int playerType = Hawk.get(HawkConfig.PLAY_TYPE, 0);
         int renderType = Hawk.get(HawkConfig.PLAY_RENDER, 0);
         String ijkCode = Hawk.get(HawkConfig.IJK_CODEC, "软解码");
@@ -43,6 +47,7 @@ public class PlayerHelper {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+        if(forcePlayerType>=0)playerType = forcePlayerType;
         IJKCode codec = ApiConfig.get().getIJKCodec(ijkCode);
         PlayerFactory playerFactory;
         if (playerType == 1) {
@@ -68,7 +73,9 @@ public class PlayerHelper {
             }
         } else if (playerType == 2) {
             playerFactory = ExoMediaPlayerFactory.create();
-        } else {
+        } else if (playerType==3){
+            playerFactory = AliyunMediaPlayerFactory.create();
+        }else {
             playerFactory = AndroidMediaPlayerFactory.create();
         }
         RenderViewFactory renderViewFactory = null;
@@ -153,7 +160,7 @@ public class PlayerHelper {
         if (playersInfo.containsKey(playType)) {
             return playersInfo.get(playType);
         } else {
-            return "系统播放器";
+            return "系统";
         }
     }
 
@@ -161,14 +168,15 @@ public class PlayerHelper {
     public static HashMap<Integer, String> getPlayersInfo() {
         if (mPlayersInfo == null) {
             HashMap<Integer, String> playersInfo = new HashMap<>();
-            playersInfo.put(0, "系统播放器");
-            playersInfo.put(1, "IJK播放器");
-            playersInfo.put(2, "Exo播放器");
-            playersInfo.put(10, "MX播放器");
-            playersInfo.put(11, "Reex播放器");
-            playersInfo.put(12, "Kodi播放器");
-            playersInfo.put(13, "附近TVBox");
-            playersInfo.put(14, "VLC播放器");
+            playersInfo.put(0, "系统");
+            playersInfo.put(1, "IJK");
+            playersInfo.put(2, "Exo");
+            playersInfo.put(3, "阿里");
+            playersInfo.put(10, "MX");
+            playersInfo.put(11, "Reex");
+            playersInfo.put(12, "Kodi");
+            playersInfo.put(13, "附近设备");
+            playersInfo.put(14, "VLC");
             mPlayersInfo = playersInfo;
         }
         return mPlayersInfo;
@@ -181,6 +189,7 @@ public class PlayerHelper {
             playersExist.put(0, true);
             playersExist.put(1, true);
             playersExist.put(2, true);
+            playersExist.put(3, true);
             playersExist.put(10, MXPlayer.getPackageInfo() != null);
             playersExist.put(11, ReexPlayer.getPackageInfo() != null);
             playersExist.put(12, Kodi.getPackageInfo() != null);
@@ -251,10 +260,10 @@ public class PlayerHelper {
     }
 
     public static String getScaleName(int screenScaleType) {
-        String scaleText = "默认";
+        String scaleText = "标准";
         switch (screenScaleType) {
             case VideoView.SCREEN_SCALE_DEFAULT:
-                scaleText = "默认";
+                scaleText = "标准";
                 break;
             case VideoView.SCREEN_SCALE_16_9:
                 scaleText = "16:9";

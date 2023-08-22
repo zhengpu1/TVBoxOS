@@ -32,7 +32,6 @@ public class ApiHistoryDialogAdapter extends ListAdapter<String, ApiHistoryDialo
         void del(String value, ArrayList<String> data);
     }
 
-
     private ArrayList<String> data = new ArrayList<>();
 
     private String select = "";
@@ -68,12 +67,12 @@ public class ApiHistoryDialogAdapter extends ListAdapter<String, ApiHistoryDialo
 
 
     @Override
-    public ApiHistoryDialogAdapter.SelectViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
-        return new ApiHistoryDialogAdapter.SelectViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_dialog_api_history, parent, false));
+    public SelectViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
+        return new SelectViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_dialog_api_history, parent, false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull @NotNull ApiHistoryDialogAdapter.SelectViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull @NotNull SelectViewHolder holder, int position) {
         String value = data.get(position);
         String name = value;
         if (select.equals(value))

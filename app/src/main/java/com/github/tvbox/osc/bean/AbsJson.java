@@ -14,7 +14,7 @@ public class AbsJson implements Serializable {
     public int code;    // : 1
     public String limit;    // : "20"
     public ArrayList<AbsJsonVod> list; // : [{vod_id: 71930, type_id: 22, type_id_1: 20, group_id: 0, vod_name: "意式情歌",…},…]
-    public String msg;  // : "数据列表"
+    public String msg;  // : "提示信息"
     public int page;    // : "2"
     public int pagecount;   // : 209
     public int total;   // : 4166
@@ -65,6 +65,7 @@ public class AbsJson implements Serializable {
         public String vod_play_server; //: "no$$$no"
         public String vod_play_url; //: "第01集$https://vod3.buycar5.cn/share/dHsXTOBwbaX4idZb#第02集$https://vod3.buycar5.cn/share/qTlFmVkS3ABl7F4v#第03集$https://vod3.buycar5.cn/share/uNAQVhnro4Xnx4Y1#第04集$https://vod3.buycar5.cn/share/EtGK2XPmuzygMFmE#第05集$https://vod3.buycar5.cn/share/MC1U1bcQrGgVxF6h#第06集$https://vod3.buycar5.cn/share/gEtYSq6IX9KWPykl#第07集$https://vod3.buycar5.cn/share/OEMBq5ujsPaq8Sy7#第08集$https://vod3.buycar5.cn/share/bynmQTMBQwsVHtkn#第09集$https://vod3.buycar5.cn/share/Th7aQDVPOT1p6Cib#第10集$https://vod3.buycar5.cn/share/8AaZzRvh3fFk43Mi#第11集$https://vod3.buycar5.cn/share/YzEk819PQphuqDgL#第12集$https://vod3.buycar5.cn/share/vdAGJhlSg0o1yzcA$$$第01集$https://vod3.buycar5.cn/20210410/iWay2ycC/index.m3u8#第02集$https://vod3.buycar5.cn/20210410/5DpcrSCA/index.m3u8#第03集$https://vod3.buycar5.cn/20210410/wVdGBPgj/index.m3u8#第04集$https://vod3.buycar5.cn/20210410/cUVpM93e/index.m3u8#第05集$https://vod3.buycar5.cn/20210410/NWALmXkH/index.m3u8#第06集$https://vod3.buycar5.cn/20210410/lXZKFL7d/index.m3u8#第07集$https://vod3.buycar5.cn/20210411/3gQEOdxL/index.m3u8#第08集$https://vod3.buycar5.cn/20210411/yMLR7Fsz/index.m3u8#第09集$https://vod3.buycar5.cn/20210411/vMtFz4in/index.m3u8#第10集$https://vod3.buycar5.cn/20210412/EOwKfgwt/index.m3u8#第11集$https://vod3.buycar5.cn/20210412/xRT9FEjR/index.m3u8#第12集$https://vod3.buycar5.cn/20210412/Q6krcXYC/index.m3u8"
         public String vod_plot; //: 0
+        public String vod_list; //: 0
         public String vod_plot_detail; //: ""
         public String vod_plot_name; //: ""
         public String vod_points; //: 0
@@ -111,16 +112,29 @@ public class AbsJson implements Serializable {
             video.last = vod_time;
             video.id = vod_id;
             video.tid = type_id;
+            video.tyid = type_id_1;
             video.name = vod_name;
             video.type = type_name;
             // video.dt = vod_play_from == null ? "" : vod_play_from.replace("$$$", ",");
             video.pic = vod_pic;
+            video.picthumb = vod_pic_thumb;
+            video.picslide = vod_pic_slide;
             video.lang = vod_lang;
             video.area = vod_area;
+            video.weekday = vod_weekday;
+            video.score = vod_score;
+            video.vodlist = vod_list;
+            video.douban = vod_douban_score;
+            video.writer = vod_writer;
             try {
                 video.year = Integer.parseInt(vod_year);
             } catch (Throwable th) {
                 video.year = 0;
+            }
+            try {
+                video.isend = Integer.parseInt(vod_isend);
+            } catch (Throwable th) {
+                video.isend = 0;
             }
             video.state = vod_state;
             video.note = vod_remarks;
@@ -169,6 +183,7 @@ public class AbsJson implements Serializable {
         }
         movie.videoList = videoList;
         xml.movie = movie;
+        xml.msg = msg;
         return xml;
     }
 }

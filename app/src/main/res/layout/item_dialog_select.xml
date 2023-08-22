@@ -12,6 +12,6 @@
     android:gravity="center"
     android:padding="@dimen/vs_10"
     android:text="@{name}"
-    android:textColor="@color/color_FFFFFF"
+    android:textColor="@color/font_deta_color"
     android:textSize="@dimen/ts_22"
     tools:text="11111111111111" />

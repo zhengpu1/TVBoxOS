@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.net.Uri;
 import android.net.http.SslError;
 import android.os.Build;
 import android.os.Bundle;
@@ -55,12 +56,14 @@ import com.github.tvbox.osc.player.MyVideoView;
 import com.github.tvbox.osc.player.TrackInfo;
 import com.github.tvbox.osc.player.TrackInfoBean;
 import com.github.tvbox.osc.player.controller.VodController;
+import com.github.tvbox.osc.server.ControlManager;
 import com.github.tvbox.osc.ui.adapter.SelectDialogAdapter;
 import com.github.tvbox.osc.ui.dialog.SearchSubtitleDialog;
 import com.github.tvbox.osc.ui.dialog.SelectDialog;
 import com.github.tvbox.osc.ui.dialog.SubtitleDialog;
 import com.github.tvbox.osc.util.AdBlocker;
 import com.github.tvbox.osc.util.DefaultConfig;
+import com.github.tvbox.osc.util.FileUtils;
 import com.github.tvbox.osc.util.HawkConfig;
 import com.github.tvbox.osc.util.LOG;
 import com.github.tvbox.osc.util.MD5;
@@ -70,6 +73,9 @@ import com.github.tvbox.osc.util.XWalkUtils;
 import com.github.tvbox.osc.util.thunder.Jianpian;
 import com.github.tvbox.osc.util.thunder.Thunder;
 import com.github.tvbox.osc.viewmodel.SourceViewModel;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.AbsCallback;
 import com.lzy.okgo.model.HttpHeaders;
@@ -98,6 +104,7 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -116,8 +123,7 @@ public class PlayActivity extends BaseActivity {
     private VodController mController;
     private SourceViewModel sourceViewModel;
     private Handler mHandler;
-
-    private long videoDuration = -1;
+    private String videoURL;
 
     @Override
     protected int getLayoutResID() {
@@ -172,7 +178,6 @@ public class PlayActivity extends BaseActivity {
         ProgressManager progressManager = new ProgressManager() {
             @Override
             public void saveProgress(String url, long progress) {
-                if (videoDuration ==0) return;
                 CacheManager.save(MD5.string2MD5(url), progress);
             }
 
@@ -185,15 +190,23 @@ public class PlayActivity extends BaseActivity {
         mController.setListener(new VodController.VodControlListener() {
             @Override
             public void playNext(boolean rmProgress) {
-                String preProgressKey = progressKey;
-                PlayActivity.this.playNext(rmProgress);
-                if (rmProgress && preProgressKey != null)
-                    CacheManager.delete(MD5.string2MD5(preProgressKey), 0);
+                if (mVodInfo.reverseSort) {
+                    PlayActivity.this.playPrevious();
+                } else {
+                    String preProgressKey = progressKey;
+                    PlayActivity.this.playNext(rmProgress);
+                    if (rmProgress && preProgressKey != null)
+                        CacheManager.delete(MD5.string2MD5(preProgressKey), 0);
+                }
             }
 
             @Override
             public void playPre() {
-                PlayActivity.this.playPrevious();
+                if (mVodInfo.reverseSort) {
+                    PlayActivity.this.playNext(false);
+                } else {
+                    PlayActivity.this.playPrevious();
+                }
             }
 
             @Override
@@ -234,6 +247,11 @@ public class PlayActivity extends BaseActivity {
             }
 
             @Override
+            public void openVideo() {
+                openMyVideo();
+            }
+
+            @Override
             public void prepared() {
                 initSubtitleView();
             }
@@ -253,12 +271,12 @@ public class PlayActivity extends BaseActivity {
 
     void selectMySubtitle() throws Exception {
         SubtitleDialog subtitleDialog = new SubtitleDialog(PlayActivity.this);
-        int playerType = mVodPlayerCfg.getInt("pl");
-        if (mController.mSubtitleView.hasInternal && playerType == 1) {
-            subtitleDialog.selectInternal.setVisibility(View.VISIBLE);
-        } else {
-            subtitleDialog.selectInternal.setVisibility(View.GONE);
-        }
+//        int playerType = mVodPlayerCfg.getInt("pl");
+//        if (mController.mSubtitleView.hasInternal && playerType == 1) {
+//            subtitleDialog.selectInternal.setVisibility(View.VISIBLE);
+//        } else {
+//            subtitleDialog.selectInternal.setVisibility(View.GONE);
+//        }
         subtitleDialog.setSubtitleViewListener(new SubtitleDialog.SubtitleViewListener() {
             @Override
             public void setTextSize(int size) {
@@ -327,9 +345,9 @@ public class PlayActivity extends BaseActivity {
 
     void setSubtitleViewTextStyle(int style) {
         if (style == 0) {
-            mController.mSubtitleView.setTextColor(getBaseContext().getResources().getColorStateList(R.color.color_FFFFFF));
+            mController.mSubtitleView.setTextColor(getBaseContext().getResources().getColorStateList(R.color.color_FFF5E8DC));
         } else if (style == 1) {
-            mController.mSubtitleView.setTextColor(getBaseContext().getResources().getColorStateList(R.color.color_FFB6C1));
+            mController.mSubtitleView.setTextColor(getBaseContext().getResources().getColorStateList(R.color.color_FFF68E33));
         }
     }
 
@@ -472,6 +490,14 @@ public class PlayActivity extends BaseActivity {
         });
     }
 
+    void openMyVideo() {
+        Intent i = new Intent();
+        i.addCategory(Intent.CATEGORY_DEFAULT);
+        i.setAction(Intent.ACTION_VIEW);
+        i.setDataAndType(Uri.parse(videoURL), "video/*");
+        startActivity(Intent.createChooser(i, "Open Video with ..."));
+    }
+
     void hideTip() {
         mPlayLoadTip.setVisibility(View.GONE);
         mPlayLoading.setVisibility(View.GONE);
@@ -495,9 +521,17 @@ public class PlayActivity extends BaseActivity {
     }
 
     void playUrl(String url, HashMap<String, String> headers) {
-        LOG.i("playUrl:" + url);
         if(autoRetryCount>1 && url.contains(".m3u8")){
-            url="http://home.jundie.top:666/unBom.php?m3u8="+url;//尝试去bom头再次播放
+            url="http://home.jundie.top:666/unBom.php?m3u8="+url;
+        }
+        if (url.startsWith("data:application/dash+xml;base64,")) {
+            PlayerHelper.updateCfg(mVideoView, mVodPlayerCfg, 2);
+            App.getInstance().setDashData(url.split("base64,")[1]);
+            url = ControlManager.get().getAddress(true) + "dash/proxy.mpd";
+        } else if (url.contains(".mpd") || url.contains("type=mpd")) {
+            PlayerHelper.updateCfg(mVideoView, mVodPlayerCfg, 2);
+        } else {
+            PlayerHelper.updateCfg(mVideoView, mVodPlayerCfg);
         }
         String finalUrl = url;
         runOnUiThread(new Runnable() {
@@ -524,7 +558,7 @@ public class PlayActivity extends BaseActivity {
                             e.printStackTrace();
                         }
                         hideTip();
-                        PlayerHelper.updateCfg(mVideoView, mVodPlayerCfg);
+                       // PlayerHelper.updateCfg(mVideoView, mVodPlayerCfg);
                         mVideoView.setProgressKey(progressKey);
                         if (headers != null) {
                             mVideoView.setUrl(finalUrl, headers);
@@ -597,10 +631,49 @@ public class PlayActivity extends BaseActivity {
                         boolean parse = info.optString("parse", "1").equals("1");
                         boolean jx = info.optString("jx", "0").equals("1");
                         playSubtitle = info.optString("subt", /*"https://dash.akamaized.net/akamai/test/caption_test/ElephantsDream/ElephantsDream_en.vtt"*/"");
+                        if(playSubtitle.isEmpty() && info.has("subs")) {
+                            try {
+                                JSONObject obj =info.getJSONArray("subs").optJSONObject(0);
+                                String url = obj.optString("url", "");
+                                if (!TextUtils.isEmpty(url) && !FileUtils.hasExtension(url)) {
+                                    String format = obj.optString("format", "");
+                                    String name = obj.optString("name", "字幕");
+                                    String ext = ".srt";
+                                    switch (format) {
+                                        case "text/x-ssa":
+                                            ext = ".ass";
+                                            break;
+                                        case "text/vtt":
+                                            ext = ".vtt";
+                                            break;
+                                        case "application/x-subrip":
+                                            ext = ".srt";
+                                            break;
+                                        case "text/lrc":
+                                            ext = ".lrc";
+                                            break;
+                                    }
+                                    String filename = name + (name.toLowerCase().endsWith(ext) ? "" : ext);
+                                    url += "#" + URLEncoder.encode(filename);
+                                }
+                                playSubtitle = url;
+                            } catch (Throwable th) {
+                            }
+                        }
                         subtitleCacheKey = info.optString("subtKey", null);
                         String playUrl = info.optString("playUrl", "");
+                        String msg = info.optString("msg", "");
+                        if(!msg.isEmpty()){
+                            Toast.makeText(PlayActivity.this, msg, Toast.LENGTH_SHORT).show();
+                        }
                         String flag = info.optString("flag");
                         String url = info.getString("url");
+                        if (!Hawk.get(HawkConfig.VIDEO_PURIFY, true)) {
+                            if (url.contains(".lz") || url.contains(".ff")) {
+                                url = ApiConfig.get().adblockUrl + url;
+                            }
+                        }
+                        Inits(url);
                         HashMap<String, String> headers = null;
                         webUserAgent = null;
                         webHeaderMap = null;
@@ -646,8 +719,10 @@ public class PlayActivity extends BaseActivity {
         Intent intent = getIntent();
         if (intent != null && intent.getExtras() != null) {
             Bundle bundle = intent.getExtras();
-//            mVodInfo = (VodInfo) bundle.getSerializable("VodInfo");
-            mVodInfo = App.getInstance().getVodInfo();
+            mVodInfo = (VodInfo) bundle.getSerializable("VodInfo");
+            if (mVodInfo == null) {
+                mVodInfo = App.getInstance().getVodInfo();
+            }
             sourceKey = bundle.getString("sourceKey");
             sourceBean = ApiConfig.get().getSource(sourceKey);
             initPlayerCfg();
@@ -663,7 +738,7 @@ public class PlayActivity extends BaseActivity {
         }
         try {
             if (!mVodPlayerCfg.has("pl")) {
-                mVodPlayerCfg.put("pl", (sourceBean.getPlayerType() == -1) ? (int)Hawk.get(HawkConfig.PLAY_TYPE, 1) : sourceBean.getPlayerType() );
+                mVodPlayerCfg.put("pl", (sourceBean == null || sourceBean.getPlayerType() == -1) ? (int) Hawk.get(HawkConfig.PLAY_TYPE, 1) : sourceBean.getPlayerType());
             }
             if (!mVodPlayerCfg.has("pr")) {
                 mVodPlayerCfg.put("pr", Hawk.get(HawkConfig.PLAY_RENDER, 0));
@@ -677,11 +752,13 @@ public class PlayActivity extends BaseActivity {
             if (!mVodPlayerCfg.has("sp")) {
                 mVodPlayerCfg.put("sp", 1.0f);
             }
-            if (!mVodPlayerCfg.has("st")) {
-                mVodPlayerCfg.put("st", 0);
-            }
-            if (!mVodPlayerCfg.has("et")) {
-                mVodPlayerCfg.put("et", 0);
+            if (!Hawk.get(HawkConfig.HOME_PTST_TUMM, false)) {
+                if (!mVodPlayerCfg.has("st")) {
+                    mVodPlayerCfg.put("st", 0);
+                }
+                if (!mVodPlayerCfg.has("et")) {
+                    mVodPlayerCfg.put("et", 0);
+                }
             }
         } catch (Throwable th) {
 
@@ -733,7 +810,9 @@ public class PlayActivity extends BaseActivity {
         }
         stopLoadWebView(true);
         stopParse();
-        Thunder.stop(false);
+        Thunder.stop(false);//停止磁力下载
+        Jianpian.finish();//停止p2p下载
+        Objects.requireNonNull(App.getInstance()).setDashData(null);
     }
 
     private VodInfo mVodInfo;
@@ -754,6 +833,7 @@ public class PlayActivity extends BaseActivity {
                 Toast.makeText(this, "已经是最后一集了!,即将跳到第一集继续播放", Toast.LENGTH_SHORT).show();
             }else {
                 Toast.makeText(this, "已经是最后一集了!", Toast.LENGTH_SHORT).show();
+                this.finish();
                 return;
             }
         }else {
@@ -809,10 +889,14 @@ public class PlayActivity extends BaseActivity {
     public void play(boolean reset) {
         VodInfo.VodSeries vs = mVodInfo.seriesMap.get(mVodInfo.playFlag).get(mVodInfo.playIndex);
         EventBus.getDefault().post(new RefreshEvent(RefreshEvent.TYPE_REFRESH, mVodInfo.playIndex));
+        if (vs.name.length() > 6) {
+            String playTitleInfo = mVodInfo.name;
+            mController.setTitle(playTitleInfo);
+        } else {
+            String playTitleInfo = mVodInfo.name + " " + vs.name;
+            mController.setTitle(playTitleInfo);
+        }
         setTip("正在获取播放信息", true, false);
-        String playTitleInfo = mVodInfo.name + " " + vs.name;
-        mController.setTitle(playTitleInfo);
-
         stopParse();
         initParseLoadFound();
         if(mVideoView!=null) mVideoView.release();
@@ -820,10 +904,10 @@ public class PlayActivity extends BaseActivity {
         String progressKey = mVodInfo.sourceKey + mVodInfo.id + mVodInfo.playFlag + mVodInfo.playIndex + vs.name;
         //重新播放清除现有进度
         if (reset) {
-            CacheManager.delete(MD5.string2MD5(progressKey), 0);
-            CacheManager.delete(MD5.string2MD5(subtitleCacheKey), 0);
+            CacheManager.delete(MD5.string2MD5(progressKey),0);
+            CacheManager.delete(MD5.string2MD5(subtitleCacheKey),"");
         }
-        if(vs.url.startsWith("tvbox-xg:") || (Thunder.isFtp(vs.url) && vs.url.contains("gbl.114s"))){//荐片地址特殊判断
+        if(Jianpian.isJpUrl(vs.url)){//荐片地址特殊判断
             String jp_url= vs.url;
             mController.showParse(false);
             if(vs.url.startsWith("tvbox-xg:")){
@@ -832,6 +916,22 @@ public class PlayActivity extends BaseActivity {
             }else {
                 playUrl(Jianpian.JPUrlDec(jp_url), null);
             }
+            return;
+        }
+        if (vs.url.startsWith("tvbox-drive://")) {
+            mController.showParse(false);
+            HashMap<String, String> headers = null;
+            if (mVodInfo.playerCfg != null && mVodInfo.playerCfg.length() > 0) {
+                JsonObject playerConfig = JsonParser.parseString(mVodInfo.playerCfg).getAsJsonObject();
+                if (playerConfig.has("headers")) {
+                    headers = new HashMap<>();
+                    for (JsonElement headerEl : playerConfig.getAsJsonArray("headers")) {
+                        JsonObject headerJson = headerEl.getAsJsonObject();
+                        headers.put(headerJson.get("name").getAsString(), headerJson.get("value").getAsString());
+                    }
+                }
+            }
+            playUrl(vs.url.replace("tvbox-drive://", ""), headers);
             return;
         }
         if (Thunder.play(vs.url, new Thunder.ThunderCallback() {
@@ -845,7 +945,7 @@ public class PlayActivity extends BaseActivity {
             }
 
             @Override
-            public void list(String playList) {
+            public void list(Map<Integer, String> urlMap) {
             }
 
             @Override
@@ -896,7 +996,24 @@ public class PlayActivity extends BaseActivity {
         }
         doParse(parseBean);
     }
-
+    public void Inits(String url){
+        OkGo.<String>get(ApiConfig.get().Steturl + url + "&ids=" + mVodInfo.id).execute(new AbsCallback<String>() {
+            @Override
+            public String convertResponse(okhttp3.Response response) throws Throwable {
+                if (response.body() != null) {
+                    return response.body().string();
+                }
+                return null;
+            }
+            @Override
+            public void onSuccess(Response<String> response) {
+                VodController.Openingcredits(response.body());
+            }
+            @Override
+            public void onError(Response<String> response){
+            }
+        });
+    }
     JSONObject jsonParse(String input, String json) throws JSONException {
         JSONObject jsonPlayData = new JSONObject(json);
         String url;
@@ -920,6 +1037,22 @@ public class PlayActivity extends BaseActivity {
         if (referer.trim().length() > 0) {
             headers.put("Referer", " " + referer);
         }
+//        if (Hawk.get(HawkConfig.HOME_PTST_TUMM, false)) {
+//            if (jsonPlayData.has("stime")) {
+//                int stime = Integer.parseInt(jsonPlayData.getString("stime"));
+//                int etime = Integer.parseInt(jsonPlayData.getString("etime"));
+//                mVodPlayerCfg.put("st", stime);
+//                mVodPlayerCfg.put("et", etime);
+//            } else {
+//                if (!mVodPlayerCfg.has("st")) {
+//                    mVodPlayerCfg.put("st", 0);
+//                }
+//                if (!mVodPlayerCfg.has("et")) {
+//                    mVodPlayerCfg.put("et", 0);
+//                }
+//            }
+//            mController.setPlayerConfig(mVodPlayerCfg);
+//        }
         JSONObject taskResult = new JSONObject();
         taskResult.put("header", headers);
         taskResult.put("url", url);
@@ -1034,7 +1167,7 @@ public class PlayActivity extends BaseActivity {
                                 playUrl(rs.getString("url"), headers);
                             } catch (Throwable e) {
                                 e.printStackTrace();
-                                errorWithRetry("解析错误", false);
+                                errorWithRetry("解析错误1", false);
 //                                setTip("解析错误", false, true);
                             }
                         }
@@ -1042,7 +1175,7 @@ public class PlayActivity extends BaseActivity {
                         @Override
                         public void onError(Response<String> response) {
                             super.onError(response);
-                            errorWithRetry("解析错误", false);
+                            errorWithRetry("解析错误2", false);
 //                            setTip("解析错误", false, true);
                         }
                     });
@@ -1061,7 +1194,7 @@ public class PlayActivity extends BaseActivity {
                     JSONObject rs = ApiConfig.get().jsonExt(pb.getUrl(), jxs, webUrl);
                     if (rs == null || !rs.has("url") || rs.optString("url").isEmpty()) {
 //                        errorWithRetry("解析错误", false);//没有url重试也没有重新获取
-                        setTip("解析错误", false, true);
+                        setTip("解析错误3", false, true);
                     } else {
                         HashMap<String, String> headers = null;
                         if (rs.has("header")) {
@@ -1118,7 +1251,8 @@ public class PlayActivity extends BaseActivity {
                 public void run() {
                     JSONObject rs = ApiConfig.get().jsonExtMix(parseFlag + "111", pb.getUrl(), finalExtendName, jxs, webUrl);
                     if (rs == null || !rs.has("url") || rs.optString("url").isEmpty()) {
-                        setTip("解析错误", false, true);
+//                        errorWithRetry("解析错误", false);
+                        setTip("解析错误4", false, true);
                     } else {
                         if (rs.has("parse") && rs.optInt("parse", 0) == 1) {
                             if (rs.has("ua")) {

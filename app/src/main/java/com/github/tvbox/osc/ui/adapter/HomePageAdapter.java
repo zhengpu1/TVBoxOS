@@ -5,6 +5,7 @@ import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.github.tvbox.osc.base.BaseLazyFragment;
 
@@ -31,6 +32,19 @@ public class HomePageAdapter extends FragmentPagerAdapter {
 
     public void clear() {
         list.clear();
+        notifyDataSetChanged();
+    }
+    public void setFragments(List<BaseLazyFragment> fragments) {
+        if (list != null) {
+            FragmentTransaction ft = fragmentManager.beginTransaction();
+            for (Fragment f : this.list) {
+                ft.remove(f);
+            }
+            ft.commit();
+            ft = null;
+            fragmentManager.executePendingTransactions();
+        }
+        this.list = fragments;
         notifyDataSetChanged();
     }
 

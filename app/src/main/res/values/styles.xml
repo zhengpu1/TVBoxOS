@@ -2,9 +2,9 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/color_6200EE</item>
-        <item name="colorPrimaryDark">@color/color_3700B3</item>
-        <item name="colorAccent">@color/color_03DAC5</item>
+        <item name="colorPrimary">#353639</item>
+        <item name="colorPrimaryDark">#068FCC</item>
+        <item name="colorAccent">#F5E8DC</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -18,6 +18,99 @@
         <!--        <item name="android:windowBackground">@drawable/main_bg</item>-->
         <item name="android:windowBackground">@android:color/transparent</item>
     </style>
+    <!-- Alternative Themes -->
+    <style name="NetfxTheme" parent="AppTheme.NoActionBar">
+        <item name="color_theme">#F80505</item>
+        <item name="color_theme_95">#F21E0102</item>
+        <item name="color_theme_90">#E61E0102</item>
+        <item name="color_theme_80">#CCD81F26</item>
+        <item name="color_theme_70">#B37E1217</item>
+        <item name="color_theme_60">#99751317</item>
+        <item name="color_theme_50">#80371B1C</item>
+        <item name="color_theme_40">#66D81F26</item>
+        <item name="color_theme_20">#66423030</item>
+        <item name="color_theme_dark_70">#F2011620</item>
+        <item name="color_theme_h">#F8C99E</item>
+    </style>
+    <style name="PepsiTheme" parent="AppTheme.NoActionBar">
+        <item name="color_theme">#04A1FD</item>
+        <item name="color_theme_95">#F2010D19</item>
+        <item name="color_theme_90">#E602101E</item>
+        <item name="color_theme_80">#CC004B93</item>
+        <item name="color_theme_70">#B3153B60</item>
+        <item name="color_theme_60">#99123F6A</item>
+        <item name="color_theme_50">#801E2D3C</item>
+        <item name="color_theme_40">#4D204D78</item>
+        <item name="color_theme_20">#662D3740</item>
+        <item name="color_theme_dark_70">#F23B0345</item>
+        <item name="color_theme_h">#34B0FA</item>
+    </style>
+    <style name="DoraeTheme" parent="AppTheme.NoActionBar">
+        <item name="color_theme">#05F8DA</item>
+        <item name="color_theme_95">#F2011C19</item>
+        <item name="color_theme_90">#E60D1701</item>
+        <item name="color_theme_80">#CC018C7B</item>
+        <item name="color_theme_70">#B300695C</item>
+        <item name="color_theme_60">#99018E7C</item>
+        <item name="color_theme_50">#80B8740E</item>
+        <item name="color_theme_40">#6607433C</item>
+        <item name="color_theme_20">#3333260D</item>
+        <item name="color_theme_dark_70">#3324534D</item>
+        <item name="color_theme_h">#03FDDE</item>
+    </style>
+    <style name="NarutoTheme" parent="AppTheme.NoActionBar">
+        <item name="color_theme">#F88D03</item>
+        <item name="color_theme_95">#F2230B02</item>
+        <item name="color_theme_90">#E6220C02</item>
+        <item name="color_theme_80">#CCFF7439</item>
+        <item name="color_theme_70">#B38C3D1C</item>
+        <item name="color_theme_60">#99FF7439</item>
+        <item name="color_theme_50">#80492F25</item>
+        <item name="color_theme_40">#663C261C</item>
+        <item name="color_theme_20">#33332520</item>
+        <item name="color_theme_dark_70">#F23E0303</item>
+        <item name="color_theme_h">#F8BB88</item>
+    </style>
+    <style name="SakuraTheme" parent="AppTheme.NoActionBar">
+        <item name="color_theme">#ffff6600</item>
+        <item name="color_theme_95">#F2292626</item>
+        <item name="color_theme_90">#E6181819</item>
+        <item name="color_theme_80">#14E7EEFA</item>
+        <item name="color_theme_70">#26EFF0F3</item>
+        <item name="color_theme_60">#0FE9EFF8</item>
+        <item name="color_theme_50">#0DE9EFFA</item>
+        <item name="color_theme_40">#26E6E9F1</item>
+        <item name="color_theme_20">#14DBE5F4</item>
+        <item name="color_theme_dark_70">#F2151414</item>
+        <item name="color_theme_h">#80EFF0F3</item>
+    </style>
+    <style name="YagamiTheme" parent="AppTheme.NoActionBar">
+        <item name="color_theme">#A475FB</item>
+        <item name="color_theme_95">#F2191227</item>
+        <item name="color_theme_90">#E61B0109</item>
+        <item name="color_theme_80">#CC916AD8</item>
+        <item name="color_theme_70">#B34B3575</item>
+        <item name="color_theme_60">#99593F87</item>
+        <item name="color_theme_50">#803D2E59</item>
+        <item name="color_theme_40">#66312447</item>
+        <item name="color_theme_20">#33272035</item>
+        <item name="color_theme_dark_70">#022847</item>
+        <item name="color_theme_h">#BCA9F8</item>
+    </style>
+    <style name="MinionTheme" parent="AppTheme.NoActionBar">
+        <item name="color_theme">#FB056F</item>
+        <item name="color_theme_95">#F217010F</item>
+        <item name="color_theme_90">#E61B0212</item>
+        <item name="color_theme_80">#CCFB2DB4</item>
+        <item name="color_theme_70">#B3911967</item>
+        <item name="color_theme_60">#996A124C</item>
+        <item name="color_theme_50">#80432238</item>
+        <item name="color_theme_40">#66391B2E</item>
+        <item name="color_theme_20">#3332202B</item>
+        <item name="color_theme_dark_70">#F2452B03</item>
+        <item name="color_theme_h">#F8A3C8</item>
+    </style>
+
     <!-- 自定义dialog样式 -->
     <style name="CustomDialogStyle" parent="@android:style/Theme.Dialog">
         <item name="android:windowBackground">@android:color/transparent</item>
@@ -29,6 +122,19 @@
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowFullscreen">true</item>
     </style>
+
+    <style name="video_vertical_progressBar">
+        <item name="android:maxWidth">12dp</item>
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:indeterminateDrawable">
+            @android:drawable/progress_indeterminate_horizontal
+        </item>
+        <item name="android:progressDrawable">@drawable/play_progress_vertical</item>
+        <item name="android:indeterminateDuration">3500</item>
+        <item name="android:indeterminateBehavior">repeat</item>
+        <item name="android:minWidth">1dp</item>
+    </style>
+
     <style name="CustomDialogStyleDim" parent="@android:style/Theme.Dialog">
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowContentOverlay">@null</item>
@@ -38,6 +144,19 @@
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <!-- Mini Progress Bar -->
+    <style name="video_horizontal_progressBar">
+        <item name="android:maxWidth">12dp</item>
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:indeterminateDrawable">
+            @android:drawable/progress_indeterminate_horizontal
+        </item>
+        <item name="android:progressDrawable">@drawable/play_progress_horizontal</item>
+        <item name="android:indeterminateDuration">3500</item>
+        <item name="android:indeterminateBehavior">repeat</item>
+        <item name="android:minWidth">1dp</item>
     </style>
 
     <style name="epg_window_btn">
@@ -51,4 +170,14 @@
         <item name="android:drawablePadding">10.0dip</item>
         <item name="android:radius">10dp</item>
     </style>
+    <declare-styleable name="DrawableTextView">
+        <attr name="leftDrawableWidth" format="dimension" />
+        <attr name="leftDrawableHeight" format="dimension" />
+        <attr name="rightDrawableWidth" format="dimension" />
+        <attr name="rightDrawableHeight" format="dimension" />
+        <attr name="topDrawableWidth" format="dimension" />
+        <attr name="topDrawableHeight" format="dimension" />
+        <attr name="bottomDrawableWidth" format="dimension" />
+        <attr name="bottomDrawableHeight" format="dimension" />
+    </declare-styleable>
 </resources>

@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="ts_12">12mm</dimen>
     <dimen name="ts_16">16mm</dimen>
+    <dimen name="ts_17">17mm</dimen>
+    <dimen name="ts_18">18mm</dimen>
     <dimen name="ts_20">20mm</dimen>
     <dimen name="ts_22">22mm</dimen>
     <dimen name="ts_24">24mm</dimen>
@@ -35,15 +38,20 @@
     <dimen name="vs_10">10mm</dimen>
     <dimen name="vs_12">12mm</dimen>
     <dimen name="vs_15">15mm</dimen>
+    <dimen name="vs_16">16mm</dimen>
+    <dimen name="vs_18">18mm</dimen>
     <dimen name="vs_20">20mm</dimen>
     <dimen name="vs_24">24mm</dimen>
+    <dimen name="vs_25">25mm</dimen>
     <dimen name="vs_28">28mm</dimen>
     <dimen name="vs_30">30mm</dimen>
+    <dimen name="vs_33">34mm</dimen>
     <dimen name="vs_35">35mm</dimen>
     <dimen name="vs_40">40mm</dimen>
     <dimen name="vs_45">45mm</dimen>
     <dimen name="vs_48">48mm</dimen>
     <dimen name="vs_50">50mm</dimen>
+    <dimen name="vs_55">55mm</dimen>
     <dimen name="vs_60">60mm</dimen>
     <dimen name="vs_70">70mm</dimen>
     <dimen name="vs_76">76mm</dimen>
@@ -51,10 +59,14 @@
     <dimen name="vs_90">90mm</dimen>
     <dimen name="vs_100">100mm</dimen>
     <dimen name="vs_108">108mm</dimen>
+    <dimen name="vs_118">116mm</dimen>
+    <dimen name="vs_105">102mm</dimen>
     <dimen name="vs_120">120mm</dimen>
     <dimen name="vs_128">128mm</dimen>
     <dimen name="vs_130">130mm</dimen>
+    <dimen name="vs_135">135mm</dimen>
     <dimen name="vs_140">140mm</dimen>
+    <dimen name="vs_145">145mm</dimen>
     <dimen name="vs_150">150mm</dimen>
     <dimen name="vs_160">160mm</dimen>
     <dimen name="vs_162">162mm</dimen>
@@ -63,6 +75,7 @@
     <dimen name="vs_180">180mm</dimen>
     <dimen name="vs_190">190mm</dimen>
     <dimen name="vs_200">200mm</dimen>
+    <dimen name="vs_210">210mm</dimen>
     <dimen name="vs_214">214mm</dimen>
     <dimen name="vs_220">220mm</dimen>
     <dimen name="vs_230">230mm</dimen>
@@ -70,8 +83,14 @@
     <dimen name="vs_250">250mm</dimen>
     <dimen name="vs_270">270mm</dimen>
     <dimen name="vs_280">280mm</dimen>
+    <dimen name="vs_290">290mm</dimen>
+    <dimen name="vs_291">296mm</dimen>
+    <dimen name="vs_299">299mm</dimen>
     <dimen name="vs_300">300mm</dimen>
+    <dimen name="vs_301">306mm</dimen>
+    <dimen name="vs_310">310mm</dimen>
     <dimen name="vs_320">320mm</dimen>
+    <dimen name="vs_330">330mm</dimen>
     <dimen name="vs_340">340mm</dimen>
     <dimen name="vs_360">360mm</dimen>
     <dimen name="vs_390">390mm</dimen>
@@ -79,8 +98,11 @@
     <dimen name="vs_420">420mm</dimen>
     <dimen name="vs_440">440mm</dimen>
     <dimen name="vs_410">410mm</dimen>
+    <dimen name="vs_460">460mm</dimen>
     <dimen name="vs_470">470mm</dimen>
     <dimen name="vs_480">480mm</dimen>
+    <dimen name="vs_530">530mm</dimen>
+    <dimen name="vs_580">570mm</dimen>
     <dimen name="vs_600">600mm</dimen>
     <dimen name="vs_610">610mm</dimen>
     <dimen name="vs_640">640mm</dimen>

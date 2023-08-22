@@ -1,10 +1,13 @@
 package com.github.tvbox.osc.ui.dialog;
 
+import static com.github.tvbox.osc.base.BaseActivity.drawableConstraintLayout;
+
 import android.content.Context;
 import android.os.Bundle;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.github.tvbox.osc.R;
 import com.github.tvbox.osc.ui.adapter.ApiHistoryDialogAdapter;
@@ -23,6 +26,9 @@ public class ApiHistoryDialog extends BaseDialog {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ConstraintLayout dongbg = findViewById(R.id.dongbga);
+        ConstraintLayout[] str = {dongbg};
+        drawableConstraintLayout(str,4);
     }
 
     public void setTip(String tip) {

@@ -1,13 +1,15 @@
 package com.github.tvbox.osc.ui.adapter;
 
 
+import static com.github.tvbox.osc.base.BaseActivity.drawableTextView;
+
 import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
@@ -16,7 +18,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.github.tvbox.osc.R;
 import com.github.tvbox.osc.bean.SourceBean;
-import com.github.tvbox.osc.util.LOG;
 import com.github.tvbox.osc.util.SearchHelper;
 
 import org.jetbrains.annotations.NotNull;
@@ -31,6 +32,7 @@ public class CheckboxSearchAdapter extends ListAdapter<SourceBean, CheckboxSearc
         super(diffCallback);
     }
 
+    @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
         return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_dialog_checkbox_search, parent, false));
@@ -52,8 +54,8 @@ public class CheckboxSearchAdapter extends ListAdapter<SourceBean, CheckboxSearc
     }
 
     public void setMCheckedSources() {
-//        LOG.i(data.size()+"size----size"+mCheckedSources.size());
-        SearchHelper.putCheckedSources(mCheckedSources,data.size()==mCheckedSources.size());
+        if (mCheckedSources != null)
+            SearchHelper.putCheckedSources(mCheckedSources, data.size() == mCheckedSources.size());
     }
 
     @Override
@@ -82,6 +84,8 @@ public class CheckboxSearchAdapter extends ListAdapter<SourceBean, CheckboxSearc
                 notifyItemChanged(pos);
             }
         });
+        TextView[] str = {holder.oneSearchSource};
+        drawableTextView(str, 1);
 
     }
 

@@ -175,8 +175,7 @@
             android:layout_height="120mm"
             android:layout_gravity="center"
             android:focusable="false"
-            android:focusableInTouchMode="false"
-            android:src="@drawable/icon_play" />
+            android:focusableInTouchMode="false" />
 
         <TextView
             android:id="@+id/tv_pause_progress_text"

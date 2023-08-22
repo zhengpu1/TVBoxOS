@@ -17,14 +17,16 @@
         android:layout_marginRight="@dimen/vs_10"
         android:gravity="center"
         android:textAlignment="gravity"
-        android:textColor="@color/color_FFFFFF"
-        android:textSize="@dimen/ts_24"
+        android:textColor="@color/color_theme_h"
+        android:textSize="@dimen/ts_22"
         tools:text="11111111111" />
 
     <com.owen.tvrecyclerview.widget.TvRecyclerView
         android:id="@+id/mFilterKv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/vs_5"
+        android:layout_marginBottom="@dimen/vs_5"
         android:clipChildren="false"
         android:clipToPadding="false"
         app:tv_horizontalSpacingWithMargins="@dimen/vs_5"

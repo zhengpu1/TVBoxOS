@@ -1,13 +1,16 @@
 package com.github.tvbox.osc.ui.dialog;
 
+import static com.github.tvbox.osc.base.BaseActivity.drawableLinearLayout;
+import static com.github.tvbox.osc.base.BaseActivity.drawableTextView;
+
 import android.app.Activity;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.DiffUtil;
 
 import com.github.tvbox.osc.R;
@@ -16,7 +19,6 @@ import com.github.tvbox.osc.ui.adapter.CheckboxSearchAdapter;
 import com.github.tvbox.osc.util.FastClickCheckUtil;
 import com.owen.tvrecyclerview.widget.TvRecyclerView;
 import com.owen.tvrecyclerview.widget.V7GridLayoutManager;
-import com.owen.tvrecyclerview.widget.V7LinearLayoutManager;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -25,13 +27,14 @@ import java.util.List;
 
 import me.jessyan.autosize.utils.AutoSizeUtils;
 
-public class SearchCheckboxDialog extends BaseDialog{
+public class SearchCheckboxDialog extends BaseDialog {
 
     private TvRecyclerView mGridView;
     private CheckboxSearchAdapter checkboxSearchAdapter;
     private final List<SourceBean> mSourceList;
     TextView checkAll;
     TextView clearAll;
+    LinearLayout root;
 
     public HashMap<String, String> mCheckSourcees;
 
@@ -46,6 +49,10 @@ public class SearchCheckboxDialog extends BaseDialog{
         mCheckSourcees = checkedSources;
         setContentView(R.layout.dialog_checkbox_search);
         initView(context);
+        LinearLayout[] strl = {root};
+        drawableLinearLayout(strl, 4);
+        TextView[] str = {checkAll, clearAll};
+        drawableTextView(str, 1);
     }
 
     @Override
@@ -58,6 +65,7 @@ public class SearchCheckboxDialog extends BaseDialog{
         mGridView = findViewById(R.id.mGridView);
         checkAll = findViewById(R.id.checkAll);
         clearAll = findViewById(R.id.clearAll);
+        root = findViewById(R.id.root);
         checkboxSearchAdapter = new CheckboxSearchAdapter(new DiffUtil.ItemCallback<SourceBean>() {
             @Override
             public boolean areItemsTheSame(@NonNull SourceBean oldItem, @NonNull SourceBean newItem) {
@@ -71,20 +79,21 @@ public class SearchCheckboxDialog extends BaseDialog{
         });
         mGridView.setHasFixedSize(true);
 
+        // Multi Column Selection
         int size = mSourceList.size();
         int spanCount = (int) Math.floor(size / 10);
-        if (spanCount <= 0) spanCount = 1;
-        if (spanCount > 3) spanCount = 3;
+        if (spanCount <= 1) spanCount = 2;
+        if (spanCount >= 3) spanCount = 3;
         mGridView.setLayoutManager(new V7GridLayoutManager(getContext(), spanCount));
         View root = findViewById(R.id.root);
         ViewGroup.LayoutParams clp = root.getLayoutParams();
-        clp.width = AutoSizeUtils.mm2px(getContext(), 400 + 260 * (spanCount - 1));
+        clp.width = AutoSizeUtils.mm2px(getContext(), 300 + 160 * (spanCount - 1));
 
         mGridView.setAdapter(checkboxSearchAdapter);
         checkboxSearchAdapter.setData(mSourceList, mCheckSourcees);
         int pos = 0;
         if (mSourceList != null && mCheckSourcees != null) {
-            for(int i=0; i<mSourceList.size(); i++) {
+            for (int i = 0; i < mSourceList.size(); i++) {
                 String key = mSourceList.get(i).getKey();
                 if (mCheckSourcees.containsKey(key)) {
                     pos = i;
@@ -105,7 +114,7 @@ public class SearchCheckboxDialog extends BaseDialog{
                 FastClickCheckUtil.check(view);
                 mCheckSourcees = new HashMap<>();
                 assert mSourceList != null;
-                for(SourceBean sourceBean : mSourceList) {
+                for (SourceBean sourceBean : mSourceList) {
                     mCheckSourcees.put(sourceBean.getKey(), "1");
                 }
                 checkboxSearchAdapter.setData(mSourceList, mCheckSourcees);

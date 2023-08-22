@@ -3,6 +3,7 @@ package com.github.tvbox.osc.ui.dialog;
 import android.app.Activity;
 import android.content.Context;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,12 +20,12 @@ public class SubtitleDialog extends BaseDialog {
     public TextView selectInternal;
     private TextView selectLocal;
     private TextView selectRemote;
-    private TextView subtitleSizeMinus;
+    private ImageView subtitleSizeMinus;
     private TextView subtitleSizeText;
-    private TextView subtitleSizePlus;
-    private TextView subtitleTimeMinus;
+    private ImageView subtitleSizePlus;
+    private ImageView subtitleTimeMinus;
     private TextView subtitleTimeText;
-    private TextView subtitleTimePlus;
+    private ImageView subtitleTimePlus;
     private TextView subtitleStyleOne;
     private TextView subtitleStyleTwo;
 
@@ -53,6 +54,7 @@ public class SubtitleDialog extends BaseDialog {
         subtitleTimePlus = findViewById(R.id.subtitleTimePlus);
         subtitleStyleOne = findViewById(R.id.subtitleStyleOne);
         subtitleStyleTwo = findViewById(R.id.subtitleStyleTwo);
+
 
         selectLocal.setOnClickListener(new View.OnClickListener() {
             @Override

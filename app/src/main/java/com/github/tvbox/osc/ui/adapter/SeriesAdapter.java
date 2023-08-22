@@ -1,14 +1,22 @@
 package com.github.tvbox.osc.ui.adapter;
 
-import android.graphics.Color;
+import static com.github.tvbox.osc.base.BaseActivity.drawableLinearLayout;
+import static com.github.tvbox.osc.base.BaseActivity.getColorByAttrId;
+
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.github.tvbox.osc.R;
 import com.github.tvbox.osc.bean.VodInfo;
+import com.github.tvbox.osc.util.HawkConfig;
+import com.orhanobut.hawk.Hawk;
 
 import java.util.ArrayList;
+
+import me.jessyan.autosize.utils.AutoSizeUtils;
 
 /**
  * @author pj567
@@ -19,15 +27,27 @@ public class SeriesAdapter extends BaseQuickAdapter<VodInfo.VodSeries, BaseViewH
     public SeriesAdapter() {
         super(R.layout.item_series, new ArrayList<>());
     }
+    private void LParams(LinearLayout RIDD) {
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        params.width = AutoSizeUtils.mm2px(mContext,112);
+        RIDD.setLayoutParams(params);
+    }
 
     @Override
     protected void convert(BaseViewHolder helper, VodInfo.VodSeries item) {
         TextView tvSeries = helper.getView(R.id.tvSeries);
-        if (item.selected) {
-            tvSeries.setTextColor(mContext.getResources().getColor(R.color.color_02F8E1));
-        } else {
-            tvSeries.setTextColor(Color.WHITE);
+        LinearLayout tvSeriesa = helper.getView(R.id.tvSeriesdd);
+            if (item.selected) {
+                tvSeries.setTextColor(getColorByAttrId(mContext, R.attr.color_theme));
+            } else {
+                tvSeries.setTextColor(mContext.getResources().getColor(R.color.color_80FFFFFF));
+            }
+        helper.setText(R.id.tvSeries, item.name.replace("-",""));
+        if(Hawk.get(HawkConfig.EPISODE_GROUPING, false)) {
+            LParams(tvSeriesa);
         }
-        helper.setText(R.id.tvSeries, item.name);
+        LinearLayout[] str = {tvSeriesa};
+        drawableLinearLayout(str, 1);
     }
+
 }

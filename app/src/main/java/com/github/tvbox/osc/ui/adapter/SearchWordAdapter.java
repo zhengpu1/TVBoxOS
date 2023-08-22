@@ -1,5 +1,9 @@
 package com.github.tvbox.osc.ui.adapter;
 
+import static com.github.tvbox.osc.base.BaseActivity.drawableTextView;
+
+import android.widget.TextView;
+
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.github.tvbox.osc.R;
@@ -19,5 +23,8 @@ public class SearchWordAdapter extends BaseQuickAdapter<String, BaseViewHolder> 
     @Override
     protected void convert(BaseViewHolder helper, String item) {
         helper.setText(R.id.tvSearchWord, item);
+        TextView tvSeriesa = helper.getView(R.id.tvSearchWord);
+        TextView[] str = {tvSeriesa};
+        drawableTextView(str, 1);
     }
 }

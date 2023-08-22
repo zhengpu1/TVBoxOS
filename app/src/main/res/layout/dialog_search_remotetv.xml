@@ -6,6 +6,7 @@
     android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/remot"
         android:layout_width="@dimen/vs_480"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -20,7 +21,7 @@
             android:padding="@dimen/vs_20"
             android:singleLine="true"
             android:text="11111111"
-            android:textColor="@color/color_CC000000"
+            android:textColor="@color/color_80FFFFFF"
             android:textSize="@dimen/ts_24"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"

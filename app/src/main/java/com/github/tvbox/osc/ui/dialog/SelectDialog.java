@@ -1,10 +1,13 @@
 package com.github.tvbox.osc.ui.dialog;
 
+import static com.github.tvbox.osc.base.BaseActivity.drawableConstraintLayout;
+
 import android.content.Context;
 import android.os.Bundle;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.DiffUtil;
 
 import com.github.tvbox.osc.R;
@@ -16,6 +19,9 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 
 public class SelectDialog<T> extends BaseDialog {
+
+    private boolean muteCheck = false;
+
     public SelectDialog(@NonNull @NotNull Context context) {
         super(context);
         setContentView(R.layout.dialog_select);
@@ -26,9 +32,17 @@ public class SelectDialog<T> extends BaseDialog {
         setContentView(resId);
     }
 
+    public void setItemCheckDisplay(boolean shouldShowCheck) {
+        muteCheck = !shouldShowCheck;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ConstraintLayout dongbg = findViewById(R.id.cl_root);
+        ConstraintLayout[] strkk = { dongbg };
+        drawableConstraintLayout(strkk,4);
+        //setThemes(Objects.requireNonNull(ThemeManager(strkk)),4);
     }
 
     public void setTip(String tip) {
@@ -36,7 +50,7 @@ public class SelectDialog<T> extends BaseDialog {
     }
 
     public void setAdapter(SelectDialogAdapter.SelectDialogInterface<T> sourceBeanSelectDialogInterface, DiffUtil.ItemCallback<T> sourceBeanItemCallback, List<T> data, int select) {
-        SelectDialogAdapter<T> adapter = new SelectDialogAdapter(sourceBeanSelectDialogInterface, sourceBeanItemCallback);
+        SelectDialogAdapter<T> adapter = new SelectDialogAdapter(sourceBeanSelectDialogInterface, sourceBeanItemCallback, muteCheck);
         adapter.setData(data, select);
         TvRecyclerView tvRecyclerView = ((TvRecyclerView) findViewById(R.id.list));
         tvRecyclerView.setAdapter(adapter);

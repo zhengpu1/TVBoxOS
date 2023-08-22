@@ -9,13 +9,31 @@
         android:layout_width="@dimen/vs_420"
         android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:background="@drawable/shape_dialog_pg_search_checkbox"
+        android:padding="@dimen/vs_20"
+        android:background="@drawable/shape_dialog_bg_main"
         android:orientation="vertical">
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:padding="@dimen/vs_5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:text="指定搜索源"
+            android:textColor="@color/font_deta_color"
+            android:textSize="@dimen/ts_26" />
+        </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/check1"
             android:orientation="horizontal"
             android:weightSum="2"
+            android:padding="@dimen/vs_5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
@@ -28,9 +46,9 @@
                 android:background="@drawable/button_dialog_main"
                 android:clickable="true"
                 android:focusable="true"
-                android:padding="@dimen/vs_30"
-                android:textColor="@color/color_FFFFFF"
-                android:textSize="@dimen/ts_26"
+                android:padding="@dimen/vs_5"
+                android:textColor="@color/font_deta_color"
+                android:textSize="@dimen/ts_24"
                 android:text="全选" />
 
             <TextView
@@ -44,10 +62,10 @@
                 android:background="@drawable/button_dialog_main"
                 android:clickable="true"
                 android:focusable="true"
-                android:padding="@dimen/vs_30"
+                android:padding="@dimen/vs_5"
                 android:text="全不选"
-                android:textColor="@color/color_FFFFFF"
-                android:textSize="@dimen/ts_26" />
+                android:textColor="@color/font_deta_color"
+                android:textSize="@dimen/ts_24" />
         </LinearLayout>
 
         <com.owen.tvrecyclerview.widget.TvRecyclerView

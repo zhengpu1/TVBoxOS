@@ -1,10 +1,20 @@
 package com.github.tvbox.osc.player.controller;
 
+import static com.github.tvbox.osc.base.BaseActivity.getColorByAttrId;
+import static xyz.doikki.videoplayer.util.PlayerUtils.stringForTime;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
+import android.content.res.Resources;
+import android.graphics.Rect;
+import android.graphics.drawable.ClipDrawable;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.LayerDrawable;
+import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -15,6 +25,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.OnLifecycleEvent;
 import androidx.recyclerview.widget.DiffUtil;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -25,12 +37,16 @@ import com.github.tvbox.osc.bean.ParseBean;
 import com.github.tvbox.osc.subtitle.widget.SimpleSubtitleView;
 import com.github.tvbox.osc.ui.adapter.ParseAdapter;
 import com.github.tvbox.osc.ui.adapter.SelectDialogAdapter;
-import com.github.tvbox.osc.ui.dialog.SelectDialog;
+import com.github.tvbox.osc.ui.dialog.SelectDialoga;
+import com.github.tvbox.osc.ui.dialog.SpeedPlayDialog;
+import com.github.tvbox.osc.ui.view.ChoosePlayPopUp;
 import com.github.tvbox.osc.util.FastClickCheckUtil;
 import com.github.tvbox.osc.util.HawkConfig;
 import com.github.tvbox.osc.util.PlayerHelper;
 import com.github.tvbox.osc.util.ScreenUtils;
 import com.github.tvbox.osc.util.SubtitleHelper;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.orhanobut.hawk.Hawk;
 import com.owen.tvrecyclerview.widget.TvRecyclerView;
 import com.owen.tvrecyclerview.widget.V7LinearLayoutManager;
@@ -41,14 +57,11 @@ import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.List;
-
 import java.util.Date;
+import java.util.List;
 
 import xyz.doikki.videoplayer.player.VideoView;
 import xyz.doikki.videoplayer.util.PlayerUtils;
-
-import static xyz.doikki.videoplayer.util.PlayerUtils.stringForTime;
 
 public class VodController extends BaseController {
     public VodController(@NonNull @NotNull Context context) {
@@ -70,14 +83,24 @@ public class VodController extends BaseController {
                         mTopRoot1.setVisibility(VISIBLE);
                         mTopRoot2.setVisibility(VISIBLE);
                         mPlayTitle.setVisibility(GONE);
+                        mBack.setVisibility(ScreenUtils.isTv(context) ? INVISIBLE : VISIBLE);
                         mNextBtn.requestFocus();
+                        if (isKeyUp) {
+                            isKeyUp = false;
+                        }
                         break;
                     }
                     case 1003: { // 隐藏底部菜单
                         mBottomRoot.setVisibility(GONE);
                         mTopRoot1.setVisibility(GONE);
                         mTopRoot2.setVisibility(GONE);
+                        if (Hawk.get(HawkConfig.SHOW_SSPREVIEW, false) && !ScreenUtils.isTv(context)) {
+                            mBack.setVisibility(VISIBLE);
+                        } else {
+                            mBack.setVisibility(GONE);
+                        }
                         break;
+
                     }
                     case 1004: { // 设置速度
                         if (isInPlaybackState()) {
@@ -94,9 +117,17 @@ public class VodController extends BaseController {
                 }
             }
         };
+        Resources res = context.getResources();
+        LayerDrawable progressDrawable = (LayerDrawable)res.getDrawable(R.drawable.shape_player_control_vod_seek_thumba);
+        ClipDrawable proDrawable = new ClipDrawable(new ColorDrawable(getColorByAttrId(context, R.attr.color_theme_80)), Gravity.LEFT, ClipDrawable.HORIZONTAL);
+        progressDrawable.setDrawableByLayerId(android.R.id.progress, proDrawable);
+        Rect bounds = mSeekBars.getProgressDrawable().getBounds();
+        mSeekBars.setProgressDrawable(progressDrawable);
+        mSeekBars.getProgressDrawable().setBounds(bounds);
     }
 
     SeekBar mSeekBar;
+    SeekBar mSeekBars;
     TextView mCurrentTime;
     TextView mTotalTime;
     boolean mIsDragging;
@@ -107,28 +138,35 @@ public class VodController extends BaseController {
     LinearLayout mTopRoot1;
     LinearLayout mTopRoot2;
     LinearLayout mParseRoot;
+    LinearLayout mPauseBtn;
+    LinearLayout mBack;
+    ImageView mPauseImg;
     TvRecyclerView mGridView;
     TextView mPlayTitle;
     TextView mPlayTitle1;
     TextView mPlayLoadNetSpeedRightTop;
     TextView mNextBtn;
     TextView mPreBtn;
-    TextView mPlayerScaleBtn;
-    public TextView mPlayerSpeedBtn;
-    TextView mPlayerBtn;
-    TextView mPlayerIJKBtn;
+    ImageView tvLogo;
+    static TextView mPlayerScaleBtn;
+    public static TextView mPlayerSpeedBtn;
+    @SuppressLint("StaticFieldLeak")
+    static TextView mPlayerBtn;
+    static TextView mPlayerIJKBtn;
     TextView mPlayerRetry;
     TextView mPlayrefresh;
     public TextView mPlayerTimeStartEndText;
-    public TextView mPlayerTimeStartBtn;
-    public TextView mPlayerTimeSkipBtn;
+    public static TextView mPlayerTimeStartBtn;
+    public static boolean myHandless = false;
+    public static TextView mPlayerTimeSkipBtn;
     public TextView mPlayerTimeResetBtn;
     TextView mPlayPauseTime;
     TextView mPlayLoadNetSpeed;
     TextView mVideoSize;
     public SimpleSubtitleView mSubtitleView;
-    TextView mZimuBtn;
-    TextView mAudioTrackBtn;
+    ImageView mZimuBtn;
+    ImageView mBackBimg;
+    static ImageView mAudioTrackBtn;
     public TextView mLandscapePortraitBtn;
 
     Handler myHandle;
@@ -148,15 +186,17 @@ public class VodController extends BaseController {
             mPlayLoadNetSpeed.setText(speed);
             String width = Integer.toString(mControlWrapper.getVideoSize()[0]);
             String height = Integer.toString(mControlWrapper.getVideoSize()[1]);
-            mVideoSize.setText("[ " + width + " X " + height +" ]");
+            mVideoSize.setText("" + width + " X " + height +"");
 
             mHandler.postDelayed(this, 1000);
         }
     };
 
-
-
-
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        mHandler.removeCallbacks(myRunnable2);
+    }
 
     @Override
     protected void initView() {
@@ -167,6 +207,7 @@ public class VodController extends BaseController {
         mPlayTitle1 = findViewById(R.id.tv_info_name1);
         mPlayLoadNetSpeedRightTop = findViewById(R.id.tv_play_load_net_speed_right_top);
         mSeekBar = findViewById(R.id.seekBar);
+        mSeekBars = findViewById(R.id.seekBars);
         mProgressRoot = findViewById(R.id.tv_progress_container);
         mProgressIcon = findViewById(R.id.tv_progress_icon);
         mProgressText = findViewById(R.id.tv_progress_text);
@@ -175,25 +216,44 @@ public class VodController extends BaseController {
         mTopRoot2 = findViewById(R.id.tv_top_r_container);
         mParseRoot = findViewById(R.id.parse_root);
         mGridView = findViewById(R.id.mGridView);
+        tvLogo = findViewById(R.id.tvLogo);
         mPlayerRetry = findViewById(R.id.play_retry);
         mPlayrefresh = findViewById(R.id.play_refresh);
         mNextBtn = findViewById(R.id.play_next);
         mPreBtn = findViewById(R.id.play_pre);
+        mPauseBtn = findViewById(R.id.play_pause);
+        mPauseImg = findViewById(R.id.play_pauseImg);
         mPlayerScaleBtn = findViewById(R.id.play_scale);
         mPlayerSpeedBtn = findViewById(R.id.play_speed);
         mPlayerBtn = findViewById(R.id.play_player);
         mPlayerIJKBtn = findViewById(R.id.play_ijk);
-        mPlayerTimeStartEndText = findViewById(R.id.play_time_start_end_text);
+       // mPlayerTimeStartEndText = findViewById(R.id.play_time_start_end_text);
         mPlayerTimeStartBtn = findViewById(R.id.play_time_start);
         mPlayerTimeSkipBtn = findViewById(R.id.play_time_end);
-        mPlayerTimeResetBtn = findViewById(R.id.play_time_reset);
+        //mPlayerTimeResetBtn = findViewById(R.id.play_time_reset);
         mPlayPauseTime = findViewById(R.id.tv_sys_time);
         mPlayLoadNetSpeed = findViewById(R.id.tv_play_load_net_speed);
         mVideoSize = findViewById(R.id.tv_videosize);
         mSubtitleView = findViewById(R.id.subtitle_view);
+        mBack = findViewById(R.id.tvBackButton);
+        mBackBimg = findViewById(R.id.tvBackBimg);
         mZimuBtn = findViewById(R.id.zimu_select);
         mAudioTrackBtn = findViewById(R.id.audio_track_select);
         mLandscapePortraitBtn = findViewById(R.id.landscape_portrait);
+        TextView choosePlay = findViewById(R.id.choose_play);
+        choosePlay.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myHandless = true;
+                choosePlay(v);
+            }
+        });
+
+        if (Hawk.get(HawkConfig.HOME_SHOW_SOURCE, false)) {
+            tvLogo.setVisibility(View.GONE);
+        } else {
+            tvLogo.setVisibility(View.VISIBLE);
+        }
 
         initSubtitleInfo();
 
@@ -204,14 +264,19 @@ public class VodController extends BaseController {
                 hideBottom();
             }
         };
-
         mPlayPauseTime.post(new Runnable() {
             @Override
             public void run() {
                 mHandler.post(myRunnable2);
             }
         });
-
+        if (Hawk.get(HawkConfig.HOME_PWET_TUMM, false)) {
+            mSeekBars.setVisibility(SeekBar.VISIBLE);
+        } else {
+            mSeekBars.setVisibility(SeekBar.GONE);
+        }
+        mBack.setVisibility(GONE);
+        Hawk.put(HawkConfig.SHOW_SSPREVIEW, false);
         mGridView.setLayoutManager(new V7LinearLayoutManager(getContext(), 0, false));
         ParseAdapter parseAdapter = new ParseAdapter();
         parseAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
@@ -229,10 +294,41 @@ public class VodController extends BaseController {
         });
         mGridView.setAdapter(parseAdapter);
         parseAdapter.setNewData(ApiConfig.get().getParseBeanList());
-
         mParseRoot.setVisibility(VISIBLE);
 
         mSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                if (!fromUser) {
+                    return;
+                }
+
+                long duration = mControlWrapper.getDuration();
+                long newPosition = (duration * progress) / seekBar.getMax();
+                if (mCurrentTime != null)
+                    mCurrentTime.setText(stringForTime((int) newPosition));
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                mIsDragging = true;
+                mControlWrapper.stopProgress();
+                mControlWrapper.stopFadeOut();
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                myHandle.removeCallbacks(myRunnable);
+                myHandle.postDelayed(myRunnable, myHandleSeconds);
+                long duration = mControlWrapper.getDuration();
+                long newPosition = (duration * seekBar.getProgress()) / seekBar.getMax();
+                mControlWrapper.seekTo((int) newPosition);
+                mIsDragging = false;
+                mControlWrapper.startProgress();
+                mControlWrapper.startFadeOut();
+            }
+        });
+        mSeekBars.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 if (!fromUser) {
@@ -271,11 +367,21 @@ public class VodController extends BaseController {
                 hideBottom();
             }
         });
+
         mPlayrefresh.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 listener.replay(false);
                 hideBottom();
+            }
+        });
+        mPauseBtn.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                togglePlay();
+                if (!isPaused) {
+                    hideBottom();
+                }
             }
         });
         mNextBtn.setOnClickListener(new OnClickListener() {
@@ -292,43 +398,33 @@ public class VodController extends BaseController {
                 hideBottom();
             }
         });
-        mPlayerScaleBtn.setOnClickListener(new OnClickListener() {
+        mBack.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                myHandle.removeCallbacks(myRunnable);
-                myHandle.postDelayed(myRunnable, myHandleSeconds);
-                try {
-                    int scaleType = mPlayerConfig.getInt("sc");
-                    scaleType++;
-                    if (scaleType > 5)
-                        scaleType = 0;
-                    mPlayerConfig.put("sc", scaleType);
-                    updatePlayerCfgView();
-                    listener.updatePlayerCfg();
-                    mControlWrapper.setScreenScaleType(scaleType);
-                } catch (JSONException e) {
-                    e.printStackTrace();
+                Hawk.put(HawkConfig.SHOW_SSPREVIEW, !Hawk.get(HawkConfig.SHOW_SSPREVIEW, false));
+                boolean showPreview = Hawk.get(HawkConfig.SHOW_SSPREVIEW, false);
+                mBackBimg.setImageResource(showPreview ? R.drawable.ic_lock_alt : R.drawable.ic_lock_alt_open);
+                if (showPreview) {
+                    hideBottom();
+                } else {
+                    showBottom();
                 }
             }
         });
         mPlayerSpeedBtn.setOnClickListener(new OnClickListener() {
             @Override
-            public void onClick(View view) {
-                myHandle.removeCallbacks(myRunnable);
-                myHandle.postDelayed(myRunnable, myHandleSeconds);
-                try {
-                    float speed = (float) mPlayerConfig.getDouble("sp");
-                    speed += 0.25f;
-                    if (speed > 3)
-                        speed = 0.5f;
-                    mPlayerConfig.put("sp", speed);
-                    updatePlayerCfgView();
-                    listener.updatePlayerCfg();
-                    speed_old = speed;
-                    mControlWrapper.setSpeed(speed);
-                } catch (JSONException e) {
-                    e.printStackTrace();
+            public void onClick(View v) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                    if (mActivity == null || mActivity.isDestroyed() || mActivity.isFinishing()) {
+                        return;
+                    }
                 }
+                double defaultSpeed = mPlayerConfig.optDouble("sp", 1.0);
+                new SpeedPlayDialog().showSpeedSelectDialog(mActivity, defaultSpeed, value -> {
+                    setSpeedVideoView((TextView) v, value);
+                    return null;
+                });
+
             }
         });
 
@@ -345,6 +441,65 @@ public class VodController extends BaseController {
                     e.printStackTrace();
                 }
                 return true;
+            }
+        });
+        mPlayerScaleBtn.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FastClickCheckUtil.check(v);
+                int defaultPos = 0;
+                try {
+                    defaultPos = (int) mPlayerConfig.getDouble("sc");
+                    ArrayList<Integer> players = new ArrayList<>();
+                    players.add(0);
+                    players.add(1);
+                    players.add(2);
+                    players.add(3);
+                    players.add(4);
+                    players.add(5);
+                    SelectDialoga<Integer> dialog = new SelectDialoga<>(mActivity);
+                    dialog.setTip("请选择默认画面缩放");
+                    dialog.setAdapter(new SelectDialogAdapter.SelectDialogInterface<Integer>() {
+                        @Override
+                        public void click(Integer value, int pos) {
+                            myHandle.removeCallbacks(myRunnable);
+                            myHandle.postDelayed(myRunnable, myHandleSeconds);
+                            try {
+                                int scaleType = mPlayerConfig.getInt("sc");
+                                int thisPlayType = players.get(pos);
+                                if (thisPlayType != scaleType) {
+                                    mPlayerConfig.put("sc", thisPlayType);
+                                    mControlWrapper.setScreenScaleType(thisPlayType);
+                                } else {
+                                    mPlayerConfig.put("sc", scaleType);
+                                    mControlWrapper.setScreenScaleType(scaleType);
+                                }
+                                updatePlayerCfgView();
+                                listener.updatePlayerCfg();
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+
+                        @Override
+                        public String getDisplay(Integer val) {
+                            return PlayerHelper.getScaleName(val);
+                        }
+                    }, new DiffUtil.ItemCallback<Integer>() {
+                        @Override
+                        public boolean areItemsTheSame(@NonNull @NotNull Integer oldItem, @NonNull @NotNull Integer newItem) {
+                            return oldItem.intValue() == newItem.intValue();
+                        }
+
+                        @Override
+                        public boolean areContentsTheSame(@NonNull @NotNull Integer oldItem, @NonNull @NotNull Integer newItem) {
+                            return oldItem.intValue() == newItem.intValue();
+                        }
+                    }, players, defaultPos);
+                        dialog.show();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
         });
         mPlayerBtn.setOnClickListener(new OnClickListener() {
@@ -380,9 +535,11 @@ public class VodController extends BaseController {
             }
         });
 
-        mPlayerBtn.setOnLongClickListener(new OnLongClickListener() {
+ //       mPlayerBtn.setOnLongClickListener(new OnLongClickListener() {
+          mPlayerBtn.setOnClickListener(new OnClickListener() {
             @Override
-            public boolean onLongClick(View view) {
+//            public boolean onLongClick(View view) {
+            public void onClick(View view) {
                 myHandle.removeCallbacks(myRunnable);
                 myHandle.postDelayed(myRunnable, myHandleSeconds);
                 FastClickCheckUtil.check(view);
@@ -397,7 +554,7 @@ public class VodController extends BaseController {
                             defaultPos = p;
                         }
                     }
-                    SelectDialog<Integer> dialog = new SelectDialog<>(mActivity);
+                    SelectDialoga<Integer> dialog = new SelectDialoga<>(mActivity);
                     dialog.setTip("请选择播放器");
                     dialog.setAdapter(new SelectDialogAdapter.SelectDialogInterface<Integer>() {
                         @Override
@@ -439,7 +596,7 @@ public class VodController extends BaseController {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                return true;
+//                return true;
             }
         });
         mPlayerIJKBtn.setOnClickListener(new OnClickListener() {
@@ -473,7 +630,7 @@ public class VodController extends BaseController {
             }
         });
 //        增加播放页面片头片尾时间重置
-        mPlayerTimeResetBtn.setOnClickListener(new OnClickListener() {
+        /*mPlayerTimeResetBtn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 myHandle.removeCallbacks(myRunnable);
@@ -487,7 +644,7 @@ public class VodController extends BaseController {
                     e.printStackTrace();
                 }
             }
-        });
+        });*/
         mPlayerTimeStartBtn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -585,22 +742,66 @@ public class VodController extends BaseController {
             }
         });
         mNextBtn.setNextFocusLeftId(R.id.play_time_start);
+//        mSeekBars.invalidate();
+    }
+    private void setSpeedVideoView(TextView textView, double speed) {
+        myHandle.removeCallbacks(myRunnable);
+        myHandle.postDelayed(myRunnable, myHandleSeconds);
+        try {
+            mPlayerConfig.put("sp", speed);
+            updatePlayerCfgView();
+            textView.setText("x" + mPlayerConfig.getDouble("sp"));
+            listener.updatePlayerCfg();
+            mControlWrapper.setSpeed((float) speed);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+    private void choosePlay(View view) {
+        ChoosePlayPopUp playPopUp = new ChoosePlayPopUp(mActivity);
+        playPopUp.setPopupGravity(Gravity.TOP).showPopupWindow(view);
+
+    }
+    private void choosePlays() {
+        ChoosePlayPopUp playPopUp = new ChoosePlayPopUp(mActivity);
+        playPopUp.setPopupGravity(Gravity.BOTTOM).showPopupWindow();
+
+    }
+    public static void Openingcredits(String rs){
+        JsonObject json = JsonParser.parseString(rs).getAsJsonObject();
+        try {
+            if (Hawk.get(HawkConfig.HOME_PTST_TUMM, false)) {
+                if (json.has("code") && json.has("stime")) {
+                    int stime = Integer.parseInt(String.valueOf(json.get("stime").getAsString()));
+                    int etime = Integer.parseInt(String.valueOf(json.get("etime").getAsString()));
+                    mPlayerConfig.put("st", stime);
+                    mPlayerConfig.put("et", etime);
+                } else {
+                    mPlayerConfig.put("st", 0);
+                    mPlayerConfig.put("et", 0);
+                }
+                updatePlayerCfgView();
+                listener.updatePlayerCfg();
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     private void hideLiveAboutBtn() {
         if (mControlWrapper != null && mControlWrapper.getDuration() == 0) {
             mPlayerSpeedBtn.setVisibility(GONE);
-            mPlayerTimeStartEndText.setVisibility(GONE);
+            //mPlayerTimeStartEndText.setVisibility(GONE);
             mPlayerTimeStartBtn.setVisibility(GONE);
             mPlayerTimeSkipBtn.setVisibility(GONE);
-            mPlayerTimeResetBtn.setVisibility(GONE);
+            //mPlayerTimeResetBtn.setVisibility(GONE);
             mNextBtn.setNextFocusLeftId(R.id.zimu_select);
         } else {
             mPlayerSpeedBtn.setVisibility(View.VISIBLE);
-            mPlayerTimeStartEndText.setVisibility(View.VISIBLE);
+           // mPlayerTimeStartEndText.setVisibility(View.VISIBLE);
             mPlayerTimeStartBtn.setVisibility(View.VISIBLE);
             mPlayerTimeSkipBtn.setVisibility(View.VISIBLE);
-            mPlayerTimeResetBtn.setVisibility(View.VISIBLE);
+           // mPlayerTimeResetBtn.setVisibility(View.VISIBLE);
             mNextBtn.setNextFocusLeftId(R.id.play_time_start);
         }
     }
@@ -642,14 +843,14 @@ public class VodController extends BaseController {
         mParseRoot.setVisibility(userJxList ? VISIBLE : GONE);
     }
 
-    private JSONObject mPlayerConfig = null;
+    private static JSONObject mPlayerConfig = null;
 
     public void setPlayerConfig(JSONObject playerCfg) {
         this.mPlayerConfig = playerCfg;
         updatePlayerCfgView();
     }
 
-    void updatePlayerCfgView() {
+    static void updatePlayerCfgView() {
         try {
             int playerType = mPlayerConfig.getInt("pl");
             mPlayerBtn.setText(PlayerHelper.getPlayerName(playerType));
@@ -657,7 +858,7 @@ public class VodController extends BaseController {
             mPlayerIJKBtn.setText(mPlayerConfig.getString("ijk"));
             mPlayerIJKBtn.setVisibility(playerType == 1 ? VISIBLE : GONE);
             mPlayerScaleBtn.setText(PlayerHelper.getScaleName(mPlayerConfig.getInt("sc")));
-            mPlayerSpeedBtn.setText("x" + mPlayerConfig.getDouble("sp"));
+            mPlayerSpeedBtn.setText(mPlayerConfig.getDouble("sp")+"X");
             mPlayerTimeStartBtn.setText(PlayerUtils.stringForTime(mPlayerConfig.getInt("st") * 1000));
             mPlayerTimeSkipBtn.setText(PlayerUtils.stringForTime(mPlayerConfig.getInt("et") * 1000));
             mAudioTrackBtn.setVisibility((playerType == 1) ? VISIBLE : GONE);
@@ -686,6 +887,8 @@ public class VodController extends BaseController {
 
         void playPre();
 
+        void openVideo();
+
         void prepared();
 
         void changeParse(ParseBean pb);
@@ -705,7 +908,7 @@ public class VodController extends BaseController {
         this.listener = listener;
     }
 
-    private VodControlListener listener;
+    private static VodControlListener listener;
 
     private boolean skipEnd = true;
 
@@ -734,14 +937,20 @@ public class VodController extends BaseController {
             mSeekBar.setEnabled(true);
             int pos = (int) (position * 1.0 / duration * mSeekBar.getMax());
             mSeekBar.setProgress(pos);
+            mSeekBars.setEnabled(true);
+            int poss = (int) (position * 1.0 / duration * mSeekBars.getMax());
+            mSeekBars.setProgress(poss);
         } else {
             mSeekBar.setEnabled(false);
+            mSeekBars.setEnabled(false);
         }
         int percent = mControlWrapper.getBufferedPercentage();
         if (percent >= 95) {
             mSeekBar.setSecondaryProgress(mSeekBar.getMax());
+            mSeekBars.setSecondaryProgress(mSeekBars.getMax());
         } else {
             mSeekBar.setSecondaryProgress(percent * 10);
+            mSeekBars.setSecondaryProgress(percent * 10);
         }
     }
 
@@ -781,9 +990,9 @@ public class VodController extends BaseController {
     protected void updateSeekUI(int curr, int seekTo, int duration) {
         super.updateSeekUI(curr, seekTo, duration);
         if (seekTo > curr) {
-            mProgressIcon.setImageResource(R.drawable.icon_pre);
+            mProgressIcon.setImageResource(R.drawable.play_ffwd);
         } else {
-            mProgressIcon.setImageResource(R.drawable.icon_back);
+            mProgressIcon.setImageResource(R.drawable.play_rewind);
         }
         mProgressText.setText(PlayerUtils.stringForTime(seekTo) + " / " + PlayerUtils.stringForTime(duration));
         mHandler.sendEmptyMessage(1000);
@@ -799,10 +1008,14 @@ public class VodController extends BaseController {
             case VideoView.STATE_IDLE:
                 break;
             case VideoView.STATE_PLAYING:
+                isPaused = false;
+                mPauseImg.setImageDrawable(getResources().getDrawable(R.drawable.v_pause));
                 initLandscapePortraitBtnInfo();
                 startProgress();
                 break;
             case VideoView.STATE_PAUSED:
+                isPaused = true;
+                mPauseImg.setImageDrawable(getResources().getDrawable(R.drawable.v_play));
                 mTopRoot1.setVisibility(GONE);
                 mTopRoot2.setVisibility(GONE);
                 mPlayTitle.setVisibility(VISIBLE);
@@ -868,13 +1081,17 @@ public class VodController extends BaseController {
                     togglePlay();
                     return true;
                 }
-//            } else if (keyCode == KeyEvent.KEYCODE_DPAD_UP) {  return true;// 闲置开启计时关闭透明底栏
-            } else if (keyCode == KeyEvent.KEYCODE_DPAD_DOWN || keyCode == KeyEvent.KEYCODE_DPAD_UP || keyCode== KeyEvent.KEYCODE_MENU) {
+            } else if ( keyCode == KeyEvent.KEYCODE_DPAD_UP || keyCode== KeyEvent.KEYCODE_DPAD_DOWN) {
                 if (!isBottomVisible()) {
                     showBottom();
                     myHandle.postDelayed(myRunnable, myHandleSeconds);
                     return true;
                 }
+            } else if (keyCode == KeyEvent.KEYCODE_MENU) {
+                    choosePlays();
+                    myHandless = true;
+                    myHandle.postDelayed(myRunnable, myHandleSeconds);
+                    return true;
             }
         } else if (action == KeyEvent.ACTION_UP) {
             if (keyCode == KeyEvent.KEYCODE_DPAD_RIGHT || keyCode == KeyEvent.KEYCODE_DPAD_LEFT) {
@@ -886,7 +1103,6 @@ public class VodController extends BaseController {
         }
         return super.dispatchKeyEvent(event);
     }
-
 
     private boolean fromLongPress;
     private float speed_old = 1.0f;
@@ -931,7 +1147,7 @@ public class VodController extends BaseController {
     public boolean onSingleTapConfirmed(MotionEvent e) {
         myHandle.removeCallbacks(myRunnable);
         if (!isBottomVisible()) {
-            showBottom();
+            if (!Hawk.get(HawkConfig.SHOW_SSPREVIEW, false)) showBottom();
             // 闲置计时关闭
             myHandle.postDelayed(myRunnable, myHandleSeconds);
         } else {
@@ -939,16 +1155,27 @@ public class VodController extends BaseController {
         }
         return true;
     }
-
+    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+    protected void destroy() {
+        super.destroy();
+        mHandlerCallback = null;
+        myHandle.removeCallbacksAndMessages(null);
+        mHandler.removeCallbacksAndMessages(null);
+    }
     @Override
     public boolean onBackPressed() {
         if (super.onBackPressed()) {
             return true;
         }
+
         if (isBottomVisible()) {
             hideBottom();
             return true;
         }
-        return false;
+        return Hawk.get(HawkConfig.SHOW_SSPREVIEW, false);
     }
+
+    // takagen99 : Check Pause
+    private boolean isPaused = false;
+    private boolean isKeyUp = false;
 }

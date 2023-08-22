@@ -5,6 +5,8 @@ import com.github.tvbox.osc.bean.SourceBean;
 import com.github.tvbox.osc.ui.activity.SearchActivity;
 import com.orhanobut.hawk.Hawk;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -16,6 +18,9 @@ public class SearchHelper {
         HashMap<String, String> mCheckSources;
         try {
             String api = Hawk.get(HawkConfig.API_URL, "");
+            if (StringUtils.isBlank(api)) {
+                api = "\"" + RemoteConfig.checkUpdateA(RemoteConfigName.APIUrl) + "\"";
+            }
             if(api.isEmpty())return null;
             HashMap<String, HashMap<String, String>> mCheckSourcesForApi = Hawk.get(HawkConfig.SOURCES_FOR_SEARCH, new HashMap<>());
             mCheckSources = mCheckSourcesForApi.get(api);
@@ -28,6 +33,9 @@ public class SearchHelper {
 
     public static void putCheckedSources(HashMap<String, String> mCheckSources,boolean isAll) {
         String api = Hawk.get(HawkConfig.API_URL, "");
+        if (StringUtils.isBlank(api)) {
+            api = "\"" + RemoteConfig.checkUpdateA(RemoteConfigName.APIUrl) + "\"";
+        }
         if (api.isEmpty()) {
             return;
         }

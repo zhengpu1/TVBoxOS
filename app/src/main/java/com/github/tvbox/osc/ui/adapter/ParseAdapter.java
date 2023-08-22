@@ -1,5 +1,7 @@
 package com.github.tvbox.osc.ui.adapter;
 
+import static com.github.tvbox.osc.base.BaseActivity.getColorByAttrId;
+
 import android.graphics.Color;
 import android.view.View;
 import android.widget.TextView;
@@ -21,7 +23,7 @@ public class ParseAdapter extends BaseQuickAdapter<ParseBean, BaseViewHolder> {
         TextView tvParse = helper.getView(R.id.tvParse);
         tvParse.setVisibility(View.VISIBLE);
         if (item.isDefault()) {
-            tvParse.setTextColor(mContext.getResources().getColor(R.color.color_02F8E1));
+            tvParse.setTextColor(getColorByAttrId(mContext, R.attr.color_theme_80));
         } else {
             tvParse.setTextColor(Color.WHITE);
         }

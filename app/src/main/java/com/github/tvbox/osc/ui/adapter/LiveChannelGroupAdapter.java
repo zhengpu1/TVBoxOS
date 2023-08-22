@@ -1,6 +1,10 @@
 package com.github.tvbox.osc.ui.adapter;
 
+import static com.github.tvbox.osc.base.BaseActivity.drawableLinearLayout;
+import static com.github.tvbox.osc.base.BaseActivity.getColorByAttrId;
+
 import android.graphics.Color;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -27,10 +31,15 @@ public class LiveChannelGroupAdapter extends BaseQuickAdapter<LiveChannelGroup, 
     @Override
     protected void convert(BaseViewHolder holder, LiveChannelGroup item) {
         TextView tvGroupName = holder.getView(R.id.tvChannelGroupName);
+        LinearLayout tvGroupNames = holder.getView(R.id.tvChannelGroupNames);
+        LinearLayout[] str = {tvGroupNames};
+        drawableLinearLayout(str, 7);
         tvGroupName.setText(item.getGroupName());
         int groupIndex = item.getGroupIndex();
         if (groupIndex == selectedGroupIndex && groupIndex != focusedGroupIndex) {
-            tvGroupName.setTextColor(mContext.getResources().getColor(R.color.color_1890FF));
+            // takagen99: Added Theme Color
+//            tvGroupName.setTextColor(mContext.getResources().getColor(R.color.color_theme));
+            tvGroupName.setTextColor(getColorByAttrId(mContext, R.attr.color_theme));
         } else {
             tvGroupName.setTextColor(Color.WHITE);
         }

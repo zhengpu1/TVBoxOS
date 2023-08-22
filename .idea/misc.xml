@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ASMSmaliIdeaPluginConfiguration">
     <asm skipDebug="true" skipFrames="true" skipCode="false" expandFrames="false" />
@@ -39,21 +38,37 @@
         <entry key="..\:/tvbox/TVBoxOS/app/src/main/res/layout/item_quick_search_lite.xml" value="0.3619791666666667" />
         <entry key="..\:/tvbox/TVBoxOS/app/src/main/res/layout/loadsir_loading_layout.xml" value="0.3619791666666667" />
         <entry key="..\:/tvbox/TVBoxOS/app/src/main/res/layout/player_vod_control_view.xml" value="0.3619791666666667" />
+        <entry key="app/src/main/res/layout/choose_play_layout.xml" value="0.1875" />
         <entry key="app/src/main/res/layout/activity_fast_search.xml" value="0.5786666666666667" />
         <entry key="app/src/main/res/layout/activity_live_play.xml" value="0.2670906200317965" />
+        <entry key="app/src/main/res/layout/activity_detail.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_push.xml" value="0.45" />
+        <entry key="app/src/main/res/layout/item_series.xml" value="0.1875" />
         <entry key="app/src/main/res/layout/dialog_checkbox_search.xml" value="0.5786666666666667" />
         <entry key="app/src/main/res/layout/dialog_select.xml" value="0.5786666666666667" />
         <entry key="app/src/main/res/layout/fragment_model.xml" value="0.5786666666666667" />
         <entry key="app/src/main/res/layout/fragment_user.xml" value="0.5786666666666667" />
+        <entry key="app/src/main/res/layout/item_series.xml" value="0.1875" />
         <entry key="app/src/main/res/layout/item_dialog_checkbox_search.xml" value="0.5786666666666667" />
+        <entry key="app/src/main/res/layout/item_search_history.xml" value="0.356" />
+        <entry key="app/src/main/res/layout/search_history_layout.xml" value="0.356" />
         <entry key="app/src/main/res/layout/player_vod_control_view.xml" value="0.5786666666666667" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="corretto-11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="SwUserDefinedSpecifications">
+    <option name="specTypeByUrl">
+      <map />
+    </option>
   </component>
 </project>
