@@ -11,6 +11,8 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="on Item Long Click" />
+      <item value="FAST SEARCH MODE" />
       <item value="fatal: unable to access 'https:github.comzzh628TVBoxOS': Recv failure: Connection was reset" />
       <item value="error: RPC failed; curl 28 Recv failure: Connection was reset fatal: expected flush after ref listing" />
       <item value="refsheadsdav_:refsheadsdav_ [new branch] branch 'dav_' set up to track 'origindav_'. Done" />
@@ -48,7 +50,6 @@
       <item value="on Window Focus Changed" />
       <item value="SEARCH HISTORY" />
       <item value="search Data" />
-      <item value="FAST SEARCH MODE" />
       <item value="Unknown Source:2" />
       <item value="Handle system messages here." />
       <item value="Subclasses must implement this to receive messages." />
@@ -60,15 +61,14 @@
       <item value="A binary encoding scheme for reversibly translating between byte sequences and printable ASCII strings. This class includes several constants for encoding schemes specified by RFC 4648 . For example, the expression:" />
       <item value="All instances of this class are immutable, so they may be stored safely as static constants." />
       <item value="get Video Size" />
-      <item value="m Control Wrapper" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3258" />
+        <entry key="CHINESE" value="3260" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3259" />
+        <entry key="ENGLISH" value="3261" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
