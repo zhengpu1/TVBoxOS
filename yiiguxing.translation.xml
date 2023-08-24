@@ -11,8 +11,12 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
-      <item value="on Item Long Click" />
+      <item value="home Source Rec" />
+      <item value="HOME REC" />
+      <item value="FLAG ACTIVITY CLEAR TOP" />
+      <item value="FLAG ACTIVITY NEW TASK" />
       <item value="FAST SEARCH MODE" />
+      <item value="on Item Long Click" />
       <item value="fatal: unable to access 'https:github.comzzh628TVBoxOS': Recv failure: Connection was reset" />
       <item value="error: RPC failed; curl 28 Recv failure: Connection was reset fatal: expected flush after ref listing" />
       <item value="refsheadsdav_:refsheadsdav_ [new branch] branch 'dav_' set up to track 'origindav_'. Done" />
@@ -57,18 +61,14 @@
       <item value="java.lang.RuntimeException: Unable to instantiate application com.github.tvbox.osc.base.App: java.lang.InstantiationException: java.lang.Class&lt;com.github.tvbox.osc.base.App&gt; cannot be instantiated" />
       <item value="Shutting down VM" />
       <item value="When a coded character set is used exclusively with a single character-encoding scheme then the corresponding charset is usually named for the coded character set; otherwise a charset is usually named for the encoding scheme and, possibly, the locale of the coded character sets that it supports. Hence US-ASCII is both the name of a coded character set and of the charset that encodes it, while EUC-JP is the name of the charset that encodes the JIS X 0201, JIS X 0208, and JIS X 0212 coded character sets for the Japanese language. The native character encoding of the Java programming language is UTF-16. A charset in the Java platform therefore defines a mapping between sequences of sixteen-bit UTF-16 code units (that is, sequences of chars) and sequences of bytes." />
-      <item value="Sets the default text encoding name to use when decoding html pages. The default is &quot;UTF-8&quot;." />
-      <item value="A binary encoding scheme for reversibly translating between byte sequences and printable ASCII strings. This class includes several constants for encoding schemes specified by RFC 4648 . For example, the expression:" />
-      <item value="All instances of this class are immutable, so they may be stored safely as static constants." />
-      <item value="get Video Size" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3260" />
+        <entry key="CHINESE" value="3265" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3261" />
+        <entry key="ENGLISH" value="3266" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
