@@ -1,6 +1,6 @@
 <application>
   <component name="Translation.Cache">
-    <option name="lastTrimTime" value="1692431369138" />
+    <option name="lastTrimTime" value="1692867475138" />
   </component>
   <component name="Translation.Settings">
     <option name="translator" value="MICROSOFT" />
@@ -11,6 +11,7 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="parses" />
       <item value="Pattern" />
       <item value="compile" />
       <item value="home Source Rec" />
@@ -60,15 +61,14 @@
       <item value="Handle system messages here." />
       <item value="Subclasses must implement this to receive messages." />
       <item value="java.lang.RuntimeException: Unable to destroy activity {com.github.tvbox.tkcom.github.tvbox.osc.ui.activity.DetailActivity}: java.lang.NullPointerException: Parameter specified as non-null is null: method com.github.tvbox.osc.base.App.setDashData, parameter data" />
-      <item value="java.lang.RuntimeException: Unable to instantiate application com.github.tvbox.osc.base.App: java.lang.InstantiationException: java.lang.Class&lt;com.github.tvbox.osc.base.App&gt; cannot be instantiated" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3267" />
+        <entry key="CHINESE" value="3268" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3268" />
+        <entry key="ENGLISH" value="3269" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
