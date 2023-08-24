@@ -11,10 +11,10 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="replace" />
       <item value="index Of" />
       <item value="replace By" />
       <item value="equals" />
-      <item value="replace" />
       <item value="parses" />
       <item value="Pattern" />
       <item value="compile" />
@@ -66,9 +66,9 @@
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3272" />
+        <entry key="CHINESE" value="3273" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3273" />
+        <entry key="ENGLISH" value="3274" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
