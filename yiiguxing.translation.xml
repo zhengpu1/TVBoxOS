@@ -11,6 +11,8 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="Pattern" />
+      <item value="compile" />
       <item value="home Source Rec" />
       <item value="HOME REC" />
       <item value="FLAG ACTIVITY CLEAR TOP" />
@@ -59,16 +61,14 @@
       <item value="Subclasses must implement this to receive messages." />
       <item value="java.lang.RuntimeException: Unable to destroy activity {com.github.tvbox.tkcom.github.tvbox.osc.ui.activity.DetailActivity}: java.lang.NullPointerException: Parameter specified as non-null is null: method com.github.tvbox.osc.base.App.setDashData, parameter data" />
       <item value="java.lang.RuntimeException: Unable to instantiate application com.github.tvbox.osc.base.App: java.lang.InstantiationException: java.lang.Class&lt;com.github.tvbox.osc.base.App&gt; cannot be instantiated" />
-      <item value="Shutting down VM" />
-      <item value="When a coded character set is used exclusively with a single character-encoding scheme then the corresponding charset is usually named for the coded character set; otherwise a charset is usually named for the encoding scheme and, possibly, the locale of the coded character sets that it supports. Hence US-ASCII is both the name of a coded character set and of the charset that encodes it, while EUC-JP is the name of the charset that encodes the JIS X 0201, JIS X 0208, and JIS X 0212 coded character sets for the Japanese language. The native character encoding of the Java programming language is UTF-16. A charset in the Java platform therefore defines a mapping between sequences of sixteen-bit UTF-16 code units (that is, sequences of chars) and sequences of bytes." />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3265" />
+        <entry key="CHINESE" value="3267" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3266" />
+        <entry key="ENGLISH" value="3268" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
