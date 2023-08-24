@@ -11,6 +11,10 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="index Of" />
+      <item value="replace By" />
+      <item value="equals" />
+      <item value="replace" />
       <item value="parses" />
       <item value="Pattern" />
       <item value="compile" />
@@ -57,18 +61,14 @@
       <item value="on Window Focus Changed" />
       <item value="SEARCH HISTORY" />
       <item value="search Data" />
-      <item value="Unknown Source:2" />
-      <item value="Handle system messages here." />
-      <item value="Subclasses must implement this to receive messages." />
-      <item value="java.lang.RuntimeException: Unable to destroy activity {com.github.tvbox.tkcom.github.tvbox.osc.ui.activity.DetailActivity}: java.lang.NullPointerException: Parameter specified as non-null is null: method com.github.tvbox.osc.base.App.setDashData, parameter data" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3268" />
+        <entry key="CHINESE" value="3272" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3269" />
+        <entry key="ENGLISH" value="3273" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
