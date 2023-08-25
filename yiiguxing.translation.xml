@@ -11,6 +11,9 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="Pattern" />
+      <item value="compile" />
+      <item value="sniffer Match" />
       <item value="parse" />
       <item value="@param spanSizeLookup instance to be used to query number of spans occupied by each item" />
       <item value="EPISODE GROUPING" />
@@ -19,8 +22,6 @@
       <item value="replace By" />
       <item value="equals" />
       <item value="parses" />
-      <item value="Pattern" />
-      <item value="compile" />
       <item value="home Source Rec" />
       <item value="HOME REC" />
       <item value="FLAG ACTIVITY CLEAR TOP" />
@@ -60,15 +61,14 @@
       <item value="Creates a thread pool that creates new threads as needed, but will reuse previously constructed threads when they are available. These pools will typically improve the performance of programs that execute many short-lived asynchronous tasks. Calls to execute will reuse previously constructed threads if available. If no existing thread is available, a new thread will be created and added to the pool. Threads that have not been used for sixty seconds are terminated and removed from the cache. Thus, a pool that remains idle for long enough will not consume any resources. Note that pools with similar properties but different details (for example, timeout parameters) may be created using ThreadPoolExecutor constructors." />
       <item value="show Popup Window" />
       <item value="on Dismiss" />
-      <item value="on Create Show Animation" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3276" />
+        <entry key="CHINESE" value="3279" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3277" />
+        <entry key="ENGLISH" value="3280" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
