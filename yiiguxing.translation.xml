@@ -11,6 +11,7 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="HOME REC STYLE" />
       <item value="this" />
       <item value="On Item Click Listener" />
       <item value="set On Click Listener" />
@@ -60,15 +61,14 @@
       <item value="Additional Check if" />
       <item value="delete Vod Record" />
       <item value="tv Slide Start" />
-      <item value="Bottom Channel View" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3290" />
+        <entry key="CHINESE" value="3291" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3291" />
+        <entry key="ENGLISH" value="3292" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
