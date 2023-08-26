@@ -11,6 +11,13 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="this" />
+      <item value="On Item Click Listener" />
+      <item value="set On Click Listener" />
+      <item value="On Focus Change Listener" />
+      <item value="on Item Click" />
+      <item value="set On Focus Change Listener" />
+      <item value="set On Item Click Listener" />
       <item value="playparse" />
       <item value="Pattern" />
       <item value="compile" />
@@ -54,21 +61,14 @@
       <item value="delete Vod Record" />
       <item value="tv Slide Start" />
       <item value="Bottom Channel View" />
-      <item value="delta V" />
-      <item value="slide To Change Volume" />
-      <item value="stream Max Volume" />
-      <item value="Decrements the count of the latch, releasing all waiting threads if the count reaches zero. If the current count is greater than zero then it is decremented. If the new count is zero then all waiting threads are re-enabled for thread scheduling purposes. If the current count equals zero then nothing happens." />
-      <item value="Count Down Latch" />
-      <item value="Creates a thread pool that creates new threads as needed, but will reuse previously constructed threads when they are available. These pools will typically improve the performance of programs that execute many short-lived asynchronous tasks. Calls to execute will reuse previously constructed threads if available. If no existing thread is available, a new thread will be created and added to the pool. Threads that have not been used for sixty seconds are terminated and removed from the cache. Thus, a pool that remains idle for long enough will not consume any resources. Note that pools with similar properties but different details (for example, timeout parameters) may be created using ThreadPoolExecutor constructors." />
-      <item value="show Popup Window" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3280" />
+        <entry key="CHINESE" value="3290" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3281" />
+        <entry key="ENGLISH" value="3291" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
