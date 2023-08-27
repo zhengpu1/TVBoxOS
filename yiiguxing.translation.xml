@@ -11,6 +11,9 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="A {@link RecyclerView.LayoutManager} implementations that lays out items in a grid. &lt;p&gt; By default, each item occupies 1 span. You can change it by providing a custom {@link SpanSizeLookup} instance via {@link setSpanSizeLookup(SpanSizeLookup)}." />
+      <item value="set Span Size Lookup" />
+      <item value="set On Item Click Listener" />
       <item value="on Grid View Focus Change" />
       <item value="com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: Use JsonReader.setLenient(true) to accept malformed JSON at line 1 column 12 path" />
       <item value="HOME PTST TUMM" />
@@ -27,7 +30,6 @@
       <item value="On Focus Change Listener" />
       <item value="on Item Click" />
       <item value="set On Focus Change Listener" />
-      <item value="set On Item Click Listener" />
       <item value="playparse" />
       <item value="Pattern" />
       <item value="compile" />
@@ -59,16 +61,14 @@
       <item value="lock Runnable" />
       <item value="post Delayed" />
       <item value="remove Callbacks" />
-      <item value="INVISIBLE" />
-      <item value="on Back Pressed" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3300" />
+        <entry key="CHINESE" value="3304" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3301" />
+        <entry key="ENGLISH" value="3305" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
