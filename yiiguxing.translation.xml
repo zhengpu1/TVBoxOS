@@ -11,6 +11,8 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="forced update" />
+      <item value="- [deleted] (none) -&gt; origindav + a9442ae...16a3217 main -&gt; originmain (forced update)" />
       <item value="HOME REC STYLE" />
       <item value="this" />
       <item value="On Item Click Listener" />
@@ -59,16 +61,14 @@
       <item value="delete Vod Collect All" />
       <item value="get Source Bean List" />
       <item value="Additional Check if" />
-      <item value="delete Vod Record" />
-      <item value="tv Slide Start" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3291" />
+        <entry key="CHINESE" value="3293" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3292" />
+        <entry key="ENGLISH" value="3294" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
