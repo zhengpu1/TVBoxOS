@@ -92,11 +92,6 @@ public abstract class BaseLazyFragment extends Fragment implements CustomAdapt {
         super.setUserVisibleHint(isVisibleToUser);
         // 对于情况1）不予处理，用 isViewCreated 进行判断，如果isViewCreated false，说明它没有被创建
         if (isViewCreated) {
-            // 对于情况2,需要分情况考虑,如果是不可见 -> 可见 2.1
-            // 如果是可见 -> 不可见 2.2
-            // 对于2.1）我们需要如何判断呢？首先必须是可见的（isVisibleToUser
-            // 为true）而且只有当可见状态进行改变的时候才需要切换，否则会出现反复调用的情况
-            // 从而导致事件分发带来的多次更新
             if (isVisibleToUser && !currentVisibleState) {
                 // 从不可见 -> 可见
                 dispatchUserVisibleHint(true);

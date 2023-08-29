@@ -60,7 +60,6 @@ import java.util.List;
  * @description:
  */
 public class UserFragment extends BaseLazyFragment implements View.OnClickListener {
-    public static int kasd;
     public static int tyssy;
     public static LinearLayout tvDrive;
     public static LinearLayout tvDrives;
@@ -164,9 +163,13 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
         tvPush.setOnFocusChangeListener(focusChangeListener);
         tvCollect.setOnFocusChangeListener(focusChangeListener);
         tvCollects.setOnFocusChangeListener(focusChangeListeners);
+        int picthumbbz = 4;
+        if(ApiConfig.get().souyeUrl.isEmpty()){
+            picthumbbz = 6;
+        }
         tvHotList1 = findViewById(R.id.tvHotList1);
         tvHotList1.setHasFixedSize(true);
-        tvHotList1.setLayoutManager(new V7GridLayoutManager(this.mContext, 4));
+        tvHotList1.setLayoutManager(new V7GridLayoutManager(this.mContext, picthumbbz));
         tvHotList4 = findViewById(R.id.tvHotList4);
         tvHotList4.setHasFixedSize(true);
         tvHotList4.setLayoutManager(new V7GridLayoutManager(this.mContext, 4));
@@ -232,11 +235,7 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
             @Override
             public int getSpanSize(GridLayoutManager gridLayoutManager, int position) {
                 tyssy = position;
-                if (position < 2) {
-                    return 2;
-                } else if (position == 10) {
-                    return 4;
-                }
+                if (position < 2) return 2;
                 return 1;
             }
         });
@@ -381,19 +380,29 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
     private void initHomeHotVod3(HomeHotVodAdapterc adapter) {
         setDouBanDatas(adapter);
     }
-
     private void setDouBanDatas(HomeHotVodAdapterc adapter) {
         try {
             String doubanUrl = ApiConfig.get().souyeUrl;
-            OkGo.<String>get(doubanUrl)
-                    .headers("User-Agent", UA.randomOne())
+            String Referer = "";
+            if (doubanUrl.isEmpty()){
+                doubanUrl = "https://api.web.360kan.com/v1/block?blockid=503";
+                Referer = "https://www.360kan.com/";
+            }
+            String finalDoubanUrl = doubanUrl;
+            OkGo.<String>get(finalDoubanUrl)
+                    .headers("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36")
+                    .headers("Referer",Referer)
                     .execute(new AbsCallback<String>() {
                         public void onSuccess(Response<String> response) {
                             String netJson = response.body();
                             mActivity.runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
-                                    adapter.setNewData(loadHots(netJson));
+                                    if (finalDoubanUrl.contains("hrystv.")) {
+                                        adapter.setNewData(loadHotss(netJson));
+                                    } else {
+                                        adapter.setNewData(loadHotssk(netJson));
+                                    }
                                 }
                             });
                         }
@@ -430,19 +439,13 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
                 String json = Hawk.get("home_hot", "");
                 if (!json.isEmpty()) {
                     ArrayList<Movie.Video> hotMovies = loadHots(json);
-                    if(Hawk.get(HawkConfig.HOME_REC, 0) == 0) {
-                        hotMovies = loadHotss(json);
-                    }
                     if (hotMovies != null && hotMovies.size() > 0) {
                         adapter.setNewData(hotMovies);
                         return;
                     }
                 }
             }
-            String doubanUrl = ApiConfig.get().tuijianUrl;
-            if(Hawk.get(HawkConfig.HOME_REC, 0) == 0) {
-                doubanUrl = "https://movie.douban.com/j/new_search_subjects?sort=U&range=0,10&tags=&playable=1&start=0&year_range=" + year + "," + year;
-            }
+            String doubanUrl = "https://movie.douban.com/j/new_search_subjects?sort=U&range=0,10&tags=&playable=1&start=0&year_range=" + year + "," + year;
             OkGo.<String>get(doubanUrl)
                     .headers("User-Agent", UA.randomOne())
                     .execute(new AbsCallback<String>() {
@@ -453,11 +456,7 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
                             mActivity.runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
-                                    if(Hawk.get(HawkConfig.HOME_REC, 0) == 0) {
-                                        adapter.setNewData(loadHotss(netJson));
-                                    } else {
-                                        adapter.setNewData(loadHots(netJson));
-                                    }
+                                    adapter.setNewData(loadHots(netJson));
                                 }
                             });
                         }
@@ -494,19 +493,13 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
                 String json = Hawk.get("home_hot", "");
                 if (!json.isEmpty()) {
                     ArrayList<Movie.Video> hotMovies = loadHots(json);
-                    if(Hawk.get(HawkConfig.HOME_REC, 0) == 0) {
-                        hotMovies = loadHotss(json);
-                    }
                     if (hotMovies != null && hotMovies.size() > 0) {
                         adapter.setNewData(hotMovies);
                         return;
                     }
                 }
             }
-            String doubanUrl = ApiConfig.get().tuijianUrl;
-            if(Hawk.get(HawkConfig.HOME_REC, 0) == 0) {
-                doubanUrl = "https://movie.douban.com/j/new_search_subjects?sort=U&range=0,10&tags=&playable=1&start=0&year_range=" + year + "," + year;
-            }
+            String doubanUrl = "https://movie.douban.com/j/new_search_subjects?sort=U&range=0,10&tags=&playable=1&start=0&year_range=" + year + "," + year;
             OkGo.<String>get(doubanUrl)
                     .headers("User-Agent", UA.randomOne())
                     .execute(new AbsCallback<String>() {
@@ -517,11 +510,7 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
                             mActivity.runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
-                                    if(Hawk.get(HawkConfig.HOME_REC, 0) == 0) {
-                                        adapter.setNewData(loadHotss(netJson));
-                                    } else {
-                                        adapter.setNewData(loadHots(netJson));
-                                    }
+                                    adapter.setNewData(loadHots(netJson));
                                 }
                             });
                         }
@@ -536,7 +525,7 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
         }
     }
 
-    private ArrayList<Movie.Video> loadHotss(String json) {
+    private ArrayList<Movie.Video> loadHots(String json) {
         ArrayList<Movie.Video> result = new ArrayList<>();
         try {
             JsonObject infoJson = new Gson().fromJson(json, JsonObject.class);
@@ -554,7 +543,7 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
         }
         return result;
     }
-    private ArrayList<Movie.Video> loadHots(String json) {
+    private ArrayList<Movie.Video> loadHotss(String json) {
         ArrayList<Movie.Video> result = new ArrayList<>();
         try {
             JsonObject infoJson = new Gson().fromJson(json, JsonObject.class);
@@ -570,6 +559,29 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
                 vod.picthumb = obj.get("vod_pic_thumb").getAsString();
                 vod.picslide = obj.get("vod_pic_slide").getAsString();
                 vod.sourceKey = "htv_hrys";
+                result.add(vod);
+            }
+        } catch (Throwable th) {
+
+        }
+        return result;
+    }
+    private ArrayList<Movie.Video> loadHotssk(String json) {
+        ArrayList<Movie.Video> result = new ArrayList<>();
+        try {
+            JsonObject infoJson = new Gson().fromJson(json, JsonObject.class);
+            JsonArray array = infoJson.getAsJsonObject("data").getAsJsonArray("lists");
+            for (int i = 0; i < 6; i++) {
+                JsonObject obj = (JsonObject) array.get(i);
+                Movie.Video vod = new Movie.Video();
+                JsonArray pict = obj.getAsJsonArray("pic_lists");
+                vod.name = obj.get("title").getAsString();
+                vod.note = obj.get("upinfo").getAsString();
+                for (JsonElement pic : pict) {
+                    JsonObject pics = (JsonObject) pic;
+                    vod.picthumb = pics.get("url").getAsString();
+                    vod.picslide = pics.get("url").getAsString();
+                }
                 result.add(vod);
             }
         } catch (Throwable th) {

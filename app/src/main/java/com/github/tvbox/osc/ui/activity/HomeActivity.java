@@ -199,10 +199,8 @@ public class HomeActivity extends BaseActivity {
                             textView.getPaint().setFakeBoldText(false);
                             if (sortFocused == p) {
                                 view.animate().scaleX(1.02f).scaleY(1.02f).setInterpolator(new BounceInterpolator()).setDuration(400).start();
-//                                textView.setBackgroundColor(HomeActivity.this.getResources().getColor(R.color.color_FFF68E33));
                             } else {
                                 view.animate().scaleX(1.0f).scaleY(1.0f).setDuration(400).start();
-//                                textView.setTextColor(HomeActivity.this.getResources().getColor(R.color.color_BBFFFFFF));
                                 view.findViewById(R.id.tvFilter).setVisibility(View.GONE);
                                 view.findViewById(R.id.tvFilterColor).setVisibility(View.GONE);
                             }
@@ -224,7 +222,6 @@ public class HomeActivity extends BaseActivity {
                     view.animate().scaleX(1.1f).scaleY(1.1f).setInterpolator(new BounceInterpolator()).setDuration(400).start();
                     TextView textView = view.findViewById(R.id.tvTitle);
                     textView.getPaint().setFakeBoldText(true);
-                   // textView.setBackgroundColor(HomeActivity.this.getResources().getColor(R.color.color_FFF68E33));
                     textView.invalidate();
                     MovieSort.SortData sortData = sortAdapter.getItem(position);
                     if (sortData != null && !sortData.filters.isEmpty()) {
@@ -271,13 +268,9 @@ public class HomeActivity extends BaseActivity {
                 return false;
             }
         });
-        // Button : TVBOX >> Delete Cache / Longclick to Refresh Source --
         tvName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                dataInitOk = false;
-//                jarInitOk = true;
-//                showSiteSwitch();
                 File dir = getCacheDir();
                 FileUtils.recursiveDelete(dir);
                 dir = getExternalCacheDir();
@@ -396,7 +389,6 @@ public class HomeActivity extends BaseActivity {
             }
         });
         setLoadSir(this.contentLayout);
-        //mHandler.postDelayed(mFindFocus, 500);
     }
 
     private void initViewModel() {
@@ -456,12 +448,9 @@ public class HomeActivity extends BaseActivity {
                     @Override
                     public void success() {
                         jarInitOk = true;
-                        //关闭jar注入的弹框
                         mHandler.postDelayed(new Runnable() {
                             @Override
                             public void run() {
-//                                if (!useCacheConfig)
-//                                    Toast.makeText(HomeActivity.this, "jar已加载", Toast.LENGTH_SHORT).show();
                                 initData();
                             }
 
@@ -486,8 +475,6 @@ public class HomeActivity extends BaseActivity {
                     }
 
                 });
-                //Log.d(TAG, "999999 " + RemoteConfig.checkUpdat());
-
             }
             return;
         }
@@ -579,28 +566,6 @@ public class HomeActivity extends BaseActivity {
                 });
             }
         }, this);
-
-        // region 如果5.0版本以下，自动下载XW
-//        try{
-//            if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.LOLLIPOP && Hawk.get(HawkConfig.PARSE_WEBVIEW, true)){
-//                LOG.d(this, "Android5.0及以下版本，自动下载XWalkView嗅探");
-//                Toast.makeText(this, "Android5.0及以下版本，自动下载XWalkView嗅探", Toast.LENGTH_LONG).show();
-//                XWalkInitDialog dialog = new XWalkInitDialog(this);
-//                dialog.setOnListener(new XWalkInitDialog.OnListener() {
-//                    @Override
-//                    public void onchange() {
-//                        Hawk.put(HawkConfig.PARSE_WEBVIEW, false);
-//                    }
-//                });
-//                dialog.show();
-//                dialog.OnPerformClick();
-//            }else{
-//                LOG.d(this, "非Android5.0及以下版本，使用系统嗅探");
-//            }
-//        }catch (Exception ex){
-//            ex.printStackTrace();
-//        }
-        // endregion
     }
 
     private void initViewPager(AbsSortXml absXml) {
@@ -659,7 +624,6 @@ public class HomeActivity extends BaseActivity {
 
     private void exit() {
         if (System.currentTimeMillis() - mExitTime < 2000) {
-            //这一段借鉴来自 q群老哥 IDCardWeb
             EventBus.getDefault().unregister(this);
             AppManager.getInstance().appExit(0);
             ControlManager.get().stopServer();
@@ -668,7 +632,6 @@ public class HomeActivity extends BaseActivity {
         } else {
             mExitTime = System.currentTimeMillis();
             Toast.makeText(mContext, "再按一次返回键退出应用", Toast.LENGTH_SHORT).show();
-            //showEmpty();
         }
     }
 
@@ -684,7 +647,6 @@ public class HomeActivity extends BaseActivity {
         } else {
             tvLogo.setVisibility(View.VISIBLE);
             tvName.setVisibility(View.GONE);
-            //tvName.setText("TVBOX");
         }
         mHandler.post(mRunnable);
     }
@@ -883,16 +845,6 @@ public class HomeActivity extends BaseActivity {
                 }
             }, sites, sites.indexOf(ApiConfig.get().getHomeSourceBean()));
             dialog.show();
-        }
-    }
-    private void restartHomeActivity(String homeSourceKey) {
-        if (homeSourceKey != null && !homeSourceKey.equals(Hawk.get(HawkConfig.HOME_API, ""))) {
-            Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            Bundle bundle = new Bundle();
-            bundle.putBoolean("useCache", true);
-            intent.putExtras(bundle);
-            HomeActivity.this.startActivity(intent);
         }
     }
     void reloadHome() {

@@ -236,7 +236,7 @@ public class DetailActivity extends BaseActivity {
         mGridView.setHasFixedSize(true);
         //mGridView.setHasFixedSize(false);
         tvHotList3 = findViewById(R.id.tvHotList3);
-        tvHotList3.setLayoutManager(new V7GridLayoutManager(this.mContext, 4));
+        tvHotList3.setLayoutManager(new V7GridLayoutManager(this.mContext, 5));
         homedeVodAdapter = new HomedeVodAdapter();
         this.mGridViewLayoutMgr = new V7GridLayoutManager(this.mContext, isBaseOnWidth() ? 10 : 11);
         mGridView.setLayoutManager(mGridViewLayoutMgr);
@@ -741,8 +741,7 @@ public class DetailActivity extends BaseActivity {
         int offset = screenWidth/w;
         if(!Hawk.get(HawkConfig.EPISODE_GROUPING, false)) {
             if (offset <= 2) offset = 2;
-            if (offset > 6)
-                offset = 10;
+            if (offset > 6) offset = 10;
         } else {
             offset = 10;
         }
@@ -807,9 +806,9 @@ public class DetailActivity extends BaseActivity {
                     setTextShow(tvArea, "•", mVideo.area);
                    // setTextShow(tvLang, "•", mVideo.lang);
                     if (!firstsourceKey.equals(sourceKey)) {
-                        setTextShow(tvType, "类型：", "[" + ApiConfig.get().getSource(sourceKey).getName() + "] 解析");
+                        setTextShow(tvType, "类型", "[" + ApiConfig.get().getSource(sourceKey).getName() + "] 解析");
                     } else {
-                        setTextShow(tvType, "类型：", mVideo.type);
+                        setTextShow(tvType, "类型", mVideo.type);
                     }
                     setTextShow(tvDouban, "豆瓣", mVideo.douban);
                     if (!TextUtils.isEmpty(mVideo.writer) || !TextUtils.isEmpty(mVideo.actor) || !TextUtils.isEmpty(mVideo.director)) {
@@ -906,7 +905,7 @@ public class DetailActivity extends BaseActivity {
         if (label.contains("豆瓣")) {
             return "<font color=\"#FF6600\">&nbsp;" + content + "</font>";
         }
-        if (label == "类型") {
+        if (label.equals("类型")) {
             content = content.replace(","," • ");
             content = content.replace("/","•");
             return " • " + content;

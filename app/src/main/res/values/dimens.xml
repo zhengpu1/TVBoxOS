@@ -71,6 +71,7 @@
     <dimen name="vs_160">160mm</dimen>
     <dimen name="vs_162">162mm</dimen>
     <dimen name="vs_165">165mm</dimen>
+    <dimen name="vs_155">155mm</dimen>
     <dimen name="vs_170">170mm</dimen>
     <dimen name="vs_180">180mm</dimen>
     <dimen name="vs_190">190mm</dimen>
@@ -80,6 +81,7 @@
     <dimen name="vs_220">220mm</dimen>
     <dimen name="vs_230">230mm</dimen>
     <dimen name="vs_240">240mm</dimen>
+    <dimen name="vs_242">242mm</dimen>
     <dimen name="vs_250">250mm</dimen>
     <dimen name="vs_270">270mm</dimen>
     <dimen name="vs_280">280mm</dimen>

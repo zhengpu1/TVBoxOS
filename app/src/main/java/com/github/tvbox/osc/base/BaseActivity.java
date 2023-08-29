@@ -3,7 +3,6 @@ package com.github.tvbox.osc.base;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
-import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.BitmapShader;
@@ -78,8 +77,6 @@ public abstract class BaseActivity extends AppCompatActivity implements CustomAd
         } catch (Throwable th) {
             th.printStackTrace();
         }
-
-        // takagen99 : Set Theme Color
         if (Hawk.get(HawkConfig.THEME_SELECT, 0) == 0) {
             setTheme(R.style.NetfxTheme);
         } else if (Hawk.get(HawkConfig.THEME_SELECT, 0) == 1) {
@@ -112,13 +109,6 @@ public abstract class BaseActivity extends AppCompatActivity implements CustomAd
     }
 
     public static void LParams(@NonNull FrameLayout RIDD, int w, int h) {
-        FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) RIDD.getLayoutParams();
-        params.width = AutoSizeUtils.mm2px(mContext,w);
-        params.height = AutoSizeUtils.mm2px(mContext,h);
-        RIDD.setLayoutParams(params);
-    }
-
-    public static void LParamsa(@NonNull LinearLayout RIDD, int w, int h) {
         FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) RIDD.getLayoutParams();
         params.width = AutoSizeUtils.mm2px(mContext,w);
         params.height = AutoSizeUtils.mm2px(mContext,h);
@@ -186,7 +176,6 @@ public abstract class BaseActivity extends AppCompatActivity implements CustomAd
         states[3] = new int[]{android.R.attr.state_enabled, android.R.attr.state_selected}; // disabled state
         states[2] = new int[]{android.R.attr.state_enabled};
         int[] colors = { getColorByAttrId(context, R.attr.color_theme_70), getColorByAttrId(context, R.attr.color_theme_80), getColorByAttrId(context, R.attr.color_theme_70) };
-        // 为各种状态下的 drawable 设置 attr 颜色值
         if (bg == 1) {
             pressedDrawable.setOrientation(GradientDrawable.Orientation.RIGHT_LEFT);
             pressedDrawable.setColors(colors);
@@ -305,11 +294,6 @@ public abstract class BaseActivity extends AppCompatActivity implements CustomAd
         Resources.Theme theme = context.getTheme();
         theme.resolveAttribute(attrIdForColor, typedValue, true);
         return typedValue.data;
-    }
-    public int getThemeColor() {
-        TypedArray a = mContext.obtainStyledAttributes(R.styleable.themeColor);
-        int themeColor = a.getColor(R.styleable.themeColor_color_theme, 0);
-        return themeColor;
     }
 
     public static Bitmap getRoundBitmapByShader(Bitmap bitmap, int outWidth, int outHeight, int radius, int boarder) {

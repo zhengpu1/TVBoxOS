@@ -68,9 +68,26 @@ public class HomeHotVodAdaptera extends BaseQuickAdapter<Movie.Video, BaseViewHo
         ImageView ivThumb = helper.getView(R.id.ivThumb);
         FrameLayout tvHotvods = helper.getView(R.id.Hotvods);
         FrameLayout[] str = { tvHotvods };
-        drawableFrameLayout(str, 10);
+
+        if (TextUtils.isEmpty(item.picthumb)) {
+            drawableFrameLayout(str, 10);
+            LParams(tvHotvods, 197, 260);
+            if (!TextUtils.isEmpty(item.pic)) {
+                Picasso.get()
+                        .load(DefaultConfig.checkReplaceProxy(item.pic))
+                        .transform(new RoundTransformation(MD5.string2MD5(item.pic + "position=" + helper.getLayoutPosition()))
+                                .centerCorp(true)
+                                .override(AutoSizeUtils.mm2px(mContext, 300), AutoSizeUtils.mm2px(mContext, 400))
+                                .roundRadius(AutoSizeUtils.mm2px(mContext, 10), RoundTransformation.RoundType.ALL))
+                        .placeholder(R.drawable.img_loading_placeholder)
+                        .error(R.drawable.img_loading_placeholder)
+                        .into(ivThumb);
+            } else {
+                ivThumb.setImageResource(R.drawable.img_loading_placeholder);
+            }
+        } else {
+            drawableFrameLayout(str, 10);
             LParams(tvHotvods, 298, 170);
-            if (TextUtils.isEmpty(item.picthumb)) { item.picthumb = item.pic; }
             if (!TextUtils.isEmpty(item.picthumb)) {
                 Picasso.get()
                         .load(DefaultConfig.checkReplaceProxy(item.picthumb))
@@ -86,3 +103,4 @@ public class HomeHotVodAdaptera extends BaseQuickAdapter<Movie.Video, BaseViewHo
             }
         }
     }
+}

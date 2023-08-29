@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Base64;
-
 import com.github.catvod.crawler.JarLoader;
 import com.github.catvod.crawler.JsLoader;
 import com.github.catvod.crawler.Spider;
@@ -31,10 +30,8 @@ import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.AbsCallback;
 import com.lzy.okgo.model.Response;
 import com.orhanobut.hawk.Hawk;
-
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -66,7 +63,6 @@ public class ApiConfig {
     public String wallpaper = "";
     public String Steturl = "";
     public String  adblockUrl = "";
-    public String  tuijianUrl = "";
     public String  souyeUrl = "";
     private final SourceBean emptyHome = new SourceBean();
 
@@ -81,7 +77,6 @@ public class ApiConfig {
         sourceBeanList = new LinkedHashMap<>();
         liveChannelGroupList = new ArrayList<>();
         parseBeanList = new ArrayList<>();
-//        wallpaperList = new ArrayList<>();
     }
 
     public static ApiConfig get() {
@@ -133,10 +128,6 @@ public class ApiConfig {
     }
     public void loadConfig(boolean useCache, LoadConfigCallback callback, Activity activity) {
         String apiUrl = Hawk.get(HawkConfig.API_URL, "");
-//        if (StringUtils.isBlank(apiUrl)) {
-//            apiUrl = "\"" + RemoteConfig.checkUpdateA(RemoteConfigName.APIUrl) + "\"";
-//            //Hawk.put(HawkConfig.API_URL,apiUrl);
-//        }
         LOG.i("ApiConfig: loadConfig: "+apiUrl);
         if (apiUrl.isEmpty()) {
             callback.error("-1");
@@ -309,7 +300,6 @@ public class ApiConfig {
         bReader.close();
         parseJson(apiUrl, sb.toString());
     }
-
     private void parseJson(String apiUrl, String jsonStr) {
 
         JsonObject infoJson = new Gson().fromJson(jsonStr, JsonObject.class);
@@ -318,13 +308,11 @@ public class ApiConfig {
         // wallpaper
         wallpaper = DefaultConfig.safeJsonString(infoJson, "wallpaper", "");
         //片头片尾
-        Steturl = DefaultConfig.safeJsonString(infoJson, "Steturl", "http://www.hrystv.top:38/jx/jxx.php?url=");
+        Steturl = DefaultConfig.safeJsonString(infoJson, "Steturl", "");
         //去广告
-        adblockUrl = DefaultConfig.safeJsonString(infoJson, "adblockUrl", "http://www.hrystv.top:38/lz.php?s=");
-        //首页推荐URL
-        tuijianUrl = DefaultConfig.safeJsonString(infoJson, "tuijianUrl", "http://www.hrystv.top:38/api.php/vodhrystj?stype=5");
+        adblockUrl = DefaultConfig.safeJsonString(infoJson, "adblockUrl", "");
         //首页URL
-        souyeUrl = DefaultConfig.safeJsonString(infoJson, "souyeUrl", "http://www.hrystv.top:38/api.php/vodSOUYE");
+        souyeUrl = DefaultConfig.safeJsonString(infoJson, "souyeUrl", "");
         // 远端站点源
         SourceBean firstSite = null;
         for (JsonElement opt : infoJson.get("sites").getAsJsonArray()) {
@@ -416,22 +404,16 @@ public class ApiConfig {
                     }else {
                         extUrlFix = new String(Base64.decode(extUrl, Base64.DEFAULT | Base64.URL_SAFE | Base64.NO_WRAP), "UTF-8");
                     }
-//                    System.out.println("extUrlFix :"+extUrlFix);
                     if (extUrlFix.startsWith("clan://")) {
                         extUrlFix = clanContentFix(clanToAddress(apiUrl), extUrlFix);
                     }
-
-                    // takagen99: Capture Live URL into Config
                     System.out.println("Live URL :" + extUrlFix);
                     putLiveHistory(extUrlFix);
-                    // Overwrite with Live URL from Settings
                     if (StringUtils.isBlank(liveURL)) {
                         Hawk.put(HawkConfig.LIVE_URL, extUrlFix);
                     } else {
                         extUrlFix = liveURL;
                     }
-
-                    // Final Live URL
                     liveURL_final = extUrlFix;
 
                 }
@@ -439,7 +421,6 @@ public class ApiConfig {
                     String epg = livesOBJ.get("epg").getAsString();
                     System.out.println("EPG URL :" + epg);
                     putEPGHistory(epg);
-                    // Overwrite with EPG URL from Settings
                     if (StringUtils.isBlank(epgURL)) {
                         Hawk.put(HawkConfig.EPG_URL, epg);
                     } else {
@@ -460,7 +441,6 @@ public class ApiConfig {
                             String epg = fengMiLives.get("epg").getAsString();
                             System.out.println("EPG URL :" + epg);
                             putEPGHistory(epg);
-                            // Overwrite with EPG URL from Settings
                             if (StringUtils.isBlank(epgURL)) {
                                 Hawk.put(HawkConfig.EPG_URL, epg);
                             } else {
@@ -469,9 +449,7 @@ public class ApiConfig {
                         }
 
                         if (url.startsWith("http")) {
-                            // takagen99: Capture Live URL into Settings
                             putLiveHistory(url);
-                            // Overwrite with Live URL from Settings
                             if (StringUtils.isBlank(liveURL)) {
                                 Hawk.put(HawkConfig.LIVE_URL, url);
                             } else {
@@ -673,7 +651,6 @@ public class ApiConfig {
 
     public Spider getCSP(SourceBean sourceBean) {
 
-        // Getting js api
         if (sourceBean.getApi().endsWith(".js") || sourceBean.getApi().contains(".js?")) {
             return jsLoader.getSpider(sourceBean.getKey(), sourceBean.getApi(), sourceBean.getExt(), sourceBean.getJar());
         }
@@ -699,12 +676,6 @@ public class ApiConfig {
         void retry();
 
         void error(String msg);
-    }
-
-    public interface FastParseCallback {
-        void success(boolean parse, String url, Map<String, String> header);
-
-        void fail(int code, String msg);
     }
 
     public SourceBean getSource(String key) {
