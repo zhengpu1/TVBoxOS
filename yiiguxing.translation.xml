@@ -11,6 +11,7 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="on Focus Change" />
       <item value="get Span Size" />
       <item value="Notify any registered observers that the data set has changed. There are two different classes of data change events, item changes and structural changes. Item changes are when a single item has its data updated but no positional changes have occurred. Structural changes are when items are inserted, removed or moved within the data set. This event does not specify what about the data set has changed, forcing any observers to assume that all existing items and structure may no longer be valid. LayoutManagers will be forced to fully rebind and relayout all visible views. RecyclerView will attempt to synthesize visible structural change events for adapters that report that they have stable IDs when this method is used. This can help for the purposes of animation and visual object persistence but individual item views will still need to be rebound and relaid out. If you are writing an adapter it will always be more efficient to use the more specific change events if you can. Rely on notifyDataSetChanged() as a last resort." />
       <item value="Add check for VOD Delete Mode" />
@@ -60,15 +61,14 @@
       <item value="sort Focused" />
       <item value="FOCUS UP" />
       <item value="fatal: unable to access 'https:github.comzzh628TVBoxOS': Recv failure: Connection was reset 19:42:11.225: [TVBoxOS666] git -c credential.helper= -c core.quotepath=false -c log.showSignature=false push --progress --porcelain origin refsheadsmain:main fatal: unable to access 'https:github.comzzh628TVBoxOS': Recv failure: Connection was reset" />
-      <item value="SHOW SSPREVIEW" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3310" />
+        <entry key="CHINESE" value="3311" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3311" />
+        <entry key="ENGLISH" value="3312" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
