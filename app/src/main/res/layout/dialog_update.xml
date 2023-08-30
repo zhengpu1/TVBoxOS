@@ -100,24 +100,25 @@
                 android:textColor="@color/font_deta_color"
                 android:textSize="16sp" />
         </LinearLayout>
-
+        <TextView
+            android:id="@+id/progressBarText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_alignBottom="@+id/yes_btn"
+            android:layout_marginLeft="170dp"
+            android:text="0%"
+            android:textSize="16sp"/>
         <ProgressBar
             android:id="@+id/progressBar"
             style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Horizontal"
             android:layout_width="match_parent"
             android:layout_height="@dimen/radius_10"
-            android:layout_alignBottom="@id/msg_tv"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="10dp"
+            android:layout_alignBottom="@id/yes_btn"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="-30dp"
             android:max="100"
             android:progress="0" />
 
-        <TextView
-            android:id="@+id/progressBarText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/msg_tv"
-            android:layout_marginLeft="140dp"
-            android:layout_marginBottom="-28dp"
-            android:text="0%" />
     </LinearLayout>

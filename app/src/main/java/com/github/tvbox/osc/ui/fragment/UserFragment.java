@@ -163,13 +163,9 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
         tvPush.setOnFocusChangeListener(focusChangeListener);
         tvCollect.setOnFocusChangeListener(focusChangeListener);
         tvCollects.setOnFocusChangeListener(focusChangeListeners);
-        int picthumbbz = 4;
-        if(ApiConfig.get().souyeUrl.isEmpty()){
-            picthumbbz = 6;
-        }
         tvHotList1 = findViewById(R.id.tvHotList1);
         tvHotList1.setHasFixedSize(true);
-        tvHotList1.setLayoutManager(new V7GridLayoutManager(this.mContext, picthumbbz));
+        tvHotList1.setLayoutManager(new V7GridLayoutManager(this.mContext, !ApiConfig.get().souyeUrl.isEmpty() ? 5 : 6));
         tvHotList4 = findViewById(R.id.tvHotList4);
         tvHotList4.setHasFixedSize(true);
         tvHotList4.setLayoutManager(new V7GridLayoutManager(this.mContext, 4));

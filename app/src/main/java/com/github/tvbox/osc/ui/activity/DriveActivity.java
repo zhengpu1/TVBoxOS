@@ -90,7 +90,7 @@ public class DriveActivity extends BaseActivity {
     private int sortFocused = 0;
     private boolean delMode = false;
     public View sortFocusView = null;
-    private final int xiancc = Integer.parseInt(HistoryHelper.getHistoryNumNamex(Hawk.get(HawkConfig.XIANC_NUM, 0)));
+    private final int thread = Integer.parseInt(HistoryHelper.getHistoryNumNamex(Hawk.get(HawkConfig.XIANC_NUM, 0)));
 
     private Handler mHandler = new Handler();
 
@@ -107,7 +107,7 @@ public class DriveActivity extends BaseActivity {
 
     private void initView() {
         EventBus.getDefault().register(this);
-        searchExecutorService = Executors.newFixedThreadPool(xiancc);
+        searchExecutorService = Executors.newFixedThreadPool(thread);
         this.txtTitle = findViewById(R.id.textView);
         this.btnAddServer = findViewById(R.id.btnAddServer);
         this.mGridView = findViewById(R.id.mGridView);

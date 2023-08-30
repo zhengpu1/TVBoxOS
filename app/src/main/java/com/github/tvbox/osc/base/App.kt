@@ -45,7 +45,6 @@ class App : MultiDexApplication() {
 
     companion object {
         lateinit var burl: String
-
         @JvmStatic
         var instance: App? = null
             private set

@@ -87,7 +87,7 @@ public class HomeHotVodAdaptera extends BaseQuickAdapter<Movie.Video, BaseViewHo
             }
         } else {
             drawableFrameLayout(str, 10);
-            LParams(tvHotvods, 298, 170);
+            LParams(tvHotvods, 242, 155);
             if (!TextUtils.isEmpty(item.picthumb)) {
                 Picasso.get()
                         .load(DefaultConfig.checkReplaceProxy(item.picthumb))

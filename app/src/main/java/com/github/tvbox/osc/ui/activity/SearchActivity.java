@@ -92,7 +92,7 @@ public class SearchActivity extends BaseActivity {
 
     private static HashMap<String, String> mCheckSources = null;
     private SearchCheckboxDialog mSearchCheckboxDialog = null;
-    private final int xiancc = Integer.parseInt(HistoryHelper.getHistoryNumNamex(Hawk.get(HawkConfig.XIANC_NUM, 0)));
+    private final int thread = Integer.parseInt(HistoryHelper.getHistoryNumNamex(Hawk.get(HawkConfig.XIANC_NUM, 0)));
 
     @Override
     protected int getLayoutResID() {
@@ -149,7 +149,7 @@ public class SearchActivity extends BaseActivity {
     protected void onResume() {
         super.onResume();
         if (pauseRunnable != null && pauseRunnable.size() > 0) {
-            searchExecutorService = Executors.newFixedThreadPool(xiancc);
+            searchExecutorService = Executors.newFixedThreadPool(thread);
             allRunCount.set(pauseRunnable.size());
             for (Runnable runnable : pauseRunnable) {
                 searchExecutorService.execute(runnable);
@@ -575,7 +575,7 @@ public class SearchActivity extends BaseActivity {
             searchAdapter.setNewData(new ArrayList<>());
             allRunCount.set(0);
         }
-        searchExecutorService = Executors.newFixedThreadPool(xiancc);
+        searchExecutorService = Executors.newFixedThreadPool(thread);
         List<SourceBean> searchRequestList = new ArrayList<>();
         searchRequestList.addAll(ApiConfig.get().getSourceBeanList());
         SourceBean home = ApiConfig.get().getHomeSourceBean();

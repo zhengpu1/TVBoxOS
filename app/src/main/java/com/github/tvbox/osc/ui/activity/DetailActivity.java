@@ -164,7 +164,7 @@ public class DetailActivity extends BaseActivity {
     private final ArrayList<String> seriesGroupOptions = new ArrayList<>();
     private View currentSeriesGroupView;
     private int GroupCount;
-    private int xiancc = Integer.parseInt(HistoryHelper.getHistoryNumNamex(Hawk.get(HawkConfig.XIANC_NUM, 0)));
+    private int thread = Integer.parseInt(HistoryHelper.getHistoryNumNamex(Hawk.get(HawkConfig.XIANC_NUM, 0)));
 
     @Override
     protected int getLayoutResID() {
@@ -370,7 +370,7 @@ public class DetailActivity extends BaseActivity {
                 EventBus.getDefault().post(new RefreshEvent(RefreshEvent.TYPE_QUICK_SEARCH_WORD, quickSearchWord));
                 quickSearchDialog.show();
                 if (pauseRunnable != null && pauseRunnable.size() > 0) {
-                    searchExecutorService = Executors.newFixedThreadPool(xiancc);
+                    searchExecutorService = Executors.newFixedThreadPool(thread);
                     for (Runnable runnable : pauseRunnable) {
                         searchExecutorService.execute(runnable);
                     }
@@ -1069,7 +1069,7 @@ public class DetailActivity extends BaseActivity {
         } catch (Throwable th) {
             th.printStackTrace();
         }
-        searchExecutorService = Executors.newFixedThreadPool(xiancc);
+        searchExecutorService = Executors.newFixedThreadPool(thread);
         List<SourceBean> searchRequestList = new ArrayList<>();
         searchRequestList.addAll(ApiConfig.get().getSourceBeanList());
         SourceBean home = ApiConfig.get().getHomeSourceBean();
