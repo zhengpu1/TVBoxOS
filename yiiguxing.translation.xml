@@ -11,6 +11,7 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="ellipsize" />
       <item value="Text Paint" />
       <item value="HOME LSTIMG" />
       <item value="on Focus Change" />
@@ -60,15 +61,14 @@
       <item value="error: RPC failed; curl 28 Recv failure: Connection was reset fatal: expected flush after ref listing" />
       <item value="refsheadsdav_:refsheadsdav_ [new branch] branch 'dav_' set up to track 'origindav_'. Done" />
       <item value="fatal: unable to access 'https:github.comzzh628TVBoxOS': Recv failure: Connection was reset 22:41:25.337: [TVBoxOS666] git -c credential.helper= -c core.quotepath=false -c log.showSignature=false fetch origin --recurse-submodules=no --progress --prune fatal: unable to access 'https:github.comzzh628TVBoxOS': Failed to connect to github.com port 443 after 21028 ms: Couldn't connect to server 22:42:19.809: [TVBoxOS666] git -c credential.helper= -c core.quotepath=false -c log.showSignature=false push --progress --porcelain origin refsheadsmain:main fatal: unable to access 'https:github.comzzh628TVBoxOS': Recv failure: Connection was reset" />
-      <item value="sort Focused" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3313" />
+        <entry key="CHINESE" value="3314" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3314" />
+        <entry key="ENGLISH" value="3315" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
