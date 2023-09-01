@@ -1,8 +1,5 @@
 package com.github.tvbox.osc.ui.fragment;
 
-import static com.github.tvbox.osc.util.RemoteConfig.checkUpdatess;
-import static com.github.tvbox.osc.util.RemoteConfig.isFirstStart;
-
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -171,9 +168,6 @@ public class ModelSettingFragment extends BaseLazyFragment {
         tvIjkCachePlay.setText(Hawk.get(HawkConfig.IJK_CACHE_PLAY, false) ? "开启" : "关闭");
         tvPlayback.setText(Hawk.get(HawkConfig.PLAYBACK_PLAY, false) ? "开" : "关");
         findViewById(R.id.llHomeApi).requestFocus();
-        if (checkUpdatess(mContext) && isFirstStart(mContext)) {
-            UpdateDialog.checkUpdate(mActivity,false);
-        }
         findViewById(R.id.llDebug).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

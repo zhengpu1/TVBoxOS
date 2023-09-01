@@ -138,7 +138,6 @@ android.applicationVariants.all {
                 output.outputFileName = "tvbox_${android.defaultConfig.versionName}_debug.apk"
             }else if (variant.buildType.name == 'release'){
                 output.outputFileName = "HRTV_${android.defaultConfig.versionName}.apk"
-                println(String.format("UpdateUrl->http://www.hrystv.top:38/apk/%s", URLEncoder.encode(output.outputFileName, "UTF-8")));
             }
         }
 }

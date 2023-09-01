@@ -51,7 +51,6 @@ import com.github.tvbox.osc.ui.dialog.LivePasswordDialog;
 import com.github.tvbox.osc.util.EpgUtil;
 import com.github.tvbox.osc.util.FastClickCheckUtil;
 import com.github.tvbox.osc.util.HawkConfig;
-import com.github.tvbox.osc.util.RemoteConfig;
 import com.github.tvbox.osc.util.live.TxtSubscribe;
 import com.github.tvbox.osc.util.urlhttp.CallBackUtil;
 import com.github.tvbox.osc.util.urlhttp.UrlHttpUtil;
@@ -64,7 +63,6 @@ import com.owen.tvrecyclerview.widget.TvRecyclerView;
 import com.owen.tvrecyclerview.widget.V7LinearLayoutManager;
 import com.squareup.picasso.Picasso;
 
-import org.apache.commons.lang3.StringUtils;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
@@ -182,14 +180,8 @@ public class LivePlayActivity extends BaseActivity {
 
         // Getting EPG Address
         epgStringAddress = Hawk.get(HawkConfig.EPG_URL, "");
-        String EPGUrls = RemoteConfig.GetValue("APIEPGUrl").getAsString();
-        if (StringUtils.isBlank(epgStringAddress)) {
-            epgStringAddress = EPGUrls;
-           // Hawk.put(HawkConfig.EPG_URL, epgStringAddress);
-        }
-        //LOG.i("epg地址: "+EPGUrls);
-        // http://epg.aishangtv.top/live_proxy_epg_bc.php
-        // http://diyp.112114.xyz/
+        if(epgStringAddress == null || epgStringAddress.length()<5)
+            epgStringAddress = "http://diyp.112114.xyz/";
 
         EventBus.getDefault().register(this);
         setLoadSir(findViewById(R.id.live_root));

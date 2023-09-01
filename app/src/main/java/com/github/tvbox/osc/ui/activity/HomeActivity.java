@@ -1,5 +1,8 @@
 package com.github.tvbox.osc.ui.activity;
 
+import static com.github.tvbox.osc.util.RemoteConfig.checkUpdatess;
+import static com.github.tvbox.osc.util.RemoteConfig.isFirstStart;
+
 import android.Manifest;
 import android.animation.Animator;
 import android.animation.AnimatorSet;
@@ -44,6 +47,7 @@ import com.github.tvbox.osc.ui.adapter.SelectDialogAdapter;
 import com.github.tvbox.osc.ui.adapter.SortAdapter;
 import com.github.tvbox.osc.ui.dialog.SelectDialog;
 import com.github.tvbox.osc.ui.dialog.TipDialog;
+import com.github.tvbox.osc.ui.dialog.UpdateDialog;
 import com.github.tvbox.osc.ui.fragment.GridFragment;
 import com.github.tvbox.osc.ui.fragment.UserFragment;
 import com.github.tvbox.osc.ui.tv.widget.DefaultTransformer;
@@ -268,6 +272,7 @@ public class HomeActivity extends BaseActivity {
                 return false;
             }
         });
+
         tvName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -451,6 +456,11 @@ public class HomeActivity extends BaseActivity {
                         mHandler.postDelayed(new Runnable() {
                             @Override
                             public void run() {
+                                if (checkUpdatess(mContext) && isFirstStart(mContext)) {
+                                    new Handler().postDelayed(() -> {
+                                        UpdateDialog.checkUpdate(mContext, false);
+                                    }, 300);
+                                }
                                 initData();
                             }
 
@@ -642,7 +652,8 @@ public class HomeActivity extends BaseActivity {
         if (Hawk.get(HawkConfig.HOME_SHOW_SOURCE, false)) {
             if (home != null && home.getName() != null && !home.getName().isEmpty()) {
                 tvName.setText(home.getName());
-
+                tvName.setVisibility(View.VISIBLE);
+                tvLogo.setVisibility(View.GONE);
             }
         } else {
             tvLogo.setVisibility(View.VISIBLE);

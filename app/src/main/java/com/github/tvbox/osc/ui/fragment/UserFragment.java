@@ -17,6 +17,7 @@ import com.github.tvbox.osc.R;
 import com.github.tvbox.osc.api.ApiConfig;
 import com.github.tvbox.osc.base.BaseLazyFragment;
 import com.github.tvbox.osc.bean.Movie;
+import com.github.tvbox.osc.bean.SourceBean;
 import com.github.tvbox.osc.bean.VodInfo;
 import com.github.tvbox.osc.cache.RoomDataManger;
 import com.github.tvbox.osc.event.ServerEvent;
@@ -165,7 +166,10 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
         tvCollects.setOnFocusChangeListener(focusChangeListeners);
         tvHotList1 = findViewById(R.id.tvHotList1);
         tvHotList1.setHasFixedSize(true);
-        tvHotList1.setLayoutManager(new V7GridLayoutManager(this.mContext, !ApiConfig.get().souyeUrl.isEmpty() ? 5 : 6));
+        SourceBean home = ApiConfig.get().getHomeSourceBean();
+        if (home != null && home.getKey() != null && !home.getKey().isEmpty()) {
+            tvHotList1.setLayoutManager(new V7GridLayoutManager(this.mContext, home.getKey().equals("htv_hrys") ? 5 : 6));
+        }
         tvHotList4 = findViewById(R.id.tvHotList4);
         tvHotList4.setHasFixedSize(true);
         tvHotList4.setLayoutManager(new V7GridLayoutManager(this.mContext, 4));
@@ -554,7 +558,7 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
                 vod.pic = obj.get("vod_pic").getAsString();
                 vod.picthumb = obj.get("vod_pic_thumb").getAsString();
                 vod.picslide = obj.get("vod_pic_slide").getAsString();
-                vod.sourceKey = "htv_hrys";
+                vod.sourceKey = ApiConfig.get().getHomeSourceBean().getKey();
                 result.add(vod);
             }
         } catch (Throwable th) {

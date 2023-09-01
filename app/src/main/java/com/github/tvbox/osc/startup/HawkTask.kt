@@ -67,10 +67,10 @@ class HawkTask : AndroidStartup<String>() {
             Hawk.put(HawkConfig.XIANC_NUM, 3)
         }
 
-        val homeUrl = Hawk.get(HawkConfig.API_URL, "")
-        if (TextUtils.isEmpty(homeUrl)) {
-            Hawk.put(HawkConfig.API_URL, "http://www.hrystv.top:38/tv/270.json")
-        }
+//        val homeUrl = Hawk.get(HawkConfig.API_URL, "")
+//        if (TextUtils.isEmpty(homeUrl)) {
+//            Hawk.put(HawkConfig.API_URL, "")
+//        }
         if (Hawk.get<String>(HawkConfig.IJK_CODEC).isNullOrEmpty()) {
             Hawk.put(HawkConfig.IJK_CODEC, "硬解码")
         }

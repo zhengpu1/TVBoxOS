@@ -553,7 +553,7 @@
                 android:shadowDy="0.5"
                 android:shadowRadius="1.0"
                 android:paddingTop="@dimen/vs_10"
-                android:text="温馨提示：如播放失败，尝试切换解析或点击《换数据源》切换站点播放。"
+                android:text="温馨提示：如播放失败，尝试切换解析或点击《快速搜索》切换站点播放。"
                 android:textColor="@color/color_80FFFFFF"
                 android:textSize="@dimen/ts_18" />
 

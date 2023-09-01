@@ -23,7 +23,6 @@ import com.github.tvbox.osc.util.FileUtils;
 import com.github.tvbox.osc.util.LOG;
 import com.github.tvbox.osc.util.MD5;
 import com.github.tvbox.osc.util.RemoteConfig;
-import com.github.tvbox.osc.util.RemoteConfigName;
 import com.github.tvbox.osc.util.ToolUtils;
 import com.google.gson.JsonObject;
 import com.hjq.permissions.OnPermissionCallback;
@@ -141,12 +140,12 @@ public class UpdateDialog extends BaseDialog  {
 
     @Override
     public void onBackPressed() {
-        if (!ForceUpdate){
+       // if (!ForceUpdate){
             super.onBackPressed();
             dismiss();
-        }else{
-            showToast("强制更新，无法退出！");
-        }
+      //  }else{
+           // showToast("强制更新，无法退出！");
+      //  }
     }
 
 
@@ -168,7 +167,7 @@ public class UpdateDialog extends BaseDialog  {
         IsNewUpdate = false;
         JsonObject updateJosn = null;
         try {
-            updateJosn = RemoteConfig.GetValue(RemoteConfigName.UpdateData).getAsJsonObject();
+            updateJosn = RemoteConfig.GetValue("UpdateData").getAsJsonObject();
         }catch (Exception e){
             e.printStackTrace();
             return;
@@ -177,10 +176,10 @@ public class UpdateDialog extends BaseDialog  {
             return;
         LOG.i("更新信息："+ updateJosn.toString());
         try {
-            NewVersion = updateJosn.get(RemoteConfigName.UpdateData_NewVersion).getAsString();
-            ForceUpdate = updateJosn.get(RemoteConfigName.UpdateData_ForceUpdate).getAsBoolean();
-            UpdateDesc = updateJosn.get(RemoteConfigName.UpdateData_UpdateDesc).getAsString();
-            UpdateUrl = updateJosn.get(RemoteConfigName.UpdateData_UpdateDownloadUrl).getAsString();
+            NewVersion = updateJosn.get("NewVersion").getAsString();
+            ForceUpdate = updateJosn.get("ForceUpdate").getAsBoolean();
+            UpdateDesc = updateJosn.get("UpdateDesc").getAsString();
+            UpdateUrl = updateJosn.get("UpdateDownloadUrl").getAsString();
             CurrVersion = DefaultConfig.getAppVersionName(context);
 
 

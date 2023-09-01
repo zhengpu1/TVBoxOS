@@ -6,11 +6,9 @@ import static com.blankj.utilcode.util.ActivityUtils.startActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Bundle;
 import android.os.Handler;
 
 import com.github.tvbox.osc.base.BaseActivity;
-import com.github.tvbox.osc.ui.activity.HomeActivity;
 import com.github.tvbox.osc.ui.activity.LivePlayActivity;
 import com.github.tvbox.osc.ui.dialog.UpdateDialog;
 import com.google.gson.JsonElement;
@@ -89,13 +87,13 @@ public class RemoteConfig {
     public static boolean checkUpdatess(Context context) {
         JsonObject updateJosn = null;
         try {
-            updateJosn = RemoteConfig.GetValue(RemoteConfigName.UpdateData).getAsJsonObject();
+            updateJosn = RemoteConfig.GetValue("UpdateData").getAsJsonObject();
         }catch (Exception e){
             e.printStackTrace();
             return false;
         }
         try {
-        NewVersions = updateJosn.get(RemoteConfigName.UpdateData_NewVersion).getAsString();
+        NewVersions = updateJosn.get("NewVersion").getAsString();
         CurrVersions = DefaultConfig.getAppVersionName(context);
         int NewVersionNum = Integer.parseInt(NewVersions.substring(7, 14));
         int CurrVersionNum = Integer.parseInt(CurrVersions.substring(7, 14));
@@ -106,25 +104,6 @@ public class RemoteConfig {
             th.printStackTrace();
         };
         return false;
-    }
-
-    public static int checkUpdat() {
-        return 1;
-    }
-    public static JsonElement GetAppModelValue(String... keys){
-        JsonElement element = GetValue(RemoteConfigName.CustomData);
-        if (element!=null && !element.isJsonNull()) {
-            JsonObject jsonObject = element.getAsJsonObject();
-            for (int i = 0; i < keys.length; i++) {
-                String key = keys[i];
-                if (i == keys.length - 1)
-                    return jsonObject.get(key);
-
-                else
-                    jsonObject = jsonObject.get(key).getAsJsonObject();
-            }
-        }
-        return JsonNull.INSTANCE;
     }
     public static void jumpActivity(Class<? extends BaseActivity> clazz) {
         Intent intent = new Intent(mContext, clazz);
@@ -152,78 +131,22 @@ public class RemoteConfig {
     private static void InitRemoteConfig(String config){
         LOG.i("RemoteConfig", "获取到远端内容", config);
         remoteJsonObject = JsonParser.parseString(config).getAsJsonObject();
-
-        // region 日志
-        if (!GetValue(RemoteConfigName.IsRecodeLog).isJsonNull() && GetValue(RemoteConfigName.IsRecodeLog).getAsBoolean()) {
-            LOG.i("RemoteConfig", "远端打开日志保存");
-            LOG.OpenSaveLog();
-        }
-        else {
-            LOG.i("RemoteConfig", "远端关闭日志保存");
-            LOG.ClsoeSaveLog();
-        }
-        // region 默认API地址
-        if (!GetValue(RemoteConfigName.APIUrl).isJsonNull() && !GetValue(RemoteConfigName.APIUrl).getAsString().isEmpty()) {
-            String remoteValue = GetValue(RemoteConfigName.APIUrl).getAsString();
-            if (Hawk.get(HawkConfig.HOME_LIVE, false)) {
-                new Handler().postDelayed(() -> {
-                    jumpActivity(LivePlayActivity.class);
-                }, 100);
-            }
-
-            boolean forceChangeAPIUrl = !GetValue(RemoteConfigName.ForceChangeAPIUrl).isJsonNull() && GetValue(RemoteConfigName.ForceChangeAPIUrl).getAsBoolean();
-            if (forceChangeAPIUrl) {
-                LOG.e("RemoteConfig", "远端强制替换APIUrl地址");
-            }
-            if (SetRemoteHawkConfig(remoteValue, forceChangeAPIUrl)) {
-                if (AppManager.getInstance().isActivity()) {
-                    Bundle bundle = new Bundle();
-                    bundle.putBoolean("useCache", true);
-                    BaseActivity currActivity = (BaseActivity) AppManager.getInstance().currentActivity();
-                    currActivity.jumpActivity(HomeActivity.class, bundle);
-                }
-            }
+        if (Hawk.get(HawkConfig.HOME_LIVE, false)) {
+            new Handler().postDelayed(() -> {
+                jumpActivity(LivePlayActivity.class);
+            }, 100);
         }
         // region 默认更新地址
-        if (!GetValue(RemoteConfigName.UpdateData).isJsonNull() && GetValue(RemoteConfigName.UpdateData).getAsJsonObject() != null) {
-            JsonObject updateData = GetValue(RemoteConfigName.UpdateData).getAsJsonObject();
+        if (!GetValue("UpdateData").isJsonNull() && GetValue("UpdateData").getAsJsonObject() != null) {
+            JsonObject updateData = GetValue("UpdateData").getAsJsonObject();
             LOG.i("RemoteConfig", "★远端设置", "默认更新数据", updateData.toString());
-            if (!GetValue(RemoteConfigName.IsForceUpdate).isJsonNull() && GetValue(RemoteConfigName.IsForceUpdate).getAsBoolean()){
+            if (!GetValue("IsForceUpdate").isJsonNull() && GetValue("IsForceUpdate").getAsBoolean()){
                 LOG.i("RemoteConfig", "★远端设置", "启动强制显示更新");
                 UpdateDialog.checkUpdate(AppManager.getInstance().currentActivity(), false);
             }else {
                 LOG.i("RemoteConfig", "★远端设置", "启动非强制显示更新");
             }
         }
-        // endregion 默认更新地址
-    }
-    private static <T> boolean SetRemoteHawkConfig(T remoteValue, boolean forceSet){
-        boolean isPut = false;
-        T oldValue = null;
-        if (Hawk.contains(HawkConfig.API_URL) && !forceSet) {
-            oldValue = Hawk.get(HawkConfig.API_URL);
-            if (remoteValue instanceof Integer) {
-                if (Hawk.get(HawkConfig.API_URL, 0) == 0)
-                    isPut = true;
-            } else if (remoteValue instanceof String) {
-                if (Hawk.get(HawkConfig.API_URL, "").isEmpty())
-                    isPut = true;
-            } else if (remoteValue instanceof Boolean) {
-                if (!Hawk.get(HawkConfig.API_URL, false))
-                    isPut = true;
-            }
-        }else{
-            isPut = true;
-        }
-        if(isPut){
-            LOG.i("RemoteConfig",  "★远端设置", "默认首页API", "老值："+oldValue, "新值："+remoteValue);
-            if (GetValue(RemoteConfigName.ForceChangeAPIUrl).isJsonNull()) {
-                 Hawk.put(HawkConfig.API_URL, remoteValue);
-            }
-            return true;
-        }else
-            LOG.i("RemoteConfig", "☆忽略远端", "默认首页API", "保留值：" + oldValue, "忽略值：" + remoteValue);
-        return false;
     }
 
 }
