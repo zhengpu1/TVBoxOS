@@ -11,6 +11,8 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="get Download Url" />
+      <item value="get Video Preview Play Info" />
       <item value="contains" />
       <item value="TV Instance" />
       <item value="INSTANCE" />
@@ -59,16 +61,14 @@
       <item value="parse" />
       <item value="@param spanSizeLookup instance to be used to query number of spans occupied by each item" />
       <item value="EPISODE GROUPING" />
-      <item value="replace" />
-      <item value="index Of" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3327" />
+        <entry key="CHINESE" value="3329" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3328" />
+        <entry key="ENGLISH" value="3330" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
