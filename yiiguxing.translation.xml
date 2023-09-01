@@ -11,6 +11,13 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="retry" />
+      <item value="init View Pager" />
+      <item value="on Long Click" />
+      <item value="m Context" />
+      <item value="Context" />
+      <item value="context" />
+      <item value="ACTION DOWN" />
       <item value="MODE PRIVATE" />
       <item value="Minimal MultiDex capable application. To use the legacy multidex library there is 3 possibility: &lt;ul&gt; &lt;li&gt;Declare this class as the application in your AndroidManifest.xml.&lt;li&gt; &lt;li&gt;Have your {@link Application} extends this class.&lt;li&gt; &lt;li&gt;Have your {@link Application} override attachBaseContext starting with&lt;br&gt; &lt;code&gt; protected void attachBaseContext(Context base) {&lt;br&gt; super.attachBaseContext(base);&lt;br&gt; MultiDex.install(this); &lt;code&gt;&lt;li&gt; &lt;ul&gt;" />
       <item value="ellipsize" />
@@ -54,21 +61,14 @@
       <item value="equals" />
       <item value="parses" />
       <item value="home Source Rec" />
-      <item value="HOME REC" />
-      <item value="FLAG ACTIVITY CLEAR TOP" />
-      <item value="FLAG ACTIVITY NEW TASK" />
-      <item value="FAST SEARCH MODE" />
-      <item value="on Item Long Click" />
-      <item value="fatal: unable to access 'https:github.comzzh628TVBoxOS': Recv failure: Connection was reset" />
-      <item value="error: RPC failed; curl 28 Recv failure: Connection was reset fatal: expected flush after ref listing" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3316" />
+        <entry key="CHINESE" value="3323" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3317" />
+        <entry key="ENGLISH" value="3324" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
