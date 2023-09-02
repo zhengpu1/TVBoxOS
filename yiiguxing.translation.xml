@@ -8,6 +8,9 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="java.lang.Error: org.json.JSONException: No value for url" />
+      <item value="Caused by: org.json.JSONException: No value for url" />
+      <item value="is Video Format" />
       <item value="Source File" />
       <item value="java.lang.IllegalStateException: Not allowed to start service Intent { act=android.intent.action.PACKAGE_FULLY_REMOVED dat=package:com.github.tvbox.tk flg=0x5000010 pkg=com.google.android.gms cmp=com.google.android.gms.chimera.GmsIntentOperationService (has extras) }: app is in background uid UidRecord{ac195c9 u0a53 RCVR idle change:uncached procs:3 seq(0,0,0)}" />
       <item value="Each pixel is stored on 2 bytes and only the RGB channels are encoded: red is stored with 5 bits of precision (32 possible values), green is stored with 6 bits of precision (64 possible values) and blue is stored with 5 bits of precision. This configuration can produce slight visual artifacts depending on the configuration of the source. For instance, without dithering, the result might show a greenish tint. To get better results dithering should be applied. This configuration may be useful when using opaque bitmaps that do not require high color fidelity. &lt;p&gt;Use this formula to pack into 16 bits:&lt;p&gt; &lt;pre class=&quot;prettyprint&quot;&gt; short color = (R &amp; 0x1f) &lt;&lt; 11 | (G &amp; 0x3f) &lt;&lt; 5 | (B &amp; 0x1f);" />
@@ -55,17 +58,14 @@
       <item value="HOME PTST TUMM" />
       <item value="get All Vod Record" />
       <item value="Initialize Icon Placement" />
-      <item value="rejected" />
-      <item value="error: failed to push some refs to" />
-      <item value="forced update" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3346" />
+        <entry key="CHINESE" value="3350" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3347" />
+        <entry key="ENGLISH" value="3351" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
