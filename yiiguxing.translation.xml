@@ -11,6 +11,17 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="hl corner Radius" />
+      <item value="span Count" />
+      <item value="set Enable Load More" />
+      <item value="set Spacing With Margins" />
+      <item value="Returns the left padding of this view. If there are inset and enabled scrollbars, this value may include the space required to display the scrollbars as well. 返回值: the left padding in pixels" />
+      <item value="set Clip To Padding" />
+      <item value="set Padding" />
+      <item value="set Layout Params" />
+      <item value="round Radius" />
+      <item value="rectangle" />
+      <item value="angle" />
       <item value="The application's minSdkVersion is newer than the device API level." />
       <item value="Failed to launch an application on all devices" />
       <item value="Installation did not succeed. The application could not be installed: INSTALL_FAILED_OLDER_SDK" />
@@ -50,25 +61,14 @@
       <item value="context" />
       <item value="ACTION DOWN" />
       <item value="MODE PRIVATE" />
-      <item value="Minimal MultiDex capable application. To use the legacy multidex library there is 3 possibility: &lt;ul&gt; &lt;li&gt;Declare this class as the application in your AndroidManifest.xml.&lt;li&gt; &lt;li&gt;Have your {@link Application} extends this class.&lt;li&gt; &lt;li&gt;Have your {@link Application} override attachBaseContext starting with&lt;br&gt; &lt;code&gt; protected void attachBaseContext(Context base) {&lt;br&gt; super.attachBaseContext(base);&lt;br&gt; MultiDex.install(this); &lt;code&gt;&lt;li&gt; &lt;ul&gt;" />
-      <item value="ellipsize" />
-      <item value="Text Paint" />
-      <item value="HOME LSTIMG" />
-      <item value="on Focus Change" />
-      <item value="get Span Size" />
-      <item value="Notify any registered observers that the data set has changed. There are two different classes of data change events, item changes and structural changes. Item changes are when a single item has its data updated but no positional changes have occurred. Structural changes are when items are inserted, removed or moved within the data set. This event does not specify what about the data set has changed, forcing any observers to assume that all existing items and structure may no longer be valid. LayoutManagers will be forced to fully rebind and relayout all visible views. RecyclerView will attempt to synthesize visible structural change events for adapters that report that they have stable IDs when this method is used. This can help for the purposes of animation and visual object persistence but individual item views will still need to be rebound and relaid out. If you are writing an adapter it will always be more efficient to use the more specific change events if you can. Rely on notifyDataSetChanged() as a last resort." />
-      <item value="Add check for VOD Delete Mode" />
-      <item value="on Back Pressed" />
-      <item value="A {@link RecyclerView.LayoutManager} implementations that lays out items in a grid. &lt;p&gt; By default, each item occupies 1 span. You can change it by providing a custom {@link SpanSizeLookup} instance via {@link setSpanSizeLookup(SpanSizeLookup)}." />
-      <item value="set Adapter" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3357" />
+        <entry key="CHINESE" value="3370" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3358" />
+        <entry key="ENGLISH" value="3371" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
