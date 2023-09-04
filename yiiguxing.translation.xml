@@ -1,6 +1,6 @@
 <application>
   <component name="Translation.Cache">
-    <option name="lastTrimTime" value="1693352313292" />
+    <option name="lastTrimTime" value="1693813079473" />
   </component>
   <component name="Translation.Settings">
     <option name="translator" value="MICROSOFT" />
@@ -11,6 +11,7 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="java.lang.NullPointerException: Attempt to invoke virtual method 'boolean java.lang.String.startsWith(java.lang.String)' on a null object reference" />
       <item value="ll Home Rec Style" />
       <item value="layout below" />
       <item value="is Empty" />
@@ -60,15 +61,14 @@
       <item value="set Span Size Lookup" />
       <item value="set On Item Click Listener" />
       <item value="on Grid View Focus Change" />
-      <item value="com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: Use JsonReader.setLenient(true) to accept malformed JSON at line 1 column 12 path" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3352" />
+        <entry key="CHINESE" value="3353" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3353" />
+        <entry key="ENGLISH" value="3354" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
