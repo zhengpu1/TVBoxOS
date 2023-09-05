@@ -105,7 +105,6 @@ public class Thunder {
         torrentFileInfoArrayList=new ArrayList<>();
         playList=new ArrayList<>();
         ed2kList=new ArrayList<>();
-        ArrayList<String> jxUrls=new ArrayList<>();
         Map<Integer, String> urlMap = new HashMap<>();
         threadPool.execute(new Runnable() {
             @Override
@@ -117,7 +116,6 @@ public class Thunder {
                         for (Movie.Video.UrlBean.UrlInfo.InfoBean infoBean : urlInfo.beanList) {
                             boolean isParse=false;
                             url=infoBean.url;
-//                            if(jxUrls.contains(url))continue;
                             if(isThunder(url) )url=XLDownloadManager.getInstance().parserThunderUrl(url);
                             if (isMagnet(url) || isThunder(url) || isTorrent(url)) {
                                 if(isThunder(url) )url=XLDownloadManager.getInstance().parserThunderUrl(url);
@@ -143,7 +141,7 @@ public class Thunder {
                                 if (currentTask <= 0) {
                                     continue;
                                 }
-                                int count = 15;
+                                int count = 30;
                                 outerLoop:
                                 while (true) {
                                     count--;
@@ -162,13 +160,12 @@ public class Thunder {
                                                         TorrentFileInfo[] mSubFileInfo = torrentInfo.mSubFileInfo;
                                                         if (mSubFileInfo != null) {
                                                             for (TorrentFileInfo sub : mSubFileInfo) {
-                                                                if (isMedia(sub.mFileName) && !sub.mFileName.contains("更多")) {
+                                                                if (isMedia(sub.mFileName) && sub.mFileSize > 1048576L * 30 && !sub.mFileName.contains("更多")) {
                                                                     sub.torrentPath = cache.getAbsolutePath();
                                                                     playList.add(sub.mFileName + "$tvbox-torrent:" + torrentFileInfoArrayList.size());
                                                                     torrentFileInfoArrayList.add(sub);
                                                                 }
                                                             }
-                                                            jxUrls.add(url);
                                                             isParse=true;
                                                             break outerLoop;
                                                         }
@@ -185,7 +182,7 @@ public class Thunder {
                                     }
                                     }
                                     try {
-                                        Thread.sleep(200);
+                                        Thread.sleep(100);
                                     } catch (InterruptedException e) {
                                         e.printStackTrace();
                                     }

@@ -190,7 +190,7 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
                     jumpActivity(DetailActivity.class, bundle);
                 } else {
                     Intent newIntent;
-                    newIntent = new Intent(mContext, SearchActivity.class);
+                    newIntent = new Intent(mContext, FastSearchActivity.class);
                     newIntent.putExtra("title", vod.name);
                     newIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     mActivity.startActivity(newIntent);
@@ -210,7 +210,7 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
                     jumpActivity(DetailActivity.class, bundle);
                 } else {
                     Intent newIntent;
-                    newIntent = new Intent(mContext, SearchActivity.class);
+                    newIntent = new Intent(mContext, FastSearchActivity.class);
                     newIntent.putExtra("title", vod.name);
                     newIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     mActivity.startActivity(newIntent);
@@ -253,7 +253,7 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
                         jumpActivity(DetailActivity.class, bundle);
                     } else {
                         Intent newIntent;
-                        newIntent = new Intent(mContext, SearchActivity.class);
+                        newIntent = new Intent(mContext, FastSearchActivity.class);
                         newIntent.putExtra("title", vod.name);
                         newIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         mActivity.startActivity(newIntent);
@@ -551,7 +551,7 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
             for (JsonElement ele : array) {
                 JsonObject obj = (JsonObject) ele;
                 Movie.Video vod = new Movie.Video();
-                vod.id = obj.get("vod_id").getAsString();
+                vod.id = ApiConfig.get().getHomeSourceBean().getKey().equals("htv_hrys") ? obj.get("vod_id").getAsString() : "";
                 vod.name = obj.get("vod_name").getAsString();
                 vod.note = obj.get("vod_remarks").getAsString();
                 vod.isend = Integer.parseInt(obj.get("vod_isend").getAsString());

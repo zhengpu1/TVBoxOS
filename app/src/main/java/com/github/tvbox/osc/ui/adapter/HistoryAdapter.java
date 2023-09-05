@@ -76,11 +76,12 @@ public class HistoryAdapter extends BaseQuickAdapter<VodInfo, BaseViewHolder> {
         if (!TextUtils.isEmpty(item.pic)) {
                 Picasso.get()
                         .load(DefaultConfig.checkReplaceProxy(item.pic))
-                        .transform(new RoundTransformation(MD5.string2MD5(item.pic + "position=" + helper.getLayoutPosition()))
+                        .transform(new RoundTransformation(MD5.string2MD5(item.pic + item.name))
                                 .centerCorp(true)
                                 .override(AutoSizeUtils.mm2px(mContext, 300), AutoSizeUtils.mm2px(mContext, 400))
                                 .roundRadius(AutoSizeUtils.mm2px(mContext, 6), RoundTransformation.RoundType.ALL))
                         .placeholder(R.drawable.img_loading_placeholder)
+                        .noFade()
                         .error(R.drawable.img_loading_placeholder)
                         .into(ivThumb);
             } else {

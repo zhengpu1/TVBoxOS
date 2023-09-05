@@ -75,13 +75,15 @@ public class HomeHotVodAdapterc extends BaseQuickAdapter<Movie.Video, BaseViewHo
             if (!TextUtils.isEmpty(item.picslide)) { item.picthumb = item.picslide; }
             if (TextUtils.isEmpty(item.picthumb)) { item.picthumb = item.pic; }
             if (!TextUtils.isEmpty(item.picthumb)) {
+                item.picthumb=item.picthumb.trim();
                 Picasso.get()
                         .load(DefaultConfig.checkReplaceProxy(item.picthumb.replace("480_270","610_260")))
-                        .transform(new RoundTransformation(MD5.string2MD5(item.picthumb.replace("480_270","610_260") + "position=" + helper.getLayoutPosition()))
+                        .transform(new RoundTransformation(MD5.string2MD5(item.picthumb.replace("480_270","610_260")))
                                 .centerCorp(true)
                                 .override(AutoSizeUtils.mm2px(mContext, 610), AutoSizeUtils.mm2px(mContext, 260))
                                 .roundRadius(AutoSizeUtils.mm2px(mContext, 8), RoundTransformation.RoundType.ALL))
                         .placeholder(R.drawable.img_loading_placeholder)
+                        .noFade()
                         .error(R.drawable.img_loading_placeholder)
                         .into(ivThumb);
             } else {
@@ -91,13 +93,15 @@ public class HomeHotVodAdapterc extends BaseQuickAdapter<Movie.Video, BaseViewHo
             LParams(tvHotvods, 298, 170);
             if (TextUtils.isEmpty(item.picthumb)) { item.picthumb = item.pic; }
             if (!TextUtils.isEmpty(item.picthumb)) {
+                item.picthumb=item.picthumb.trim();
                 Picasso.get()
                         .load(DefaultConfig.checkReplaceProxy(item.picthumb))
-                        .transform(new RoundTransformation(MD5.string2MD5(item.picthumb + "position=" + helper.getLayoutPosition()))
+                        .transform(new RoundTransformation(MD5.string2MD5(item.picthumb))
                                 .centerCorp(true)
                                 .override(AutoSizeUtils.mm2px(mContext, 300), AutoSizeUtils.mm2px(mContext, 180))
                                 .roundRadius(AutoSizeUtils.mm2px(mContext, 8), RoundTransformation.RoundType.ALL))
                         .placeholder(R.drawable.img_loading_placeholder)
+                        .noFade()
                         .error(R.drawable.img_loading_placeholder)
                         .into(ivThumb);
             } else {

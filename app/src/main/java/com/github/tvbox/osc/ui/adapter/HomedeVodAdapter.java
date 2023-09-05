@@ -48,13 +48,15 @@ public class HomedeVodAdapter extends BaseQuickAdapter<Movie.Video, BaseViewHold
         FrameLayout[] str = { tvHotvod };
         drawableFrameLayout(str, 9);
         if (!TextUtils.isEmpty(item.picthumb)) {
+            item.picthumb=item.picthumb.trim();
                 Picasso.get()
                         .load(DefaultConfig.checkReplaceProxy(item.picthumb))
-                        .transform(new RoundTransformation(MD5.string2MD5(item.picthumb + "position=" + helper.getLayoutPosition()))
+                        .transform(new RoundTransformation(MD5.string2MD5(item.picthumb))
                                 .centerCorp(true)
                                 .override(AutoSizeUtils.mm2px(mContext, 300), AutoSizeUtils.mm2px(mContext, 180))
                                 .roundRadius(AutoSizeUtils.mm2px(mContext, 5), RoundTransformation.RoundType.ALL))
                         .placeholder(R.drawable.img_loading_placeholder)
+                        .noFade()
                         .error(R.drawable.img_loading_placeholder)
                         .into(ivThumb);
         } else {

@@ -32,6 +32,7 @@ class App : MultiDexApplication() {
         init(this)
         ControlManager.init(this)
         FileUtils.cleanPlayerCache()
+        JSEngine.getInstance().create()
         isFirstdlde(this)
         StartupManager.Builder()
             .addStartup(UITask())

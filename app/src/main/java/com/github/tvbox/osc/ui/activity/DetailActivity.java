@@ -800,11 +800,12 @@ public class DetailActivity extends BaseActivity {
                     } else {
                         tvScore.setText(mVideo.score);
                     }
+                    tvWeekday.setText(mVideo.weekday);
                     TVInstance.INSTANCE.setVodInfo(vodInfo);
                     //setTextShow(tvSite, "", ApiConfig.get().getSource(mVideo.sourceKey).getName());
                     setTextShow(tvYear, "", mVideo.year == 0 ? "" : String.valueOf(mVideo.year));
                     setTextShow(tvArea, "•", mVideo.area);
-                   // setTextShow(tvLang, "•", mVideo.lang);
+                    setTextShow(tvLang, "•", mVideo.lang);
                     if (!firstsourceKey.equals(sourceKey)) {
                         setTextShow(tvType, "类型", "[" + ApiConfig.get().getSource(sourceKey).getName() + "] 解析");
                     } else {
@@ -829,6 +830,7 @@ public class DetailActivity extends BaseActivity {
                                         .override(AutoSizeUtils.mm2px(mContext, 300), AutoSizeUtils.mm2px(mContext, 400))
                                         .roundRadius(AutoSizeUtils.mm2px(mContext, 0), RoundTransformation.RoundType.ALL))
                                 .placeholder(R.drawable.img_loading_placeholder)
+                                .noFade()
                                 .error(R.drawable.img_loading_placeholder)
                                 .into(ivThumb);
                     } else {
@@ -838,7 +840,7 @@ public class DetailActivity extends BaseActivity {
                     if (vodInfo.seriesMap != null && vodInfo.seriesMap.size() > 0) {
                         mGridViewFlag.setVisibility(View.VISIBLE);
                         mGridView.setVisibility(View.VISIBLE);
-                       // tvPlay.setVisibility(View.VISIBLE);
+                       // tvPlay.setVisibility(View.VISIBLE);SourceFile
                         mEmptyPlayList.setVisibility(View.GONE);
 
                         VodInfo vodInfoRecord = RoomDataManger.getVodInfo(sourceKey, vodId);
