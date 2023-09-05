@@ -11,6 +11,7 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="matcher" />
       <item value="Compiles the given regular expression into a pattern. 形参: regex – The expression to be compiled 返回值: the given regular expression compiled into a pattern 抛出: PatternSyntaxException – If the expression's syntax is invalid" />
       <item value="padding Horizontal" />
       <item value="padding Vertical" />
@@ -60,13 +61,12 @@
       <item value="TV Instance" />
       <item value="INSTANCE" />
       <item value="on Item Long Click" />
-      <item value="retry" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3380" />
+        <entry key="CHINESE" value="3381" />
         <entry key="DANISH" value="1" />
         <entry key="ENGLISH" value="3381" />
         <entry key="FILIPINO" value="1" />
@@ -83,7 +83,7 @@
         <entry key="ROMANIAN" value="1" />
         <entry key="SLOVAK" value="1" />
         <entry key="SPANISH" value="1" />
-        <entry key="SWEDISH" value="2" />
+        <entry key="SWEDISH" value="3" />
       </map>
     </option>
   </component>
