@@ -11,6 +11,7 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="get Saved Progress" />
       <item value="Returns the value mapped by {@code name} if it exists and is an int or can be coerced to an int, or throws otherwise. @throws JSONException if the mapping doesn't exist or cannot be coerced to an int." />
       <item value="Returns the value mapped by name if it exists, coercing it if necessary, or fallback if no such mapping exists." />
       <item value="is Empty" />
@@ -60,15 +61,14 @@
       <item value="java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.Class java.lang.Object.getClass()' on a null object reference" />
       <item value="encode To String" />
       <item value="DEFAULT" />
-      <item value="decode" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3388" />
+        <entry key="CHINESE" value="3389" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3389" />
+        <entry key="ENGLISH" value="3390" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
