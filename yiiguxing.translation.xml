@@ -11,6 +11,18 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="init Checked Sources For Search" />
+      <item value="start Quick Search" />
+      <item value="search Result" />
+      <item value="search Title" />
+      <item value="quick Search Data" />
+      <item value="cancel Tag" />
+      <item value="get Instance" />
+      <item value="switch Search Word" />
+      <item value="insert Vod" />
+      <item value="TYPE QUICK SEARCH RESULT" />
+      <item value="load Detail" />
+      <item value="search Data" />
       <item value="thread" />
       <item value="search Executor Service" />
       <item value="pause Runnable" />
@@ -49,26 +61,14 @@
       <item value="angle" />
       <item value="The application's minSdkVersion is newer than the device API level." />
       <item value="Failed to launch an application on all devices" />
-      <item value="Installation did not succeed. The application could not be installed: INSTALL_FAILED_OLDER_SDK" />
-      <item value="java.lang.NullPointerException: Attempt to invoke virtual method 'boolean java.lang.String.startsWith(java.lang.String)' on a null object reference" />
-      <item value="ll Home Rec Style" />
-      <item value="layout below" />
-      <item value="java.lang.Error: org.json.JSONException: No value for url" />
-      <item value="Caused by: org.json.JSONException: No value for url" />
-      <item value="is Video Format" />
-      <item value="Source File" />
-      <item value="java.lang.IllegalStateException: Not allowed to start service Intent { act=android.intent.action.PACKAGE_FULLY_REMOVED dat=package:com.github.tvbox.tk flg=0x5000010 pkg=com.google.android.gms cmp=com.google.android.gms.chimera.GmsIntentOperationService (has extras) }: app is in background uid UidRecord{ac195c9 u0a53 RCVR idle change:uncached procs:3 seq(0,0,0)}" />
-      <item value="Each pixel is stored on 2 bytes and only the RGB channels are encoded: red is stored with 5 bits of precision (32 possible values), green is stored with 6 bits of precision (64 possible values) and blue is stored with 5 bits of precision. This configuration can produce slight visual artifacts depending on the configuration of the source. For instance, without dithering, the result might show a greenish tint. To get better results dithering should be applied. This configuration may be useful when using opaque bitmaps that do not require high color fidelity. &lt;p&gt;Use this formula to pack into 16 bits:&lt;p&gt; &lt;pre class=&quot;prettyprint&quot;&gt; short color = (R &amp; 0x1f) &lt;&lt; 11 | (G &amp; 0x3f) &lt;&lt; 5 | (B &amp; 0x1f);" />
-      <item value="Each pixel is stored on 2 bytes. The three RGB color channels and the alpha channel (translucency) are stored with a 4 bits precision (16 possible values.) This configuration is mostly useful if the application needs to store translucency information but also needs to save memory. It is recommended to use {@link ARGB_8888} instead of this configuration. Note: as of {@link android.os.Build.VERSION_CODESKITKAT}, any bitmap created with this configuration will be created using {@link ARGB_8888} instead. @deprecated Because of the poor quality of this configuration, it is advised to use {@link ARGB_8888} instead." />
-      <item value="Each pixel is stored on 4 bytes. Each channel (RGB and alpha for translucency) is stored with 8 bits of precision (256 possible values.) This configuration is very flexible and offers the best quality. It should be used whenever possible. &lt;p&gt;Use this formula to pack into 32 bits:&lt;p&gt; &lt;pre class=&quot;prettyprint&quot;&gt; int color = (A &amp; 0xff) &lt;&lt; 24 | (B &amp; 0xff) &lt;&lt; 16 | (G &amp; 0xff) &lt;&lt; 8 | (R &amp; 0xff); &lt;pre&gt;" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3400" />
+        <entry key="CHINESE" value="3414" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3401" />
+        <entry key="ENGLISH" value="3415" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
