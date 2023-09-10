@@ -11,16 +11,16 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="search Title" />
+      <item value="search Result" />
+      <item value="start Quick Search" />
+      <item value="switch Search Word" />
       <item value="get String" />
       <item value="opt String" />
       <item value="init Checked Sources For Search" />
-      <item value="start Quick Search" />
-      <item value="search Result" />
-      <item value="search Title" />
       <item value="quick Search Data" />
       <item value="cancel Tag" />
       <item value="get Instance" />
-      <item value="switch Search Word" />
       <item value="insert Vod" />
       <item value="TYPE QUICK SEARCH RESULT" />
       <item value="load Detail" />
@@ -66,9 +66,9 @@
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3416" />
+        <entry key="CHINESE" value="3420" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3417" />
+        <entry key="ENGLISH" value="3421" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
