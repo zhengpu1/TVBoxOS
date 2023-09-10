@@ -1,6 +1,6 @@
 <application>
   <component name="Translation.Cache">
-    <option name="lastTrimTime" value="1693813079473" />
+    <option name="lastTrimTime" value="1694312792621" />
   </component>
   <component name="Translation.Settings">
     <option name="translator" value="MICROSOFT" />
@@ -11,6 +11,8 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="SEARCH HISTORY" />
+      <item value="get Layout Res ID" />
       <item value="Byte Array Input Stream" />
       <item value="get Saved Progress" />
       <item value="Returns the value mapped by {@code name} if it exists and is an int or can be coerced to an int, or throws otherwise. @throws JSONException if the mapping doesn't exist or cannot be coerced to an int." />
@@ -59,16 +61,14 @@
       <item value="throw new" />
       <item value="Returns the element at the specified position in this list. 形参: index – index of the element to return 返回值: the element at the specified position in this list 抛出: IndexOutOfBoundsException – if the index is out of range (index &lt; 0 || index &gt;= size())" />
       <item value="Exception" />
-      <item value="java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.Class java.lang.Object.getClass()' on a null object reference" />
-      <item value="encode To String" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3390" />
+        <entry key="CHINESE" value="3392" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3391" />
+        <entry key="ENGLISH" value="3393" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
