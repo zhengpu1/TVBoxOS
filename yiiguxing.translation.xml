@@ -11,9 +11,15 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="set Flags" />
+      <item value="Executes the given command at some time in the future. The command may execute in a new thread, in a pooled thread, or in the calling thread, at the discretion of the {@code Executor} implementation. @param command the runnable task @throws RejectedExecutionException if this task cannot be accepted for execution @throws NullPointerException if command is null" />
+      <item value="Removes all of the elements from this list (optional operation). The list will be empty after this call returns. @throws UnsupportedOperationException if the {@code clear} operation is not supported by this list" />
+      <item value="TYPE QUICK SEARCH" />
+      <item value="TYPE QUICK SEARCH WORD" />
+      <item value="start Quick Search" />
+      <item value="set On Dismiss Listener" />
       <item value="search Title" />
       <item value="search Result" />
-      <item value="start Quick Search" />
       <item value="switch Search Word" />
       <item value="get String" />
       <item value="opt String" />
@@ -29,7 +35,6 @@
       <item value="search Executor Service" />
       <item value="pause Runnable" />
       <item value="set On Click Listener" />
-      <item value="set On Dismiss Listener" />
       <item value="on Dismiss" />
       <item value="SEARCH HISTORY" />
       <item value="get Layout Res ID" />
@@ -56,19 +61,14 @@
       <item value="set Spacing With Margins" />
       <item value="Returns the left padding of this view. If there are inset and enabled scrollbars, this value may include the space required to display the scrollbars as well. 返回值: the left padding in pixels" />
       <item value="set Clip To Padding" />
-      <item value="set Padding" />
-      <item value="set Layout Params" />
-      <item value="round Radius" />
-      <item value="rectangle" />
-      <item value="angle" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3420" />
+        <entry key="CHINESE" value="3429" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3421" />
+        <entry key="ENGLISH" value="3430" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
