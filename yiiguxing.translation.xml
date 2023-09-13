@@ -11,6 +11,8 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="get Default" />
+      <item value="insert Vod" />
       <item value="restart" />
       <item value="my Handle Seconds" />
       <item value="my Runnable" />
@@ -45,7 +47,6 @@
       <item value="quick Search Data" />
       <item value="cancel Tag" />
       <item value="get Instance" />
-      <item value="insert Vod" />
       <item value="load Detail" />
       <item value="search Data" />
       <item value="search Executor Service" />
@@ -60,15 +61,14 @@
       <item value="Returns the value mapped by name if it exists, coercing it if necessary, or fallback if no such mapping exists." />
       <item value="is Empty" />
       <item value="select First" />
-      <item value="get Preview Content" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3450" />
+        <entry key="CHINESE" value="3452" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3451" />
+        <entry key="ENGLISH" value="3453" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
