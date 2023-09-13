@@ -11,6 +11,9 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="get Quick Search" />
+      <item value="search Result" />
+      <item value="start Quick Search" />
       <item value="get Default" />
       <item value="insert Vod" />
       <item value="restart" />
@@ -37,10 +40,8 @@
       <item value="Removes all of the elements from this list (optional operation). The list will be empty after this call returns. @throws UnsupportedOperationException if the {@code clear} operation is not supported by this list" />
       <item value="TYPE QUICK SEARCH" />
       <item value="TYPE QUICK SEARCH WORD" />
-      <item value="start Quick Search" />
       <item value="set On Dismiss Listener" />
       <item value="search Title" />
-      <item value="search Result" />
       <item value="switch Search Word" />
       <item value="get String" />
       <item value="opt String" />
@@ -60,15 +61,14 @@
       <item value="Returns the value mapped by {@code name} if it exists and is an int or can be coerced to an int, or throws otherwise. @throws JSONException if the mapping doesn't exist or cannot be coerced to an int." />
       <item value="Returns the value mapped by name if it exists, coercing it if necessary, or fallback if no such mapping exists." />
       <item value="is Empty" />
-      <item value="select First" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3452" />
+        <entry key="CHINESE" value="3455" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3453" />
+        <entry key="ENGLISH" value="3456" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
