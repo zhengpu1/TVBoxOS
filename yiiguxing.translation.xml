@@ -11,6 +11,7 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="set Layout Manager" />
       <item value="vertical" />
       <item value="horizontal" />
       <item value="set On Item Click Listener" />
@@ -60,15 +61,14 @@
       <item value="get Instance" />
       <item value="load Detail" />
       <item value="search Data" />
-      <item value="search Executor Service" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3470" />
+        <entry key="CHINESE" value="3471" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3471" />
+        <entry key="ENGLISH" value="3472" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
