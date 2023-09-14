@@ -11,6 +11,9 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="get Default" />
+      <item value="set New Data" />
+      <item value="Returns the element at the specified position in this list. @param index index of the element to return @return the element at the specified position in this list @throws IndexOutOfBoundsException if the index is out of range ({@code index &lt; 0 || index &gt;= size()})" />
       <item value="search Result" />
       <item value="thread" />
       <item value="on Item Click" />
@@ -27,7 +30,6 @@
       <item value="set Has Fixed Size" />
       <item value="on Grid View Focus Change" />
       <item value="set On Dismiss Listener" />
-      <item value="set New Data" />
       <item value="parse Int" />
       <item value="Simple Date Format" />
       <item value="Screen Utils" />
@@ -35,7 +37,6 @@
       <item value="toggle Full Preview" />
       <item value="get Quick Search" />
       <item value="start Quick Search" />
-      <item value="get Default" />
       <item value="insert Vod" />
       <item value="restart" />
       <item value="my Handle Seconds" />
@@ -60,15 +61,14 @@
       <item value="switch Search Word" />
       <item value="get String" />
       <item value="opt String" />
-      <item value="quick Search Data" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3480" />
+        <entry key="CHINESE" value="3483" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3481" />
+        <entry key="ENGLISH" value="3484" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
