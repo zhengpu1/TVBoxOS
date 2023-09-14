@@ -11,11 +11,11 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="set On Item Click Listener" />
       <item value="set Has Fixed Size" />
       <item value="on Grid View Focus Change" />
       <item value="set On Dismiss Listener" />
       <item value="set New Data" />
-      <item value="set On Item Click Listener" />
       <item value="parse Int" />
       <item value="Simple Date Format" />
       <item value="Screen Utils" />
@@ -66,9 +66,9 @@
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3466" />
+        <entry key="CHINESE" value="3467" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3467" />
+        <entry key="ENGLISH" value="3468" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
