@@ -11,6 +11,7 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="m Hide Setting Layout Run" />
       <item value="Handler" />
       <item value="post Delayed" />
       <item value="set Layout Manager" />
@@ -60,15 +61,14 @@
       <item value="quick Search Data" />
       <item value="cancel Tag" />
       <item value="get Instance" />
-      <item value="load Detail" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3473" />
+        <entry key="CHINESE" value="3474" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3474" />
+        <entry key="ENGLISH" value="3475" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
