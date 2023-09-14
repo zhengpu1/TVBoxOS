@@ -11,6 +11,8 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="search Result" />
+      <item value="thread" />
       <item value="on Item Click" />
       <item value="dismiss" />
       <item value="TYPE QUICK SEARCH" />
@@ -32,7 +34,6 @@
       <item value="fits System Windows" />
       <item value="toggle Full Preview" />
       <item value="get Quick Search" />
-      <item value="search Result" />
       <item value="start Quick Search" />
       <item value="get Default" />
       <item value="insert Vod" />
@@ -45,7 +46,6 @@
       <item value="TYPE QUICK SEARCH RESULT" />
       <item value="get Sources For Search" />
       <item value="m Check Sources" />
-      <item value="thread" />
       <item value="search Adapter" />
       <item value="search Word Adapter" />
       <item value="Quick Search Adapter" />
@@ -66,9 +66,9 @@
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3478" />
+        <entry key="CHINESE" value="3480" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3479" />
+        <entry key="ENGLISH" value="3481" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
