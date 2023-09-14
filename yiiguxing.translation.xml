@@ -11,6 +11,13 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="quick Search Result" />
+      <item value="quick Search Data" />
+      <item value="search Data" />
+      <item value="match Search Result" />
+      <item value="get Quick Search" />
+      <item value="source View Model" />
+      <item value="clear" />
       <item value="get Default" />
       <item value="set New Data" />
       <item value="Returns the element at the specified position in this list. @param index index of the element to return @return the element at the specified position in this list @throws IndexOutOfBoundsException if the index is out of range ({@code index &lt; 0 || index &gt;= size()})" />
@@ -35,7 +42,6 @@
       <item value="Screen Utils" />
       <item value="fits System Windows" />
       <item value="toggle Full Preview" />
-      <item value="get Quick Search" />
       <item value="start Quick Search" />
       <item value="insert Vod" />
       <item value="restart" />
@@ -55,20 +61,14 @@
       <item value="Posts the given event to the event bus." />
       <item value="set Flags" />
       <item value="Executes the given command at some time in the future. The command may execute in a new thread, in a pooled thread, or in the calling thread, at the discretion of the {@code Executor} implementation. @param command the runnable task @throws RejectedExecutionException if this task cannot be accepted for execution @throws NullPointerException if command is null" />
-      <item value="Removes all of the elements from this list (optional operation). The list will be empty after this call returns. @throws UnsupportedOperationException if the {@code clear} operation is not supported by this list" />
-      <item value="TYPE QUICK SEARCH WORD" />
-      <item value="search Title" />
-      <item value="switch Search Word" />
-      <item value="get String" />
-      <item value="opt String" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3483" />
+        <entry key="CHINESE" value="3491" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3484" />
+        <entry key="ENGLISH" value="3492" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
