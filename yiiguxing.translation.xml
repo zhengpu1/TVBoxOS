@@ -1,6 +1,6 @@
 <application>
   <component name="Translation.Cache">
-    <option name="lastTrimTime" value="1694312792621" />
+    <option name="lastTrimTime" value="1694767833945" />
   </component>
   <component name="Translation.Settings">
     <option name="translator" value="MICROSOFT" />
@@ -11,11 +11,16 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="Thread Mode" />
+      <item value="notify Data Set Changed" />
+      <item value="EPISODE GROUPING" />
+      <item value="TYPE REFRESH" />
+      <item value="TYPE QUICK SEARCH WORD CHANGE" />
+      <item value="TYPE QUICK SEARCH SELECT" />
+      <item value="TYPE QUICK SEARCH" />
       <item value="search Data" />
       <item value="TYPE QUICK SEARCH RESULT" />
       <item value="TYPE QUICK SEARCH WORD" />
-      <item value="TYPE QUICK SEARCH SELECT" />
-      <item value="TYPE QUICK SEARCH" />
       <item value="refresh Share Token" />
       <item value="sort" />
       <item value="Collections" />
@@ -33,7 +38,6 @@
       <item value="thread" />
       <item value="on Item Click" />
       <item value="dismiss" />
-      <item value="TYPE REFRESH" />
       <item value="m Hide Setting Layout Run" />
       <item value="Handler" />
       <item value="post Delayed" />
@@ -57,18 +61,14 @@
       <item value="show Bottom" />
       <item value="listener" />
       <item value="add All" />
-      <item value="get Sources For Search" />
-      <item value="m Check Sources" />
-      <item value="search Adapter" />
-      <item value="search Word Adapter" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3501" />
+        <entry key="CHINESE" value="3508" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3502" />
+        <entry key="ENGLISH" value="3509" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
