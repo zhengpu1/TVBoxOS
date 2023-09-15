@@ -11,6 +11,9 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="horizontal" />
+      <item value="on Back Pressed" />
+      <item value="insert Vod" />
       <item value="add Data" />
       <item value="init Checked Sources For Search" />
       <item value="TYPE QUICK SEARCH" />
@@ -45,7 +48,6 @@
       <item value="post Delayed" />
       <item value="set Layout Manager" />
       <item value="vertical" />
-      <item value="horizontal" />
       <item value="set On Item Click Listener" />
       <item value="set Has Fixed Size" />
       <item value="on Grid View Focus Change" />
@@ -56,19 +58,17 @@
       <item value="fits System Windows" />
       <item value="toggle Full Preview" />
       <item value="start Quick Search" />
-      <item value="insert Vod" />
       <item value="restart" />
       <item value="my Handle Seconds" />
       <item value="my Runnable" />
-      <item value="show Bottom" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3511" />
+        <entry key="CHINESE" value="3514" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3512" />
+        <entry key="ENGLISH" value="3515" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
