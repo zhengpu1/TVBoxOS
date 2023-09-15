@@ -11,13 +11,13 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="TYPE QUICK SEARCH" />
       <item value="Thread Mode" />
       <item value="notify Data Set Changed" />
       <item value="EPISODE GROUPING" />
       <item value="TYPE REFRESH" />
       <item value="TYPE QUICK SEARCH WORD CHANGE" />
       <item value="TYPE QUICK SEARCH SELECT" />
-      <item value="TYPE QUICK SEARCH" />
       <item value="search Data" />
       <item value="TYPE QUICK SEARCH RESULT" />
       <item value="TYPE QUICK SEARCH WORD" />
@@ -66,9 +66,9 @@
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3508" />
+        <entry key="CHINESE" value="3509" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3509" />
+        <entry key="ENGLISH" value="3510" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
