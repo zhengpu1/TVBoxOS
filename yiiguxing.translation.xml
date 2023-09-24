@@ -1,6 +1,6 @@
 <application>
   <component name="Translation.Cache">
-    <option name="lastTrimTime" value="1694767833945" />
+    <option name="lastTrimTime" value="1695552870644" />
   </component>
   <component name="Translation.Settings">
     <option name="translator" value="MICROSOFT" />
@@ -11,6 +11,8 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="sort" />
+      <item value="Sorter" />
       <item value="horizontal" />
       <item value="on Back Pressed" />
       <item value="insert Vod" />
@@ -27,7 +29,6 @@
       <item value="TYPE QUICK SEARCH RESULT" />
       <item value="TYPE QUICK SEARCH WORD" />
       <item value="refresh Share Token" />
-      <item value="sort" />
       <item value="Collections" />
       <item value="select First" />
       <item value="quick Search Result" />
@@ -60,15 +61,14 @@
       <item value="start Quick Search" />
       <item value="restart" />
       <item value="my Handle Seconds" />
-      <item value="my Runnable" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3514" />
+        <entry key="CHINESE" value="3516" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3515" />
+        <entry key="ENGLISH" value="3517" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
