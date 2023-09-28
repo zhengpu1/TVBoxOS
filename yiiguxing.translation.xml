@@ -11,6 +11,7 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="contains" />
       <item value="change View" />
       <item value="is Foleder Mode" />
       <item value="is Media" />
@@ -18,7 +19,6 @@
       <item value="ignore" />
       <item value="iterator" />
       <item value="has Next" />
-      <item value="contains" />
       <item value="last Index Of" />
       <item value="ends With" />
       <item value="sort" />
@@ -66,9 +66,9 @@
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3529" />
+        <entry key="CHINESE" value="3530" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3530" />
+        <entry key="ENGLISH" value="3531" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
