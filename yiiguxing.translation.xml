@@ -2,12 +2,16 @@
   <component name="Translation.Cache">
     <option name="lastTrimTime" value="1706235792838" />
   </component>
+  <component name="Translation.Settings">
+    <option name="translator" value="MICROSOFT" />
+  </component>
   <component name="Translation.States">
     <option name="newTranslationDialogHeight" value="478" />
     <option name="newTranslationDialogWidth" value="847" />
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="ODO: copy mutable state here, so the clone can't change the internals of the original" />
       <item value="arg1 and arg2 are lower-cost alternatives to using {@link setData(Bundle) setData()} if you only need to store a few integer values." />
       <item value="is Blank" />
       <item value="split" />
@@ -57,7 +61,6 @@
       <item value="select First" />
       <item value="quick Search Result" />
       <item value="quick Search Data" />
-      <item value="match Search Result" />
     </histories>
     <option name="languageScores">
       <map>
