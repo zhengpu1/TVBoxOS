@@ -8,6 +8,7 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="split" />
       <item value="Load Wallpaper from" />
       <item value="return" />
       <item value="on Item Click" />
@@ -19,7 +20,6 @@
       <item value="ODO: copy mutable state here, so the clone can't change the internals of the original" />
       <item value="arg1 and arg2 are lower-cost alternatives to using {@link setData(Bundle) setData()} if you only need to store a few integer values." />
       <item value="is Blank" />
-      <item value="split" />
       <item value="Returns &lt;tt&gt;true&lt;tt&gt; if this map contains a mapping for the specified key. @param key The key whose presence in this map is to be tested @return &lt;tt&gt;true&lt;tt&gt; if this map contains a mapping for the specified key." />
       <item value="contains Key" />
       <item value="json Parser Cls" />
