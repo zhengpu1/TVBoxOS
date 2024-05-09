@@ -8,6 +8,7 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="get Headers" />
       <item value="split" />
       <item value="Load Wallpaper from" />
       <item value="return" />
@@ -57,7 +58,6 @@
       <item value="EPISODE GROUPING" />
       <item value="TYPE REFRESH" />
       <item value="TYPE QUICK SEARCH WORD CHANGE" />
-      <item value="TYPE QUICK SEARCH SELECT" />
     </histories>
     <option name="languageScores">
       <map>
