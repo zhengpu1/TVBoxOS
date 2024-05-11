@@ -8,6 +8,7 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="contains Key" />
       <item value="play Pre Source" />
       <item value="thread" />
       <item value="on Item Click" />
@@ -24,7 +25,6 @@
       <item value="arg1 and arg2 are lower-cost alternatives to using {@link setData(Bundle) setData()} if you only need to store a few integer values." />
       <item value="is Blank" />
       <item value="Returns &lt;tt&gt;true&lt;tt&gt; if this map contains a mapping for the specified key. @param key The key whose presence in this map is to be tested @return &lt;tt&gt;true&lt;tt&gt; if this map contains a mapping for the specified key." />
-      <item value="contains Key" />
       <item value="json Parser Cls" />
       <item value="json Ext" />
       <item value="json Ext Mix" />
@@ -63,9 +63,9 @@
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3552" />
+        <entry key="CHINESE" value="3553" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3553" />
+        <entry key="ENGLISH" value="3554" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
