@@ -8,6 +8,7 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="is Empty" />
       <item value="on Item Click" />
       <item value="on Item Selected" />
       <item value="on Item Pre Selected" />
@@ -57,15 +58,14 @@
       <item value="init Checked Sources For Search" />
       <item value="TYPE QUICK SEARCH" />
       <item value="Thread Mode" />
-      <item value="notify Data Set Changed" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3558" />
+        <entry key="CHINESE" value="3559" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3559" />
+        <entry key="ENGLISH" value="3560" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
