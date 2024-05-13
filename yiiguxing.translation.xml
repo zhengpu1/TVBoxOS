@@ -2,15 +2,14 @@
   <component name="Translation.Cache">
     <option name="lastTrimTime" value="1706235792838" />
   </component>
-  <component name="Translation.Settings">
-    <option name="translator" value="MICROSOFT" />
-  </component>
   <component name="Translation.States">
     <option name="newTranslationDialogHeight" value="478" />
     <option name="newTranslationDialogWidth" value="847" />
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="split" />
+      <item value="replace All" />
       <item value="equals" />
       <item value="contains" />
       <item value="insert Vod" />
@@ -28,7 +27,6 @@
       <item value="play Pre Source" />
       <item value="thread" />
       <item value="get Headers" />
-      <item value="split" />
       <item value="Load Wallpaper from" />
       <item value="return" />
       <item value="on Success" />
@@ -60,7 +58,6 @@
       <item value="has Next" />
       <item value="last Index Of" />
       <item value="ends With" />
-      <item value="sort" />
     </histories>
     <option name="languageScores">
       <map>
