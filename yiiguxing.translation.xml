@@ -8,6 +8,8 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="EPISODE GROUPING" />
+      <item value="replace" />
       <item value="split" />
       <item value="replace All" />
       <item value="equals" />
@@ -56,16 +58,14 @@
       <item value="ignore" />
       <item value="iterator" />
       <item value="has Next" />
-      <item value="last Index Of" />
-      <item value="ends With" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3565" />
+        <entry key="CHINESE" value="3566" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3566" />
+        <entry key="ENGLISH" value="3567" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
