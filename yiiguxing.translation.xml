@@ -2,12 +2,22 @@
   <component name="Translation.Cache">
     <option name="lastTrimTime" value="1706235792838" />
   </component>
+  <component name="Translation.Settings">
+    <option name="translator" value="MICROSOFT" />
+  </component>
   <component name="Translation.States">
     <option name="newTranslationDialogHeight" value="478" />
     <option name="newTranslationDialogWidth" value="847" />
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="insert Vod" />
+      <item value="match Search Result" />
+      <item value="TYPE QUICK SEARCH" />
+      <item value="search Data" />
+      <item value="dispatch Key Event" />
+      <item value="search Result" />
+      <item value="switch Search Word" />
       <item value="is Empty" />
       <item value="on Item Click" />
       <item value="on Item Selected" />
@@ -51,21 +61,14 @@
       <item value="ends With" />
       <item value="sort" />
       <item value="Sorter" />
-      <item value="horizontal" />
-      <item value="on Back Pressed" />
-      <item value="insert Vod" />
-      <item value="add Data" />
-      <item value="init Checked Sources For Search" />
-      <item value="TYPE QUICK SEARCH" />
-      <item value="Thread Mode" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3559" />
+        <entry key="CHINESE" value="3563" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3560" />
+        <entry key="ENGLISH" value="3564" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
