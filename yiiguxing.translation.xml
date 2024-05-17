@@ -2,12 +2,16 @@
   <component name="Translation.Cache">
     <option name="lastTrimTime" value="1706235792838" />
   </component>
+  <component name="Translation.Settings">
+    <option name="translator" value="MICROSOFT" />
+  </component>
   <component name="Translation.States">
     <option name="newTranslationDialogHeight" value="478" />
     <option name="newTranslationDialogWidth" value="847" />
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="Invoked when an image has failed to load. This is useful for reporting image failures to a remote analytics service, for example." />
       <item value="split" />
       <item value="convert Response" />
       <item value="on Success" />
@@ -57,7 +61,6 @@
       <item value="regex Ali" />
       <item value="pattern" />
       <item value="matcher" />
-      <item value="Intent" />
     </histories>
     <option name="languageScores">
       <map>
