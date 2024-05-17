@@ -8,6 +8,8 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="convert Response" />
+      <item value="on Success" />
       <item value="close" />
       <item value="contains Key" />
       <item value="Sets an Android resource id for a {@link Drawable} resource to display while a resource is loading. &lt;p&gt;Replaces any previous calls to this method or {@link placeholder(Drawable)} @param resourceId The id of the resource to use as a placeholder @return This request builder." />
@@ -38,8 +40,6 @@
       <item value="get Headers" />
       <item value="Load Wallpaper from" />
       <item value="return" />
-      <item value="on Success" />
-      <item value="convert Response" />
       <item value="Either &quot;http&quot; or &quot;https&quot;." />
       <item value="Nullable" />
       <item value="ODO: copy mutable state here, so the clone can't change the internals of the original" />
@@ -63,9 +63,9 @@
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3568" />
+        <entry key="CHINESE" value="3570" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3569" />
+        <entry key="ENGLISH" value="3571" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
