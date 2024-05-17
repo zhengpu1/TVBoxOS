@@ -8,6 +8,8 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="close" />
+      <item value="contains Key" />
       <item value="Sets an Android resource id for a {@link Drawable} resource to display while a resource is loading. &lt;p&gt;Replaces any previous calls to this method or {@link placeholder(Drawable)} @param resourceId The id of the resource to use as a placeholder @return This request builder." />
       <item value="Request Options" />
       <item value="se Glide instead" />
@@ -31,7 +33,6 @@
       <item value="on Item Click" />
       <item value="on Item Selected" />
       <item value="on Item Pre Selected" />
-      <item value="contains Key" />
       <item value="play Pre Source" />
       <item value="thread" />
       <item value="get Headers" />
@@ -57,15 +58,14 @@
       <item value="pattern" />
       <item value="matcher" />
       <item value="Intent" />
-      <item value="change View" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3567" />
+        <entry key="CHINESE" value="3568" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3568" />
+        <entry key="ENGLISH" value="3569" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
