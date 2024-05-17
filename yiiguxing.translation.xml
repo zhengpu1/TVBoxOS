@@ -8,6 +8,7 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="split" />
       <item value="convert Response" />
       <item value="on Success" />
       <item value="close" />
@@ -20,7 +21,6 @@
       <item value="add Host Rule" />
       <item value="EPISODE GROUPING" />
       <item value="replace" />
-      <item value="split" />
       <item value="replace All" />
       <item value="equals" />
       <item value="contains" />
