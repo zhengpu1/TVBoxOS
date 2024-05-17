@@ -8,6 +8,8 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="Request Options" />
+      <item value="se Glide instead" />
       <item value="is Thunder" />
       <item value="toggle Filter Color" />
       <item value="add Host Rule" />
@@ -56,8 +58,6 @@
       <item value="Intent" />
       <item value="change View" />
       <item value="is Foleder Mode" />
-      <item value="is Media" />
-      <item value="remove" />
     </histories>
     <option name="languageScores">
       <map>
