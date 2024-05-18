@@ -11,6 +11,7 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="contains Key" />
       <item value="has" />
       <item value="opt String" />
       <item value="Invoked when an image has failed to load. This is useful for reporting image failures to a remote analytics service, for example." />
@@ -18,7 +19,6 @@
       <item value="convert Response" />
       <item value="on Success" />
       <item value="close" />
-      <item value="contains Key" />
       <item value="Sets an Android resource id for a {@link Drawable} resource to display while a resource is loading. &lt;p&gt;Replaces any previous calls to this method or {@link placeholder(Drawable)} @param resourceId The id of the resource to use as a placeholder @return This request builder." />
       <item value="Request Options" />
       <item value="se Glide instead" />
@@ -66,9 +66,9 @@
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3571" />
+        <entry key="CHINESE" value="3572" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3572" />
+        <entry key="ENGLISH" value="3573" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
