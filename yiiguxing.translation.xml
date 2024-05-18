@@ -11,6 +11,7 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="contains" />
       <item value="contains Key" />
       <item value="has" />
       <item value="opt String" />
@@ -29,7 +30,6 @@
       <item value="replace" />
       <item value="replace All" />
       <item value="equals" />
-      <item value="contains" />
       <item value="insert Vod" />
       <item value="match Search Result" />
       <item value="TYPE QUICK SEARCH" />
@@ -66,9 +66,9 @@
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3572" />
+        <entry key="CHINESE" value="3573" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3573" />
+        <entry key="ENGLISH" value="3574" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
