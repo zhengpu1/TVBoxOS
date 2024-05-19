@@ -11,6 +11,11 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="is Quick Search" />
+      <item value="search Result" />
+      <item value="search Data" />
+      <item value="source Key" />
+      <item value="equals" />
       <item value="m Current Position" />
       <item value="set Progress Manager" />
       <item value="progress Manager" />
@@ -35,13 +40,10 @@
       <item value="EPISODE GROUPING" />
       <item value="replace" />
       <item value="replace All" />
-      <item value="equals" />
       <item value="insert Vod" />
       <item value="match Search Result" />
       <item value="TYPE QUICK SEARCH" />
-      <item value="search Data" />
       <item value="dispatch Key Event" />
-      <item value="search Result" />
       <item value="switch Search Word" />
       <item value="is Empty" />
       <item value="on Item Click" />
@@ -59,16 +61,14 @@
       <item value="is Blank" />
       <item value="Returns &lt;tt&gt;true&lt;tt&gt; if this map contains a mapping for the specified key. @param key The key whose presence in this map is to be tested @return &lt;tt&gt;true&lt;tt&gt; if this map contains a mapping for the specified key." />
       <item value="json Parser Cls" />
-      <item value="json Ext" />
-      <item value="json Ext Mix" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3576" />
+        <entry key="CHINESE" value="3579" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3577" />
+        <entry key="ENGLISH" value="3580" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
