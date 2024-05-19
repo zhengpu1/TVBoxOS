@@ -11,6 +11,7 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="home ptst tumm" />
       <item value="source Key" />
       <item value="is Quick Search" />
       <item value="search Result" />
@@ -60,7 +61,6 @@
       <item value="arg1 and arg2 are lower-cost alternatives to using {@link setData(Bundle) setData()} if you only need to store a few integer values." />
       <item value="is Blank" />
       <item value="Returns &lt;tt&gt;true&lt;tt&gt; if this map contains a mapping for the specified key. @param key The key whose presence in this map is to be tested @return &lt;tt&gt;true&lt;tt&gt; if this map contains a mapping for the specified key." />
-      <item value="json Parser Cls" />
     </histories>
     <option name="languageScores">
       <map>
