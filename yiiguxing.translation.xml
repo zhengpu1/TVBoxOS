@@ -11,8 +11,12 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
-      <item value="with Filter" />
+      <item value="m Current Position" />
+      <item value="set Progress Manager" />
+      <item value="progress Manager" />
       <item value="get Saved Progress" />
+      <item value="d Progress" />
+      <item value="with Filter" />
       <item value="contains" />
       <item value="contains Key" />
       <item value="has" />
@@ -57,18 +61,14 @@
       <item value="json Parser Cls" />
       <item value="json Ext" />
       <item value="json Ext Mix" />
-      <item value="get Items" />
-      <item value="get Category" />
-      <item value="get Next Marker" />
-      <item value="compile" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3574" />
+        <entry key="CHINESE" value="3576" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3575" />
+        <entry key="ENGLISH" value="3577" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
