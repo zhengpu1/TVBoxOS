@@ -11,6 +11,13 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="toggle Filter Color" />
+      <item value="on Attached To Window" />
+      <item value="handle Set Progress" />
+      <item value="set Progress" />
+      <item value="on Long Click" />
+      <item value="update Player Cfg View" />
+      <item value="get Saved Progress" />
       <item value="home ptst tumm" />
       <item value="source Key" />
       <item value="is Quick Search" />
@@ -20,7 +27,6 @@
       <item value="m Current Position" />
       <item value="set Progress Manager" />
       <item value="progress Manager" />
-      <item value="get Saved Progress" />
       <item value="d Progress" />
       <item value="with Filter" />
       <item value="contains" />
@@ -36,7 +42,6 @@
       <item value="Request Options" />
       <item value="se Glide instead" />
       <item value="is Thunder" />
-      <item value="toggle Filter Color" />
       <item value="add Host Rule" />
       <item value="EPISODE GROUPING" />
       <item value="replace" />
@@ -56,19 +61,14 @@
       <item value="Load Wallpaper from" />
       <item value="return" />
       <item value="Either &quot;http&quot; or &quot;https&quot;." />
-      <item value="Nullable" />
-      <item value="ODO: copy mutable state here, so the clone can't change the internals of the original" />
-      <item value="arg1 and arg2 are lower-cost alternatives to using {@link setData(Bundle) setData()} if you only need to store a few integer values." />
-      <item value="is Blank" />
-      <item value="Returns &lt;tt&gt;true&lt;tt&gt; if this map contains a mapping for the specified key. @param key The key whose presence in this map is to be tested @return &lt;tt&gt;true&lt;tt&gt; if this map contains a mapping for the specified key." />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3579" />
+        <entry key="CHINESE" value="3583" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3580" />
+        <entry key="ENGLISH" value="3584" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
