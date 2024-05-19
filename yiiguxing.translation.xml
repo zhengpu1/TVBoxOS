@@ -11,6 +11,7 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="LENGTH SHORT" />
       <item value="toggle Filter Color" />
       <item value="on Attached To Window" />
       <item value="handle Set Progress" />
@@ -60,7 +61,6 @@
       <item value="get Headers" />
       <item value="Load Wallpaper from" />
       <item value="return" />
-      <item value="Either &quot;http&quot; or &quot;https&quot;." />
     </histories>
     <option name="languageScores">
       <map>
