@@ -11,6 +11,8 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="subtitle Cache Key" />
+      <item value="subt Key" />
       <item value="continue" />
       <item value="starts With" />
       <item value="contains" />
@@ -59,8 +61,6 @@
       <item value="on Item Selected" />
       <item value="on Item Pre Selected" />
       <item value="play Pre Source" />
-      <item value="thread" />
-      <item value="get Headers" />
     </histories>
     <option name="languageScores">
       <map>
