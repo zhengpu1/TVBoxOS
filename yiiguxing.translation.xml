@@ -2,20 +2,20 @@
   <component name="Translation.Cache">
     <option name="lastTrimTime" value="1706235792838" />
   </component>
-  <component name="Translation.Settings">
-    <option name="translator" value="MICROSOFT" />
-  </component>
   <component name="Translation.States">
     <option name="newTranslationDialogHeight" value="478" />
     <option name="newTranslationDialogWidth" value="847" />
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="quick Search Result" />
+      <item value="on Progress Changed" />
+      <item value="string For Time" />
+      <item value="get Duration" />
       <item value="click" />
       <item value="in Progress" />
       <item value="toggle Show State" />
       <item value="toggle Filter Color" />
-      <item value="on Progress Changed" />
       <item value="home pwet tumm" />
       <item value="HOME PWET TUMM" />
       <item value="tv Back Bimg" />
@@ -58,9 +58,6 @@
       <item value="d Progress" />
       <item value="with Filter" />
       <item value="contains Key" />
-      <item value="has" />
-      <item value="opt String" />
-      <item value="Invoked when an image has failed to load. This is useful for reporting image failures to a remote analytics service, for example." />
     </histories>
     <option name="languageScores">
       <map>
