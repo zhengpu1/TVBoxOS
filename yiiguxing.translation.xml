@@ -11,6 +11,10 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="on Progress Changed" />
+      <item value="home pwet tumm" />
+      <item value="HOME PWET TUMM" />
+      <item value="tv Back Bimg" />
       <item value="notify Item Changed" />
       <item value="get Key" />
       <item value="get Value" />
@@ -57,10 +61,6 @@
       <item value="split" />
       <item value="convert Response" />
       <item value="on Success" />
-      <item value="close" />
-      <item value="Sets an Android resource id for a {@link Drawable} resource to display while a resource is loading. &lt;p&gt;Replaces any previous calls to this method or {@link placeholder(Drawable)} @param resourceId The id of the resource to use as a placeholder @return This request builder." />
-      <item value="Request Options" />
-      <item value="se Glide instead" />
     </histories>
     <option name="languageScores">
       <map>
