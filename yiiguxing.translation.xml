@@ -11,6 +11,7 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="Returns the key corresponding to this entry. @return the key corresponding to this entry @throws IllegalStateException implementations may, but are not required to, throw this exception if the entry has been removed from the backing map." />
       <item value="m Classify Adapter" />
       <item value="convert" />
       <item value="series Group Adapter" />
@@ -60,7 +61,6 @@
       <item value="add Host Rule" />
       <item value="EPISODE GROUPING" />
       <item value="replace All" />
-      <item value="insert Vod" />
     </histories>
     <option name="languageScores">
       <map>
