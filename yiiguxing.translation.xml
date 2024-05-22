@@ -11,6 +11,9 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="on Item Pre Selected" />
+      <item value="tv Sort" />
+      <item value="on Grid View Focus Change" />
       <item value="subtitle Cache Key" />
       <item value="subt Key" />
       <item value="continue" />
@@ -58,17 +61,14 @@
       <item value="switch Search Word" />
       <item value="is Empty" />
       <item value="on Item Click" />
-      <item value="on Item Selected" />
-      <item value="on Item Pre Selected" />
-      <item value="play Pre Source" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3588" />
+        <entry key="CHINESE" value="3591" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3589" />
+        <entry key="ENGLISH" value="3592" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
