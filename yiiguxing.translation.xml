@@ -11,6 +11,7 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="toggle Filter Color" />
       <item value="on Progress Changed" />
       <item value="home pwet tumm" />
       <item value="HOME PWET TUMM" />
@@ -35,7 +36,6 @@
       <item value="starts With" />
       <item value="contains" />
       <item value="replace" />
-      <item value="toggle Filter Color" />
       <item value="LENGTH SHORT" />
       <item value="on Attached To Window" />
       <item value="handle Set Progress" />
@@ -66,9 +66,9 @@
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3597" />
+        <entry key="CHINESE" value="3598" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3598" />
+        <entry key="ENGLISH" value="3599" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
