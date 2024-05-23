@@ -1,9 +1,10 @@
 <application>
   <component name="AndroidLogcatFilterHistory">
+    <option name="mostRecentlyUsed" value="" />
     <option name="nonFavorites">
       <list>
-        <option value="package:com.github.tvbox.tk" />
         <option value="package:mine " />
+        <option value="package:com.github.tvbox.tk" />
       </list>
     </option>
   </component>

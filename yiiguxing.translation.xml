@@ -1,6 +1,15 @@
 <application>
   <component name="Translation.Cache">
-    <option name="lastTrimTime" value="1706235792838" />
+    <option name="lastTrimTime" value="1716468457759" />
+  </component>
+  <component name="Translation.Settings">
+    <option name="baiduTranslateSettings">
+      <app-key>
+        <option name="appId" value="20231215001911727" />
+      </app-key>
+    </option>
+    <option name="primaryLanguage" value="CHINESE" />
+    <option name="translator" value="BAIDU" />
   </component>
   <component name="Translation.States">
     <option name="newTranslationDialogHeight" value="478" />
@@ -8,6 +17,19 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="Open Video with" />
+      <item value="Broadcast Action: The device has exited USB Mass Storage mode. This is used mainly for the USB Settings panel. Apps should listen for ACTION_MEDIA_MOUNTED and ACTION_MEDIA_UNMOUNTED broadcasts to be notified when the SD card file system is mounted or unmounted @deprecated replaced by android.os.storage.StorageEventListener" />
+      <item value="Activity Action: Allow the user to select a particular kind of data and return it. This is different than {@link ACTION_PICK} in that here we just say what kind of data is desired, not a URI of existing data from which the user can pick. An ACTION_GET_CONTENT could allow the user to create the data as it runs (for example taking a picture or recording a sound), let them browse over the web and download the desired data, etc. &lt;p&gt; There are two main ways to use this action: if you want a specific kind of data, such as a person contact, you set the MIME type to the kind of data you want and launch it with {@link ContextstartActivity(Intent)}. The system will then launch the best application to select that kind of data for you. &lt;p&gt; You may also be interested in any of a set of types of content the user can pick. For example, an e-mail application that wants to allow the user to add an attachment to an e-mail message can use this action to bring up a list of all of the types of content the user can attach. &lt;p&gt; In this case, you should wrap the GET_CONTENT intent with a chooser (through {@link createChooser}), which will give the proper interface for the user to pick how to send your data and allow you to specify a prompt indicating what they are doing. You will usually specify a broad MIME type (such as image or {@literal }), resulting in a broad range of content types the user can select from. &lt;p&gt; When using such a broad GET_CONTENT action, it is often desirable to only pick from data that can be represented as a stream. This is accomplished by requiring the {@link CATEGORY_OPENABLE} in the Intent. &lt;p&gt; Callers can optionally specify {@link EXTRA_LOCAL_ONLY} to request that the launched content chooser only returns results representing data that is locally available on the device. For example, if this extra is set to true then an image picker should not show any pictures that are available from a remote server but not already on the local device (thus requiring they be downloaded when opened). &lt;p&gt; If the caller can handle multiple returned items (the user performing" />
+      <item value="Data And Type" />
+      <item value="set Data And Type" />
+      <item value="Mix Web" />
+      <item value="Array List" />
+      <item value="iterator" />
+      <item value="String" />
+      <item value="String Builder" />
+      <item value="Iterator&lt;String&gt; keys = jx.keySet().iterator(); while (keys.hasNext()) { String key = keys.next(); HashMap&lt;String, String&gt; parseBean = jx.get(key); String type = parseBean.get(&quot;type&quot;); if (type.equals(&quot;0&quot;)) { webJx.add(parseBean.get(&quot;url&quot;)); } } }" />
+      <item value="flag Web Jx" />
+      <item value="is Empty" />
       <item value="set Tip" />
       <item value="http:119.91.123.253:2345 Apiyun.php?url=" />
       <item value="status" />
@@ -45,27 +67,14 @@
       <item value="contains" />
       <item value="LENGTH SHORT" />
       <item value="on Attached To Window" />
-      <item value="handle Set Progress" />
-      <item value="set Progress" />
-      <item value="on Long Click" />
-      <item value="update Player Cfg View" />
-      <item value="get Saved Progress" />
-      <item value="home ptst tumm" />
-      <item value="source Key" />
-      <item value="is Quick Search" />
-      <item value="search Result" />
-      <item value="search Data" />
-      <item value="equals" />
-      <item value="m Current Position" />
-      <item value="set Progress Manager" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3603" />
+        <entry key="CHINESE" value="3615" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3604" />
+        <entry key="ENGLISH" value="3616" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
