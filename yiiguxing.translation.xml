@@ -9,6 +9,7 @@
     <option name="newTranslationDialogY" value="451" />
     <histories>
       <item value="replace" />
+      <item value="replace All" />
       <item value="quick Search Result" />
       <item value="on Progress Changed" />
       <item value="string For Time" />
@@ -57,15 +58,14 @@
       <item value="progress Manager" />
       <item value="d Progress" />
       <item value="with Filter" />
-      <item value="contains Key" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3601" />
+        <entry key="CHINESE" value="3602" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3602" />
+        <entry key="ENGLISH" value="3603" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
