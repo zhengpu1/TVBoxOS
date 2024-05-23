@@ -8,6 +8,8 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="set Tip" />
+      <item value="http:119.91.123.253:2345 Apiyun.php?url=" />
       <item value="status" />
       <item value="starts With" />
       <item value="replace" />
@@ -56,8 +58,6 @@
       <item value="equals" />
       <item value="m Current Position" />
       <item value="set Progress Manager" />
-      <item value="progress Manager" />
-      <item value="d Progress" />
     </histories>
     <option name="languageScores">
       <map>
