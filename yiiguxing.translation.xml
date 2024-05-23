@@ -8,6 +8,7 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="starts With" />
       <item value="replace" />
       <item value="replace All" />
       <item value="quick Search Result" />
@@ -38,7 +39,6 @@
       <item value="subtitle Cache Key" />
       <item value="subt Key" />
       <item value="continue" />
-      <item value="starts With" />
       <item value="contains" />
       <item value="LENGTH SHORT" />
       <item value="on Attached To Window" />
@@ -63,9 +63,9 @@
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3602" />
+        <entry key="CHINESE" value="3603" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3603" />
+        <entry key="ENGLISH" value="3604" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
