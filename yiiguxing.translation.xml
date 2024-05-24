@@ -17,6 +17,11 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="tv Series Group" />
+      <item value="m Classify Adapter" />
+      <item value="notify Item Changed" />
+      <item value="m Last Selected Vod Series Flag" />
+      <item value="clean pre flag select status" />
       <item value="Clickable View Accessibility" />
       <item value="on Back Pressed" />
       <item value="SCREEN ORIENTATION SENSOR LANDSCAPE" />
@@ -27,10 +32,8 @@
       <item value="ll Player Fragment Container Block" />
       <item value="flag Scroll To" />
       <item value="refresh List" />
-      <item value="notify Item Changed" />
       <item value="scroll To Position" />
       <item value="Group Index" />
-      <item value="m Last Selected Vod Series Flag" />
       <item value="get Display" />
       <item value="Open Video with" />
       <item value="Broadcast Action: The device has exited USB Mass Storage mode. This is used mainly for the USB Settings panel. Apps should listen for ACTION_MEDIA_MOUNTED and ACTION_MEDIA_UNMOUNTED broadcasts to be notified when the SD card file system is mounted or unmounted @deprecated replaced by android.os.storage.StorageEventListener" />
@@ -64,17 +67,14 @@
       <item value="tv Back Bimg" />
       <item value="get Key" />
       <item value="get Value" />
-      <item value="index Of" />
-      <item value="Returns the key corresponding to this entry. @return the key corresponding to this entry @throws IllegalStateException implementations may, but are not required to, throw this exception if the entry has been removed from the backing map." />
-      <item value="m Classify Adapter" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3626" />
+        <entry key="CHINESE" value="3632" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3627" />
+        <entry key="ENGLISH" value="3633" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
