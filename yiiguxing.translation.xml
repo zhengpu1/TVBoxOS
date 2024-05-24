@@ -17,6 +17,9 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="refresh List" />
+      <item value="on Item Click" />
+      <item value="on Item Selected" />
       <item value="tv Series Group" />
       <item value="m Classify Adapter" />
       <item value="notify Item Changed" />
@@ -31,7 +34,6 @@
       <item value="jump To Play" />
       <item value="ll Player Fragment Container Block" />
       <item value="flag Scroll To" />
-      <item value="refresh List" />
       <item value="scroll To Position" />
       <item value="Group Index" />
       <item value="get Display" />
@@ -65,16 +67,14 @@
       <item value="home pwet tumm" />
       <item value="HOME PWET TUMM" />
       <item value="tv Back Bimg" />
-      <item value="get Key" />
-      <item value="get Value" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3632" />
+        <entry key="CHINESE" value="3635" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3633" />
+        <entry key="ENGLISH" value="3636" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
