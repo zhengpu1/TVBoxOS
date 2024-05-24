@@ -17,6 +17,8 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="jump To Play" />
+      <item value="ll Player Fragment Container Block" />
       <item value="flag Scroll To" />
       <item value="refresh List" />
       <item value="notify Item Changed" />
@@ -65,8 +67,6 @@
       <item value="on Item Pre Selected" />
       <item value="series Select" />
       <item value="on Item Click" />
-      <item value="tv Sort" />
-      <item value="on Grid View Focus Change" />
     </histories>
     <option name="languageScores">
       <map>
