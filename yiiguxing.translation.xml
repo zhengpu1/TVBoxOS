@@ -17,6 +17,9 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="TYPE QUICK SEARCH RESULT" />
+      <item value="Refresh Event" />
+      <item value="TYPE QUICK SEARCH" />
       <item value="Group Count" />
       <item value="tv Series Flag Select" />
       <item value="replace First" />
@@ -29,7 +32,6 @@
       <item value="on Click" />
       <item value="on Item Click" />
       <item value="equals" />
-      <item value="TYPE QUICK SEARCH RESULT" />
       <item value="quick Search Result" />
       <item value="get Api" />
       <item value="source Bean" />
@@ -65,16 +67,14 @@
       <item value="Data And Type" />
       <item value="set Data And Type" />
       <item value="Mix Web" />
-      <item value="Array List" />
-      <item value="iterator" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3657" />
+        <entry key="CHINESE" value="3660" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3658" />
+        <entry key="ENGLISH" value="3661" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
