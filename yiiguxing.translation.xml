@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="toggle Full Preview" />
       <item value="TYPE QUICK SEARCH RESULT" />
       <item value="Refresh Event" />
       <item value="TYPE QUICK SEARCH" />
@@ -66,15 +67,14 @@
       <item value="Activity Action: Allow the user to select a particular kind of data and return it. This is different than {@link ACTION_PICK} in that here we just say what kind of data is desired, not a URI of existing data from which the user can pick. An ACTION_GET_CONTENT could allow the user to create the data as it runs (for example taking a picture or recording a sound), let them browse over the web and download the desired data, etc. &lt;p&gt; There are two main ways to use this action: if you want a specific kind of data, such as a person contact, you set the MIME type to the kind of data you want and launch it with {@link ContextstartActivity(Intent)}. The system will then launch the best application to select that kind of data for you. &lt;p&gt; You may also be interested in any of a set of types of content the user can pick. For example, an e-mail application that wants to allow the user to add an attachment to an e-mail message can use this action to bring up a list of all of the types of content the user can attach. &lt;p&gt; In this case, you should wrap the GET_CONTENT intent with a chooser (through {@link createChooser}), which will give the proper interface for the user to pick how to send your data and allow you to specify a prompt indicating what they are doing. You will usually specify a broad MIME type (such as image or {@literal }), resulting in a broad range of content types the user can select from. &lt;p&gt; When using such a broad GET_CONTENT action, it is often desirable to only pick from data that can be represented as a stream. This is accomplished by requiring the {@link CATEGORY_OPENABLE} in the Intent. &lt;p&gt; Callers can optionally specify {@link EXTRA_LOCAL_ONLY} to request that the launched content chooser only returns results representing data that is locally available on the device. For example, if this extra is set to true then an image picker should not show any pictures that are available from a remote server but not already on the local device (thus requiring they be downloaded when opened). &lt;p&gt; If the caller can handle multiple returned items (the user performing" />
       <item value="Data And Type" />
       <item value="set Data And Type" />
-      <item value="Mix Web" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3660" />
+        <entry key="CHINESE" value="3661" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3661" />
+        <entry key="ENGLISH" value="3662" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
