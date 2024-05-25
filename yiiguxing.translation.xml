@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="find" />
       <item value="m Number Classification" />
       <item value="series Group Adapter" />
       <item value="m Classify Adapter" />
@@ -66,15 +67,14 @@
       <item value="Group Index" />
       <item value="get Display" />
       <item value="Open Video with" />
-      <item value="Broadcast Action: The device has exited USB Mass Storage mode. This is used mainly for the USB Settings panel. Apps should listen for ACTION_MEDIA_MOUNTED and ACTION_MEDIA_UNMOUNTED broadcasts to be notified when the SD card file system is mounted or unmounted @deprecated replaced by android.os.storage.StorageEventListener" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3665" />
+        <entry key="CHINESE" value="3666" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3666" />
+        <entry key="ENGLISH" value="3667" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
