@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="Group Count" />
       <item value="tv Series Flag Select" />
       <item value="replace First" />
       <item value="lock Runnable" />
@@ -66,15 +67,14 @@
       <item value="Mix Web" />
       <item value="Array List" />
       <item value="iterator" />
-      <item value="String" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3656" />
+        <entry key="CHINESE" value="3657" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3657" />
+        <entry key="ENGLISH" value="3658" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
