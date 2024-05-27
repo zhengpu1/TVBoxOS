@@ -17,11 +17,14 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
-      <item value="end" />
+      <item value="marquee forever" />
+      <item value="marquee Repeat Limit" />
+      <item value="focusable In Touch Mode" />
+      <item value="single Line" />
       <item value="marquee" />
+      <item value="end" />
       <item value="ellipsize" />
       <item value="text Alignment" />
-      <item value="single Line" />
       <item value="load Found Video Urls" />
       <item value="video Url" />
       <item value="auto Retry From Load Found Video Urls" />
@@ -64,17 +67,14 @@
       <item value="tv Series Group" />
       <item value="notify Item Changed" />
       <item value="m Last Selected Vod Series Flag" />
-      <item value="clean pre flag select status" />
-      <item value="Clickable View Accessibility" />
-      <item value="on Back Pressed" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3680" />
+        <entry key="CHINESE" value="3686" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3681" />
+        <entry key="ENGLISH" value="3687" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
