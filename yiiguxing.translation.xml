@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="scroll To Position" />
       <item value="Math.floor" />
       <item value="m Classify Adapter" />
       <item value="m Number Classification" />
@@ -28,7 +29,6 @@
       <item value="set Has Fixed Size" />
       <item value="to Upper Case" />
       <item value="CHINESE" />
-      <item value="scroll To Position" />
       <item value="reverse Sort" />
       <item value="classify Data" />
       <item value="horizontal" />
@@ -72,9 +72,9 @@
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3705" />
+        <entry key="CHINESE" value="3706" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3706" />
+        <entry key="ENGLISH" value="3707" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
