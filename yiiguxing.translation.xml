@@ -17,6 +17,10 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="horizontal" />
+      <item value="orientation" />
+      <item value="focusable" />
+      <item value="android:layout_height=&quot;@dimenvs_40&quot; android:layout_width=&quot;match_parent&quot; android:singleLine=&quot;true&quot; android:ellipsize=&quot;marquee&quot; android:focusableInTouchMode=&quot;true&quot; android:marqueeRepeatLimit=&quot;marquee_forever&quot; android:shadowColor=&quot;@colorcolor_FF000000&quot; android:shadowDx=&quot;2&quot; android:shadowDy=&quot;2&quot; android:shadowRadius=&quot;1.0&quot; android:gravity=&quot;center&quot; android:padding=&quot;@dimenvs_5&quot; android:textColor=&quot;@colorfont_deta_color&quot; android:textSize=&quot;@diments_18&quot; &gt;" />
       <item value="marquee forever" />
       <item value="marquee Repeat Limit" />
       <item value="focusable In Touch Mode" />
@@ -63,18 +67,14 @@
       <item value="build Vod Info" />
       <item value="Serializable" />
       <item value="refresh List" />
-      <item value="on Item Selected" />
-      <item value="tv Series Group" />
-      <item value="notify Item Changed" />
-      <item value="m Last Selected Vod Series Flag" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3686" />
+        <entry key="CHINESE" value="3690" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3687" />
+        <entry key="ENGLISH" value="3691" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
