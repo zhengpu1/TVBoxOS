@@ -17,6 +17,8 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="Text Utils" />
+      <item value="is Empty" />
       <item value="init Search History" />
       <item value="history Adapter" />
       <item value="on Create Dismiss Animation" />
@@ -65,16 +67,14 @@
       <item value="equals" />
       <item value="find" />
       <item value="series Group Adapter" />
-      <item value="EPISODE GROUPING" />
-      <item value="toggle Full Preview" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3720" />
+        <entry key="CHINESE" value="3722" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3721" />
+        <entry key="ENGLISH" value="3722" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
