@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="source Key" />
       <item value="notify Data Set Changed" />
       <item value="scroll To Position" />
       <item value="Math.floor" />
@@ -66,15 +67,14 @@
       <item value="m Lock View" />
       <item value="VISIBLE" />
       <item value="INVISIBLE" />
-      <item value="set Visibility" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3707" />
+        <entry key="CHINESE" value="3708" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3708" />
+        <entry key="ENGLISH" value="3709" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
