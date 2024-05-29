@@ -17,6 +17,9 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="contains" />
+      <item value="value Of" />
+      <item value="is Video Format" />
       <item value="Schedules the request to be executed at some point in the future. &lt;p&gt;The {@link OkHttpClientdispatcher dispatcher} defines when the request will run: usually immediately unless there are several other requests currently being executed. &lt;p&gt;This client will later call back {@code responseCallback} with either an HTTP response or a failure exception. @throws IllegalStateException when the call has already been executed." />
       <item value="convert Response" />
       <item value="sort Xml" />
@@ -64,17 +67,14 @@
       <item value="text Alignment" />
       <item value="load Found Video Urls" />
       <item value="video Url" />
-      <item value="auto Retry From Load Found Video Urls" />
-      <item value="auto Retry Count" />
-      <item value="tv vertical Spacing With Margins" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3725" />
+        <entry key="CHINESE" value="3728" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3726" />
+        <entry key="ENGLISH" value="3729" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
