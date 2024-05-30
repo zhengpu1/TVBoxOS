@@ -17,6 +17,8 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="sort Data" />
+      <item value="toggle Filter Color" />
       <item value="source Bean" />
       <item value="play Flag" />
       <item value="get Vip Parse Flags" />
@@ -31,7 +33,6 @@
       <item value="STATE PAUSED" />
       <item value="STATE PREPARED" />
       <item value="TYPE FILTER CHANGE" />
-      <item value="toggle Filter Color" />
       <item value="filters" />
       <item value="is Added" />
       <item value="contains" />
@@ -66,15 +67,14 @@
       <item value="notify Item Changed" />
       <item value="tv Push" />
       <item value="m Grid View" />
-      <item value="set Has Fixed Size" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3753" />
+        <entry key="CHINESE" value="3755" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3754" />
+        <entry key="ENGLISH" value="3756" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
