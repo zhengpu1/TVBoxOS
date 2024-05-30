@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="get Saved Progress" />
       <item value="STATE PLAYBACK COMPLETED" />
       <item value="STATE START ABORT" />
       <item value="STATE PREPARING" />
@@ -66,15 +67,14 @@
       <item value="to Upper Case" />
       <item value="CHINESE" />
       <item value="reverse Sort" />
-      <item value="classify Data" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3748" />
+        <entry key="CHINESE" value="3750" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3749" />
+        <entry key="ENGLISH" value="3751" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
