@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="starts With" />
       <item value="REFRESH PARSE" />
       <item value="Sort Data" />
       <item value="tv Series Flag Select" />
@@ -66,15 +67,14 @@
       <item value="source Key" />
       <item value="scroll To Position" />
       <item value="Math.floor" />
-      <item value="m Classify Adapter" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3762" />
+        <entry key="CHINESE" value="3763" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3763" />
+        <entry key="ENGLISH" value="3764" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="2" />
