@@ -17,6 +17,8 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="m Player Time Reset Btn" />
+      <item value="Openingcredits" />
       <item value="assert" />
       <item value="subtitle Dialog" />
       <item value="storageemulated 0 Download" />
@@ -65,16 +67,14 @@
       <item value="llow Dpad Key switch to other focus" />
       <item value="Collection Utils" />
       <item value="full Windows" />
-      <item value="set Focusable" />
-      <item value="focusable" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3766" />
+        <entry key="CHINESE" value="3767" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3767" />
+        <entry key="ENGLISH" value="3768" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="3" />
@@ -86,6 +86,7 @@
         <entry key="KINYARWANDA" value="1" />
         <entry key="LUXEMBOURGISH" value="1" />
         <entry key="MALAY" value="1" />
+        <entry key="NORWEGIAN" value="1" />
         <entry key="ROMANIAN" value="1" />
         <entry key="SLOVAK" value="1" />
         <entry key="SPANISH" value="1" />
