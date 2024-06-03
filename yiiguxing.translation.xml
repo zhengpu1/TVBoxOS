@@ -1,6 +1,6 @@
 <application>
   <component name="Translation.Cache">
-    <option name="lastTrimTime" value="1716901863759" />
+    <option name="lastTrimTime" value="1717413757111" />
   </component>
   <component name="Translation.Settings">
     <option name="baiduTranslateSettings">
@@ -17,6 +17,9 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="assert" />
+      <item value="subtitle Dialog" />
+      <item value="storageemulated 0 Download" />
       <item value="filter Select" />
       <item value="starts With" />
       <item value="REFRESH PARSE" />
@@ -64,20 +67,17 @@
       <item value="full Windows" />
       <item value="set Focusable" />
       <item value="focusable" />
-      <item value="line Spacing Multiplier" />
-      <item value="source Key" />
-      <item value="scroll To Position" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3764" />
+        <entry key="CHINESE" value="3766" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3765" />
+        <entry key="ENGLISH" value="3767" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
-        <entry key="GERMAN" value="2" />
+        <entry key="GERMAN" value="3" />
         <entry key="GREEK" value="1" />
         <entry key="INDONESIAN" value="2" />
         <entry key="IRISH" value="2" />
