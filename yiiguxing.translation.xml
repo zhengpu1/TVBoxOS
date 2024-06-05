@@ -17,6 +17,8 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="notify Data Set Changed" />
+      <item value="notify Item Changed" />
       <item value="should Intercept Request" />
       <item value="check Is Video" />
       <item value="add Host Filter" />
@@ -38,7 +40,6 @@
       <item value="tv Series Flag Select" />
       <item value="refresh List" />
       <item value="getplay Index" />
-      <item value="notify Data Set Changed" />
       <item value="series Adapter" />
       <item value="sort Data" />
       <item value="toggle Filter Color" />
@@ -66,15 +67,14 @@
       <item value="sort Xml" />
       <item value="put Serializable" />
       <item value="Text Utils" />
-      <item value="is Empty" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3779" />
+        <entry key="CHINESE" value="3782" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3780" />
+        <entry key="ENGLISH" value="3783" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GERMAN" value="3" />
