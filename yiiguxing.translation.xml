@@ -17,6 +17,10 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="split Item Num" />
+      <item value="public final boolean checkVodInfoNeedClassify(@Nullable List vodSeries) {" />
+      <item value="check Vod Info Need Classify" />
+      <item value="get Classify Data" />
       <item value="my Handless" />
       <item value="get Sources For Search" />
       <item value="scroll To Position" />
@@ -63,18 +67,14 @@
       <item value="STATE PAUSED" />
       <item value="STATE PREPARED" />
       <item value="TYPE FILTER CHANGE" />
-      <item value="filters" />
-      <item value="is Added" />
-      <item value="contains" />
-      <item value="value Of" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3787" />
+        <entry key="CHINESE" value="3791" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3788" />
+        <entry key="ENGLISH" value="3792" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GALICIAN" value="1" />
