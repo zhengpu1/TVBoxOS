@@ -17,6 +17,9 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="continue" />
+      <item value="equals" />
+      <item value="insert Vod" />
       <item value="split Item Num" />
       <item value="public final boolean checkVodInfoNeedClassify(@Nullable List vodSeries) {" />
       <item value="check Vod Info Need Classify" />
@@ -64,17 +67,14 @@
       <item value="STATE ERROR" />
       <item value="is In Playback State" />
       <item value="STATE PLAYING" />
-      <item value="STATE PAUSED" />
-      <item value="STATE PREPARED" />
-      <item value="TYPE FILTER CHANGE" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3791" />
+        <entry key="CHINESE" value="3795" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3792" />
+        <entry key="ENGLISH" value="3796" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GALICIAN" value="1" />
