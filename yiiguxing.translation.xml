@@ -17,6 +17,9 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="set Layout Manager" />
+      <item value="focusable In Touch Mode" />
+      <item value="V 7 Grid Layout Manager" />
       <item value="m Number Classification" />
       <item value="tv selected Item Is Centered" />
       <item value="tv vertical Spacing With Margins" />
@@ -64,17 +67,14 @@
       <item value="sort Data" />
       <item value="toggle Filter Color" />
       <item value="source Bean" />
-      <item value="play Flag" />
-      <item value="get Vip Parse Flags" />
-      <item value="get Saved Progress" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3802" />
+        <entry key="CHINESE" value="3805" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3803" />
+        <entry key="ENGLISH" value="3806" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GALICIAN" value="1" />
