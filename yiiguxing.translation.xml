@@ -17,6 +17,12 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="scroll To Play Pos And Request Foucuse" />
+      <item value="show Down Load Tips" />
+      <item value="Had show download tips" />
+      <item value="open File Picker" />
+      <item value="toggle Del Mode" />
+      <item value="set Selected Item" />
       <item value="on Item Click" />
       <item value="contains" />
       <item value="homede Vod Adapter" />
@@ -43,7 +49,6 @@
       <item value="scroll To Position" />
       <item value="Integer" />
       <item value="instanceof" />
-      <item value="scroll To Play Pos And Request Foucuse" />
       <item value="notify Data Set Changed" />
       <item value="notify Item Changed" />
       <item value="should Intercept Request" />
@@ -62,20 +67,15 @@
       <item value="storageemulated 0 Download" />
       <item value="filter Select" />
       <item value="starts With" />
-      <item value="REFRESH PARSE" />
-      <item value="Sort Data" />
-      <item value="tv Series Flag Select" />
-      <item value="refresh List" />
-      <item value="getplay Index" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3808" />
+        <entry key="CHINESE" value="3815" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3809" />
+        <entry key="ENGLISH" value="3816" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GALICIAN" value="1" />
