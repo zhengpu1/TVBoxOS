@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="dispatch Key Event" />
       <item value="scroll To Play Pos And Request Foucuse" />
       <item value="show Down Load Tips" />
       <item value="Had show download tips" />
@@ -66,16 +67,15 @@
       <item value="subtitle Dialog" />
       <item value="storageemulated 0 Download" />
       <item value="filter Select" />
-      <item value="starts With" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3815" />
+        <entry key="CHINESE" value="3816" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3816" />
+        <entry key="ENGLISH" value="3817" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GALICIAN" value="1" />
