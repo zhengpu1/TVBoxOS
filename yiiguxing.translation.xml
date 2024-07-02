@@ -1,6 +1,6 @@
 <application>
   <component name="Translation.Cache">
-    <option name="lastTrimTime" value="1717917845581" />
+    <option name="lastTrimTime" value="1719896000598" />
   </component>
   <component name="Translation.Settings">
     <option name="baiduTranslateSettings">
@@ -17,6 +17,15 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="m Control Wrapper" />
+      <item value="get Duration" />
+      <item value="get Current Position" />
+      <item value="set Landscape Portrait" />
+      <item value="update Player Cfg" />
+      <item value="m Landscape Portrait Btn" />
+      <item value="listener" />
+      <item value="on Long Click" />
+      <item value="m Player Time Start Btn" />
       <item value="dispatch Key Event" />
       <item value="scroll To Play Pos And Request Foucuse" />
       <item value="show Down Load Tips" />
@@ -58,24 +67,15 @@
       <item value="get Host Filters" />
       <item value="check Is Video For Parse" />
       <item value="check Video For One Host Rules" />
-      <item value="check Is Filter For One Host Rules" />
-      <item value="host Filters" />
-      <item value="HOSTS FILTER" />
-      <item value="m Player Time Reset Btn" />
-      <item value="Openingcredits" />
-      <item value="assert" />
-      <item value="subtitle Dialog" />
-      <item value="storageemulated 0 Download" />
-      <item value="filter Select" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3816" />
+        <entry key="CHINESE" value="3828" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3817" />
+        <entry key="ENGLISH" value="3829" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GALICIAN" value="1" />
