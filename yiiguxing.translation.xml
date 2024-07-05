@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="equals" />
       <item value="m Grid View" />
       <item value="m Grid View Layout Mgr" />
       <item value="post Delayed" />
@@ -56,7 +57,6 @@
       <item value="is Video Format" />
       <item value="Source File" />
       <item value="continue" />
-      <item value="equals" />
       <item value="split Item Num" />
       <item value="public final boolean checkVodInfoNeedClassify(@Nullable List vodSeries) {" />
       <item value="check Vod Info Need Classify" />
@@ -73,9 +73,9 @@
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3837" />
+        <entry key="CHINESE" value="3838" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3838" />
+        <entry key="ENGLISH" value="3839" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GALICIAN" value="1" />
