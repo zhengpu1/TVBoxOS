@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="contains" />
       <item value="set Background Drawable Resource" />
       <item value="set Background Drawable" />
       <item value="set Image Resource" />
@@ -58,7 +59,6 @@
       <item value="toggle Del Mode" />
       <item value="set Selected Item" />
       <item value="on Item Click" />
-      <item value="contains" />
       <item value="homede Vod Adapter" />
       <item value="series Group Adapter" />
       <item value="set Layout Manager" />
@@ -73,9 +73,9 @@
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3857" />
+        <entry key="CHINESE" value="3858" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3858" />
+        <entry key="ENGLISH" value="3859" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GALICIAN" value="1" />
