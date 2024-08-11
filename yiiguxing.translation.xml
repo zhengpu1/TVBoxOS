@@ -17,13 +17,13 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="set Image Resource" />
       <item value="set Focusable" />
       <item value="scroll To Play Pos And Request Foucuse" />
       <item value="flag Scroll To" />
       <item value="scroll To Position" />
       <item value="notify Item Changed" />
       <item value="notify Data Set Changed" />
-      <item value="set Image Resource" />
       <item value="vod Info Record" />
       <item value="Returns the greater of two {@code long} values. That is, the result is the argument closer to the value of {@link LongMAX_VALUE}. If the arguments have the same value, the result is that same value. @param a an argument. @param b another argument. @return the larger of {@code a} and {@code b}." />
       <item value="on Focus Change" />
@@ -73,9 +73,9 @@
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3854" />
+        <entry key="CHINESE" value="3855" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3855" />
+        <entry key="ENGLISH" value="3856" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GALICIAN" value="1" />
