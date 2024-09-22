@@ -19,7 +19,7 @@
             <value value="32305f92193a50c5" />
           </Key>
         </key>
-        <name value="Device" />
+        <name value="samsung SM-T310" />
         <target value="Android 4.2" />
         <api value="androidversion:17:null:null:true" />
       </PhysicalDevice>
