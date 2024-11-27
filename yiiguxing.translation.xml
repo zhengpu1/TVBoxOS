@@ -17,6 +17,8 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="set Load More Status" />
+      <item value="STATUS DEFAULT" />
       <item value="FLAG ACTIVITY NEW TASK" />
       <item value="on Item Click" />
       <item value="on Item Long Click" />
@@ -65,17 +67,15 @@
       <item value="set Landscape Portrait" />
       <item value="update Player Cfg" />
       <item value="m Landscape Portrait Btn" />
-      <item value="listener" />
-      <item value="on Long Click" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3878" />
+        <entry key="CHINESE" value="3880" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3879" />
+        <entry key="ENGLISH" value="3881" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GALICIAN" value="1" />
