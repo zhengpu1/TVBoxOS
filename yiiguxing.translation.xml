@@ -17,16 +17,17 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="load Class" />
+      <item value="equals" />
+      <item value="contains" />
       <item value="on Item Long Click" />
       <item value="on Fragment Resume" />
       <item value="set Load More Status" />
       <item value="STATUS DEFAULT" />
       <item value="FLAG ACTIVITY NEW TASK" />
       <item value="on Item Click" />
-      <item value="contains" />
       <item value="get As Json Object" />
       <item value="parse String" />
-      <item value="equals" />
       <item value="last Index Of" />
       <item value="index Of" />
       <item value="char At" />
@@ -66,16 +67,15 @@
       <item value="get Duration" />
       <item value="get Current Position" />
       <item value="set Landscape Portrait" />
-      <item value="update Player Cfg" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3882" />
+        <entry key="CHINESE" value="3887" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3883" />
+        <entry key="ENGLISH" value="3888" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GALICIAN" value="1" />
