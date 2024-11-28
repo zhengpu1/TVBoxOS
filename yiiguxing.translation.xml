@@ -17,10 +17,10 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="equals" />
       <item value="home Video Content" />
       <item value="home Content" />
       <item value="search Content" />
-      <item value="equals" />
       <item value="starts With" />
       <item value="load Class" />
       <item value="contains" />
@@ -73,9 +73,9 @@
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3893" />
+        <entry key="CHINESE" value="3894" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3894" />
+        <entry key="ENGLISH" value="3895" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GALICIAN" value="1" />
