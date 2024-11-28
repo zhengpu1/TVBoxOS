@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="starts With" />
       <item value="equals" />
       <item value="load Class" />
       <item value="contains" />
@@ -66,16 +67,15 @@
       <item value="m Control Wrapper" />
       <item value="get Duration" />
       <item value="get Current Position" />
-      <item value="set Landscape Portrait" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3888" />
+        <entry key="CHINESE" value="3889" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3889" />
+        <entry key="ENGLISH" value="3890" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GALICIAN" value="1" />
