@@ -17,6 +17,9 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="home Video Content" />
+      <item value="home Content" />
+      <item value="search Content" />
       <item value="equals" />
       <item value="starts With" />
       <item value="load Class" />
@@ -64,18 +67,15 @@
       <item value="m Number Classification" />
       <item value="get Selected Position" />
       <item value="insert Vod" />
-      <item value="m Control Wrapper" />
-      <item value="get Duration" />
-      <item value="get Current Position" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3890" />
+        <entry key="CHINESE" value="3893" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3891" />
+        <entry key="ENGLISH" value="3894" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GALICIAN" value="1" />
