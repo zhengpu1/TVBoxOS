@@ -17,11 +17,11 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="equals" />
       <item value="firstsource Key" />
       <item value="scroll To Position" />
       <item value="Minimum supported Gradle version is 8.0. Current version is 7.4.2." />
       <item value="starts With" />
-      <item value="equals" />
       <item value="home Video Content" />
       <item value="home Content" />
       <item value="search Content" />
@@ -75,7 +75,7 @@
         <entry key="CATALAN" value="2" />
         <entry key="CHINESE" value="3898" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3898" />
+        <entry key="ENGLISH" value="3899" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GALICIAN" value="1" />
