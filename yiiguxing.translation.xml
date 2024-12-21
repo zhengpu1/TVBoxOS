@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="Connect timed out" />
       <item value="HOME REC" />
       <item value="equals" />
       <item value="firstsource Key" />
@@ -66,7 +67,6 @@
       <item value="m Grid View Layout Mgr" />
       <item value="post Delayed" />
       <item value="set On Click Listener" />
-      <item value="set Selection" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,7 +75,7 @@
         <entry key="CATALAN" value="2" />
         <entry key="CHINESE" value="3899" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3899" />
+        <entry key="ENGLISH" value="3900" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GALICIAN" value="2" />
