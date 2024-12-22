@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="append" />
       <item value="filter Select Count" />
       <item value="count" />
       <item value="Refresh Event" />
@@ -66,16 +67,15 @@
       <item value="Returns the greater of two {@code long} values. That is, the result is the argument closer to the value of {@link LongMAX_VALUE}. If the arguments have the same value, the result is that same value. @param a an argument. @param b another argument. @return the larger of {@code a} and {@code b}." />
       <item value="on Focus Change" />
       <item value="Bounce Interpolator" />
-      <item value="preview Vod Info" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3907" />
+        <entry key="CHINESE" value="3908" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3908" />
+        <entry key="ENGLISH" value="3909" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GALICIAN" value="2" />
