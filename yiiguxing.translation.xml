@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="Connect timed out" />
       <item value="append" />
       <item value="filter Select Count" />
       <item value="count" />
@@ -24,7 +25,6 @@
       <item value="TYPE FILTER CHANGE" />
       <item value="toggle Filter Color" />
       <item value="scroll Top" />
-      <item value="Connect timed out" />
       <item value="HOME REC" />
       <item value="equals" />
       <item value="firstsource Key" />
@@ -73,9 +73,9 @@
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3908" />
+        <entry key="CHINESE" value="3909" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3909" />
+        <entry key="ENGLISH" value="3910" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GALICIAN" value="2" />
