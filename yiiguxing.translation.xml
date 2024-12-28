@@ -17,16 +17,19 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="onchange" />
+      <item value="remove" />
+      <item value="Capture Live input into Settings &amp; Live History (max 20)" />
+      <item value="click" />
+      <item value="takagen99: Convert all to clan:localhost format" />
       <item value="public" />
       <item value="final" />
       <item value="input EPG" />
       <item value="EPG History" />
       <item value="api History" />
-      <item value="click" />
       <item value="on Click" />
       <item value="TYPE API URL CHANGE" />
       <item value="listener" />
-      <item value="onchange" />
       <item value="dismiss" />
       <item value="Hawk Config" />
       <item value="set Text" />
@@ -64,18 +67,15 @@
       <item value="get As Json Object" />
       <item value="parse String" />
       <item value="last Index Of" />
-      <item value="char At" />
-      <item value="ends With" />
-      <item value="split" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3930" />
+        <entry key="CHINESE" value="3935" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3931" />
+        <entry key="ENGLISH" value="3935" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GALICIAN" value="2" />
