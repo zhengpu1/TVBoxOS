@@ -1,6 +1,6 @@
 <application>
   <component name="Translation.Cache">
-    <option name="lastTrimTime" value="1734598112755" />
+    <option name="lastTrimTime" value="1735362270063" />
   </component>
   <component name="Translation.Settings">
     <option name="baiduTranslateSettings">
@@ -17,6 +17,25 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="public" />
+      <item value="final" />
+      <item value="input EPG" />
+      <item value="EPG History" />
+      <item value="api History" />
+      <item value="click" />
+      <item value="on Click" />
+      <item value="TYPE API URL CHANGE" />
+      <item value="listener" />
+      <item value="onchange" />
+      <item value="dismiss" />
+      <item value="Hawk Config" />
+      <item value="set Text" />
+      <item value="Custom Dialog Style Dim" />
+      <item value="dialog api history" />
+      <item value="get Context" />
+      <item value="index Of" />
+      <item value="current" />
+      <item value="api history" />
       <item value="Connect timed out" />
       <item value="append" />
       <item value="filter Select Count" />
@@ -45,37 +64,18 @@
       <item value="get As Json Object" />
       <item value="parse String" />
       <item value="last Index Of" />
-      <item value="index Of" />
       <item value="char At" />
       <item value="ends With" />
       <item value="split" />
-      <item value="m Controller" />
-      <item value="user Jx List" />
-      <item value="show Parse" />
-      <item value="shadow Radius" />
-      <item value="padding Right" />
-      <item value="set Corner Radius" />
-      <item value="set Background Drawable Resource" />
-      <item value="set Background Drawable" />
-      <item value="set Image Resource" />
-      <item value="set Focusable" />
-      <item value="scroll To Play Pos And Request Foucuse" />
-      <item value="flag Scroll To" />
-      <item value="notify Item Changed" />
-      <item value="notify Data Set Changed" />
-      <item value="vod Info Record" />
-      <item value="Returns the greater of two {@code long} values. That is, the result is the argument closer to the value of {@link LongMAX_VALUE}. If the arguments have the same value, the result is that same value. @param a an argument. @param b another argument. @return the larger of {@code a} and {@code b}." />
-      <item value="on Focus Change" />
-      <item value="Bounce Interpolator" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3909" />
+        <entry key="CHINESE" value="3930" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3910" />
+        <entry key="ENGLISH" value="3931" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GALICIAN" value="2" />
