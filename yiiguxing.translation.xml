@@ -17,12 +17,12 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="on Click" />
       <item value="Capture EPG input into Settings" />
       <item value="remove" />
       <item value="contains" />
       <item value="dismiss" />
       <item value="onchange" />
-      <item value="on Click" />
       <item value="Capture Live input into Settings &amp; Live History (max 20)" />
       <item value="click" />
       <item value="takagen99: Convert all to clan:localhost format" />
@@ -73,9 +73,9 @@
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3939" />
+        <entry key="CHINESE" value="3940" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3940" />
+        <entry key="ENGLISH" value="3941" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GALICIAN" value="2" />
