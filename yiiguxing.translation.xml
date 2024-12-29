@@ -17,6 +17,15 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="scroll To Position With Offset" />
+      <item value="refesh Q Rcode" />
+      <item value="check Url Is Valid" />
+      <item value="handle Remote Push" />
+      <item value="is Null Or Empty" />
+      <item value="show Default" />
+      <item value="Base View Holder" />
+      <item value="convert" />
+      <item value="add On Click Listener" />
       <item value="set Gone" />
       <item value="API HISTORY" />
       <item value="dismiss" />
@@ -58,24 +67,16 @@
       <item value="firstsource Key" />
       <item value="scroll To Position" />
       <item value="Minimum supported Gradle version is 8.0. Current version is 7.4.2." />
-      <item value="starts With" />
-      <item value="home Video Content" />
-      <item value="home Content" />
-      <item value="search Content" />
-      <item value="load Class" />
-      <item value="on Item Long Click" />
-      <item value="on Fragment Resume" />
-      <item value="set Load More Status" />
-      <item value="STATUS DEFAULT" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3945" />
+        <entry key="CHINESE" value="3953" />
+        <entry key="CZECH" value="1" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3946" />
+        <entry key="ENGLISH" value="3954" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GALICIAN" value="2" />
