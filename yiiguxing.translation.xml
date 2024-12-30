@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="TYPE API URL CHANGE" />
       <item value="More Source Bean" />
       <item value="instanceof" />
       <item value="text Color Hint" />
@@ -53,7 +54,6 @@
       <item value="input EPG" />
       <item value="EPG History" />
       <item value="api History" />
-      <item value="TYPE API URL CHANGE" />
       <item value="listener" />
       <item value="Hawk Config" />
       <item value="set Text" />
@@ -73,10 +73,10 @@
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="3963" />
+        <entry key="CHINESE" value="3964" />
         <entry key="CZECH" value="1" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="3964" />
+        <entry key="ENGLISH" value="3965" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GALICIAN" value="3" />
