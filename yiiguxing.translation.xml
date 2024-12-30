@@ -17,17 +17,21 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="show Dialog" />
+      <item value="find First" />
+      <item value="select Url" />
+      <item value="select Data" />
+      <item value="set Selected Position" />
+      <item value="scroll To Position" />
       <item value="save Custom Source Bean" />
       <item value="on Cache Success" />
       <item value="server String 2 Json" />
       <item value="m Selected Position" />
       <item value="notify Data Set Changed" />
-      <item value="set Selected Position" />
       <item value="notify Item Changed" />
       <item value="set Load More Beforehand Count" />
       <item value="get Selected Position" />
       <item value="CUSTOM STORE HOUSE DATA" />
-      <item value="select Data" />
       <item value="Source Store Dialog" />
       <item value="select Item" />
       <item value="inflate Custom Source" />
@@ -44,7 +48,6 @@
       <item value="get Data" />
       <item value="starts With" />
       <item value="CUSTOM STORE HOUSE SELECTED" />
-      <item value="show Dialog" />
       <item value="get Display" />
       <item value="delete Item" />
       <item value="layout margin Left" />
@@ -64,19 +67,16 @@
       <item value="check Url Is Valid" />
       <item value="handle Remote Push" />
       <item value="add On Click Listener" />
-      <item value="set Gone" />
-      <item value="dismiss" />
-      <item value="on Bind View Holder" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="4008" />
+        <entry key="CHINESE" value="4015" />
         <entry key="CZECH" value="1" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="4009" />
+        <entry key="ENGLISH" value="4016" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GALICIAN" value="3" />
