@@ -17,13 +17,23 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="Parameter 'adapter' is never used, could be renamed to _ w: file:F:TVBoxOSappsrcmainjavacomgithubtvboxoscuidialogSourceStoreDialog.kt:145:29 Parameter 'dialog' is never used, could be renamed to _ w: file:F:TVBoxOSappsrcmainjavacomgithubtvboxoscuidialogSourceStoreDialog.kt:145:37 Parameter 'which' is never used, could be renamed to _ w: file:F:TVBoxOSappsrcmainjavacomgithubtvboxoscuidialogSourceStoreDialog.kt:237:41 Variable 'jsonArray' initializer is redundant w: file:F:TVBoxOSappsrcmainjavacomgithubtvboxoscuidialogSourceStoreDialog.kt:379:26 'onBackPressed(): Unit' is deprecated. Deprecated in Java w: file:F:TVBoxOSappsrcmainjavacomgithubtvboxoscuidialogSourceStoreDialog.kt:417:58 Unnecessary safe call on a non-null receiver of type MoreSourceBean" />
+      <item value="history Source Bean List" />
+      <item value="save Custom Source Bean" />
+      <item value="set On Click Listener" />
+      <item value="&gt; Task :app:preBuild UP-TO-DATE &gt; Task :app:preDebugBuild UP-TO-DATE &gt; Task :player:preBuild UP-TO-DATE &gt; Task :player:preDebugBuild UP-TO-DATE &gt; Task :player:compileDebugAidl NO-SOURCE &gt; Task :quickjs:preBuild UP-TO-DATE &gt; Task :quickjs:preDebugBuild UP-TO-DATE &gt; Task :quickjs:compileDebugAidl NO-SOURCE &gt; Task :app:compileDebugAidl NO-SOURCE &gt; Task :player:packageDebugRenderscript NO-SOURCE &gt; Task :quickjs:packageDebugRenderscript NO-SOURCE &gt; Task :app:compileDebugRenderscript NO-SOURCE &gt; Task :app:dataBindingMergeDependencyArtifactsDebug" />
+      <item value="data Binding Merge Dependency Artifacts Debug" />
+      <item value="compile Debug Renderscript" />
+      <item value="apply" />
+      <item value="m Add More Btn" />
+      <item value="find View By Id" />
+      <item value="array Of" />
       <item value="show Dialog" />
       <item value="find First" />
       <item value="select Url" />
       <item value="select Data" />
       <item value="set Selected Position" />
       <item value="scroll To Position" />
-      <item value="save Custom Source Bean" />
       <item value="on Cache Success" />
       <item value="server String 2 Json" />
       <item value="m Selected Position" />
@@ -57,26 +67,16 @@
       <item value="instanceof" />
       <item value="text Color Hint" />
       <item value="API HISTORY LIST" />
-      <item value="API HISTORY" />
-      <item value="API URL BEAN" />
-      <item value="smooth Scroll To Position" />
-      <item value="save List" />
-      <item value="set On Item Child Click Listener" />
-      <item value="scroll To Position With Offset" />
-      <item value="refesh Q Rcode" />
-      <item value="check Url Is Valid" />
-      <item value="handle Remote Push" />
-      <item value="add On Click Listener" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="4015" />
+        <entry key="CHINESE" value="4028" />
         <entry key="CZECH" value="1" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="4016" />
+        <entry key="ENGLISH" value="4029" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GALICIAN" value="3" />
