@@ -17,15 +17,22 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
-      <item value="LIVE SOURCE URL CURRENT" />
+      <item value="LIVE SKIP PASSWORD" />
+      <item value="live Channel Group List" />
+      <item value="convert" />
+      <item value="Added Theme Color" />
+      <item value="Added Live History list selection" />
+      <item value="dded Live History list selection" />
+      <item value="select Live Url And Load" />
       <item value="LIVE SOURCE URL HISTORY" />
+      <item value="live Source Bean Array List" />
+      <item value="LIVE SOURCE URL CURRENT" />
       <item value="CUSTOM STORE HOUSE DATA" />
       <item value="data Binding Merge Dependency Artifacts Debug" />
       <item value="compile Debug Kotlin" />
       <item value="process Debug Resources" />
       <item value="group Names" />
       <item value="LIVE CONNECT TIMEOUT" />
-      <item value="LIVE SKIP PASSWORD" />
       <item value="LIVE CROSS GROUP" />
       <item value="LIVE CHANNEL REVERSE" />
       <item value="video parse rule for host" />
@@ -60,23 +67,16 @@
       <item value="select Item" />
       <item value="inflate Custom Source" />
       <item value="get Muti Source" />
-      <item value="on Success" />
-      <item value="inflate Data" />
-      <item value="TYPE STORE PUSH" />
-      <item value="convert" />
-      <item value="is Null Or Empty" />
-      <item value="source Name" />
-      <item value="Base View Holder" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="4048" />
+        <entry key="CHINESE" value="4059" />
         <entry key="CZECH" value="1" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="4049" />
+        <entry key="ENGLISH" value="4060" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GALICIAN" value="3" />
