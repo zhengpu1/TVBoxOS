@@ -17,9 +17,9 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="LIVE SOURCE URL CURRENT" />
       <item value="LIVE SOURCE URL HISTORY" />
       <item value="CUSTOM STORE HOUSE DATA" />
-      <item value="LIVE SOURCE URL CURRENT" />
       <item value="data Binding Merge Dependency Artifacts Debug" />
       <item value="compile Debug Kotlin" />
       <item value="process Debug Resources" />
@@ -73,10 +73,10 @@
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="4047" />
+        <entry key="CHINESE" value="4048" />
         <entry key="CZECH" value="1" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="4048" />
+        <entry key="ENGLISH" value="4049" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GALICIAN" value="3" />
