@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="show Success" />
       <item value="on Success" />
       <item value="LIVE CONNECT TIMEOUT" />
       <item value="LIVE SKIP PASSWORD" />
@@ -66,17 +67,16 @@
       <item value="get Selected Position" />
       <item value="Source Store Dialog" />
       <item value="select Item" />
-      <item value="inflate Custom Source" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="4062" />
+        <entry key="CHINESE" value="4063" />
         <entry key="CZECH" value="1" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="4063" />
+        <entry key="ENGLISH" value="4064" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GALICIAN" value="3" />
