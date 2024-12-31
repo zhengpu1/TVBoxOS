@@ -17,6 +17,8 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="SHOW PREVIEW" />
+      <item value="TV Instance" />
       <item value="LIVE SOURCE URL CURRENT" />
       <item value="DEFAULT DATA" />
       <item value="Parameter 'adapter' is never used, could be renamed to _ w: file:F:TVBoxOSappsrcmainjavacomgithubtvboxoscuidialogSourceStoreDialog.kt:145:29 Parameter 'dialog' is never used, could be renamed to _ w: file:F:TVBoxOSappsrcmainjavacomgithubtvboxoscuidialogSourceStoreDialog.kt:145:37 Parameter 'which' is never used, could be renamed to _ w: file:F:TVBoxOSappsrcmainjavacomgithubtvboxoscuidialogSourceStoreDialog.kt:237:41 Variable 'jsonArray' initializer is redundant w: file:F:TVBoxOSappsrcmainjavacomgithubtvboxoscuidialogSourceStoreDialog.kt:379:26 'onBackPressed(): Unit' is deprecated. Deprecated in Java w: file:F:TVBoxOSappsrcmainjavacomgithubtvboxoscuidialogSourceStoreDialog.kt:417:58 Unnecessary safe call on a non-null receiver of type MoreSourceBean" />
@@ -65,18 +67,16 @@
       <item value="layout margin Left" />
       <item value="layout margin Start" />
       <item value="TYPE API URL CHANGE" />
-      <item value="More Source Bean" />
-      <item value="instanceof" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="4030" />
+        <entry key="CHINESE" value="4032" />
         <entry key="CZECH" value="1" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="4031" />
+        <entry key="ENGLISH" value="4033" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GALICIAN" value="3" />
