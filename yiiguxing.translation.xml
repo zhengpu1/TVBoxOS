@@ -17,6 +17,9 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="data Binding Merge Dependency Artifacts Debug" />
+      <item value="compile Debug Kotlin" />
+      <item value="process Debug Resources" />
       <item value="group Names" />
       <item value="LIVE CONNECT TIMEOUT" />
       <item value="LIVE SKIP PASSWORD" />
@@ -33,7 +36,6 @@
       <item value="save Custom Source Bean" />
       <item value="set On Click Listener" />
       <item value="&gt; Task :app:preBuild UP-TO-DATE &gt; Task :app:preDebugBuild UP-TO-DATE &gt; Task :player:preBuild UP-TO-DATE &gt; Task :player:preDebugBuild UP-TO-DATE &gt; Task :player:compileDebugAidl NO-SOURCE &gt; Task :quickjs:preBuild UP-TO-DATE &gt; Task :quickjs:preDebugBuild UP-TO-DATE &gt; Task :quickjs:compileDebugAidl NO-SOURCE &gt; Task :app:compileDebugAidl NO-SOURCE &gt; Task :player:packageDebugRenderscript NO-SOURCE &gt; Task :quickjs:packageDebugRenderscript NO-SOURCE &gt; Task :app:compileDebugRenderscript NO-SOURCE &gt; Task :app:dataBindingMergeDependencyArtifactsDebug" />
-      <item value="data Binding Merge Dependency Artifacts Debug" />
       <item value="compile Debug Renderscript" />
       <item value="apply" />
       <item value="m Add More Btn" />
@@ -65,18 +67,16 @@
       <item value="source Name" />
       <item value="Base View Holder" />
       <item value="show Default" />
-      <item value="set Gravity" />
-      <item value="get Data" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="4039" />
+        <entry key="CHINESE" value="4043" />
         <entry key="CZECH" value="1" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="4040" />
+        <entry key="ENGLISH" value="4044" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GALICIAN" value="3" />
