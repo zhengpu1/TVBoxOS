@@ -17,6 +17,11 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="group Names" />
+      <item value="LIVE CONNECT TIMEOUT" />
+      <item value="LIVE SKIP PASSWORD" />
+      <item value="LIVE CROSS GROUP" />
+      <item value="LIVE CHANNEL REVERSE" />
       <item value="video parse rule for host" />
       <item value="UI MODE TYPE TELEVISION" />
       <item value="SHOW PREVIEW" />
@@ -62,21 +67,16 @@
       <item value="show Default" />
       <item value="set Gravity" />
       <item value="get Data" />
-      <item value="starts With" />
-      <item value="CUSTOM STORE HOUSE SELECTED" />
-      <item value="get Display" />
-      <item value="delete Item" />
-      <item value="layout margin Left" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="4034" />
+        <entry key="CHINESE" value="4039" />
         <entry key="CZECH" value="1" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="4035" />
+        <entry key="ENGLISH" value="4040" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GALICIAN" value="3" />
