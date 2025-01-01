@@ -17,12 +17,12 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="HOME PWET TUMM" />
       <item value="set Time Show Or Dismiss" />
       <item value="send Empty Message" />
       <item value="remove Messages" />
       <item value="show Bottom" />
       <item value="hide Bottom" />
-      <item value="HOME PWET TUMM" />
       <item value="audio track select" />
       <item value="Player More Fuc Pop" />
       <item value="curr time" />
@@ -73,7 +73,7 @@
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="4080" />
+        <entry key="CHINESE" value="4081" />
         <entry key="CZECH" value="1" />
         <entry key="DANISH" value="1" />
         <entry key="ENGLISH" value="4081" />
