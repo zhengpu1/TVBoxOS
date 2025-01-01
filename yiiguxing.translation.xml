@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="audio track select" />
       <item value="Player More Fuc Pop" />
       <item value="curr time" />
       <item value="m Current Time" />
@@ -66,17 +67,16 @@
       <item value="set Selected Position" />
       <item value="scroll To Position" />
       <item value="on Cache Success" />
-      <item value="server String 2 Json" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="4071" />
+        <entry key="CHINESE" value="4072" />
         <entry key="CZECH" value="1" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="4072" />
+        <entry key="ENGLISH" value="4073" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GALICIAN" value="3" />
