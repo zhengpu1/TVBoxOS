@@ -17,6 +17,12 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="set Time Show Or Dismiss" />
+      <item value="send Empty Message" />
+      <item value="remove Messages" />
+      <item value="show Bottom" />
+      <item value="hide Bottom" />
+      <item value="HOME PWET TUMM" />
       <item value="audio track select" />
       <item value="Player More Fuc Pop" />
       <item value="curr time" />
@@ -61,22 +67,16 @@
       <item value="find View By Id" />
       <item value="array Of" />
       <item value="show Dialog" />
-      <item value="find First" />
-      <item value="select Url" />
-      <item value="select Data" />
-      <item value="set Selected Position" />
-      <item value="scroll To Position" />
-      <item value="on Cache Success" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="4073" />
+        <entry key="CHINESE" value="4080" />
         <entry key="CZECH" value="1" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="4074" />
+        <entry key="ENGLISH" value="4081" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GALICIAN" value="3" />
