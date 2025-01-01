@@ -17,6 +17,20 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="need Show Line" />
+      <item value="m Total Time" />
+      <item value="m Total Time.set Text(Player Utils.string For Time(duration));" />
+      <item value="m Current Time" />
+      <item value="m Show Mini Progress" />
+      <item value="layout margin Left" />
+      <item value="layout constraint Bottom to Bottom Of" />
+      <item value="layout constraint Top to Bottom Of" />
+      <item value="layout constraint Top to Top Of" />
+      <item value="layout constraint Left to Left Of" />
+      <item value="get Progress Drawable" />
+      <item value="set Progress Drawable" />
+      <item value="duration" />
+      <item value="invalidate" />
       <item value="set On Click Listener" />
       <item value="visibility" />
       <item value="invoke" />
@@ -35,7 +49,6 @@
       <item value="hide Bottom" />
       <item value="Player More Fuc Pop" />
       <item value="curr time" />
-      <item value="m Current Time" />
       <item value="No variants found for ':app'. Check build files to ensure at least one variant exists. at: com.android.tools.idea.gradle.project.sync.AndroidModule.prepare(GradleModules.kt:266) com.android.tools.idea.gradle.project.sync.SyncProjectActionWorker.populateAndroidModels(SyncProjectActionWorker.kt:99)" />
       <item value="set Selection" />
       <item value="notify Item Changed" />
@@ -54,29 +67,16 @@
       <item value="live Source Bean Array List" />
       <item value="LIVE SOURCE URL CURRENT" />
       <item value="CUSTOM STORE HOUSE DATA" />
-      <item value="data Binding Merge Dependency Artifacts Debug" />
-      <item value="compile Debug Kotlin" />
-      <item value="process Debug Resources" />
-      <item value="group Names" />
-      <item value="LIVE CROSS GROUP" />
-      <item value="LIVE CHANNEL REVERSE" />
-      <item value="video parse rule for host" />
-      <item value="UI MODE TYPE TELEVISION" />
-      <item value="SHOW PREVIEW" />
-      <item value="TV Instance" />
-      <item value="DEFAULT DATA" />
-      <item value="Parameter 'adapter' is never used, could be renamed to _ w: file:F:TVBoxOSappsrcmainjavacomgithubtvboxoscuidialogSourceStoreDialog.kt:145:29 Parameter 'dialog' is never used, could be renamed to _ w: file:F:TVBoxOSappsrcmainjavacomgithubtvboxoscuidialogSourceStoreDialog.kt:145:37 Parameter 'which' is never used, could be renamed to _ w: file:F:TVBoxOSappsrcmainjavacomgithubtvboxoscuidialogSourceStoreDialog.kt:237:41 Variable 'jsonArray' initializer is redundant w: file:F:TVBoxOSappsrcmainjavacomgithubtvboxoscuidialogSourceStoreDialog.kt:379:26 'onBackPressed(): Unit' is deprecated. Deprecated in Java w: file:F:TVBoxOSappsrcmainjavacomgithubtvboxoscuidialogSourceStoreDialog.kt:417:58 Unnecessary safe call on a non-null receiver of type MoreSourceBean" />
-      <item value="history Source Bean List" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="4093" />
+        <entry key="CHINESE" value="4111" />
         <entry key="CZECH" value="1" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="4094" />
+        <entry key="ENGLISH" value="4112" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GALICIAN" value="3" />
