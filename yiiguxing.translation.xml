@@ -17,7 +17,15 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="get Default" />
+      <item value="set Load Sir" />
+      <item value="Resolution" />
+      <item value="SourceTotal Source" />
+      <item value="System Time" />
+      <item value="to Lower Case" />
+      <item value="request URL" />
       <item value="contains" />
+      <item value="Getting EPG Address" />
       <item value="replace" />
       <item value="epg String Address" />
       <item value="SEARCH VIEW" />
@@ -59,26 +67,18 @@
       <item value="No variants found for ':app'. Check build files to ensure at least one variant exists. at: com.android.tools.idea.gradle.project.sync.AndroidModule.prepare(GradleModules.kt:266) com.android.tools.idea.gradle.project.sync.SyncProjectActionWorker.populateAndroidModels(SyncProjectActionWorker.kt:99)" />
       <item value="Build Analyzer results available" />
       <item value="72 actionable tasks: 11 executed, 61 up-to-date" />
-      <item value="BUILD SUCCESSFUL in 2m 1s" />
-      <item value="AGPBI" />
-      <item value="radle Daemon started in 5 s 680 ms" />
-      <item value="Download" />
-      <item value="compile Debug Kotlin" />
-      <item value="BUILD SUCCESSFUL in 2s" />
-      <item value="results available" />
-      <item value="BUILD SUCCESSFUL in" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="4190" />
+        <entry key="CHINESE" value="4198" />
         <entry key="CZECH" value="2" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="4191" />
+        <entry key="ENGLISH" value="4199" />
         <entry key="FILIPINO" value="1" />
-        <entry key="FRENCH" value="1" />
+        <entry key="FRENCH" value="2" />
         <entry key="GALICIAN" value="4" />
         <entry key="GERMAN" value="3" />
         <entry key="GREEK" value="1" />
