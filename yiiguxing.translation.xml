@@ -17,6 +17,10 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="Read timed out" />
+      <item value="ask :prepareKotlinBuildScriptModel UP-TO-DATE" />
+      <item value="Execution failed for task ':app:dataBindingMergeDependencyArtifactsDebug'. &gt; Could not resolve all files for configuration ':app:debugRuntimeClasspath'. &gt; Could not resolve com.tencent.bugly:crashreport:latest.release. Required by:" />
+      <item value="Failed to list versions for com.tencent.bugly:crashreport." />
       <item value="Missing class: net.sf.cglib.proxy.CallbackFilter" />
       <item value="list versions for com.tencent.bugly:crashreport. &gt; Unable to load Maven meta-data from" />
       <item value="Caused by: org.gradle.api.resources.ResourceException: Unable to load Maven meta-data from" />
@@ -63,20 +67,16 @@
       <item value="Caused by: org.gradle.internal.resolve.ModuleVersionResolveException: Could not resolve org.xwalk:xwalk_shared_library:23.53.589.4." />
       <item value="What went wrong: Execution failed for task ':app:desugarDebugFileDependencies'. &gt; Could not resolve all files for configuration ':app:debugRuntimeClasspath'. &gt; Could not resolve org.xwalk:xwalk_shared_library:23.53.589.4. Required by: project :app &gt; Could not resolve org.xwalk:xwalk_shared_library:23.53.589.4." />
       <item value="plugin Management" />
-      <item value="Caused by: org.gradle.api.internal.artifacts.ivyservice.DefaultLenientConfigurationArtifactResolveException: Could not resolve all files for configuration ':app:debugCompileClasspath'." />
-      <item value="ask :prepareKotlinBuildScriptModel UP-TO-DATE" />
-      <item value="A problem occurred configuring root project 'TVBox'. &gt; You must specify a URL for a Maven repository." />
-      <item value="boolean" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="4169" />
+        <entry key="CHINESE" value="4173" />
         <entry key="CZECH" value="1" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="4170" />
+        <entry key="ENGLISH" value="4174" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GALICIAN" value="4" />
