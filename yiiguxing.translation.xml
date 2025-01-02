@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="Daemon" />
       <item value="Unable to resolve dependency for ':app@debugUnitTestcompileClasspath': Could not resolve :xwalk_shared_library-23.53.589.4." />
       <item value="Show Details" />
       <item value="collect Release Dependencies" />
@@ -66,17 +67,16 @@
       <item value="send Empty Message" />
       <item value="remove Messages" />
       <item value="show Bottom" />
-      <item value="hide Bottom" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="4132" />
+        <entry key="CHINESE" value="4133" />
         <entry key="CZECH" value="1" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="4133" />
+        <entry key="ENGLISH" value="4134" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GALICIAN" value="3" />
