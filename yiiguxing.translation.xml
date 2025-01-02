@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="Connect timed out" />
       <item value="boolean" />
       <item value="static" />
       <item value="public" />
@@ -66,17 +67,16 @@
       <item value="Added Theme Color" />
       <item value="Added Live History list selection" />
       <item value="dded Live History list selection" />
-      <item value="select Live Url And Load" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="4115" />
+        <entry key="CHINESE" value="4116" />
         <entry key="CZECH" value="1" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="4116" />
+        <entry key="ENGLISH" value="4117" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GALICIAN" value="3" />
