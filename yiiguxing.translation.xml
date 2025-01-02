@@ -17,6 +17,8 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="com.android.tools.idea.gradle.project.sync.Android Module.prepare(Gradle Modules.kt:266)" />
+      <item value="No variants found for ':app'. Check build files to ensure at least one variant exists. at:" />
       <item value="Warning: The 'kotlin-android-extensions' Gradle plugin is deprecated. Please use this migration guide" />
       <item value="com.android.tools.idea.gradle.project.sync.SyncProjectActionWorker.populateAndroidModels(SyncProjectActionWorker.kt:99) com.android.tools.idea.gradle.project.sync.AndroidExtraModelProviderWorker.populateBuildModels(AndroidExtraModelProviderWorker.kt:92) com.android.tools.idea.gradle.project.sync.AndroidExtraModelProviderImpl.populateBuildModels(AndroidExtraModelProvider.kt:112) com.android.tools.idea.gradle.project.sync.AndroidExtraModelProvider.populateBuildModels(AndroidExtraModelProvider.kt:50)" />
       <item value="dependencies" />
@@ -65,18 +67,16 @@
       <item value="layout margin Left" />
       <item value="layout constraint Bottom to Bottom Of" />
       <item value="layout constraint Top to Bottom Of" />
-      <item value="layout constraint Top to Top Of" />
-      <item value="layout constraint Left to Left Of" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="4157" />
+        <entry key="CHINESE" value="4159" />
         <entry key="CZECH" value="1" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="4158" />
+        <entry key="ENGLISH" value="4160" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GALICIAN" value="4" />
