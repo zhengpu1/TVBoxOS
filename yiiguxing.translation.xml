@@ -17,6 +17,9 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="Connect timed out" />
+      <item value="The option setting 'android.enableResourceOptimizations=false' is deprecated. The current default is 'true'. It will be removed in version 7.0 of the Android Gradle plugin." />
+      <item value="Failed to resolve: org.xwalk:xwalk_core_library:23.53.589.4" />
       <item value="Daemon" />
       <item value="Unable to resolve dependency for ':app@debugUnitTestcompileClasspath': Could not resolve :xwalk_shared_library-23.53.589.4." />
       <item value="Show Details" />
@@ -33,7 +36,6 @@
       <item value="ask :prepareKotlinBuildScriptModel UP-TO-DATE" />
       <item value="A problem occurred configuring root project 'TVBox'. &gt; You must specify a URL for a Maven repository." />
       <item value="Download" />
-      <item value="Connect timed out" />
       <item value="boolean" />
       <item value="static" />
       <item value="public" />
@@ -65,18 +67,16 @@
       <item value="HOME PWET TUMM" />
       <item value="set Time Show Or Dismiss" />
       <item value="send Empty Message" />
-      <item value="remove Messages" />
-      <item value="show Bottom" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="4133" />
+        <entry key="CHINESE" value="4137" />
         <entry key="CZECH" value="1" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="4134" />
+        <entry key="ENGLISH" value="4138" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GALICIAN" value="3" />
