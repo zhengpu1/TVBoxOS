@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="data Binding Merge Dependency Artifacts Release" />
       <item value="Caused by: org.gradle.internal.resolve.ModuleVersionResolveException: Could not resolve org.xwalk:xwalk_shared_library:23.53.589.4." />
       <item value="What went wrong: Execution failed for task ':app:desugarDebugFileDependencies'. &gt; Could not resolve all files for configuration ':app:debugRuntimeClasspath'. &gt; Could not resolve org.xwalk:xwalk_shared_library:23.53.589.4. Required by: project :app &gt; Could not resolve org.xwalk:xwalk_shared_library:23.53.589.4." />
       <item value="plugin Management" />
@@ -66,17 +67,16 @@
       <item value="set Selection" />
       <item value="notify Item Changed" />
       <item value="convert Response" />
-      <item value="show Success" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="4124" />
+        <entry key="CHINESE" value="4125" />
         <entry key="CZECH" value="1" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="4125" />
+        <entry key="ENGLISH" value="4126" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
         <entry key="GALICIAN" value="3" />
