@@ -17,6 +17,9 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="AGPBI" />
+      <item value="radle Daemon started in 5 s 680 ms" />
+      <item value="Download" />
       <item value="compile Debug Kotlin" />
       <item value="BUILD SUCCESSFUL in 2s" />
       <item value="The option setting 'android.enableResourceOptimizations=false' is deprecated. The current default is 'true'. It will be removed in version 7.0 of the Android Gradle plugin." />
@@ -43,7 +46,6 @@
       <item value="data Binding Merge Dependency Artifacts Debug" />
       <item value="ask :prepareKotlinBuildScriptModel UP-TO-DATE" />
       <item value="A problem occurred configuring root project 'TVBox'. &gt; You must specify a URL for a Maven repository." />
-      <item value="Download" />
       <item value="boolean" />
       <item value="static" />
       <item value="public" />
@@ -65,21 +67,19 @@
       <item value="set On Click Listener" />
       <item value="visibility" />
       <item value="invoke" />
-      <item value="set Visibility" />
-      <item value="on Click Ijk Cache Play" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="4148" />
+        <entry key="CHINESE" value="4151" />
         <entry key="CZECH" value="1" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="4149" />
+        <entry key="ENGLISH" value="4151" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="1" />
-        <entry key="GALICIAN" value="3" />
+        <entry key="GALICIAN" value="4" />
         <entry key="GERMAN" value="3" />
         <entry key="GREEK" value="1" />
         <entry key="INDONESIAN" value="2" />
