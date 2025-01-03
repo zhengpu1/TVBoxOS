@@ -17,6 +17,9 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="m Top Root 1" />
+      <item value="m Play Pause Time" />
+      <item value="VIDEO SHOW TIME" />
       <item value="remote Dialog" />
       <item value="show Loading" />
       <item value="search Title" />
@@ -64,19 +67,16 @@
       <item value="process Debug Manifest For Package" />
       <item value="The option setting 'android.enableResourceOptimizations=false' is deprecated. The current default is 'true'. It will be removed in version 7.0 of the Android Gradle plugin." />
       <item value="Read timed out" />
-      <item value="ask :prepareKotlinBuildScriptModel UP-TO-DATE" />
-      <item value="Execution failed for task ':app:dataBindingMergeDependencyArtifactsDebug'. &gt; Could not resolve all files for configuration ':app:debugRuntimeClasspath'. &gt; Could not resolve com.tencent.bugly:crashreport:latest.release. Required by:" />
-      <item value="Failed to list versions for com.tencent.bugly:crashreport." />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="4219" />
+        <entry key="CHINESE" value="4222" />
         <entry key="CZECH" value="2" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="4220" />
+        <entry key="ENGLISH" value="4223" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="2" />
         <entry key="GALICIAN" value="4" />
