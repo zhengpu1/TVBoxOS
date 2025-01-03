@@ -17,6 +17,10 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="LENGTH SHORT" />
+      <item value="current Time Millis" />
+      <item value="aapt2.exe W 01-03 18:09:30 11252 3820 LoadedArsc.cpp:682] Unknown chunk type '200'." />
+      <item value="m Exit Time" />
       <item value="use Cache Config" />
       <item value="HOME REC STYLE" />
       <item value="set Is Full Screen" />
@@ -51,7 +55,6 @@
       <item value="search Result" />
       <item value="V 7 Grid Layout Manager" />
       <item value="with preview" />
-      <item value="LENGTH SHORT" />
       <item value="SEARCH HISTORY" />
       <item value="HOME LSTIMG" />
       <item value="item search" />
@@ -64,19 +67,16 @@
       <item value="Capture EPG input into Settings" />
       <item value="drawable Linear Layout" />
       <item value="Capture Live input into Settings &amp; Live History (max 20)" />
-      <item value="Gradle Daemon started in 1 s 652 ms" />
-      <item value="set Data Source" />
-      <item value="get Default" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="4256" />
-        <entry key="CZECH" value="2" />
+        <entry key="CHINESE" value="4259" />
+        <entry key="CZECH" value="3" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="4257" />
+        <entry key="ENGLISH" value="4260" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="2" />
         <entry key="GALICIAN" value="5" />
