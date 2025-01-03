@@ -17,6 +17,9 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="tv sys time" />
+      <item value="tv play load net speed right top" />
+      <item value="tv top r_container" />
       <item value="subclass is handling alpha - don't optimize rendering cache invalidation" />
       <item value="PFLAG ALPHA SET" />
       <item value="set Alpha" />
@@ -64,19 +67,16 @@
       <item value="on Item Click" />
       <item value="on Key" />
       <item value="Avoid show ime keyboard bug" />
-      <item value="Allow Dpad Key switch to other focus" />
-      <item value="-Xlint:deprecation" />
-      <item value="BUILD SUCCESSFUL in 3m 36s 72 actionable tasks: 11 executed, 61 up-to-date" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="4234" />
+        <entry key="CHINESE" value="4237" />
         <entry key="CZECH" value="2" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="4235" />
+        <entry key="ENGLISH" value="4238" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="2" />
         <entry key="GALICIAN" value="4" />
