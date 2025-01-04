@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="string For Time" />
       <item value="m Player Config" />
       <item value="ll Clear Cache" />
       <item value="Select App Theme Color" />
@@ -34,7 +35,6 @@
       <item value="on Click Clear Cache" />
       <item value="m Play Pause Time" />
       <item value="new Position" />
-      <item value="string For Time" />
       <item value="m Control Wrapper" />
       <item value="m Mini Progress Text View" />
       <item value="m Seek Bar" />
@@ -73,10 +73,10 @@
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="4352" />
+        <entry key="CHINESE" value="4353" />
         <entry key="CZECH" value="3" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="4353" />
+        <entry key="ENGLISH" value="4354" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="2" />
         <entry key="GALICIAN" value="5" />
