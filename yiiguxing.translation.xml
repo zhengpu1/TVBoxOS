@@ -17,6 +17,9 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="data Binding Merge Dependency Artifacts Debug" />
+      <item value="Starting Gradle Daemon... Gradle Daemon started in 1 s 684 ms" />
+      <item value="Daemon will be stopped at the end of the build stop command received" />
       <item value="SCREEN SCALE_16_9" />
       <item value="SCREEN SCALE DEFAULT" />
       <item value="prepareKotlinBuildScriptModel UP-TO-DATE" />
@@ -64,19 +67,16 @@
       <item value="texture" />
       <item value="PLAY SCALE" />
       <item value="PLAY RENDER" />
-      <item value="PLAY TYPE" />
-      <item value="is Full Screen" />
-      <item value="stop Fast Speed Play" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="4296" />
+        <entry key="CHINESE" value="4300" />
         <entry key="CZECH" value="3" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="4297" />
+        <entry key="ENGLISH" value="4301" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="2" />
         <entry key="GALICIAN" value="5" />
