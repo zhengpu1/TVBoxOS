@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="set Screen Off" />
       <item value="LENGTH SHORT" />
       <item value="current Time Millis" />
       <item value="aapt2.exe W 01-03 18:09:30 11252 3820 LoadedArsc.cpp:682] Unknown chunk type '200'." />
@@ -66,17 +67,16 @@
       <item value="Parameter 'dialog' is never used, could be renamed to _" />
       <item value="Capture EPG input into Settings" />
       <item value="drawable Linear Layout" />
-      <item value="Capture Live input into Settings &amp; Live History (max 20)" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="4259" />
+        <entry key="CHINESE" value="4260" />
         <entry key="CZECH" value="3" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="4260" />
+        <entry key="ENGLISH" value="4261" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="2" />
         <entry key="GALICIAN" value="5" />
