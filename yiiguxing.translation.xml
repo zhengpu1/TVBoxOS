@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="layout constraint Top to Top Of" />
       <item value="API HISTORY" />
       <item value="com.android.tools.idea.gradle.project.sync.Sync Project Action Worker.populate Android Models(Sync Project Action Worker.kt:99)" />
       <item value="com.android.tools.idea.gradle.project.sync.SyncProjectActionWorker.populateAndroidModels(SyncProjectActionWorker.kt:99) com.android.tools.idea.gradle.project.sync.AndroidExtraModelProviderWorker.populateBuildModels(AndroidExtraModelProviderWorker.kt:92) com.android.tools.idea.gradle.project.sync.AndroidExtraModelProviderImpl.populateBuildModels(AndroidExtraModelProvider.kt:112) com.android.tools.idea.gradle.project.sync.AndroidExtraModelProvider.populateBuildModels(AndroidExtraModelProvider.kt:50)" />
@@ -66,17 +67,16 @@
       <item value="flag Scroll To" />
       <item value="play Flag" />
       <item value="m Empty Play List" />
-      <item value="m Grid View Flag" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="4325" />
+        <entry key="CHINESE" value="4326" />
         <entry key="CZECH" value="3" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="4326" />
+        <entry key="ENGLISH" value="4327" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="2" />
         <entry key="GALICIAN" value="5" />
