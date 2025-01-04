@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="m Player Config" />
       <item value="ll Clear Cache" />
       <item value="Select App Theme Color" />
       <item value="tv Ijk Cache Play" />
@@ -66,17 +67,16 @@
       <item value="Daemon will be stopped at the end of the build stop command received" />
       <item value="SCREEN SCALE_16_9" />
       <item value="SCREEN SCALE DEFAULT" />
-      <item value="prepareKotlinBuildScriptModel UP-TO-DATE" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="4351" />
+        <entry key="CHINESE" value="4352" />
         <entry key="CZECH" value="3" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="4352" />
+        <entry key="ENGLISH" value="4353" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="2" />
         <entry key="GALICIAN" value="5" />
