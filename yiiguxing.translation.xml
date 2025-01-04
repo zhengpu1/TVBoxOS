@@ -17,14 +17,36 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="get Support Fragment Manager" />
+      <item value="show Preview" />
+      <item value="request Focus" />
+      <item value="focusable In Touch Mode" />
+      <item value="focusable" />
+      <item value="clip Children" />
+      <item value="clip To Padding" />
+      <item value="toggle Subtitle Text Size" />
+      <item value="Set whether this view can receive the focus. &lt;p&gt; Setting this to false will also ensure that this view is not focusable in touch mode. @param focusable If true, this view can receive the focus. @see setFocusableInTouchMode(boolean) @see setFocusable(int) @attr ref android.R.styleableView_focusable" />
+      <item value="set Is Full Screen" />
+      <item value="set Focusable" />
+      <item value="scroll To Play Pos And Request Foucuse" />
+      <item value="full Windows" />
+      <item value="flag Scroll To" />
+      <item value="play Flag" />
+      <item value="m Empty Play List" />
+      <item value="m Grid View Flag" />
+      <item value="ll Player Fragment Container" />
+      <item value="ll Player Fragment Container Block" />
+      <item value="reload" />
+      <item value="jump To Play" />
+      <item value="first Reverse" />
       <item value="set Screen Off" />
+      <item value="toggle Full Preview" />
       <item value="LENGTH SHORT" />
       <item value="current Time Millis" />
       <item value="aapt2.exe W 01-03 18:09:30 11252 3820 LoadedArsc.cpp:682] Unknown chunk type '200'." />
       <item value="m Exit Time" />
       <item value="use Cache Config" />
       <item value="HOME REC STYLE" />
-      <item value="set Is Full Screen" />
       <item value="is Fast Speed" />
       <item value="HOME SHOW SOURCE" />
       <item value="m Update Time Run" />
@@ -45,38 +67,16 @@
       <item value="subclass is handling alpha - don't optimize rendering cache invalidation" />
       <item value="PFLAG ALPHA SET" />
       <item value="set Alpha" />
-      <item value="m Top Root 1" />
-      <item value="m Play Pause Time" />
-      <item value="m Audio Track" />
-      <item value="m Show Time" />
-      <item value="time show" />
-      <item value="remote Dialog" />
-      <item value="show Loading" />
-      <item value="search Title" />
-      <item value="search Result" />
-      <item value="V 7 Grid Layout Manager" />
-      <item value="with preview" />
-      <item value="SEARCH HISTORY" />
-      <item value="HOME LSTIMG" />
-      <item value="item search" />
-      <item value="THEME SELECT" />
-      <item value="process Release Resources" />
-      <item value="dex Builder Debug" />
-      <item value="'onBackPressed(): Unit' is deprecated. Deprecated in Java" />
-      <item value="Unnecessary safe call on a non-null receiver of type MoreSourceBean" />
-      <item value="Parameter 'dialog' is never used, could be renamed to _" />
-      <item value="Capture EPG input into Settings" />
-      <item value="drawable Linear Layout" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="4260" />
+        <entry key="CHINESE" value="4289" />
         <entry key="CZECH" value="3" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="4261" />
+        <entry key="ENGLISH" value="4290" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="2" />
         <entry key="GALICIAN" value="5" />
