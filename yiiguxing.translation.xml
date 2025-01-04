@@ -17,11 +17,17 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="ll Clear Cache" />
+      <item value="Select App Theme Color" />
+      <item value="tv Ijk Cache Play" />
+      <item value="VIDEO PURIFY" />
+      <item value="FORBID JAR DIALOG" />
+      <item value="HOME PWET TUMM" />
+      <item value="HOME PTST TUMM" />
       <item value="forbid Jar Dialog" />
       <item value="forbid Jar Dialog Text" />
       <item value="m Forbid Dialog Text" />
       <item value="on Click Ijk Cache Play" />
-      <item value="tv Ijk Cache Play" />
       <item value="layout constraint Top to Bottom Of" />
       <item value="IJK CACHE PLAY" />
       <item value="on Click Clear Cache" />
@@ -61,22 +67,16 @@
       <item value="SCREEN SCALE_16_9" />
       <item value="SCREEN SCALE DEFAULT" />
       <item value="prepareKotlinBuildScriptModel UP-TO-DATE" />
-      <item value="The option setting 'android.enableResourceOptimizations=false' is deprecated. The current default is 'true'. It will be removed in version 7.0 of the Android Gradle plugin." />
-      <item value="Caused by: org.gradle.api.internal.artifacts.ivyservice.DefaultLenientConfigurationArtifactResolveException: Could not resolve all files for configuration ':app:debugRuntimeClasspath'." />
-      <item value="set Screen Scale Type" />
-      <item value="this Play Type" />
-      <item value="get Support Fragment Manager" />
-      <item value="show Preview" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="4346" />
+        <entry key="CHINESE" value="4351" />
         <entry key="CZECH" value="3" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="4347" />
+        <entry key="ENGLISH" value="4352" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="2" />
         <entry key="GALICIAN" value="5" />
