@@ -17,10 +17,14 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="string For Time" />
+      <item value="current Position" />
+      <item value="get Current Position" />
+      <item value="get Duration" />
+      <item value="set Progress" />
       <item value="get Max" />
       <item value="seek Bar" />
       <item value="set Landscape Portrait" />
-      <item value="string For Time" />
       <item value="m Player Config" />
       <item value="ll Clear Cache" />
       <item value="Select App Theme Color" />
@@ -63,20 +67,16 @@
       <item value="stop Server" />
       <item value="Control Manager" />
       <item value="on Destroy" />
-      <item value="m Player Time Start Btn" />
-      <item value="m Player IJK Btn" />
-      <item value="data Binding Merge Dependency Artifacts Debug" />
-      <item value="Starting Gradle Daemon... Gradle Daemon started in 1 s 684 ms" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="4356" />
+        <entry key="CHINESE" value="4362" />
         <entry key="CZECH" value="3" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="4357" />
+        <entry key="ENGLISH" value="4363" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="2" />
         <entry key="GALICIAN" value="5" />
