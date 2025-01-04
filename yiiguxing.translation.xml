@@ -17,6 +17,19 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="API HISTORY" />
+      <item value="com.android.tools.idea.gradle.project.sync.Sync Project Action Worker.populate Android Models(Sync Project Action Worker.kt:99)" />
+      <item value="com.android.tools.idea.gradle.project.sync.SyncProjectActionWorker.populateAndroidModels(SyncProjectActionWorker.kt:99) com.android.tools.idea.gradle.project.sync.AndroidExtraModelProviderWorker.populateBuildModels(AndroidExtraModelProviderWorker.kt:92) com.android.tools.idea.gradle.project.sync.AndroidExtraModelProviderImpl.populateBuildModels(AndroidExtraModelProvider.kt:112) com.android.tools.idea.gradle.project.sync.AndroidExtraModelProvider.populateBuildModels(AndroidExtraModelProvider.kt:50)" />
+      <item value="No variants found for ':app'. Check build files to ensure at least one variant exists. at: com.android.tools.idea.gradle.project.sync.AndroidModule.prepare(GradleModules.kt:266)" />
+      <item value="version Code" />
+      <item value="version Name" />
+      <item value="The 'kotlin-android-extensions' Gradle plugin is deprecated. Please use this migration guide" />
+      <item value="m Progress Root" />
+      <item value="is Key Up" />
+      <item value="Handler Callback" />
+      <item value="boolean" />
+      <item value="return" />
+      <item value="is Full Screen" />
       <item value="write Simple" />
       <item value="cr Filewrite Data" />
       <item value="Refresh Event" />
@@ -54,29 +67,16 @@
       <item value="play Flag" />
       <item value="m Empty Play List" />
       <item value="m Grid View Flag" />
-      <item value="ll Player Fragment Container" />
-      <item value="ll Player Fragment Container Block" />
-      <item value="reload" />
-      <item value="jump To Play" />
-      <item value="first Reverse" />
-      <item value="set Screen Off" />
-      <item value="toggle Full Preview" />
-      <item value="LENGTH SHORT" />
-      <item value="current Time Millis" />
-      <item value="aapt2.exe W 01-03 18:09:30 11252 3820 LoadedArsc.cpp:682] Unknown chunk type '200'." />
-      <item value="m Exit Time" />
-      <item value="use Cache Config" />
-      <item value="HOME REC STYLE" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="4310" />
+        <entry key="CHINESE" value="4325" />
         <entry key="CZECH" value="3" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="4311" />
+        <entry key="ENGLISH" value="4326" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="2" />
         <entry key="GALICIAN" value="5" />
