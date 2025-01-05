@@ -17,6 +17,20 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="remove First If" />
+      <item value="CUSTOM STORE HOUSE DATA" />
+      <item value="item dialog api history" />
+      <item value="theme Res Id" />
+      <item value="@param context the parent context @param themeResId the resource ID of the theme against which to inflate this dialog, or {@code 0} to use the parent {@code context}'s default alert dialog theme" />
+      <item value="Builder" />
+      <item value="Base.Theme.App Compat.Light.Dialog.Alert" />
+      <item value="Theme.App Compat.Light.Dialog.Alert" />
+      <item value="set On Item Child Click Listener" />
+      <item value="set Positive Button" />
+      <item value="is Empty" />
+      <item value="is Null Or Empty" />
+      <item value="or Empty" />
+      <item value="is Not Empty" />
       <item value="layout Params" />
       <item value="content View" />
       <item value="set Content View" />
@@ -53,30 +67,16 @@
       <item value="m Current Time" />
       <item value="m Control Wrapper" />
       <item value="percent" />
-      <item value="screen Sqrt" />
-      <item value="get Video Size" />
-      <item value="set Visibility" />
-      <item value="void" />
-      <item value="public" />
-      <item value="Vod Controller" />
-      <item value="contains" />
-      <item value="vip Website" />
-      <item value="play Title Info" />
-      <item value="m Play Title" />
-      <item value="on Play State Changed" />
-      <item value="set Corner Radius" />
-      <item value="pressed Drawable" />
-      <item value="THEME SELECT" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="4435" />
+        <entry key="CHINESE" value="4451" />
         <entry key="CZECH" value="3" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="4436" />
+        <entry key="ENGLISH" value="4452" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="2" />
         <entry key="GALICIAN" value="5" />
