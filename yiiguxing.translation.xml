@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="815" />
     <option name="newTranslationDialogY" value="451" />
     <histories>
+      <item value="deprecation" />
       <item value="handle Set Progress" />
       <item value="set Progress" />
       <item value="m Total Time" />
@@ -66,17 +67,16 @@
       <item value="HOME PWET TUMM" />
       <item value="HOME PTST TUMM" />
       <item value="forbid Jar Dialog" />
-      <item value="forbid Jar Dialog Text" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="4401" />
+        <entry key="CHINESE" value="4402" />
         <entry key="CZECH" value="3" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="4402" />
+        <entry key="ENGLISH" value="4403" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="2" />
         <entry key="GALICIAN" value="5" />
