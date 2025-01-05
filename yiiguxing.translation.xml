@@ -13,10 +13,23 @@
   </component>
   <component name="Translation.States">
     <option name="newTranslationDialogHeight" value="478" />
-    <option name="newTranslationDialogWidth" value="847" />
-    <option name="newTranslationDialogX" value="815" />
-    <option name="newTranslationDialogY" value="451" />
+    <option name="newTranslationDialogWidth" value="845" />
+    <option name="newTranslationDialogX" value="432" />
+    <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="choose Plays" />
+      <item value="KEYCODE MENU" />
+      <item value="my Handle Seconds" />
+      <item value="ACTION UP" />
+      <item value="post Delayed" />
+      <item value="insert Vod" />
+      <item value="Push object to the bottom of its container, not changing its size." />
+      <item value="Push object to the top of its container, not changing its size" />
+      <item value="Push object to the top of its container, not changing its size. public static final int TOP = (AXIS_PULL_BEFORE|AXIS_SPECIFIED)&lt;&lt;AXIS_Y_SHIFT; Push object to the bottom of its container, not changing its size. public static final int BOTTOM = (AXIS_PULL_AFTER|AXIS_SPECIFIED)&lt;&lt;AXIS_Y_SHIFT; Push object to the left of its container, not changing its size. public static final int LEFT = (AXIS_PULL_BEFORE|AXIS_SPECIFIED)&lt;&lt;AXIS_X_SHIFT; Push object to the right of its container, not changing its size. public static final int RIGHT = (AXIS_PULL_AFTER|AXIS_SPECIFIED)&lt;&lt;AXIS_X_SHIFT;" />
+      <item value="set Popup Gravity" />
+      <item value="show Popup Window" />
+      <item value="choose Play" />
+      <item value="EPISODE GROUPING" />
       <item value="deprecation" />
       <item value="handle Set Progress" />
       <item value="set Progress" />
@@ -54,29 +67,16 @@
       <item value="string For Time" />
       <item value="current Position" />
       <item value="get Current Position" />
-      <item value="get Duration" />
-      <item value="get Max" />
-      <item value="seek Bar" />
-      <item value="set Landscape Portrait" />
-      <item value="m Player Config" />
-      <item value="ll Clear Cache" />
-      <item value="Select App Theme Color" />
-      <item value="tv Ijk Cache Play" />
-      <item value="VIDEO PURIFY" />
-      <item value="FORBID JAR DIALOG" />
-      <item value="HOME PWET TUMM" />
-      <item value="HOME PTST TUMM" />
-      <item value="forbid Jar Dialog" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="4402" />
+        <entry key="CHINESE" value="4419" />
         <entry key="CZECH" value="3" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="4403" />
+        <entry key="ENGLISH" value="4421" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="2" />
         <entry key="GALICIAN" value="5" />
