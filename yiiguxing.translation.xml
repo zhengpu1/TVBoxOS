@@ -17,6 +17,16 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="set Audio Track" />
+      <item value="audio track select" />
+      <item value="update Player Cfg" />
+      <item value="update Player Cfg View" />
+      <item value="are Items The Same" />
+      <item value="Diff Util" />
+      <item value="Item Callback" />
+      <item value="m Player Config" />
+      <item value="my Handle Seconds" />
+      <item value="IJK CACHE PLAY" />
       <item value="play ijk" />
       <item value="play player" />
       <item value="Runnable" />
@@ -50,37 +60,27 @@
       <item value="set Content View" />
       <item value="get Display" />
       <item value="are Contents The Same" />
-      <item value="are Items The Same" />
       <item value="迷你进度关" />
       <item value="tiny progress" />
       <item value="Seek Bar" />
       <item value="m Player Time Reset Btn" />
       <item value="m Player Time Start End Text" />
-      <item value="audio track select" />
       <item value="play time reset" />
       <item value="play time start end text" />
-      <item value="KEYCODE DPAD UP" />
-      <item value="show Bottom" />
-      <item value="post Delayed" />
-      <item value="choose Plays" />
-      <item value="KEYCODE MENU" />
-      <item value="my Handle Seconds" />
-      <item value="ACTION UP" />
-      <item value="insert Vod" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="4465" />
+        <entry key="CHINESE" value="4474" />
         <entry key="CZECH" value="3" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="4465" />
+        <entry key="ENGLISH" value="4475" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="2" />
-        <entry key="GALICIAN" value="5" />
+        <entry key="GALICIAN" value="6" />
         <entry key="GERMAN" value="5" />
         <entry key="GREEK" value="1" />
         <entry key="INDONESIAN" value="2" />
