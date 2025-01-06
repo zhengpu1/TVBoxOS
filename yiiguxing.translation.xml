@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="set Is Full Screen" />
       <item value="remove First If" />
       <item value="CUSTOM STORE HOUSE DATA" />
       <item value="item dialog api history" />
@@ -66,17 +67,16 @@
       <item value="m Total Time" />
       <item value="m Current Time" />
       <item value="m Control Wrapper" />
-      <item value="percent" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="4451" />
+        <entry key="CHINESE" value="4452" />
         <entry key="CZECH" value="3" />
         <entry key="DANISH" value="1" />
-        <entry key="ENGLISH" value="4452" />
+        <entry key="ENGLISH" value="4453" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="2" />
         <entry key="GALICIAN" value="5" />
