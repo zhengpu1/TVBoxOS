@@ -17,6 +17,8 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="Subscription Activity" />
+      <item value="m Subscriptions" />
       <item value="get Sort" />
       <item value="Source View Model" />
       <item value="on Cleared" />
@@ -65,19 +67,17 @@
       <item value="Item Callback" />
       <item value="m Player Config" />
       <item value="my Handle Seconds" />
-      <item value="IJK CACHE PLAY" />
-      <item value="play ijk" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="4511" />
+        <entry key="CHINESE" value="4513" />
         <entry key="CZECH" value="5" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="4512" />
+        <entry key="ENGLISH" value="4514" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="3" />
         <entry key="GALICIAN" value="6" />
