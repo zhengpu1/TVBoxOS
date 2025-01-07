@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="init Subtitle Info" />
       <item value="set Audio Track" />
       <item value="audio track select" />
       <item value="update Player Cfg" />
@@ -66,18 +67,17 @@
       <item value="m Player Time Reset Btn" />
       <item value="m Player Time Start End Text" />
       <item value="play time reset" />
-      <item value="play time start end text" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="4474" />
+        <entry key="CHINESE" value="4475" />
         <entry key="CZECH" value="3" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="4475" />
+        <entry key="ENGLISH" value="4476" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="2" />
         <entry key="GALICIAN" value="6" />
