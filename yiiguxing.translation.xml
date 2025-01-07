@@ -17,6 +17,13 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="cache" />
+      <item value="jar Init Ok" />
+      <item value="data Init Ok" />
+      <item value="check Update" />
+      <item value="post Delayed" />
+      <item value="is First Start" />
+      <item value="check Updatess" />
       <item value="use Cache Config" />
       <item value="show Success" />
       <item value="PRIVATE BROWSING" />
@@ -60,28 +67,21 @@
       <item value="Download" />
       <item value="my Runnable 2" />
       <item value="speed" />
-      <item value="m Play Load Net Speed Right Top" />
-      <item value="Simple Date Format" />
-      <item value="m Play Pause Time" />
-      <item value="set Is Full Screen" />
-      <item value="remove First If" />
-      <item value="CUSTOM STORE HOUSE DATA" />
-      <item value="item dialog api history" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="4495" />
+        <entry key="CHINESE" value="4502" />
         <entry key="CZECH" value="5" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="4496" />
+        <entry key="ENGLISH" value="4503" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="3" />
         <entry key="GALICIAN" value="6" />
-        <entry key="GERMAN" value="5" />
+        <entry key="GERMAN" value="6" />
         <entry key="GREEK" value="1" />
         <entry key="INDONESIAN" value="2" />
         <entry key="IRISH" value="2" />
