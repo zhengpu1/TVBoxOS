@@ -1,6 +1,6 @@
 <application>
   <component name="Translation.Cache">
-    <option name="lastTrimTime" value="1735794628725" />
+    <option name="lastTrimTime" value="1736232678985" />
   </component>
   <component name="Translation.Settings">
     <option name="baiduTranslateSettings">
@@ -17,6 +17,8 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="Unable to resolve dependency for ':app@debugUnitTestcompileClasspath': Could not resolve com.lzy.net:okgo:3.0.4" />
+      <item value="Unable to resolve dependency for ':app@debugAndroidTestcompileClasspath': Could not download gifdecoder-4.12.0.aar (com.github.bumptech.glide:gifdecoder:4.12.0) Show Details Affected Modules: app" />
       <item value="prepare Kotlin Build Script Model" />
       <item value="texture" />
       <item value="play time step" />
@@ -65,19 +67,17 @@
       <item value="or Empty" />
       <item value="is Not Empty" />
       <item value="layout Params" />
-      <item value="content View" />
-      <item value="set Content View" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="2" />
-        <entry key="CHINESE" value="4481" />
+        <entry key="CHINESE" value="4483" />
         <entry key="CZECH" value="5" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="4482" />
+        <entry key="ENGLISH" value="4484" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="2" />
         <entry key="GALICIAN" value="6" />
