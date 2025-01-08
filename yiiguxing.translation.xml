@@ -17,6 +17,10 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="storage Permission" />
+      <item value="backup" />
+      <item value="MODE PRIVATE" />
+      <item value="recursive Delete" />
       <item value="BUILD SUCCESSFUL in 2s" />
       <item value="r Layout Height Exclude" />
       <item value="What went wrong: Execution failed for task ':app:javaPreCompileDebug'. &gt; Could not resolve all files for configuration ':app:debugAnnotationProcessorClasspath'. &gt; Could not resolve org.xerial:sqlite-jdbc:3.25.2. Required by:" />
@@ -63,10 +67,6 @@
       <item value="Gradle Daemon started in 1 s 813 ms" />
       <item value="Subscription Activity" />
       <item value="m Subscriptions" />
-      <item value="get Sort" />
-      <item value="Source View Model" />
-      <item value="on Cleared" />
-      <item value="check Thunder" />
     </histories>
     <option name="languageScores">
       <map>
@@ -74,11 +74,11 @@
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="3" />
-        <entry key="CHINESE" value="4558" />
+        <entry key="CHINESE" value="4562" />
         <entry key="CZECH" value="5" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="4559" />
+        <entry key="ENGLISH" value="4563" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="3" />
         <entry key="GALICIAN" value="6" />
