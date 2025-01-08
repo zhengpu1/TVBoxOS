@@ -17,6 +17,8 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="kotlin version" />
+      <item value="Top-level build file where you can add configuration options common to all sub-projectsmodules." />
       <item value="A problem occurred configuring root project 'TVBoxMobile'. &gt; Could not resolve all files for configuration ':classpath'. &gt; Could not resolve org.jetbrains.kotlin:kotlin-compiler-embeddable:1.5.31." />
       <item value="roject : &gt; org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.31 project : &gt; org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.31 &gt; org.jetbrains.kotlin:kotlin-annotation-processing-gradle:1.5.31 project : &gt; org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.31 &gt; org.jetbrains.kotlin:kotlin-android-extensions:1.5.31" />
       <item value="A problem occurred evaluating project ':app'. &gt; Could not find method signingConfigs() for arguments [build_bu5q5nw5bh0w8f9uwpirk0nbl_run_closure4@4d81f471] on project ':app' of type org.gradle.api.Project." />
@@ -65,19 +67,18 @@
       <item value="play render" />
       <item value="format Date" />
       <item value="format" />
-      <item value="doh url" />
-      <item value="DOH URL" />
     </histories>
     <option name="languageScores">
       <map>
+        <entry key="ALBANIAN" value="1" />
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="3" />
-        <entry key="CHINESE" value="4523" />
+        <entry key="CHINESE" value="4525" />
         <entry key="CZECH" value="5" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="4524" />
+        <entry key="ENGLISH" value="4525" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="3" />
         <entry key="GALICIAN" value="6" />
