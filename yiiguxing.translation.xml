@@ -17,6 +17,8 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="BUILD SUCCESSFUL in 2s" />
+      <item value="r Layout Height Exclude" />
       <item value="What went wrong: Execution failed for task ':app:javaPreCompileDebug'. &gt; Could not resolve all files for configuration ':app:debugAnnotationProcessorClasspath'. &gt; Could not resolve org.xerial:sqlite-jdbc:3.25.2. Required by:" />
       <item value="Caused by: org.gradle.api.internal.artifacts.ivyservice.DefaultLenientConfigurationArtifactResolveException: Could not resolve all files for configuration ':app:debugAnnotationProcessorClasspath'." />
       <item value="Unnecessary non-null assertion (!!) on a non-null receiver of type String w: F:\TVBoxOS-Mobile\TabLayout\src\main\java\com\angcyo\tablayout\LibEx.kt: (129, 33): Unnecessary non-null assertion (!!) on a non-null receiver of type String w: F:\TVBoxOS-Mobile\TabLayout\src\main\java\com\angcyo\tablayout\LibEx.kt: (167, 25): 'setColorFilter(Int, PorterDuff.Mode): Unit' is deprecated" />
@@ -65,8 +67,6 @@
       <item value="Source View Model" />
       <item value="on Cleared" />
       <item value="check Thunder" />
-      <item value="check Push" />
-      <item value="get Quick Search" />
     </histories>
     <option name="languageScores">
       <map>
@@ -74,11 +74,11 @@
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="3" />
-        <entry key="CHINESE" value="4556" />
+        <entry key="CHINESE" value="4558" />
         <entry key="CZECH" value="5" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="4557" />
+        <entry key="ENGLISH" value="4559" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="3" />
         <entry key="GALICIAN" value="6" />
