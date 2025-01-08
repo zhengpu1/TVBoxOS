@@ -17,6 +17,11 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="DSL element 'dexOptions' is obsolete and should be removed. It will be removed in version 8.0 of the Android Gradle plugin. Using it has no effect, and the AndroidGradle plugin optimizes dexing automatically. Affected Modules: app" />
+      <item value="Failed to resolve: org.xwalk:xwalk_shared_library:23.53.589.4 Show in Project Structure dialog Affected Modules: app" />
+      <item value="Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0. You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins." />
+      <item value="For more on this, please refer to" />
+      <item value="in the Gradle documentation." />
       <item value="Unable to decide if config caching is enabled java.lang.NoSuchMethodError: 'org.gradle.internal.buildoption.BuildOptionValue org.gradle.api.internal.StartParameterInternal.getConfigurationCache()'" />
       <item value="[Processor] Library 'E:\kv\caches\modules-2\files-2.1\me.jessyan\autosize\1.2.1\a44df9822e0cb91242358f070ef813714fd81c05\autosize-1.2.1.aar' contains references to both AndroidX and old support library. This seems like the library is partially migrated. Jetifier will try to rewrite the library anyway." />
       <item value="Build Analyzer results available" />
@@ -62,11 +67,6 @@
       <item value="jar Init Ok" />
       <item value="data Init Ok" />
       <item value="check Update" />
-      <item value="post Delayed" />
-      <item value="is First Start" />
-      <item value="check Updatess" />
-      <item value="use Cache Config" />
-      <item value="show Success" />
     </histories>
     <option name="languageScores">
       <map>
@@ -74,11 +74,11 @@
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="3" />
-        <entry key="CHINESE" value="4540" />
+        <entry key="CHINESE" value="4546" />
         <entry key="CZECH" value="5" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="4541" />
+        <entry key="ENGLISH" value="4547" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="3" />
         <entry key="GALICIAN" value="6" />
