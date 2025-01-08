@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value=":player:compileDebugAidl NO-SOURCE" />
       <item value="kotlin version" />
       <item value="Top-level build file where you can add configuration options common to all sub-projectsmodules." />
       <item value="A problem occurred configuring root project 'TVBoxMobile'. &gt; Could not resolve all files for configuration ':classpath'. &gt; Could not resolve org.jetbrains.kotlin:kotlin-compiler-embeddable:1.5.31." />
@@ -66,7 +67,6 @@
       <item value="play time step" />
       <item value="play render" />
       <item value="format Date" />
-      <item value="format" />
     </histories>
     <option name="languageScores">
       <map>
@@ -86,7 +86,7 @@
         <entry key="GREEK" value="1" />
         <entry key="INDONESIAN" value="2" />
         <entry key="IRISH" value="2" />
-        <entry key="ITALIAN" value="1" />
+        <entry key="ITALIAN" value="2" />
         <entry key="JAVANESE" value="1" />
         <entry key="KINYARWANDA" value="1" />
         <entry key="LUXEMBOURGISH" value="1" />
