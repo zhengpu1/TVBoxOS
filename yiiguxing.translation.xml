@@ -17,6 +17,36 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="clean Player Cache" />
+      <item value="init Crash Config" />
+      <item value="DEBUG OPEN" />
+      <item value="Auto Size Config" />
+      <item value="get Instance" />
+      <item value="add Callback" />
+      <item value="begin Builder" />
+      <item value="Database Task" />
+      <item value="Hawk Task" />
+      <item value="UI Task" />
+      <item value="add Startup" />
+      <item value="Startup Manager" />
+      <item value="set User Agent" />
+      <item value="set Ok Http Ssl" />
+      <item value="MILLISECONDS" />
+      <item value="DEFAULT MILLISECONDS" />
+      <item value="logging Interceptor" />
+      <item value="Http Logging Interceptor" />
+      <item value="init Dns Over Https" />
+      <item value="Get EPG Info" />
+      <item value="Ok Go Helper" />
+      <item value="Live Player Manager" />
+      <item value="get Live Player Type" />
+      <item value="Live Setting Item" />
+      <item value="Live Setting Group" />
+      <item value="decode" />
+      <item value="DEFAULT" />
+      <item value="find" />
+      <item value="Find Result" />
+      <item value="starts With" />
       <item value="SUBSCRIPTIONS" />
       <item value="storage Permission" />
       <item value="write Simple" />
@@ -37,36 +67,6 @@
       <item value="View Pager 1 Delegate" />
       <item value="DEPENDENCIES" />
       <item value="DSL element 'dexOptions' is obsolete and should be removed. It will be removed in version 8.0 of the Android Gradle plugin. Using it has no effect, and the AndroidGradle plugin optimizes dexing automatically. Affected Modules: app" />
-      <item value="Failed to resolve: org.xwalk:xwalk_shared_library:23.53.589.4 Show in Project Structure dialog Affected Modules: app" />
-      <item value="Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0. You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins." />
-      <item value="For more on this, please refer to" />
-      <item value="in the Gradle documentation." />
-      <item value="Unable to decide if config caching is enabled java.lang.NoSuchMethodError: 'org.gradle.internal.buildoption.BuildOptionValue org.gradle.api.internal.StartParameterInternal.getConfigurationCache()'" />
-      <item value="[Processor] Library 'E:\kv\caches\modules-2\files-2.1\me.jessyan\autosize\1.2.1\a44df9822e0cb91242358f070ef813714fd81c05\autosize-1.2.1.aar' contains references to both AndroidX and old support library. This seems like the library is partially migrated. Jetifier will try to rewrite the library anyway." />
-      <item value="Build Analyzer results available" />
-      <item value="Task :prepareKotlinBuildScriptModel UP-TO-DATE" />
-      <item value="java.lang.NoSuchMethodError: 'org.gradle.internal.buildoption.BuildOptionValue org.gradle.api.internal.StartParameterInternal.getIsolatedProjects()'" />
-      <item value="Unable to decide if project isolation is enabled" />
-      <item value="took" />
-      <item value="Download" />
-      <item value="Gradle Daemon started in 1 s 870 ms" />
-      <item value="org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:104) org.gradle.launcher.daemon.server.exec.StartBuildOrRespondWithBusy1.run(StartBuildOrRespondWithBusy.java:52) org.gradle.launcher.daemon.server.DaemonStateCoordinator1.run(DaemonStateCoordinator.java:297) org.gradle.internal.concurrent.ExecutorPolicyCatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)" />
-      <item value="org.gradle.tooling.internal.provider.BuildSessionLifecycleBuildActionExecuterActionImpl.apply(BuildSessionLifecycleBuildActionExecuter.java:100) org.gradle.tooling.internal.provider.BuildSessionLifecycleBuildActionExecuterActionImpl.apply(BuildSessionLifecycleBuildActionExecuter.java:88)" />
-      <item value="No variants found for ':app'. Check build files to ensure at least one variant exists. at: com.android.tools.idea.gradle.project.sync.AndroidModule.prepare(GradleModules.kt:266)" />
-      <item value=":prepareKotlinBuildScriptModel UP-TO-DATE" />
-      <item value="com.android.tools.idea.gradle.project.sync.Sync Project Action Worker.populate Android Models(Sync Project Action Worker.kt:99)" />
-      <item value="prepareKotlinBuildScriptModel UP-TO-DATE" />
-      <item value="No variants found for ':app'. Check build files to ensure at least one variant exists. at: com.android.tools.idea.gradle.project.sync.AndroidModule.prepare(GradleModules.kt:266) com.android.tools.idea.gradle.project.sync.SyncProjectActionWorker.populateAndroidModels(SyncProjectActionWorker.kt:99)" />
-      <item value=":player:compileDebugAidl NO-SOURCE" />
-      <item value="kotlin version" />
-      <item value="Top-level build file where you can add configuration options common to all sub-projectsmodules." />
-      <item value="A problem occurred configuring root project 'TVBoxMobile'. &gt; Could not resolve all files for configuration ':classpath'. &gt; Could not resolve org.jetbrains.kotlin:kotlin-compiler-embeddable:1.5.31." />
-      <item value="roject : &gt; org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.31 project : &gt; org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.31 &gt; org.jetbrains.kotlin:kotlin-annotation-processing-gradle:1.5.31 project : &gt; org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.31 &gt; org.jetbrains.kotlin:kotlin-android-extensions:1.5.31" />
-      <item value="A problem occurred evaluating project ':app'. &gt; Could not find method signingConfigs() for arguments [build_bu5q5nw5bh0w8f9uwpirk0nbl_run_closure4@4d81f471] on project ':app' of type org.gradle.api.Project." />
-      <item value="application Variants" />
-      <item value="signing Configs" />
-      <item value="A problem occurred evaluating root project 'TVBox'. &gt; Could not find method signingConfigs() for arguments [build_bo3cpgvvzglloy483zh5cb7nq_run_closure2@3c386f99] on root project 'TVBox' of type org.gradle.api.Project." />
-      <item value="problem occurred configuring root project 'TVBoxMobile'. &gt; Could not resolve all dependencies for configuration ':classpath'. &gt; Using insecure protocols with repositories, without explicit opt-in, is unsupported. Switch Maven repository 'maven2" />
     </histories>
     <option name="languageScores">
       <map>
@@ -74,11 +74,11 @@
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="3" />
-        <entry key="CHINESE" value="4569" />
+        <entry key="CHINESE" value="4602" />
         <entry key="CZECH" value="5" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="4570" />
+        <entry key="ENGLISH" value="4603" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="3" />
         <entry key="GALICIAN" value="6" />
