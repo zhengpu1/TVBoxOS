@@ -17,7 +17,12 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="write Simple" />
+      <item value="all Backup" />
+      <item value="backup Now" />
       <item value="storage Permission" />
+      <item value="dongbgs" />
+      <item value="Backup Dialog" />
       <item value="backup" />
       <item value="MODE PRIVATE" />
       <item value="recursive Delete" />
@@ -62,11 +67,6 @@
       <item value="A problem occurred evaluating root project 'TVBox'. &gt; Could not find method signingConfigs() for arguments [build_bo3cpgvvzglloy483zh5cb7nq_run_closure2@3c386f99] on root project 'TVBox' of type org.gradle.api.Project." />
       <item value="problem occurred configuring root project 'TVBoxMobile'. &gt; Could not resolve all dependencies for configuration ':classpath'. &gt; Using insecure protocols with repositories, without explicit opt-in, is unsupported. Switch Maven repository 'maven2" />
       <item value="HISTORY SEARCH" />
-      <item value="sort Result" />
-      <item value="source Bean" />
-      <item value="Gradle Daemon started in 1 s 813 ms" />
-      <item value="Subscription Activity" />
-      <item value="m Subscriptions" />
     </histories>
     <option name="languageScores">
       <map>
@@ -74,11 +74,11 @@
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="3" />
-        <entry key="CHINESE" value="4562" />
+        <entry key="CHINESE" value="4567" />
         <entry key="CZECH" value="5" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="4563" />
+        <entry key="ENGLISH" value="4568" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="3" />
         <entry key="GALICIAN" value="6" />
@@ -86,7 +86,7 @@
         <entry key="GREEK" value="1" />
         <entry key="INDONESIAN" value="2" />
         <entry key="IRISH" value="2" />
-        <entry key="ITALIAN" value="2" />
+        <entry key="ITALIAN" value="3" />
         <entry key="JAVANESE" value="1" />
         <entry key="KINYARWANDA" value="1" />
         <entry key="LUXEMBOURGISH" value="1" />
