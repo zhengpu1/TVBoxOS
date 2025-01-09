@@ -17,6 +17,8 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="set Dash Data" />
+      <item value="set Vod Info" />
       <item value="restart Activity" />
       <item value="BACKGROUND MODE SILENT" />
       <item value="wait On Main Thread" />
@@ -65,8 +67,6 @@
       <item value="MODE PRIVATE" />
       <item value="recursive Delete" />
       <item value="BUILD SUCCESSFUL in 2s" />
-      <item value="r Layout Height Exclude" />
-      <item value="What went wrong: Execution failed for task ':app:javaPreCompileDebug'. &gt; Could not resolve all files for configuration ':app:debugAnnotationProcessorClasspath'. &gt; Could not resolve org.xerial:sqlite-jdbc:3.25.2. Required by:" />
     </histories>
     <option name="languageScores">
       <map>
@@ -74,11 +74,11 @@
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="3" />
-        <entry key="CHINESE" value="4614" />
+        <entry key="CHINESE" value="4616" />
         <entry key="CZECH" value="5" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="4615" />
+        <entry key="ENGLISH" value="4617" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="3" />
         <entry key="GALICIAN" value="6" />
