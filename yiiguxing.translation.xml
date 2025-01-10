@@ -17,6 +17,8 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="WEBDAV" />
+      <item value="ALISTWEB" />
       <item value="file Type" />
       <item value="set Subtitle View Listener" />
       <item value="Search Subtitle Listener" />
@@ -65,8 +67,6 @@
       <item value="Input Stream Reader" />
       <item value="to String" />
       <item value="get As Json Primitive" />
-      <item value="safe Json String" />
-      <item value="m Total Time" />
     </histories>
     <option name="languageScores">
       <map>
@@ -74,7 +74,7 @@
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="3" />
-        <entry key="CHINESE" value="4675" />
+        <entry key="CHINESE" value="4676" />
         <entry key="CZECH" value="5" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
@@ -85,10 +85,10 @@
         <entry key="GERMAN" value="6" />
         <entry key="GREEK" value="1" />
         <entry key="INDONESIAN" value="2" />
-        <entry key="IRISH" value="2" />
+        <entry key="IRISH" value="3" />
         <entry key="ITALIAN" value="3" />
         <entry key="JAVANESE" value="1" />
-        <entry key="KINYARWANDA" value="1" />
+        <entry key="KINYARWANDA" value="2" />
         <entry key="LUXEMBOURGISH" value="1" />
         <entry key="MALAY" value="1" />
         <entry key="MALTESE" value="2" />
