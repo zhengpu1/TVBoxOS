@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="file Type" />
       <item value="set Subtitle View Listener" />
       <item value="Search Subtitle Listener" />
       <item value="open Search Subtitle Dialog" />
@@ -66,7 +67,6 @@
       <item value="get As Json Primitive" />
       <item value="safe Json String" />
       <item value="m Total Time" />
-      <item value="total Times" />
     </histories>
     <option name="languageScores">
       <map>
@@ -74,11 +74,11 @@
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="3" />
-        <entry key="CHINESE" value="4674" />
+        <entry key="CHINESE" value="4675" />
         <entry key="CZECH" value="5" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="4675" />
+        <entry key="ENGLISH" value="4676" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="3" />
         <entry key="GALICIAN" value="6" />
