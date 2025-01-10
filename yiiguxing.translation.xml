@@ -17,6 +17,10 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="VERSION" />
+      <item value="SDK INT" />
+      <item value="request Permissions" />
+      <item value="WRITE EXTERNAL STORAGE" />
       <item value="adblock Url" />
       <item value="contains" />
       <item value="check Video Format" />
@@ -63,10 +67,6 @@
       <item value="clean Player Cache" />
       <item value="init Crash Config" />
       <item value="Auto Size Config" />
-      <item value="add Callback" />
-      <item value="begin Builder" />
-      <item value="Database Task" />
-      <item value="Hawk Task" />
     </histories>
     <option name="languageScores">
       <map>
@@ -74,11 +74,11 @@
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="3" />
-        <entry key="CHINESE" value="4653" />
+        <entry key="CHINESE" value="4657" />
         <entry key="CZECH" value="5" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="4654" />
+        <entry key="ENGLISH" value="4658" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="3" />
         <entry key="GALICIAN" value="6" />
