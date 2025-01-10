@@ -17,6 +17,10 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="compile Debug Java With Javac" />
+      <item value="check Replace Proxy" />
+      <item value="opt String" />
+      <item value="opt Int" />
       <item value="remove" />
       <item value="req Headers" />
       <item value="new Fixed Thread Pool" />
@@ -63,10 +67,6 @@
       <item value="DEFAULT MILLISECONDS" />
       <item value="Http Logging Interceptor" />
       <item value="init Dns Over Https" />
-      <item value="Get EPG Info" />
-      <item value="Ok Go Helper" />
-      <item value="Live Player Manager" />
-      <item value="get Live Player Type" />
     </histories>
     <option name="languageScores">
       <map>
@@ -74,11 +74,11 @@
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="3" />
-        <entry key="CHINESE" value="4639" />
+        <entry key="CHINESE" value="4643" />
         <entry key="CZECH" value="5" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="4640" />
+        <entry key="ENGLISH" value="4644" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="3" />
         <entry key="GALICIAN" value="6" />
