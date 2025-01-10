@@ -17,6 +17,8 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="set Selection With Smooth" />
+      <item value="smooth Scroll To Position" />
       <item value="VERSION" />
       <item value="SDK INT" />
       <item value="request Permissions" />
@@ -65,8 +67,6 @@
       <item value="DEBUG OPEN" />
       <item value="logging Interceptor" />
       <item value="clean Player Cache" />
-      <item value="init Crash Config" />
-      <item value="Auto Size Config" />
     </histories>
     <option name="languageScores">
       <map>
@@ -74,11 +74,11 @@
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="3" />
-        <entry key="CHINESE" value="4657" />
+        <entry key="CHINESE" value="4659" />
         <entry key="CZECH" value="5" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="4658" />
+        <entry key="ENGLISH" value="4660" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="3" />
         <entry key="GALICIAN" value="6" />
