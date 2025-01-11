@@ -17,6 +17,8 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="on Search Key" />
+      <item value="keyboard" />
       <item value="current Time Millis" />
       <item value="start Activity" />
       <item value="Fast Search Activity" />
@@ -65,8 +67,6 @@
       <item value="get Instance" />
       <item value="get Absolute Path" />
       <item value="Buffered Reader" />
-      <item value="println" />
-      <item value="read Line" />
     </histories>
     <option name="languageScores">
       <map>
@@ -74,11 +74,11 @@
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="3" />
-        <entry key="CHINESE" value="4678" />
+        <entry key="CHINESE" value="4681" />
         <entry key="CZECH" value="5" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="4679" />
+        <entry key="ENGLISH" value="4682" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="3" />
         <entry key="GALICIAN" value="6" />
