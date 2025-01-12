@@ -17,6 +17,30 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="refresh QR Code" />
+      <item value="clear" />
+      <item value="notify Data Set Changed" />
+      <item value="delete" />
+      <item value="refresh" />
+      <item value="horizontal" />
+      <item value="line Spacing Multiplier" />
+      <item value="show History Pop Up" />
+      <item value="init View Model" />
+      <item value="load Rec" />
+      <item value="WRAP" />
+      <item value="ROW" />
+      <item value="tv horizontal Spacing With Margins" />
+      <item value="clip Children" />
+      <item value="layout gravity" />
+      <item value="marquee Repeat Limit" />
+      <item value="marquee forever" />
+      <item value="gravity" />
+      <item value="center" />
+      <item value="is Focusable" />
+      <item value="request Focus" />
+      <item value="is Focusable In Touch Mode" />
+      <item value="layout constraint Bottom to Bottom Of" />
+      <item value="layout constraint Top to Top Of" />
       <item value="center vertical" />
       <item value="vertical" />
       <item value="show Popup Window" />
@@ -32,11 +56,9 @@
       <item value="disable Keyboard" />
       <item value="param activity Activity" />
       <item value="set New Data" />
-      <item value="request Focus" />
       <item value="set On Click Listener" />
       <item value="Server Event" />
       <item value="content View" />
-      <item value="delete" />
       <item value="FLAG ALT FOCUSABLE IM" />
       <item value="contains" />
       <item value="SOURCES FOR SEARCH" />
@@ -45,28 +67,6 @@
       <item value="get Sources For Search" />
       <item value="SEARCH VIEW" />
       <item value="HOME LSTIMG" />
-      <item value="set Layout Manager" />
-      <item value="search" />
-      <item value="on Item Click" />
-      <item value="try To Show Popup" />
-      <item value="check Perform Show" />
-      <item value="START" />
-      <item value="Animation Helper" />
-      <item value="FROM LEFT" />
-      <item value="on Create Show Animation" />
-      <item value="on Create Dismiss Animation" />
-      <item value="TO LEFT" />
-      <item value="Window Manager" />
-      <item value="Layout Params" />
-      <item value="tv Search Checkbox Btn" />
-      <item value="on Search Key" />
-      <item value="keyboard" />
-      <item value="current Time Millis" />
-      <item value="start Activity" />
-      <item value="Fast Search Activity" />
-      <item value="WEBDAV" />
-      <item value="ALISTWEB" />
-      <item value="file Type" />
     </histories>
     <option name="languageScores">
       <map>
@@ -74,11 +74,11 @@
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="3" />
-        <entry key="CHINESE" value="4733" />
+        <entry key="CHINESE" value="4759" />
         <entry key="CZECH" value="5" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="4734" />
+        <entry key="ENGLISH" value="4760" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="3" />
         <entry key="GALICIAN" value="6" />
