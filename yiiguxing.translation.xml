@@ -17,6 +17,24 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="Avoid show ime keyboard bug" />
+      <item value="layout Manager" />
+      <item value="history Adapter" />
+      <item value="is Focusable In Touch Mode" />
+      <item value="Creates a FlexboxLayoutManager with the flexDirection and flexWrap attributes specified. @param flexDirection the flex direction attribute @param flexWrap the flex wrap attribute" />
+      <item value="on Resume" />
+      <item value="Window Manager" />
+      <item value="add Flags" />
+      <item value="is Focusable" />
+      <item value="popup Window" />
+      <item value="def Style Attr" />
+      <item value="reverse Layout" />
+      <item value="orientation" />
+      <item value="his is just a defensive measure for faulty item animators." />
+      <item value="end Animations" />
+      <item value="layout" />
+      <item value="Layout Manager" />
+      <item value="set Layout Manager" />
       <item value="refresh QR Code" />
       <item value="clear" />
       <item value="notify Data Set Changed" />
@@ -36,9 +54,7 @@
       <item value="marquee forever" />
       <item value="gravity" />
       <item value="center" />
-      <item value="is Focusable" />
       <item value="request Focus" />
-      <item value="is Focusable In Touch Mode" />
       <item value="layout constraint Bottom to Bottom Of" />
       <item value="layout constraint Top to Top Of" />
       <item value="center vertical" />
@@ -51,22 +67,6 @@
       <item value="Flexbox Layout Manager" />
       <item value="set Has Fixed Size" />
       <item value="m Check Sources" />
-      <item value="SEARCH HISTORY" />
-      <item value="search Data" />
-      <item value="disable Keyboard" />
-      <item value="param activity Activity" />
-      <item value="set New Data" />
-      <item value="set On Click Listener" />
-      <item value="Server Event" />
-      <item value="content View" />
-      <item value="FLAG ALT FOCUSABLE IM" />
-      <item value="contains" />
-      <item value="SOURCES FOR SEARCH" />
-      <item value="set Checked Sources For Search" />
-      <item value="Search Helper" />
-      <item value="get Sources For Search" />
-      <item value="SEARCH VIEW" />
-      <item value="HOME LSTIMG" />
     </histories>
     <option name="languageScores">
       <map>
@@ -74,14 +74,14 @@
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="3" />
-        <entry key="CHINESE" value="4759" />
+        <entry key="CHINESE" value="4776" />
         <entry key="CZECH" value="5" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="4760" />
+        <entry key="ENGLISH" value="4777" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="3" />
-        <entry key="GALICIAN" value="6" />
+        <entry key="GALICIAN" value="7" />
         <entry key="GERMAN" value="7" />
         <entry key="GREEK" value="1" />
         <entry key="INDONESIAN" value="2" />
