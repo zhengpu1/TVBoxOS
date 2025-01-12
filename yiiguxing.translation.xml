@@ -17,6 +17,13 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="FAST SEARCH MODE" />
+      <item value="tv history" />
+      <item value="clear Search History" />
+      <item value="notify Data Set Changed" />
+      <item value="init Search History" />
+      <item value="clear history" />
+      <item value="search Able Source" />
       <item value="AAPT: error: resource idmHotSearch_text (aka com.github.tvbox.tk:idmHotSearch_text) not found." />
       <item value="smooth Scroll To Position" />
       <item value="keyboard" />
@@ -46,7 +53,6 @@
       <item value="Layout Manager" />
       <item value="set Layout Manager" />
       <item value="refresh QR Code" />
-      <item value="notify Data Set Changed" />
       <item value="delete" />
       <item value="refresh" />
       <item value="horizontal" />
@@ -61,12 +67,6 @@
       <item value="layout gravity" />
       <item value="marquee Repeat Limit" />
       <item value="marquee forever" />
-      <item value="gravity" />
-      <item value="center" />
-      <item value="request Focus" />
-      <item value="layout constraint Bottom to Bottom Of" />
-      <item value="layout constraint Top to Top Of" />
-      <item value="center vertical" />
     </histories>
     <option name="languageScores">
       <map>
@@ -74,11 +74,11 @@
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="3" />
-        <entry key="CHINESE" value="4787" />
+        <entry key="CHINESE" value="4794" />
         <entry key="CZECH" value="5" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="4787" />
+        <entry key="ENGLISH" value="4795" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="3" />
         <entry key="GALICIAN" value="7" />
