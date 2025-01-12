@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="smooth Scroll To Position" />
       <item value="text Alignment" />
       <item value="contains" />
       <item value="content View" />
@@ -41,7 +42,6 @@
       <item value="clear history" />
       <item value="search Able Source" />
       <item value="AAPT: error: resource idmHotSearch_text (aka com.github.tvbox.tk:idmHotSearch_text) not found." />
-      <item value="smooth Scroll To Position" />
       <item value="keyboard" />
       <item value="tv Dedel" />
       <item value="TRANSPARENT" />
@@ -74,11 +74,11 @@
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="3" />
-        <entry key="CHINESE" value="4817" />
+        <entry key="CHINESE" value="4818" />
         <entry key="CZECH" value="5" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="4818" />
+        <entry key="ENGLISH" value="4819" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="3" />
         <entry key="GALICIAN" value="7" />
