@@ -1,6 +1,6 @@
 <application>
   <component name="Translation.Cache">
-    <option name="lastTrimTime" value="1736232678985" />
+    <option name="lastTrimTime" value="1736665511057" />
   </component>
   <component name="Translation.Settings">
     <option name="baiduTranslateSettings">
@@ -18,6 +18,11 @@
     <option name="newTranslationDialogY" value="560" />
     <histories>
       <item value="Avoid show ime keyboard bug" />
+      <item value="change Live Player Scale" />
+      <item value="data" />
+      <item value="clear" />
+      <item value="set On Click Listener" />
+      <item value="on Click" />
       <item value="layout Manager" />
       <item value="history Adapter" />
       <item value="is Focusable In Touch Mode" />
@@ -36,7 +41,6 @@
       <item value="Layout Manager" />
       <item value="set Layout Manager" />
       <item value="refresh QR Code" />
-      <item value="clear" />
       <item value="notify Data Set Changed" />
       <item value="delete" />
       <item value="refresh" />
@@ -63,10 +67,6 @@
       <item value="set Load Sir" />
       <item value="Tv Recycler View" />
       <item value="TRANSPARENT" />
-      <item value="set Background Color" />
-      <item value="Flexbox Layout Manager" />
-      <item value="set Has Fixed Size" />
-      <item value="m Check Sources" />
     </histories>
     <option name="languageScores">
       <map>
@@ -74,11 +74,11 @@
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="3" />
-        <entry key="CHINESE" value="4776" />
+        <entry key="CHINESE" value="4783" />
         <entry key="CZECH" value="5" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="4777" />
+        <entry key="ENGLISH" value="4784" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="3" />
         <entry key="GALICIAN" value="7" />
