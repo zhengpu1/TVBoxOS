@@ -17,6 +17,8 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="keyboard" />
+      <item value="tv Dedel" />
       <item value="TRANSPARENT" />
       <item value="Avoid show ime keyboard bug" />
       <item value="change Live Player Scale" />
@@ -65,8 +67,6 @@
       <item value="center vertical" />
       <item value="vertical" />
       <item value="show Popup Window" />
-      <item value="set Load Sir" />
-      <item value="Tv Recycler View" />
     </histories>
     <option name="languageScores">
       <map>
@@ -74,11 +74,11 @@
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="3" />
-        <entry key="CHINESE" value="4784" />
+        <entry key="CHINESE" value="4785" />
         <entry key="CZECH" value="5" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="4785" />
+        <entry key="ENGLISH" value="4786" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="3" />
         <entry key="GALICIAN" value="7" />
@@ -97,6 +97,7 @@
         <entry key="SLOVAK" value="4" />
         <entry key="SPANISH" value="1" />
         <entry key="SWEDISH" value="4" />
+        <entry key="TURKISH" value="1" />
         <entry key="UKRAINIAN" value="2" />
       </map>
     </option>
