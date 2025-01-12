@@ -17,6 +17,14 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="set New Data" />
+      <item value="request Focus" />
+      <item value="set On Click Listener" />
+      <item value="Server Event" />
+      <item value="Flexbox Layout Manager" />
+      <item value="content View" />
+      <item value="delete" />
+      <item value="SEARCH HISTORY" />
       <item value="FLAG ALT FOCUSABLE IM" />
       <item value="contains" />
       <item value="SOURCES FOR SEARCH" />
@@ -38,7 +46,6 @@
       <item value="TO LEFT" />
       <item value="Window Manager" />
       <item value="Layout Params" />
-      <item value="SEARCH HISTORY" />
       <item value="tv Search Checkbox Btn" />
       <item value="on Search Key" />
       <item value="keyboard" />
@@ -60,13 +67,6 @@
       <item value="series List" />
       <item value="open Alist Drive Dialog" />
       <item value="open Webdav Dialog" />
-      <item value="to play file here" />
-      <item value="set Selection With Smooth" />
-      <item value="smooth Scroll To Position" />
-      <item value="VERSION" />
-      <item value="SDK INT" />
-      <item value="request Permissions" />
-      <item value="WRITE EXTERNAL STORAGE" />
     </histories>
     <option name="languageScores">
       <map>
@@ -74,11 +74,11 @@
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="3" />
-        <entry key="CHINESE" value="4708" />
+        <entry key="CHINESE" value="4716" />
         <entry key="CZECH" value="5" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="4709" />
+        <entry key="ENGLISH" value="4717" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="3" />
         <entry key="GALICIAN" value="6" />
