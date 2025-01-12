@@ -17,6 +17,18 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="try To Show Popup" />
+      <item value="check Perform Show" />
+      <item value="START" />
+      <item value="Animation Helper" />
+      <item value="FROM LEFT" />
+      <item value="on Create Show Animation" />
+      <item value="on Create Dismiss Animation" />
+      <item value="TO LEFT" />
+      <item value="FLAG ALT FOCUSABLE IM" />
+      <item value="Window Manager" />
+      <item value="Layout Params" />
+      <item value="SEARCH HISTORY" />
       <item value="tv Search Checkbox Btn" />
       <item value="on Search Key" />
       <item value="keyboard" />
@@ -55,18 +67,6 @@
       <item value="Illegal Access Exception" />
       <item value="Illegal Argument Exception" />
       <item value="compile Debug Java With Javac" />
-      <item value="check Replace Proxy" />
-      <item value="opt String" />
-      <item value="opt Int" />
-      <item value="remove" />
-      <item value="req Headers" />
-      <item value="new Fixed Thread Pool" />
-      <item value="parse Url" />
-      <item value="call" />
-      <item value="Spider Log" />
-      <item value="method" />
-      <item value="get Instance" />
-      <item value="get Absolute Path" />
     </histories>
     <option name="languageScores">
       <map>
@@ -74,11 +74,11 @@
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="3" />
-        <entry key="CHINESE" value="4682" />
+        <entry key="CHINESE" value="4696" />
         <entry key="CZECH" value="5" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="4683" />
+        <entry key="ENGLISH" value="4697" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="3" />
         <entry key="GALICIAN" value="6" />
