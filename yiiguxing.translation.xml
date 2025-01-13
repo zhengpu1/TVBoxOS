@@ -17,6 +17,21 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="remove" />
+      <item value="find Frame Metrics Observer" />
+      <item value="register Pending Frame Metrics Observers" />
+      <item value="remove Frame Metrics Listener" />
+      <item value="add Frame Metrics Listener" />
+      <item value="set On Create Context Menu Listener" />
+      <item value="set On Context Click Listener" />
+      <item value="get On Long Click Listener" />
+      <item value="has On Long Click Listeners" />
+      <item value="Register a callback to be invoked when this view is clicked and held. If this view is not long clickable, it becomes long clickable. @param l The callback that will run @see setLongClickable(boolean)" />
+      <item value="set On Click Listener" />
+      <item value="set On Long Click Listener" />
+      <item value="has On Click Listeners" />
+      <item value="select Item" />
+      <item value="delete Item" />
       <item value="Base Dialog" />
       <item value="SYSTEM UI FLAG LAYOUT HIDE NAVIGATION" />
       <item value="hide Sys Bar" />
@@ -33,8 +48,6 @@
       <item value="CUSTOM STORE HOUSE DATA" />
       <item value="notify Item Changed" />
       <item value="set Selected Position" />
-      <item value="select Item" />
-      <item value="delete Item" />
       <item value="push to addr" />
       <item value="FORBID JAR DIALOG" />
       <item value="FORBID VIDEO DIALOG" />
@@ -54,19 +67,6 @@
       <item value="live 2 Json Array" />
       <item value="group" />
       <item value="FOCUS DOWN" />
-      <item value="focus Search" />
-      <item value="hide System Key Board" />
-      <item value="on Key" />
-      <item value="search Result" />
-      <item value="search Adapter" />
-      <item value="refresh Search History" />
-      <item value="search Title" />
-      <item value="on Item Click" />
-      <item value="request Focus From Touch" />
-      <item value="request Focus" />
-      <item value="on Search Key" />
-      <item value="keyboard" />
-      <item value="et Search" />
     </histories>
     <option name="languageScores">
       <map>
@@ -74,11 +74,11 @@
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="3" />
-        <entry key="CHINESE" value="4889" />
+        <entry key="CHINESE" value="4905" />
         <entry key="CZECH" value="5" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="4890" />
+        <entry key="ENGLISH" value="4906" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="4" />
