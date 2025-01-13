@@ -17,6 +17,15 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="SourceTotal Source" />
+      <item value="layout margin Right" />
+      <item value="channel Name" />
+      <item value="get Source Num" />
+      <item value="saved Epg Key" />
+      <item value="contains" />
+      <item value="to Lower Case" />
+      <item value="epg Tag Name" />
+      <item value="print Stack Trace" />
       <item value="only Load Base Config" />
       <item value="live 2 Json Array" />
       <item value="group" />
@@ -51,7 +60,6 @@
       <item value="tv Dedel" />
       <item value="smooth Scroll To Position" />
       <item value="text Alignment" />
-      <item value="contains" />
       <item value="content View" />
       <item value="has Key Board" />
       <item value="is Search Back" />
@@ -59,14 +67,6 @@
       <item value="open System Key Board" />
       <item value="m Search History Text View" />
       <item value="Flexbox Layout Manager" />
-      <item value="set Danmu View Settings" />
-      <item value="SEARCH HISTORY" />
-      <item value="search Presenter" />
-      <item value="reverse" />
-      <item value="init Search History" />
-      <item value="add Key Words Todb" />
-      <item value="FAST SEARCH MODE" />
-      <item value="tv history" />
     </histories>
     <option name="languageScores">
       <map>
@@ -74,13 +74,14 @@
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="3" />
-        <entry key="CHINESE" value="4856" />
+        <entry key="CHINESE" value="4865" />
         <entry key="CZECH" value="5" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="4857" />
+        <entry key="ENGLISH" value="4865" />
+        <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
-        <entry key="FRENCH" value="3" />
+        <entry key="FRENCH" value="4" />
         <entry key="GALICIAN" value="7" />
         <entry key="GERMAN" value="8" />
         <entry key="GREEK" value="1" />
