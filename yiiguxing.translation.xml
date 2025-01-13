@@ -17,8 +17,10 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
-      <item value="tv Dedel" />
       <item value="init Checked Sources For Search" />
+      <item value="notify Data Set Changed" />
+      <item value="refresh" />
+      <item value="tv Dedel" />
       <item value="smooth Scroll To Position" />
       <item value="text Alignment" />
       <item value="contains" />
@@ -32,7 +34,6 @@
       <item value="set Danmu View Settings" />
       <item value="refresh Search History" />
       <item value="SEARCH HISTORY" />
-      <item value="notify Data Set Changed" />
       <item value="search Presenter" />
       <item value="reverse" />
       <item value="init Search History" />
@@ -66,7 +67,6 @@
       <item value="orientation" />
       <item value="his is just a defensive measure for faulty item animators." />
       <item value="end Animations" />
-      <item value="layout" />
     </histories>
     <option name="languageScores">
       <map>
@@ -74,11 +74,11 @@
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="3" />
-        <entry key="CHINESE" value="4820" />
+        <entry key="CHINESE" value="4822" />
         <entry key="CZECH" value="5" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="4820" />
+        <entry key="ENGLISH" value="4823" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="3" />
         <entry key="GALICIAN" value="7" />
