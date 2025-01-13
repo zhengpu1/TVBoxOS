@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="starts With" />
       <item value="default store api" />
       <item value="focus Change Listener" />
       <item value="on Child View Attached To Window" />
@@ -66,7 +67,6 @@
       <item value="is Focusable In Touch Mode" />
       <item value="Creates a FlexboxLayoutManager with the flexDirection and flexWrap attributes specified. @param flexDirection the flex direction attribute @param flexWrap the flex wrap attribute" />
       <item value="on Resume" />
-      <item value="Window Manager" />
     </histories>
     <option name="languageScores">
       <map>
@@ -74,11 +74,11 @@
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="3" />
-        <entry key="CHINESE" value="4831" />
+        <entry key="CHINESE" value="4832" />
         <entry key="CZECH" value="5" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="4832" />
+        <entry key="ENGLISH" value="4833" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="3" />
         <entry key="GALICIAN" value="7" />
