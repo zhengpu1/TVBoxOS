@@ -17,6 +17,8 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="tv Dedel" />
+      <item value="init Checked Sources For Search" />
       <item value="smooth Scroll To Position" />
       <item value="text Alignment" />
       <item value="contains" />
@@ -43,7 +45,6 @@
       <item value="search Able Source" />
       <item value="AAPT: error: resource idmHotSearch_text (aka com.github.tvbox.tk:idmHotSearch_text) not found." />
       <item value="keyboard" />
-      <item value="tv Dedel" />
       <item value="TRANSPARENT" />
       <item value="Avoid show ime keyboard bug" />
       <item value="change Live Player Scale" />
@@ -66,7 +67,6 @@
       <item value="his is just a defensive measure for faulty item animators." />
       <item value="end Animations" />
       <item value="layout" />
-      <item value="Layout Manager" />
     </histories>
     <option name="languageScores">
       <map>
@@ -74,11 +74,11 @@
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="3" />
-        <entry key="CHINESE" value="4818" />
+        <entry key="CHINESE" value="4820" />
         <entry key="CZECH" value="5" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="4819" />
+        <entry key="ENGLISH" value="4820" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="3" />
         <entry key="GALICIAN" value="7" />
@@ -97,7 +97,7 @@
         <entry key="SLOVAK" value="4" />
         <entry key="SPANISH" value="1" />
         <entry key="SWEDISH" value="4" />
-        <entry key="TURKISH" value="1" />
+        <entry key="TURKISH" value="2" />
         <entry key="UKRAINIAN" value="2" />
       </map>
     </option>
