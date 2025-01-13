@@ -17,6 +17,16 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="Base Dialog" />
+      <item value="SYSTEM UI FLAG LAYOUT HIDE NAVIGATION" />
+      <item value="hide Sys Bar" />
+      <item value="SYSTEM UI FLAG LAYOUT STABLE" />
+      <item value="save Custom Source Bean" />
+      <item value="IF NONE CACHE REQUEST" />
+      <item value="get Muti Source" />
+      <item value="on Cache Success" />
+      <item value="The 'kotlin-android-extensions' Gradle plugin is deprecated. Please use this migration guide" />
+      <item value="No variants found for ':app'. Check build files to ensure at least one variant exists. at: com.android.tools.idea.gradle.project.sync.AndroidModule.prepare(GradleModules.kt:266)" />
       <item value="on Back Pressed" />
       <item value="on Back Pressed Dispatcher" />
       <item value="CUSTOM STORE HOUSE SELECTED" />
@@ -57,16 +67,6 @@
       <item value="on Search Key" />
       <item value="keyboard" />
       <item value="et Search" />
-      <item value="ll Player Place" />
-      <item value="DOMAIN NAME PROXY" />
-      <item value="DEFAULT API URL" />
-      <item value="append" />
-      <item value="starts With" />
-      <item value="default store api" />
-      <item value="focus Change Listener" />
-      <item value="on Child View Attached To Window" />
-      <item value="set On Focus Change Listener" />
-      <item value="set Span Size Lookup" />
     </histories>
     <option name="languageScores">
       <map>
@@ -74,11 +74,11 @@
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="3" />
-        <entry key="CHINESE" value="4879" />
+        <entry key="CHINESE" value="4889" />
         <entry key="CZECH" value="5" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="4880" />
+        <entry key="ENGLISH" value="4890" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="4" />
