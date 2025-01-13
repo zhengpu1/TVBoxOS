@@ -17,6 +17,10 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="focus Change Listener" />
+      <item value="on Child View Attached To Window" />
+      <item value="request Focus" />
+      <item value="set On Focus Change Listener" />
       <item value="search Adapter" />
       <item value="set Span Size Lookup" />
       <item value="get Span Size" />
@@ -63,10 +67,6 @@
       <item value="on Resume" />
       <item value="Window Manager" />
       <item value="add Flags" />
-      <item value="is Focusable" />
-      <item value="popup Window" />
-      <item value="def Style Attr" />
-      <item value="reverse Layout" />
     </histories>
     <option name="languageScores">
       <map>
@@ -74,11 +74,11 @@
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="3" />
-        <entry key="CHINESE" value="4825" />
+        <entry key="CHINESE" value="4830" />
         <entry key="CZECH" value="5" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="4826" />
+        <entry key="ENGLISH" value="4831" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="3" />
         <entry key="GALICIAN" value="7" />
