@@ -17,7 +17,13 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="FOCUS DOWN" />
+      <item value="focus Search" />
+      <item value="hide System Key Board" />
+      <item value="on Key" />
       <item value="search Result" />
+      <item value="search Adapter" />
+      <item value="refresh Search History" />
       <item value="search Title" />
       <item value="on Item Click" />
       <item value="request Focus From Touch" />
@@ -34,7 +40,6 @@
       <item value="focus Change Listener" />
       <item value="on Child View Attached To Window" />
       <item value="set On Focus Change Listener" />
-      <item value="search Adapter" />
       <item value="set Span Size Lookup" />
       <item value="get Span Size" />
       <item value="init Checked Sources For Search" />
@@ -52,7 +57,6 @@
       <item value="m Search History Text View" />
       <item value="Flexbox Layout Manager" />
       <item value="set Danmu View Settings" />
-      <item value="refresh Search History" />
       <item value="SEARCH HISTORY" />
       <item value="search Presenter" />
       <item value="reverse" />
@@ -63,10 +67,6 @@
       <item value="clear Search History" />
       <item value="clear history" />
       <item value="search Able Source" />
-      <item value="AAPT: error: resource idmHotSearch_text (aka com.github.tvbox.tk:idmHotSearch_text) not found." />
-      <item value="TRANSPARENT" />
-      <item value="Avoid show ime keyboard bug" />
-      <item value="change Live Player Scale" />
     </histories>
     <option name="languageScores">
       <map>
@@ -74,11 +74,11 @@
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="3" />
-        <entry key="CHINESE" value="4845" />
+        <entry key="CHINESE" value="4853" />
         <entry key="CZECH" value="5" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="4846" />
+        <entry key="ENGLISH" value="4854" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="3" />
         <entry key="GALICIAN" value="7" />
