@@ -17,6 +17,17 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="base Lazy Fragment" />
+      <item value="instanceof" />
+      <item value="force Refresh" />
+      <item value="set Text Color" />
+      <item value="set Background Color" />
+      <item value="on Create Dismiss Animation" />
+      <item value="on Window Focus Changed" />
+      <item value="set Canceled On Touch Outside" />
+      <item value="set Content View" />
+      <item value="set Popup Gravity" />
+      <item value="on Create Show Animation" />
       <item value="set On Item Child Click Listener" />
       <item value="create" />
       <item value="set Negative Button" />
@@ -56,17 +67,6 @@
       <item value="notify Item Changed" />
       <item value="set Selected Position" />
       <item value="push to addr" />
-      <item value="FORBID JAR DIALOG" />
-      <item value="FORBID VIDEO DIALOG" />
-      <item value="background play type" />
-      <item value="BACKGROUND PLAY TYPE" />
-      <item value="get Default Live Channel Player" />
-      <item value="SourceTotal Source" />
-      <item value="layout margin Right" />
-      <item value="channel Name" />
-      <item value="get Source Num" />
-      <item value="saved Epg Key" />
-      <item value="contains" />
     </histories>
     <option name="languageScores">
       <map>
@@ -74,15 +74,15 @@
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="3" />
-        <entry key="CHINESE" value="4913" />
+        <entry key="CHINESE" value="4926" />
         <entry key="CZECH" value="5" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="4914" />
+        <entry key="ENGLISH" value="4927" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="4" />
-        <entry key="GALICIAN" value="7" />
+        <entry key="GALICIAN" value="8" />
         <entry key="GERMAN" value="8" />
         <entry key="GREEK" value="1" />
         <entry key="INDONESIAN" value="2" />
