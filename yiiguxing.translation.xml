@@ -17,11 +17,19 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
-      <item value="FOCUS UP" />
-      <item value="on Item Selected" />
+      <item value="request Focus" />
+      <item value="set Background Color" />
       <item value="on Item Click" />
-      <item value="refresh" />
+      <item value="on Item Selected" />
+      <item value="on Page Scroll State Changed" />
+      <item value="on Focus Change" />
+      <item value="on In Border Key Event" />
       <item value="on Item Pre Selected" />
+      <item value="scale X" />
+      <item value="direction" />
+      <item value="FOCUS UP" />
+      <item value="FOCUS DOWN" />
+      <item value="refresh" />
       <item value="auto Convert Density" />
       <item value="get Size In Dp" />
       <item value="sort Focused" />
@@ -37,8 +45,6 @@
       <item value="set On Long Click Listener" />
       <item value="on Long Click" />
       <item value="Setting Activity" />
-      <item value="FOCUS DOWN" />
-      <item value="on In Border Key Event" />
       <item value="filter Root" />
       <item value="set Cancelable" />
       <item value="set Canceled On Touch Outside" />
@@ -46,7 +52,6 @@
       <item value="change" />
       <item value="force Refresh" />
       <item value="set Text Color" />
-      <item value="set Background Color" />
       <item value="on Create Dismiss Animation" />
       <item value="on Window Focus Changed" />
       <item value="set Content View" />
@@ -62,11 +67,6 @@
       <item value="CUSTOM STORE HOUSE DATA" />
       <item value="find Frame Metrics Observer" />
       <item value="register Pending Frame Metrics Observers" />
-      <item value="remove Frame Metrics Listener" />
-      <item value="add Frame Metrics Listener" />
-      <item value="set On Create Context Menu Listener" />
-      <item value="set On Context Click Listener" />
-      <item value="get On Long Click Listener" />
     </histories>
     <option name="languageScores">
       <map>
@@ -74,11 +74,11 @@
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="3" />
-        <entry key="CHINESE" value="4959" />
+        <entry key="CHINESE" value="4972" />
         <entry key="CZECH" value="5" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="4960" />
+        <entry key="ENGLISH" value="4973" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="4" />
