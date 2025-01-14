@@ -17,6 +17,8 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="remove" />
+      <item value="filter Select" />
       <item value="set On Long Click Listener" />
       <item value="on Long Click" />
       <item value="Setting Activity" />
@@ -45,7 +47,6 @@
       <item value="remove First If" />
       <item value="delete" />
       <item value="CUSTOM STORE HOUSE DATA" />
-      <item value="remove" />
       <item value="find Frame Metrics Observer" />
       <item value="register Pending Frame Metrics Observers" />
       <item value="remove Frame Metrics Listener" />
@@ -66,7 +67,6 @@
       <item value="save Custom Source Bean" />
       <item value="IF NONE CACHE REQUEST" />
       <item value="get Muti Source" />
-      <item value="on Cache Success" />
     </histories>
     <option name="languageScores">
       <map>
@@ -74,11 +74,11 @@
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="3" />
-        <entry key="CHINESE" value="4936" />
+        <entry key="CHINESE" value="4938" />
         <entry key="CZECH" value="5" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="4937" />
+        <entry key="ENGLISH" value="4939" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="4" />
