@@ -17,6 +17,30 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="select Change" />
+      <item value="on Window Focus Changed" />
+      <item value="on Create Dismiss Animation" />
+      <item value="on Create Show Animation" />
+      <item value="set Show Keyboard Delay" />
+      <item value="set Keyboard Gravity" />
+      <item value="set Align Background Gravity" />
+      <item value="Base Popup Window" />
+      <item value="gravity" />
+      <item value="Gravity" />
+      <item value="BOTTOM" />
+      <item value="clear Flags" />
+      <item value="SYSTEM UI FLAG LAYOUT STABLE" />
+      <item value="hide Sys Bar" />
+      <item value="set Flags" />
+      <item value="get Window" />
+      <item value="set Canceled On Touch Outside" />
+      <item value="show Popup Window" />
+      <item value="try To Show Popup" />
+      <item value="check Perform Show" />
+      <item value="Window Manager" />
+      <item value="Layout Params" />
+      <item value="FLAG NOT FOCUSABLE" />
+      <item value="is Exit Animate Playing" />
       <item value="on Create" />
       <item value="check Update" />
       <item value="request Focus" />
@@ -43,30 +67,6 @@
       <item value="set On Dismiss" />
       <item value="current Selected" />
       <item value="remove" />
-      <item value="filter Select" />
-      <item value="set On Long Click Listener" />
-      <item value="on Long Click" />
-      <item value="Setting Activity" />
-      <item value="filter Root" />
-      <item value="set Cancelable" />
-      <item value="set Canceled On Touch Outside" />
-      <item value="show Has Filters" />
-      <item value="change" />
-      <item value="force Refresh" />
-      <item value="set Text Color" />
-      <item value="on Create Dismiss Animation" />
-      <item value="on Window Focus Changed" />
-      <item value="set Content View" />
-      <item value="set Popup Gravity" />
-      <item value="on Create Show Animation" />
-      <item value="set On Item Child Click Listener" />
-      <item value="create" />
-      <item value="set Negative Button" />
-      <item value="set Positive Button" />
-      <item value="delete Data" />
-      <item value="remove First If" />
-      <item value="delete" />
-      <item value="CUSTOM STORE HOUSE DATA" />
     </histories>
     <option name="languageScores">
       <map>
@@ -74,11 +74,11 @@
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="3" />
-        <entry key="CHINESE" value="4974" />
+        <entry key="CHINESE" value="5005" />
         <entry key="CZECH" value="5" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="4975" />
+        <entry key="ENGLISH" value="5006" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="4" />
