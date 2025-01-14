@@ -18,6 +18,18 @@
     <option name="newTranslationDialogY" value="560" />
     <histories>
       <item value="select Change" />
+      <item value="set On Item Click Listener" />
+      <item value="dim Amount" />
+      <item value="WRAP CONTENT" />
+      <item value="MATCH PARENT" />
+      <item value="Grow the vertical size of the object if needed so it completely fills its container." />
+      <item value="Grow the horizontal size of the object if needed so it completely fills its container." />
+      <item value="AXIS SPECIFIED" />
+      <item value="AXIS PULL AFTER" />
+      <item value="Push object to the left of its container, not changing its size." />
+      <item value="Push object to the top of its container, not changing its size." />
+      <item value="Placement of window within the screen as per {@link Gravity}. Both {@link Gravityapply(int, int, int, android.graphics.Rect, int, int, android.graphics.Rect) Gravity.apply} and {@link GravityapplyDisplay(int, android.graphics.Rect, android.graphics.Rect) Gravity.applyDisplay} are used during window layout, with this value given as the desired gravity. For example you can specify {@link GravityDISPLAY_CLIP_HORIZONTAL Gravity.DISPLAY_CLIP_HORIZONTAL} and {@link GravityDISPLAY_CLIP_VERTICAL Gravity.DISPLAY_CLIP_VERTICAL} here to control the behavior of {@link GravityapplyDisplay(int, android.graphics.Rect, android.graphics.Rect) Gravity.applyDisplay}." />
+      <item value="Gravity" />
       <item value="on Window Focus Changed" />
       <item value="on Create Dismiss Animation" />
       <item value="on Create Show Animation" />
@@ -26,7 +38,6 @@
       <item value="set Align Background Gravity" />
       <item value="Base Popup Window" />
       <item value="gravity" />
-      <item value="Gravity" />
       <item value="BOTTOM" />
       <item value="clear Flags" />
       <item value="SYSTEM UI FLAG LAYOUT STABLE" />
@@ -56,17 +67,6 @@
       <item value="FOCUS UP" />
       <item value="FOCUS DOWN" />
       <item value="refresh" />
-      <item value="auto Convert Density" />
-      <item value="get Size In Dp" />
-      <item value="sort Focused" />
-      <item value="fragments" />
-      <item value="base Lazy Fragment" />
-      <item value="instanceof" />
-      <item value="callback" />
-      <item value="on Dismiss" />
-      <item value="set On Dismiss" />
-      <item value="current Selected" />
-      <item value="remove" />
     </histories>
     <option name="languageScores">
       <map>
@@ -74,11 +74,11 @@
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="3" />
-        <entry key="CHINESE" value="5005" />
+        <entry key="CHINESE" value="5018" />
         <entry key="CZECH" value="5" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5006" />
+        <entry key="ENGLISH" value="5019" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="4" />
