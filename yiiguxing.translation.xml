@@ -17,6 +17,14 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="set On Item Child Click Listener" />
+      <item value="create" />
+      <item value="set Negative Button" />
+      <item value="set Positive Button" />
+      <item value="delete Data" />
+      <item value="remove First If" />
+      <item value="delete" />
+      <item value="CUSTOM STORE HOUSE DATA" />
       <item value="remove" />
       <item value="find Frame Metrics Observer" />
       <item value="register Pending Frame Metrics Observers" />
@@ -45,7 +53,6 @@
       <item value="on Back Pressed" />
       <item value="on Back Pressed Dispatcher" />
       <item value="CUSTOM STORE HOUSE SELECTED" />
-      <item value="CUSTOM STORE HOUSE DATA" />
       <item value="notify Item Changed" />
       <item value="set Selected Position" />
       <item value="push to addr" />
@@ -60,13 +67,6 @@
       <item value="get Source Num" />
       <item value="saved Epg Key" />
       <item value="contains" />
-      <item value="to Lower Case" />
-      <item value="epg Tag Name" />
-      <item value="print Stack Trace" />
-      <item value="only Load Base Config" />
-      <item value="live 2 Json Array" />
-      <item value="group" />
-      <item value="FOCUS DOWN" />
     </histories>
     <option name="languageScores">
       <map>
@@ -74,11 +74,11 @@
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="3" />
-        <entry key="CHINESE" value="4905" />
+        <entry key="CHINESE" value="4913" />
         <entry key="CZECH" value="5" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="4906" />
+        <entry key="ENGLISH" value="4914" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="4" />
