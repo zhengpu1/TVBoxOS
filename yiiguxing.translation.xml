@@ -17,6 +17,8 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="base Lazy Fragment" />
+      <item value="instanceof" />
       <item value="callback" />
       <item value="on Dismiss" />
       <item value="set On Dismiss" />
@@ -35,8 +37,6 @@
       <item value="set Canceled On Touch Outside" />
       <item value="show Has Filters" />
       <item value="change" />
-      <item value="base Lazy Fragment" />
-      <item value="instanceof" />
       <item value="force Refresh" />
       <item value="set Text Color" />
       <item value="set Background Color" />
@@ -74,15 +74,15 @@
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="3" />
-        <entry key="CHINESE" value="4944" />
+        <entry key="CHINESE" value="4946" />
         <entry key="CZECH" value="5" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="4945" />
+        <entry key="ENGLISH" value="4947" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="4" />
-        <entry key="GALICIAN" value="8" />
+        <entry key="GALICIAN" value="9" />
         <entry key="GERMAN" value="8" />
         <entry key="GREEK" value="1" />
         <entry key="INDONESIAN" value="2" />
