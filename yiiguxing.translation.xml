@@ -17,6 +17,8 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="containsdefault" />
+      <item value="starts Withdefault" />
       <item value="IDLE CONSTANTS" />
       <item value="get Instance" />
       <item value="set Text Show" />
@@ -65,8 +67,6 @@
       <item value="on Create" />
       <item value="check Update" />
       <item value="request Focus" />
-      <item value="set Background Color" />
-      <item value="on Item Click" />
     </histories>
     <option name="languageScores">
       <map>
@@ -74,7 +74,7 @@
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="3" />
-        <entry key="CHINESE" value="5028" />
+        <entry key="CHINESE" value="5029" />
         <entry key="CZECH" value="5" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
@@ -100,6 +100,7 @@
         <entry key="SWEDISH" value="4" />
         <entry key="TURKISH" value="2" />
         <entry key="UKRAINIAN" value="2" />
+        <entry key="WELSH" value="1" />
       </map>
     </option>
   </component>
