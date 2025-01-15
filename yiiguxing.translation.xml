@@ -17,6 +17,10 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="EPISODE GROUPING" />
+      <item value="bytecode Target Level" />
+      <item value="Player More Fuc Pop" />
+      <item value="ACTION UP" />
       <item value="m Audio Track Btn" />
       <item value="END" />
       <item value="Gravity" />
@@ -63,10 +67,6 @@
       <item value="Push object to the top of its container, not changing its size." />
       <item value="Placement of window within the screen as per {@link Gravity}. Both {@link Gravityapply(int, int, int, android.graphics.Rect, int, int, android.graphics.Rect) Gravity.apply} and {@link GravityapplyDisplay(int, android.graphics.Rect, android.graphics.Rect) Gravity.applyDisplay} are used during window layout, with this value given as the desired gravity. For example you can specify {@link GravityDISPLAY_CLIP_HORIZONTAL Gravity.DISPLAY_CLIP_HORIZONTAL} and {@link GravityDISPLAY_CLIP_VERTICAL Gravity.DISPLAY_CLIP_VERTICAL} here to control the behavior of {@link GravityapplyDisplay(int, android.graphics.Rect, android.graphics.Rect) Gravity.applyDisplay}." />
       <item value="on Window Focus Changed" />
-      <item value="on Create Dismiss Animation" />
-      <item value="on Create Show Animation" />
-      <item value="set Show Keyboard Delay" />
-      <item value="set Keyboard Gravity" />
     </histories>
     <option name="languageScores">
       <map>
@@ -74,11 +74,11 @@
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="3" />
-        <entry key="CHINESE" value="5046" />
+        <entry key="CHINESE" value="5051" />
         <entry key="CZECH" value="6" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5047" />
+        <entry key="ENGLISH" value="5052" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="4" />
