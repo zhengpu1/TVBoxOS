@@ -17,6 +17,13 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="HOME PWET TUMM" />
+      <item value="tv Slide Stop" />
+      <item value="get Max" />
+      <item value="set Enabled" />
+      <item value="set Progress" />
+      <item value="duration" />
+      <item value="play Next" />
       <item value="Created by idisfkj on 2020723. Email: idisfkj@gmail.com." />
       <item value="Openingcredits" />
       <item value="HOME PTST TUMM" />
@@ -60,13 +67,6 @@
       <item value="set Keyboard Gravity" />
       <item value="set Align Background Gravity" />
       <item value="Base Popup Window" />
-      <item value="gravity" />
-      <item value="BOTTOM" />
-      <item value="clear Flags" />
-      <item value="SYSTEM UI FLAG LAYOUT STABLE" />
-      <item value="hide Sys Bar" />
-      <item value="set Flags" />
-      <item value="get Window" />
     </histories>
     <option name="languageScores">
       <map>
@@ -74,11 +74,11 @@
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="3" />
-        <entry key="CHINESE" value="5038" />
+        <entry key="CHINESE" value="5044" />
         <entry key="CZECH" value="6" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5038" />
+        <entry key="ENGLISH" value="5044" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="4" />
