@@ -17,6 +17,12 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="Created by idisfkj on 2020723. Email: idisfkj@gmail.com." />
+      <item value="Openingcredits" />
+      <item value="HOME PTST TUMM" />
+      <item value="update Player Cfg" />
+      <item value="update Player Cfg View" />
+      <item value="scale Video View" />
       <item value="Speed Play Dialog" />
       <item value="show Speed Select Dialog" />
       <item value="Adapter Diff Call Back" />
@@ -61,12 +67,6 @@
       <item value="hide Sys Bar" />
       <item value="set Flags" />
       <item value="get Window" />
-      <item value="set Canceled On Touch Outside" />
-      <item value="show Popup Window" />
-      <item value="try To Show Popup" />
-      <item value="check Perform Show" />
-      <item value="Window Manager" />
-      <item value="Layout Params" />
     </histories>
     <option name="languageScores">
       <map>
@@ -74,11 +74,11 @@
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="3" />
-        <entry key="CHINESE" value="5033" />
-        <entry key="CZECH" value="5" />
+        <entry key="CHINESE" value="5038" />
+        <entry key="CZECH" value="6" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5034" />
+        <entry key="ENGLISH" value="5038" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="4" />
@@ -93,7 +93,7 @@
         <entry key="LUXEMBOURGISH" value="1" />
         <entry key="MALAY" value="1" />
         <entry key="MALTESE" value="2" />
-        <entry key="NORWEGIAN" value="1" />
+        <entry key="NORWEGIAN" value="2" />
         <entry key="ROMANIAN" value="1" />
         <entry key="SLOVAK" value="4" />
         <entry key="SPANISH" value="1" />
