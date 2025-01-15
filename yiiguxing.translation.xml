@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="preview Vod Info" />
       <item value="L Params" />
       <item value="TRANSPARENT" />
       <item value="on Click" />
@@ -66,7 +67,6 @@
       <item value="Gravity" />
       <item value="HOME PWET TUMM" />
       <item value="tv Slide Stop" />
-      <item value="get Max" />
     </histories>
     <option name="languageScores">
       <map>
@@ -79,7 +79,7 @@
         <entry key="CZECH" value="6" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5097" />
+        <entry key="ENGLISH" value="5098" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
