@@ -17,6 +17,13 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="Empty Callback" />
+      <item value="on Terminate" />
+      <item value="Player Helper" />
+      <item value="instance" />
+      <item value="dash Data" />
+      <item value="get Instance" />
+      <item value="create New File" />
       <item value="debug Implementation" />
       <item value="implementation" />
       <item value="check Update" />
@@ -48,7 +55,6 @@
       <item value="containsdefault" />
       <item value="starts Withdefault" />
       <item value="IDLE CONSTANTS" />
-      <item value="get Instance" />
       <item value="set Text Show" />
       <item value="series Flag Adapter" />
       <item value="flag Scroll To" />
@@ -61,12 +67,6 @@
       <item value="set On Item Click Listener" />
       <item value="dim Amount" />
       <item value="WRAP CONTENT" />
-      <item value="MATCH PARENT" />
-      <item value="Grow the vertical size of the object if needed so it completely fills its container." />
-      <item value="Grow the horizontal size of the object if needed so it completely fills its container." />
-      <item value="AXIS SPECIFIED" />
-      <item value="AXIS PULL AFTER" />
-      <item value="Push object to the left of its container, not changing its size." />
     </histories>
     <option name="languageScores">
       <map>
@@ -74,11 +74,11 @@
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="CATALAN" value="3" />
-        <entry key="CHINESE" value="5054" />
+        <entry key="CHINESE" value="5061" />
         <entry key="CZECH" value="6" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5055" />
+        <entry key="ENGLISH" value="5062" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="4" />
