@@ -17,12 +17,12 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="Floating Window Manager" />
       <item value="FORBID JAR DIALOG" />
       <item value="set Dash Data" />
       <item value="get Instanceannotations" />
       <item value="get Instance" />
       <item value="Remote Config" />
-      <item value="Floating Window Manager" />
       <item value="clean Player Cache" />
       <item value="cr Filewrite Data" />
       <item value="refresh" />
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="3" />
-        <entry key="CHINESE" value="5078" />
+        <entry key="CHINESE" value="5079" />
         <entry key="CZECH" value="6" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5079" />
+        <entry key="ENGLISH" value="5080" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
