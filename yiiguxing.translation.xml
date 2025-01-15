@@ -17,12 +17,24 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="get Instance" />
+      <item value="clean Player Cache" />
+      <item value="cr Filewrite Data" />
+      <item value="refresh" />
+      <item value="safe Dns" />
+      <item value="set Token" />
+      <item value="ALI TOKEN" />
+      <item value="manual Video Check" />
+      <item value="is Video Format" />
+      <item value="search Content" />
+      <item value="category Content" />
+      <item value="JP Url Dec" />
+      <item value="P 2 Pdoxpause" />
       <item value="Empty Callback" />
       <item value="on Terminate" />
       <item value="Player Helper" />
       <item value="instance" />
       <item value="dash Data" />
-      <item value="get Instance" />
       <item value="create New File" />
       <item value="debug Implementation" />
       <item value="implementation" />
@@ -55,30 +67,19 @@
       <item value="containsdefault" />
       <item value="starts Withdefault" />
       <item value="IDLE CONSTANTS" />
-      <item value="set Text Show" />
-      <item value="series Flag Adapter" />
-      <item value="flag Scroll To" />
-      <item value="vod Info Record" />
-      <item value="set Vod Info" />
-      <item value="put Serializable" />
-      <item value="choose Series" />
-      <item value="m Grid View Flag" />
-      <item value="select Change" />
-      <item value="set On Item Click Listener" />
-      <item value="dim Amount" />
-      <item value="WRAP CONTENT" />
     </histories>
     <option name="languageScores">
       <map>
         <entry key="ALBANIAN" value="1" />
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
+        <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="3" />
-        <entry key="CHINESE" value="5061" />
+        <entry key="CHINESE" value="5072" />
         <entry key="CZECH" value="6" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5062" />
+        <entry key="ENGLISH" value="5073" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="4" />
@@ -92,7 +93,7 @@
         <entry key="KINYARWANDA" value="2" />
         <entry key="LUXEMBOURGISH" value="1" />
         <entry key="MALAY" value="1" />
-        <entry key="MALTESE" value="2" />
+        <entry key="MALTESE" value="4" />
         <entry key="NORWEGIAN" value="2" />
         <entry key="ROMANIAN" value="1" />
         <entry key="SLOVAK" value="4" />
