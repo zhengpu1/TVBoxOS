@@ -17,6 +17,11 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="on Item Click" />
+      <item value="on Item Long Click" />
+      <item value="TYPE FILTER CHANGE" />
+      <item value="toggle Filter Color" />
+      <item value="filter Select Count" />
       <item value="Expecting an element" />
       <item value="get Serializable" />
       <item value="takagen99 - to play file here" />
@@ -62,11 +67,6 @@
       <item value="create New File" />
       <item value="debug Implementation" />
       <item value="implementation" />
-      <item value="check Update" />
-      <item value="EPISODE GROUPING" />
-      <item value="bytecode Target Level" />
-      <item value="Player More Fuc Pop" />
-      <item value="ACTION UP" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="4" />
-        <entry key="CHINESE" value="5105" />
+        <entry key="CHINESE" value="5111" />
         <entry key="CZECH" value="6" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5106" />
+        <entry key="ENGLISH" value="5112" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
