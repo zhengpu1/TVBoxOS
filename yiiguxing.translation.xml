@@ -17,6 +17,8 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="stop Load Web View" />
+      <item value="is Added" />
       <item value="Type org.xwalk.core.BuildConfig is defined multiple times:" />
       <item value="Using flatDir should be avoided because it doesn't support any meta-data formats." />
       <item value="set Dot Port" />
@@ -65,8 +67,6 @@
       <item value="FORBID JAR DIALOG" />
       <item value="set Dash Data" />
       <item value="get Instanceannotations" />
-      <item value="get Instance" />
-      <item value="Remote Config" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="4" />
-        <entry key="CHINESE" value="5137" />
+        <entry key="CHINESE" value="5139" />
         <entry key="CZECH" value="7" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5138" />
+        <entry key="ENGLISH" value="5140" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
