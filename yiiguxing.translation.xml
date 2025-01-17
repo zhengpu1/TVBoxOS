@@ -17,11 +17,11 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="on Item Click" />
       <item value="show History Pop Up" />
       <item value="CUSTOM STORE HOUSE DATA" />
       <item value="is Not Empty" />
       <item value="check Video Format" />
-      <item value="on Item Click" />
       <item value="on Item Long Click" />
       <item value="TYPE FILTER CHANGE" />
       <item value="toggle Filter Color" />
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="4" />
-        <entry key="CHINESE" value="5118" />
+        <entry key="CHINESE" value="5119" />
         <entry key="CZECH" value="6" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5119" />
+        <entry key="ENGLISH" value="5120" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
