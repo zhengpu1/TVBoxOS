@@ -17,6 +17,8 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="on Item Selected" />
+      <item value="on Back Pressed" />
       <item value="on Destroy" />
       <item value="on Url Change" />
       <item value="on Click Clear Cache" />
@@ -65,8 +67,6 @@
       <item value="is Empty" />
       <item value="m Url" />
       <item value="m Asset File Descriptor" />
-      <item value="m Activity" />
-      <item value="return" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="4" />
-        <entry key="CHINESE" value="5198" />
+        <entry key="CHINESE" value="5200" />
         <entry key="CZECH" value="7" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5199" />
+        <entry key="ENGLISH" value="5201" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
