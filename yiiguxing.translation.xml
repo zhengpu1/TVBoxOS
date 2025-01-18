@@ -17,6 +17,11 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="force Restart Home Activity" />
+      <item value="set On Click Listener" />
+      <item value="tv Push" />
+      <item value="HOME REC STYLE" />
+      <item value="set On Focus Change Listener" />
       <item value="tv Search" />
       <item value="get Resources" />
       <item value="WRAP CONTENT" />
@@ -33,7 +38,6 @@
       <item value="ll Picsize" />
       <item value="reload Activity" />
       <item value="get Application Context" />
-      <item value="force Restart Home Activity" />
       <item value="set On Dismiss Listener" />
       <item value="set Url Title" />
       <item value="set Title" />
@@ -63,10 +67,6 @@
       <item value="get Video Size" />
       <item value="set Rotation" />
       <item value="from User" />
-      <item value="m Seek Bar" />
-      <item value="on Progress Changed" />
-      <item value="get Duration" />
-      <item value="prepare Data Source" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,15 +75,15 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="4" />
-        <entry key="CHINESE" value="5204" />
+        <entry key="CHINESE" value="5209" />
         <entry key="CZECH" value="7" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5205" />
+        <entry key="ENGLISH" value="5210" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
-        <entry key="GALICIAN" value="9" />
+        <entry key="GALICIAN" value="10" />
         <entry key="GERMAN" value="8" />
         <entry key="GREEK" value="1" />
         <entry key="HUNGARIAN" value="1" />
