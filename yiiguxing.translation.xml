@@ -18,6 +18,7 @@
     <option name="newTranslationDialogY" value="560" />
     <histories>
       <item value="FLAG ACTIVITY CLEAR TOP" />
+      <item value="FLAG ACTIVITY CLEAR TASK" />
       <item value="force Restart Home Activity" />
       <item value="set On Click Listener" />
       <item value="tv Push" />
@@ -66,7 +67,6 @@
       <item value="get Current Play State" />
       <item value="m Control Wrapper" />
       <item value="get Video Size" />
-      <item value="set Rotation" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="4" />
-        <entry key="CHINESE" value="5210" />
+        <entry key="CHINESE" value="5212" />
         <entry key="CZECH" value="7" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5211" />
+        <entry key="ENGLISH" value="5213" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
