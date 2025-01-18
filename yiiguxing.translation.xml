@@ -17,6 +17,11 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="m Controller" />
+      <item value="is Full Screen" />
+      <item value="set Is Full Screen" />
+      <item value="m Play Pause Time" />
+      <item value="m Is Full Screen" />
       <item value="start Tiny Screen" />
       <item value="start Full Screen" />
       <item value="set Looping" />
@@ -62,11 +67,6 @@
       <item value="TYPE FILTER CHANGE" />
       <item value="toggle Filter Color" />
       <item value="filter Select Count" />
-      <item value="Expecting an element" />
-      <item value="get Serializable" />
-      <item value="takagen99 - to play file here" />
-      <item value="request Focus" />
-      <item value="put Serializable" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="4" />
-        <entry key="CHINESE" value="5164" />
+        <entry key="CHINESE" value="5171" />
         <entry key="CZECH" value="7" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5165" />
+        <entry key="ENGLISH" value="5172" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
