@@ -17,6 +17,18 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="on Destroy" />
+      <item value="on Url Change" />
+      <item value="on Click Clear Cache" />
+      <item value="IJK CACHE PLAY" />
+      <item value="on Click Ijk Cache Play" />
+      <item value="private" />
+      <item value="open Sort Dialog" />
+      <item value="ll Picsize" />
+      <item value="reload Activity" />
+      <item value="get Application Context" />
+      <item value="force Restart Home Activity" />
+      <item value="set On Dismiss Listener" />
       <item value="set Url Title" />
       <item value="set Title" />
       <item value="m Audio Track Btn" />
@@ -55,18 +67,6 @@
       <item value="m Asset File Descriptor" />
       <item value="m Activity" />
       <item value="return" />
-      <item value="auto Retry Count" />
-      <item value="is Added" />
-      <item value="stop Load Web View" />
-      <item value="Type org.xwalk.core.BuildConfig is defined multiple times:" />
-      <item value="Using flatDir should be avoided because it doesn't support any meta-data formats." />
-      <item value="set Dot Port" />
-      <item value="DOH URL" />
-      <item value="on Long Press" />
-      <item value="update Player Cfg" />
-      <item value="Clickable View Accessibility" />
-      <item value="on Touch Event" />
-      <item value="get Current Position" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,17 +75,18 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="4" />
-        <entry key="CHINESE" value="5186" />
+        <entry key="CHINESE" value="5198" />
         <entry key="CZECH" value="7" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5187" />
+        <entry key="ENGLISH" value="5199" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
         <entry key="GALICIAN" value="9" />
         <entry key="GERMAN" value="8" />
         <entry key="GREEK" value="1" />
+        <entry key="HUNGARIAN" value="1" />
         <entry key="INDONESIAN" value="2" />
         <entry key="IRISH" value="3" />
         <entry key="ITALIAN" value="3" />
