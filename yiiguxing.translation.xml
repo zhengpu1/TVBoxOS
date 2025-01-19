@@ -17,12 +17,16 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="FLAG ACTIVITY CLEAR TASK" />
+      <item value="FLAG ACTIVITY RETAIN IN RECENTS" />
+      <item value="FLAG ACTIVITY TASK ON HOME" />
+      <item value="If set in an Intent passed to {@link ContextstartActivity Context.startActivity()}, this flag will cause a newly launching task to be placed on top of the current home activity task (if there is one). That is, pressing back from the task will always return the user to home even if that was not the last activity they saw. This can only be used in conjunction with {@link FLAG_ACTIVITY_NEW_TASK}." />
+      <item value="FLAG ACTIVITY NO ANIMATION" />
       <item value="request Focus" />
       <item value="jar Init Ok" />
       <item value="data Init Ok" />
       <item value="Setting Activity" />
       <item value="FLAG ACTIVITY CLEAR TOP" />
-      <item value="FLAG ACTIVITY CLEAR TASK" />
       <item value="force Restart Home Activity" />
       <item value="set On Click Listener" />
       <item value="tv Push" />
@@ -63,10 +67,6 @@
       <item value="is Full Screen" />
       <item value="set Is Full Screen" />
       <item value="m Play Pause Time" />
-      <item value="m Is Full Screen" />
-      <item value="start Tiny Screen" />
-      <item value="start Full Screen" />
-      <item value="set Looping" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="4" />
-        <entry key="CHINESE" value="5216" />
+        <entry key="CHINESE" value="5223" />
         <entry key="CZECH" value="7" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5217" />
+        <entry key="ENGLISH" value="5224" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
