@@ -17,10 +17,25 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="is Finishing" />
+      <item value="on Select" />
+      <item value="message" />
+      <item value="select" />
+      <item value="show Dialog" />
+      <item value="String Callback" />
+      <item value="cache Time" />
+      <item value="request Accept" />
+      <item value="more Source Bean" />
+      <item value="on Success" />
+      <item value="on Cache Success" />
+      <item value="server String 2 Json" />
+      <item value="response" />
+      <item value="Boolean" />
+      <item value="is Cache" />
+      <item value="CENTER" />
       <item value="set Select Call Back" />
       <item value="select Item" />
       <item value="click" />
-      <item value="show Dialog" />
       <item value="Select Dialog Adapter Interface" />
       <item value="get Muti Source" />
       <item value="save Custom Source Bean" />
@@ -52,21 +67,6 @@
       <item value="get Resources" />
       <item value="WRAP CONTENT" />
       <item value="EPISODE GROUPING" />
-      <item value="on Item Selected" />
-      <item value="on Back Pressed" />
-      <item value="on Destroy" />
-      <item value="on Url Change" />
-      <item value="on Click Clear Cache" />
-      <item value="IJK CACHE PLAY" />
-      <item value="on Click Ijk Cache Play" />
-      <item value="private" />
-      <item value="open Sort Dialog" />
-      <item value="ll Picsize" />
-      <item value="reload Activity" />
-      <item value="get Application Context" />
-      <item value="set On Dismiss Listener" />
-      <item value="set Url Title" />
-      <item value="set Title" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="4" />
-        <entry key="CHINESE" value="5253" />
+        <entry key="CHINESE" value="5277" />
         <entry key="CZECH" value="7" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5254" />
+        <entry key="ENGLISH" value="5278" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
