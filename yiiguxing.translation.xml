@@ -17,8 +17,10 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
-      <item value="FLAG ACTIVITY NEW TASK" />
       <item value="data Init Ok" />
+      <item value="set On Long Click Listener" />
+      <item value="on Long Click" />
+      <item value="FLAG ACTIVITY NEW TASK" />
       <item value="Home Show" />
       <item value="force Restart Home Activity" />
       <item value="FLAG ACTIVITY CLEAR TASK" />
@@ -65,8 +67,6 @@
       <item value="SHOW SSPREVIEW" />
       <item value="hide Bottom" />
       <item value="show Bottom" />
-      <item value="m Progress Root" />
-      <item value="callback" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="4" />
-        <entry key="CHINESE" value="5242" />
+        <entry key="CHINESE" value="5245" />
         <entry key="CZECH" value="7" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5243" />
+        <entry key="ENGLISH" value="5246" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
