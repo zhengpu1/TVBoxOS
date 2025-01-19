@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="CUSTOM STORE HOUSE DATA" />
       <item value="is Not Empty" />
       <item value="set On Click Listener" />
       <item value="Refresh Event" />
@@ -42,7 +43,6 @@
       <item value="line Source" />
       <item value="starts With" />
       <item value="check Url Is Valid" />
-      <item value="CUSTOM STORE HOUSE DATA" />
       <item value="save List" />
       <item value="show Default" />
       <item value="is Selected" />
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="4" />
-        <entry key="CHINESE" value="5324" />
+        <entry key="CHINESE" value="5325" />
         <entry key="CZECH" value="7" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5325" />
+        <entry key="ENGLISH" value="5326" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
