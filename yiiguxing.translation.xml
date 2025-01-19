@@ -17,6 +17,10 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="Inform activity task manager that the activity received a back press while at the root of the task. This call allows ActivityTaskManager to intercept or move the task to the back." />
+      <item value="If the activity is not the root of the task, allow finish to proceed normally." />
+      <item value="get Display" />
+      <item value="get Data" />
       <item value="FLAG ACTIVITY CLEAR TASK" />
       <item value="FLAG ACTIVITY RETAIN IN RECENTS" />
       <item value="FLAG ACTIVITY TASK ON HOME" />
@@ -63,10 +67,6 @@
       <item value="handle Lasted Time" />
       <item value="full Windows" />
       <item value="m Show Mini Progress" />
-      <item value="m Controller" />
-      <item value="is Full Screen" />
-      <item value="set Is Full Screen" />
-      <item value="m Play Pause Time" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="4" />
-        <entry key="CHINESE" value="5223" />
+        <entry key="CHINESE" value="5227" />
         <entry key="CZECH" value="7" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5224" />
+        <entry key="ENGLISH" value="5228" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
