@@ -17,6 +17,9 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="show Dialog" />
+      <item value="Select Dialog Adapter Interface" />
+      <item value="click" />
       <item value="get Muti Source" />
       <item value="save Custom Source Bean" />
       <item value="data Init Ok" />
@@ -64,9 +67,6 @@
       <item value="set Title" />
       <item value="m Audio Track Btn" />
       <item value="update Player Cfg View" />
-      <item value="scale Video View" />
-      <item value="select Audio Track" />
-      <item value="SHOW SSPREVIEW" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="4" />
-        <entry key="CHINESE" value="5247" />
+        <entry key="CHINESE" value="5250" />
         <entry key="CZECH" value="7" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5248" />
+        <entry key="ENGLISH" value="5251" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
