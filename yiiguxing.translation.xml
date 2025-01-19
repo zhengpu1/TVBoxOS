@@ -17,7 +17,14 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="mutable List Of" />
+      <item value="inflate Custom Source" />
+      <item value="server Result" />
       <item value="CUSTOM STORE HOUSE DATA" />
+      <item value="source Bean" />
+      <item value="scroll To Position" />
+      <item value="contains" />
+      <item value="save List" />
       <item value="is Not Empty" />
       <item value="set On Click Listener" />
       <item value="Refresh Event" />
@@ -43,7 +50,6 @@
       <item value="line Source" />
       <item value="starts With" />
       <item value="check Url Is Valid" />
-      <item value="save List" />
       <item value="show Default" />
       <item value="is Selected" />
       <item value="convert" />
@@ -61,12 +67,6 @@
       <item value="more Source Bean" />
       <item value="on Success" />
       <item value="on Cache Success" />
-      <item value="response" />
-      <item value="Boolean" />
-      <item value="is Cache" />
-      <item value="CENTER" />
-      <item value="set Select Call Back" />
-      <item value="click" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="4" />
-        <entry key="CHINESE" value="5325" />
+        <entry key="CHINESE" value="5333" />
         <entry key="CZECH" value="7" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5326" />
+        <entry key="ENGLISH" value="5334" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
