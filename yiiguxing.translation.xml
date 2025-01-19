@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="Item Callback" />
       <item value="use Cache" />
       <item value="is Showing" />
       <item value="is Finishing" />
@@ -66,7 +67,6 @@
       <item value="HOME REC STYLE" />
       <item value="set On Focus Change Listener" />
       <item value="tv Search" />
-      <item value="get Resources" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="4" />
-        <entry key="CHINESE" value="5279" />
+        <entry key="CHINESE" value="5280" />
         <entry key="CZECH" value="7" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5280" />
+        <entry key="ENGLISH" value="5281" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
