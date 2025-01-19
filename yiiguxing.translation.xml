@@ -17,8 +17,37 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
-      <item value="Item Callback" />
+      <item value="Refresh Event" />
+      <item value="TYPE STORE PUSH" />
+      <item value="handle Remote Push" />
+      <item value="apply" />
+      <item value="More Source Bean" />
+      <item value="is Empty" />
+      <item value="set Content View" />
+      <item value="STORE HOUSE URL" />
+      <item value="DEFAULT STORE URL" />
+      <item value="KV Storage" />
+      <item value="clan To Address" />
+      <item value="success" />
+      <item value="Load Config Callback" />
       <item value="use Cache" />
+      <item value="load Config" />
+      <item value="server String 2 Json" />
+      <item value="cache Time" />
+      <item value="final Api Url" />
+      <item value="is Json" />
+      <item value="line Source" />
+      <item value="starts With" />
+      <item value="check Url Is Valid" />
+      <item value="CUSTOM STORE HOUSE DATA" />
+      <item value="save List" />
+      <item value="save Custom Source Bean" />
+      <item value="show Default" />
+      <item value="is Selected" />
+      <item value="convert" />
+      <item value="create Base View Holder" />
+      <item value="select Item" />
+      <item value="Item Callback" />
       <item value="is Showing" />
       <item value="is Finishing" />
       <item value="on Select" />
@@ -26,47 +55,18 @@
       <item value="select" />
       <item value="show Dialog" />
       <item value="String Callback" />
-      <item value="cache Time" />
       <item value="request Accept" />
       <item value="more Source Bean" />
       <item value="on Success" />
       <item value="on Cache Success" />
-      <item value="server String 2 Json" />
       <item value="response" />
       <item value="Boolean" />
       <item value="is Cache" />
       <item value="CENTER" />
       <item value="set Select Call Back" />
-      <item value="select Item" />
       <item value="click" />
       <item value="Select Dialog Adapter Interface" />
       <item value="get Muti Source" />
-      <item value="save Custom Source Bean" />
-      <item value="data Init Ok" />
-      <item value="set On Long Click Listener" />
-      <item value="on Long Click" />
-      <item value="FLAG ACTIVITY NEW TASK" />
-      <item value="Home Show" />
-      <item value="force Restart Home Activity" />
-      <item value="FLAG ACTIVITY CLEAR TASK" />
-      <item value="FLAG ACTIVITY CLEAR TOP" />
-      <item value="force Restart Home Activity By Clear Task" />
-      <item value="Inform activity task manager that the activity received a back press while at the root of the task. This call allows ActivityTaskManager to intercept or move the task to the back." />
-      <item value="If the activity is not the root of the task, allow finish to proceed normally." />
-      <item value="get Display" />
-      <item value="get Data" />
-      <item value="FLAG ACTIVITY RETAIN IN RECENTS" />
-      <item value="FLAG ACTIVITY TASK ON HOME" />
-      <item value="If set in an Intent passed to {@link ContextstartActivity Context.startActivity()}, this flag will cause a newly launching task to be placed on top of the current home activity task (if there is one). That is, pressing back from the task will always return the user to home even if that was not the last activity they saw. This can only be used in conjunction with {@link FLAG_ACTIVITY_NEW_TASK}." />
-      <item value="FLAG ACTIVITY NO ANIMATION" />
-      <item value="request Focus" />
-      <item value="jar Init Ok" />
-      <item value="Setting Activity" />
-      <item value="set On Click Listener" />
-      <item value="tv Push" />
-      <item value="HOME REC STYLE" />
-      <item value="set On Focus Change Listener" />
-      <item value="tv Search" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="4" />
-        <entry key="CHINESE" value="5280" />
+        <entry key="CHINESE" value="5313" />
         <entry key="CZECH" value="7" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5281" />
+        <entry key="ENGLISH" value="5314" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
