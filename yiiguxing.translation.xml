@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="is Showing" />
       <item value="is Finishing" />
       <item value="on Select" />
       <item value="message" />
@@ -66,7 +67,6 @@
       <item value="tv Search" />
       <item value="get Resources" />
       <item value="WRAP CONTENT" />
-      <item value="EPISODE GROUPING" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="4" />
-        <entry key="CHINESE" value="5277" />
+        <entry key="CHINESE" value="5278" />
         <entry key="CZECH" value="7" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5278" />
+        <entry key="ENGLISH" value="5279" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
