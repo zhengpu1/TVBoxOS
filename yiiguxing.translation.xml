@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="set Select Call Back" />
       <item value="select Item" />
       <item value="click" />
       <item value="show Dialog" />
@@ -66,7 +67,6 @@
       <item value="set On Dismiss Listener" />
       <item value="set Url Title" />
       <item value="set Title" />
-      <item value="m Audio Track Btn" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="4" />
-        <entry key="CHINESE" value="5252" />
+        <entry key="CHINESE" value="5253" />
         <entry key="CZECH" value="7" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5253" />
+        <entry key="ENGLISH" value="5254" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
