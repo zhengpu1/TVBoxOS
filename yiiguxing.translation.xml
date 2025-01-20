@@ -17,6 +17,11 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="Show the view or text notification for a long period of time. This time could be user-definable. @see setDuration" />
+      <item value="LENGTH LONG" />
+      <item value="LENGTH SHORT" />
+      <item value="parse Thread Pool" />
+      <item value="is Added" />
       <item value="FLAG ACTIVITY NEW TASK" />
       <item value="release" />
       <item value="set Is Full Screen" />
@@ -62,11 +67,6 @@
       <item value="is Showing" />
       <item value="is Finishing" />
       <item value="on Select" />
-      <item value="message" />
-      <item value="select" />
-      <item value="show Dialog" />
-      <item value="String Callback" />
-      <item value="request Accept" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="4" />
-        <entry key="CHINESE" value="5338" />
+        <entry key="CHINESE" value="5343" />
         <entry key="CZECH" value="7" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5339" />
+        <entry key="ENGLISH" value="5344" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
