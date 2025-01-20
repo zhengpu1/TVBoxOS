@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="set Is Full Screen" />
       <item value="mutable List Of" />
       <item value="inflate Custom Source" />
       <item value="server Result" />
@@ -66,7 +67,6 @@
       <item value="request Accept" />
       <item value="more Source Bean" />
       <item value="on Success" />
-      <item value="on Cache Success" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="4" />
-        <entry key="CHINESE" value="5333" />
+        <entry key="CHINESE" value="5334" />
         <entry key="CZECH" value="7" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5334" />
+        <entry key="ENGLISH" value="5335" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
