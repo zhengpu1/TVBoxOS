@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="get Share Download Url" />
       <item value="safe Json String" />
       <item value="source Bean List" />
       <item value="contains Key" />
@@ -66,7 +67,6 @@
       <item value="set Content View" />
       <item value="STORE HOUSE URL" />
       <item value="DEFAULT STORE URL" />
-      <item value="KV Storage" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="4" />
-        <entry key="CHINESE" value="5371" />
+        <entry key="CHINESE" value="5372" />
         <entry key="CZECH" value="7" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5372" />
+        <entry key="ENGLISH" value="5373" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
