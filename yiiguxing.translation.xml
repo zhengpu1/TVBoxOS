@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="use Cache" />
       <item value="show Preview" />
       <item value="focusable" />
       <item value="Show the view or text notification for a long period of time. This time could be user-definable. @see setDuration" />
@@ -51,7 +52,6 @@
       <item value="clan To Address" />
       <item value="success" />
       <item value="Load Config Callback" />
-      <item value="use Cache" />
       <item value="load Config" />
       <item value="server String 2 Json" />
       <item value="cache Time" />
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="4" />
-        <entry key="CHINESE" value="5346" />
+        <entry key="CHINESE" value="5347" />
         <entry key="CZECH" value="7" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5347" />
+        <entry key="ENGLISH" value="5348" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
