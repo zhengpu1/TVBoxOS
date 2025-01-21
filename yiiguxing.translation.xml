@@ -17,6 +17,15 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="safe Json String" />
+      <item value="source Bean List" />
+      <item value="contains Key" />
+      <item value="safe Json Int" />
+      <item value="Default Config" />
+      <item value="set Type" />
+      <item value="parse Bean List" />
+      <item value="vip Parse Flags" />
+      <item value="get Absolute Path" />
       <item value="show Preview" />
       <item value="request Focus" />
       <item value="focusable" />
@@ -58,15 +67,6 @@
       <item value="STORE HOUSE URL" />
       <item value="DEFAULT STORE URL" />
       <item value="KV Storage" />
-      <item value="clan To Address" />
-      <item value="success" />
-      <item value="Load Config Callback" />
-      <item value="load Config" />
-      <item value="server String 2 Json" />
-      <item value="cache Time" />
-      <item value="final Api Url" />
-      <item value="is Json" />
-      <item value="line Source" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="4" />
-        <entry key="CHINESE" value="5362" />
+        <entry key="CHINESE" value="5371" />
         <entry key="CZECH" value="7" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5363" />
+        <entry key="ENGLISH" value="5372" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
