@@ -17,10 +17,10 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="equals" />
       <item value="parse Vod" />
       <item value="matcher" />
       <item value="detail Content Vod Play Url" />
-      <item value="equals" />
       <item value="list Files" />
       <item value="Collections" />
       <item value="contains" />
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="4" />
-        <entry key="CHINESE" value="5388" />
+        <entry key="CHINESE" value="5389" />
         <entry key="CZECH" value="7" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5389" />
+        <entry key="ENGLISH" value="5390" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
