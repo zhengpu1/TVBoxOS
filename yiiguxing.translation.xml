@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="contains" />
       <item value="oauth Request" />
       <item value="get Share Download Url" />
       <item value="safe Json String" />
@@ -54,7 +55,6 @@
       <item value="CUSTOM STORE HOUSE DATA" />
       <item value="source Bean" />
       <item value="scroll To Position" />
-      <item value="contains" />
       <item value="save List" />
       <item value="is Not Empty" />
       <item value="set On Click Listener" />
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="4" />
-        <entry key="CHINESE" value="5373" />
+        <entry key="CHINESE" value="5375" />
         <entry key="CZECH" value="7" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5374" />
+        <entry key="ENGLISH" value="5376" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
