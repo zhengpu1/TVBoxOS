@@ -17,6 +17,8 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="current Time Millis" />
+      <item value="finish" />
       <item value="contains" />
       <item value="oauth Request" />
       <item value="get Share Download Url" />
@@ -65,8 +67,6 @@
       <item value="handle Remote Push" />
       <item value="TYPE STORE PUSH" />
       <item value="is Empty" />
-      <item value="set Content View" />
-      <item value="STORE HOUSE URL" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="4" />
-        <entry key="CHINESE" value="5375" />
+        <entry key="CHINESE" value="5377" />
         <entry key="CZECH" value="7" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5376" />
+        <entry key="ENGLISH" value="5378" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
