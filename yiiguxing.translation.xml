@@ -1,6 +1,6 @@
 <application>
   <component name="Translation.Cache">
-    <option name="lastTrimTime" value="1737109411186" />
+    <option name="lastTrimTime" value="1737544140975" />
   </component>
   <component name="Translation.Settings">
     <option name="baiduTranslateSettings">
@@ -17,10 +17,17 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="parse Vod" />
+      <item value="matcher" />
+      <item value="detail Content Vod Play Url" />
       <item value="equals" />
+      <item value="list Files" />
+      <item value="Collections" />
+      <item value="contains" />
+      <item value="refresh Open Token" />
+      <item value="refresh Access Token" />
       <item value="current Time Millis" />
       <item value="finish" />
-      <item value="contains" />
       <item value="oauth Request" />
       <item value="get Share Download Url" />
       <item value="safe Json String" />
@@ -60,13 +67,6 @@
       <item value="scroll To Position" />
       <item value="save List" />
       <item value="is Not Empty" />
-      <item value="set On Click Listener" />
-      <item value="Refresh Event" />
-      <item value="More Source Bean" />
-      <item value="apply" />
-      <item value="save Custom Source Bean" />
-      <item value="handle Remote Push" />
-      <item value="TYPE STORE PUSH" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="4" />
-        <entry key="CHINESE" value="5379" />
+        <entry key="CHINESE" value="5388" />
         <entry key="CZECH" value="7" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5380" />
+        <entry key="ENGLISH" value="5389" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
