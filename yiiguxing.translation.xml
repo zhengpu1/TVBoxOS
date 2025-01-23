@@ -17,6 +17,31 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="finish" />
+      <item value="Control Manager" />
+      <item value="stop Server" />
+      <item value="get Instance" />
+      <item value="unregister" />
+      <item value="current Time Millis" />
+      <item value="on Back Pressed" />
+      <item value="delete All Record" />
+      <item value="Dialog Interface" />
+      <item value="release" />
+      <item value="delete All" />
+      <item value="clean Internal Sp" />
+      <item value="clean Internal Files" />
+      <item value="clean Internal Cache" />
+      <item value="clean External Cache" />
+      <item value="get Context" />
+      <item value="get Cache Path" />
+      <item value="clean Directory" />
+      <item value="on Click Clear Cache" />
+      <item value="reload Home" />
+      <item value="jar Init Ok" />
+      <item value="data Init Ok" />
+      <item value="on Long Click" />
+      <item value="get Cache Dir" />
+      <item value="recursive Delete" />
       <item value="contains" />
       <item value="Too Many Requests" />
       <item value="equals" />
@@ -27,8 +52,6 @@
       <item value="Collections" />
       <item value="refresh Open Token" />
       <item value="refresh Access Token" />
-      <item value="current Time Millis" />
-      <item value="finish" />
       <item value="oauth Request" />
       <item value="get Share Download Url" />
       <item value="safe Json String" />
@@ -44,29 +67,6 @@
       <item value="request Focus" />
       <item value="focusable" />
       <item value="is Focused" />
-      <item value="sort Focus View" />
-      <item value="sort Focuseda" />
-      <item value="sort Focused" />
-      <item value="state pressed" />
-      <item value="state focused" />
-      <item value="focused" />
-      <item value="state selected" />
-      <item value="use Cache" />
-      <item value="Show the view or text notification for a long period of time. This time could be user-definable. @see setDuration" />
-      <item value="LENGTH LONG" />
-      <item value="LENGTH SHORT" />
-      <item value="parse Thread Pool" />
-      <item value="is Added" />
-      <item value="FLAG ACTIVITY NEW TASK" />
-      <item value="release" />
-      <item value="set Is Full Screen" />
-      <item value="mutable List Of" />
-      <item value="inflate Custom Source" />
-      <item value="server Result" />
-      <item value="CUSTOM STORE HOUSE DATA" />
-      <item value="source Bean" />
-      <item value="scroll To Position" />
-      <item value="save List" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="4" />
-        <entry key="CHINESE" value="5392" />
+        <entry key="CHINESE" value="5420" />
         <entry key="CZECH" value="7" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5393" />
+        <entry key="ENGLISH" value="5421" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
