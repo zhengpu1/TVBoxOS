@@ -17,6 +17,15 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="is Scrolling" />
+      <item value="scroll To Position" />
+      <item value="on Item Click" />
+      <item value="select Setting Group" />
+      <item value="on Item Pre Selected" />
+      <item value="init Setting Group View" />
+      <item value="change Live Player Scale" />
+      <item value="set Item Index" />
+      <item value="personal Setting Items" />
       <item value="PLAY SCALE" />
       <item value="PLAY RENDER" />
       <item value="IJK CODEC" />
@@ -58,15 +67,6 @@
       <item value="get Context" />
       <item value="get Cache Path" />
       <item value="clean Directory" />
-      <item value="on Click Clear Cache" />
-      <item value="reload Home" />
-      <item value="jar Init Ok" />
-      <item value="data Init Ok" />
-      <item value="on Long Click" />
-      <item value="get Cache Dir" />
-      <item value="recursive Delete" />
-      <item value="contains" />
-      <item value="Too Many Requests" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="4" />
-        <entry key="CHINESE" value="5449" />
+        <entry key="CHINESE" value="5458" />
         <entry key="CZECH" value="7" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5450" />
+        <entry key="ENGLISH" value="5459" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
