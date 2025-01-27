@@ -17,6 +17,15 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="current Live Channel Item" />
+      <item value="LIVE SHOW TIME" />
+      <item value="live Setting Group List" />
+      <item value="LIVE CONNECT TIMEOUT" />
+      <item value="set Item Selected" />
+      <item value="LIVE SKIP PASSWORD" />
+      <item value="LIVE CROSS GROUP" />
+      <item value="LIVE CHANNEL REVERSE" />
+      <item value="LIVE SHOW NET SPEED" />
       <item value="THREAD COUNT" />
       <item value="show Thread Count Text" />
       <item value="TYPE CLASS NUMBER" />
@@ -58,15 +67,6 @@
       <item value="parse Vod" />
       <item value="matcher" />
       <item value="detail Content Vod Play Url" />
-      <item value="list Files" />
-      <item value="Collections" />
-      <item value="refresh Open Token" />
-      <item value="refresh Access Token" />
-      <item value="oauth Request" />
-      <item value="get Share Download Url" />
-      <item value="safe Json String" />
-      <item value="source Bean List" />
-      <item value="contains Key" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="4" />
-        <entry key="CHINESE" value="5433" />
+        <entry key="CHINESE" value="5444" />
         <entry key="CZECH" value="7" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5434" />
+        <entry key="ENGLISH" value="5445" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
