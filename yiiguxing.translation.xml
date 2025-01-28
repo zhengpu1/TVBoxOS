@@ -17,6 +17,12 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="set Live Setting Items" />
+      <item value="set Item Selected" />
+      <item value="LIVE SKIP PASSWORD" />
+      <item value="LIVE CROSS GROUP" />
+      <item value="LIVE SHOW TIME" />
+      <item value="LIVE CONNECT TIMEOUT" />
       <item value="on Item Selected" />
       <item value="on Item Pre Selected" />
       <item value="on Item Click" />
@@ -54,19 +60,13 @@
       <item value="IJK CODEC" />
       <item value="PLAY TYPE" />
       <item value="current Live Channel Item" />
-      <item value="LIVE SHOW TIME" />
       <item value="live Setting Group List" />
-      <item value="LIVE CONNECT TIMEOUT" />
-      <item value="set Item Selected" />
-      <item value="LIVE SKIP PASSWORD" />
-      <item value="LIVE CROSS GROUP" />
       <item value="LIVE CHANNEL REVERSE" />
       <item value="LIVE SHOW NET SPEED" />
       <item value="THREAD COUNT" />
       <item value="show Thread Count Text" />
       <item value="TYPE CLASS NUMBER" />
       <item value="set Input Type" />
-      <item value="set Layout Params" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="4" />
-        <entry key="CHINESE" value="5482" />
+        <entry key="CHINESE" value="5488" />
         <entry key="CZECH" value="7" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5483" />
+        <entry key="ENGLISH" value="5489" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
