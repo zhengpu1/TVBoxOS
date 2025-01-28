@@ -1,6 +1,6 @@
 <application>
   <component name="Translation.Cache">
-    <option name="lastTrimTime" value="1737544140975" />
+    <option name="lastTrimTime" value="1738031145248" />
   </component>
   <component name="Translation.Settings">
     <option name="baiduTranslateSettings">
@@ -17,6 +17,14 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="SDK INT" />
+      <item value="LOLLIPOP" />
+      <item value="are Contents The Same" />
+      <item value="chk Theme" />
+      <item value="are Items The Same" />
+      <item value="get Display" />
+      <item value="THEME SELECT" />
+      <item value="reload Activity" />
       <item value="is Scrolling" />
       <item value="scroll To Position" />
       <item value="on Item Click" />
@@ -59,14 +67,6 @@
       <item value="delete All Record" />
       <item value="Dialog Interface" />
       <item value="release" />
-      <item value="delete All" />
-      <item value="clean Internal Sp" />
-      <item value="clean Internal Files" />
-      <item value="clean Internal Cache" />
-      <item value="clean External Cache" />
-      <item value="get Context" />
-      <item value="get Cache Path" />
-      <item value="clean Directory" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="4" />
-        <entry key="CHINESE" value="5458" />
+        <entry key="CHINESE" value="5468" />
         <entry key="CZECH" value="7" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5459" />
+        <entry key="ENGLISH" value="5469" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
