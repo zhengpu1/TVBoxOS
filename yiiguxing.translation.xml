@@ -17,6 +17,8 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="m Update Time Run" />
+      <item value="Initialization" />
       <item value="SHOW SSPREVIEW" />
       <item value="INVISIBLE" />
       <item value="Screen Utils" />
@@ -65,8 +67,6 @@
       <item value="set Input Type" />
       <item value="set Layout Params" />
       <item value="set Positive Button" />
-      <item value="FEATURE ACTION BAR" />
-      <item value="episode_grouping EPISODE_GROUPING" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="4" />
-        <entry key="CHINESE" value="5478" />
+        <entry key="CHINESE" value="5479" />
         <entry key="CZECH" value="7" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5478" />
+        <entry key="ENGLISH" value="5480" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
