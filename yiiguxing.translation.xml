@@ -17,6 +17,12 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="INVISIBLE" />
+      <item value="Screen Utils" />
+      <item value="is Tv" />
+      <item value="m Back" />
+      <item value="is Key Up" />
+      <item value="Handler Callback" />
       <item value="XIANC NUM" />
       <item value="Integer" />
       <item value="HOME PWET TUMM" />
@@ -61,12 +67,6 @@
       <item value="FEATURE ACTION BAR" />
       <item value="episode_grouping EPISODE_GROUPING" />
       <item value="Scroll View" />
-      <item value="FLAG ACTIVITY CLEAR TOP" />
-      <item value="finish" />
-      <item value="Control Manager" />
-      <item value="stop Server" />
-      <item value="get Instance" />
-      <item value="unregister" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="4" />
-        <entry key="CHINESE" value="5471" />
+        <entry key="CHINESE" value="5477" />
         <entry key="CZECH" value="7" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5472" />
+        <entry key="ENGLISH" value="5478" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
@@ -92,6 +92,7 @@
         <entry key="ITALIAN" value="3" />
         <entry key="JAVANESE" value="1" />
         <entry key="KINYARWANDA" value="2" />
+        <entry key="LATVIAN" value="1" />
         <entry key="LUXEMBOURGISH" value="1" />
         <entry key="MALAY" value="1" />
         <entry key="MALTESE" value="4" />
