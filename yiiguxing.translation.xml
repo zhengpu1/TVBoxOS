@@ -17,6 +17,9 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="old Item" />
+      <item value="equals" />
+      <item value="intent" />
       <item value="is Down Or Up" />
       <item value="Use with {@link focusSearch(int)}. Move focus to the right." />
       <item value="Use with {@link focusSearch(int)}. Move focus up." />
@@ -64,9 +67,6 @@
       <item value="get Display" />
       <item value="THEME SELECT" />
       <item value="reload Activity" />
-      <item value="is Scrolling" />
-      <item value="scroll To Position" />
-      <item value="select Setting Group" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="4" />
-        <entry key="CHINESE" value="5502" />
+        <entry key="CHINESE" value="5505" />
         <entry key="CZECH" value="7" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5503" />
+        <entry key="ENGLISH" value="5506" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
