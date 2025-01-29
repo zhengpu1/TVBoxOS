@@ -17,8 +17,15 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
-      <item value="remove Callbacks And Messages" />
+      <item value="remove Messages" />
+      <item value="remove Html Tag" />
+      <item value="notify Item Removed" />
       <item value="remove Callbacks" />
+      <item value="Remove any pending posts of messages with code 'what' that are in the message queue." />
+      <item value="remove header view from mHeaderLayout. When the child count of mHeaderLayout is 0, mHeaderLayout will be set to null." />
+      <item value="set Header View" />
+      <item value="remove the item associated with the specified position of adapter" />
+      <item value="remove Callbacks And Messages" />
       <item value="equals" />
       <item value="remove First If" />
       <item value="remove At" />
@@ -29,7 +36,6 @@
       <item value="notify Data Set Changed" />
       <item value="hot Vod Delete" />
       <item value="to String" />
-      <item value="remove the item associated with the specified position of adapter" />
       <item value="Removes the given keyvalue from the storage @param key is used for removing related data from storage @return true if delete is successful" />
       <item value="save List" />
       <item value="set On Long Click Listener" />
@@ -61,12 +67,6 @@
       <item value="force Restart Home Activitys" />
       <item value="tv Menu" />
       <item value="HOME REC STYLE" />
-      <item value="is Finishing" />
-      <item value="get Application Context" />
-      <item value="FLAG ACTIVITY CLEAR TASK" />
-      <item value="current Time Millis" />
-      <item value="set Live Setting Items" />
-      <item value="set Item Selected" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="4" />
-        <entry key="CHINESE" value="5541" />
+        <entry key="CHINESE" value="5551" />
         <entry key="CZECH" value="7" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5542" />
+        <entry key="ENGLISH" value="5552" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
