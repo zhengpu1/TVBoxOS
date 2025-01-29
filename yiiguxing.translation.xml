@@ -17,18 +17,21 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="set On Click Listener" />
+      <item value="set On Item Child Click Listener" />
+      <item value="delete Vod Collect" />
+      <item value="notify Data Set Changed" />
+      <item value="hot Vod Delete" />
       <item value="to String" />
       <item value="remove the item associated with the specified position of adapter" />
       <item value="Removes the given keyvalue from the storage @param key is used for removing related data from storage @return true if delete is successful" />
       <item value="save List" />
       <item value="set On Long Click Listener" />
       <item value="has On Click Listeners" />
-      <item value="set On Click Listener" />
       <item value="init Landscape Portrait Btn Info" />
       <item value="set Time Show Or Dismiss" />
       <item value="on Cache Success" />
       <item value="on Success" />
-      <item value="set On Item Child Click Listener" />
       <item value="set On Item Long Click Listener" />
       <item value="save Custom Source Bean" />
       <item value="jar Init Ok" />
@@ -64,9 +67,6 @@
       <item value="LIVE SHOW TIME" />
       <item value="LIVE CONNECT TIMEOUT" />
       <item value="on Item Selected" />
-      <item value="on Item Pre Selected" />
-      <item value="on Item Click" />
-      <item value="m Update Time Run" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="4" />
-        <entry key="CHINESE" value="5528" />
+        <entry key="CHINESE" value="5533" />
         <entry key="CZECH" value="7" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5529" />
+        <entry key="ENGLISH" value="5534" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
