@@ -17,6 +17,8 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="remove First If" />
+      <item value="remove At" />
       <item value="delete Vod Record" />
       <item value="set On Click Listener" />
       <item value="set On Item Child Click Listener" />
@@ -65,8 +67,6 @@
       <item value="set Item Selected" />
       <item value="LIVE SKIP PASSWORD" />
       <item value="LIVE CROSS GROUP" />
-      <item value="LIVE SHOW TIME" />
-      <item value="LIVE CONNECT TIMEOUT" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="4" />
-        <entry key="CHINESE" value="5534" />
+        <entry key="CHINESE" value="5536" />
         <entry key="CZECH" value="7" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5535" />
+        <entry key="ENGLISH" value="5537" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
