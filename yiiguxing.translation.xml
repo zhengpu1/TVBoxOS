@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="equals" />
       <item value="remove First If" />
       <item value="remove At" />
       <item value="delete Vod Record" />
@@ -45,7 +46,6 @@
       <item value="tv Setting" />
       <item value="tv Collects" />
       <item value="old Item" />
-      <item value="equals" />
       <item value="intent" />
       <item value="is Down Or Up" />
       <item value="Use with {@link focusSearch(int)}. Move focus to the right." />
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="4" />
-        <entry key="CHINESE" value="5536" />
+        <entry key="CHINESE" value="5539" />
         <entry key="CZECH" value="7" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5537" />
+        <entry key="ENGLISH" value="5540" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
