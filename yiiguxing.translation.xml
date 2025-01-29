@@ -17,6 +17,13 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="is Down Or Up" />
+      <item value="Use with {@link focusSearch(int)}. Move focus to the right." />
+      <item value="Use with {@link focusSearch(int)}. Move focus up." />
+      <item value="FOCUS DOWN" />
+      <item value="FOCUS UP" />
+      <item value="set On In Border Key Event Listener" />
+      <item value="on In Border Key Event" />
       <item value="API URL BEANAME" />
       <item value="set Select Call Back" />
       <item value="force Restart Home Activitys" />
@@ -60,13 +67,6 @@
       <item value="is Scrolling" />
       <item value="scroll To Position" />
       <item value="select Setting Group" />
-      <item value="init Setting Group View" />
-      <item value="change Live Player Scale" />
-      <item value="set Item Index" />
-      <item value="personal Setting Items" />
-      <item value="PLAY SCALE" />
-      <item value="PLAY RENDER" />
-      <item value="IJK CODEC" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="4" />
-        <entry key="CHINESE" value="5496" />
+        <entry key="CHINESE" value="5502" />
         <entry key="CZECH" value="7" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5496" />
+        <entry key="ENGLISH" value="5503" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
