@@ -17,6 +17,11 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="API URL BEANAME" />
+      <item value="set Select Call Back" />
+      <item value="force Restart Home Activitys" />
+      <item value="tv Menu" />
+      <item value="HOME REC STYLE" />
       <item value="is Finishing" />
       <item value="get Application Context" />
       <item value="FLAG ACTIVITY CLEAR TASK" />
@@ -62,11 +67,6 @@
       <item value="PLAY SCALE" />
       <item value="PLAY RENDER" />
       <item value="IJK CODEC" />
-      <item value="PLAY TYPE" />
-      <item value="current Live Channel Item" />
-      <item value="live Setting Group List" />
-      <item value="LIVE CHANNEL REVERSE" />
-      <item value="LIVE SHOW NET SPEED" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,21 +75,21 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="4" />
-        <entry key="CHINESE" value="5492" />
+        <entry key="CHINESE" value="5496" />
         <entry key="CZECH" value="7" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5493" />
+        <entry key="ENGLISH" value="5496" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
-        <entry key="GALICIAN" value="10" />
+        <entry key="GALICIAN" value="11" />
         <entry key="GERMAN" value="8" />
         <entry key="GREEK" value="1" />
         <entry key="HUNGARIAN" value="1" />
         <entry key="INDONESIAN" value="2" />
         <entry key="IRISH" value="3" />
-        <entry key="ITALIAN" value="3" />
+        <entry key="ITALIAN" value="4" />
         <entry key="JAVANESE" value="1" />
         <entry key="KINYARWANDA" value="2" />
         <entry key="LATVIAN" value="1" />
