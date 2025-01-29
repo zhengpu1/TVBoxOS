@@ -17,6 +17,9 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="is Finishing" />
+      <item value="get Application Context" />
+      <item value="FLAG ACTIVITY CLEAR TASK" />
       <item value="current Time Millis" />
       <item value="set Live Setting Items" />
       <item value="set Item Selected" />
@@ -64,9 +67,6 @@
       <item value="live Setting Group List" />
       <item value="LIVE CHANNEL REVERSE" />
       <item value="LIVE SHOW NET SPEED" />
-      <item value="THREAD COUNT" />
-      <item value="show Thread Count Text" />
-      <item value="TYPE CLASS NUMBER" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="4" />
-        <entry key="CHINESE" value="5489" />
+        <entry key="CHINESE" value="5492" />
         <entry key="CZECH" value="7" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5490" />
+        <entry key="ENGLISH" value="5493" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
