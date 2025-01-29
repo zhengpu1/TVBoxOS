@@ -17,6 +17,9 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="tv Search" />
+      <item value="tv Setting" />
+      <item value="tv Collects" />
       <item value="old Item" />
       <item value="equals" />
       <item value="intent" />
@@ -64,9 +67,6 @@
       <item value="are Contents The Same" />
       <item value="chk Theme" />
       <item value="are Items The Same" />
-      <item value="get Display" />
-      <item value="THEME SELECT" />
-      <item value="reload Activity" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="4" />
-        <entry key="CHINESE" value="5505" />
+        <entry key="CHINESE" value="5508" />
         <entry key="CZECH" value="7" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5506" />
+        <entry key="ENGLISH" value="5509" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
