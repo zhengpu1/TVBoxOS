@@ -17,6 +17,10 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="to String" />
+      <item value="remove the item associated with the specified position of adapter" />
+      <item value="Removes the given keyvalue from the storage @param key is used for removing related data from storage @return true if delete is successful" />
+      <item value="save List" />
       <item value="set On Long Click Listener" />
       <item value="has On Click Listeners" />
       <item value="set On Click Listener" />
@@ -63,10 +67,6 @@
       <item value="on Item Pre Selected" />
       <item value="on Item Click" />
       <item value="m Update Time Run" />
-      <item value="Initialization" />
-      <item value="SHOW SSPREVIEW" />
-      <item value="INVISIBLE" />
-      <item value="Screen Utils" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="4" />
-        <entry key="CHINESE" value="5524" />
+        <entry key="CHINESE" value="5528" />
         <entry key="CZECH" value="7" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5525" />
+        <entry key="ENGLISH" value="5529" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
