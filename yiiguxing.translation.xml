@@ -17,6 +17,8 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="remove Callbacks And Messages" />
+      <item value="remove Callbacks" />
       <item value="equals" />
       <item value="remove First If" />
       <item value="remove At" />
@@ -65,8 +67,6 @@
       <item value="current Time Millis" />
       <item value="set Live Setting Items" />
       <item value="set Item Selected" />
-      <item value="LIVE SKIP PASSWORD" />
-      <item value="LIVE CROSS GROUP" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="4" />
-        <entry key="CHINESE" value="5539" />
+        <entry key="CHINESE" value="5541" />
         <entry key="CZECH" value="7" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5540" />
+        <entry key="ENGLISH" value="5542" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
