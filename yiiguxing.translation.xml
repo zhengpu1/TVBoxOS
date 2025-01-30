@@ -17,16 +17,24 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="refesh Q Rcode" />
+      <item value="is Empty" />
+      <item value="ensure Capacity Internal" />
+      <item value="ensure Capacity" />
+      <item value="trim To Size" />
+      <item value="Constructs a list containing the elements of the specified collection, in the order they are returned by the collection's iterator. @param c the collection whose elements are to be placed into this list @throws NullPointerException if the specified collection is null" />
+      <item value="source Bean" />
+      <item value="contains" />
+      <item value="set On Long Click Listener" />
+      <item value="set On Click Listener" />
+      <item value="set On Item Child Click Listener" />
       <item value="add On Layout Change Listener" />
       <item value="add On Attach State Change Listener" />
       <item value="remove On Attach State Change Listener" />
-      <item value="set On Click Listener" />
       <item value="has On Click Listeners" />
       <item value="add Frame Metrics Listener" />
       <item value="get On Long Click Listener" />
       <item value="has On Long Click Listeners" />
-      <item value="set On Long Click Listener" />
-      <item value="set On Item Child Click Listener" />
       <item value="clear to let GC do its work" />
       <item value="Private remove method that skips bounds checking and does not return the value removed." />
       <item value="Removes all of the elements from this list. The list will be empty after this call returns." />
@@ -59,14 +67,6 @@
       <item value="to String" />
       <item value="Removes the given keyvalue from the storage @param key is used for removing related data from storage @return true if delete is successful" />
       <item value="save List" />
-      <item value="init Landscape Portrait Btn Info" />
-      <item value="set Time Show Or Dismiss" />
-      <item value="on Cache Success" />
-      <item value="on Success" />
-      <item value="set On Item Long Click Listener" />
-      <item value="save Custom Source Bean" />
-      <item value="jar Init Ok" />
-      <item value="data Init Ok" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="4" />
-        <entry key="CHINESE" value="5582" />
-        <entry key="CZECH" value="7" />
+        <entry key="CHINESE" value="5594" />
+        <entry key="CZECH" value="8" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5583" />
+        <entry key="ENGLISH" value="5594" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
