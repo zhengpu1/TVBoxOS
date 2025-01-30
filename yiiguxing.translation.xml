@@ -17,6 +17,9 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="history Source Bean List" />
+      <item value="remove First If" />
+      <item value="remove At" />
       <item value="associate By" />
       <item value="Unresolved reference: sourceUrl" />
       <item value="to String" />
@@ -63,10 +66,7 @@
       <item value="TYPE STORE PUSH" />
       <item value="delete Data" />
       <item value="has Next" />
-      <item value="remove First If" />
       <item value="find First" />
-      <item value="remove First Ifs" />
-      <item value="equals" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="4" />
-        <entry key="CHINESE" value="5616" />
+        <entry key="CHINESE" value="5619" />
         <entry key="CZECH" value="8" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5617" />
+        <entry key="ENGLISH" value="5620" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
