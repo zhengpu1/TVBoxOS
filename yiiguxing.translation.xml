@@ -17,6 +17,13 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="delete Data" />
+      <item value="has Next" />
+      <item value="remove First If" />
+      <item value="find First" />
+      <item value="remove First Ifs" />
+      <item value="equals" />
+      <item value="reversed" />
       <item value="remove Messages" />
       <item value="remove Html Tag" />
       <item value="notify Item Removed" />
@@ -26,8 +33,6 @@
       <item value="set Header View" />
       <item value="remove the item associated with the specified position of adapter" />
       <item value="remove Callbacks And Messages" />
-      <item value="equals" />
-      <item value="remove First If" />
       <item value="remove At" />
       <item value="delete Vod Record" />
       <item value="set On Click Listener" />
@@ -62,11 +67,6 @@
       <item value="FOCUS UP" />
       <item value="set On In Border Key Event Listener" />
       <item value="on In Border Key Event" />
-      <item value="API URL BEANAME" />
-      <item value="set Select Call Back" />
-      <item value="force Restart Home Activitys" />
-      <item value="tv Menu" />
-      <item value="HOME REC STYLE" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="4" />
-        <entry key="CHINESE" value="5551" />
+        <entry key="CHINESE" value="5558" />
         <entry key="CZECH" value="7" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5552" />
+        <entry key="ENGLISH" value="5559" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
