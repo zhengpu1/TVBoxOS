@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="clear" />
       <item value="delete Data" />
       <item value="has Next" />
       <item value="remove First If" />
@@ -66,7 +67,6 @@
       <item value="FOCUS DOWN" />
       <item value="FOCUS UP" />
       <item value="set On In Border Key Event Listener" />
-      <item value="on In Border Key Event" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="4" />
-        <entry key="CHINESE" value="5558" />
+        <entry key="CHINESE" value="5559" />
         <entry key="CZECH" value="7" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5559" />
+        <entry key="ENGLISH" value="5560" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
