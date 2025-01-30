@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="Ad Blocker" />
       <item value="is Not Empty" />
       <item value="select Item" />
       <item value="for Each" />
@@ -66,7 +67,6 @@
       <item value="notify Item Removed" />
       <item value="remove Callbacks" />
       <item value="Remove any pending posts of messages with code 'what' that are in the message queue." />
-      <item value="remove header view from mHeaderLayout. When the child count of mHeaderLayout is 0, mHeaderLayout will be set to null." />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="4" />
-        <entry key="CHINESE" value="5607" />
+        <entry key="CHINESE" value="5608" />
         <entry key="CZECH" value="8" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5608" />
+        <entry key="ENGLISH" value="5609" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
