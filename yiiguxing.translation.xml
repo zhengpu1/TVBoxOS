@@ -17,6 +17,12 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="state focused" />
+      <item value="state selected" />
+      <item value="placeholder" />
+      <item value="set Focused Epg Index" />
+      <item value="sort Focused" />
+      <item value="set Text Color" />
       <item value="focusable" />
       <item value="text Color" />
       <item value="set Background Color" />
@@ -30,8 +36,6 @@
       <item value="color Text View" />
       <item value="Series Adapters" />
       <item value="notify Data Set Changed" />
-      <item value="sort Focused" />
-      <item value="set Text Color" />
       <item value="set Fake Bold Text" />
       <item value="m Handler" />
       <item value="is Down Or Up" />
@@ -63,10 +67,6 @@
       <item value="get Saved Progress" />
       <item value="get Int" />
       <item value="get String" />
-      <item value="history Source Bean List" />
-      <item value="remove First If" />
-      <item value="remove At" />
-      <item value="associate By" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="5672" />
+        <entry key="CHINESE" value="5679" />
         <entry key="CZECH" value="9" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5673" />
+        <entry key="ENGLISH" value="5680" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
