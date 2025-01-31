@@ -17,8 +17,12 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
-      <item value="state focused" />
       <item value="state selected" />
+      <item value="state focused" />
+      <item value="equals" />
+      <item value="alpha" />
+      <item value="round" />
+      <item value="set On Click Listener" />
       <item value="placeholder" />
       <item value="set Focused Epg Index" />
       <item value="sort Focused" />
@@ -63,10 +67,6 @@
       <item value="set Image Resource" />
       <item value="Handler" />
       <item value="post Delayed" />
-      <item value="org.json.JSONException: No value for st" />
-      <item value="get Saved Progress" />
-      <item value="get Int" />
-      <item value="get String" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="5679" />
+        <entry key="CHINESE" value="5686" />
         <entry key="CZECH" value="9" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5680" />
+        <entry key="ENGLISH" value="5687" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
