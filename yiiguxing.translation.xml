@@ -17,6 +17,11 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="scale Type" />
+      <item value="Round Transformation" />
+      <item value="set Image Resource" />
+      <item value="Handler" />
+      <item value="post Delayed" />
       <item value="set Background Color" />
       <item value="org.json.JSONException: No value for st" />
       <item value="get Saved Progress" />
@@ -62,11 +67,6 @@
       <item value="add Frame Metrics Listener" />
       <item value="get On Long Click Listener" />
       <item value="has On Long Click Listeners" />
-      <item value="clear to let GC do its work" />
-      <item value="Private remove method that skips bounds checking and does not return the value removed." />
-      <item value="Removes all of the elements from this list. The list will be empty after this call returns." />
-      <item value="compatibility Data Size Changed" />
-      <item value="replace Data" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="4" />
-        <entry key="CHINESE" value="5623" />
+        <entry key="CHINESE" value="5629" />
         <entry key="CZECH" value="9" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5624" />
+        <entry key="ENGLISH" value="5630" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
