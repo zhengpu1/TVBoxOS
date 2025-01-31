@@ -17,6 +17,11 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="set Background Color" />
+      <item value="set Background Drawable" />
+      <item value="set Colors" />
+      <item value="set Stroke" />
+      <item value="set Corner Radius" />
       <item value="scroll To Position" />
       <item value="Pepsi Theme" />
       <item value="Netfx Theme" />
@@ -52,7 +57,6 @@
       <item value="set Image Resource" />
       <item value="Handler" />
       <item value="post Delayed" />
-      <item value="set Background Color" />
       <item value="org.json.JSONException: No value for st" />
       <item value="get Saved Progress" />
       <item value="get Int" />
@@ -63,10 +67,6 @@
       <item value="associate By" />
       <item value="Unresolved reference: sourceUrl" />
       <item value="to String" />
-      <item value="hash Code" />
-      <item value="cache" />
-      <item value="load Lives" />
-      <item value="live Channel Group List" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="5665" />
+        <entry key="CHINESE" value="5670" />
         <entry key="CZECH" value="9" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5666" />
+        <entry key="ENGLISH" value="5671" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
