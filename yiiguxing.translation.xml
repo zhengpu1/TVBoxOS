@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="set Background Color" />
       <item value="org.json.JSONException: No value for st" />
       <item value="get Saved Progress" />
       <item value="get Int" />
@@ -66,7 +67,6 @@
       <item value="Removes all of the elements from this list. The list will be empty after this call returns." />
       <item value="compatibility Data Size Changed" />
       <item value="replace Data" />
-      <item value="apply" />
     </histories>
     <option name="languageScores">
       <map>
@@ -79,7 +79,7 @@
         <entry key="CZECH" value="9" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5623" />
+        <entry key="ENGLISH" value="5624" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
