@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="focusable" />
       <item value="state selected" />
       <item value="state focused" />
       <item value="equals" />
@@ -27,7 +28,6 @@
       <item value="set Focused Epg Index" />
       <item value="sort Focused" />
       <item value="set Text Color" />
-      <item value="focusable" />
       <item value="text Color" />
       <item value="set Background Color" />
       <item value="set Background Drawable" />
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="5686" />
+        <entry key="CHINESE" value="5687" />
         <entry key="CZECH" value="9" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5687" />
+        <entry key="ENGLISH" value="5688" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
