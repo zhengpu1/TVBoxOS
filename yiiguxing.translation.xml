@@ -17,6 +17,10 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="org.json.JSONException: No value for st" />
+      <item value="get Saved Progress" />
+      <item value="get Int" />
+      <item value="get String" />
       <item value="history Source Bean List" />
       <item value="remove First If" />
       <item value="remove At" />
@@ -63,10 +67,6 @@
       <item value="compatibility Data Size Changed" />
       <item value="replace Data" />
       <item value="apply" />
-      <item value="TYPE STORE PUSH" />
-      <item value="delete Data" />
-      <item value="has Next" />
-      <item value="find First" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="4" />
-        <entry key="CHINESE" value="5619" />
-        <entry key="CZECH" value="8" />
+        <entry key="CHINESE" value="5623" />
+        <entry key="CZECH" value="9" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5620" />
+        <entry key="ENGLISH" value="5623" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
