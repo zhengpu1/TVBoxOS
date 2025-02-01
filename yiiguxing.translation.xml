@@ -17,9 +17,15 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="pressed Drawable" />
+      <item value="selected Drawable" />
+      <item value="set Gradient Center" />
+      <item value="RIGHT LEFT" />
+      <item value="RADIAL GRADIENT" />
+      <item value="normal Drawable" />
+      <item value="Char Sequence" />
       <item value="set Gradient Radius" />
       <item value="Radius is in pixels." />
-      <item value="RADIAL GRADIENT" />
       <item value="set Gradient Type" />
       <item value="get Gradient Type" />
       <item value="&lt;p&gt;Sets the type of shape used to draw the gradient.&lt;p&gt; &lt;p&gt;&lt;strong&gt;Note&lt;strong&gt;: changing this property will affect all instances of a drawable loaded from a resource. It is recommended to invoke {@link mutate()} before changing this property.&lt;p&gt; @param shape The desired shape for this drawable: {@link LINE}, {@link OVAL}, {@link RECTANGLE} or {@link RING} @see mutate()" />
@@ -44,7 +50,6 @@
       <item value="mm 2 px" />
       <item value="Auto Size Utils" />
       <item value="set Corner Radius" />
-      <item value="pressed Drawable" />
       <item value="set Orientation" />
       <item value="Control Manager" />
       <item value="unregister" />
@@ -56,17 +61,12 @@
       <item value="LENGTH SHORT" />
       <item value="set Image Resource" />
       <item value="bottom Left Radius" />
-      <item value="selected Drawable" />
       <item value="has Permission" />
       <item value="get Sort" />
       <item value="Setup Alibaba Token" />
       <item value="set Text Size" />
       <item value="on Click Clear Cache" />
       <item value="set On Long Click Listener" />
-      <item value="set On Click Listener" />
-      <item value="on Item Click" />
-      <item value="stop All" />
-      <item value="search Executor Service" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="5766" />
+        <entry key="CHINESE" value="5775" />
         <entry key="CZECH" value="9" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5767" />
+        <entry key="ENGLISH" value="5776" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="6" />
