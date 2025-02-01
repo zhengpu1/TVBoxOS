@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="set Stroke" />
       <item value="pressed Drawable" />
       <item value="normal Drawable" />
       <item value="focusable" />
@@ -34,7 +35,6 @@
       <item value="set Background Color" />
       <item value="set Background Drawable" />
       <item value="set Colors" />
-      <item value="set Stroke" />
       <item value="set Corner Radius" />
       <item value="scroll To Position" />
       <item value="Pepsi Theme" />
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="5690" />
+        <entry key="CHINESE" value="5691" />
         <entry key="CZECH" value="9" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5691" />
+        <entry key="ENGLISH" value="5692" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
