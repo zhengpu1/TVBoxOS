@@ -17,6 +17,8 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="pressed Drawable" />
+      <item value="set Orientation" />
       <item value="Control Manager" />
       <item value="unregister" />
       <item value="get Default" />
@@ -55,7 +57,6 @@
       <item value="VIDEO PURIFY" />
       <item value="&lt;p&gt;Set the stroke width and color for the drawable. If width is zero, then no stroke is drawn.&lt;p&gt; &lt;p&gt;&lt;strong&gt;Note&lt;strong&gt;: changing this property will affect all instances of a drawable loaded from a resource. It is recommended to invoke {@link mutate()} before changing this property.&lt;p&gt; @param width The width in pixels of the stroke @param color The color of the stroke @see mutate() @see setStroke(int, int, float, float)" />
       <item value="set Stroke" />
-      <item value="pressed Drawable" />
       <item value="normal Drawable" />
       <item value="focusable" />
       <item value="state selected" />
@@ -66,7 +67,6 @@
       <item value="placeholder" />
       <item value="set Focused Epg Index" />
       <item value="sort Focused" />
-      <item value="set Text Color" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="5738" />
+        <entry key="CHINESE" value="5740" />
         <entry key="CZECH" value="9" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5739" />
+        <entry key="ENGLISH" value="5741" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
