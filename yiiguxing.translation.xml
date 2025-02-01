@@ -17,6 +17,9 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="on Click Clear Cache" />
+      <item value="set On Long Click Listener" />
+      <item value="set On Click Listener" />
       <item value="on Item Click" />
       <item value="stop All" />
       <item value="search Executor Service" />
@@ -44,7 +47,6 @@
       <item value="equals" />
       <item value="alpha" />
       <item value="round" />
-      <item value="set On Click Listener" />
       <item value="placeholder" />
       <item value="set Focused Epg Index" />
       <item value="sort Focused" />
@@ -65,8 +67,6 @@
       <item value="is Down Or Up" />
       <item value="get Resources" />
       <item value="Space" />
-      <item value="font deta color" />
-      <item value="tv Debug Open" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="5716" />
+        <entry key="CHINESE" value="5719" />
         <entry key="CZECH" value="9" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5717" />
+        <entry key="ENGLISH" value="5720" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
