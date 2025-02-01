@@ -17,6 +17,9 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="mm 2 px" />
+      <item value="Auto Size Utils" />
+      <item value="set Corner Radius" />
       <item value="pressed Drawable" />
       <item value="set Orientation" />
       <item value="Control Manager" />
@@ -30,7 +33,6 @@
       <item value="set Image Resource" />
       <item value="bottom Left Radius" />
       <item value="selected Drawable" />
-      <item value="set Corner Radius" />
       <item value="has Permission" />
       <item value="get Sort" />
       <item value="Setup Alibaba Token" />
@@ -65,8 +67,6 @@
       <item value="alpha" />
       <item value="round" />
       <item value="placeholder" />
-      <item value="set Focused Epg Index" />
-      <item value="sort Focused" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,14 +75,14 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="5740" />
+        <entry key="CHINESE" value="5742" />
         <entry key="CZECH" value="9" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5741" />
+        <entry key="ENGLISH" value="5743" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
-        <entry key="FRENCH" value="5" />
+        <entry key="FRENCH" value="6" />
         <entry key="GALICIAN" value="11" />
         <entry key="GERMAN" value="8" />
         <entry key="GREEK" value="1" />
