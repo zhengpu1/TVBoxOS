@@ -17,6 +17,8 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="set Image Resource" />
+      <item value="bottom Left Radius" />
       <item value="selected Drawable" />
       <item value="set Corner Radius" />
       <item value="has Permission" />
@@ -65,8 +67,6 @@
       <item value="Pepsi Theme" />
       <item value="Netfx Theme" />
       <item value="color Text View" />
-      <item value="Series Adapters" />
-      <item value="notify Data Set Changed" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="5728" />
+        <entry key="CHINESE" value="5730" />
         <entry key="CZECH" value="9" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5729" />
+        <entry key="ENGLISH" value="5731" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="5" />
