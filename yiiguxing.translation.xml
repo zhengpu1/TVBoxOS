@@ -17,6 +17,10 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="draw the gradient from the top-right to the bottom-left" />
+      <item value="Orientation" />
+      <item value="TR BL" />
+      <item value="set Orientation" />
       <item value="pressed Drawable" />
       <item value="selected Drawable" />
       <item value="set Gradient Center" />
@@ -50,7 +54,6 @@
       <item value="mm 2 px" />
       <item value="Auto Size Utils" />
       <item value="set Corner Radius" />
-      <item value="set Orientation" />
       <item value="Control Manager" />
       <item value="unregister" />
       <item value="get Default" />
@@ -64,9 +67,6 @@
       <item value="has Permission" />
       <item value="get Sort" />
       <item value="Setup Alibaba Token" />
-      <item value="set Text Size" />
-      <item value="on Click Clear Cache" />
-      <item value="set On Long Click Listener" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="5775" />
+        <entry key="CHINESE" value="5779" />
         <entry key="CZECH" value="9" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5776" />
+        <entry key="ENGLISH" value="5780" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="6" />
