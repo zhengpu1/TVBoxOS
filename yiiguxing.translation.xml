@@ -17,6 +17,13 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="LENGTH LONG" />
+      <item value="clean External Cache" />
+      <item value="clean Internal Cache" />
+      <item value="clean Internal Sp" />
+      <item value="delete All" />
+      <item value="Cache Manager" />
+      <item value="get Instance" />
       <item value="forbid Jar Dialog" />
       <item value="Collection" />
       <item value="is Empty" />
@@ -60,13 +67,6 @@
       <item value="is Primitive" />
       <item value="equals" />
       <item value="as Subclass" />
-      <item value="is Assignable From" />
-      <item value="set On Focus Change Listener" />
-      <item value="set Image Resource" />
-      <item value="Char Sequence" />
-      <item value="load Vod Info" />
-      <item value="firstsource Key" />
-      <item value="set Vod Info" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="5830" />
+        <entry key="CHINESE" value="5837" />
         <entry key="CZECH" value="9" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5831" />
+        <entry key="ENGLISH" value="5838" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="7" />
