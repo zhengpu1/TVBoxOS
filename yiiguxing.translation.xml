@@ -17,6 +17,8 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="boarder" />
+      <item value="radius" />
       <item value="get Round Bitmap By Shader" />
       <item value="get Bitmap" />
       <item value="Bitmap Factory" />
@@ -65,8 +67,6 @@
       <item value="set Shape" />
       <item value="&lt;p&gt;Sets the size of the shape drawn by this drawable.&lt;p&gt; &lt;p&gt;&lt;strong&gt;Note&lt;strong&gt;: changing this property will affect all instances of a drawable loaded from a resource. It is recommended to invoke {@link mutate()} before changing this property.&lt;p&gt; @param width The width of the shape used by this drawable @param height The height of the shape used by this drawable @see mutate() @see setGradientType(int)" />
       <item value="set Size" />
-      <item value="set Stroke Internal" />
-      <item value="&lt;p&gt;Set the stroke width and color state list for the drawable. If width is zero, then no stroke is drawn.&lt;p&gt; &lt;p&gt;&lt;strong&gt;Note&lt;strong&gt;: changing this property will affect all instances of a drawable loaded from a resource. It is recommended to invoke {@link mutate()} before changing this property.&lt;p&gt; @param width The width in pixels of the stroke @param colorStateList The color state list of the stroke @see mutate() @see setStroke(int, ColorStateList, float, float)" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="5809" />
+        <entry key="CHINESE" value="5811" />
         <entry key="CZECH" value="9" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5810" />
+        <entry key="ENGLISH" value="5812" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="6" />
