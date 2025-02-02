@@ -17,6 +17,11 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="Get the LayoutParams associated with this view. All views should have layout parameters. These supply parameters to the &lt;i&gt;parent&lt;i&gt; of this view specifying how it should be arranged. There are many subclasses of ViewGroup.LayoutParams, and these correspond to the different subclasses of ViewGroup that are responsible for arranging their children. This method may return null if this View is not attached to a parent ViewGroup or {@link setLayoutParams(android.view.ViewGroup.LayoutParams)} was not invoked successfully. When a View is attached to a parent ViewGroup, this method must not return null. @return The LayoutParams associated with this view, or null if no parameters have been set yet" />
+      <item value="Non Null" />
+      <item value="color Text View" />
+      <item value="set Layout Params" />
+      <item value="Update Dialog" />
       <item value="FLAG ACTIVITY NEW TASK" />
       <item value="process Name" />
       <item value="fileprovider" />
@@ -28,7 +33,6 @@
       <item value="@Requires Api(Build.VERSION CODES.N)" />
       <item value="@RequiresApi(Build.VERSION_CODES.N) @SuppressLint(&quot;MissingInflatedId&quot;)" />
       <item value="is Primitive" />
-      <item value="Non Null" />
       <item value="instanceof" />
       <item value="equals" />
       <item value="as Subclass" />
@@ -63,10 +67,6 @@
       <item value="set Stroke" />
       <item value="Sets the colors used to draw the gradient. &lt;p&gt; Each color is specified as an ARGB integer and the array must contain at least 2 colors. &lt;p&gt; &lt;strong&gt;Note&lt;strong&gt;: changing colors will affect all instances of a drawable loaded from a resource. It is recommended to invoke {@link mutate()} before changing the colors. @param colors an array containing 2 or more ARGB colors @see mutate() @see setColor(int)" />
       <item value="set Colors" />
-      <item value="set Layout Params" />
-      <item value="index Of" />
-      <item value="cannot be instantiated" />
-      <item value="Text Utils" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="5800" />
+        <entry key="CHINESE" value="5806" />
         <entry key="CZECH" value="9" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5801" />
+        <entry key="ENGLISH" value="5807" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="6" />
