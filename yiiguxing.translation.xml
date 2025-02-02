@@ -17,9 +17,12 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="CUSTOM STORE HOUSE DATA" />
+      <item value="delay" />
+      <item value="period" />
+      <item value="Schedules an [action] to be executed periodically, starting after the specified [delay] (expressed in milliseconds) and with the interval of [period] milliseconds between the end of the previous task and the start of the next one." />
       <item value="CUSTOM STORE HOUSE SELECTED" />
       <item value="notify Item Changed" />
-      <item value="delay" />
       <item value="post Delayed" />
       <item value="select Item" />
       <item value="delete Items" />
@@ -36,7 +39,6 @@
       <item value="Source Store Dialog" />
       <item value="default more source" />
       <item value="more source" />
-      <item value="CUSTOM STORE HOUSE DATA" />
       <item value="context" />
       <item value="is Not Empty" />
       <item value="LENGTH LONG" />
@@ -65,8 +67,6 @@
       <item value="set Bounds" />
       <item value="Auto Size Utils" />
       <item value="with" />
-      <item value="Theme Manager" />
-      <item value="boarder" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="5863" />
+        <entry key="CHINESE" value="5867" />
         <entry key="CZECH" value="9" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5864" />
+        <entry key="ENGLISH" value="5868" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="7" />
