@@ -17,11 +17,21 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
-      <item value="set Bounds" />
+      <item value="is Server" />
+      <item value="More Source Bean" />
+      <item value="instanceof" />
+      <item value="vector" />
       <item value="append Image" />
+      <item value="Span Utils" />
+      <item value="Context Compat" />
+      <item value="get Drawable" />
+      <item value="set Dither" />
+      <item value="set Changing Configurations" />
+      <item value="get Bounds" />
+      <item value="copy Bounds" />
+      <item value="set Bounds" />
       <item value="Auto Size Utils" />
       <item value="with" />
-      <item value="More Source Bean" />
       <item value="Theme Manager" />
       <item value="boarder" />
       <item value="radius" />
@@ -44,7 +54,6 @@
       <item value="@Requires Api(Build.VERSION CODES.N)" />
       <item value="@RequiresApi(Build.VERSION_CODES.N) @SuppressLint(&quot;MissingInflatedId&quot;)" />
       <item value="is Primitive" />
-      <item value="instanceof" />
       <item value="equals" />
       <item value="as Subclass" />
       <item value="is Assignable From" />
@@ -58,15 +67,6 @@
       <item value="draw the gradient from the top-right to the bottom-left" />
       <item value="Orientation" />
       <item value="TR BL" />
-      <item value="set Orientation" />
-      <item value="pressed Drawable" />
-      <item value="selected Drawable" />
-      <item value="set Gradient Center" />
-      <item value="RIGHT LEFT" />
-      <item value="RADIAL GRADIENT" />
-      <item value="normal Drawable" />
-      <item value="set Gradient Radius" />
-      <item value="Radius is in pixels." />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,21 +75,21 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="5817" />
+        <entry key="CHINESE" value="5826" />
         <entry key="CZECH" value="9" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5818" />
+        <entry key="ENGLISH" value="5827" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="7" />
-        <entry key="GALICIAN" value="12" />
+        <entry key="GALICIAN" value="13" />
         <entry key="GERMAN" value="8" />
         <entry key="GREEK" value="1" />
         <entry key="HUNGARIAN" value="1" />
         <entry key="INDONESIAN" value="2" />
         <entry key="IRISH" value="3" />
-        <entry key="ITALIAN" value="4" />
+        <entry key="ITALIAN" value="5" />
         <entry key="JAVANESE" value="1" />
         <entry key="KINYARWANDA" value="2" />
         <entry key="LATVIAN" value="1" />
