@@ -17,10 +17,17 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="CUSTOM STORE HOUSE SELECTED" />
+      <item value="notify Item Changed" />
+      <item value="delay" />
+      <item value="post Delayed" />
+      <item value="select Item" />
+      <item value="delete Items" />
+      <item value="get Muti Source" />
+      <item value="set On Click Listener" />
       <item value="set On Long Click Listener" />
       <item value="notify Data Set Changed" />
       <item value="notify Item Range Changed" />
-      <item value="CUSTOM STORE HOUSE SELECTED" />
       <item value="API HISTORY LIST" />
       <item value="Theme App Compat Light Dialog Alert" />
       <item value="recreate" />
@@ -60,13 +67,6 @@
       <item value="with" />
       <item value="Theme Manager" />
       <item value="boarder" />
-      <item value="radius" />
-      <item value="get Round Bitmap By Shader" />
-      <item value="get Bitmap" />
-      <item value="Bitmap Factory" />
-      <item value="Get the LayoutParams associated with this view. All views should have layout parameters. These supply parameters to the &lt;i&gt;parent&lt;i&gt; of this view specifying how it should be arranged. There are many subclasses of ViewGroup.LayoutParams, and these correspond to the different subclasses of ViewGroup that are responsible for arranging their children. This method may return null if this View is not attached to a parent ViewGroup or {@link setLayoutParams(android.view.ViewGroup.LayoutParams)} was not invoked successfully. When a View is attached to a parent ViewGroup, this method must not return null. @return The LayoutParams associated with this view, or null if no parameters have been set yet" />
-      <item value="Non Null" />
-      <item value="color Text View" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="5855" />
+        <entry key="CHINESE" value="5863" />
         <entry key="CZECH" value="9" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5856" />
+        <entry key="ENGLISH" value="5864" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="7" />
