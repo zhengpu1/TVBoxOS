@@ -17,6 +17,11 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="FLAG ACTIVITY NEW TASK" />
+      <item value="process Name" />
+      <item value="fileprovider" />
+      <item value="applicationvnd.android.package-archive" />
+      <item value="FLAG GRANT READ URI PERMISSION" />
       <item value="Missing Inflated Id" />
       <item value="Suppress Lint" />
       <item value="Using flatDir should be avoided because it doesn't support any meta-data formats." />
@@ -62,11 +67,6 @@
       <item value="index Of" />
       <item value="cannot be instantiated" />
       <item value="Text Utils" />
-      <item value="get Ellipsis String" />
-      <item value="API URL BEAN" />
-      <item value="tv Ijk Cache Play" />
-      <item value="TYPE API URL CHANGE" />
-      <item value="on Url Change" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="5796" />
+        <entry key="CHINESE" value="5800" />
         <entry key="CZECH" value="9" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5797" />
+        <entry key="ENGLISH" value="5801" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="6" />
@@ -99,7 +99,7 @@
         <entry key="NORWEGIAN" value="2" />
         <entry key="ROMANIAN" value="1" />
         <entry key="SLOVAK" value="4" />
-        <entry key="SPANISH" value="1" />
+        <entry key="SPANISH" value="2" />
         <entry key="SWEDISH" value="5" />
         <entry key="TURKISH" value="2" />
         <entry key="UKRAINIAN" value="2" />
