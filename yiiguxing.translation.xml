@@ -17,6 +17,11 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="load Vod Info" />
+      <item value="equals" />
+      <item value="firstsource Key" />
+      <item value="set Vod Info" />
+      <item value="INSTANCE" />
       <item value="draw the gradient from the top-right to the bottom-left" />
       <item value="Orientation" />
       <item value="TR BL" />
@@ -46,7 +51,6 @@
       <item value="cannot be instantiated" />
       <item value="Text Utils" />
       <item value="get Ellipsis String" />
-      <item value="equals" />
       <item value="API URL BEAN" />
       <item value="tv Ijk Cache Play" />
       <item value="TYPE API URL CHANGE" />
@@ -63,10 +67,6 @@
       <item value="on Back Pressed" />
       <item value="LENGTH SHORT" />
       <item value="set Image Resource" />
-      <item value="bottom Left Radius" />
-      <item value="has Permission" />
-      <item value="get Sort" />
-      <item value="Setup Alibaba Token" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="5779" />
+        <entry key="CHINESE" value="5783" />
         <entry key="CZECH" value="9" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5780" />
+        <entry key="ENGLISH" value="5784" />
         <entry key="ESPERANTO" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="6" />
