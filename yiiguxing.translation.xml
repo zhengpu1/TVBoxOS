@@ -17,6 +17,13 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="System chooses an opaque format (no alpha bits required)" />
+      <item value="RGBA_8888" />
+      <item value="add Callback" />
+      <item value="set Format" />
+      <item value="TRANSLUCENT" />
+      <item value="Failed to set EGL_SWAP_BEHAVIOR on surface 0xc5169240, error=EGL_BAD_MATCH" />
+      <item value="et EGL Config Chooser" />
       <item value="schedule" />
       <item value="CUSTOM STORE HOUSE DATA" />
       <item value="delay" />
@@ -60,13 +67,6 @@
       <item value="append Image" />
       <item value="Span Utils" />
       <item value="Context Compat" />
-      <item value="get Drawable" />
-      <item value="set Dither" />
-      <item value="set Changing Configurations" />
-      <item value="get Bounds" />
-      <item value="copy Bounds" />
-      <item value="set Bounds" />
-      <item value="Auto Size Utils" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,12 +75,12 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="5868" />
+        <entry key="CHINESE" value="5874" />
         <entry key="CZECH" value="9" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5869" />
-        <entry key="ESPERANTO" value="1" />
+        <entry key="ENGLISH" value="5875" />
+        <entry key="ESPERANTO" value="2" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="7" />
         <entry key="GALICIAN" value="13" />
