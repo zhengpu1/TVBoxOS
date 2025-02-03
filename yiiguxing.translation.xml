@@ -17,14 +17,15 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="set On Click Listener" />
+      <item value="notify Item Changed" />
+      <item value="set Primary Clip" />
       <item value="Api History Dialog Adapter" />
       <item value="copy Text" />
       <item value="clipboard" />
-      <item value="set Primary Clip" />
       <item value="Clip Data" />
       <item value="new Plain Text" />
       <item value="cp Content" />
-      <item value="set On Click Listener" />
       <item value="LIVE HISTORY" />
       <item value="save Custom Source Bean" />
       <item value="refesh Q Rcode" />
@@ -66,7 +67,6 @@
       <item value="select" />
       <item value="set Select Call Back" />
       <item value="set Gravity" />
-      <item value="on Select" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="5935" />
+        <entry key="CHINESE" value="5938" />
         <entry key="CZECH" value="10" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5936" />
+        <entry key="ENGLISH" value="5939" />
         <entry key="ESPERANTO" value="2" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="7" />
