@@ -17,6 +17,9 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="select Live Url And Load" />
+      <item value="remove" />
+      <item value="LIVE SOURCE URL HISTORY" />
       <item value="can Delete" />
       <item value="set On Click Listener" />
       <item value="notify Item Changed" />
@@ -43,7 +46,6 @@
       <item value="load Lives" />
       <item value="put Live History" />
       <item value="clan To Address" />
-      <item value="LIVE SOURCE URL HISTORY" />
       <item value="refresh Saved Live Beans" />
       <item value="mi TV" />
       <item value="post Delayed" />
@@ -65,8 +67,6 @@
       <item value="notify Data Set Changed" />
       <item value="CUSTOM STORE HOUSE SELECTED" />
       <item value="select Url" />
-      <item value="select" />
-      <item value="set Select Call Back" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="5939" />
+        <entry key="CHINESE" value="5942" />
         <entry key="CZECH" value="10" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5940" />
+        <entry key="ENGLISH" value="5943" />
         <entry key="ESPERANTO" value="2" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="7" />
