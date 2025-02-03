@@ -17,11 +17,19 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="Adapter Diff Call Back" />
+      <item value="to Mutable List" />
+      <item value="m Select Dialog Adapter Interface" />
+      <item value="invoke" />
+      <item value="set Adapter" />
+      <item value="apply" />
+      <item value="force Restart Home Activitys" />
+      <item value="set On Item Child Click Listener" />
+      <item value="drawable Text View" />
       <item value="show Dialog" />
       <item value="notify Data Set Changed" />
       <item value="CUSTOM STORE HOUSE SELECTED" />
       <item value="select Url" />
-      <item value="invoke" />
       <item value="select" />
       <item value="set Select Call Back" />
       <item value="set Gravity" />
@@ -59,14 +67,6 @@
       <item value="is Not Empty" />
       <item value="LENGTH LONG" />
       <item value="clean External Cache" />
-      <item value="clean Internal Cache" />
-      <item value="clean Internal Sp" />
-      <item value="delete All" />
-      <item value="Cache Manager" />
-      <item value="get Instance" />
-      <item value="forbid Jar Dialog" />
-      <item value="Collection" />
-      <item value="is Empty" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="5886" />
+        <entry key="CHINESE" value="5895" />
         <entry key="CZECH" value="9" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5887" />
+        <entry key="ENGLISH" value="5896" />
         <entry key="ESPERANTO" value="2" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="7" />
