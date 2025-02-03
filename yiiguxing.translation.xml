@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="LIVE SOURCE URL CURRENT" />
       <item value="Select View Holder" />
       <item value="contains" />
       <item value="equals" />
@@ -39,7 +40,6 @@
       <item value="inflate Custom Source" />
       <item value="set On Item Child Click Listener" />
       <item value="URL SAFE" />
-      <item value="LIVE SOURCE URL CURRENT" />
       <item value="get Live Url From Server" />
       <item value="video parse rule for host" />
       <item value="clear" />
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="5945" />
+        <entry key="CHINESE" value="5946" />
         <entry key="CZECH" value="10" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5946" />
+        <entry key="ENGLISH" value="5947" />
         <entry key="ESPERANTO" value="2" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="7" />
