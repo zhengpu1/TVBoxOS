@@ -17,10 +17,25 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
-      <item value="video parse rule for host" />
-      <item value="LIVE SOURCE URL HISTORY" />
-      <item value="LIVE SOURCE URL CURRENT" />
       <item value="LIVE HISTORY" />
+      <item value="save Custom Source Bean" />
+      <item value="refesh Q Rcode" />
+      <item value="inflate Custom Source" />
+      <item value="set On Item Child Click Listener" />
+      <item value="URL SAFE" />
+      <item value="LIVE SOURCE URL CURRENT" />
+      <item value="get Live Url From Server" />
+      <item value="video parse rule for host" />
+      <item value="clear" />
+      <item value="save Server Lives Url" />
+      <item value="load Live Source Url" />
+      <item value="load Proxy Lives" />
+      <item value="load Lives" />
+      <item value="put Live History" />
+      <item value="clan To Address" />
+      <item value="LIVE SOURCE URL HISTORY" />
+      <item value="refresh Saved Live Beans" />
+      <item value="mi TV" />
       <item value="post Delayed" />
       <item value="Nullable" />
       <item value="more Source Bean" />
@@ -35,7 +50,6 @@
       <item value="set Adapter" />
       <item value="apply" />
       <item value="force Restart Home Activitys" />
-      <item value="set On Item Child Click Listener" />
       <item value="drawable Text View" />
       <item value="show Dialog" />
       <item value="notify Data Set Changed" />
@@ -53,20 +67,6 @@
       <item value="TRANSLUCENT" />
       <item value="Failed to set EGL_SWAP_BEHAVIOR on surface 0xc5169240, error=EGL_BAD_MATCH" />
       <item value="et EGL Config Chooser" />
-      <item value="schedule" />
-      <item value="CUSTOM STORE HOUSE DATA" />
-      <item value="delay" />
-      <item value="period" />
-      <item value="Schedules an [action] to be executed periodically, starting after the specified [delay] (expressed in milliseconds) and with the interval of [period] milliseconds between the end of the previous task and the start of the next one." />
-      <item value="notify Item Changed" />
-      <item value="select Item" />
-      <item value="delete Items" />
-      <item value="set On Click Listener" />
-      <item value="set On Long Click Listener" />
-      <item value="notify Item Range Changed" />
-      <item value="API HISTORY LIST" />
-      <item value="Theme App Compat Light Dialog Alert" />
-      <item value="recreate" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="5906" />
-        <entry key="CZECH" value="9" />
+        <entry key="CHINESE" value="5927" />
+        <entry key="CZECH" value="10" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5907" />
+        <entry key="ENGLISH" value="5928" />
         <entry key="ESPERANTO" value="2" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="7" />
