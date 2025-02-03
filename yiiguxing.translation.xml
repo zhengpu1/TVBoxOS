@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="new Source" />
       <item value="Adapter Diff Call Back" />
       <item value="to Mutable List" />
       <item value="m Select Dialog Adapter Interface" />
@@ -66,7 +67,6 @@
       <item value="context" />
       <item value="is Not Empty" />
       <item value="LENGTH LONG" />
-      <item value="clean External Cache" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="5895" />
+        <entry key="CHINESE" value="5896" />
         <entry key="CZECH" value="9" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5896" />
+        <entry key="ENGLISH" value="5897" />
         <entry key="ESPERANTO" value="2" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="7" />
