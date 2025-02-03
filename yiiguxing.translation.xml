@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="post Delayed" />
       <item value="Nullable" />
       <item value="more Source Bean" />
       <item value="API URL BEAN" />
@@ -54,7 +55,6 @@
       <item value="period" />
       <item value="Schedules an [action] to be executed periodically, starting after the specified [delay] (expressed in milliseconds) and with the interval of [period] milliseconds between the end of the previous task and the start of the next one." />
       <item value="notify Item Changed" />
-      <item value="post Delayed" />
       <item value="select Item" />
       <item value="delete Items" />
       <item value="set On Click Listener" />
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="5901" />
+        <entry key="CHINESE" value="5902" />
         <entry key="CZECH" value="9" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5902" />
+        <entry key="ENGLISH" value="5903" />
         <entry key="ESPERANTO" value="2" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="7" />
