@@ -17,6 +17,10 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="more Source Bean" />
+      <item value="API URL BEAN" />
+      <item value="cache Time" />
+      <item value="get Muti Source" />
       <item value="new Source" />
       <item value="Adapter Diff Call Back" />
       <item value="to Mutable List" />
@@ -52,7 +56,6 @@
       <item value="post Delayed" />
       <item value="select Item" />
       <item value="delete Items" />
-      <item value="get Muti Source" />
       <item value="set On Click Listener" />
       <item value="set On Long Click Listener" />
       <item value="notify Item Range Changed" />
@@ -64,9 +67,6 @@
       <item value="Source Store Dialog" />
       <item value="default more source" />
       <item value="more source" />
-      <item value="context" />
-      <item value="is Not Empty" />
-      <item value="LENGTH LONG" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="5896" />
+        <entry key="CHINESE" value="5900" />
         <entry key="CZECH" value="9" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5897" />
+        <entry key="ENGLISH" value="5901" />
         <entry key="ESPERANTO" value="2" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="7" />
