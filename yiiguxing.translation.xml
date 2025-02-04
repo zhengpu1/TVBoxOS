@@ -17,22 +17,28 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="load Lives" />
+      <item value="contains" />
+      <item value="API URL BEAN" />
+      <item value="set Source Name" />
+      <item value="inflate Custom Source" />
+      <item value="LIVE SOURCE URL HISTORY" />
+      <item value="LIVE SOURCE URL CURRENT" />
+      <item value="last Select Bean" />
+      <item value="Base Quick Adapter" />
       <item value="get Home Source Bean" />
       <item value="HOME SHOW SOURCE" />
       <item value="m Home Source" />
       <item value="empty Home" />
-      <item value="LIVE SOURCE URL CURRENT" />
       <item value="set Extra Key" />
       <item value="append Image" />
       <item value="set Image Resource" />
       <item value="LIVE URL" />
-      <item value="LIVE SOURCE URL HISTORY" />
       <item value="set On Item Child Click Listener" />
       <item value="select Live Url And Load" />
       <item value="select New Live Source" />
       <item value="LIVE CHANELE COLLECTD" />
       <item value="Select View Holder" />
-      <item value="contains" />
       <item value="equals" />
       <item value="remove" />
       <item value="can Delete" />
@@ -48,7 +54,6 @@
       <item value="LIVE HISTORY" />
       <item value="save Custom Source Bean" />
       <item value="refesh Q Rcode" />
-      <item value="inflate Custom Source" />
       <item value="URL SAFE" />
       <item value="get Live Url From Server" />
       <item value="video parse rule for host" />
@@ -56,17 +61,12 @@
       <item value="save Server Lives Url" />
       <item value="load Live Source Url" />
       <item value="load Proxy Lives" />
-      <item value="load Lives" />
       <item value="put Live History" />
       <item value="clan To Address" />
       <item value="refresh Saved Live Beans" />
       <item value="mi TV" />
       <item value="post Delayed" />
       <item value="Nullable" />
-      <item value="more Source Bean" />
-      <item value="API URL BEAN" />
-      <item value="cache Time" />
-      <item value="get Muti Source" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="5965" />
+        <entry key="CHINESE" value="5977" />
         <entry key="CZECH" value="10" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5966" />
+        <entry key="ENGLISH" value="5978" />
         <entry key="ESPERANTO" value="2" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="7" />
