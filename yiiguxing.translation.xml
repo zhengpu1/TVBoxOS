@@ -17,14 +17,17 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
-      <item value="select Live Url And Load" />
       <item value="LIVE SOURCE URL CURRENT" />
+      <item value="LIVE URL" />
+      <item value="LIVE SOURCE URL HISTORY" />
+      <item value="set On Item Child Click Listener" />
+      <item value="select Live Url And Load" />
+      <item value="select New Live Source" />
       <item value="LIVE CHANELE COLLECTD" />
       <item value="Select View Holder" />
       <item value="contains" />
       <item value="equals" />
       <item value="remove" />
-      <item value="LIVE SOURCE URL HISTORY" />
       <item value="can Delete" />
       <item value="set On Click Listener" />
       <item value="notify Item Changed" />
@@ -39,7 +42,6 @@
       <item value="save Custom Source Bean" />
       <item value="refesh Q Rcode" />
       <item value="inflate Custom Source" />
-      <item value="set On Item Child Click Listener" />
       <item value="URL SAFE" />
       <item value="get Live Url From Server" />
       <item value="video parse rule for host" />
@@ -65,8 +67,6 @@
       <item value="invoke" />
       <item value="set Adapter" />
       <item value="apply" />
-      <item value="force Restart Home Activitys" />
-      <item value="drawable Text View" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="5949" />
+        <entry key="CHINESE" value="5956" />
         <entry key="CZECH" value="10" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5950" />
+        <entry key="ENGLISH" value="5957" />
         <entry key="ESPERANTO" value="2" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="7" />
