@@ -17,6 +17,8 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="normal Drawable" />
+      <item value="pressed Drawable" />
       <item value="set Orientation" />
       <item value="on Focus Change" />
       <item value="set On Focus Change Listener" />
@@ -65,8 +67,6 @@
       <item value="load Live Source Url" />
       <item value="load Proxy Lives" />
       <item value="put Live History" />
-      <item value="clan To Address" />
-      <item value="refresh Saved Live Beans" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="5980" />
+        <entry key="CHINESE" value="5982" />
         <entry key="CZECH" value="10" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5981" />
+        <entry key="ENGLISH" value="5983" />
         <entry key="ESPERANTO" value="2" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="7" />
