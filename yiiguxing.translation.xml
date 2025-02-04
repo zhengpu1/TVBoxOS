@@ -17,11 +17,12 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="select Live Url And Load" />
       <item value="LIVE SOURCE URL CURRENT" />
+      <item value="LIVE CHANELE COLLECTD" />
       <item value="Select View Holder" />
       <item value="contains" />
       <item value="equals" />
-      <item value="select Live Url And Load" />
       <item value="remove" />
       <item value="LIVE SOURCE URL HISTORY" />
       <item value="can Delete" />
@@ -66,7 +67,6 @@
       <item value="apply" />
       <item value="force Restart Home Activitys" />
       <item value="drawable Text View" />
-      <item value="show Dialog" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="5946" />
+        <entry key="CHINESE" value="5949" />
         <entry key="CZECH" value="10" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5947" />
+        <entry key="ENGLISH" value="5950" />
         <entry key="ESPERANTO" value="2" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="7" />
