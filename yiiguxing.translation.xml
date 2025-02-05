@@ -17,6 +17,26 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="LOLLIPOP" />
+      <item value="INVISIBLE" />
+      <item value="set Drawable" />
+      <item value="Drawable" />
+      <item value="get Method" />
+      <item value="set Drawable Method" />
+      <item value="get Progress Drawable" />
+      <item value="set Drawable By Layer Id" />
+      <item value="find Drawable By Layer Id" />
+      <item value="invoke" />
+      <item value="new Drawable" />
+      <item value="Clip Drawable" />
+      <item value="set Secondary Progress" />
+      <item value="set Progress Drawable" />
+      <item value="Creates a new clip drawable with the specified gravity and orientation. @param drawable the drawable to clip @param gravity gravity constant (see {@link Gravity} used to position the clipped drawable within the parent container @param orientation bitwise-or of {@link HORIZONTAL} andor {@link VERTICAL}" />
+      <item value="Unsupported App Usage" />
+      <item value="VERTICAL" />
+      <item value="HORIZONTAL" />
+      <item value="@attr ref android.R.styleableClipDrawable_clipOrientation @attr ref android.R.styleableClipDrawable_gravity @attr ref android.R.styleableClipDrawable_drawable" />
+      <item value="Push object to the left of its container, not changing its size." />
       <item value="background" />
       <item value="get Drawable" />
       <item value="progress" />
@@ -24,11 +44,6 @@
       <item value="Layer Drawable" />
       <item value="Setprogressbar" />
       <item value="set Clip Drawable" />
-      <item value="HORIZONTAL" />
-      <item value="Clip Drawable" />
-      <item value="get Progress Drawable" />
-      <item value="set Drawable By Layer Id" />
-      <item value="set Progress Drawable" />
       <item value="get Color By Attr Id" />
       <item value="progress Drawable" />
       <item value="LEFT" />
@@ -52,21 +67,6 @@
       <item value="boarder Paint" />
       <item value="create Bitmap" />
       <item value="boarder" />
-      <item value="get Round Bitmap By Shader" />
-      <item value="set Alpha" />
-      <item value="set Scale" />
-      <item value="normal Drawable" />
-      <item value="pressed Drawable" />
-      <item value="set Orientation" />
-      <item value="on Focus Change" />
-      <item value="set On Focus Change Listener" />
-      <item value="load Lives" />
-      <item value="contains" />
-      <item value="API URL BEAN" />
-      <item value="set Source Name" />
-      <item value="inflate Custom Source" />
-      <item value="LIVE SOURCE URL HISTORY" />
-      <item value="LIVE SOURCE URL CURRENT" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6025" />
+        <entry key="CHINESE" value="6052" />
         <entry key="CZECH" value="10" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6026" />
+        <entry key="ENGLISH" value="6053" />
         <entry key="ESPERANTO" value="2" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="7" />
