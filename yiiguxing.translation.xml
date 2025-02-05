@@ -17,6 +17,9 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="config Web View Sys" />
+      <item value="OVER SCROLL ALWAYS" />
+      <item value="Set Java Script Enabled" />
       <item value="is Finishing" />
       <item value="is Destroyed" />
       <item value="hide Sys Bar" />
@@ -64,9 +67,6 @@
       <item value="FILTER BITMAP FLAG" />
       <item value="Geometry and text drawn with this style will be filled, ignoring all stroke-related settings in the paint." />
       <item value="set Style" />
-      <item value="Paint flag that enables antialiasing when drawing. &lt;p&gt;Enabling this flag will cause all draw operations that support antialiasing to use it.&lt;p&gt; @see Paint(int) @see setFlags(int)" />
-      <item value="ANTI ALIAS FLAG" />
-      <item value="@param paint The paint used to draw the roundRect" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6055" />
+        <entry key="CHINESE" value="6059" />
         <entry key="CZECH" value="10" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6056" />
+        <entry key="ENGLISH" value="6060" />
         <entry key="ESPERANTO" value="2" />
         <entry key="FILIPINO" value="1" />
         <entry key="FINNISH" value="1" />
