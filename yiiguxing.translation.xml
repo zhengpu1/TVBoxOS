@@ -17,6 +17,10 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="get Drawable" />
+      <item value="progress" />
+      <item value="secondary Progress" />
+      <item value="Layer Drawable" />
       <item value="Setprogressbar" />
       <item value="set Clip Drawable" />
       <item value="HORIZONTAL" />
@@ -26,7 +30,6 @@
       <item value="set Progress Drawable" />
       <item value="get Color By Attr Id" />
       <item value="progress Drawable" />
-      <item value="progress" />
       <item value="LEFT" />
       <item value="get Resources" />
       <item value="request Focus" />
@@ -64,9 +67,6 @@
       <item value="LIVE SOURCE URL HISTORY" />
       <item value="LIVE SOURCE URL CURRENT" />
       <item value="last Select Bean" />
-      <item value="Base Quick Adapter" />
-      <item value="get Home Source Bean" />
-      <item value="HOME SHOW SOURCE" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6021" />
+        <entry key="CHINESE" value="6024" />
         <entry key="CZECH" value="10" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6021" />
+        <entry key="ENGLISH" value="6025" />
         <entry key="ESPERANTO" value="2" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="7" />
