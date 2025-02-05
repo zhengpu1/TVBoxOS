@@ -17,6 +17,10 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="get Round Bitmap By Shader" />
+      <item value="set Alpha" />
+      <item value="get Resources" />
+      <item value="set Scale" />
       <item value="normal Drawable" />
       <item value="pressed Drawable" />
       <item value="set Orientation" />
@@ -63,10 +67,6 @@
       <item value="get Live Url From Server" />
       <item value="video parse rule for host" />
       <item value="clear" />
-      <item value="save Server Lives Url" />
-      <item value="load Live Source Url" />
-      <item value="load Proxy Lives" />
-      <item value="put Live History" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="5982" />
+        <entry key="CHINESE" value="5986" />
         <entry key="CZECH" value="10" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="5983" />
+        <entry key="ENGLISH" value="5987" />
         <entry key="ESPERANTO" value="2" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="7" />
