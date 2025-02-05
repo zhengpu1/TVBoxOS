@@ -17,6 +17,15 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="get Progress Drawable" />
+      <item value="set Progress Drawable" />
+      <item value="get Color By Attr Id" />
+      <item value="progress Drawable" />
+      <item value="progress" />
+      <item value="LEFT" />
+      <item value="HORIZONTAL" />
+      <item value="get Resources" />
+      <item value="request Focus" />
       <item value="draw Rect" />
       <item value="draw Round Rect" />
       <item value="Set the width for stroking. Pass 0 to stroke in hairline mode. Hairlines always draws a single pixel independent of the canvas's matrix. @param width set the paint's stroke width, used whenever the paint's style is Stroke or StrokeAndFill." />
@@ -37,7 +46,6 @@
       <item value="boarder" />
       <item value="get Round Bitmap By Shader" />
       <item value="set Alpha" />
-      <item value="get Resources" />
       <item value="set Scale" />
       <item value="normal Drawable" />
       <item value="pressed Drawable" />
@@ -59,14 +67,6 @@
       <item value="empty Home" />
       <item value="set Extra Key" />
       <item value="append Image" />
-      <item value="set Image Resource" />
-      <item value="LIVE URL" />
-      <item value="set On Item Child Click Listener" />
-      <item value="select Live Url And Load" />
-      <item value="select New Live Source" />
-      <item value="LIVE CHANELE COLLECTD" />
-      <item value="Select View Holder" />
-      <item value="equals" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6007" />
+        <entry key="CHINESE" value="6015" />
         <entry key="CZECH" value="10" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6007" />
+        <entry key="ENGLISH" value="6016" />
         <entry key="ESPERANTO" value="2" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="7" />
