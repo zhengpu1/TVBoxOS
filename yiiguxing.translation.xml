@@ -17,13 +17,17 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="Setprogressbar" />
+      <item value="set Clip Drawable" />
+      <item value="HORIZONTAL" />
+      <item value="Clip Drawable" />
       <item value="get Progress Drawable" />
+      <item value="set Drawable By Layer Id" />
       <item value="set Progress Drawable" />
       <item value="get Color By Attr Id" />
       <item value="progress Drawable" />
       <item value="progress" />
       <item value="LEFT" />
-      <item value="HORIZONTAL" />
       <item value="get Resources" />
       <item value="request Focus" />
       <item value="draw Rect" />
@@ -63,10 +67,6 @@
       <item value="Base Quick Adapter" />
       <item value="get Home Source Bean" />
       <item value="HOME SHOW SOURCE" />
-      <item value="m Home Source" />
-      <item value="empty Home" />
-      <item value="set Extra Key" />
-      <item value="append Image" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6015" />
+        <entry key="CHINESE" value="6021" />
         <entry key="CZECH" value="10" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6016" />
+        <entry key="ENGLISH" value="6021" />
         <entry key="ESPERANTO" value="2" />
         <entry key="FILIPINO" value="1" />
         <entry key="FRENCH" value="7" />
@@ -96,7 +96,7 @@
         <entry key="LUXEMBOURGISH" value="1" />
         <entry key="MALAY" value="1" />
         <entry key="MALTESE" value="4" />
-        <entry key="NORWEGIAN" value="2" />
+        <entry key="NORWEGIAN" value="3" />
         <entry key="ROMANIAN" value="1" />
         <entry key="SLOVAK" value="4" />
         <entry key="SPANISH" value="2" />
