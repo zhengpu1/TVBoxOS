@@ -17,10 +17,10 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="views To Hide When False" />
       <item value="views To Show When True" />
       <item value="as List" />
       <item value="views To Show When False" />
-      <item value="views To Hide When False" />
       <item value="views To Hide When True" />
       <item value="is Home Rec Style" />
       <item value="update UI" />
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6133" />
+        <entry key="CHINESE" value="6134" />
         <entry key="CZECH" value="10" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6134" />
+        <entry key="ENGLISH" value="6135" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
