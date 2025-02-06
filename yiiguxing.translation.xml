@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="Select App Theme Color" />
       <item value="theme Res Id" />
       <item value="Style Res" />
       <item value="App Theme" />
@@ -66,7 +67,6 @@
       <item value="secondary Progress" />
       <item value="Layer Drawable" />
       <item value="Setprogressbar" />
-      <item value="set Clip Drawable" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6079" />
+        <entry key="CHINESE" value="6080" />
         <entry key="CZECH" value="10" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6080" />
+        <entry key="ENGLISH" value="6081" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
