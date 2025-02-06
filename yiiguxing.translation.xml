@@ -17,6 +17,16 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="Grid Layout Manager" />
+      <item value="volatile" />
+      <item value="LIVE SOURCE URL CURRENT" />
+      <item value="FORBID VIDEO DIALOG" />
+      <item value="SPAN SIZE FOR OTHER ITEMS" />
+      <item value="SPAN SIZE FOR FIRST TWO ITEMS" />
+      <item value="set Layout Manager" />
+      <item value="grid Layout Manager" />
+      <item value="setup Recycler View" />
+      <item value="set Span Size Lookup" />
       <item value="is Destroyed" />
       <item value="run On Ui Thread" />
       <item value="print Stack Trace" />
@@ -57,16 +67,6 @@
       <item value="get Progress Drawable" />
       <item value="set Drawable By Layer Id" />
       <item value="find Drawable By Layer Id" />
-      <item value="invoke" />
-      <item value="new Drawable" />
-      <item value="Clip Drawable" />
-      <item value="set Secondary Progress" />
-      <item value="set Progress Drawable" />
-      <item value="Creates a new clip drawable with the specified gravity and orientation. @param drawable the drawable to clip @param gravity gravity constant (see {@link Gravity} used to position the clipped drawable within the parent container @param orientation bitwise-or of {@link HORIZONTAL} andor {@link VERTICAL}" />
-      <item value="Unsupported App Usage" />
-      <item value="VERTICAL" />
-      <item value="HORIZONTAL" />
-      <item value="@attr ref android.R.styleableClipDrawable_clipOrientation @attr ref android.R.styleableClipDrawable_gravity @attr ref android.R.styleableClipDrawable_drawable" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6091" />
+        <entry key="CHINESE" value="6104" />
         <entry key="CZECH" value="10" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6092" />
+        <entry key="ENGLISH" value="6105" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
