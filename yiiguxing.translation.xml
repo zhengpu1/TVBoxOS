@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="tv Setting" />
       <item value="views To Show When True" />
       <item value="set Views Visibility" />
       <item value="views To Show When False" />
@@ -66,7 +67,6 @@
       <item value="Selected Paint Color (color)." />
       <item value="Interrupted IO Exception" />
       <item value="config Web View Sys" />
-      <item value="OVER SCROLL ALWAYS" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6120" />
+        <entry key="CHINESE" value="6121" />
         <entry key="CZECH" value="10" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6121" />
+        <entry key="ENGLISH" value="6122" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
