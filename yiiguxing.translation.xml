@@ -17,6 +17,18 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="Pepsi Theme" />
+      <item value="Dorae Theme" />
+      <item value="Netfx Theme" />
+      <item value="Naruto Theme" />
+      <item value="Minion Theme" />
+      <item value="butterflylovetheme" />
+      <item value="glasstheme" />
+      <item value="Yagami Theme" />
+      <item value="horizontal Spacing With Margins TV" />
+      <item value="Selected Paint Color (color)" />
+      <item value="Default Paint Color (color)" />
+      <item value="Selected Paint Color (color)." />
       <item value="Interrupted IO Exception" />
       <item value="config Web View Sys" />
       <item value="OVER SCROLL ALWAYS" />
@@ -55,18 +67,6 @@
       <item value="get Color By Attr Id" />
       <item value="progress Drawable" />
       <item value="LEFT" />
-      <item value="get Resources" />
-      <item value="request Focus" />
-      <item value="draw Rect" />
-      <item value="draw Round Rect" />
-      <item value="Set the width for stroking. Pass 0 to stroke in hairline mode. Hairlines always draws a single pixel independent of the canvas's matrix. @param width set the paint's stroke width, used whenever the paint's style is Stroke or StrokeAndFill." />
-      <item value="get Stroke Width" />
-      <item value="set Stroke Width" />
-      <item value="The Y coordinate of the top of the rectangle" />
-      <item value="The X coordinate of the left side of the rectangle" />
-      <item value="@param left The X coordinate of the left side of the rectangle @param top The Y coordinate of the top of the rectangle @param right The X coordinate of the right side of the rectangle @param bottom The Y coordinate of the bottom of the rectangle" />
-      <item value="FILTER BITMAP FLAG" />
-      <item value="Geometry and text drawn with this style will be filled, ignoring all stroke-related settings in the paint." />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,12 +75,13 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6060" />
+        <entry key="CHINESE" value="6076" />
         <entry key="CZECH" value="10" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6061" />
+        <entry key="ENGLISH" value="6077" />
         <entry key="ESPERANTO" value="2" />
+        <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FINNISH" value="1" />
         <entry key="FRENCH" value="7" />
