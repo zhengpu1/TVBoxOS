@@ -17,7 +17,14 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="Drawable Text View" />
+      <item value="set On Item Click Listener" />
+      <item value="on Item Click" />
       <item value="Choose Play Pop Up" />
+      <item value="insert Vod" />
+      <item value="post Delayed" />
+      <item value="show Popup Window" />
+      <item value="series Adapter" />
       <item value="clean Series Name" />
       <item value="grids Params" />
       <item value="HOME LSTIMG" />
@@ -39,7 +46,6 @@
       <item value="On Item Long Click Listener" />
       <item value="setup Adapter Long Click Listeners" />
       <item value="set On Item Long Click Listener" />
-      <item value="set On Item Click Listener" />
       <item value="set On Item Listener" />
       <item value="on Fragment Resume" />
       <item value="setup Recycler View Listeners" />
@@ -61,12 +67,6 @@
       <item value="show Success" />
       <item value="handle Classify Data" />
       <item value="load Vod Info" />
-      <item value="should Classify Vod Info" />
-      <item value="handle Series Data" />
-      <item value="handle Ungrouped Episode Selection" />
-      <item value="handle Grouped Episode Selection" />
-      <item value="handle Fresh Index Event" />
-      <item value="insert Vod" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6217" />
+        <entry key="CHINESE" value="6225" />
         <entry key="CZECH" value="10" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6218" />
+        <entry key="ENGLISH" value="6226" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
