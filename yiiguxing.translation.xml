@@ -17,6 +17,14 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="set On Item Long Click Listener" />
+      <item value="set On Item Listener" />
+      <item value="set On Item Click Listener" />
+      <item value="on Fragment Resume" />
+      <item value="setup Recycler View Listeners" />
+      <item value="Setource Store Dialog" />
+      <item value="setource Store Dialog" />
+      <item value="Source Store Dialog" />
       <item value="scale Video View" />
       <item value="toggle Mini Progress" />
       <item value="set Adapter Click Listener" />
@@ -59,14 +67,6 @@
       <item value="views To Show When False" />
       <item value="views To Hide When True" />
       <item value="is Home Rec Style" />
-      <item value="update UI" />
-      <item value="tv Setting" />
-      <item value="set Views Visibility" />
-      <item value="categories" />
-      <item value="first Site" />
-      <item value="searchable" />
-      <item value="quick Search" />
-      <item value="filterable" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6180" />
+        <entry key="CHINESE" value="6190" />
         <entry key="CZECH" value="10" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6181" />
+        <entry key="ENGLISH" value="6191" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
