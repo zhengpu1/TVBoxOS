@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="toggle Mini Progress" />
       <item value="set Adapter Click Listener" />
       <item value="drawable View" />
       <item value="Overload resolution ambiguity: public open fun drawableLinearLayout(strs: LinearLayout, esdrs: Int): Unit defined in com.github.tvbox.osc.base.BaseActivity public open fun drawableLinearLayout(strs: Array&lt;(out) LinearLayout!&gt;, esdrs: Int): Unit defined in com.github.tvbox.osc.base.BaseActivity" />
@@ -66,7 +67,6 @@
       <item value="quick Search" />
       <item value="filterable" />
       <item value="source Bean List" />
-      <item value="LIVE SOURCE URL CURRENT" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6178" />
+        <entry key="CHINESE" value="6179" />
         <entry key="CZECH" value="10" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6179" />
+        <entry key="ENGLISH" value="6180" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
