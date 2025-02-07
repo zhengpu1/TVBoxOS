@@ -18,8 +18,8 @@
     <option name="newTranslationDialogY" value="560" />
     <histories>
       <item value="set On Item Long Click Listener" />
-      <item value="set On Item Listener" />
       <item value="set On Item Click Listener" />
+      <item value="set On Item Listener" />
       <item value="on Fragment Resume" />
       <item value="setup Recycler View Listeners" />
       <item value="Setource Store Dialog" />
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6190" />
+        <entry key="CHINESE" value="6194" />
         <entry key="CZECH" value="10" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6191" />
+        <entry key="ENGLISH" value="6195" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
