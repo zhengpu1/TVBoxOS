@@ -17,6 +17,8 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="get Remarks" />
+      <item value="create Video From Json" />
       <item value="starts With" />
       <item value="is Htv Hrys Source" />
       <item value="equals" />
@@ -65,8 +67,6 @@
       <item value="Home Activity" />
       <item value="value Of" />
       <item value="update Rec Style Layout" />
-      <item value="set Arguments" />
-      <item value="show Views Style 2" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6203" />
+        <entry key="CHINESE" value="6205" />
         <entry key="CZECH" value="10" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6204" />
+        <entry key="ENGLISH" value="6206" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
