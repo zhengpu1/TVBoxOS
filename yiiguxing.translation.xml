@@ -1,6 +1,6 @@
 <application>
   <component name="Translation.Cache">
-    <option name="lastTrimTime" value="1738466669588" />
+    <option name="lastTrimTime" value="1738908224970" />
   </component>
   <component name="Translation.Settings">
     <option name="baiduTranslateSettings">
@@ -17,6 +17,12 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="handle Ungrouped Episode Selection" />
+      <item value="handle Grouped Episode Selection" />
+      <item value="handle Fresh Index Event" />
+      <item value="insert Vod" />
+      <item value="Group Index" />
+      <item value="switch" />
       <item value="on Click Clear Cache" />
       <item value="force Refreshk" />
       <item value="get Current Item" />
@@ -61,12 +67,6 @@
       <item value="print Stack Trace" />
       <item value="is Finishing" />
       <item value="sleep" />
-      <item value="CUSTOM STORE HOUSE DATA" />
-      <item value="get Default" />
-      <item value="unregister" />
-      <item value="on Destroy" />
-      <item value="Select App Theme Color" />
-      <item value="theme Res Id" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6146" />
+        <entry key="CHINESE" value="6157" />
         <entry key="CZECH" value="10" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6147" />
+        <entry key="ENGLISH" value="6158" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
