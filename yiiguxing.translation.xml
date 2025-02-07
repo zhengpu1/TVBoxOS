@@ -17,6 +17,11 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="clean Series Name" />
+      <item value="grids Params" />
+      <item value="HOME LSTIMG" />
+      <item value="get Layout Params" />
+      <item value="setup Delete Button" />
       <item value="this" />
       <item value="set Click Listeners" />
       <item value="click" />
@@ -62,11 +67,6 @@
       <item value="handle Fresh Index Event" />
       <item value="insert Vod" />
       <item value="Group Index" />
-      <item value="switch" />
-      <item value="on Click Clear Cache" />
-      <item value="force Refreshk" />
-      <item value="get Current Item" />
-      <item value="fragments" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,18 +75,18 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6212" />
+        <entry key="CHINESE" value="6216" />
         <entry key="CZECH" value="10" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6213" />
+        <entry key="ENGLISH" value="6217" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FINNISH" value="2" />
         <entry key="FRENCH" value="7" />
         <entry key="GALICIAN" value="13" />
-        <entry key="GERMAN" value="8" />
+        <entry key="GERMAN" value="9" />
         <entry key="GREEK" value="1" />
         <entry key="HUNGARIAN" value="1" />
         <entry key="INDONESIAN" value="2" />
