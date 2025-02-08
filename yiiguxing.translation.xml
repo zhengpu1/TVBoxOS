@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="set Screen On" />
       <item value="on Switch Source Event" />
       <item value="on Create" />
       <item value="equals" />
@@ -66,7 +67,6 @@
       <item value="index Of" />
       <item value="select" />
       <item value="CUSTOM STORE HOUSE SELECTED" />
-      <item value="Select Dialog New" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6318" />
+        <entry key="CHINESE" value="6319" />
         <entry key="CZECH" value="11" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6319" />
+        <entry key="ENGLISH" value="6320" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
