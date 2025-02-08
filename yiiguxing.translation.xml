@@ -17,6 +17,11 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="is First Start" />
+      <item value="toggle Rec Style" />
+      <item value="update Rec Style Layout" />
+      <item value="HOME REC STYLE" />
+      <item value="is First Launch" />
       <item value="Quick Search Adapter" />
       <item value="corner Radius" />
       <item value="get Corner Radius" />
@@ -62,11 +67,6 @@
       <item value="Refresh Event" />
       <item value="set On Click Listener" />
       <item value="TYPE STORE PUSH" />
-      <item value="refesh Q Rcode" />
-      <item value="Illegal State Exception" />
-      <item value="Drawable Text View" />
-      <item value="on Item Click" />
-      <item value="Choose Play Pop Up" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,17 +75,17 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6292" />
+        <entry key="CHINESE" value="6295" />
         <entry key="CZECH" value="11" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6293" />
+        <entry key="ENGLISH" value="6296" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FINNISH" value="3" />
         <entry key="FRENCH" value="7" />
-        <entry key="GALICIAN" value="13" />
+        <entry key="GALICIAN" value="15" />
         <entry key="GERMAN" value="9" />
         <entry key="GREEK" value="1" />
         <entry key="HUNGARIAN" value="1" />
