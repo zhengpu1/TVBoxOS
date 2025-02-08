@@ -17,6 +17,17 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="BUTTON NEGATIVE" />
+      <item value="reset App" />
+      <item value="clean External Cache" />
+      <item value="clean Internal Cache" />
+      <item value="clean Internal Files" />
+      <item value="clean Internal Sp" />
+      <item value="Cache Manager" />
+      <item value="instance" />
+      <item value="Cache Manager Holder" />
+      <item value="get Instance" />
+      <item value="create" />
       <item value="on Back Pressed" />
       <item value="Automaticallyaddwarehouse" />
       <item value="custom Sources" />
@@ -56,17 +67,6 @@
       <item value="on Select" />
       <item value="set Select Call Back" />
       <item value="find Data" />
-      <item value="history Source Bean List" />
-      <item value="show Dialog" />
-      <item value="inflate Data" />
-      <item value="INSTANCE" />
-      <item value="invoke" />
-      <item value="post Delayed" />
-      <item value="notify Item Changed" />
-      <item value="set On Long Click Listener" />
-      <item value="CUSTOM STORE HOUSE DATA" />
-      <item value="more Source Bean" />
-      <item value="More Source Bean" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6299" />
+        <entry key="CHINESE" value="6310" />
         <entry key="CZECH" value="11" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6300" />
+        <entry key="ENGLISH" value="6311" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
