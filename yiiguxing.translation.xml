@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="on Back Pressed" />
       <item value="Automaticallyaddwarehouse" />
       <item value="custom Sources" />
       <item value="set On Click Listener" />
@@ -66,7 +67,6 @@
       <item value="CUSTOM STORE HOUSE DATA" />
       <item value="more Source Bean" />
       <item value="More Source Bean" />
-      <item value="handle Remote Push" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6298" />
+        <entry key="CHINESE" value="6299" />
         <entry key="CZECH" value="11" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6298" />
+        <entry key="ENGLISH" value="6300" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
