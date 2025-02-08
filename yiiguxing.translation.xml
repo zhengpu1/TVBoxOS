@@ -17,6 +17,9 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="set On Click Listener" />
+      <item value="CUSTOM STORE HOUSE DATA" />
+      <item value="TYPE STORE PUSH" />
       <item value="refesh Q Rcode" />
       <item value="Illegal State Exception" />
       <item value="Drawable Text View" />
@@ -64,9 +67,6 @@
       <item value="create Bitmap Drawable" />
       <item value="reverse Series Data" />
       <item value="toggle Sort Order" />
-      <item value="handle Quick Search Word Change Event" />
-      <item value="handle Quick Search Select Event" />
-      <item value="show Success" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6227" />
+        <entry key="CHINESE" value="6231" />
         <entry key="CZECH" value="11" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6227" />
+        <entry key="ENGLISH" value="6232" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
