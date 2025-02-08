@@ -17,6 +17,15 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="start Quick Search" />
+      <item value="switch Search Word" />
+      <item value="on Switch Source Event" />
+      <item value="handle Fresh Index Event" />
+      <item value="display Name" />
+      <item value="TYPE QUICK SEARCH WORD" />
+      <item value="TYPE QUICK SEARCH" />
+      <item value="on Back Pressed" />
+      <item value="set Click Listeners" />
       <item value="set On Item Click Listener" />
       <item value="set On Item Long Click Listener" />
       <item value="on Item Selected" />
@@ -32,7 +41,6 @@
       <item value="Subscribe" />
       <item value="thread Mode" />
       <item value="set Screen On" />
-      <item value="on Switch Source Event" />
       <item value="on Create" />
       <item value="equals" />
       <item value="play Flag" />
@@ -50,7 +58,6 @@
       <item value="Cache Manager Holder" />
       <item value="get Instance" />
       <item value="create" />
-      <item value="on Back Pressed" />
       <item value="Automaticallyaddwarehouse" />
       <item value="custom Sources" />
       <item value="set On Click Listener" />
@@ -60,13 +67,6 @@
       <item value="HOME REC STYLE" />
       <item value="is First Launch" />
       <item value="Quick Search Adapter" />
-      <item value="corner Radius" />
-      <item value="get Corner Radius" />
-      <item value="float" />
-      <item value="round Radius" />
-      <item value="Setting Activity" />
-      <item value="Main Activity" />
-      <item value="pending Intent Id" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6334" />
+        <entry key="CHINESE" value="6343" />
         <entry key="CZECH" value="11" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6335" />
+        <entry key="ENGLISH" value="6344" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
