@@ -17,6 +17,12 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="setup Adapter Click Listeners" />
+      <item value="setup Adapter Long Click Listeners" />
+      <item value="On Item Long Click Listener" />
+      <item value="set On Item Listenerk" />
+      <item value="set On Item Long Click Listener" />
+      <item value="set On Item Click Listener" />
       <item value="TYPE API URL CHANGE" />
       <item value="API URL BEAN" />
       <item value="equals" />
@@ -51,7 +57,6 @@
       <item value="refesh Q Rcode" />
       <item value="Illegal State Exception" />
       <item value="Drawable Text View" />
-      <item value="set On Item Click Listener" />
       <item value="on Item Click" />
       <item value="Choose Play Pop Up" />
       <item value="insert Vod" />
@@ -62,11 +67,6 @@
       <item value="HOME LSTIMG" />
       <item value="get Layout Params" />
       <item value="setup Delete Button" />
-      <item value="this" />
-      <item value="set Click Listeners" />
-      <item value="click" />
-      <item value="Select Dialog Interface" />
-      <item value="remove Item" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,15 +75,15 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6273" />
+        <entry key="CHINESE" value="6282" />
         <entry key="CZECH" value="11" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6274" />
+        <entry key="ENGLISH" value="6283" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
-        <entry key="FINNISH" value="2" />
+        <entry key="FINNISH" value="3" />
         <entry key="FRENCH" value="7" />
         <entry key="GALICIAN" value="13" />
         <entry key="GERMAN" value="9" />
