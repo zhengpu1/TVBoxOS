@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="Quick Search Adapter" />
       <item value="corner Radius" />
       <item value="get Corner Radius" />
       <item value="float" />
@@ -66,7 +67,6 @@
       <item value="Drawable Text View" />
       <item value="on Item Click" />
       <item value="Choose Play Pop Up" />
-      <item value="insert Vod" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6291" />
+        <entry key="CHINESE" value="6292" />
         <entry key="CZECH" value="11" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6292" />
+        <entry key="ENGLISH" value="6293" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
