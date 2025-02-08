@@ -17,6 +17,8 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="custom Sources" />
+      <item value="set On Click Listener" />
       <item value="is First Start" />
       <item value="toggle Rec Style" />
       <item value="update Rec Style Layout" />
@@ -65,8 +67,6 @@
       <item value="More Source Bean" />
       <item value="handle Remote Push" />
       <item value="Refresh Event" />
-      <item value="set On Click Listener" />
-      <item value="TYPE STORE PUSH" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6295" />
+        <entry key="CHINESE" value="6297" />
         <entry key="CZECH" value="11" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6296" />
+        <entry key="ENGLISH" value="6298" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
