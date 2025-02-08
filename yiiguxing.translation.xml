@@ -17,6 +17,10 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="play Flag" />
+      <item value="error With Retry" />
+      <item value="series Map" />
+      <item value="require Activity" />
       <item value="BUTTON NEGATIVE" />
       <item value="reset App" />
       <item value="clean External Cache" />
@@ -63,10 +67,6 @@
       <item value="Select Dialog Adapter Interface" />
       <item value="API HISTORY LIST" />
       <item value="m Select Dialog Adapter Interface" />
-      <item value="Runnable" />
-      <item value="on Select" />
-      <item value="set Select Call Back" />
-      <item value="find Data" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6310" />
+        <entry key="CHINESE" value="6314" />
         <entry key="CZECH" value="11" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6311" />
+        <entry key="ENGLISH" value="6315" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
