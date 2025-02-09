@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="m Total Time" />
       <item value="start Progress Update" />
       <item value="convert Response" />
       <item value="get Duration" />
@@ -66,7 +67,6 @@
       <item value="start Quick Search" />
       <item value="switch Search Word" />
       <item value="handle Fresh Index Event" />
-      <item value="display Name" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6391" />
+        <entry key="CHINESE" value="6392" />
         <entry key="CZECH" value="12" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6392" />
+        <entry key="ENGLISH" value="6393" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
