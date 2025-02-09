@@ -17,6 +17,17 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="search Result" />
+      <item value="TYPE SEARCH RESULT" />
+      <item value="quick Search Result" />
+      <item value="handle Quick Search Result Event" />
+      <item value="handle Quick Search Word Change Event" />
+      <item value="handle Quick Search Select Event" />
+      <item value="TYPE REFRESH" />
+      <item value="TYPE QUICK SEARCH SELECT" />
+      <item value="TYPE QUICK SEARCH WORD CHANGE" />
+      <item value="TYPE QUICK SEARCH RESULT" />
+      <item value="Base View Holder" />
       <item value="quick Search Data" />
       <item value="set Click Listeners" />
       <item value="start Quick Search" />
@@ -56,17 +67,6 @@
       <item value="clean Internal Sp" />
       <item value="Cache Manager" />
       <item value="instance" />
-      <item value="Cache Manager Holder" />
-      <item value="get Instance" />
-      <item value="create" />
-      <item value="Automaticallyaddwarehouse" />
-      <item value="custom Sources" />
-      <item value="set On Click Listener" />
-      <item value="is First Start" />
-      <item value="toggle Rec Style" />
-      <item value="update Rec Style Layout" />
-      <item value="HOME REC STYLE" />
-      <item value="is First Launch" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6345" />
+        <entry key="CHINESE" value="6356" />
         <entry key="CZECH" value="11" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6346" />
+        <entry key="ENGLISH" value="6357" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
