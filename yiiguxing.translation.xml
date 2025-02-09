@@ -17,6 +17,11 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="Switchtoplaybacksite" />
+      <item value="Switchplaybacksource" />
+      <item value="final Current Index" />
+      <item value="current Index" />
+      <item value="next Index" />
       <item value="on Switch Source Event" />
       <item value="TYPE SWITCH SOURCE" />
       <item value="source View Model" />
@@ -62,11 +67,6 @@
       <item value="Thread Mode" />
       <item value="Subscribe" />
       <item value="thread Mode" />
-      <item value="set Screen On" />
-      <item value="on Create" />
-      <item value="equals" />
-      <item value="play Flag" />
-      <item value="error With Retry" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6369" />
-        <entry key="CZECH" value="11" />
+        <entry key="CHINESE" value="6373" />
+        <entry key="CZECH" value="12" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6370" />
+        <entry key="ENGLISH" value="6373" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
