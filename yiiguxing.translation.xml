@@ -17,10 +17,16 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="source View Model" />
+      <item value="is Quick Search" />
+      <item value="search Executor Service" />
+      <item value="is Searchable" />
+      <item value="search Result" />
+      <item value="search Data" />
+      <item value="get Quick Search" />
       <item value="set New Data" />
       <item value="set On Click Listener" />
       <item value="handle Quick Search Event" />
-      <item value="search Result" />
       <item value="TYPE SEARCH RESULT" />
       <item value="quick Search Result" />
       <item value="handle Quick Search Result Event" />
@@ -61,12 +67,6 @@
       <item value="play Flag" />
       <item value="error With Retry" />
       <item value="series Map" />
-      <item value="require Activity" />
-      <item value="BUTTON NEGATIVE" />
-      <item value="reset App" />
-      <item value="clean External Cache" />
-      <item value="clean Internal Cache" />
-      <item value="clean Internal Files" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6359" />
+        <entry key="CHINESE" value="6367" />
         <entry key="CZECH" value="11" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6360" />
+        <entry key="ENGLISH" value="6368" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
