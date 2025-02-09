@@ -17,6 +17,11 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="get Saved Progress" />
+      <item value="Shared Preferences" />
+      <item value="preferences" />
+      <item value="progress Key" />
+      <item value="init Player Cfg" />
       <item value="run On Ui Thread" />
       <item value="require Activity" />
       <item value="current Time Millis" />
@@ -62,11 +67,6 @@
       <item value="on Item Selected" />
       <item value="handle Refresh Event" />
       <item value="refresh" />
-      <item value="notify Item Changed" />
-      <item value="scroll To Position" />
-      <item value="series Flag Focus" />
-      <item value="notify Data Set Changed" />
-      <item value="on Bind View Holder" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6377" />
+        <entry key="CHINESE" value="6382" />
         <entry key="CZECH" value="12" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6378" />
+        <entry key="ENGLISH" value="6383" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
