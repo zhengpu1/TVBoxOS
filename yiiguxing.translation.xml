@@ -17,6 +17,8 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="m Classify Adapter" />
+      <item value="set On Item Click Listener" />
       <item value="set New Data" />
       <item value="handle Classify Data" />
       <item value="init View Model" />
@@ -65,8 +67,6 @@
       <item value="preferences" />
       <item value="init Player Cfg" />
       <item value="require Activity" />
-      <item value="current Time Millis" />
-      <item value="Switchplaybacksource" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6428" />
+        <entry key="CHINESE" value="6430" />
         <entry key="CZECH" value="13" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6429" />
+        <entry key="ENGLISH" value="6431" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
