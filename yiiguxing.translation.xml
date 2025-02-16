@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="start Play Timeout Check" />
       <item value="auto Retry Count" />
       <item value="get Media Player" />
       <item value="start Play" />
@@ -66,7 +67,6 @@
       <item value="is Searchable" />
       <item value="search Result" />
       <item value="search Data" />
-      <item value="get Quick Search" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6417" />
+        <entry key="CHINESE" value="6418" />
         <entry key="CZECH" value="13" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6418" />
+        <entry key="ENGLISH" value="6419" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
