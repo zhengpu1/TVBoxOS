@@ -1,6 +1,6 @@
 <application>
   <component name="Translation.Cache">
-    <option name="lastTrimTime" value="1738908224970" />
+    <option name="lastTrimTime" value="1739701145505" />
   </component>
   <component name="Translation.Settings">
     <option name="baiduTranslateSettings">
@@ -17,6 +17,14 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="init Parse Load Found" />
+      <item value="Thunder Callback" />
+      <item value="status" />
+      <item value="play Title Info" />
+      <item value="TYPE REFRESH" />
+      <item value="progress Key" />
+      <item value="subtitle Cache Key" />
+      <item value="Switchtoplaybacksite" />
       <item value="should never get here" />
       <item value="socket Bind" />
       <item value="m Total Time" />
@@ -31,13 +39,10 @@
       <item value="get Saved Progress" />
       <item value="Shared Preferences" />
       <item value="preferences" />
-      <item value="progress Key" />
       <item value="init Player Cfg" />
       <item value="run On Ui Thread" />
       <item value="require Activity" />
       <item value="current Time Millis" />
-      <item value="play Title Info" />
-      <item value="Switchtoplaybacksite" />
       <item value="Switchplaybacksource" />
       <item value="final Current Index" />
       <item value="current Index" />
@@ -59,14 +64,9 @@
       <item value="handle Quick Search Result Event" />
       <item value="handle Quick Search Word Change Event" />
       <item value="handle Quick Search Select Event" />
-      <item value="TYPE REFRESH" />
       <item value="TYPE QUICK SEARCH SELECT" />
       <item value="TYPE QUICK SEARCH WORD CHANGE" />
       <item value="TYPE QUICK SEARCH RESULT" />
-      <item value="Base View Holder" />
-      <item value="quick Search Data" />
-      <item value="set Click Listeners" />
-      <item value="start Quick Search" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6394" />
-        <entry key="CZECH" value="12" />
+        <entry key="CHINESE" value="6402" />
+        <entry key="CZECH" value="13" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6395" />
+        <entry key="ENGLISH" value="6403" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
