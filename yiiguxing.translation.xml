@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="contains" />
       <item value="FORBID JAR DIALOG" />
       <item value="is Forbid Dialog" />
       <item value="loading" />
@@ -66,7 +67,6 @@
       <item value="handle Quick Search Event" />
       <item value="TYPE SEARCH RESULT" />
       <item value="quick Search Result" />
-      <item value="handle Quick Search Result Event" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6410" />
+        <entry key="CHINESE" value="6411" />
         <entry key="CZECH" value="13" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6411" />
+        <entry key="ENGLISH" value="6412" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
