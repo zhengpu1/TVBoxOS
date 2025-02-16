@@ -17,6 +17,11 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="loading" />
+      <item value="run On Ui Thread" />
+      <item value="m Play Load Tip" />
+      <item value="auto Retry" />
+      <item value="TYPE SWITCH SOURCE" />
       <item value="init Parse Load Found" />
       <item value="Thunder Callback" />
       <item value="status" />
@@ -40,7 +45,6 @@
       <item value="Shared Preferences" />
       <item value="preferences" />
       <item value="init Player Cfg" />
-      <item value="run On Ui Thread" />
       <item value="require Activity" />
       <item value="current Time Millis" />
       <item value="Switchplaybacksource" />
@@ -48,7 +52,6 @@
       <item value="current Index" />
       <item value="next Index" />
       <item value="on Switch Source Event" />
-      <item value="TYPE SWITCH SOURCE" />
       <item value="source View Model" />
       <item value="is Quick Search" />
       <item value="search Executor Service" />
@@ -64,9 +67,6 @@
       <item value="handle Quick Search Result Event" />
       <item value="handle Quick Search Word Change Event" />
       <item value="handle Quick Search Select Event" />
-      <item value="TYPE QUICK SEARCH SELECT" />
-      <item value="TYPE QUICK SEARCH WORD CHANGE" />
-      <item value="TYPE QUICK SEARCH RESULT" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6402" />
+        <entry key="CHINESE" value="6407" />
         <entry key="CZECH" value="13" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6403" />
+        <entry key="ENGLISH" value="6408" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
