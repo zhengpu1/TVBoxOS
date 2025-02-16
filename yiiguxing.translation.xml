@@ -17,6 +17,11 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="set New Data" />
+      <item value="handle Classify Data" />
+      <item value="init View Model" />
+      <item value="handle Detail Result" />
+      <item value="set Series" />
       <item value="hide Tip" />
       <item value="is Playing" />
       <item value="handle Play Timeout" />
@@ -62,11 +67,6 @@
       <item value="require Activity" />
       <item value="current Time Millis" />
       <item value="Switchplaybacksource" />
-      <item value="final Current Index" />
-      <item value="current Index" />
-      <item value="next Index" />
-      <item value="on Switch Source Event" />
-      <item value="source View Model" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6423" />
+        <entry key="CHINESE" value="6428" />
         <entry key="CZECH" value="13" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6424" />
+        <entry key="ENGLISH" value="6429" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
