@@ -17,16 +17,30 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
-      <item value="handle Refresh Event" />
       <item value="handle Grouped Episode Selection" />
+      <item value="m Number Classification" />
+      <item value="notify Item Changed" />
+      <item value="set Selection" />
+      <item value="notify Data Set Changed" />
+      <item value="handle Ungrouped Episode Selection" />
+      <item value="handle Fresh Index Event" />
+      <item value="request Focus" />
+      <item value="scroll To Play Pos And Request Foucuse" />
+      <item value="set Click Listeners" />
+      <item value="toggle Sort Order" />
+      <item value="reverse Series Data" />
+      <item value="toggle Subtitle Text Size" />
+      <item value="series Map" />
+      <item value="reverse" />
+      <item value="current Group" />
+      <item value="group Size" />
+      <item value="Collections" />
+      <item value="handle Refresh Event" />
       <item value="insf Count" />
       <item value="should Classify Vod Info" />
       <item value="load Vod Info" />
       <item value="current Play Index" />
-      <item value="toggle Sort Order" />
-      <item value="reverse" />
       <item value="is Reverse" />
-      <item value="reverse Series Data" />
       <item value="update Sort UI" />
       <item value="total Groups" />
       <item value="m Classify Adapter" />
@@ -53,20 +67,6 @@
       <item value="is Forbid Dialog" />
       <item value="loading" />
       <item value="run On Ui Thread" />
-      <item value="m Play Load Tip" />
-      <item value="auto Retry" />
-      <item value="TYPE SWITCH SOURCE" />
-      <item value="init Parse Load Found" />
-      <item value="Thunder Callback" />
-      <item value="status" />
-      <item value="play Title Info" />
-      <item value="TYPE REFRESH" />
-      <item value="progress Key" />
-      <item value="subtitle Cache Key" />
-      <item value="Switchtoplaybacksite" />
-      <item value="should never get here" />
-      <item value="socket Bind" />
-      <item value="m Total Time" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6444" />
+        <entry key="CHINESE" value="6480" />
         <entry key="CZECH" value="13" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6445" />
+        <entry key="ENGLISH" value="6481" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
