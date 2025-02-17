@@ -17,6 +17,8 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="Type tv.danmaku.ijk.media.player.AndroidMediaPlayerMediaDataSourceProxy is defined multiple times:" />
+      <item value="2 files found with path 'libarmeabi-v7alibijkffmpeg.so'. If you are using jniLibs and CMake IMPORTED targets, see" />
       <item value="set Negative Button" />
       <item value="on Click" />
       <item value="switch Video Source" />
@@ -39,7 +41,6 @@
       <item value="show Long" />
       <item value="play Subtitle" />
       <item value="init Subtitle View" />
-      <item value="2 files found with path 'libarmeabi-v7alibijkffmpeg.so'. If you are using jniLibs and CMake IMPORTED targets, see" />
       <item value="update Player Cfg" />
       <item value="handle Grouped Episode Selection" />
       <item value="m Number Classification" />
@@ -66,7 +67,6 @@
       <item value="current Play Index" />
       <item value="is Reverse" />
       <item value="update Sort UI" />
-      <item value="total Groups" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6505" />
+        <entry key="CHINESE" value="6508" />
         <entry key="CZECH" value="13" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6506" />
+        <entry key="ENGLISH" value="6508" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
