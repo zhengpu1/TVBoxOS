@@ -17,6 +17,11 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="handle Refresh Event" />
+      <item value="handle Grouped Episode Selection" />
+      <item value="insf Count" />
+      <item value="should Classify Vod Info" />
+      <item value="load Vod Info" />
       <item value="current Play Index" />
       <item value="toggle Sort Order" />
       <item value="reverse" />
@@ -62,11 +67,6 @@
       <item value="should never get here" />
       <item value="socket Bind" />
       <item value="m Total Time" />
-      <item value="start Progress Update" />
-      <item value="convert Response" />
-      <item value="get Duration" />
-      <item value="current Position" />
-      <item value="progress" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,17 +75,17 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6440" />
+        <entry key="CHINESE" value="6444" />
         <entry key="CZECH" value="13" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6441" />
+        <entry key="ENGLISH" value="6445" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FINNISH" value="3" />
         <entry key="FRENCH" value="7" />
-        <entry key="GALICIAN" value="15" />
+        <entry key="GALICIAN" value="16" />
         <entry key="GERMAN" value="9" />
         <entry key="GREEK" value="1" />
         <entry key="HUNGARIAN" value="1" />
