@@ -17,6 +17,8 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="error With Retry" />
+      <item value="get Saved Progress" />
       <item value="play Title Info" />
       <item value="Switchtoplaybacksite" />
       <item value="MODE PRIVATE" />
@@ -65,8 +67,6 @@
       <item value="group Size" />
       <item value="Collections" />
       <item value="handle Refresh Event" />
-      <item value="insf Count" />
-      <item value="should Classify Vod Info" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6511" />
+        <entry key="CHINESE" value="6514" />
         <entry key="CZECH" value="14" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6512" />
+        <entry key="ENGLISH" value="6515" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
