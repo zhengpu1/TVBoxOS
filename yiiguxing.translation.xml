@@ -17,6 +17,10 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="current Index" />
+      <item value="Switchplaybacksource" />
+      <item value="FORBID JAR DIALOG" />
+      <item value="MEDIA INFO VIDEO RENDERING START" />
       <item value="set On Error Listener" />
       <item value="set On Prepared Listener" />
       <item value="on Native Invoke" />
@@ -32,7 +36,6 @@
       <item value="on Buffering Update" />
       <item value="ICE CREAM SANDWICH" />
       <item value="MEDIA INFO STARTED AS NEXT" />
-      <item value="MEDIA INFO VIDEO RENDERING START" />
       <item value="MEDIA INFO VIDEO ROTATION CHANGED" />
       <item value="handle Play Error" />
       <item value="current Position" />
@@ -64,9 +67,6 @@
       <item value="is Playing" />
       <item value="Installation did not succeed. The application could not be installed: INSTALL_PARSE_FAILED_INCONSISTENT_CERTIFICATES" />
       <item value="set Dou Ban Datask" />
-      <item value="detail Content" />
-      <item value="get List" />
-      <item value="show Long" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6539" />
+        <entry key="CHINESE" value="6542" />
         <entry key="CZECH" value="14" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6540" />
+        <entry key="ENGLISH" value="6543" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
