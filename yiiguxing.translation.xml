@@ -17,6 +17,8 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="Caused by: org.gradle.api.internal.artifacts.ivyservice.DefaultLenientConfigurationArtifactResolveException: Could not resolve all files for configuration ':app:debugCompileClasspath'." />
+      <item value="thunder" />
       <item value="Standard GSY Video Player" />
       <item value="current Index" />
       <item value="Switchplaybacksource" />
@@ -65,8 +67,6 @@
       <item value="switch To Software Decoder" />
       <item value="LENGTH LONG" />
       <item value="LENGTH SHORT" />
-      <item value="is Playing" />
-      <item value="Installation did not succeed. The application could not be installed: INSTALL_PARSE_FAILED_INCONSISTENT_CERTIFICATES" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6543" />
+        <entry key="CHINESE" value="6546" />
         <entry key="CZECH" value="14" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6544" />
+        <entry key="ENGLISH" value="6547" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
