@@ -17,6 +17,9 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="A problem occurred evaluating root project 'TVBox'. &gt; Could not find method aaptOptions() for arguments [build_bo3cpgvvzglloy483zh5cb7nq_run_closure1_closure6@4dfabda2] on root project 'TVBox' of type org.gradle.api.Project." />
+      <item value="A problem occurred evaluating root project 'TVBox'. &gt; Could not find method aaptOptions() for arguments [build_bo3cpgvvzglloy483zh5cb7nq_run_closure2@447c706] on root project 'TVBox' of type org.gradle.api.Project." />
+      <item value="Illegal char &lt;:&gt; at index 47: com.github.tvbox.osc.app-mergeDebugResources-50:valuesvalues.xml" />
       <item value="A problem occurred evaluating root project 'TVBox'. &gt; A problem occurred configuring project ':player'. &gt; Could not create an instance of type com.android.build.api.variant.impl.LibraryVariantBuilderImpl. &gt; Namespace not specified. Specify a namespace in the module's build file. See https:d.android.comrtoolsupgrade-assistantset-namespace for information about setting the namespace." />
       <item value="A problem occurred evaluating root project 'TVBox'. &gt; A problem occurred configuring project ':app'. &gt; Could not create an instance of type com.android.build.api.variant.impl.ApplicationVariantImpl. &gt; Namespace not specified. Specify a namespace in the module's build file. See https:d.android.comrtoolsupgrade-assistantset-namespace for information about setting the namespace." />
       <item value="A problem occurred evaluating project ':app'. &gt; Failed to apply plugin 'com.android.internal.application'. &gt; Could not create an instance of type com.android.build.gradle.internal.dsl.ApplicationExtensionImplAgpDecorated. &gt; Could not create an instance of type com.android.build.gradle.internal.dsl.LintImplAgpDecorated. &gt; Could not generate a decorated class for type LintImplAgpDecorated. &gt; comandroidtoolslintmodelLintModelSeverity has been compiled by a more recent version of the Java Runtime (class file version 61.0), this version of the Java Runtime only recognizes class file versions up to 55.0" />
@@ -64,9 +67,6 @@
       <item value="start Progress Update" />
       <item value="get Current Position" />
       <item value="require Context" />
-      <item value="get Shared Preferences" />
-      <item value="error With Retry" />
-      <item value="get Saved Progress" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6581" />
+        <entry key="CHINESE" value="6584" />
         <entry key="CZECH" value="14" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6582" />
+        <entry key="ENGLISH" value="6585" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
