@@ -17,6 +17,8 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="Unable to delete directory 'F:\TVBoxOS\app\build\intermediates\dex\release\minifyReleaseWithR8' Failed to delete some children. This might happen because a process has files open or has its working directory set in the target directory. - F:\TVBoxOS\app\build\intermediates\dex\release\minifyReleaseWithR8\classes.dex - F:\TVBoxOS\app\build\intermediates\dex\release\minifyReleaseWithR8\classes2.dex" />
+      <item value="Type tv.danmaku.ijk.media.player.AndroidMediaPlayerAndroidMediaPlayerListenerHolder is defined multiple times: E:\kv\caches\transforms-3\34122d83491c78abd169db3d490eb94d\transformed\jetified-ijkplayer-java-0.8.8-runtime.jar:tvdanmakuijkmediaplayerAndroidMediaPlayerAndroidMediaPlayerListenerHolder.class, F:\TVBoxOS\player\build\intermediates\runtime_library_classes_jar\debug\classes.jar:tvdanmakuijkmediaplayerAndroidMediaPlayerAndroidMediaPlayerListenerHolder.class" />
       <item value="set Dot Port" />
       <item value="Switchtoplaybacksite" />
       <item value="current Retry Count" />
@@ -65,8 +67,6 @@
       <item value="JELLY BEAN" />
       <item value="Target Api" />
       <item value="SDK INT" />
-      <item value="dot Port" />
-      <item value="native profile End" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6595" />
+        <entry key="CHINESE" value="6596" />
         <entry key="CZECH" value="15" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6596" />
+        <entry key="ENGLISH" value="6597" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
