@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="set Dot Port" />
       <item value="Switchtoplaybacksite" />
       <item value="current Retry Count" />
       <item value="quick Search Data" />
@@ -66,7 +67,6 @@
       <item value="SDK INT" />
       <item value="dot Port" />
       <item value="native profile End" />
-      <item value="native profile Begin" />
     </histories>
     <option name="languageScores">
       <map>
@@ -79,7 +79,7 @@
         <entry key="CZECH" value="15" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6595" />
+        <entry key="ENGLISH" value="6596" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
