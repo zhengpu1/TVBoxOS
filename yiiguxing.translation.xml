@@ -17,6 +17,11 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="override Pending Transition" />
+      <item value="use Cache Config" />
+      <item value="is Task Root" />
+      <item value="FLAG ACTIVITY SINGLE TOP" />
+      <item value="FLAG ACTIVITY CLEAR TOP" />
       <item value="CUSTOM STORE HOUSE DATA" />
       <item value="force Restart Home Activity" />
       <item value="get Round Bitmap By Shader" />
@@ -62,11 +67,6 @@
       <item value="remove" />
       <item value="is Finishing" />
       <item value="thunder" />
-      <item value="Standard GSY Video Player" />
-      <item value="current Index" />
-      <item value="Switchplaybacksource" />
-      <item value="FORBID JAR DIALOG" />
-      <item value="MEDIA INFO VIDEO RENDERING START" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6601" />
+        <entry key="CHINESE" value="6606" />
         <entry key="CZECH" value="15" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6602" />
+        <entry key="ENGLISH" value="6607" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
