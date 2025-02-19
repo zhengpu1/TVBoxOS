@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="set On Error Listener" />
       <item value="global Wp" />
       <item value="Auto Size Utils" />
       <item value="A problem occurred evaluating project ':app'. &gt; Could not find method com.github.xxxx:ijkplayer:0.8.8() for arguments [build_bu5q5nw5bh0w8f9uwpirk0nbl_run_closure3_closure22@37ccc923] on object of type org.gradle.api.internal.artifacts.dsl.dependencies.DefaultDependencyHandler." />
@@ -53,7 +54,6 @@
       <item value="Switchplaybacksource" />
       <item value="FORBID JAR DIALOG" />
       <item value="MEDIA INFO VIDEO RENDERING START" />
-      <item value="set On Error Listener" />
       <item value="set On Prepared Listener" />
       <item value="on Native Invoke" />
       <item value="JELLY BEAN" />
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6589" />
+        <entry key="CHINESE" value="6590" />
         <entry key="CZECH" value="14" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6590" />
+        <entry key="ENGLISH" value="6591" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
