@@ -17,6 +17,11 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="screen Size" />
+      <item value="orientation" />
+      <item value="screen Orientation" />
+      <item value="landscape" />
+      <item value="single Top" />
       <item value="override Pending Transition" />
       <item value="use Cache Config" />
       <item value="is Task Root" />
@@ -62,11 +67,6 @@
       <item value="Manifest merger failed : uses-sdk:minSdkVersion 16 cannot be smaller than version 19 declared in library [GSYVideoPlayer-8.1.6-jitpack.aar] E:\kv\caches\transforms-3\63cd487bb19eec170950ff5aaf3d3014\transformed\jetified-GSYVideoPlayer-8.1.6-jitpack\AndroidManifest.xml as the library might be using APIs not available in 16 Suggestion: use a compatible library with a minSdk of at most 16, or increase this project's minSdk version to at least 19, or use tools:overrideLibrary=&quot;com.shuyu.gsyvideoplayer.lib&quot; to force usage (may lead to runtime failures)" />
       <item value="No variants found for ':app'. Check build files to ensure at least one variant exists. at:" />
       <item value="Manifest merger failed : uses-sdk:minSdkVersion 16 cannot be smaller than version 19 declared in library [GSYVideoPlayer-8.1.9-release-jitpack.aar] E:\kv\caches\transforms-3\19867b513f5f399bbdde7ec2a4f2cc1c\transformed\jetified-GSYVideoPlayer-8.1.9-release-jitpack\AndroidManifest.xml as the library might be using APIs not available in 16 Suggestion: use a compatible library with a minSdk of at most 16, or increase this project's minSdk version to at least 19, or use tools:overrideLibrary=&quot;com.shuyu.gsyvideoplayer.lib&quot; to force usage (may lead to runtime failures)" />
-      <item value=":\TVBoxOS\app\src\main\AndroidManifest.xml Error: uses-sdk:minSdkVersion 16 cannot be smaller than version 19 declared in library [GSYVideoPlayer-8.1.9-release-jitpack.aar] E:\kv\caches\transforms-3\19867b513f5f399bbdde7ec2a4f2cc1c\transformed\jetified-GSYVideoPlayer-8.1.9-release-jitpack\AndroidManifest.xml as the library might be using APIs not available in 16 Suggestion: use a compatible library with a minSdk of at most 16, or increase this project's minSdk version to at least 19, or use tools:overrideLibrary=&quot;com.shuyu.gsyvideoplayer.lib&quot; to force usage (may lead to runtime failures) See http:g.coandroidstudiomanifest-merger for more information about the manifest merger." />
-      <item value="Caused by: org.gradle.api.internal.artifacts.ivyservice.DefaultLenientConfigurationArtifactResolveException: Could not resolve all files for configuration ':app:debugCompileClasspath'." />
-      <item value="remove" />
-      <item value="is Finishing" />
-      <item value="thunder" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6606" />
+        <entry key="CHINESE" value="6611" />
         <entry key="CZECH" value="15" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6607" />
+        <entry key="ENGLISH" value="6612" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
