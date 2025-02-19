@@ -17,6 +17,11 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="A problem occurred evaluating project ':app'. &gt; Could not find method com.github.xxxx:ijkplayer:0.8.8() for arguments [build_bu5q5nw5bh0w8f9uwpirk0nbl_run_closure3_closure22@37ccc923] on object of type org.gradle.api.internal.artifacts.dsl.dependencies.DefaultDependencyHandler." />
+      <item value="Using flatDir should be avoided because it doesn't support any meta-data formats." />
+      <item value="Execution optimizations have been disabled for 1 invalid unit(s) of work during this build to ensure correctness. Please consult deprecation warnings for more details. BUILD SUCCESSFUL in 47s 70 actionable tasks: 12 executed, 58 up-to-date" />
+      <item value="Type tv.danmaku.ijk.media.player.AndroidMediaPlayerAndroidMediaPlayerListenerHolder is defined multiple times: F:\TVBoxOS\player\build\.transforms\18fb928f2c4c4c6e302833bda56a7eb2\transformed\classes\classes.dex, E:\kv\caches\transforms-3\be16ac35a21d05b938e24171e24e1cd0\transformed\jetified-ijkplayer-java-0.8.8-runtime\classes.dex" />
+      <item value="Type tv.danmaku.ijk.media.player.AndroidMediaPlayerAndroidMediaPlayerListenerHolder is defined multiple times:" />
       <item value="A problem occurred evaluating root project 'TVBox'. &gt; Could not find method aaptOptions() for arguments [build_bo3cpgvvzglloy483zh5cb7nq_run_closure1_closure6@4dfabda2] on root project 'TVBox' of type org.gradle.api.Project." />
       <item value="A problem occurred evaluating root project 'TVBox'. &gt; Could not find method aaptOptions() for arguments [build_bo3cpgvvzglloy483zh5cb7nq_run_closure2@447c706] on root project 'TVBox' of type org.gradle.api.Project." />
       <item value="Illegal char &lt;:&gt; at index 47: com.github.tvbox.osc.app-mergeDebugResources-50:valuesvalues.xml" />
@@ -62,11 +67,6 @@
       <item value="ICE CREAM SANDWICH" />
       <item value="MEDIA INFO STARTED AS NEXT" />
       <item value="MEDIA INFO VIDEO ROTATION CHANGED" />
-      <item value="handle Play Error" />
-      <item value="current Position" />
-      <item value="start Progress Update" />
-      <item value="get Current Position" />
-      <item value="require Context" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,11 +75,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6584" />
+        <entry key="CHINESE" value="6588" />
         <entry key="CZECH" value="14" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6585" />
+        <entry key="ENGLISH" value="6589" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
