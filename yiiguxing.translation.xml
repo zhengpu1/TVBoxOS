@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="To cater for newer Android w no Menu button" />
       <item value="is Finishing" />
       <item value="is First Start" />
       <item value="is First Launch" />
@@ -66,7 +67,6 @@
       <item value="TYPE QUICK SEARCH SELECT" />
       <item value="LENGTH SHORT" />
       <item value="set On Error Listener" />
-      <item value="global Wp" />
     </histories>
     <option name="languageScores">
       <map>
@@ -76,11 +76,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6644" />
+        <entry key="CHINESE" value="6645" />
         <entry key="CZECH" value="15" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6645" />
+        <entry key="ENGLISH" value="6646" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
