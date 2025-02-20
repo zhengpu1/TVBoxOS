@@ -17,6 +17,8 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="Activity Not Found Exception" />
+      <item value="Home Activity" />
       <item value="FLAG ACTIVITY CLEAR TOP" />
       <item value="FLAG ACTIVITY CLEAR TASK" />
       <item value="show Site Switch" />
@@ -65,8 +67,6 @@
       <item value="A problem occurred evaluating root project 'TVBox'. &gt; Could not find method aaptOptions() for arguments [build_bo3cpgvvzglloy483zh5cb7nq_run_closure1_closure6@4dfabda2] on root project 'TVBox' of type org.gradle.api.Project." />
       <item value="A problem occurred evaluating root project 'TVBox'. &gt; Could not find method aaptOptions() for arguments [build_bo3cpgvvzglloy483zh5cb7nq_run_closure2@447c706] on root project 'TVBox' of type org.gradle.api.Project." />
       <item value="Illegal char &lt;:&gt; at index 47: com.github.tvbox.osc.app-mergeDebugResources-50:valuesvalues.xml" />
-      <item value="A problem occurred evaluating root project 'TVBox'. &gt; A problem occurred configuring project ':player'. &gt; Could not create an instance of type com.android.build.api.variant.impl.LibraryVariantBuilderImpl. &gt; Namespace not specified. Specify a namespace in the module's build file. See https:d.android.comrtoolsupgrade-assistantset-namespace for information about setting the namespace." />
-      <item value="A problem occurred evaluating root project 'TVBox'. &gt; A problem occurred configuring project ':app'. &gt; Could not create an instance of type com.android.build.api.variant.impl.ApplicationVariantImpl. &gt; Namespace not specified. Specify a namespace in the module's build file. See https:d.android.comrtoolsupgrade-assistantset-namespace for information about setting the namespace." />
     </histories>
     <option name="languageScores">
       <map>
@@ -76,11 +76,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6631" />
+        <entry key="CHINESE" value="6633" />
         <entry key="CZECH" value="15" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6632" />
+        <entry key="ENGLISH" value="6634" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
