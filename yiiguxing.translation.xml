@@ -17,6 +17,8 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="dismiss" />
+      <item value="is First Launch" />
       <item value="Player Helper" />
       <item value="reload Activity" />
       <item value="on Destroy" />
@@ -36,7 +38,6 @@
       <item value="To cater for newer Android w no Menu button" />
       <item value="is Finishing" />
       <item value="is First Start" />
-      <item value="is First Launch" />
       <item value="Remote Config" />
       <item value="is Firstdlde" />
       <item value="MODE PRIVATE" />
@@ -66,7 +67,6 @@
       <item value="orientation" />
       <item value="screen Orientation" />
       <item value="landscape" />
-      <item value="single Top" />
     </histories>
     <option name="languageScores">
       <map>
@@ -76,11 +76,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6663" />
+        <entry key="CHINESE" value="6666" />
         <entry key="CZECH" value="15" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6664" />
+        <entry key="ENGLISH" value="6667" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
