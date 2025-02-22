@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="max Cycle" />
       <item value="next Source" />
       <item value="is Source Available" />
       <item value="perform Source Switch" />
@@ -66,7 +67,6 @@
       <item value="set On Long Click Listener" />
       <item value="get Intent" />
       <item value="start Activity" />
-      <item value="finish" />
     </histories>
     <option name="languageScores">
       <map>
@@ -76,11 +76,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6679" />
+        <entry key="CHINESE" value="6680" />
         <entry key="CZECH" value="15" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6680" />
+        <entry key="ENGLISH" value="6681" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
