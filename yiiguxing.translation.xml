@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="Installation did not succeed. The application could not be installed. List of apks: [0] 'F:\TVBoxOS\app\build\outputs\apk\debug\tvbox_1.8.2025022307_debug.apk' Installation failed due to: 'device offline' Retry Failed to launch an application on all devices" />
       <item value="max Cycle" />
       <item value="next Source" />
       <item value="is Source Available" />
@@ -66,7 +67,6 @@
       <item value="kill Process" />
       <item value="set On Long Click Listener" />
       <item value="get Intent" />
-      <item value="start Activity" />
     </histories>
     <option name="languageScores">
       <map>
@@ -76,11 +76,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6680" />
+        <entry key="CHINESE" value="6681" />
         <entry key="CZECH" value="15" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6681" />
+        <entry key="ENGLISH" value="6682" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
