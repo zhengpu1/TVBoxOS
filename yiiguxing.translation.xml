@@ -17,6 +17,10 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="Shared Preferences" />
+      <item value="get Saved Progress" />
+      <item value="set On Long Click Listener" />
+      <item value="set Progress" />
       <item value="is Quick Search" />
       <item value="is Searchable" />
       <item value="release Critical Resources" />
@@ -63,10 +67,6 @@
       <item value="FLAG ACTIVITY CLEAR TOP" />
       <item value="FLAG ACTIVITY CLEAR TASK" />
       <item value="show Site Switch" />
-      <item value="cls" />
-      <item value="A problem occurred evaluating root project 'TVBox'. &gt; Could not find method coreLibraryDesugaring() for arguments [com.android.tools:desugar_jdk_libs:1.2.3] on object of type org.gradle.api.internal.artifacts.dsl.dependencies.DefaultDependencyHandler." />
-      <item value="reload Home" />
-      <item value="restart App" />
     </histories>
     <option name="languageScores">
       <map>
@@ -76,11 +76,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6684" />
+        <entry key="CHINESE" value="6689" />
         <entry key="CZECH" value="15" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6685" />
+        <entry key="ENGLISH" value="6690" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
