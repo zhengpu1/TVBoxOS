@@ -17,6 +17,10 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="update Player Cfg" />
+      <item value="m Player Config" />
+      <item value="update Player Cfg View" />
+      <item value="init Subtitle Info" />
       <item value="TYPE OPENING AND ENDING" />
       <item value="on Refresh Event" />
       <item value="set Chapter Markers" />
@@ -63,10 +67,6 @@
       <item value="Unable to make field private final java.lang.String java.io.File.path accessible: module java.base does not &quot;opens java.io&quot; to unnamed module @5e978d14" />
       <item value="takagen99 : Enter PIP if supported" />
       <item value="To cater for newer Android w no Menu button" />
-      <item value="is Finishing" />
-      <item value="is First Start" />
-      <item value="Remote Config" />
-      <item value="is Firstdlde" />
     </histories>
     <option name="languageScores">
       <map>
@@ -76,11 +76,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6699" />
+        <entry key="CHINESE" value="6703" />
         <entry key="CZECH" value="15" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6700" />
+        <entry key="ENGLISH" value="6704" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
