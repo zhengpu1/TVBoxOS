@@ -17,6 +17,9 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="TYPE OPENING AND ENDING" />
+      <item value="on Refresh Event" />
+      <item value="set Chapter Markers" />
       <item value="on Switch Source Event" />
       <item value="dispatch Key Event" />
       <item value="match Search Result" />
@@ -64,9 +67,6 @@
       <item value="is First Start" />
       <item value="Remote Config" />
       <item value="is Firstdlde" />
-      <item value="MODE PRIVATE" />
-      <item value="get Shared Preferences" />
-      <item value="check Updatess" />
     </histories>
     <option name="languageScores">
       <map>
@@ -76,11 +76,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6695" />
+        <entry key="CHINESE" value="6699" />
         <entry key="CZECH" value="15" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6696" />
+        <entry key="ENGLISH" value="6700" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
