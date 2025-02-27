@@ -17,12 +17,18 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="toggle Subtitle Text Size" />
+      <item value="is Series Flag Available" />
+      <item value="show Switch Progress" />
+      <item value="find Current Flag Index" />
+      <item value="switch To Source" />
+      <item value="handle No More Flags" />
+      <item value="show Switch Success" />
       <item value="auto Switch Handler" />
       <item value="notify Item Changed" />
       <item value="get Saved Progress" />
       <item value="parse Long" />
       <item value="Value cannot be converted to long." />
-      <item value="switch To Source" />
       <item value="LENGTH SHORT" />
       <item value="is Auto Switching" />
       <item value="update Player Cfg" />
@@ -61,12 +67,6 @@
       <item value="is First Launch" />
       <item value="Player Helper" />
       <item value="reload Activity" />
-      <item value="on Destroy" />
-      <item value="get Instance" />
-      <item value="quick Search Result" />
-      <item value="post Value" />
-      <item value="get Spider" />
-      <item value="scroll To Play Pos And Request Foucuse" />
     </histories>
     <option name="languageScores">
       <map>
@@ -76,11 +76,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6712" />
+        <entry key="CHINESE" value="6719" />
         <entry key="CZECH" value="15" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6713" />
+        <entry key="ENGLISH" value="6720" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
