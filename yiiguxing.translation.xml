@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="Auto Switch" />
       <item value="finally" />
       <item value="can Switch Source" />
       <item value="is Auto Switching" />
@@ -66,7 +67,6 @@
       <item value="finish All Activity" />
       <item value="Kill the process with the given PID. Note that, though this API allows us to request to kill any process based on its PID, the kernel will still impose standard restrictions on which PIDs you are actually able to kill. Typically this means only the process running the caller's packagesapplication and any additional processes created by that app; packages sharing a common UID will also be able to kill each other's processes." />
       <item value="app Exit" />
-      <item value="dismiss" />
     </histories>
     <option name="languageScores">
       <map>
@@ -76,11 +76,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6726" />
+        <entry key="CHINESE" value="6727" />
         <entry key="CZECH" value="15" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6727" />
+        <entry key="ENGLISH" value="6728" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
