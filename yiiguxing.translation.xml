@@ -17,11 +17,14 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="remove Callbacks" />
+      <item value="on Play Success" />
+      <item value="STATE IDLE" />
+      <item value="on Play State Changed" />
       <item value="media Player" />
       <item value="m Media Player" />
       <item value="set On Prepared Listener" />
       <item value="cancel Timeout" />
-      <item value="remove Callbacks" />
       <item value="protected" />
       <item value="stop Progress" />
       <item value="get Cutout Height" />
@@ -35,7 +38,6 @@
       <item value="get Media Player" />
       <item value="STATE PLAYING" />
       <item value="STATE PREPARING" />
-      <item value="STATE IDLE" />
       <item value="PLAYER FULL SCREEN" />
       <item value="PLAYER NORMAL" />
       <item value="set On State Change Listener" />
@@ -65,8 +67,6 @@
       <item value="Value cannot be converted to long." />
       <item value="LENGTH SHORT" />
       <item value="update Player Cfg" />
-      <item value="m Player Config" />
-      <item value="update Player Cfg View" />
     </histories>
     <option name="languageScores">
       <map>
@@ -76,11 +76,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6767" />
+        <entry key="CHINESE" value="6772" />
         <entry key="CZECH" value="15" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6768" />
+        <entry key="ENGLISH" value="6773" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
