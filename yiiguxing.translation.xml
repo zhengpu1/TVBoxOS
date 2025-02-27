@@ -17,6 +17,26 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="get Current Player State" />
+      <item value="is Playing" />
+      <item value="set On Error Listener" />
+      <item value="get Media Player" />
+      <item value="set On Prepared Listener" />
+      <item value="STATE PLAYING" />
+      <item value="STATE PREPARING" />
+      <item value="STATE IDLE" />
+      <item value="PLAYER FULL SCREEN" />
+      <item value="PLAYER NORMAL" />
+      <item value="set On State Change Listener" />
+      <item value="Runnable" />
+      <item value="cancel Timeout" />
+      <item value="remove Callbacks" />
+      <item value="start Play Timeout Check" />
+      <item value="handle Play Timeout" />
+      <item value="post Delayed" />
+      <item value="m Timeout Runnable" />
+      <item value="param delayMillis The delay (in milliseconds) until the Runnable will be executed." />
+      <item value="run On Ui Thread" />
       <item value="Auto Switch" />
       <item value="finally" />
       <item value="can Switch Source" />
@@ -47,26 +67,6 @@
       <item value="match Search Result" />
       <item value="TYPE SWITCH SOURCE" />
       <item value="set Mixed Content Mode" />
-      <item value="m Player Time Start Btn" />
-      <item value="Shared Preferences" />
-      <item value="set On Long Click Listener" />
-      <item value="set Progress" />
-      <item value="is Quick Search" />
-      <item value="is Searchable" />
-      <item value="release Critical Resources" />
-      <item value="Installation did not succeed. The application could not be installed. List of apks: [0] 'F:\TVBoxOS\app\build\outputs\apk\debug\tvbox_1.8.2025022307_debug.apk' Installation failed due to: 'device offline' Retry Failed to launch an application on all devices" />
-      <item value="max Cycle" />
-      <item value="next Source" />
-      <item value="is Source Available" />
-      <item value="perform Source Switch" />
-      <item value="equals" />
-      <item value="current Retry Count" />
-      <item value="current Index" />
-      <item value="quick Search Data" />
-      <item value="on Click Clear Cache" />
-      <item value="finish All Activity" />
-      <item value="Kill the process with the given PID. Note that, though this API allows us to request to kill any process based on its PID, the kernel will still impose standard restrictions on which PIDs you are actually able to kill. Typically this means only the process running the caller's packagesapplication and any additional processes created by that app; packages sharing a common UID will also be able to kill each other's processes." />
-      <item value="app Exit" />
     </histories>
     <option name="languageScores">
       <map>
@@ -76,11 +76,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6727" />
+        <entry key="CHINESE" value="6751" />
         <entry key="CZECH" value="15" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6728" />
+        <entry key="ENGLISH" value="6752" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
