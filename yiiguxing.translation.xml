@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="is Playing" />
       <item value="release" />
       <item value="PLAY STATUS CHECK INTERVAL" />
       <item value="player State" />
@@ -41,7 +42,6 @@
       <item value="get Cutout Height" />
       <item value="toggle Play" />
       <item value="pause" />
-      <item value="is Playing" />
       <item value="set Player State" />
       <item value="get Decor View" />
       <item value="get Current Player State" />
@@ -76,11 +76,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6785" />
+        <entry key="CHINESE" value="6786" />
         <entry key="CZECH" value="15" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6786" />
+        <entry key="ENGLISH" value="6787" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
