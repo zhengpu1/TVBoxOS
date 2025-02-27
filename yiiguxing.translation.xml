@@ -17,11 +17,14 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="PLAY STATUS CHECK INTERVAL" />
+      <item value="player State" />
       <item value="on Player State Changed" />
+      <item value="STATE ERROR" />
+      <item value="on Video Size Changed" />
       <item value="On State Change Listener" />
       <item value="set On State Change Listener" />
       <item value="quick Search Result" />
-      <item value="STATE ERROR" />
       <item value="case" />
       <item value="get Saved Progress 9" />
       <item value="remove Callbacks" />
@@ -64,9 +67,6 @@
       <item value="show Switch Progress" />
       <item value="find Current Flag Index" />
       <item value="switch To Source" />
-      <item value="handle No More Flags" />
-      <item value="show Switch Success" />
-      <item value="auto Switch Handler" />
     </histories>
     <option name="languageScores">
       <map>
@@ -76,11 +76,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6779" />
+        <entry key="CHINESE" value="6784" />
         <entry key="CZECH" value="15" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6780" />
+        <entry key="ENGLISH" value="6785" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
