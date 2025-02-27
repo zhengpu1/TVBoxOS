@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="get Saved Progress 9" />
       <item value="remove Callbacks" />
       <item value="on Play Success" />
       <item value="STATE IDLE" />
@@ -66,7 +67,6 @@
       <item value="parse Long" />
       <item value="Value cannot be converted to long." />
       <item value="LENGTH SHORT" />
-      <item value="update Player Cfg" />
     </histories>
     <option name="languageScores">
       <map>
@@ -76,11 +76,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6772" />
+        <entry key="CHINESE" value="6773" />
         <entry key="CZECH" value="15" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6773" />
+        <entry key="ENGLISH" value="6774" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
