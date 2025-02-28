@@ -17,6 +17,12 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="format Series Name" />
+      <item value="clean Series Name" />
+      <item value="Series Flag Adapter" />
+      <item value="on Bind View Holder" />
+      <item value="set Background Color" />
+      <item value="notify Item Changed" />
       <item value="can Switch To Next Flag" />
       <item value="on Switch Source" />
       <item value="set On Switch Source Listener" />
@@ -61,12 +67,6 @@
       <item value="handle Play Timeout" />
       <item value="post Delayed" />
       <item value="m Timeout Runnable" />
-      <item value="param delayMillis The delay (in milliseconds) until the Runnable will be executed." />
-      <item value="run On Ui Thread" />
-      <item value="Auto Switch" />
-      <item value="finally" />
-      <item value="can Switch Source" />
-      <item value="is Auto Switching" />
     </histories>
     <option name="languageScores">
       <map>
@@ -76,11 +76,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6793" />
+        <entry key="CHINESE" value="6800" />
         <entry key="CZECH" value="15" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6794" />
+        <entry key="ENGLISH" value="6801" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
