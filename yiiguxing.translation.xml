@@ -17,6 +17,8 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="show Switch Progress" />
+      <item value="Switchtoplaybacksitek" />
       <item value="VIDEO PURIFY" />
       <item value="switch Playback Site" />
       <item value="format Series Name" />
@@ -65,8 +67,6 @@
       <item value="PLAYER FULL SCREEN" />
       <item value="PLAYER NORMAL" />
       <item value="Runnable" />
-      <item value="start Play Timeout Check" />
-      <item value="handle Play Timeout" />
     </histories>
     <option name="languageScores">
       <map>
@@ -76,11 +76,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6803" />
-        <entry key="CZECH" value="15" />
+        <entry key="CHINESE" value="6804" />
+        <entry key="CZECH" value="16" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6804" />
+        <entry key="ENGLISH" value="6805" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
