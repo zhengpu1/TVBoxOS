@@ -17,6 +17,8 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="fetch Resolved Url" />
+      <item value="resolve Vip Url" />
       <item value="populate Play Info" />
       <item value="create Class Object" />
       <item value="generate Cache Key" />
@@ -65,8 +67,6 @@
       <item value="toggle Play" />
       <item value="pause" />
       <item value="set Player State" />
-      <item value="get Decor View" />
-      <item value="get Current Player State" />
     </histories>
     <option name="languageScores">
       <map>
@@ -76,11 +76,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6811" />
+        <entry key="CHINESE" value="6813" />
         <entry key="CZECH" value="16" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6812" />
+        <entry key="ENGLISH" value="6814" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
