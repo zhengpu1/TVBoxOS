@@ -17,6 +17,11 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="TYPE OPENING AND ENDING" />
+      <item value="OPENING AND ENDING CREDITS" />
+      <item value="on Refresh Event" />
+      <item value="On Android, subscriber will be called in Android's main thread (UI thread). If the posting thread is the main thread, subscriber methods will be called directly, blocking the posting thread. Otherwise the event is queued for delivery (non-blocking). Subscribers using this mode must return quickly to avoid blocking the main thread. If not on Android, behaves the same as {@link POSTING}." />
+      <item value="Thread Mode" />
       <item value="Openingcredits" />
       <item value="Abs Callback" />
       <item value="Suspicious Indentation" />
@@ -62,11 +67,6 @@
       <item value="remove Callbacks" />
       <item value="on Play Success" />
       <item value="STATE IDLE" />
-      <item value="on Play State Changed" />
-      <item value="media Player" />
-      <item value="m Media Player" />
-      <item value="set On Prepared Listener" />
-      <item value="cancel Timeout" />
     </histories>
     <option name="languageScores">
       <map>
@@ -76,11 +76,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6818" />
+        <entry key="CHINESE" value="6822" />
         <entry key="CZECH" value="17" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6818" />
+        <entry key="ENGLISH" value="6823" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
