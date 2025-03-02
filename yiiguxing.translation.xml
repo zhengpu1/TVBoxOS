@@ -17,6 +17,8 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="equals" />
+      <item value="click Setting Item" />
       <item value="post Delayed" />
       <item value="remove Callbacks" />
       <item value="recreate" />
@@ -35,7 +37,6 @@
       <item value="LIVE CROSS GROUP" />
       <item value="Added Skip Password Option" />
       <item value="is List Or Setting Layout Visible" />
-      <item value="click Setting Item" />
       <item value="live Setting Item Adapter" />
       <item value="load Proxy Lives" />
       <item value="resume" />
@@ -66,7 +67,6 @@
       <item value="parse M 3 u" />
       <item value="LIVE PLAY TYPE" />
       <item value="VIDEO PURIFY" />
-      <item value="decode Base 64 To Bitmap" />
     </histories>
     <option name="languageScores">
       <map>
@@ -76,11 +76,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6936" />
+        <entry key="CHINESE" value="6938" />
         <entry key="CZECH" value="17" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6937" />
+        <entry key="ENGLISH" value="6939" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
