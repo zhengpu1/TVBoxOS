@@ -17,12 +17,17 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="play State Changed" />
+      <item value="m Connect Timeout Change Source Run" />
+      <item value="STATE BUFFERING" />
+      <item value="post Delayed" />
+      <item value="show Net Speed" />
+      <item value="LIVE SHOW NET SPEED" />
+      <item value="LIVE CHANNEL REVERSE" />
+      <item value="LIVE CROSS GROUP" />
       <item value="show Password Dialog" />
       <item value="load Current Source List" />
       <item value="LIVE SKIP PASSWORD" />
-      <item value="LIVE CROSS GROUP" />
-      <item value="LIVE SHOW NET SPEED" />
-      <item value="LIVE CHANNEL REVERSE" />
       <item value="personal Setting Items" />
       <item value="live Setting Item Adapter" />
       <item value="position" />
@@ -62,11 +67,6 @@
       <item value="Color Drawable" />
       <item value="thumb Drawable" />
       <item value="state focused" />
-      <item value="get Color By Attr Id" />
-      <item value="LEFT" />
-      <item value="HORIZONTAL" />
-      <item value="status Bar Background" />
-      <item value="background" />
     </histories>
     <option name="languageScores">
       <map>
@@ -76,11 +76,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6899" />
+        <entry key="CHINESE" value="6907" />
         <entry key="CZECH" value="17" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6900" />
+        <entry key="ENGLISH" value="6908" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
