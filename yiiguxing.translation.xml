@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="get Color By Attr Id" />
       <item value="background" />
       <item value="secondary Progress" />
       <item value="secondary Progress Clip" />
@@ -66,7 +67,6 @@
       <item value="Series Flag Adapter" />
       <item value="on Bind View Holder" />
       <item value="set Background Color" />
-      <item value="notify Item Changed" />
     </histories>
     <option name="languageScores">
       <map>
@@ -76,11 +76,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6845" />
+        <entry key="CHINESE" value="6846" />
         <entry key="CZECH" value="17" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6846" />
+        <entry key="ENGLISH" value="6847" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
