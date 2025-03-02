@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="set Layout Params" />
       <item value="set Progress Bar" />
       <item value="Color Drawable" />
       <item value="thumb Drawable" />
@@ -66,7 +67,6 @@
       <item value="json Ext" />
       <item value="show Switch Progress" />
       <item value="Switchtoplaybacksitek" />
-      <item value="VIDEO PURIFY" />
     </histories>
     <option name="languageScores">
       <map>
@@ -76,11 +76,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6855" />
+        <entry key="CHINESE" value="6856" />
         <entry key="CZECH" value="17" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6856" />
+        <entry key="ENGLISH" value="6857" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
