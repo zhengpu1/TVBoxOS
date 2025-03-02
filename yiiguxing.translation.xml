@@ -17,6 +17,9 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="Installation did not succeed. The application could not be installed. List of apks: [0] 'F:\TVBoxOS\app\build\outputs\apk\debug\tvbox_1.8.2025030221_debug.apk' Installation failed due to: 'Failed to install-write all apks' Retry Failed to launch an application on all devices" />
+      <item value="LIVE HISTORY" />
+      <item value="select Setting Group" />
       <item value="equals" />
       <item value="click Setting Item" />
       <item value="post Delayed" />
@@ -53,7 +56,6 @@
       <item value="live Channel Group List" />
       <item value="Cause this Activity to be recreated with a new instance. This results in essentially the same flow as when the Activity is created due to a configuration change -- the current instance will go through its lifecycle to onDestroy and a new instance then created after it." />
       <item value="reload Homea" />
-      <item value="LIVE HISTORY" />
       <item value="LIVE GROUP INDEX" />
       <item value="contains" />
       <item value="LIVE SOURCE URL HISTORY" />
@@ -65,8 +67,6 @@
       <item value="show Site Switch" />
       <item value="auto Retry" />
       <item value="parse M 3 u" />
-      <item value="LIVE PLAY TYPE" />
-      <item value="VIDEO PURIFY" />
     </histories>
     <option name="languageScores">
       <map>
@@ -76,11 +76,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6938" />
+        <entry key="CHINESE" value="6941" />
         <entry key="CZECH" value="17" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6939" />
+        <entry key="ENGLISH" value="6942" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
