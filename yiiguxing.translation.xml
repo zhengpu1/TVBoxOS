@@ -17,6 +17,15 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="refresh QR Code" />
+      <item value="KEYCODE MENU" />
+      <item value="menu Key Down Time" />
+      <item value="current Time Millis" />
+      <item value="show Site Switch" />
+      <item value="auto Retry" />
+      <item value="parse M 3 u" />
+      <item value="LIVE PLAY TYPE" />
+      <item value="VIDEO PURIFY" />
       <item value="decode Base 64 To Bitmap" />
       <item value="auto Retry Count" />
       <item value="HOME PWET TUMM" />
@@ -42,7 +51,6 @@
       <item value="Setprogressbar" />
       <item value="TYPE HISTORY REFRESH" />
       <item value="TYPE PUSH VOD" />
-      <item value="auto Retry" />
       <item value="handle Drive Url" />
       <item value="SPAN SIZE FOR OTHER ITEMS" />
       <item value="Unable to make field private final java.lang.String java.io.File.path accessible: module java.base does not &quot;opens java.io&quot; to unnamed module @6a9a1d25" />
@@ -59,14 +67,6 @@
       <item value="TYPE PUSH URL" />
       <item value="Thread Mode" />
       <item value="OPENING AND ENDING CREDITS" />
-      <item value="on Refresh Event" />
-      <item value="On Android, subscriber will be called in Android's main thread (UI thread). If the posting thread is the main thread, subscriber methods will be called directly, blocking the posting thread. Otherwise the event is queued for delivery (non-blocking). Subscribers using this mode must return quickly to avoid blocking the main thread. If not on Android, behaves the same as {@link POSTING}." />
-      <item value="Openingcredits" />
-      <item value="Abs Callback" />
-      <item value="Suspicious Indentation" />
-      <item value="build Url" />
-      <item value="parse Vod Listp" />
-      <item value="search Content" />
     </histories>
     <option name="languageScores">
       <map>
@@ -76,11 +76,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6866" />
+        <entry key="CHINESE" value="6875" />
         <entry key="CZECH" value="17" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6867" />
+        <entry key="ENGLISH" value="6876" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
