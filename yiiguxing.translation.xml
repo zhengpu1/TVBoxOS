@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="update Progress Task" />
       <item value="background Drawable" />
       <item value="thumb Offset" />
       <item value="MATCH PARENT" />
@@ -66,7 +67,6 @@
       <item value="resolve Vip Url" />
       <item value="populate Play Info" />
       <item value="create Class Object" />
-      <item value="generate Cache Key" />
     </histories>
     <option name="languageScores">
       <map>
@@ -76,11 +76,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6862" />
+        <entry key="CHINESE" value="6863" />
         <entry key="CZECH" value="17" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6863" />
+        <entry key="ENGLISH" value="6864" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
