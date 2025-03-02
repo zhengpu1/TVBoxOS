@@ -17,6 +17,8 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="clear" />
+      <item value="live Channel Group List" />
       <item value="Cause this Activity to be recreated with a new instance. This results in essentially the same flow as when the Activity is created due to a configuration change -- the current instance will go through its lifecycle to onDestroy and a new instance then created after it." />
       <item value="reload Homea" />
       <item value="LIVE HISTORY" />
@@ -65,8 +67,6 @@
       <item value="SPAN SIZE FOR OTHER ITEMS" />
       <item value="Unable to make field private final java.lang.String java.io.File.path accessible: module java.base does not &quot;opens java.io&quot; to unnamed module @6a9a1d25" />
       <item value="get Span Size" />
-      <item value="SPAN SIZE FOR FIRST TWO ITEMS" />
-      <item value="home Source Rec" />
     </histories>
     <option name="languageScores">
       <map>
@@ -76,11 +76,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6887" />
+        <entry key="CHINESE" value="6889" />
         <entry key="CZECH" value="17" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6888" />
+        <entry key="ENGLISH" value="6890" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
