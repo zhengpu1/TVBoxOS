@@ -17,11 +17,13 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="post Delayed" />
+      <item value="remove Callbacks" />
+      <item value="recreate" />
+      <item value="LIVE SHOW NET SPEED" />
       <item value="LIVE GROUP LIST" />
       <item value="auto Retry Count" />
       <item value="m Hide Setting Layout Run" />
-      <item value="post Delayed" />
-      <item value="recreate" />
       <item value="check Need Notify" />
       <item value="on Item Click" />
       <item value="play State Changed" />
@@ -41,7 +43,6 @@
       <item value="m Connect Timeout Change Source Run" />
       <item value="STATE BUFFERING" />
       <item value="show Net Speed" />
-      <item value="LIVE SHOW NET SPEED" />
       <item value="show Password Dialog" />
       <item value="load Current Source List" />
       <item value="LIVE SKIP PASSWORD" />
@@ -66,7 +67,6 @@
       <item value="LIVE PLAY TYPE" />
       <item value="VIDEO PURIFY" />
       <item value="decode Base 64 To Bitmap" />
-      <item value="HOME PWET TUMM" />
     </histories>
     <option name="languageScores">
       <map>
@@ -76,11 +76,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6932" />
+        <entry key="CHINESE" value="6936" />
         <entry key="CZECH" value="17" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6933" />
+        <entry key="ENGLISH" value="6937" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
