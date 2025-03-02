@@ -17,6 +17,11 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="LIVE HISTORY" />
+      <item value="get Live Setting Items" />
+      <item value="LIVE CONNECT TIMEOUT" />
+      <item value="LIVE GROUP INDEX" />
+      <item value="LIVE GROUP LIST" />
       <item value="refresh QR Code" />
       <item value="KEYCODE MENU" />
       <item value="menu Key Down Time" />
@@ -62,11 +67,6 @@
       <item value="LENGTH SHORT" />
       <item value="handle Refresh Event" />
       <item value="TYPE OPENING AND ENDING" />
-      <item value="TYPE SETTING SEARCH TV" />
-      <item value="TYPE LIVEPLAY UPDATE" />
-      <item value="TYPE PUSH URL" />
-      <item value="Thread Mode" />
-      <item value="OPENING AND ENDING CREDITS" />
     </histories>
     <option name="languageScores">
       <map>
@@ -76,11 +76,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6875" />
+        <entry key="CHINESE" value="6880" />
         <entry key="CZECH" value="17" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6876" />
+        <entry key="ENGLISH" value="6881" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
