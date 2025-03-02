@@ -17,19 +17,31 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="check Need Notify" />
+      <item value="on Item Click" />
       <item value="play State Changed" />
+      <item value="live Setting Group List" />
+      <item value="live Setting Items" />
+      <item value="set Item Selected" />
+      <item value="LIVE CONNECT TIMEOUT" />
+      <item value="LIVE CHANNEL REVERSE" />
+      <item value="LIVE CROSS GROUP" />
+      <item value="Added Skip Password Option" />
+      <item value="is List Or Setting Layout Visible" />
+      <item value="click Setting Item" />
+      <item value="live Setting Item Adapter" />
+      <item value="load Proxy Lives" />
+      <item value="resume" />
+      <item value="release" />
       <item value="m Connect Timeout Change Source Run" />
       <item value="STATE BUFFERING" />
       <item value="post Delayed" />
       <item value="show Net Speed" />
       <item value="LIVE SHOW NET SPEED" />
-      <item value="LIVE CHANNEL REVERSE" />
-      <item value="LIVE CROSS GROUP" />
       <item value="show Password Dialog" />
       <item value="load Current Source List" />
       <item value="LIVE SKIP PASSWORD" />
       <item value="personal Setting Items" />
-      <item value="live Setting Item Adapter" />
       <item value="position" />
       <item value="clear" />
       <item value="live Channel Group List" />
@@ -39,10 +51,8 @@
       <item value="LIVE GROUP LIST" />
       <item value="LIVE GROUP INDEX" />
       <item value="contains" />
-      <item value="set Item Selected" />
       <item value="LIVE SOURCE URL HISTORY" />
       <item value="get Live Setting Items" />
-      <item value="LIVE CONNECT TIMEOUT" />
       <item value="refresh QR Code" />
       <item value="KEYCODE MENU" />
       <item value="menu Key Down Time" />
@@ -57,16 +67,6 @@
       <item value="HOME PWET TUMM" />
       <item value="init Parse Load Found" />
       <item value="update Progress Task" />
-      <item value="background Drawable" />
-      <item value="thumb Offset" />
-      <item value="MATCH PARENT" />
-      <item value="layout Params" />
-      <item value="set Layout Params" />
-      <item value="View Group" />
-      <item value="set Progress Bar" />
-      <item value="Color Drawable" />
-      <item value="thumb Drawable" />
-      <item value="state focused" />
     </histories>
     <option name="languageScores">
       <map>
@@ -76,11 +76,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6907" />
+        <entry key="CHINESE" value="6927" />
         <entry key="CZECH" value="17" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6908" />
+        <entry key="ENGLISH" value="6928" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
