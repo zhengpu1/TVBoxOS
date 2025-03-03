@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="Pinyin Adapter" />
       <item value="Fast List Adapter" />
       <item value="Backup Adapter" />
       <item value="Checkbox Search Adapter" />
@@ -66,7 +67,6 @@
       <item value="personal Setting Items" />
       <item value="position" />
       <item value="clear" />
-      <item value="live Channel Group List" />
     </histories>
     <option name="languageScores">
       <map>
@@ -76,11 +76,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6955" />
+        <entry key="CHINESE" value="6956" />
         <entry key="CZECH" value="17" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6956" />
+        <entry key="ENGLISH" value="6957" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
