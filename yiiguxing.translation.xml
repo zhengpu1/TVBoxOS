@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="instanceof" />
       <item value="Home Page Adapter" />
       <item value="Installation did not succeed. The application could not be installed. List of apks: [0] 'F:\TVBoxOS\app\build\outputs\apk\debug\tvbox_1.8.2025030221_debug.apk' Installation failed due to: 'Failed to install-write all apks' Retry Failed to launch an application on all devices" />
       <item value="LIVE HISTORY" />
@@ -66,7 +67,6 @@
       <item value="menu Key Down Time" />
       <item value="current Time Millis" />
       <item value="show Site Switch" />
-      <item value="auto Retry" />
     </histories>
     <option name="languageScores">
       <map>
@@ -76,7 +76,7 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="1" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6942" />
+        <entry key="CHINESE" value="6943" />
         <entry key="CZECH" value="17" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
@@ -86,7 +86,7 @@
         <entry key="FILIPINO" value="1" />
         <entry key="FINNISH" value="3" />
         <entry key="FRENCH" value="8" />
-        <entry key="GALICIAN" value="17" />
+        <entry key="GALICIAN" value="18" />
         <entry key="GERMAN" value="10" />
         <entry key="GREEK" value="1" />
         <entry key="HUNGARIAN" value="1" />
