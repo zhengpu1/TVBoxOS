@@ -18,6 +18,11 @@
     <option name="newTranslationDialogY" value="560" />
     <histories>
       <item value="CELEBRATE WARMLY" />
+      <item value="focusable In Touch Mode" />
+      <item value="ellipsize" />
+      <item value="focusable" />
+      <item value="show Preview" />
+      <item value="request Focus" />
       <item value="boolean" />
       <item value="FORBID JAR DIALOG" />
       <item value="EPISODE GROUPING" />
@@ -62,11 +67,6 @@
       <item value="check Need Notify" />
       <item value="play State Changed" />
       <item value="live Setting Group List" />
-      <item value="live Setting Items" />
-      <item value="set Item Selected" />
-      <item value="LIVE CONNECT TIMEOUT" />
-      <item value="LIVE CHANNEL REVERSE" />
-      <item value="LIVE CROSS GROUP" />
     </histories>
     <option name="languageScores">
       <map>
@@ -76,11 +76,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6971" />
+        <entry key="CHINESE" value="6977" />
         <entry key="CZECH" value="18" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6972" />
+        <entry key="ENGLISH" value="6978" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
