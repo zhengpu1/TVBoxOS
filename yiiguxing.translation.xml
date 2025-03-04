@@ -17,6 +17,18 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="search Title" />
+      <item value="SEARCH VIEW" />
+      <item value="FAST SEARCH MODE" />
+      <item value="KEYCODE DPAD DOWN" />
+      <item value="is Keyboard Hidden" />
+      <item value="DEBUG OPEN" />
+      <item value="PLAY TYPE" />
+      <item value="VIDEO PURIFY" />
+      <item value="BACKGROUND PLAY TYPE" />
+      <item value="PLAYBACK PLAYS" />
+      <item value="FORBID JAR DIALOG" />
+      <item value="ll Ijk Cache Play" />
       <item value="set Has Fixed Size" />
       <item value="dialog grid filter" />
       <item value="BOTTOM" />
@@ -38,7 +50,6 @@
       <item value="show Preview" />
       <item value="request Focus" />
       <item value="boolean" />
-      <item value="FORBID JAR DIALOG" />
       <item value="EPISODE GROUPING" />
       <item value="show Fast Search" />
       <item value="init View Pager" />
@@ -56,17 +67,6 @@
       <item value="Backup Adapter" />
       <item value="Checkbox Search Adapter" />
       <item value="Switched to GridFragment" />
-      <item value="on Item Click" />
-      <item value="m Controller" />
-      <item value="get List" />
-      <item value="toggle Filter Color" />
-      <item value="on Refresh" />
-      <item value="Override" />
-      <item value="fragment container" />
-      <item value="set On Dismiss" />
-      <item value="instanceof" />
-      <item value="Home Page Adapter" />
-      <item value="Installation did not succeed. The application could not be installed. List of apks: [0] 'F:\TVBoxOS\app\build\outputs\apk\debug\tvbox_1.8.2025030221_debug.apk' Installation failed due to: 'Failed to install-write all apks' Retry Failed to launch an application on all devices" />
     </histories>
     <option name="languageScores">
       <map>
@@ -76,16 +76,16 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6993" />
+        <entry key="CHINESE" value="7006" />
         <entry key="CZECH" value="18" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6994" />
+        <entry key="ENGLISH" value="7007" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FINNISH" value="3" />
-        <entry key="FRENCH" value="8" />
+        <entry key="FRENCH" value="10" />
         <entry key="GALICIAN" value="18" />
         <entry key="GERMAN" value="10" />
         <entry key="GREEK" value="1" />
