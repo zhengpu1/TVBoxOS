@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="OPENING AND ENDING CREDITS" />
       <item value="Switchtoplaybacksitek" />
       <item value="reset Auto Switch" />
       <item value="import com.github.tvbox.osc.util.TVInstance;" />
@@ -66,7 +67,6 @@
       <item value="m Connect Timeout Change Source Run" />
       <item value="STATE BUFFERING" />
       <item value="show Net Speed" />
-      <item value="show Password Dialog" />
     </histories>
     <option name="languageScores">
       <map>
@@ -80,7 +80,7 @@
         <entry key="CZECH" value="18" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6960" />
+        <entry key="ENGLISH" value="6961" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
