@@ -1,6 +1,6 @@
 <application>
   <component name="Translation.Cache">
-    <option name="lastTrimTime" value="1740581364102" />
+    <option name="lastTrimTime" value="1741046806065" />
   </component>
   <component name="Translation.Settings">
     <option name="baiduTranslateSettings">
@@ -17,6 +17,8 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="Switchtoplaybacksitek" />
+      <item value="reset Auto Switch" />
       <item value="import com.github.tvbox.osc.util.TVInstance;" />
       <item value="����: �� TVInstance λ��: ����� com.github.tvbox.osc.util" />
       <item value="Series Group Adapter" />
@@ -65,8 +67,6 @@
       <item value="STATE BUFFERING" />
       <item value="show Net Speed" />
       <item value="show Password Dialog" />
-      <item value="load Current Source List" />
-      <item value="LIVE SKIP PASSWORD" />
     </histories>
     <option name="languageScores">
       <map>
@@ -76,11 +76,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6958" />
-        <entry key="CZECH" value="17" />
+        <entry key="CHINESE" value="6960" />
+        <entry key="CZECH" value="18" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6959" />
+        <entry key="ENGLISH" value="6960" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
