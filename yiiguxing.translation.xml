@@ -17,6 +17,8 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="EPISODE GROUPING" />
+      <item value="show Fast Search" />
       <item value="init View Pager" />
       <item value="new Instance" />
       <item value="Parse Adapter" />
@@ -65,8 +67,6 @@
       <item value="Added Skip Password Option" />
       <item value="is List Or Setting Layout Visible" />
       <item value="live Setting Item Adapter" />
-      <item value="load Proxy Lives" />
-      <item value="resume" />
     </histories>
     <option name="languageScores">
       <map>
@@ -76,11 +76,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="6964" />
+        <entry key="CHINESE" value="6966" />
         <entry key="CZECH" value="18" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="6965" />
+        <entry key="ENGLISH" value="6967" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
