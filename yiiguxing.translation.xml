@@ -17,12 +17,12 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="request Focus" />
       <item value="focusable In Touch Mode" />
       <item value="scroll To Play Pos And Request Foucuse" />
       <item value="request View" />
       <item value="series Flag Focus" />
       <item value="toggle Full Preview" />
-      <item value="request Focus" />
       <item value="on Create" />
       <item value="VIDEO PURIFY" />
       <item value="FORBID JAR DIALOG" />
@@ -76,11 +76,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="7060" />
+        <entry key="CHINESE" value="7061" />
         <entry key="CZECH" value="18" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="7061" />
+        <entry key="ENGLISH" value="7062" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
