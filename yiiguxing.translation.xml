@@ -17,6 +17,8 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="Fast List Adapter" />
+      <item value="Api History Dialog Adapter" />
       <item value="SEARCH VIEW" />
       <item value="with preview" />
       <item value="is Checked" />
@@ -65,8 +67,6 @@
       <item value="OPENING AND ENDING CREDITS" />
       <item value="Switchtoplaybacksitek" />
       <item value="reset Auto Switch" />
-      <item value="import com.github.tvbox.osc.util.TVInstance;" />
-      <item value="����: �� TVInstance λ��: ����� com.github.tvbox.osc.util" />
     </histories>
     <option name="languageScores">
       <map>
@@ -76,11 +76,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="7013" />
+        <entry key="CHINESE" value="7016" />
         <entry key="CZECH" value="18" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="7014" />
+        <entry key="ENGLISH" value="7017" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
