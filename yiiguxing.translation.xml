@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="Shutting down VM" />
       <item value="Setprogressbar" />
       <item value="KEYCODE DPAD DOWN" />
       <item value="set Speed Video View" />
@@ -66,7 +67,6 @@
       <item value="show Empty" />
       <item value="Fast List Adapter" />
       <item value="Api History Dialog Adapter" />
-      <item value="SEARCH VIEW" />
     </histories>
     <option name="languageScores">
       <map>
@@ -80,7 +80,7 @@
         <entry key="CZECH" value="18" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="7074" />
+        <entry key="ENGLISH" value="7075" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
