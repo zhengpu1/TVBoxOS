@@ -17,6 +17,8 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="live Setting Group Adapter" />
+      <item value="live Source Bean List" />
       <item value="live Channel Group List" />
       <item value="show Channel List" />
       <item value="load Proxy Lives" />
@@ -65,8 +67,6 @@
       <item value="contains Key" />
       <item value="start Quick Search" />
       <item value="source View Model" />
-      <item value="get Quick Search" />
-      <item value="get Sources For Search" />
     </histories>
     <option name="languageScores">
       <map>
@@ -76,11 +76,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="7083" />
+        <entry key="CHINESE" value="7085" />
         <entry key="CZECH" value="18" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="7084" />
+        <entry key="ENGLISH" value="7086" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
