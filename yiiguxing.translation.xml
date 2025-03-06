@@ -17,6 +17,12 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="select Item" />
+      <item value="click Setting Item" />
+      <item value="on Item Click" />
+      <item value="on Item Selected" />
+      <item value="on Item Pre Selected" />
+      <item value="init Setting Item View" />
       <item value="Live Channel Item Adapter" />
       <item value="Live Setting Group Adapter" />
       <item value="Live Setting Item Adapter" />
@@ -61,12 +67,6 @@
       <item value="llplayback" />
       <item value="show Fast Search 2" />
       <item value="Select Dialog Adapter" />
-      <item value="PLAY TYPE" />
-      <item value="contains" />
-      <item value="one Search Source" />
-      <item value="on Checked Changed" />
-      <item value="m Checked Sources" />
-      <item value="on Bind View Holder" />
     </histories>
     <option name="languageScores">
       <map>
@@ -76,11 +76,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="7091" />
+        <entry key="CHINESE" value="7098" />
         <entry key="CZECH" value="18" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="7092" />
+        <entry key="ENGLISH" value="7099" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
