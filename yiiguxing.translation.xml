@@ -17,6 +17,9 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="java.lang.OutOfMemoryError: Java heap space" />
+      <item value="Library class android.content.res.XmlResourceParser implements program class org.xmlpull.v1.XmlPullParser" />
+      <item value="Missing class: net.sf.cglib.proxy.CallbackFilter" />
       <item value="set On Long Click Listener" />
       <item value="equals" />
       <item value="set Content View" />
@@ -64,9 +67,6 @@
       <item value="from Json" />
       <item value="Shutting down VM" />
       <item value="Setprogressbar" />
-      <item value="KEYCODE DPAD DOWN" />
-      <item value="set Speed Video View" />
-      <item value="back Btn" />
     </histories>
     <option name="languageScores">
       <map>
@@ -76,11 +76,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="7133" />
+        <entry key="CHINESE" value="7136" />
         <entry key="CZECH" value="18" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="7134" />
+        <entry key="ENGLISH" value="7137" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
