@@ -17,9 +17,10 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="use Cache Config" />
+      <item value="is First Start" />
       <item value="is First" />
       <item value="is First Time Home" />
-      <item value="is First Start" />
       <item value="java.lang.OutOfMemoryError: Java heap space" />
       <item value="Library class android.content.res.XmlResourceParser implements program class org.xmlpull.v1.XmlPullParser" />
       <item value="Missing class: net.sf.cglib.proxy.CallbackFilter" />
@@ -66,7 +67,6 @@
       <item value="LIVE GROUP INDEX" />
       <item value="update Cfg" />
       <item value="tv Rec Style Text" />
-      <item value="HOME REC STYLE" />
     </histories>
     <option name="languageScores">
       <map>
@@ -76,11 +76,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="7139" />
+        <entry key="CHINESE" value="7141" />
         <entry key="CZECH" value="18" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="7140" />
+        <entry key="ENGLISH" value="7142" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
