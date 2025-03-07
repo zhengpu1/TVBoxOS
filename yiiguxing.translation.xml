@@ -17,6 +17,9 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="search Data" />
+      <item value="TYPE QUICK SEARCH SELECT" />
+      <item value="TYPE REFRESH" />
       <item value="init Live Settings" />
       <item value="jar Init Ok" />
       <item value="data Init Ok" />
@@ -64,9 +67,6 @@
       <item value="Live Channel Group Adapter" />
       <item value="live Setting Group Adapter" />
       <item value="live Channel Group List" />
-      <item value="show Channel List" />
-      <item value="load Proxy Lives" />
-      <item value="channels" />
     </histories>
     <option name="languageScores">
       <map>
@@ -76,11 +76,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="7144" />
+        <entry key="CHINESE" value="7147" />
         <entry key="CZECH" value="18" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="7145" />
+        <entry key="ENGLISH" value="7148" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
