@@ -1,6 +1,6 @@
 <application>
   <component name="Translation.Cache">
-    <option name="lastTrimTime" value="1741046806065" />
+    <option name="lastTrimTime" value="1741516942804" />
   </component>
   <component name="Translation.Settings">
     <option name="baiduTranslateSettings">
@@ -17,6 +17,13 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="set Default Parse" />
+      <item value="default Parse" />
+      <item value="equals" />
+      <item value="DEFAULT PARSE" />
+      <item value="parse Bean List" />
+      <item value="parse" />
+      <item value="contains" />
       <item value="search Data" />
       <item value="TYPE QUICK SEARCH SELECT" />
       <item value="TYPE REFRESH" />
@@ -31,7 +38,6 @@
       <item value="Library class android.content.res.XmlResourceParser implements program class org.xmlpull.v1.XmlPullParser" />
       <item value="Missing class: net.sf.cglib.proxy.CallbackFilter" />
       <item value="set On Long Click Listener" />
-      <item value="equals" />
       <item value="set Content View" />
       <item value="on Success" />
       <item value="convert Response" />
@@ -54,7 +60,6 @@
       <item value="update Selection" />
       <item value="remove Item" />
       <item value="notify Item Changed" />
-      <item value="contains" />
       <item value="LIVE GROUP LIST" />
       <item value="click Setting Item" />
       <item value="on Item Click" />
@@ -62,11 +67,6 @@
       <item value="on Item Pre Selected" />
       <item value="init Setting Item View" />
       <item value="Live Channel Item Adapter" />
-      <item value="Live Setting Group Adapter" />
-      <item value="Live Setting Item Adapter" />
-      <item value="Live Channel Group Adapter" />
-      <item value="live Setting Group Adapter" />
-      <item value="live Channel Group List" />
     </histories>
     <option name="languageScores">
       <map>
@@ -76,11 +76,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="7147" />
+        <entry key="CHINESE" value="7154" />
         <entry key="CZECH" value="18" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="7148" />
+        <entry key="ENGLISH" value="7155" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
