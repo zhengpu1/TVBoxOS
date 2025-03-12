@@ -17,6 +17,10 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="handle Lasted Time" />
+      <item value="string For Time Vod" />
+      <item value="SCREEN DISPLAY" />
+      <item value="LIVE WEB HEADER" />
       <item value="set Default Parse" />
       <item value="default Parse" />
       <item value="equals" />
@@ -63,10 +67,6 @@
       <item value="LIVE GROUP LIST" />
       <item value="click Setting Item" />
       <item value="on Item Click" />
-      <item value="on Item Selected" />
-      <item value="on Item Pre Selected" />
-      <item value="init Setting Item View" />
-      <item value="Live Channel Item Adapter" />
     </histories>
     <option name="languageScores">
       <map>
@@ -76,11 +76,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="7154" />
+        <entry key="CHINESE" value="7158" />
         <entry key="CZECH" value="18" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="7155" />
+        <entry key="ENGLISH" value="7159" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
