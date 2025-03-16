@@ -17,6 +17,9 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="What went wrong: Out of memory. Java heap space Possible solution: - Check the JVM memory arguments defined for the gradle process in: gradle.properties in project root directory" />
+      <item value="Execution failed for task ':app:minifyReleaseWithR8'. &gt; com.android.tools.r8.CompilationFailedException: Compilation failed to complete" />
+      <item value="java.lang.OutOfMemoryError: Java heap space" />
       <item value="if returns from a search result, back to search result" />
       <item value="TYPE SWITCH SOURCE" />
       <item value="TYPE OPENING AND ENDING" />
@@ -49,7 +52,6 @@
       <item value="is First Start" />
       <item value="is First" />
       <item value="is First Time Home" />
-      <item value="java.lang.OutOfMemoryError: Java heap space" />
       <item value="Library class android.content.res.XmlResourceParser implements program class org.xmlpull.v1.XmlPullParser" />
       <item value="Missing class: net.sf.cglib.proxy.CallbackFilter" />
       <item value="set On Long Click Listener" />
@@ -65,8 +67,6 @@
       <item value="LIVE SOURCE URL CURRENT" />
       <item value="load Live Source Url" />
       <item value="clan To Address" />
-      <item value="release" />
-      <item value="live Source Bean List" />
     </histories>
     <option name="languageScores">
       <map>
@@ -76,11 +76,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="7170" />
+        <entry key="CHINESE" value="7173" />
         <entry key="CZECH" value="18" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="7171" />
+        <entry key="ENGLISH" value="7174" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
