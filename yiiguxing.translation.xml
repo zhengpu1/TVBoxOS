@@ -17,13 +17,17 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="ParseError at [row,col]:[1,1]" />
+      <item value="Failed to compile values file." />
+      <item value="&lt;item&gt; inner element must either be a resource reference or empty." />
+      <item value="at com.android.build.gradle.internal.res.ResourceCompilerRunnable.run(ResourceCompilerRunnable.kt:15) at com.android.build.gradle.internal.profile.ProfileAwareWorkAction.execute(ProfileAwareWorkAction.kt:74) at org.gradle.workers.internal.DefaultWorkerServer.execute(DefaultWorkerServer.java:63) at org.gradle.workers.internal.NoIsolationWorkerFactory11.create(NoIsolationWorkerFactory.java:66) at org.gradle.workers.internal.NoIsolationWorkerFactory11.create(NoIsolationWorkerFactory.java:62) at org.gradle.internal.classloader.ClassLoaderUtils.executeInClassloader(ClassLoaderUtils.java:97) at org.gradle.workers.internal.NoIsolationWorkerFactory1.lambdaexecute0(NoIsolationWorkerFactory.java:62) at org.gradle.workers.internal.AbstractWorker1.call(AbstractWorker.java:44) at org.gradle.workers.internal.AbstractWorker1.call(AbstractWorker.java:41) at org.gradle.internal.operations.DefaultBuildOperationRunnerCallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204) at org.gradle.internal.operations.DefaultBuildOperationRunnerCallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:199) at org.gradle.internal.operations.DefaultBuildOperationRunner2.execute(DefaultBuildOperationRunner.java:66) at org.gradle.internal.operations.DefaultBuildOperationRunner2.execute(DefaultBuildOperationRunner.java:59) at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:157) at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59) at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53) at org.gradle.internal.operations.DefaultBuildOperationExecutor.call(DefaultBuildOperationExecutor.java:73) at org.gradle.workers.internal.AbstractWorker.executeWrappedInBuildOperation(AbstractWorker.java:41) at org.gradle.workers.internal.NoIsolationWorkerFactory1.execute(NoIsolationWorkerFactory.java:59) at org.gradle.workers.internal.DefaultWorkerExecutor.lambdasubmitWork2(DefaultWorkerExecutor.java:206) at java.basejava.util.concurrent.FutureTask.run(FutureTask.java:264) at org.gradle.internal.work.DefaultConditionalExecutionQueueExecutionRunner.runExecution(DefaultConditionalExecutionQueue.java:214) at org.gradle.internal.work.DefaultConditionalExecutionQueueExecutionRunner.runBatch(DefaultConditionalExecutionQueue.java:164) at org.gradle.internal.work.DefaultConditionalExecutionQueueExecutionRunner.run(DefaultConditionalExecutionQueue.java:131) at java.basejava.util.concurrent.ExecutorsRunnableAdapter.call(Executors.java:515) at java.basejava.util.concurrent.FutureTask.run(FutureTask.java:264)" />
+      <item value="at com.android.build.gradle.internal.res.ResourceCompilerRunnable.run(ResourceCompilerRunnable.kt:15) at com.android.build.gradle.internal.profile.ProfileAwareWorkAction.execute(ProfileAwareWorkAction.kt:74) at org.gradle.workers.internal.DefaultWorkerServer.execute(DefaultWorkerServer.java:63) at org.gradle.workers.internal.NoIsolationWorkerFactory11.create(NoIsolationWorkerFactory.java:66) at org.gradle.workers.internal.NoIsolationWorkerFactory11.create(NoIsolationWorkerFactory.java:62) at org.gradle.internal.classloader.ClassLoaderUtils.executeInClassloader(ClassLoaderUtils.java:97) at org.gradle.workers.internal.NoIsolationWorkerFactory1.lambdaexecute0(NoIsolationWorkerFactory.java:62) at org.gradle.workers.internal.AbstractWorker1.call(AbstractWorker.java:44) at org.gradle.workers.internal.AbstractWorker1.call(AbstractWorker.java:41) at org.gradle.internal.operations.DefaultBuildOperationRunnerCallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204) at org.gradle.internal.operations.DefaultBuildOperationRunnerCallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:199) at org.gradle.internal.operations.DefaultBuildOperationRunner2.execute(DefaultBuildOperationRunner.java:66) at org.gradle.internal.operations.DefaultBuildOperationRunner2.execute(DefaultBuildOperationRunner.java:59) at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:157) at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59) at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53) at org.gradle.internal.operations.DefaultBuildOperationExecutor.call(DefaultBuildOperationExecutor.java:73) at org.gradle.workers.internal.AbstractWorker.executeWrappedInBuildOperation(AbstractWorker.java:41) at org.gradle.workers.internal.NoIsolationWorkerFactory1.execute(NoIsolationWorkerFactory.java:59) at org.gradle.workers.internal.DefaultWorkerExecutor.lambdasubmitWork2(DefaultWorkerExecutor.java:206) at java.basejava.util.concurrent.FutureTask.run(FutureTask.java:264) at org.gradle.internal.work.DefaultConditionalExecutionQueueExecutionRunner.runExecution(DefaultConditionalExecutionQueue.java:214) at org.gradle.internal.work.DefaultConditionalExecutionQueueExecutionRunner.runBatch(DefaultConditionalExecutionQueue.java:164) at org.gradle.internal.work.DefaultConditionalExecutionQueueExecutionRunner.run(DefaultConditionalExecutionQueue.java:131) at java.basejava.util.concurrent.ExecutorsRunnableAdapter.call(Executors.java:515) at java.basejava.util.concurrent.FutureTask.run(FutureTask.java:264) ... 6 more Caused by: javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,1] Message: �ļ���ǰ������" />
       <item value="What went wrong: Out of memory. Java heap space Possible solution: - Check the JVM memory arguments defined for the gradle process in: gradle.properties in project root directory" />
       <item value="Execution failed for task ':app:minifyReleaseWithR8'. &gt; com.android.tools.r8.CompilationFailedException: Compilation failed to complete" />
       <item value="java.lang.OutOfMemoryError: Java heap space" />
       <item value="if returns from a search result, back to search result" />
       <item value="TYPE SWITCH SOURCE" />
       <item value="TYPE OPENING AND ENDING" />
-      <item value="Failed to compile values file." />
       <item value="search history" />
       <item value="clear" />
       <item value="API HISTORY" />
@@ -63,10 +67,6 @@
       <item value="on Store Push Receive" />
       <item value="select Item" />
       <item value="Source Line Dialog Ut" />
-      <item value="LIVE SOURCE URL HISTORY" />
-      <item value="LIVE SOURCE URL CURRENT" />
-      <item value="load Live Source Url" />
-      <item value="clan To Address" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,12 +75,12 @@
         <entry key="BENGALI" value="3" />
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="2" />
-        <entry key="CATALAN" value="5" />
-        <entry key="CHINESE" value="7173" />
+        <entry key="CATALAN" value="6" />
+        <entry key="CHINESE" value="7179" />
         <entry key="CZECH" value="18" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="7174" />
+        <entry key="ENGLISH" value="7180" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
