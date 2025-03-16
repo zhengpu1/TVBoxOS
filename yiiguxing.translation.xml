@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="set Visible" />
       <item value="DEFAULT LOAD LIVE" />
       <item value="ui Options" />
       <item value="get Round Bitmap By Shader" />
@@ -66,7 +67,6 @@
       <item value="get Switch Source Bean List" />
       <item value="parse Bean List" />
       <item value="vip Parse Flags" />
-      <item value="live Channel Group List" />
     </histories>
     <option name="languageScores">
       <map>
@@ -76,11 +76,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="6" />
-        <entry key="CHINESE" value="7219" />
+        <entry key="CHINESE" value="7220" />
         <entry key="CZECH" value="18" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="7220" />
+        <entry key="ENGLISH" value="7221" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
