@@ -1,6 +1,6 @@
 <application>
   <component name="Translation.Cache">
-    <option name="lastTrimTime" value="1742049358077" />
+    <option name="lastTrimTime" value="1742553029312" />
   </component>
   <component name="Translation.Settings">
     <option name="baiduTranslateSettings">
@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="Generated JAR data is empty" />
       <item value="LENGTH SHORT" />
       <item value="release" />
       <item value="FORBID JAR DIALOG" />
@@ -66,7 +67,6 @@
       <item value="What went wrong: Execution failed for task ':app:checkDebugAarMetadata'. &gt; A failure occurred while executing com.android.build.gradle.internal.tasks.CheckAarMetadataWorkAction &gt; The minCompileSdk (33) specified in a dependency's AAR metadata (META-INFcomandroidbuildgradleaar-metadata.properties) is greater than this module's compileSdkVersion (android-30). Dependency: androidx.lifecycle:lifecycle-livedata-core:2.6.1. AAR metadata file: E:\kv\caches\transforms-3\80b74f16fc9de8a08d457cd0456cc02c\transformed\lifecycle-livedata-core-2.6.1\META-INF\com\android\build\gradle\aar-metadata.properties." />
       <item value="Caused by: org.gradle.workers.internal.DefaultWorkerExecutorWorkExecutionException: A failure occurred while executing com.android.build.gradle.internal.tasks.CheckAarMetadataWorkAction" />
       <item value="Execution failed for task ':app:mergeDebugResources'. &gt; Multiple task action failures occurred: &gt; A failure occurred while executing com.android.build.gradle.internal.res.ResourceCompilerRunnable &gt; Resource compilation failed. Check logs for details. &gt; A failure occurred while executing com.android.build.gradle.internal.res.ResourceCompilerRunnable &gt; Resource compilation failed. Check logs for details." />
-      <item value="ParseError at [row,col]:[1,1]" />
     </histories>
     <option name="languageScores">
       <map>
@@ -76,11 +76,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="6" />
-        <entry key="CHINESE" value="7234" />
+        <entry key="CHINESE" value="7235" />
         <entry key="CZECH" value="18" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="7235" />
+        <entry key="ENGLISH" value="7236" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
