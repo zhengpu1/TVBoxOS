@@ -17,6 +17,11 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="on Focus Change" />
+      <item value="invalidate" />
+      <item value="set Interpolator" />
+      <item value="set Selected" />
+      <item value="clear Focus" />
       <item value="remained Option Size" />
       <item value="set Next Focus Up Id" />
       <item value="notify Data Set Changed" />
@@ -25,7 +30,6 @@
       <item value="focused By Default" />
       <item value="focusable" />
       <item value="on Page Selected" />
-      <item value="on Focus Change" />
       <item value="request Focus" />
       <item value="sort Focused" />
       <item value="show Filter Icon" />
@@ -33,8 +37,6 @@
       <item value="on Item Selected" />
       <item value="on Item Click" />
       <item value="color Text View" />
-      <item value="clear Focus" />
-      <item value="set Selected" />
       <item value="get Resources" />
       <item value="find View By Position" />
       <item value="get Paint" />
@@ -65,8 +67,6 @@
       <item value="HOME REC" />
       <item value="on Fragment Resume" />
       <item value="state focused" />
-      <item value="contains" />
-      <item value="on Changed" />
     </histories>
     <option name="languageScores">
       <map>
@@ -76,11 +76,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="6" />
-        <entry key="CHINESE" value="7297" />
+        <entry key="CHINESE" value="7302" />
         <entry key="CZECH" value="18" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="7298" />
+        <entry key="ENGLISH" value="7303" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
