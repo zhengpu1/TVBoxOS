@@ -17,6 +17,9 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="COMPLEX UNIT DIP" />
+      <item value="Openingcredits" />
+      <item value="set Max Height" />
       <item value="create Circle Drawable" />
       <item value="parse Color" />
       <item value="oval" />
@@ -64,9 +67,6 @@
       <item value="Generated JAR data is empty" />
       <item value="LENGTH SHORT" />
       <item value="release" />
-      <item value="FORBID JAR DIALOG" />
-      <item value="String value is not a valid long." />
-      <item value="Notifies the Activity that a support action mode has been started. Activity subclasses overriding this method should call the superclass implementation." />
     </histories>
     <option name="languageScores">
       <map>
@@ -76,11 +76,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="6" />
-        <entry key="CHINESE" value="7309" />
+        <entry key="CHINESE" value="7311" />
         <entry key="CZECH" value="18" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="7310" />
+        <entry key="ENGLISH" value="7312" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
@@ -99,7 +99,7 @@
         <entry key="LUXEMBOURGISH" value="1" />
         <entry key="MALAY" value="1" />
         <entry key="MALTESE" value="4" />
-        <entry key="NORWEGIAN" value="7" />
+        <entry key="NORWEGIAN" value="8" />
         <entry key="PORTUGUESE" value="1" />
         <entry key="ROMANIAN" value="1" />
         <entry key="SLOVAK" value="4" />
