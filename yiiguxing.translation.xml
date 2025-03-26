@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="get Boolean" />
       <item value="Error in mgcget" />
       <item value="read Line" />
       <item value="append" />
@@ -66,7 +67,6 @@
       <item value="set On Seek Bar Change Listener" />
       <item value="gradient Radius" />
       <item value="on Focus Change" />
-      <item value="invalidate" />
     </histories>
     <option name="languageScores">
       <map>
@@ -81,7 +81,7 @@
         <entry key="CZECH" value="18" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="7351" />
+        <entry key="ENGLISH" value="7352" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
