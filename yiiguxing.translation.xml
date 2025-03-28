@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="json Ext Mix" />
       <item value="m Vod Player Cfg" />
       <item value="to String" />
       <item value="update Player Cfg" />
@@ -49,7 +50,6 @@
       <item value="set Search Word" />
       <item value="contains" />
       <item value="Subtitle Dialog" />
-      <item value="json Ext Mix" />
       <item value="print Stack Trace" />
       <item value="mix Parse Url" />
       <item value="remove Messages" />
@@ -77,11 +77,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="6" />
-        <entry key="CHINESE" value="7364" />
+        <entry key="CHINESE" value="7365" />
         <entry key="CZECH" value="18" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="7365" />
+        <entry key="ENGLISH" value="7366" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
