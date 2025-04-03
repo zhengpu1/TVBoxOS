@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="top Right Radius" />
       <item value="inset" />
       <item value="round Radius" />
       <item value="duplicate Parent State" />
@@ -66,7 +67,6 @@
       <item value="send Empty Message Delayed" />
       <item value="remove Messages" />
       <item value="json Ext Mix" />
-      <item value="m Vod Player Cfg" />
     </histories>
     <option name="languageScores">
       <map>
@@ -77,11 +77,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="7420" />
+        <entry key="CHINESE" value="7421" />
         <entry key="CZECH" value="18" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="7421" />
+        <entry key="ENGLISH" value="7422" />
         <entry key="ESPERANTO" value="2" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
