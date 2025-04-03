@@ -17,8 +17,20 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
-      <item value="adb shell am start -n &quot;com.github.tvbox.osccom.github.tvbox.osc.ui.activity.HomeActivity&quot; -a android.intent.action.MAIN -c android.intent.category.LAUNCHER" />
+      <item value="get Quick Search" />
       <item value="duplicate Parent State" />
+      <item value="request Focus" />
+      <item value="post Delayed" />
+      <item value="notify Item Changed" />
+      <item value="parse Boolean" />
+      <item value="set Focusable" />
+      <item value="set Selected" />
+      <item value="set Selection" />
+      <item value="m Grid View Flag" />
+      <item value="set Next Focus Up Id" />
+      <item value="get Layout Position" />
+      <item value="marquee Repeat Limit" />
+      <item value="adb shell am start -n &quot;com.github.tvbox.osccom.github.tvbox.osc.ui.activity.HomeActivity&quot; -a android.intent.action.MAIN -c android.intent.category.LAUNCHER" />
       <item value="LAYOUT MANAGER CONSTRUCTOR SIGNATURE" />
       <item value="create Layout Manager" />
       <item value="OVER SCROLL NEVER" />
@@ -55,18 +67,6 @@
       <item value="layout margin End" />
       <item value="single Line" />
       <item value="'F' is not a valid file-based resource name character: File-based resource names must contain only lowercase a-z, 0-9, or underscore" />
-      <item value="color text primaryk" />
-      <item value="tv selected Item Is Centered" />
-      <item value="tv vertical Spacing With Margins" />
-      <item value="tv horizontal Spacing With Margins" />
-      <item value="marquee forever" />
-      <item value="top Right Radius" />
-      <item value="inset" />
-      <item value="round Radius" />
-      <item value="focusable In Touch Mode" />
-      <item value="has Focus" />
-      <item value="init Home Hot Vod" />
-      <item value="descendant Focusability" />
     </histories>
     <option name="languageScores">
       <map>
@@ -77,11 +77,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="7467" />
+        <entry key="CHINESE" value="7483" />
         <entry key="CZECH" value="18" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="7468" />
+        <entry key="ENGLISH" value="7484" />
         <entry key="ESPERANTO" value="3" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
