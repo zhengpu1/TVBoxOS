@@ -17,6 +17,10 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="day" />
+      <item value="month" />
+      <item value="notify Data Set Changed" />
+      <item value="hot Vod Delete" />
       <item value="ong press to trigger Delete Mode for VOD History on Home Page" />
       <item value="set Next Focus Right Id" />
       <item value="NO ID" />
@@ -63,10 +67,6 @@
       <item value="play pre" />
       <item value="set On Focus Change Listener" />
       <item value="get Quick Search" />
-      <item value="duplicate Parent State" />
-      <item value="request Focus" />
-      <item value="post Delayed" />
-      <item value="notify Item Changed" />
     </histories>
     <option name="languageScores">
       <map>
@@ -77,11 +77,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="7534" />
+        <entry key="CHINESE" value="7538" />
         <entry key="CZECH" value="18" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="7535" />
+        <entry key="ENGLISH" value="7539" />
         <entry key="ESPERANTO" value="3" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
