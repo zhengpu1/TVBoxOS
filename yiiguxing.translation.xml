@@ -17,6 +17,14 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="set Next Focus Right Id" />
+      <item value="NO ID" />
+      <item value="tv Series Sort" />
+      <item value="custom Series Scroll Pos" />
+      <item value="set Min Play Time Change" />
+      <item value="reverse" />
+      <item value="extract Number" />
+      <item value="series Flags" />
       <item value="at [row,col {unknown-source}]: [289,40]" />
       <item value="Duplicate attribute '{http:schemas.android.comapkresandroid}clipChildren'. at [row,col {unknown-source}]: [289,40]" />
       <item value="contains" />
@@ -59,14 +67,6 @@
       <item value="post Delayed" />
       <item value="notify Item Changed" />
       <item value="parse Boolean" />
-      <item value="set Focusable" />
-      <item value="set Selected" />
-      <item value="set Selection" />
-      <item value="m Grid View Flag" />
-      <item value="set Next Focus Up Id" />
-      <item value="get Layout Position" />
-      <item value="marquee Repeat Limit" />
-      <item value="adb shell am start -n &quot;com.github.tvbox.osccom.github.tvbox.osc.ui.activity.HomeActivity&quot; -a android.intent.action.MAIN -c android.intent.category.LAUNCHER" />
     </histories>
     <option name="languageScores">
       <map>
@@ -77,11 +77,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="7523" />
+        <entry key="CHINESE" value="7532" />
         <entry key="CZECH" value="18" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="7524" />
+        <entry key="ENGLISH" value="7533" />
         <entry key="ESPERANTO" value="3" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
