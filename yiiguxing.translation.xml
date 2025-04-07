@@ -17,6 +17,10 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="set On Item Long Click Listener" />
+      <item value="takagen99: CHeck if in Delete Mode" />
+      <item value="subtitle Cache Key" />
+      <item value="start Status Check" />
       <item value="go Play Url" />
       <item value="load Hots" />
       <item value="equals" />
@@ -63,10 +67,6 @@
       <item value="set Text Color" />
       <item value="m Play Pause Time" />
       <item value="seek Time" />
-      <item value="set Visibility" />
-      <item value="is Default" />
-      <item value="set Next Focus Left Id" />
-      <item value="horizontal" />
     </histories>
     <option name="languageScores">
       <map>
@@ -77,11 +77,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="7543" />
+        <entry key="CHINESE" value="7547" />
         <entry key="CZECH" value="18" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="7544" />
+        <entry key="ENGLISH" value="7548" />
         <entry key="ESPERANTO" value="3" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
