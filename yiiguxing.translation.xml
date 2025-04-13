@@ -17,6 +17,10 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="VIDEO" />
+      <item value="FOLDER" />
+      <item value="Round Type" />
+      <item value="placeholder" />
       <item value="set Image Drawable" />
       <item value="create Text Drawable" />
       <item value="source Bean List" />
@@ -46,7 +50,6 @@
       <item value="apply Style To Image" />
       <item value="set Layout Params" />
       <item value="Round Transformation" />
-      <item value="placeholder" />
       <item value="drawable Cache" />
       <item value="get Random Color" />
       <item value="is Base On Width" />
@@ -64,9 +67,6 @@
       <item value="day" />
       <item value="month" />
       <item value="notify Data Set Changed" />
-      <item value="hot Vod Delete" />
-      <item value="ong press to trigger Delete Mode for VOD History on Home Page" />
-      <item value="set Next Focus Right Id" />
     </histories>
     <option name="languageScores">
       <map>
@@ -77,11 +77,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="7583" />
+        <entry key="CHINESE" value="7587" />
         <entry key="CZECH" value="18" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="7584" />
+        <entry key="ENGLISH" value="7588" />
         <entry key="ESPERANTO" value="3" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
