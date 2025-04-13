@@ -17,13 +17,14 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="set Image Drawable" />
+      <item value="error" />
       <item value="FOLDER" />
       <item value="Base 64" />
       <item value="parse Int" />
       <item value="VIDEO" />
       <item value="Round Type" />
       <item value="placeholder" />
-      <item value="set Image Drawable" />
       <item value="create Text Drawable" />
       <item value="source Bean List" />
       <item value="get Switch Source Bean List" />
@@ -66,7 +67,6 @@
       <item value="load Hots" />
       <item value="request Day" />
       <item value="home hot day" />
-      <item value="day" />
     </histories>
     <option name="languageScores">
       <map>
@@ -77,11 +77,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="7590" />
+        <entry key="CHINESE" value="7592" />
         <entry key="CZECH" value="18" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="7591" />
+        <entry key="ENGLISH" value="7593" />
         <entry key="ESPERANTO" value="3" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
