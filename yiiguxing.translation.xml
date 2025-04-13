@@ -17,6 +17,12 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="layout weight" />
+      <item value="set Background Color" />
+      <item value="Fast List Adapter" />
+      <item value="create Vod From Json" />
+      <item value="create Filter Object" />
+      <item value="is Directory" />
       <item value="set Image Drawable" />
       <item value="error" />
       <item value="FOLDER" />
@@ -61,12 +67,6 @@
       <item value="is Foleder Mode" />
       <item value="set On Item Long Click Listener" />
       <item value="takagen99: CHeck if in Delete Mode" />
-      <item value="subtitle Cache Key" />
-      <item value="start Status Check" />
-      <item value="go Play Url" />
-      <item value="load Hots" />
-      <item value="request Day" />
-      <item value="home hot day" />
     </histories>
     <option name="languageScores">
       <map>
@@ -77,11 +77,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="7592" />
+        <entry key="CHINESE" value="7598" />
         <entry key="CZECH" value="18" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="7593" />
+        <entry key="ENGLISH" value="7599" />
         <entry key="ESPERANTO" value="3" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
