@@ -17,6 +17,8 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="finish All Activity" />
+      <item value="on Back Pressed" />
       <item value="layout weight" />
       <item value="set Background Color" />
       <item value="Fast List Adapter" />
@@ -65,8 +67,6 @@
       <item value="equals" />
       <item value="enable Fast Search" />
       <item value="is Foleder Mode" />
-      <item value="set On Item Long Click Listener" />
-      <item value="takagen99: CHeck if in Delete Mode" />
     </histories>
     <option name="languageScores">
       <map>
@@ -77,11 +77,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="7598" />
+        <entry key="CHINESE" value="7600" />
         <entry key="CZECH" value="18" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="7599" />
+        <entry key="ENGLISH" value="7601" />
         <entry key="ESPERANTO" value="3" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
