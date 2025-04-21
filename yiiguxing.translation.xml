@@ -17,7 +17,10 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="set Background" />
       <item value="set Dynamic Corner Radius" />
+      <item value="Task :app:writeNormalDebugSigningConfigVersions UP-TO-DATE" />
+      <item value="Failed to compile values file." />
       <item value="set On In Border Key Event Listener" />
       <item value="FOCUS UP" />
       <item value="V 7 Linear Layout Manager" />
@@ -64,9 +67,6 @@
       <item value="(Unicode code units) and ranges from 0 to length()- 1." />
       <item value="get UI Tag" />
       <item value="focused View" />
-      <item value="cover" />
-      <item value="folder" />
-      <item value="b Style" />
     </histories>
     <option name="languageScores">
       <map>
@@ -77,11 +77,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="7624" />
+        <entry key="CHINESE" value="7627" />
         <entry key="CZECH" value="18" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="7625" />
+        <entry key="ENGLISH" value="7628" />
         <entry key="ESPERANTO" value="3" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
