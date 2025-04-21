@@ -17,6 +17,7 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="AAPT: error: resource idtvLangs (aka com.github.tvbox.osc:idtvLangs) not found." />
       <item value="get Dimension" />
       <item value="set Background" />
       <item value="set Dynamic Corner Radius" />
@@ -66,7 +67,6 @@
       <item value="Returns the character (Unicode code point) at the specified index. The index refers to char values" />
       <item value="ND Android-changed: Replace with implementation in runtime to access chars (see above)." />
       <item value="(Unicode code units) and ranges from 0 to length()- 1." />
-      <item value="get UI Tag" />
     </histories>
     <option name="languageScores">
       <map>
@@ -77,7 +77,7 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="7628" />
+        <entry key="CHINESE" value="7629" />
         <entry key="CZECH" value="18" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
@@ -88,7 +88,7 @@
         <entry key="FINNISH" value="3" />
         <entry key="FRENCH" value="10" />
         <entry key="GALICIAN" value="22" />
-        <entry key="GERMAN" value="11" />
+        <entry key="GERMAN" value="12" />
         <entry key="GREEK" value="1" />
         <entry key="GUJARATI" value="1" />
         <entry key="HUNGARIAN" value="1" />
