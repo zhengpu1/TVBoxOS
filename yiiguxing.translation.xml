@@ -17,6 +17,8 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="on Item Selected" />
+      <item value="current Selected" />
       <item value="sort Focused" />
       <item value="User Fragment" />
       <item value="Setource Store Dialog" />
@@ -65,8 +67,6 @@
       <item value="get Current Play State" />
       <item value="m Current Play State" />
       <item value="is Playing" />
-      <item value="m Video View" />
-      <item value="init Parse Load Found" />
     </histories>
     <option name="languageScores">
       <map>
@@ -77,11 +77,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="7653" />
+        <entry key="CHINESE" value="7655" />
         <entry key="CZECH" value="18" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="7654" />
+        <entry key="ENGLISH" value="7656" />
         <entry key="ESPERANTO" value="3" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
