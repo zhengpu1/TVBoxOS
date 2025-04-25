@@ -17,6 +17,8 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="card Elevation" />
+      <item value="duplicate Parent State" />
       <item value="set Content View" />
       <item value="get Layout Res ID" />
       <item value="software" />
@@ -65,8 +67,6 @@
       <item value="VISIBLE" />
       <item value="INVISIBLE" />
       <item value="m Back" />
-      <item value="is Tv Or Box" />
-      <item value="select Change" />
     </histories>
     <option name="languageScores">
       <map>
@@ -77,11 +77,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="7681" />
+        <entry key="CHINESE" value="7683" />
         <entry key="CZECH" value="18" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="7682" />
+        <entry key="ENGLISH" value="7684" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
