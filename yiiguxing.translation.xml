@@ -17,6 +17,8 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="set Next Focus Up Id" />
+      <item value="set Bounds" />
       <item value="Select Dialog" />
       <item value="tv Series" />
       <item value="Dash Path Effect" />
@@ -65,8 +67,6 @@
       <item value="set Canceled On Touch Outside" />
       <item value="on Item Selected" />
       <item value="current Selected" />
-      <item value="sort Focused" />
-      <item value="User Fragment" />
     </histories>
     <option name="languageScores">
       <map>
@@ -77,11 +77,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="7704" />
+        <entry key="CHINESE" value="7706" />
         <entry key="CZECH" value="18" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="7705" />
+        <entry key="ENGLISH" value="7707" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
