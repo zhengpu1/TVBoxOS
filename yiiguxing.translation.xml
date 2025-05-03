@@ -18,6 +18,8 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="get All Vod Record" />
+      <item value="focus Change Listener" />
       <item value="get Round Bitmap By Shader" />
       <item value="Specifies the relative insets in pixels for the drawable at the&#10;      specified index." />
       <item value=" Specifies the relative insets in pixels for the drawable at the&#10;      specified index.&#10;     &#10;      @param index the index of the layer to adjust&#10;      @param s number of pixels to inset from the start bound&#10;      @param t number of pixels to inset from the top bound&#10;      @param e number of pixels to inset from the end bound&#10;      @param b number of pixels to inset from the bottom bound&#10;     &#10;      @attr ref android.R.styleableLayerDrawableItem_start&#10;      @attr ref android.R.styleableLayerDrawableItem_top&#10;      @attr ref android.R.styleableLayerDrawableItem_end&#10;      @attr ref android.R.styleableLayerDrawableItem_bottom" />
@@ -60,14 +62,12 @@
       <item value="set On Item Click Listener" />
       <item value="dismiss" />
       <item value="set On Click Listener" />
-      <item value="focus Change Listener" />
       <item value="set Cancelable" />
       <item value="set Canceled On Touch Outside" />
       <item value="duplicate Parent State" />
       <item value="show Preview" />
       <item value="full Windows" />
       <item value="get Child Count" />
-      <item value="get Child At" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="7839" />
+        <entry key="CHINESE" value="7841" />
         <entry key="CZECH" value="19" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="7840" />
+        <entry key="ENGLISH" value="7842" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
