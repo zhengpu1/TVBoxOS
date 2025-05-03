@@ -8,24 +8,29 @@
         <option name="appId" value="20231215001911727" />
       </app-key>
     </option>
+    <option name="keepFormat" value="true" />
     <option name="primaryLanguage" value="CHINESE" />
     <option name="translator" value="BAIDU" />
   </component>
   <component name="Translation.States">
-    <option name="newTranslationDialogHeight" value="478" />
-    <option name="newTranslationDialogWidth" value="845" />
-    <option name="newTranslationDialogX" value="432" />
-    <option name="newTranslationDialogY" value="560" />
+    <option name="newTranslationDialogHeight" value="256" />
+    <option name="newTranslationDialogWidth" value="510" />
+    <option name="newTranslationDialogX" value="374" />
+    <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="tv Seriesdd" />
+      <item value="color theme" />
+      <item value="转换" />
+      <item value="convert" />
+      <item value="Base View Holder" />
+      <item value="series Flag Focus" />
+      <item value="series Select" />
       <item value="toggle Full Preview" />
       <item value="on Back Pressed" />
       <item value="is Focused" />
-      <item value="series Flag Focus" />
       <item value="request Focus" />
-      <item value="series Select" />
       <item value="assert" />
       <item value="tv Series Group" />
-      <item value="convert" />
       <item value="on Bind View Holder" />
       <item value="auto Up Fetch" />
       <item value="holder" />
@@ -63,10 +68,6 @@
       <item value="set Focusable" />
       <item value="get Layout Position" />
       <item value="ll Player Fragment Container Block" />
-      <item value="set Focusable In Touch Mode" />
-      <item value="post Delayed" />
-      <item value="fresh Index" />
-      <item value="toggle Sort Order" />
     </histories>
     <option name="languageScores">
       <map>
@@ -77,11 +78,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="7826" />
+        <entry key="CHINESE" value="7835" />
         <entry key="CZECH" value="19" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="7827" />
+        <entry key="ENGLISH" value="7836" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
