@@ -17,6 +17,20 @@
     <option name="newTranslationDialogX" value="432" />
     <option name="newTranslationDialogY" value="560" />
     <histories>
+      <item value="toggle Full Preview" />
+      <item value="on Back Pressed" />
+      <item value="is Focused" />
+      <item value="series Flag Focus" />
+      <item value="request Focus" />
+      <item value="series Select" />
+      <item value="assert" />
+      <item value="tv Series Group" />
+      <item value="convert" />
+      <item value="on Bind View Holder" />
+      <item value="auto Up Fetch" />
+      <item value="holder" />
+      <item value="m Load More View" />
+      <item value="LOADING VIEW" />
       <item value="set Gradient Radius" />
       <item value="get Color By Attr Id" />
       <item value="LINEAR GRADIENT" />
@@ -28,8 +42,6 @@
       <item value="smooth Scroll To Position" />
       <item value="notify Data Set Changed" />
       <item value="REGEX URI" />
-      <item value="is Focused" />
-      <item value="on Back Pressed" />
       <item value="focusable In Touch Mode" />
       <item value="linear" />
       <item value="rectangle" />
@@ -43,30 +55,18 @@
       <item value="set Cancelable" />
       <item value="set Canceled On Touch Outside" />
       <item value="duplicate Parent State" />
-      <item value="request Focus" />
       <item value="show Preview" />
-      <item value="on Bind View Holder" />
       <item value="full Windows" />
-      <item value="series Flag Focus" />
       <item value="get Child Count" />
       <item value="get Child At" />
       <item value="refresh List" />
       <item value="set Focusable" />
       <item value="get Layout Position" />
-      <item value="convert" />
       <item value="ll Player Fragment Container Block" />
       <item value="set Focusable In Touch Mode" />
       <item value="post Delayed" />
       <item value="fresh Index" />
       <item value="toggle Sort Order" />
-      <item value="state pressed" />
-      <item value="progress Height" />
-      <item value="CENTER" />
-      <item value="SDK INT" />
-      <item value="JELLY BEAN" />
-      <item value="The SDK version of the software currently running on this hardware device. This value never changes while a device is booted, but it may increase when the hardware manufacturer provides an OTA update. &lt;p&gt; Possible values are defined in {@link Build.VERSION_CODES}." />
-      <item value="RECTANGLE" />
-      <item value="create Selector" />
     </histories>
     <option name="languageScores">
       <map>
@@ -77,11 +77,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="7816" />
+        <entry key="CHINESE" value="7826" />
         <entry key="CZECH" value="19" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="7817" />
+        <entry key="ENGLISH" value="7827" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
