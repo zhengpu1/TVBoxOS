@@ -18,6 +18,7 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="Default" />
       <item value="refresh Empty" />
       <item value="An unspecified mode for night mode. This is primarily used with setLocalNightMode(int), to allow the default night mode to be used. If both the default and local night modes are set to this value, then the default value of MODE_NIGHT_FOLLOW_SYSTEM is applied." />
       <item value="Night mode which uses always uses a dark mode, enabling night qualified resources regardless of the time." />
@@ -67,7 +68,6 @@
       <item value="set On Item Click Listener" />
       <item value="dismiss" />
       <item value="set On Click Listener" />
-      <item value="set Cancelable" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="7847" />
+        <entry key="CHINESE" value="7848" />
         <entry key="CZECH" value="19" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="7849" />
+        <entry key="ENGLISH" value="7850" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
