@@ -18,10 +18,14 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
-      <item value="MODE NIGHT UNSPECIFIED" />
-      <item value="MODE NIGHT AUTO BATTERY" />
       <item value="MODE NIGHT AUTO TIME" />
+      <item value="MODE NIGHT AUTO BATTERY" />
+      <item value="set Default Night Mode" />
+      <item value="MODE NIGHT UNSPECIFIED" />
       <item value="MODE NIGHT FOLLOW SYSTEM" />
+      <item value="s Activity Delegates Lock" />
+      <item value="s Default Night Mode" />
+      <item value="Night mode which uses always uses a light mode, enabling notnight qualified resources regardless of the time." />
       <item value="Invalid resource directory name" />
       <item value="color Accent" />
       <item value="color Primary Dark" />
@@ -64,10 +68,6 @@
       <item value="auto Switch Handler" />
       <item value="remove Callbacks And Messages" />
       <item value="jump To Play" />
-      <item value="smooth Scroll To Position" />
-      <item value="notify Data Set Changed" />
-      <item value="REGEX URI" />
-      <item value="focusable In Touch Mode" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="7858" />
+        <entry key="CHINESE" value="7869" />
         <entry key="CZECH" value="19" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="7860" />
+        <entry key="ENGLISH" value="7871" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
