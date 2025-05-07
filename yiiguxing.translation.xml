@@ -18,6 +18,7 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="Changes were not applied.&#10;Adding or removing a field requires an app restart." />
       <item value="m Classify Adapter" />
       <item value="m Series Group View" />
       <item value="m Number Classification" />
@@ -67,7 +68,6 @@
       <item value="Night mode which uses a dark mode when the system's 'Battery Saver' feature is enabled, otherwise it uses a 'light mode'. This mode can help the device to decrease power usage, depending on the display technology in the device. Please note: this mode should only be used when running on devices which do not provide a similar device-wide setting." />
       <item value="get Round Bitmap By Shader" />
       <item value="LINEAR GRADIENT" />
-      <item value="get All Vod Record" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="7903" />
+        <entry key="CHINESE" value="7904" />
         <entry key="CZECH" value="19" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="7905" />
+        <entry key="ENGLISH" value="7906" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
