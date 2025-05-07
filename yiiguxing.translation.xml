@@ -18,6 +18,14 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="tv Series Group" />
+      <item value="reverse Sort" />
+      <item value="series Map" />
+      <item value="is Reverse" />
+      <item value="tv Series Sort" />
+      <item value="first Reverse" />
+      <item value="total Count" />
+      <item value="group Count" />
       <item value="dim Amount" />
       <item value="A problem occurred evaluating project ':app'.&#10;&gt; Plugin with id 'kotlin-android' not found." />
       <item value="Default Constructor Marker" />
@@ -31,7 +39,6 @@
       <item value="set On Item Click Listener" />
       <item value="set On Item Listener" />
       <item value="on Item Click" />
-      <item value="tv Series Group" />
       <item value="m Series Group Tv" />
       <item value="show Group Episodes" />
       <item value="series Group Adapter" />
@@ -61,13 +68,6 @@
       <item value=" Specifies the relative insets in pixels for the drawable at the&#10;      specified index.&#10;     &#10;      @param index the index of the layer to adjust&#10;      @param s number of pixels to inset from the start bound&#10;      @param t number of pixels to inset from the top bound&#10;      @param e number of pixels to inset from the end bound&#10;      @param b number of pixels to inset from the bottom bound&#10;     &#10;      @attr ref android.R.styleableLayerDrawableItem_start&#10;      @attr ref android.R.styleableLayerDrawableItem_top&#10;      @attr ref android.R.styleableLayerDrawableItem_end&#10;      @attr ref android.R.styleableLayerDrawableItem_bottom" />
       <item value="focused Drawable" />
       <item value="tv Seriesdd" />
-      <item value="color theme" />
-      <item value="转换" />
-      <item value="convert" />
-      <item value="Base View Holder" />
-      <item value="series Flag Focus" />
-      <item value="series Select" />
-      <item value="toggle Full Preview" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="7887" />
+        <entry key="CHINESE" value="7895" />
         <entry key="CZECH" value="19" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="7889" />
+        <entry key="ENGLISH" value="7897" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
