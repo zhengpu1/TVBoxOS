@@ -18,6 +18,7 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="tv selected Item Is Centered" />
       <item value="set Play Title" />
       <item value="full Windows" />
       <item value="next Focus Down" />
@@ -67,7 +68,6 @@
       <item value="s Default Night Mode" />
       <item value="Night mode which uses always uses a light mode, enabling notnight qualified resources regardless of the time." />
       <item value="Invalid resource directory name" />
-      <item value="color Accent" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="7920" />
+        <entry key="CHINESE" value="7921" />
         <entry key="CZECH" value="19" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="7922" />
+        <entry key="ENGLISH" value="7923" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
