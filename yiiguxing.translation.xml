@@ -18,6 +18,7 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="dim Amount" />
       <item value="A problem occurred evaluating project ':app'.&#10;&gt; Plugin with id 'kotlin-android' not found." />
       <item value="Default Constructor Marker" />
       <item value="Download" />
@@ -67,7 +68,6 @@
       <item value="series Flag Focus" />
       <item value="series Select" />
       <item value="toggle Full Preview" />
-      <item value="on Back Pressed" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="7886" />
+        <entry key="CHINESE" value="7887" />
         <entry key="CZECH" value="19" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="7888" />
+        <entry key="ENGLISH" value="7889" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
