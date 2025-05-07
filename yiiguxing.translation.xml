@@ -18,6 +18,8 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="next Focus Down" />
+      <item value="next Focus Up" />
       <item value="tv Series Group" />
       <item value="request Layout" />
       <item value="ll Player Fragment Container Block" />
@@ -66,8 +68,6 @@
       <item value="color Accent" />
       <item value="color Primary Dark" />
       <item value="color Primary" />
-      <item value="Default" />
-      <item value="refresh Empty" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="7915" />
+        <entry key="CHINESE" value="7917" />
         <entry key="CZECH" value="19" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="7917" />
+        <entry key="ENGLISH" value="7919" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
