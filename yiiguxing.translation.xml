@@ -18,6 +18,7 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="series Group Options" />
       <item value="series Select" />
       <item value="set On Click Listener" />
       <item value="toggle Sort Order" />
@@ -67,7 +68,6 @@
       <item value="tv Series Sort" />
       <item value="first Reverse" />
       <item value="total Count" />
-      <item value="group Count" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="1" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="7952" />
+        <entry key="CHINESE" value="7953" />
         <entry key="CZECH" value="19" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="7953" />
+        <entry key="ENGLISH" value="7954" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
