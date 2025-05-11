@@ -18,6 +18,11 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="homede Vod Adapter" />
+      <item value="series Group Adapter" />
+      <item value="dispatch Key Event" />
+      <item value="on Key Down" />
+      <item value="series Flag Focus" />
       <item value="show Preview" />
       <item value="first Reverse" />
       <item value="reload Home" />
@@ -52,22 +57,17 @@
       <item value="m Screen Display" />
       <item value="set Selection" />
       <item value="set Orientation" />
-      <item value="series Group Adapter" />
       <item value="get Layout Position" />
       <item value="series Group Options" />
       <item value="series Select" />
       <item value="set On Click Listener" />
       <item value="toggle Sort Order" />
       <item value="convert" />
-      <item value="series Flag Focus" />
       <item value="clear Focus" />
       <item value="request Focus" />
       <item value="The minCompileSdk (34) specified in a&#10;dependency's AAR metadata (META-INFcomandroidbuildgradleaar-metadata.properties)&#10;is greater than this module's compileSdkVersion (android-33).&#10;Dependency: androidx.core:core-ktx:1.12.0." />
       <item value="FLAG ACTIVITY CLEAR TOP" />
       <item value="FLAG ACTIVITY NEW TASK" />
-      <item value="m Grid View Flag" />
-      <item value="is Task Root" />
-      <item value="SHOW SSPREVIEW" />
     </histories>
     <option name="languageScores">
       <map>
@@ -75,14 +75,14 @@
         <entry key="AMHARIC" value="1" />
         <entry key="BELARUSIAN" value="1" />
         <entry key="BENGALI" value="3" />
-        <entry key="BOSNIAN" value="1" />
+        <entry key="BOSNIAN" value="2" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="7997" />
+        <entry key="CHINESE" value="8003" />
         <entry key="CZECH" value="19" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="7998" />
+        <entry key="ENGLISH" value="8003" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
