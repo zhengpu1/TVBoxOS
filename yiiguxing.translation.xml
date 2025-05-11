@@ -18,6 +18,8 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="show Preview" />
+      <item value="full Windows" />
       <item value="notify Data Set Changed" />
       <item value="handle Ungrouped Episode Selection" />
       <item value="m Grid View Layout Mgr" />
@@ -29,7 +31,6 @@
       <item value="dispatch Key Event" />
       <item value="on Key Down" />
       <item value="series Flag Focus" />
-      <item value="show Preview" />
       <item value="first Reverse" />
       <item value="reload Home" />
       <item value="refresh Home" />
@@ -40,7 +41,6 @@
       <item value="TYPE SUBTITLE SIZE CHANGE" />
       <item value="Source View Model" />
       <item value="scroll To Play Pos And Request Foucuse" />
-      <item value="full Windows" />
       <item value="m Number Classification" />
       <item value="m Play Pause Time" />
       <item value="is Full Screen" />
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="2" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="8009" />
+        <entry key="CHINESE" value="8013" />
         <entry key="CZECH" value="19" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="8010" />
+        <entry key="ENGLISH" value="8014" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
