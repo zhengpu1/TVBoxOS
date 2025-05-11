@@ -18,6 +18,9 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="notify Data Set Changed" />
+      <item value="handle Ungrouped Episode Selection" />
+      <item value="m Grid View Layout Mgr" />
       <item value="on Destroy" />
       <item value="on Page Selected" />
       <item value="on Item Pre Selected" />
@@ -65,9 +68,6 @@
       <item value="series Select" />
       <item value="set On Click Listener" />
       <item value="toggle Sort Order" />
-      <item value="convert" />
-      <item value="clear Focus" />
-      <item value="request Focus" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="2" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="8005" />
+        <entry key="CHINESE" value="8009" />
         <entry key="CZECH" value="19" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="8006" />
+        <entry key="ENGLISH" value="8010" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
