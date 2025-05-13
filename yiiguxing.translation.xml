@@ -18,6 +18,13 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="top Hide" />
+      <item value="change Top" />
+      <item value="margin Top" />
+      <item value="on Animation Start" />
+      <item value="on Animation End" />
+      <item value="Margin Layout Params" />
+      <item value="init View Pager" />
       <item value="fake Bold Text" />
       <item value="is Bold" />
       <item value="set Fake Bold Text" />
@@ -61,13 +68,6 @@
       <item value="Day Night" />
       <item value="No Action Bar" />
       <item value="window Content Overlay" />
-      <item value="window No Title" />
-      <item value="window Action Bar" />
-      <item value="get Display" />
-      <item value="equals" />
-      <item value="contains" />
-      <item value="click" />
-      <item value="show Preview" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="2" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="8074" />
+        <entry key="CHINESE" value="8084" />
         <entry key="CZECH" value="19" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="8075" />
+        <entry key="ENGLISH" value="8085" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
