@@ -18,6 +18,15 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="show Success" />
+      <item value="is Loading" />
+      <item value="show Loading" />
+      <item value="start Animation" />
+      <item value="tv Name Animation" />
+      <item value="Alpha Animation" />
+      <item value="show Site Switch" />
+      <item value="get Current Fragment" />
+      <item value="on Item Selected" />
       <item value="Int Evaluator" />
       <item value="on Animation Cancel" />
       <item value="on Animation End" />
@@ -59,15 +68,6 @@
       <item value="reverse Series Data" />
       <item value="scroll To Play Pos And Request Foucuse" />
       <item value="set On Item Listener" />
-      <item value="set Selection" />
-      <item value="set On Click Listener" />
-      <item value="is Reverse" />
-      <item value="next Focus Down" />
-      <item value="set Focusable" />
-      <item value="clip Children" />
-      <item value="clip To Padding" />
-      <item value="clear Focus" />
-      <item value="next Focus Up" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="2" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="8091" />
+        <entry key="CHINESE" value="8101" />
         <entry key="CZECH" value="19" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="8092" />
+        <entry key="ENGLISH" value="8102" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
