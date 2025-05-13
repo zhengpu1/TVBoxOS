@@ -18,6 +18,10 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="fake Bold Text" />
+      <item value="is Bold" />
+      <item value="set Fake Bold Text" />
+      <item value="set Filter Dialog Data" />
       <item value="set Alpha" />
       <item value="Anticipate Interpolator" />
       <item value="set Shadow Layer" />
@@ -64,10 +68,6 @@
       <item value="contains" />
       <item value="click" />
       <item value="show Preview" />
-      <item value="full Windows" />
-      <item value="handle Ungrouped Episode Selection" />
-      <item value="m Grid View Layout Mgr" />
-      <item value="on Destroy" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="2" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="8069" />
+        <entry key="CHINESE" value="8074" />
         <entry key="CZECH" value="19" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="8070" />
+        <entry key="ENGLISH" value="8075" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
