@@ -18,6 +18,12 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="on Reload" />
+      <item value="set Load Sir" />
+      <item value="tv Favorite" />
+      <item value="after Descendants" />
+      <item value="layout constraint Left to Left Of" />
+      <item value="center vertical" />
       <item value="View Group" />
       <item value="set Block Network Image" />
       <item value="Layout Params" />
@@ -26,8 +32,6 @@
       <item value="parent" />
       <item value="layout constraint Right to Right Of" />
       <item value="layout constraint Top to Bottom Of" />
-      <item value="set Load Sir" />
-      <item value="center vertical" />
       <item value="add Item Decoration" />
       <item value="get Item Offsets" />
       <item value="Typed Value" />
@@ -64,10 +68,6 @@
       <item value="margin Top" />
       <item value="on Animation Start" />
       <item value="Margin Layout Params" />
-      <item value="init View Pager" />
-      <item value="fake Bold Text" />
-      <item value="is Bold" />
-      <item value="set Fake Bold Text" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="2" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="8131" />
+        <entry key="CHINESE" value="8137" />
         <entry key="CZECH" value="19" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="8132" />
+        <entry key="ENGLISH" value="8138" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
