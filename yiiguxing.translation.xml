@@ -18,6 +18,7 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="notify Data Set Changed" />
       <item value="is Focused" />
       <item value="scroll To Play Pos And Request Foucuse" />
       <item value="find View By Position" />
@@ -67,7 +68,6 @@
       <item value="reverse Sort" />
       <item value="request Focus" />
       <item value="get Layout Manager" />
-      <item value="notify Data Set Changed" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="2" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="8106" />
+        <entry key="CHINESE" value="8107" />
         <entry key="CZECH" value="19" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="8107" />
+        <entry key="ENGLISH" value="8108" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
