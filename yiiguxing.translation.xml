@@ -18,6 +18,7 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="DEBUG OPEN" />
       <item value="get List" />
       <item value="source View Model" />
       <item value="Runnable" />
@@ -60,7 +61,6 @@
       <item value="View Group" />
       <item value="set Block Network Image" />
       <item value="Layout Params" />
-      <item value="DEBUG OPEN" />
       <item value="set Background Resource" />
       <item value="parent" />
       <item value="layout constraint Right to Right Of" />
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="2" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="8175" />
+        <entry key="CHINESE" value="8176" />
         <entry key="CZECH" value="19" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="8176" />
+        <entry key="ENGLISH" value="8177" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
