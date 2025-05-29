@@ -18,6 +18,8 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="set Is Full Screen" />
+      <item value="set Play Title" />
       <item value="get History Num Namex" />
       <item value="show Thread Count Text" />
       <item value="get His Numx" />
@@ -66,8 +68,6 @@
       <item value="Layout Params" />
       <item value="set Background Resource" />
       <item value="parent" />
-      <item value="layout constraint Right to Right Of" />
-      <item value="layout constraint Top to Bottom Of" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="2" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="8181" />
+        <entry key="CHINESE" value="8183" />
         <entry key="CZECH" value="19" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="8182" />
+        <entry key="ENGLISH" value="8184" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
