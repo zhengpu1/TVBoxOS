@@ -18,6 +18,7 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="extend" />
       <item value="Add filters using helper method" />
       <item value="Create class object using helper method" />
       <item value="create Class Object" />
@@ -67,7 +68,6 @@
       <item value="after Descendants" />
       <item value="layout constraint Left to Left Of" />
       <item value="center vertical" />
-      <item value="View Group" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="2" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="8187" />
+        <entry key="CHINESE" value="8188" />
         <entry key="CZECH" value="19" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="8188" />
+        <entry key="ENGLISH" value="8189" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
