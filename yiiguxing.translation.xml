@@ -18,6 +18,7 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="home Video Content" />
       <item value="Append other extended parameters that are part of the URL query string" />
       <item value=" Uses signkeyParams to generate sign" />
       <item value="    This method corresponds to the '一级' JavaScript rule logic in the previous Python Spider.&#10;             The '一级' rule is designed for a general category listing, not specifically home video content.&#10;             Given the original JS rule's '一级' starts with 'let d = []; let url = ''; ... let list = JSON.parse(request(input,...))',&#10;             it means the 'input' here is the URL to fetch the list.&#10;             For homeVideoContent, we need to adapt this to a home API.&#10;             The original rule doesn't provide a direct &quot;home video&quot; API like in the Python example's data1 and data2.&#10;             If the platform expects this method to return something, I'll return an empty list or adapt it if a specific home video API is available.&#10;             Given the JavaScript rule only provides '一级' for category content, I will adapt it.&#10;             For now, let's return an empty list or use a placeholder logic.&#10;             If the '一级' block's input is actually the home API, it needs to be clarified.&#10;             Based on the 'Jianpian' example, homeVideoContent fetches from 'apislidelist'.&#10;             The provided JS rule doesn't have an equivalent for slidelist or hotSearch." />
@@ -29,7 +30,6 @@
       <item value="handle Lazy" />
       <item value="send Http Request" />
       <item value="build Query String" />
-      <item value="home Video Content" />
       <item value="detail Content" />
       <item value="handle Search" />
       <item value="decode" />
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="2" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="8206" />
+        <entry key="CHINESE" value="8207" />
         <entry key="CZECH" value="20" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="8208" />
+        <entry key="ENGLISH" value="8209" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
