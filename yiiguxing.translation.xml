@@ -18,6 +18,10 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="video Ids Obj" />
+      <item value="Object" />
+      <item value="contains Key" />
+      <item value="processVideoContent: Extracted" />
       <item value=" OkHttp does not have a direct postJson, it usually takes a String body and content type&#10;         Assuming OkHttp.postJson exists or will be adapted.&#10;         For now, let's represent as a placeholder:&#10;         return OkHttp.post(url, gson.toJson(jsonBody), commonHeaders, &quot;applicationjson&quot;);&#10;         A more direct way:" />
       <item value=" This is a simplified fetch, assuming OkHttp.string handles headers" />
       <item value="get Common Headers" />
@@ -64,10 +68,6 @@
       <item value="source View Model" />
       <item value="Runnable" />
       <item value="reverse" />
-      <item value="tv Quick Search" />
-      <item value="show Preview" />
-      <item value="set Load Sir" />
-      <item value="quick Search Data" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,17 +78,17 @@
         <entry key="BOSNIAN" value="2" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="8227" />
+        <entry key="CHINESE" value="8230" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="8228" />
+        <entry key="ENGLISH" value="8231" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FINNISH" value="4" />
         <entry key="FRENCH" value="12" />
-        <entry key="GALICIAN" value="25" />
+        <entry key="GALICIAN" value="26" />
         <entry key="GERMAN" value="12" />
         <entry key="GREEK" value="1" />
         <entry key="GUJARATI" value="1" />
