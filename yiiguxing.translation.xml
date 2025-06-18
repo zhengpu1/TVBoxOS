@@ -18,6 +18,7 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="DEFAULT" />
       <item value="post And Decrypt" />
       <item value="decrypt AES" />
       <item value="Extract the JSON object part" />
@@ -33,7 +34,6 @@
       <item value="Http URL Connection" />
       <item value="open Connection" />
       <item value="disconnect" />
-      <item value="DEFAULT" />
       <item value="Retrieve vod_name from the VOD map" />
       <item value=" Fallback to an empty JSON object to avoid NullPointerException in fromJson" />
       <item value="If the JSON object bounds are not found, log an error and possibly set jsonPart to an empty object string" />
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="2" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="8254" />
+        <entry key="CHINESE" value="8255" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="8255" />
+        <entry key="ENGLISH" value="8256" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
