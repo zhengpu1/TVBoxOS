@@ -18,6 +18,7 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="matches" />
       <item value="first Zp" />
       <item value="Catch JSON parsing exceptions" />
       <item value="append" />
@@ -49,7 +50,6 @@
       <item value="ote: original JS used vodVersion for desc here" />
       <item value="create Vod From Json" />
       <item value="search Content" />
-      <item value="matches" />
       <item value="JSON Object" />
       <item value="The original JS uses 'http'+it.vodId for URL, Catvod expects vodId to be ID" />
       <item value="Assuming ids list contains only one ID&#10;" />
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="2" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="8246" />
+        <entry key="CHINESE" value="8247" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="8247" />
+        <entry key="ENGLISH" value="8248" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
