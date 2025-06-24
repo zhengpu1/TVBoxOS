@@ -1,6 +1,6 @@
 <application>
   <component name="Translation.Cache">
-    <option name="lastTrimTime" value="1750217107364" />
+    <option name="lastTrimTime" value="1750744819450" />
   </component>
   <component name="Translation.Settings">
     <option name="baiduTranslateSettings">
@@ -18,6 +18,7 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="random" />
       <item value="do Final" />
       <item value="decrypt AES" />
       <item value="encrypt AES" />
@@ -67,7 +68,6 @@
       <item value="search Content" />
       <item value="JSON Object" />
       <item value="The original JS uses 'http'+it.vodId for URL, Catvod expects vodId to be ID" />
-      <item value="Assuming ids list contains only one ID&#10;" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="2" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="8269" />
+        <entry key="CHINESE" value="8270" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="8270" />
+        <entry key="ENGLISH" value="8271" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
