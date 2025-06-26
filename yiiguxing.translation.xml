@@ -18,7 +18,14 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="on Seccess" />
+      <item value="Http URL Connection" />
+      <item value="get Response Code" />
+      <item value="set Request Method" />
+      <item value="request Method" />
       <item value="get Http URL Connection" />
+      <item value="upload File" />
+      <item value="url Http Get" />
       <item value="open Connection" />
       <item value="Parse Callback" />
       <item value="Player config not found" />
@@ -48,8 +55,6 @@
       <item value="append" />
       <item value="starts With" />
       <item value="get Header Field" />
-      <item value="get Response Code" />
-      <item value="Http URL Connection" />
       <item value="disconnect" />
       <item value="Retrieve vod_name from the VOD map" />
       <item value=" Fallback to an empty JSON object to avoid NullPointerException in fromJson" />
@@ -63,11 +68,6 @@
       <item value=" This is a simplified fetch, assuming OkHttp.string handles headers" />
       <item value="get Common Headers" />
       <item value="Helper method to build query string from map (similar to Python's js function)" />
-      <item value="Sunnafh" />
-      <item value="build Query String" />
-      <item value="Helper method to send HTTP GET request and return response body as string" />
-      <item value="send Http Request" />
-      <item value="ote: original JS used vodVersion for desc here" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,16 +78,16 @@
         <entry key="BOSNIAN" value="2" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="8275" />
+        <entry key="CHINESE" value="8284" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="8276" />
+        <entry key="ENGLISH" value="8284" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
         <entry key="FINNISH" value="4" />
-        <entry key="FRENCH" value="13" />
+        <entry key="FRENCH" value="14" />
         <entry key="GALICIAN" value="26" />
         <entry key="GERMAN" value="12" />
         <entry key="GREEK" value="1" />
