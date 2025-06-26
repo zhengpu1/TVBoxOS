@@ -18,6 +18,7 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="Thread" />
       <item value="on Seccess" />
       <item value="Http URL Connection" />
       <item value="get Response Code" />
@@ -67,7 +68,6 @@
       <item value=" OkHttp does not have a direct postJson, it usually takes a String body and content type&#10;         Assuming OkHttp.postJson exists or will be adapted.&#10;         For now, let's represent as a placeholder:&#10;         return OkHttp.post(url, gson.toJson(jsonBody), commonHeaders, &quot;applicationjson&quot;);&#10;         A more direct way:" />
       <item value=" This is a simplified fetch, assuming OkHttp.string handles headers" />
       <item value="get Common Headers" />
-      <item value="Helper method to build query string from map (similar to Python's js function)" />
     </histories>
     <option name="languageScores">
       <map>
@@ -82,7 +82,7 @@
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="8284" />
+        <entry key="ENGLISH" value="8285" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
