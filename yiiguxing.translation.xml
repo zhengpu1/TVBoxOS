@@ -1,6 +1,6 @@
 <application>
   <component name="Translation.Cache">
-    <option name="lastTrimTime" value="1750744819450" />
+    <option name="lastTrimTime" value="1751245425666" />
   </component>
   <component name="Translation.Settings">
     <option name="baiduTranslateSettings">
@@ -18,6 +18,10 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="decrypt AES" />
+      <item value="encrypt AES" />
+      <item value="Warning: hex2bin(): Input string must be hexadecimal string in wwwwwwrootpuapijm.php on line 26" />
+      <item value="Warning: hex2bin(): Hexadecimal input string must have an even length in wwwwwwrootpuapijm.php on line 23" />
       <item value="create Filter Def" />
       <item value="first-child" />
       <item value="Thread" />
@@ -35,8 +39,6 @@
       <item value="Default to 1 if no match" />
       <item value="random" />
       <item value="do Final" />
-      <item value="decrypt AES" />
-      <item value="encrypt AES" />
       <item value="contains" />
       <item value="hash Code" />
       <item value="equals" />
@@ -66,8 +68,6 @@
       <item value="processVideoContent: videoIdsObj is List. Processing items" />
       <item value="video Ids Obj" />
       <item value="Object" />
-      <item value="processVideoContent: Extracted" />
-      <item value=" OkHttp does not have a direct postJson, it usually takes a String body and content type&#10;         Assuming OkHttp.postJson exists or will be adapted.&#10;         For now, let's represent as a placeholder:&#10;         return OkHttp.post(url, gson.toJson(jsonBody), commonHeaders, &quot;applicationjson&quot;);&#10;         A more direct way:" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="2" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="8286" />
+        <entry key="CHINESE" value="8294" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="8287" />
+        <entry key="ENGLISH" value="8295" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
