@@ -18,6 +18,7 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="contains" />
       <item value="decrypt AES" />
       <item value="encrypt AES" />
       <item value="Warning: hex2bin(): Input string must be hexadecimal string in wwwwwwrootpuapijm.php on line 26" />
@@ -39,7 +40,6 @@
       <item value="Default to 1 if no match" />
       <item value="random" />
       <item value="do Final" />
-      <item value="contains" />
       <item value="hash Code" />
       <item value="equals" />
       <item value="ll Ijk Cache Play" />
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="2" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="8294" />
+        <entry key="CHINESE" value="8295" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="8295" />
+        <entry key="ENGLISH" value="8296" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
