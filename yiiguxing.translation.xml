@@ -18,12 +18,12 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
-      <item value="local Proxy" />
+      <item value="contains" />
       <item value="equals" />
+      <item value="local Proxy" />
       <item value="This method deserializes the specified JSON into an object of the specified type. This method is useful if the specified object is a generic type. For non-generic objects, use fromJson(String, Class) instead. If you have the JSON in a Reader instead of a String, use fromJson(Reader, Type) instead.&#10;Since Type is not parameterized by T, this method is not type-safe and should be used carefully. If you are creating the Type from a TypeToken, prefer using fromJson(String, TypeToken) instead since its return type is based on the TypeToken and is therefore more type-safe.&#10;An exception is thrown if the JSON string has multiple top-level JSON elements, or if there is trailing data. Use fromJson(JsonReader, Type) if this behavior is not desired.&#10;形参:&#10;json – the string from which the object is to be deserialized typeOfT – The specific genericized type of src&#10;返回值:&#10;an object of type T from the string. Returns null if json is null or if json is empty.&#10;抛出:&#10;JsonSyntaxException – if json is not a valid representation for an object of type typeOfT&#10;请参阅:&#10;fromJson(Reader, Type), fromJson(String, Class), fromJson(String, TypeToken)" />
       <item value="An exception is thrown if the JSON string has multiple top-level JSON elements, or if there is trailing data. Use fromJson(JsonReader, Type) if this behavior is not desired.&#10;形参:&#10;json – the string from which the object is to be deserialized classOfT – the class of T&#10;返回值:&#10;an object of type T from the string. Returns null if json is null or if json is empty.&#10;抛出:&#10;JsonSyntaxException – if json is not a valid representation for an object of type classOfT&#10;请参阅:&#10;fromJson(Reader, Class), fromJson(String, TypeToken)" />
       <item value="matches" />
-      <item value="contains" />
       <item value="chars" />
       <item value="FOLDER" />
       <item value="TRANSPARENT" />
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="2" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="8305" />
+        <entry key="CHINESE" value="8307" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="8307" />
+        <entry key="ENGLISH" value="8309" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
