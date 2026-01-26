@@ -18,10 +18,10 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="contains" />
       <item value="parse" />
       <item value="obtain Styled Attributes" />
       <item value="is Empty" />
-      <item value="contains" />
       <item value="matches" />
       <item value="equals" />
       <item value="local Proxy" />
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="2" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="8313" />
+        <entry key="CHINESE" value="8314" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="8315" />
+        <entry key="ENGLISH" value="8316" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
