@@ -1,6 +1,6 @@
 <application>
   <component name="Translation.Cache">
-    <option name="lastTrimTime" value="1768906758197" />
+    <option name="lastTrimTime" value="1769437078881" />
   </component>
   <component name="Translation.Settings">
     <option name="baiduTranslateSettings">
@@ -18,8 +18,9 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
-      <item value="contains" />
       <item value="parse" />
+      <item value="select" />
+      <item value="contains" />
       <item value="obtain Styled Attributes" />
       <item value="is Empty" />
       <item value="matches" />
@@ -67,7 +68,6 @@
       <item value="Fallback to an empty JSON object to avoid NullPointerException in fromJson" />
       <item value="contains Key" />
       <item value="first Zp" />
-      <item value="Catch JSON parsing exceptions" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="2" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="8314" />
+        <entry key="CHINESE" value="8316" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="8316" />
+        <entry key="ENGLISH" value="8318" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
