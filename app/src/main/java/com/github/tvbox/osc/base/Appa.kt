@@ -22,7 +22,7 @@ import com.rousetime.android_startup.StartupManager
  * @date :2020/12/17
  * @description:
  */
-class App : MultiDexApplication() {
+class Appa : MultiDexApplication() {
     private var p: P2PClass? = null
     private var dashData: String? = null
     override fun onCreate() {
@@ -47,7 +47,7 @@ class App : MultiDexApplication() {
     companion object {
         lateinit var burl: String
         @JvmStatic
-        var instance: App? = null
+        var instance: Appa? = null
             private set
     }
 

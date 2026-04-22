@@ -6,4 +6,7 @@ import java.io.Serializable;
 
 public class PlayEvent implements Serializable {
     public VodInfo vodInfo;
+    public VodInfo getVodInfo() {
+        return vodInfo;
+    }
 }

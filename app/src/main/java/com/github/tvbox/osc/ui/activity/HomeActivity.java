@@ -2,6 +2,7 @@ package com.github.tvbox.osc.ui.activity;
 
 import static com.github.tvbox.osc.util.RemoteConfig.checkUpdatess;
 import static com.github.tvbox.osc.util.RemoteConfig.isFirstStart;
+import static com.tencent.bugly.crashreport.CrashReport.getContext;
 
 import android.Manifest;
 import android.animation.Animator;
@@ -9,6 +10,7 @@ import android.animation.AnimatorSet;
 import android.animation.IntEvaluator;
 import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
@@ -276,12 +278,43 @@ public class HomeActivity extends BaseActivity {
         tvName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                File dir = getCacheDir();
-                FileUtils.recursiveDelete(dir);
-                dir = getExternalCacheDir();
-                FileUtils.recursiveDelete(dir);
+                try {
+                    // ==============================================
+                    // 🔥 终极清缓存：不依赖任何方法，纯系统删除，必生效
+                    // ==============================================
+
+                    // 1. 清除内部缓存目录（必删）
+                    File cacheDir = getCacheDir();
+                    FileUtils.recursiveDelete(cacheDir);
+
+                    // 2. 清除外部缓存目录（必删）
+                    File externalCache = getExternalCacheDir();
+                    if (externalCache != null) {
+                        FileUtils.recursiveDelete(externalCache);
+                    }
+
+                    // 3. 强制删除 cache.db 数据库（VodInfo 缓存所在）
+                    // 直接删文件，不调用任何数据库方法，必成功
+                    try {
+                        String dbName = "tvbox.v3.db";
+                        File dbFile = getDatabasePath(dbName);
+                        if (dbFile.exists()) {
+                            dbFile.delete();
+                        }
+                        File dbShm = new File(dbFile.getParent(), dbName + "-journal");
+                        File dbWal = new File(dbFile.getParent(), dbName + "-wal");
+                        if (dbShm.exists()) dbShm.delete();
+                        if (dbWal.exists()) dbWal.delete();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 FileUtils.cleanPlayerCache();
                 Toast.makeText(HomeActivity.this, "缓存已清除", Toast.LENGTH_SHORT).show();
+                reloadHome();
             }
         });
         tvName.setOnLongClickListener(new View.OnLongClickListener() {
@@ -865,5 +898,16 @@ public class HomeActivity extends BaseActivity {
         bundle.putBoolean("useCache", true);
         intent.putExtras(bundle);
         HomeActivity.this.startActivity(intent);
+    }
+    private void restartApp() {
+        Context context = getContext();
+        if (context != null) {
+            Intent i = context.getPackageManager().getLaunchIntentForPackage(context.getPackageName());
+            if (i != null) {
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                context.startActivity(i);
+                System.exit(0);
+            }
+        }
     }
 }

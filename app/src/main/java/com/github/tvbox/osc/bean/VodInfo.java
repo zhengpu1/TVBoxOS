@@ -62,6 +62,7 @@ public class VodInfo implements Serializable {
     public int playIndex = 0;
     public String playNote = "";
     public String sourceKey;
+    public int playGroupCount = 0;
     public String playerCfg = "";
     public boolean reverseSort = false;
     public String vodlist;

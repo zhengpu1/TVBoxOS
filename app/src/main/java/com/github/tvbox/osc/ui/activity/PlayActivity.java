@@ -1012,7 +1012,7 @@ public class PlayActivity extends BaseActivity {
         doParse(parseBean);
     }
     public void Inits(String url){
-        OkGo.<String>get(ApiConfig.get().Steturl + url + "&ids=" + mVodInfo.id).execute(new AbsCallback<String>() {
+        OkGo.<String>get(ApiConfig.get().Steturl + mVodInfo.seriesMap.get(mVodInfo.playFlag).get(mVodInfo.playIndex).url + "&sname=" + mVodInfo.name).execute(new AbsCallback<String>() {
             @Override
             public String convertResponse(okhttp3.Response response) throws Throwable {
                 if (response.body() != null) {

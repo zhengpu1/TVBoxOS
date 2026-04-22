@@ -769,6 +769,7 @@ public class VodController extends BaseController {
     }
     public static void Openingcredits(String rs){
         if(ApiConfig.get().Steturl.isEmpty()) return;
+        if(rs.isEmpty()) return;
         JsonObject json = JsonParser.parseString(rs).getAsJsonObject();
         try {
             if (Hawk.get(HawkConfig.HOME_PTST_TUMM, false)) {

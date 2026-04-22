@@ -398,7 +398,7 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
                             mActivity.runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
-                                    if (finalDoubanUrl.contains("hrystv.")) {
+                                    if (finalDoubanUrl.contains("192.168")) {
                                         adapter.setNewData(loadHotss(netJson));
                                     } else {
                                         adapter.setNewData(loadHotssk(netJson));

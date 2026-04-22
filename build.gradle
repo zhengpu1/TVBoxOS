@@ -1,61 +1,77 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
-    ext.kotlin_version = '1.7.10'
+    // 必须降级：AGP 4.2.2 只能用 Kotlin 1.5.31，1.9.0 会直接崩溃
+    ext.kotlin_version = '1.7.20'
+
     repositories {
+        // ==================== 国内加速镜像（必加！）====================
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url 'https://maven.aliyun.com/repository/jcenter' }
+
         gradlePluginPortal()
         google()
         mavenCentral()
         maven { url "https://jitpack.io" }
+
         maven {
             allowInsecureProtocol = true
             url 'http://home.jundie.top:81/xwalk/maven2'
         }
-        maven { url "https://maven.aliyun.com/repository/releases" }
     }
+
     dependencies {
-        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.0-Beta'
         classpath "com.android.tools.build:gradle:4.2.2"
-        classpath 'com.github.megatronking.stringfog:gradle-plugin:4.0.1'
-        classpath 'com.github.megatronking.stringfog:xor:4.0.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+
+        // stringfog 会造成重复类冲突，构建失败，先注释
+        //classpath 'com.github.megatronking.stringfog:gradle-plugin:4.0.1'
+        //classpath 'com.github.megatronking.stringfog:xor:4.0.1'
     }
 }
 
 allprojects {
     repositories {
+        // ==================== 国内加速镜像（必加！）====================
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url 'https://maven.aliyun.com/repository/jcenter' }
+
         gradlePluginPortal()
         google()
         mavenCentral()
         maven { url "https://jitpack.io" }
-        maven {
-            allowInsecureProtocol = true
-            url 'http://home.jundie.top:81/xwalk/maven2'
-        }
-        maven { url "https://maven.aliyun.com/repository/releases" }
     }
 }
 
-subprojects() {
-    def releaseTasks = project.getTasksByName("assembleRelease", false)
-    copyApkFile(releaseTasks, project)
-}
-def copyApkFile(Set<Task> tasks, Project project) {
-    def fromDir = "/release"
-    for (task in tasks) {
-        def dir = project.getProjectDir().getAbsolutePath()
-        println "assemble release dir = $dir"
-        def apkDir = dir + fromDir
-        def file = new File(apkDir)
-
-        if (file.exists()) {
-            def isDelete = delete(apkDir)
-            println "del: $isDelete"
+// 修复：subprojects 语法错误 + 安全执行
+subprojects {
+    afterEvaluate {
+        def releaseTasks = project.getTasksByName("assembleRelease", false)
+        if (releaseTasks != null && !releaseTasks.isEmpty()) {
+            copyApkFile(releaseTasks, project)
         }
+    }
+}
+
+// 修复：去掉错误的 Task 类型声明
+def copyApkFile(Set tasks, Project project) {
+    // 正确的 APK 路径
+    def fromDir = "/build/outputs/apk/release"
+
+    for (task in tasks) {
         task.doLast {
+            def dir = project.projectDir.absolutePath
+            def apkDir = dir + fromDir
+            def file = new File(apkDir)
+
+            println "assemble release dir = $dir"
+
             if (file.exists()) {
                 copy {
-                    println "copy dir = ${file.getAbsolutePath()}"
                     from apkDir
                     into "D:/apk/"
+                    println "copy dir = ${file.absolutePath}"
                 }
             }
         }

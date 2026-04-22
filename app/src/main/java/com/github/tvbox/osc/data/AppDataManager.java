@@ -68,11 +68,11 @@ public class AppDataManager {
             String dataJson;
 
             while (cursor.moveToNext()) {
-                id = cursor.getInt(cursor.getColumnIndex("id"));
-                vodId = cursor.getInt(cursor.getColumnIndex("vodId"));
-                updateTime = cursor.getLong(cursor.getColumnIndex("updateTime"));
-                sourceKey = cursor.getString(cursor.getColumnIndex("sourceKey"));
-                dataJson = cursor.getString(cursor.getColumnIndex("dataJson"));
+                id = cursor.getInt(Math.max(cursor.getColumnIndex("id"), 0));
+                vodId = cursor.getInt(Math.max(cursor.getColumnIndex("vodId"), 0));
+                updateTime = cursor.getLong(Math.max(cursor.getColumnIndex("updateTime"), 0));
+                sourceKey = cursor.getString(Math.max(cursor.getColumnIndex("sourceKey"), 0));
+                dataJson = cursor.getString(Math.max(cursor.getColumnIndex("dataJson"), 0));
                 database.execSQL("INSERT INTO vodRecordTmp (id, vodId, updateTime, sourceKey, dataJson, testMigration) VALUES" +
                         " ('" + id + "', '" + vodId + "', '" + updateTime + "', '" + sourceKey + "', '" + dataJson + "',0  )");
             }

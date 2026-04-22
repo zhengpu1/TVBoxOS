@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Base64;
+
 import com.github.catvod.crawler.JarLoader;
 import com.github.catvod.crawler.JsLoader;
 import com.github.catvod.crawler.Spider;
@@ -30,8 +31,10 @@ import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.AbsCallback;
 import com.lzy.okgo.model.Response;
 import com.orhanobut.hawk.Hawk;
+
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -64,6 +67,7 @@ public class ApiConfig {
     public String Steturl = "";
     public String  adblockUrl = "";
     public String  souyeUrl = "";
+    public String  tuijUrl = "";
     private final SourceBean emptyHome = new SourceBean();
 
     private final JarLoader jarLoader = new JarLoader();
@@ -313,6 +317,8 @@ public class ApiConfig {
         adblockUrl = DefaultConfig.safeJsonString(infoJson, "adblockUrl", "");
         //首页URL
         souyeUrl = DefaultConfig.safeJsonString(infoJson, "souyeUrl", "");
+        //详情页推荐URL
+        tuijUrl = DefaultConfig.safeJsonString(infoJson, "tuijUrl", "");
         // 远端站点源
         SourceBean firstSite = null;
         for (JsonElement opt : infoJson.get("sites").getAsJsonArray()) {
