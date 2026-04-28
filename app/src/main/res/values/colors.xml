@@ -22,7 +22,7 @@
     <color name="color_themex_dark_70">#F2021B33</color>
 
     <color name="color_themec">#068FCC</color>
-    <color name="color_themec_80">#CC912503</color>
+    <color name="color_themec_80">#CCED3C04</color>
     <color name="color_themec_70">#B3912503</color>
     <color name="color_themec_60">#993A1003</color>
     <color name="color_themec_50">#8094533F</color>
@@ -42,6 +42,7 @@
     <color name="color_66FFFFFF">#66ffffff</color>
     <color name="color_33FFFFFF">#44ffffff</color>
     <color name="color_22FFFFFF">#4DFFFFFF</color>
+    <color name="color_00FF0A">#00FF0A</color>
     <color name="color_FF3D3D3D">#ff3d3d3d</color>
     <color name="color_6C3D3D3D">#6c3d3d3d</color>
     <color name="color_FF333333">#FF333333</color>

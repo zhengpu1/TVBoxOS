@@ -6,12 +6,10 @@ import android.graphics.Color
 import android.view.View
 import android.view.WindowManager
 import android.view.animation.Animation
-import android.widget.LinearLayout
 import android.widget.TextView
 import com.github.tvbox.osc.R
-import com.github.tvbox.osc.base.BaseActivity
-import com.github.tvbox.osc.base.BaseActivity.drawableLinearLayouts
-import com.github.tvbox.osc.base.BaseActivity.drawableTextViews
+import com.github.tvbox.osc.base.baseActivity.drawableLinearLayouts
+import com.github.tvbox.osc.base.baseActivity.drawableTextViews
 import com.github.tvbox.osc.event.ServerEvent
 import com.github.tvbox.osc.event.ServerEvent.SERVER_SEARCH
 import com.github.tvbox.osc.ui.adapter.SearchHistoryAdapter

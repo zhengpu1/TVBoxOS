@@ -1,8 +1,8 @@
 package com.github.tvbox.osc.ui.adapter;
 
-import static com.github.tvbox.osc.base.BaseActivity.drawableLinearLayout;
-import static com.github.tvbox.osc.base.BaseActivity.drawableTextView;
-import static com.github.tvbox.osc.base.BaseActivity.getColorByAttrId;
+import static com.github.tvbox.osc.base.baseActivity.drawableLinearLayout;
+import static com.github.tvbox.osc.base.baseActivity.drawableTextView;
+import static com.github.tvbox.osc.base.baseActivity.getColorByAttrId;
 
 import android.view.View;
 import android.widget.LinearLayout;

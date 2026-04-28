@@ -68,6 +68,7 @@ public class ApiConfig {
     public String  adblockUrl = "";
     public String  souyeUrl = "";
     public String  tuijUrl = "";
+    public String duocUrl = "";
     private final SourceBean emptyHome = new SourceBean();
 
     private final JarLoader jarLoader = new JarLoader();
@@ -131,7 +132,7 @@ public class ApiConfig {
         return "".getBytes();
     }
     public void loadConfig(boolean useCache, LoadConfigCallback callback, Activity activity) {
-        String apiUrl = Hawk.get(HawkConfig.API_URL, "");
+        String apiUrl = Hawk.get(HawkConfig.API_URL, "http://192.168.80.10:38/tv/60.json");
         LOG.i("ApiConfig: loadConfig: "+apiUrl);
         if (apiUrl.isEmpty()) {
             callback.error("-1");
@@ -319,7 +320,10 @@ public class ApiConfig {
         souyeUrl = DefaultConfig.safeJsonString(infoJson, "souyeUrl", "");
         //详情页推荐URL
         tuijUrl = DefaultConfig.safeJsonString(infoJson, "tuijUrl", "");
+        //多仓地址
+        duocUrl = DefaultConfig.safeJsonString(infoJson, "duocUrl", "http://192.168.80.10:38/tv/dc.json");
         // 远端站点源
+        BuiltAPI(duocUrl);
         SourceBean firstSite = null;
         for (JsonElement opt : infoJson.get("sites").getAsJsonArray()) {
             JsonObject obj = (JsonObject) opt;
@@ -776,5 +780,39 @@ public class ApiConfig {
         }
         return url;
     }
+    public String BuiltAPI(String dcUrl) {
+        OkGo.<String>get(dcUrl)
+                .execute(new AbsCallback<String>() {
+                    @Override
+                    public String convertResponse(okhttp3.Response response) throws Throwable {
+                        return response.body() != null ? response.body().string() : null;
+                    }
 
+                    @Override
+                    public void onSuccess(Response<String> response) {
+                        String json = response.body();
+                        JsonObject infoJson = new Gson().fromJson(json, JsonObject.class);
+                        JsonArray array = infoJson.getAsJsonArray("urls");
+
+                        ArrayList<String> history = Hawk.get(HawkConfig.API_HISTORY, new ArrayList<String>());
+                        history.clear();
+                        ArrayList<String> stringList = new ArrayList<>();
+
+                        for (int i=0; i< array.size();i++) {
+                            JsonObject jsonObject = array.get(i).getAsJsonObject();
+                            String name = jsonObject.has("name")?jsonObject.get("name").getAsString():"线路"+(i+1);
+                            String url = jsonObject.get("url").getAsString();
+                            stringList.add(url);
+                        }
+                        Hawk.put(HawkConfig.API_HISTORY, stringList);
+                    }
+
+                    @Override
+                    public void onError(Response<String> response) {
+                        // Handle error if needed
+                    }
+                });
+
+        return dcUrl;
+    }
 }

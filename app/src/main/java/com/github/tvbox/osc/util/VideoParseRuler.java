@@ -145,5 +145,7 @@ public class VideoParseRuler {
     }
 
 
-
+    public static HashMap<String, ArrayList<String>> getHostsRegex() {
+        return null;
+    }
 }

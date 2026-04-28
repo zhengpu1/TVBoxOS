@@ -1,6 +1,6 @@
 package com.github.tvbox.osc.ui.adapter;
 
-import static com.github.tvbox.osc.base.BaseActivity.drawableLinearLayout;
+import static com.github.tvbox.osc.base.baseActivity.drawableLinearLayout;
 
 import android.view.View;
 import android.widget.LinearLayout;
@@ -30,6 +30,7 @@ public class SortAdapter extends BaseQuickAdapter<MovieSort.SortData, BaseViewHo
                 view.setFocusableInTouchMode(true);
                 view.setFocusable(true);
                 view.requestFocus();
+
             }, 30);
         }
     }

@@ -35,7 +35,7 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import com.github.tvbox.osc.R;
 import com.github.tvbox.osc.api.ApiConfig;
 import com.github.tvbox.osc.base.App;
-import com.github.tvbox.osc.base.BaseActivity;
+import com.github.tvbox.osc.base.baseActivity;
 import com.github.tvbox.osc.bean.AbsXml;
 import com.github.tvbox.osc.bean.Movie;
 import com.github.tvbox.osc.bean.SourceBean;
@@ -47,6 +47,7 @@ import com.github.tvbox.osc.ui.adapter.HomedeVodAdapter;
 import com.github.tvbox.osc.ui.adapter.QuickSearchAdapter;
 import com.github.tvbox.osc.ui.adapter.SeriesAdapter;
 import com.github.tvbox.osc.ui.adapter.SeriesFlagAdapter;
+import com.github.tvbox.osc.ui.dialog.DevDialog;
 import com.github.tvbox.osc.ui.fragment.PlayFragment;
 import com.github.tvbox.osc.util.EpisodeGroupHelper;
 import com.github.tvbox.osc.util.FastClickCheckUtil;
@@ -97,7 +98,7 @@ import xyz.doikki.videoplayer.player.VideoView;
  * &#064;description:
  */
 
-public class DetailActivity extends BaseActivity {
+public class DetailActivity extends baseActivity {
     private FragmentContainerView llPlayerFragmentContainer;
     private View llPlayerFragmentContainerBlock;
     private PlayFragment playFragment = null;
@@ -151,9 +152,7 @@ public class DetailActivity extends BaseActivity {
     private SeriesAdapter seriesAdapter;
     public String vodId;
     public String sourceKey;
-    public static int selectss;
     public static boolean seriesSelect = false;
-    private View seriesFlagFocus = null;
     private boolean isReverse;
     private HomedeVodAdapter homedeVodAdapter;
     private QuickSearchAdapter searchAdapter;
@@ -186,8 +185,8 @@ public class DetailActivity extends BaseActivity {
     }
 
     private List<Runnable> pauseRunnable = null;
-    private int maxRetryCount = 50;        // 最大换源次数
-    private int maxRetryCount1 = 40; // 最大换源次数
+    private int maxRetryCount = 10;        // 最大换源次数a
+    private int maxRetryCount1 = 30; // 最大换源次数
     private int currentRetryCount = 0;     // 当前换源次数
     public static int currentRetryCount1 = 0;     // 当前换源次数
     private boolean isAutoSwitching = false; // 是否正在换源中
@@ -251,13 +250,13 @@ public class DetailActivity extends BaseActivity {
         mNumberClassification = findViewById(R.id.mNumberClassification);
         mNumberClassification.setHasFixedSize(true);
         mNumberClassification.setLayoutManager(new V7LinearLayoutManager(this.mContext, 0, false));
-        mClassifyAdapter = new SeriesFlagAdapter();
+        mClassifyAdapter = new SeriesFlagAdapter(mContext);
         mNumberClassification.setAdapter(mClassifyAdapter);
         mGridViewFlag = findViewById(R.id.mGridViewFlag);
         mGridViewFlag.setHasFixedSize(true);
         mGridViewFlag.setLayoutManager(new V7LinearLayoutManager(this.mContext, 0, false));
-        seriesFlagAdapter = new SeriesFlagAdapter();
-        seriesFlagAdaptera =  new SeriesFlagAdapter();
+        seriesFlagAdapter = new SeriesFlagAdapter(mContext);
+        seriesFlagAdaptera =  new SeriesFlagAdapter(mContext);
         mGridViewFlag.setAdapter(seriesFlagAdapter);
         tvHotList5.setAdapter(homedeVodAdapter);
         tvHotList5.setVisibility(View.VISIBLE);
@@ -266,11 +265,17 @@ public class DetailActivity extends BaseActivity {
         tvPlay.setVisibility(View.VISIBLE);
         tvHotList3.setVisibility(View.GONE);
         tvHotList3.setAdapter(searchAdapter);
-
+        tvWntj.setVisibility(View.GONE);
+        tvHotList3.setVisibility(View.GONE);
         // 初始化视图
         initViews();
         // 设置点击事件
-        setClickListeners();
+        if(!Hawk.get(HawkConfig.FORBID_JAR_DIALOG, false)) {
+            tvPlays.setText("手动换源");
+        }else{
+            tvPlays.setText("全屏播放");
+        }
+        //setClickListeners();
         isReverse = false;
         preFlag = "";
         if (showPreview) {
@@ -284,7 +289,7 @@ public class DetailActivity extends BaseActivity {
             protected void convert(BaseViewHolder helper, String item) {
                 TextView tvSeries = helper.getView(R.id.tvSeriesGroup);
                 LinearLayout tvSeriesg = helper.getView(R.id.tvSeriesG);
-                //drawableLinearLayout(tvSeriesg, 5);
+                drawableLinearLayout(tvSeriesg, 5);
                 tvSeries.setText(item);
             }
         };
@@ -343,14 +348,26 @@ public class DetailActivity extends BaseActivity {
                 mGridView.requestFocus();
             }, 120); // 100~150ms都可以
         });
+       tvPush.setOnClickListener(v -> {
+            FastClickCheckUtil.check(v);
+            DevDialog dialog = new DevDialog(mContext);
+            dialog.show();
+        });
+        // tvSite.setOnClickListener(v -> startQuickSearch());
         tvPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FastClickCheckUtil.check(v);
+                if(!Hawk.get(HawkConfig.FORBID_JAR_DIALOG, false)) {
+                tvPlays.setText("手动换源");
+                    Switchtoplaybacksitek();
+        }else{
+        tvPlays.setText("全屏播放");
                 if (showPreview) {
                     toggleFullPreview();
                 } else {
                     jumpToPlay();
+                }
                 }
             }
         });
@@ -412,7 +429,6 @@ public class DetailActivity extends BaseActivity {
                     seriesFlagAdapter.notifyItemChanged(position);
                     refreshList();
                 }
-                seriesFlagFocus = itemView;
             }
 
             @Override
@@ -462,9 +478,16 @@ public class DetailActivity extends BaseActivity {
                     // 更新全局选中
                     for (VodInfo.VodSeries s : allSeries) s.selected = false;
                     clicked.selected = true;
+                    // 🔥🔥🔥 关键代码：只有【真正切换了集数】才强制从头
+                    boolean isChangeEpisode = vodInfo.playIndex != globalIndex;
                     vodInfo.playIndex = globalIndex;
+
+                    // 🔥 切换集数 = 强制从头，换源 = 不影响
+                    if (isChangeEpisode && playFragment != null) {
+                        playFragment.forceReplayToStart = true;
+                    }
                     //选集全屏 想选集不全屏的注释下面一行
-                    if (showPreview && !fullWindows) toggleFullPreview();
+                    if (showPreview && !fullWindows && Hawk.get(HawkConfig.PLAYBACK_PLAYS, false)) toggleFullPreview();
                     if (!showPreview || reload) jumpToPlay();
                 }
             }
@@ -475,7 +498,7 @@ public class DetailActivity extends BaseActivity {
                 VodInfo.VodSeriesFlag item = mClassifyAdapter.getItem(position);
                 if (item != null) {
                     if (item.selected) {//如果点击的已经是选中的了，return
-                        return;
+                       // return;
                     }
                 }
                 if (GroupIndex != position) {
@@ -513,11 +536,11 @@ public class DetailActivity extends BaseActivity {
         if (Hawk.get(HawkConfig.PLAYBACK_PLAY, false)) {
             if (showPreview && !fullWindows) toggleFullPreview();
         }
-        if (!Hawk.get(HawkConfig.PLAYBACK_PLAY, false)) {
+      /*  if (!Hawk.get(HawkConfig.PLAYBACK_PLAY, false)) {
             new Handler().postDelayed(() -> {
-                // if (showPreview && !fullWindows) toggleFullPreview();
+                 if (showPreview && !fullWindows) toggleFullPreview();
             }, 10000);
-        }
+        }*/
         tvName.setOnClickListener(v -> {
             ClipboardManager clipboard = (ClipboardManager) DetailActivity.this.getSystemService(Context.CLIPBOARD_SERVICE);
             String cpContent =  Objects.requireNonNull(vodInfo.seriesMap.get(vodInfo.playFlag)).get(vodInfo.playIndex).url;
@@ -818,7 +841,7 @@ public class DetailActivity extends BaseActivity {
         setTextShow(tvType, "类型", !firstsourceKey.equals(sourceKey)
                 ? "[" + ApiConfig.get().getSource(sourceKey).getName() + "] 解析"
                 : video.type);
-        setTextShow(tvDouban, "豆瓣", video.douban);
+        setTextShow(tvDouban, "豆瓣", getOneDecimal(Double.parseDouble(video.douban)));
 
         tvWad.setVisibility(!TextUtils.isEmpty(video.writer) || !TextUtils.isEmpty(video.actor) || !TextUtils.isEmpty(video.director)
                 ? View.VISIBLE
@@ -827,13 +850,27 @@ public class DetailActivity extends BaseActivity {
         setTextShow(tvActor, "演员：", removeHtmlTag(video.actor));
         setTextShow(tvDirector, "导演：", removeHtmlTag(video.director));
         setTextShow(tvDes, "简介：", removeHtmlTag(video.des));
-        initHomeHotVod3(homedeVodAdapter);
-        if (!(boolean) Hawk.get(HawkConfig.FORBID_JAR_DIALOG)){
-            if (quickSearchData == null || quickSearchData.isEmpty()) startQuickSearch();
+        new Handler(Looper.getMainLooper()).postDelayed(() -> {
+            initHomeHotVod3(homedeVodAdapter);
+        }, 3000); // 5秒后执行
+        // 读取快速搜索缓存 ← 我加的
+        List<Movie.Video> cacheSearchData = (List<Movie.Video>) CacheManager.getCache("vod_souzd_" + mVideo.name);
+        if (cacheSearchData != null && !cacheSearchData.isEmpty()) {
+            quickSearchData.clear();
+            quickSearchData.addAll(cacheSearchData);
+            EventBus.getDefault().post(new RefreshEvent(RefreshEvent.TYPE_QUICK_SEARCH, quickSearchData));
+        }
+// 如果没有缓存才去搜索
+        if (quickSearchData == null || quickSearchData.isEmpty()) {
+            new Handler(Looper.getMainLooper()).postDelayed(() -> {
+                startQuickSearch();
+            }, 2000); // 5秒后执行
+
         }
     }
-
-
+    public static String getOneDecimal(double d) {
+        return String.format("%.1f", d);
+    }
     private void handleSeriesData() {
         if (vodInfo.seriesMap == null || vodInfo.seriesMap.isEmpty()) {
             mGridViewFlag.setVisibility(View.GONE);
@@ -988,6 +1025,7 @@ public class DetailActivity extends BaseActivity {
             firstsourceKey = key;
             showLoading();
             sourceViewModel.getDetail(sourceKey, vodId);
+
             boolean isVodCollect = RoomDataManger.isVodCollect(sourceKey, vodId);
             if (isVodCollect) {
                 tvCollect2.setText("取消收藏");
@@ -1057,8 +1095,9 @@ public class DetailActivity extends BaseActivity {
         searchAdapter.addData(data);//333333
     }
     public void onSwitchSourceEvent(RefreshEvent event) {
-        //Toast.makeText(App.getInstance(),(CharSequence) event.obj, Toast.LENGTH_SHORT).show();
-        if (Hawk.get(HawkConfig.FORBID_JAR_DIALOG)) {
+
+        if(Hawk.get(HawkConfig.FORBID_JAR_DIALOG, false)) {
+            Toast.makeText(App.getInstance(),(CharSequence) "自动换源", Toast.LENGTH_SHORT).show();
             startAutoSourceSwitch();
         }
 
@@ -1247,17 +1286,14 @@ public class DetailActivity extends BaseActivity {
                     continue;
                 }
                 if (video.name.equals(mVideo.name)) {
-
-                    if (!video.name.isEmpty()) {
-                            tvWntj.setVisibility(View.GONE);
-                            tvHotList3.setVisibility(View.GONE);
-                    }
                     data.add(video);
                     if (matchSearchResult(video.name, searchTitle))
                         data.add(video);
                 }
             }
             quickSearchData.addAll(removeDuplicationByHashSet(data));
+            // 保存缓存
+            CacheManager.save("vod_souzd_" + mVideo.name, quickSearchData);
             EventBus.getDefault().post(new RefreshEvent(RefreshEvent.TYPE_QUICK_SEARCH, data));
         }
     }
@@ -1286,12 +1322,7 @@ public class DetailActivity extends BaseActivity {
             mGridView.requestFocus();
             return;
         }
-        /*if (seriesSelect) {
-            if (seriesFlagFocus != null && !seriesFlagFocus.isFocused()) {
-                seriesFlagFocus.requestFocus();
-                return;
-            }
-        }*/
+
         super.onBackPressed();
     }
 
@@ -1356,6 +1387,9 @@ public class DetailActivity extends BaseActivity {
         tvName.setFocusable(!fullWindows);
         if (!fullWindows && vodInfo != null) {//恢复焦点
             scrollToPlayPosAndRequestFoucuse(vodInfo.playIndex);
+        }
+        if (playFragment.mController != null) {
+            playFragment.mController.setIsFullScreen(fullWindows);
         }
         toggleSubtitleTextSize();
     }
@@ -1469,14 +1503,13 @@ public class DetailActivity extends BaseActivity {
 
       //  drawableTextView(tvSite, 1);
     }
-    private void setClickListeners() {
-        llPlayerFragmentContainerBlock.setOnClickListener(view -> toggleFullPreview());
-
-        tvPush.setOnClickListener(view -> {
+   /* private void setClickListeners() {
+        llPlayerFragmentContainerBlock.setOnClickListener(view -> toggleFullPreview()); // 点击全屏
+        tvPlay.setOnClickListener(view -> {
             FastClickCheckUtil.check(view);
             Switchtoplaybacksitek();
         });
-    }
+    }*/
     private void setClickListeners999() {
         // 点击 → 切换播放源（和你参考代码逻辑完全一致）
         llPlayerFragmentContainerBlock.setOnClickListener(view -> Switchtoplaybacksitek());
@@ -1506,7 +1539,7 @@ public class DetailActivity extends BaseActivity {
         EventBus.getDefault().post(new RefreshEvent(RefreshEvent.TYPE_SUBTITLE_SIZE_CHANGE, subtitleTextSize));
     }
     // 状态检查相关
-    private static final long PLAY_TIMEOUT = 10_000; // 30秒
+    private static final long PLAY_TIMEOUT = 30_000; // 30秒
     private Handler statusCheckHandler = new Handler(Looper.getMainLooper());
     private Runnable statusCheckRunnable = new Runnable() {
         @Override
@@ -1518,7 +1551,7 @@ public class DetailActivity extends BaseActivity {
 
                 boolean isPlaying = playFragment.getPlayer().isPlaying();
 
-                if (!isPlaying && !isPaused) {
+                if (!isPlaying && !isPaused && Hawk.get(HawkConfig.FORBID_JAR_DIALOG, false)) {
                     startAutoSourceSwitch();
                     return;
                 }
@@ -1563,7 +1596,6 @@ public class DetailActivity extends BaseActivity {
 
     // 修改原有的换源方法
     private void Switchtoplaybacksitek() {
-        if (quickSearchData == null || quickSearchData.isEmpty())startQuickSearch();
         List<SourceBean> sourceBeans = ApiConfig.get().getSourceBeanList();
         List<String> sourceKeys = new ArrayList<>();
 
@@ -1596,12 +1628,12 @@ public class DetailActivity extends BaseActivity {
             Toast.makeText(mContext, "未找到可用播放源", Toast.LENGTH_SHORT).show();
         }
     }
-    // 查找下一个可用源
     private int findNextAvailableSource(int currentIndex) {
         if (quickSearchData == null || quickSearchData.isEmpty())
             return -1;
         int size = quickSearchData.size();
         // 下一个 = 当前+1，如果到最后一个就回到 0（循环切换）
+        Log.e("AutoSwitch222", String.valueOf((currentIndex + 1) % size));
         return (currentIndex + 1) % size;
     }
     // 检查源是否可用

@@ -1,6 +1,6 @@
 package com.github.tvbox.osc.ui.adapter;
 
-import static com.github.tvbox.osc.base.BaseActivity.drawableTextView;
+import static com.github.tvbox.osc.base.baseActivity.drawableTextView;
 
 import android.widget.TextView;
 

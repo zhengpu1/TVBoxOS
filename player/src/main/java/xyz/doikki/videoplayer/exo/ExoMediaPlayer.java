@@ -53,25 +53,34 @@ public class ExoMediaPlayer extends AbstractPlayer implements Player.Listener {
 
     @Override
     public void initPlayer() {
+        // 极速秒开优化（兼容你的Exo版本，无任何报错）
+        DefaultLoadControl optimizedLoadControl = new DefaultLoadControl.Builder()
+                .setBufferDurationsMs(
+                        1000,   // 最小缓冲
+                        8000,   // 最大缓冲
+                        200,    // 启动缓冲（秒开核心）
+                        1000    // 重新缓冲
+                )
+                .setPrioritizeTimeOverSizeThresholds(true)
+                .build();
+
         mInternalPlayer = new SimpleExoPlayer.Builder(
                 mAppContext,
                 mRenderersFactory == null ? mRenderersFactory = new DefaultRenderersFactory(mAppContext) : mRenderersFactory,
                 mTrackSelector == null ? mTrackSelector = new DefaultTrackSelector(mAppContext) : mTrackSelector,
                 new DefaultMediaSourceFactory(mAppContext),
-                mLoadControl == null ? mLoadControl = new DefaultLoadControl() : mLoadControl,
+                optimizedLoadControl,
                 DefaultBandwidthMeter.getSingletonInstance(mAppContext),
                 new AnalyticsCollector(Clock.DEFAULT))
                 .build();
         setOptions();
 
-        //播放器日志
         if (VideoViewManager.getConfig().mIsEnableLog && mTrackSelector instanceof MappingTrackSelector) {
             mInternalPlayer.addAnalyticsListener(new EventLogger((MappingTrackSelector) mTrackSelector, "ExoPlayer"));
         }
 
         mInternalPlayer.addListener(this);
     }
-
     public void setTrackSelector(TrackSelector trackSelector) {
         mTrackSelector = trackSelector;
     }

@@ -363,7 +363,7 @@ public abstract class BaseController extends BaseVideoController implements Gest
         int height = getMeasuredHeight();
 //        if (mBrightness == -1.0f) mBrightness = 0.5f;
         if (mBrightness <= 0.00f) {
-            mBrightness = 0.50f;
+            mBrightness = 1.0f;
         } else if (mBrightness < 0.01f) {
             mBrightness = 0.01f;
         }
@@ -399,7 +399,10 @@ public abstract class BaseController extends BaseVideoController implements Gest
         if (index > streamMaxVolume) index = streamMaxVolume;
         if (index < 0) index = 0;
         int percent = (int) (index / streamMaxVolume * 100);
-        mAudioManager.setStreamVolume(AudioManager.STREAM_MUSIC, (int) index, 0);
+        int maxVolume = mAudioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+        int defaultVol = (int) (maxVolume * 1.0f);
+        mAudioManager.setStreamVolume(AudioManager.STREAM_MUSIC, defaultVol, 0);
+        mStreamVolume = defaultVol;
         for (Map.Entry<IControlComponent, Boolean> next : mControlComponents.entrySet()) {
             IControlComponent component = next.getKey();
             if (component instanceof IGestureComponent) {

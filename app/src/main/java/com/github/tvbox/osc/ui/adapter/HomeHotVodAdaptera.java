@@ -1,7 +1,7 @@
 package com.github.tvbox.osc.ui.adapter;
 
-import static com.github.tvbox.osc.base.BaseActivity.LParams;
-import static com.github.tvbox.osc.base.BaseActivity.drawableFrameLayout;
+import static com.github.tvbox.osc.base.baseActivity.LParams;
+import static com.github.tvbox.osc.base.baseActivity.drawableFrameLayout;
 
 import android.text.TextUtils;
 import android.view.View;

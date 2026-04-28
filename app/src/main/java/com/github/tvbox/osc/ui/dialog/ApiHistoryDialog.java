@@ -1,6 +1,6 @@
 package com.github.tvbox.osc.ui.dialog;
 
-import static com.github.tvbox.osc.base.BaseActivity.drawableConstraintLayout;
+import static com.github.tvbox.osc.base.baseActivity.drawableConstraintLayout;
 
 import android.content.Context;
 import android.os.Bundle;

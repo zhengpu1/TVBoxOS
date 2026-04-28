@@ -1,19 +1,21 @@
 package com.github.tvbox.osc.player.controller;
 
-import static com.github.tvbox.osc.base.BaseActivity.getColorByAttrId;
+import static com.github.tvbox.osc.base.baseActivity.getColorByAttrId;
 import static xyz.doikki.videoplayer.util.PlayerUtils.stringForTime;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.drawable.ClipDrawable;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.LayerDrawable;
 import android.os.Build;
 import android.os.Handler;
-import android.os.Message;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -28,37 +30,52 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.OnLifecycleEvent;
 import androidx.recyclerview.widget.DiffUtil;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.github.tvbox.osc.R;
 import com.github.tvbox.osc.api.ApiConfig;
 import com.github.tvbox.osc.bean.IJKCode;
 import com.github.tvbox.osc.bean.ParseBean;
+import com.github.tvbox.osc.event.RefreshEvent;
+import com.github.tvbox.osc.server.ControlManager;
+import com.github.tvbox.osc.server.RemoteServer;
 import com.github.tvbox.osc.subtitle.widget.SimpleSubtitleView;
 import com.github.tvbox.osc.ui.adapter.ParseAdapter;
 import com.github.tvbox.osc.ui.adapter.SelectDialogAdapter;
 import com.github.tvbox.osc.ui.dialog.SelectDialoga;
 import com.github.tvbox.osc.ui.dialog.SpeedPlayDialog;
 import com.github.tvbox.osc.ui.view.ChoosePlayPopUp;
-import com.github.tvbox.osc.util.FastClickCheckUtil;
+import com.github.tvbox.osc.ui.view.PlayerMoreFucPop;
 import com.github.tvbox.osc.util.HawkConfig;
+import com.github.tvbox.osc.util.M3u8;
 import com.github.tvbox.osc.util.PlayerHelper;
 import com.github.tvbox.osc.util.ScreenUtils;
 import com.github.tvbox.osc.util.SubtitleHelper;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.lzy.okgo.OkGo;
+import com.lzy.okgo.callback.AbsCallback;
+import com.lzy.okgo.model.HttpHeaders;
+import com.lzy.okgo.model.Response;
 import com.orhanobut.hawk.Hawk;
 import com.owen.tvrecyclerview.widget.TvRecyclerView;
-import com.owen.tvrecyclerview.widget.V7LinearLayoutManager;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.lang.reflect.Method;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import xyz.doikki.videoplayer.player.VideoView;
 import xyz.doikki.videoplayer.util.PlayerUtils;
@@ -66,64 +83,54 @@ import xyz.doikki.videoplayer.util.PlayerUtils;
 public class VodController extends BaseController {
     public VodController(@NonNull @NotNull Context context) {
         super(context);
-        mHandlerCallback = new HandlerCallback() {
-            @Override
-            public void callback(Message msg) {
-                switch (msg.what) {
-                    case 1000: { // seek 刷新
-                        mProgressRoot.setVisibility(VISIBLE);
-                        break;
+        mHandlerCallback = msg -> {
+            switch (msg.what) {
+                case 1000:
+                    mProgressRoot.setVisibility(VISIBLE);
+                    break;
+                case 1001:
+                    mProgressRoot.setVisibility(GONE);
+                    break;
+                case 1002:
+                    mBottomRoot.setVisibility(VISIBLE);
+                    mTopRoot1.setVisibility(VISIBLE);
+                    mTopRoot2.setVisibility(VISIBLE);
+                    mPlayTitle.setVisibility(GONE);
+                    showNowTime(true);
+                    mPlayPauseTime.setVisibility(VISIBLE);
+                    mBack.setVisibility(ScreenUtils.isTv(context) ? VISIBLE : INVISIBLE);
+                    mNextBtn.requestFocus();
+                    if (isKeyUp) {
+                        isKeyUp = false;
                     }
-                    case 1001: { // seek 关闭
-                        mProgressRoot.setVisibility(GONE);
-                        break;
+                    break;
+                case 1003:
+                    mBottomRoot.setVisibility(GONE);
+                    mTopRoot1.setVisibility(GONE);
+                    mTopRoot2.setVisibility(GONE);
+                    showNowTime(false);
+                    if (Hawk.get(HawkConfig.SHOW_SSPREVIEW, false) && ScreenUtils.isTv(context)) {
+                        mBack.setVisibility(VISIBLE);
+                    } else {
+                        mBack.setVisibility(GONE);
                     }
-                    case 1002: { // 显示底部菜单
-                        mBottomRoot.setVisibility(VISIBLE);
-                        mTopRoot1.setVisibility(VISIBLE);
-                        mTopRoot2.setVisibility(VISIBLE);
-                        mPlayTitle.setVisibility(GONE);
-                        mBack.setVisibility(ScreenUtils.isTv(context) ? INVISIBLE : VISIBLE);
-                        mNextBtn.requestFocus();
-                        if (isKeyUp) {
-                            isKeyUp = false;
+                    break;
+                case 1004:
+                    if (isInPlaybackState()) {
+                        try {
+                            float speed = (float) mPlayerConfig.getDouble("sp");
+                            mControlWrapper.setSpeed(speed);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
                         }
-                        break;
-                    }
-                    case 1003: { // 隐藏底部菜单
-                        mBottomRoot.setVisibility(GONE);
-                        mTopRoot1.setVisibility(GONE);
-                        mTopRoot2.setVisibility(GONE);
-                        if (Hawk.get(HawkConfig.SHOW_SSPREVIEW, false) && !ScreenUtils.isTv(context)) {
-                            mBack.setVisibility(VISIBLE);
-                        } else {
-                            mBack.setVisibility(GONE);
-                        }
-                        break;
-
-                    }
-                    case 1004: { // 设置速度
-                        if (isInPlaybackState()) {
-                            try {
-                                float speed = (float) mPlayerConfig.getDouble("sp");
-                                mControlWrapper.setSpeed(speed);
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                        } else
-                            mHandler.sendEmptyMessageDelayed(1004, 100);
-                        break;
-                    }
-                }
+                    } else
+                        mHandler.sendEmptyMessageDelayed(1004, 100);
+                    break;
             }
         };
-        Resources res = context.getResources();
-        LayerDrawable progressDrawable = (LayerDrawable)res.getDrawable(R.drawable.shape_player_control_vod_seek_thumba);
-        ClipDrawable proDrawable = new ClipDrawable(new ColorDrawable(getColorByAttrId(context, R.attr.color_theme_80)), Gravity.LEFT, ClipDrawable.HORIZONTAL);
-        progressDrawable.setDrawableByLayerId(android.R.id.progress, proDrawable);
-        Rect bounds = mSeekBars.getProgressDrawable().getBounds();
-        mSeekBars.setProgressDrawable(progressDrawable);
-        mSeekBars.getProgressDrawable().setBounds(bounds);
+        Setprogressbar(mSeekBars,context);
+        setProgressBar(mSeekBar,context);
+
     }
 
     SeekBar mSeekBar;
@@ -148,59 +155,136 @@ public class VodController extends BaseController {
     TextView mNextBtn;
     TextView mPreBtn;
     ImageView tvLogo;
-    static TextView mPlayerScaleBtn;
+    public static TextView mPlayerScaleBtn;
     public static TextView mPlayerSpeedBtn;
-    @SuppressLint("StaticFieldLeak")
-    static TextView mPlayerBtn;
-    static TextView mPlayerIJKBtn;
+    public static TextView mPlayerBtn;
+    public static TextView mPlayerIJKBtn;
     TextView mPlayerRetry;
     TextView mPlayrefresh;
-    public TextView mPlayerTimeStartEndText;
     public static TextView mPlayerTimeStartBtn;
     public static boolean myHandless = false;
     public static TextView mPlayerTimeSkipBtn;
-    public TextView mPlayerTimeResetBtn;
     TextView mPlayPauseTime;
     TextView mPlayLoadNetSpeed;
     TextView mVideoSize;
     public SimpleSubtitleView mSubtitleView;
     ImageView mZimuBtn;
+    boolean showTime;
+    boolean mIsFullScreen = false;
     ImageView mBackBimg;
-    static ImageView mAudioTrackBtn;
-    public TextView mLandscapePortraitBtn;
-
+    public static ImageView mAudioTrackBtn;
+    public static TextView mLandscapePortraitBtn;
+    private PlayerMoreFucPop mPlayerMoreFuc;
+    private TextView mMiniProgressTextView;
+    private long tempSeekProgress = 0;
+    public static long PLAY_LAST_POSITION = 0;
     Handler myHandle;
     Runnable myRunnable;
-    int myHandleSeconds = 10000;//闲置多少毫秒秒关闭底栏  默认6秒
-
+    int myHandleSeconds = 6000;
     int videoPlayState = 0;
 
-    private Runnable myRunnable2 = new Runnable() {
+    // ======================【记忆播放】======================
+    private String currentVideoKey = "";
+
+    public void setCurrentVideoKey(String key) {
+        this.currentVideoKey = key;
+    }
+
+    public void saveProgress() {
+        if (mControlWrapper == null || currentVideoKey.isEmpty()) return;
+        long pos = mControlWrapper.getCurrentPosition();
+        long duration = mControlWrapper.getDuration();
+        if (duration > 0 && pos > 0 && pos < duration - 5000) {
+            Hawk.put("progress_" + currentVideoKey, pos);
+            // 缓存当前进度 给换源用
+            tempSeekProgress = pos;
+        }
+    }
+    // 换源前保存当前播放位置
+    public void setTempSeekProgress(long progress){
+        this.tempSeekProgress = progress;
+    }
+    public long getTempSeekProgress(){
+        return tempSeekProgress;
+    }
+    public long getLastProgress() {
+        if (currentVideoKey == null || currentVideoKey.isEmpty()) return 0;
+        return Hawk.get("progress_" + currentVideoKey, 0L);
+    }
+
+    private void clearProgress() {
+        if (currentVideoKey == null || currentVideoKey.isEmpty()) return;
+        Hawk.delete("progress_" + currentVideoKey);
+    }
+    // ======================================================
+
+    private void showNowTime(boolean forceShow) {
+        handleLastedTime();
+        if (forceShow) {
+            tvLogo.setVisibility(View.VISIBLE);
+            return;
+        }
+        mPlayPauseTime.setVisibility(View.VISIBLE);
+        if (showTime) {
+            tvLogo.setVisibility(View.VISIBLE);
+        } else {
+            tvLogo.setVisibility(View.GONE);
+        }
+    }
+
+    private void handleLastedTime() {
+        Date date = new Date();
+        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
+        mPlayPauseTime.setText(timeFormat.format(date));
+        if (mTopRoot1.getVisibility() == View.VISIBLE) {
+            mPlayPauseTime.setAlpha(1);
+        } else {
+            mPlayPauseTime.setAlpha(0.6f);
+        }
+    }
+
+    private final Runnable myRunnable2 = new Runnable() {
         @Override
         public void run() {
-            Date date = new Date();
-            SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
-            mPlayPauseTime.setText(timeFormat.format(date));
+            handleLastedTime();
             String speed = PlayerHelper.getDisplaySpeed(mControlWrapper.getTcpSpeed());
             mPlayLoadNetSpeedRightTop.setText(speed);
             mPlayLoadNetSpeed.setText(speed);
             String width = Integer.toString(mControlWrapper.getVideoSize()[0]);
             String height = Integer.toString(mControlWrapper.getVideoSize()[1]);
-            mVideoSize.setText("" + width + " X " + height +"");
-
+            mVideoSize.setText(width + " X " + height);
+            mSeekBars.setVisibility(SeekBar.VISIBLE);
             mHandler.postDelayed(this, 1000);
         }
     };
+
+    public void setIsFullScreen(boolean isFullScreen) {
+        mIsFullScreen = isFullScreen;
+        if (mPlayPauseTime == null) return;
+        if (!isFullScreen) {
+            mPlayPauseTime.setVisibility(View.GONE);
+            mMiniProgressTextView.setVisibility(View.GONE);
+            tvLogo.setVisibility(View.GONE);
+        } else {
+            mPlayPauseTime.setVisibility(View.VISIBLE);
+            boolean showTime = Hawk.get(HawkConfig.VIDEO_SHOW_TIME, false);
+            if (showTime) {
+                tvLogo.setVisibility(View.VISIBLE);
+            }
+        }
+    }
 
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         mHandler.removeCallbacks(myRunnable2);
+        saveProgress();
     }
 
     @Override
     protected void initView() {
         super.initView();
+        EventBus.getDefault().register(this);
         mCurrentTime = findViewById(R.id.curr_time);
         mTotalTime = findViewById(R.id.total_time);
         mPlayTitle = findViewById(R.id.tv_info_name);
@@ -224,13 +308,15 @@ public class VodController extends BaseController {
         mPauseBtn = findViewById(R.id.play_pause);
         mPauseImg = findViewById(R.id.play_pauseImg);
         mPlayerScaleBtn = findViewById(R.id.play_scale);
+        mPlayerScaleBtn.setVisibility(View.GONE);
         mPlayerSpeedBtn = findViewById(R.id.play_speed);
         mPlayerBtn = findViewById(R.id.play_player);
         mPlayerIJKBtn = findViewById(R.id.play_ijk);
-       // mPlayerTimeStartEndText = findViewById(R.id.play_time_start_end_text);
+        mMiniProgressTextView = findViewById(R.id.tiny_progress);
+        boolean mShowMiniProgress = Hawk.get(HawkConfig.HOME_PWET_TUMM, false);
+        showTime = Hawk.get(HawkConfig.VIDEO_SHOW_TIME, false);
         mPlayerTimeStartBtn = findViewById(R.id.play_time_start);
         mPlayerTimeSkipBtn = findViewById(R.id.play_time_end);
-        //mPlayerTimeResetBtn = findViewById(R.id.play_time_reset);
         mPlayPauseTime = findViewById(R.id.tv_sys_time);
         mPlayLoadNetSpeed = findViewById(R.id.tv_play_load_net_speed);
         mVideoSize = findViewById(R.id.tv_videosize);
@@ -238,75 +324,78 @@ public class VodController extends BaseController {
         mBack = findViewById(R.id.tvBackButton);
         mBackBimg = findViewById(R.id.tvBackBimg);
         mZimuBtn = findViewById(R.id.zimu_select);
-        mAudioTrackBtn = findViewById(R.id.audio_track_select);
         mLandscapePortraitBtn = findViewById(R.id.landscape_portrait);
         TextView choosePlay = findViewById(R.id.choose_play);
-        choosePlay.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                myHandless = true;
-                choosePlay(v);
-            }
+        choosePlay.setOnClickListener(v -> {
+            myHandless = true;
+            choosePlay(v);
         });
-
-        if (Hawk.get(HawkConfig.HOME_SHOW_SOURCE, false)) {
-            tvLogo.setVisibility(View.GONE);
-        } else {
-            tvLogo.setVisibility(View.VISIBLE);
-        }
-
+        findViewById(R.id.more_fuc).setOnClickListener(v ->
+                mPlayerMoreFuc.setOnItemClickListener(textView -> {
+                            switch (textView.getId()) {
+                                case R.id.audio_track_select:
+                                    setAudioTrack();
+                                    break;
+                                case R.id.tvIjkCachePlay:
+                                    toggleHawkConfig(HawkConfig.IJK_CACHE_PLAY, "IJK缓存开", "IJK缓存关", textView);
+                                    break;
+                                case R.id.tvPtst:
+                                    toggleHawkConfig(HawkConfig.HOME_PTST_TUMM, "自动片头片尾开", "自动片头片尾关", textView);
+                                    break;
+                                case R.id.play_scale:
+                                    showScaleDialog();
+                                    break;
+                                case R.id.time_show:
+                                    toggleTimeShow(textView);
+                                    break;
+                                case R.id.tiny_progress:
+                                    toggleMiniProgress(textView);
+                                    break;
+                            }
+                            return null;
+                        })
+                        .setPopupGravity(Gravity.END)
+                        .showPopupWindow());
         initSubtitleInfo();
-
         myHandle = new Handler();
-        myRunnable = new Runnable() {
-            @Override
-            public void run() {
-                hideBottom();
-            }
-        };
-        mPlayPauseTime.post(new Runnable() {
-            @Override
-            public void run() {
-                mHandler.post(myRunnable2);
-            }
-        });
-        if (Hawk.get(HawkConfig.HOME_PWET_TUMM, false)) {
-            mSeekBars.setVisibility(SeekBar.VISIBLE);
-        } else {
-            mSeekBars.setVisibility(SeekBar.GONE);
-        }
-        mBack.setVisibility(GONE);
+        myRunnable = () -> hideBottom();
+        mPlayPauseTime.post(() -> mHandler.post(myRunnable2));
+
+        mSeekBars.setVisibility(SeekBar.VISIBLE);
+        mPlayPauseTime.setVisibility(View.VISIBLE);
+        mBack.setVisibility(View.GONE);
         Hawk.put(HawkConfig.SHOW_SSPREVIEW, false);
-        mGridView.setLayoutManager(new V7LinearLayoutManager(getContext(), 0, false));
+
+        // ======================【修复布局管理器】======================
+        mGridView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+        // ============================================================
+
         ParseAdapter parseAdapter = new ParseAdapter();
-        parseAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                ParseBean parseBean = parseAdapter.getItem(position);
-                // 当前默认解析需要刷新
-                int currentDefault = parseAdapter.getData().indexOf(ApiConfig.get().getDefaultParse());
-                parseAdapter.notifyItemChanged(currentDefault);
-                ApiConfig.get().setDefaultParse(parseBean);
-                parseAdapter.notifyItemChanged(position);
-                listener.changeParse(parseBean);
-                hideBottom();
-            }
+        parseAdapter.setOnItemClickListener((adapter, view, position) -> {
+            ParseBean parseBean = parseAdapter.getItem(position);
+            int currentDefault = parseAdapter.getData().indexOf(ApiConfig.get().getDefaultParse());
+            parseAdapter.notifyItemChanged(currentDefault);
+            ApiConfig.get().setDefaultParse(parseBean);
+            parseAdapter.notifyItemChanged(position);
+            listener.changeParse(parseBean);
+            hideBottom();
         });
         mGridView.setAdapter(parseAdapter);
         parseAdapter.setNewData(ApiConfig.get().getParseBeanList());
-        mParseRoot.setVisibility(VISIBLE);
+        mParseRoot.setVisibility(View.VISIBLE);
+        mPlayPauseTime.setVisibility(View.VISIBLE);
+        tvLogo.setVisibility(View.GONE);
 
         mSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                if (!fromUser) {
-                    return;
-                }
 
+                if (!fromUser) return;
                 long duration = mControlWrapper.getDuration();
                 long newPosition = (duration * progress) / seekBar.getMax();
                 if (mCurrentTime != null)
                     mCurrentTime.setText(stringForTime((int) newPosition));
+                mMiniProgressTextView.setText(stringForTime((int) newPosition));
             }
 
             @Override
@@ -328,13 +417,11 @@ public class VodController extends BaseController {
                 mControlWrapper.startFadeOut();
             }
         });
+
         mSeekBars.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                if (!fromUser) {
-                    return;
-                }
-
+                if (!fromUser) return;
                 long duration = mControlWrapper.getDuration();
                 long newPosition = (duration * progress) / seekBar.getMax();
                 if (mCurrentTime != null)
@@ -360,460 +447,262 @@ public class VodController extends BaseController {
                 mControlWrapper.startFadeOut();
             }
         });
-        mPlayerRetry.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                listener.replay(true);
-                hideBottom();
+
+        mPlayerRetry.setOnClickListener(v -> {
+            listener.replay(true);
+            hideBottom();
+        });
+
+        mPlayrefresh.setOnClickListener(v -> {
+            listener.replay(false);
+            hideBottom();
+        });
+
+        mPauseBtn.setOnClickListener(v -> togglePlay());
+
+        mNextBtn.setOnClickListener(v -> {
+            listener.playNext(false);
+            hideBottom();
+        });
+
+        mPreBtn.setOnClickListener(v -> {
+            listener.playPre();
+            hideBottom();
+        });
+
+        mBack.setOnClickListener(v -> {
+            boolean showPreview = !Hawk.get(HawkConfig.SHOW_SSPREVIEW, false);
+            Hawk.put(HawkConfig.SHOW_SSPREVIEW, showPreview);
+            mBackBimg.setImageResource(showPreview ? R.drawable.ic_lock_alt : R.drawable.ic_lock_alt_open);
+            if (showPreview) hideBottom();
+            else showBottom();
+        });
+
+        mPlayerSpeedBtn.setOnClickListener(v -> {
+            if (mActivity == null || mActivity.isFinishing()) return;
+            double defaultSpeed = mPlayerConfig.optDouble("sp", 1.0);
+            new SpeedPlayDialog().showSpeedSelectDialog(mActivity, defaultSpeed, value -> {
+                setSpeedVideoView((TextView) v, value);
+                return null;
+            });
+        });
+
+        mPlayerSpeedBtn.setOnLongClickListener(v -> {
+            try {
+                mPlayerConfig.put("sp", 1.0f);
+                updatePlayerCfgView();
+                listener.updatePlayerCfg();
+                mControlWrapper.setSpeed(1.0f);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return true;
+        });
+
+        mPlayerBtn.setOnClickListener(v -> {
+            try {
+                int playerType = mPlayerConfig.getInt("pl");
+                ArrayList<Integer> players = PlayerHelper.getExistPlayerTypes();
+                int defaultPos = 0;
+                for (int i = 0; i < players.size(); i++) {
+                    if (players.get(i) == playerType) defaultPos = i;
+                }
+                SelectDialoga<Integer> dialog = new SelectDialoga<>(mActivity);
+                dialog.setTip("请选择播放器");
+                dialog.setAdapter(new SelectDialogAdapter.SelectDialogInterface<Integer>() {
+                    @Override
+                    public void click(Integer value, int pos) {
+                        try {
+                            int newType = players.get(pos);
+                            mPlayerConfig.put("pl", newType);
+                            updatePlayerCfgView();
+                            listener.updatePlayerCfg();
+                            listener.replay(false);
+                            hideBottom();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    @Override
+                    public String getDisplay(Integer val) {
+                        return PlayerHelper.getPlayerName(players.get(val));
+                    }
+                }, new DiffUtil.ItemCallback<Integer>() {
+                    @Override
+                    public boolean areItemsTheSame(@NonNull Integer oldItem, @NonNull Integer newItem) {
+                        return oldItem.equals(newItem);
+                    }
+                    @Override
+                    public boolean areContentsTheSame(@NonNull Integer oldItem, @NonNull Integer newItem) {
+                        return oldItem.equals(newItem);
+                    }
+                }, players, defaultPos);
+                dialog.show();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         });
 
-        mPlayrefresh.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        mPlayerIJKBtn.setOnClickListener(v -> {
+            try {
+                String ijk = mPlayerConfig.getString("ijk");
+                List<IJKCode> codecs = ApiConfig.get().getIjkCodes();
+                for (int i = 0; i < codecs.size(); i++) {
+                    if (ijk.equals(codecs.get(i).getName())) {
+                        ijk = codecs.get((i + 1) % codecs.size()).getName();
+                        break;
+                    }
+                }
+                mPlayerConfig.put("ijk", ijk);
+                updatePlayerCfgView();
+                listener.updatePlayerCfg();
                 listener.replay(false);
                 hideBottom();
-            }
-        });
-        mPauseBtn.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                togglePlay();
-                if (!isPaused) {
-                    hideBottom();
-                }
-            }
-        });
-        mNextBtn.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                listener.playNext(false);
-                hideBottom();
-            }
-        });
-        mPreBtn.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                listener.playPre();
-                hideBottom();
-            }
-        });
-        mBack.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Hawk.put(HawkConfig.SHOW_SSPREVIEW, !Hawk.get(HawkConfig.SHOW_SSPREVIEW, false));
-                boolean showPreview = Hawk.get(HawkConfig.SHOW_SSPREVIEW, false);
-                mBackBimg.setImageResource(showPreview ? R.drawable.ic_lock_alt : R.drawable.ic_lock_alt_open);
-                if (showPreview) {
-                    hideBottom();
-                } else {
-                    showBottom();
-                }
-            }
-        });
-        mPlayerSpeedBtn.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-                    if (mActivity == null || mActivity.isDestroyed() || mActivity.isFinishing()) {
-                        return;
-                    }
-                }
-                double defaultSpeed = mPlayerConfig.optDouble("sp", 1.0);
-                new SpeedPlayDialog().showSpeedSelectDialog(mActivity, defaultSpeed, value -> {
-                    setSpeedVideoView((TextView) v, value);
-                    return null;
-                });
-
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         });
 
-        mPlayerSpeedBtn.setOnLongClickListener(new OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                try {
-                    mPlayerConfig.put("sp", 1.0f);
-                    updatePlayerCfgView();
-                    listener.updatePlayerCfg();
-                    speed_old = 1.0f;
-                    mControlWrapper.setSpeed(1.0f);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                return true;
-            }
-        });
-        mPlayerScaleBtn.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FastClickCheckUtil.check(v);
-                int defaultPos = 0;
-                try {
-                    defaultPos = (int) mPlayerConfig.getDouble("sc");
-                    ArrayList<Integer> players = new ArrayList<>();
-                    players.add(0);
-                    players.add(1);
-                    players.add(2);
-                    players.add(3);
-                    players.add(4);
-                    players.add(5);
-                    SelectDialoga<Integer> dialog = new SelectDialoga<>(mActivity);
-                    dialog.setTip("请选择默认画面缩放");
-                    dialog.setAdapter(new SelectDialogAdapter.SelectDialogInterface<Integer>() {
-                        @Override
-                        public void click(Integer value, int pos) {
-                            myHandle.removeCallbacks(myRunnable);
-                            myHandle.postDelayed(myRunnable, myHandleSeconds);
-                            try {
-                                int scaleType = mPlayerConfig.getInt("sc");
-                                int thisPlayType = players.get(pos);
-                                if (thisPlayType != scaleType) {
-                                    mPlayerConfig.put("sc", thisPlayType);
-                                    mControlWrapper.setScreenScaleType(thisPlayType);
-                                } else {
-                                    mPlayerConfig.put("sc", scaleType);
-                                    mControlWrapper.setScreenScaleType(scaleType);
-                                }
-                                updatePlayerCfgView();
-                                listener.updatePlayerCfg();
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                        }
-
-                        @Override
-                        public String getDisplay(Integer val) {
-                            return PlayerHelper.getScaleName(val);
-                        }
-                    }, new DiffUtil.ItemCallback<Integer>() {
-                        @Override
-                        public boolean areItemsTheSame(@NonNull @NotNull Integer oldItem, @NonNull @NotNull Integer newItem) {
-                            return oldItem.intValue() == newItem.intValue();
-                        }
-
-                        @Override
-                        public boolean areContentsTheSame(@NonNull @NotNull Integer oldItem, @NonNull @NotNull Integer newItem) {
-                            return oldItem.intValue() == newItem.intValue();
-                        }
-                    }, players, defaultPos);
-                        dialog.show();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-        mPlayerBtn.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                myHandle.removeCallbacks(myRunnable);
-                myHandle.postDelayed(myRunnable, myHandleSeconds);
-                try {
-                    int playerType = mPlayerConfig.getInt("pl");
-                    ArrayList<Integer> exsitPlayerTypes = PlayerHelper.getExistPlayerTypes();
-                    int playerTypeIdx = 0;
-                    int playerTypeSize = exsitPlayerTypes.size();
-                    for(int i = 0; i<playerTypeSize; i++) {
-                        if (playerType == exsitPlayerTypes.get(i)) {
-                            if (i == playerTypeSize - 1) {
-                                playerTypeIdx = 0;
-                            } else {
-                                playerTypeIdx = i + 1;
-                            }
-                        }
-                    }
-                    playerType = exsitPlayerTypes.get(playerTypeIdx);
-                    mPlayerConfig.put("pl", playerType);
-                    updatePlayerCfgView();
-                    listener.updatePlayerCfg();
-                    listener.replay(false);
-                    hideBottom();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                mPlayerBtn.requestFocus();
-                mPlayerBtn.requestFocusFromTouch();
+        mPlayerTimeStartBtn.setOnClickListener(v -> {
+            try {
+                int current = (int) mControlWrapper.getCurrentPosition();
+                int duration = (int) mControlWrapper.getDuration();
+                if (current > duration / 2) return;
+                mPlayerConfig.put("st", current / 1000);
+                updatePlayerCfgView();
+                listener.updatePlayerCfg();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         });
 
- //       mPlayerBtn.setOnLongClickListener(new OnLongClickListener() {
-          mPlayerBtn.setOnClickListener(new OnClickListener() {
-            @Override
-//            public boolean onLongClick(View view) {
-            public void onClick(View view) {
-                myHandle.removeCallbacks(myRunnable);
-                myHandle.postDelayed(myRunnable, myHandleSeconds);
-                FastClickCheckUtil.check(view);
-                try {
-                    int playerType = mPlayerConfig.getInt("pl");
-                    int defaultPos = 0;
-                    ArrayList<Integer> players = PlayerHelper.getExistPlayerTypes();
-                    ArrayList<Integer> renders = new ArrayList<>();
-                    for(int p = 0; p<players.size(); p++) {
-                        renders.add(p);
-                        if (players.get(p) == playerType) {
-                            defaultPos = p;
-                        }
-                    }
-                    SelectDialoga<Integer> dialog = new SelectDialoga<>(mActivity);
-                    dialog.setTip("请选择播放器");
-                    dialog.setAdapter(new SelectDialogAdapter.SelectDialogInterface<Integer>() {
-                        @Override
-                        public void click(Integer value, int pos) {
-                            try {
-                                dialog.cancel();
-                                int thisPlayType = players.get(pos);
-                                if (thisPlayType != playerType) {
-                                    mPlayerConfig.put("pl", thisPlayType);
-                                    updatePlayerCfgView();
-                                    listener.updatePlayerCfg();
-                                    listener.replay(false);
-                                    hideBottom();
-                                }
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
-                            mPlayerBtn.requestFocus();
-                            mPlayerBtn.requestFocusFromTouch();
-                        }
+        mPlayerTimeStartBtn.setOnLongClickListener(v -> {
+            try {
+                mPlayerConfig.put("st", 0);
+                updatePlayerCfgView();
+                listener.updatePlayerCfg();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return true;
+        });
 
-                        @Override
-                        public String getDisplay(Integer val) {
-                            Integer playerType = players.get(val);
-                            return PlayerHelper.getPlayerName(playerType);
-                        }
-                    }, new DiffUtil.ItemCallback<Integer>() {
-                        @Override
-                        public boolean areItemsTheSame(@NonNull @NotNull Integer oldItem, @NonNull @NotNull Integer newItem) {
-                            return oldItem.intValue() == newItem.intValue();
-                        }
+        mPlayerTimeSkipBtn.setOnClickListener(v -> {
+            try {
+                int current = (int) mControlWrapper.getCurrentPosition();
+                int duration = (int) mControlWrapper.getDuration();
+                if (current < duration / 2) return;
+                mPlayerConfig.put("et", (duration - current) / 1000);
+                updatePlayerCfgView();
+                listener.updatePlayerCfg();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        });
 
-                        @Override
-                        public boolean areContentsTheSame(@NonNull @NotNull Integer oldItem, @NonNull @NotNull Integer newItem) {
-                            return oldItem.intValue() == newItem.intValue();
-                        }
-                    }, renders, defaultPos);
-                    dialog.show();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-//                return true;
+        mPlayerTimeSkipBtn.setOnLongClickListener(v -> {
+            try {
+                mPlayerConfig.put("et", 0);
+                updatePlayerCfgView();
+                listener.updatePlayerCfg();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
+            return true;
         });
-        mPlayerIJKBtn.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                myHandle.removeCallbacks(myRunnable);
-                myHandle.postDelayed(myRunnable, myHandleSeconds);
-                try {
-                    String ijk = mPlayerConfig.getString("ijk");
-                    List<IJKCode> codecs = ApiConfig.get().getIjkCodes();
-                    for (int i = 0; i < codecs.size(); i++) {
-                        if (ijk.equals(codecs.get(i).getName())) {
-                            if (i >= codecs.size() - 1)
-                                ijk = codecs.get(0).getName();
-                            else {
-                                ijk = codecs.get(i + 1).getName();
-                            }
-                            break;
-                        }
-                    }
-                    mPlayerConfig.put("ijk", ijk);
-                    updatePlayerCfgView();
-                    listener.updatePlayerCfg();
-                    listener.replay(false);
-                    hideBottom();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                mPlayerIJKBtn.requestFocus();
-                mPlayerIJKBtn.requestFocusFromTouch();
-            }
+
+        mZimuBtn.setOnClickListener(v -> {
+            listener.selectSubtitle();
+            hideBottom();
         });
-//        增加播放页面片头片尾时间重置
-        /*mPlayerTimeResetBtn.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                myHandle.removeCallbacks(myRunnable);
-                myHandle.postDelayed(myRunnable, myHandleSeconds);
-                try {
-                    mPlayerConfig.put("et", 0);
-                    mPlayerConfig.put("st", 0);
-                    updatePlayerCfgView();
-                    listener.updatePlayerCfg();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        });*/
-        mPlayerTimeStartBtn.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                myHandle.removeCallbacks(myRunnable);
-                myHandle.postDelayed(myRunnable, myHandleSeconds);
-                try {
-                    int current = (int) mControlWrapper.getCurrentPosition();
-                    int duration = (int) mControlWrapper.getDuration();
-                    if (current > duration / 2) return;
-                    mPlayerConfig.put("st",current/1000);
-                    updatePlayerCfgView();
-                    listener.updatePlayerCfg();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
+
+        mZimuBtn.setOnLongClickListener(v -> {
+            mSubtitleView.setVisibility(View.GONE);
+            mSubtitleView.destroy();
+            mSubtitleView.clearSubtitleCache();
+            mSubtitleView.isInternal = false;
+            Toast.makeText(getContext(), "字幕已关闭", Toast.LENGTH_SHORT).show();
+            return true;
         });
-        mPlayerTimeStartBtn.setOnLongClickListener(new OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                try {
-                    mPlayerConfig.put("st", 0);
-                    updatePlayerCfgView();
-                    listener.updatePlayerCfg();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                return true;
-            }
+
+        mLandscapePortraitBtn.setOnClickListener(v -> {
+            setLandscapePortrait();
+            hideBottom();
         });
-        mPlayerTimeSkipBtn.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                myHandle.removeCallbacks(myRunnable);
-                myHandle.postDelayed(myRunnable, myHandleSeconds);
-                try {
-                    int current = (int) mControlWrapper.getCurrentPosition();
-                    int duration = (int) mControlWrapper.getDuration();
-                    if (current < duration / 2) return;
-                    mPlayerConfig.put("et", (duration - current)/1000);
-                    updatePlayerCfgView();
-                    listener.updatePlayerCfg();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-        mPlayerTimeSkipBtn.setOnLongClickListener(new OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                try {
-                    mPlayerConfig.put("et", 0);
-                    updatePlayerCfgView();
-                    listener.updatePlayerCfg();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                return true;
-            }
-        });
-        mZimuBtn.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FastClickCheckUtil.check(view);
-                listener.selectSubtitle();
-                hideBottom();
-            }
-        });
-        mZimuBtn.setOnLongClickListener(new OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                mSubtitleView.setVisibility(View.GONE);
-                mSubtitleView.destroy();
-                mSubtitleView.clearSubtitleCache();
-                mSubtitleView.isInternal = false;
-                hideBottom();
-                Toast.makeText(getContext(), "字幕已关闭", Toast.LENGTH_SHORT).show();
-                return true;
-            }
-        });
-        mAudioTrackBtn.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FastClickCheckUtil.check(view);
-                listener.selectAudioTrack();
-                hideBottom();
-            }
-        });
-        mLandscapePortraitBtn.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FastClickCheckUtil.check(view);
-                setLandscapePortrait();
-                hideBottom();
-            }
-        });
+
         mNextBtn.setNextFocusLeftId(R.id.play_time_start);
-//        mSeekBars.invalidate();
     }
+
     private void setSpeedVideoView(TextView textView, double speed) {
-        myHandle.removeCallbacks(myRunnable);
-        myHandle.postDelayed(myRunnable, myHandleSeconds);
         try {
             mPlayerConfig.put("sp", speed);
             updatePlayerCfgView();
-            textView.setText("x" + mPlayerConfig.getDouble("sp"));
+            textView.setText("x" + speed);
             listener.updatePlayerCfg();
             mControlWrapper.setSpeed((float) speed);
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
+
+    private void setAudioTrack() {
+        listener.selectAudioTrack();
+        hideBottom();
+    }
+
     private void choosePlay(View view) {
-        ChoosePlayPopUp playPopUp = new ChoosePlayPopUp(mActivity);
+        ChoosePlayPopUp playPopUp = new ChoosePlayPopUp(mActivity, 8);
         playPopUp.setPopupGravity(Gravity.TOP).showPopupWindow(view);
-
     }
-    private void choosePlays() {
-        ChoosePlayPopUp playPopUp = new ChoosePlayPopUp(mActivity);
+
+    private void choosePlay() {
+        ChoosePlayPopUp playPopUp = new ChoosePlayPopUp(mActivity, 9);
         playPopUp.setPopupGravity(Gravity.BOTTOM).showPopupWindow();
-
     }
-    public static void Openingcredits(String rs){
-        if(ApiConfig.get().Steturl.isEmpty()) return;
-        if(rs.isEmpty()) return;
-        JsonObject json = JsonParser.parseString(rs).getAsJsonObject();
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void refresh(RefreshEvent event) {
+        if (event.type == RefreshEvent.TYPE_OPENING_AND_ENDING) {
+            if (event.obj == null) return;
+            Openingcredits((String) event.obj);
+        }
+    }
+
+    public static void Openingcredits(String body) {
+        if (ApiConfig.get().Steturl.isEmpty() || body.isEmpty()) return;
         try {
+            JsonObject json = JsonParser.parseString(body).getAsJsonObject();
             if (Hawk.get(HawkConfig.HOME_PTST_TUMM, false)) {
-                if (json.has("code") && json.has("stime")) {
-                    int stime = Integer.parseInt(String.valueOf(json.get("stime").getAsString()));
-                    int etime = Integer.parseInt(String.valueOf(json.get("etime").getAsString()));
-                    mPlayerConfig.put("st", stime);
-                    mPlayerConfig.put("et", etime);
-                } else {
-                    mPlayerConfig.put("st", 0);
-                    mPlayerConfig.put("et", 0);
-                }
+                mPlayerConfig.put("st", json.get("stime").getAsString());
+                mPlayerConfig.put("et", json.get("etime").getAsString());
                 updatePlayerCfgView();
                 listener.updatePlayerCfg();
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     private void hideLiveAboutBtn() {
         if (mControlWrapper != null && mControlWrapper.getDuration() == 0) {
-            mPlayerSpeedBtn.setVisibility(GONE);
-            //mPlayerTimeStartEndText.setVisibility(GONE);
-            mPlayerTimeStartBtn.setVisibility(GONE);
-            mPlayerTimeSkipBtn.setVisibility(GONE);
-            //mPlayerTimeResetBtn.setVisibility(GONE);
+            mPlayerSpeedBtn.setVisibility(View.GONE);
+            mPlayerTimeStartBtn.setVisibility(View.GONE);
+            mPlayerTimeSkipBtn.setVisibility(View.GONE);
             mNextBtn.setNextFocusLeftId(R.id.zimu_select);
         } else {
             mPlayerSpeedBtn.setVisibility(View.VISIBLE);
-           // mPlayerTimeStartEndText.setVisibility(View.VISIBLE);
             mPlayerTimeStartBtn.setVisibility(View.VISIBLE);
             mPlayerTimeSkipBtn.setVisibility(View.VISIBLE);
-           // mPlayerTimeResetBtn.setVisibility(View.VISIBLE);
             mNextBtn.setNextFocusLeftId(R.id.play_time_start);
         }
     }
 
     public void initLandscapePortraitBtnInfo() {
-        if(mControlWrapper!=null && mActivity!=null){
-            int width = mControlWrapper.getVideoSize()[0];
-            int height = mControlWrapper.getVideoSize()[1];
-            double screenSqrt = ScreenUtils.getSqrt(mActivity);
-            if (screenSqrt < 10.0 && width < height) {
+        if (mControlWrapper != null && mActivity != null) {
+            int w = mControlWrapper.getVideoSize()[0];
+            int h = mControlWrapper.getVideoSize()[1];
+            double screen = ScreenUtils.getSqrt(mActivity);
+            if (screen < 10 && w < h) {
                 mLandscapePortraitBtn.setVisibility(View.VISIBLE);
                 mLandscapePortraitBtn.setText("竖屏");
             }
@@ -821,19 +710,19 @@ public class VodController extends BaseController {
     }
 
     void setLandscapePortrait() {
-        int requestedOrientation = mActivity.getRequestedOrientation();
-        if (requestedOrientation == ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE || requestedOrientation == ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE || requestedOrientation == ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE) {
+        int ori = mActivity.getRequestedOrientation();
+        if (ori == ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE || ori == ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE) {
             mLandscapePortraitBtn.setText("横屏");
             mActivity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_PORTRAIT);
-        } else if (requestedOrientation == ActivityInfo.SCREEN_ORIENTATION_PORTRAIT || requestedOrientation == ActivityInfo.SCREEN_ORIENTATION_SENSOR_PORTRAIT || requestedOrientation == ActivityInfo.SCREEN_ORIENTATION_REVERSE_PORTRAIT) {
+        } else {
             mLandscapePortraitBtn.setText("竖屏");
             mActivity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
         }
     }
 
     void initSubtitleInfo() {
-        int subtitleTextSize = SubtitleHelper.getTextSize(mActivity);
-        mSubtitleView.setTextSize(subtitleTextSize);
+        int size = SubtitleHelper.getTextSize(mActivity);
+        mSubtitleView.setTextSize(size);
     }
 
     @Override
@@ -842,7 +731,7 @@ public class VodController extends BaseController {
     }
 
     public void showParse(boolean userJxList) {
-        mParseRoot.setVisibility(userJxList ? VISIBLE : GONE);
+        mParseRoot.setVisibility(userJxList ? View.VISIBLE : View.GONE);
     }
 
     private static JSONObject mPlayerConfig = null;
@@ -850,23 +739,18 @@ public class VodController extends BaseController {
     public void setPlayerConfig(JSONObject playerCfg) {
         this.mPlayerConfig = playerCfg;
         updatePlayerCfgView();
+        mPlayerMoreFuc = new PlayerMoreFucPop(getContext(), mPlayerConfig);
     }
 
-    static void updatePlayerCfgView() {
-        try {
-            int playerType = mPlayerConfig.getInt("pl");
-            mPlayerBtn.setText(PlayerHelper.getPlayerName(playerType));
-            mPlayerScaleBtn.setText(PlayerHelper.getScaleName(mPlayerConfig.getInt("sc")));
-            mPlayerIJKBtn.setText(mPlayerConfig.getString("ijk"));
-            mPlayerIJKBtn.setVisibility(playerType == 1 ? VISIBLE : GONE);
-            mPlayerScaleBtn.setText(PlayerHelper.getScaleName(mPlayerConfig.getInt("sc")));
-            mPlayerSpeedBtn.setText(mPlayerConfig.getDouble("sp")+"X");
-            mPlayerTimeStartBtn.setText(PlayerUtils.stringForTime(mPlayerConfig.getInt("st") * 1000));
-            mPlayerTimeSkipBtn.setText(PlayerUtils.stringForTime(mPlayerConfig.getInt("et") * 1000));
-            mAudioTrackBtn.setVisibility((playerType == 1) ? VISIBLE : GONE);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+    public static void updatePlayerCfgView() {
+        int pl = mPlayerConfig.optInt("pl", 0);
+        mPlayerBtn.setText(PlayerHelper.getPlayerName(pl));
+        mPlayerScaleBtn.setText(PlayerHelper.getScaleName(mPlayerConfig.optInt("sc", 0)));
+        mPlayerIJKBtn.setText(mPlayerConfig.optString("ijk", "默认"));
+        mPlayerIJKBtn.setVisibility(pl == 1 ? View.VISIBLE : View.GONE);
+        mPlayerSpeedBtn.setText(mPlayerConfig.optDouble("sp", 1.0) + "X");
+        mPlayerTimeStartBtn.setText(PlayerUtils.stringForTime(mPlayerConfig.optInt("st", 0) * 1000));
+        mPlayerTimeSkipBtn.setText(PlayerUtils.stringForTime(mPlayerConfig.optInt("et", 0) * 1000));
     }
 
     public void setTitle(String playTitleInfo) {
@@ -886,73 +770,68 @@ public class VodController extends BaseController {
 
     public interface VodControlListener {
         void playNext(boolean rmProgress);
-
         void playPre();
-
         void openVideo();
-
         void prepared();
-
         void changeParse(ParseBean pb);
-
         void updatePlayerCfg();
-
         void replay(boolean replay);
-
         void errReplay();
-
         void selectSubtitle();
-
+        void startPlayUrl(String url, HashMap<String, String> headers);
         void selectAudioTrack();
     }
+
+    private static VodControlListener listener;
 
     public void setListener(VodControlListener listener) {
         this.listener = listener;
     }
 
-    private static VodControlListener listener;
-
     private boolean skipEnd = true;
 
     @Override
     protected void setProgress(int duration, int position) {
-
-        if (mIsDragging) {
-            return;
-        }
+        if (mIsDragging) return;
         super.setProgress(duration, position);
-        if (skipEnd && position != 0 && duration != 0) {
-            int et = 0;
+
+        if (skipEnd && position > 0 && duration > 0) {
             try {
-                et = mPlayerConfig.getInt("et");
+                int et = mPlayerConfig.getInt("et");
+                if (et > 0 && position + et * 1000 >= duration) {
+                    skipEnd = false;
+                    listener.playNext(true);
+                    clearProgress();
+                }
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            if (et > 0 && position + (et * 1000) >= duration) {
-                skipEnd = false;
-                listener.playNext(true);
-            }
         }
-        mCurrentTime.setText(PlayerUtils.stringForTime(position));
-        mTotalTime.setText(PlayerUtils.stringForTime(duration));
+
+        String curr = PlayerUtils.stringForTime(position);
+        String total = PlayerUtils.stringForTime(duration);
+        mCurrentTime.setText(curr);
+        mTotalTime.setText(total);
+        mMiniProgressTextView.setText(curr + "/" + total);
+        mMiniProgressTextView.setVisibility(mShowMiniProgress ? View.VISIBLE : View.GONE);
+
         if (duration > 0) {
             mSeekBar.setEnabled(true);
-            int pos = (int) (position * 1.0 / duration * mSeekBar.getMax());
-            mSeekBar.setProgress(pos);
+            mSeekBar.setProgress((int) (position * 1.0 / duration * mSeekBar.getMax()));
             mSeekBars.setEnabled(true);
-            int poss = (int) (position * 1.0 / duration * mSeekBars.getMax());
-            mSeekBars.setProgress(poss);
+            mSeekBars.setProgress((int) (position * 1.0 / duration * mSeekBars.getMax()));
         } else {
             mSeekBar.setEnabled(false);
             mSeekBars.setEnabled(false);
         }
-        int percent = mControlWrapper.getBufferedPercentage();
-        if (percent >= 95) {
+
+        int buffer = mControlWrapper.getBufferedPercentage();
+        if (buffer >= 95) {
             mSeekBar.setSecondaryProgress(mSeekBar.getMax());
             mSeekBars.setSecondaryProgress(mSeekBars.getMax());
         } else {
-            mSeekBar.setSecondaryProgress(percent * 10);
-            mSeekBars.setSecondaryProgress(percent * 10);
+            mSeekBar.setSecondaryProgress(buffer * 10);
+            mSeekBars.setSecondaryProgress(buffer * 10);
         }
     }
 
@@ -961,11 +840,9 @@ public class VodController extends BaseController {
     private long simSlideOffset = 0;
 
     public void tvSlideStop() {
-        if (!simSlideStart)
-            return;
+        if (!simSlideStart) return;
         mControlWrapper.seekTo(simSeekPosition);
-        if (!mControlWrapper.isPlaying())
-            mControlWrapper.start();
+        if (!mControlWrapper.isPlaying()) mControlWrapper.start();
         simSlideStart = false;
         simSeekPosition = 0;
         simSlideOffset = 0;
@@ -973,29 +850,20 @@ public class VodController extends BaseController {
 
     public void tvSlideStart(int dir) {
         int duration = (int) mControlWrapper.getDuration();
-        if (duration <= 0)
-            return;
-        if (!simSlideStart) {
-            simSlideStart = true;
-        }
-        // 每次10秒
-        simSlideOffset += (10000.0f * dir);
-        int currentPosition = (int) mControlWrapper.getCurrentPosition();
-        int position = (int) (simSlideOffset + currentPosition);
-        if (position > duration) position = duration;
-        if (position < 0) position = 0;
-        updateSeekUI(currentPosition, position, duration);
-        simSeekPosition = position;
+        if (duration <= 0) return;
+        if (!simSlideStart) simSlideStart = true;
+        simSlideOffset += 10000L * dir;
+        int curr = (int) mControlWrapper.getCurrentPosition();
+        int pos = (int) (curr + simSlideOffset);
+        pos = Math.max(0, Math.min(pos, duration));
+        updateSeekUI(curr, pos, duration);
+        simSeekPosition = pos;
     }
 
     @Override
     protected void updateSeekUI(int curr, int seekTo, int duration) {
         super.updateSeekUI(curr, seekTo, duration);
-        if (seekTo > curr) {
-            mProgressIcon.setImageResource(R.drawable.play_ffwd);
-        } else {
-            mProgressIcon.setImageResource(R.drawable.play_rewind);
-        }
+        mProgressIcon.setImageResource(seekTo > curr ? R.drawable.play_ffwd : R.drawable.play_rewind);
         mProgressText.setText(PlayerUtils.stringForTime(seekTo) + " / " + PlayerUtils.stringForTime(duration));
         mHandler.sendEmptyMessage(1000);
         mHandler.removeMessages(1001);
@@ -1010,41 +878,48 @@ public class VodController extends BaseController {
             case VideoView.STATE_IDLE:
                 break;
             case VideoView.STATE_PLAYING:
-                isPaused = false;
-                mPauseImg.setImageDrawable(getResources().getDrawable(R.drawable.v_pause));
+                mPauseImg.setImageResource(R.drawable.v_pause);
                 initLandscapePortraitBtnInfo();
                 startProgress();
                 break;
             case VideoView.STATE_PAUSED:
-                isPaused = true;
-                mPauseImg.setImageDrawable(getResources().getDrawable(R.drawable.v_play));
-                mTopRoot1.setVisibility(GONE);
-                mTopRoot2.setVisibility(GONE);
-                mPlayTitle.setVisibility(VISIBLE);
+                mPauseImg.setImageResource(R.drawable.v_play);
                 break;
             case VideoView.STATE_ERROR:
                 listener.errReplay();
                 break;
             case VideoView.STATE_PREPARED:
-                mPlayLoadNetSpeed.setVisibility(GONE);
-                hideLiveAboutBtn();
-                listener.prepared();
+                // 1.优先换源临时进度（切解析/换源优先）
+                long seekPos = getTempSeekProgress();
+                // 2.没有换源进度 再读取本地记忆进度
+                if(seekPos <= 0){
+                    seekPos = getLastProgress();
+                }
+               // mPlayerConfig.put("st", seekPos);
+                // 执行跳转
+                if (seekPos > 0 && seekPos < mControlWrapper.getDuration() - 5000) {
+                    mControlWrapper.seekTo((int) seekPos);
+                    // 跳转完清空，避免下次串集
+                    tempSeekProgress = 0;
+                }
                 break;
             case VideoView.STATE_BUFFERED:
-                mPlayLoadNetSpeed.setVisibility(GONE);
+                mPlayLoadNetSpeed.setVisibility(View.GONE);
                 break;
             case VideoView.STATE_PREPARING:
             case VideoView.STATE_BUFFERING:
-                if(mProgressRoot.getVisibility()==GONE)mPlayLoadNetSpeed.setVisibility(VISIBLE);
+                if (mProgressRoot.getVisibility() == View.GONE)
+                    mPlayLoadNetSpeed.setVisibility(View.VISIBLE);
                 break;
             case VideoView.STATE_PLAYBACK_COMPLETED:
                 listener.playNext(true);
+                clearProgress();
                 break;
         }
     }
 
-    boolean isBottomVisible() {
-        return mBottomRoot.getVisibility() == VISIBLE;
+    private boolean isBottomVisible() {
+        return mBottomRoot.getVisibility() == View.VISIBLE;
     }
 
     void showBottom() {
@@ -1060,47 +935,37 @@ public class VodController extends BaseController {
     @Override
     public boolean onKeyEvent(KeyEvent event) {
         myHandle.removeCallbacks(myRunnable);
-        if (super.onKeyEvent(event)) {
-            return true;
-        }
-        int keyCode = event.getKeyCode();
+        if (super.onKeyEvent(event)) return true;
+        int key = event.getKeyCode();
         int action = event.getAction();
         if (isBottomVisible()) {
-            mHandler.removeMessages(1002);
-            mHandler.removeMessages(1003);
             myHandle.postDelayed(myRunnable, myHandleSeconds);
             return super.dispatchKeyEvent(event);
         }
-        boolean isInPlayback = isInPlaybackState();
+        boolean canPlay = isInPlaybackState();
         if (action == KeyEvent.ACTION_DOWN) {
-            if (keyCode == KeyEvent.KEYCODE_DPAD_RIGHT || keyCode == KeyEvent.KEYCODE_DPAD_LEFT) {
-                if (isInPlayback) {
-                    tvSlideStart(keyCode == KeyEvent.KEYCODE_DPAD_RIGHT ? 1 : -1);
+            if (key == KeyEvent.KEYCODE_DPAD_RIGHT || key == KeyEvent.KEYCODE_DPAD_LEFT) {
+                if (canPlay) {
+                    tvSlideStart(key == KeyEvent.KEYCODE_DPAD_RIGHT ? 1 : -1);
                     return true;
                 }
-            } else if (keyCode == KeyEvent.KEYCODE_DPAD_CENTER || keyCode == KeyEvent.KEYCODE_ENTER || keyCode == KeyEvent.KEYCODE_MEDIA_PLAY_PAUSE) {
-                if (isInPlayback) {
+            } else if (key == KeyEvent.KEYCODE_DPAD_CENTER || key == KeyEvent.KEYCODE_ENTER) {
+                if (canPlay) {
                     togglePlay();
                     return true;
                 }
-            } else if ( keyCode == KeyEvent.KEYCODE_DPAD_UP || keyCode== KeyEvent.KEYCODE_DPAD_DOWN) {
-                if (!isBottomVisible()) {
-                    showBottom();
-                    myHandle.postDelayed(myRunnable, myHandleSeconds);
-                    return true;
-                }
-            } else if (keyCode == KeyEvent.KEYCODE_MENU) {
-                    choosePlays();
-                    myHandless = true;
-                    myHandle.postDelayed(myRunnable, myHandleSeconds);
-                    return true;
+            } else if (key == KeyEvent.KEYCODE_DPAD_UP || key == KeyEvent.KEYCODE_DPAD_DOWN) {
+                showBottom();
+                myHandle.postDelayed(myRunnable, myHandleSeconds);
+                return true;
+            } else if (key == KeyEvent.KEYCODE_MENU) {
+                choosePlay();
+                return true;
             }
         } else if (action == KeyEvent.ACTION_UP) {
-            if (keyCode == KeyEvent.KEYCODE_DPAD_RIGHT || keyCode == KeyEvent.KEYCODE_DPAD_LEFT) {
-                if (isInPlayback) {
-                    tvSlideStop();
-                    return true;
-                }
+            if (key == KeyEvent.KEYCODE_DPAD_RIGHT || key == KeyEvent.KEYCODE_DPAD_LEFT) {
+                tvSlideStop();
+                return true;
             }
         }
         return super.dispatchKeyEvent(event);
@@ -1108,68 +973,173 @@ public class VodController extends BaseController {
 
     private boolean fromLongPress;
     private float speed_old = 1.0f;
+
     @Override
     public void onLongPress(MotionEvent e) {
-        if (videoPlayState!=VideoView.STATE_PAUSED) {
+        if (videoPlayState != VideoView.STATE_PAUSED) {
             fromLongPress = true;
             try {
                 speed_old = (float) mPlayerConfig.getDouble("sp");
-                float speed = 3.0f;
-                mPlayerConfig.put("sp", speed);
-                updatePlayerCfgView();
-                listener.updatePlayerCfg();
-                mControlWrapper.setSpeed(speed);
-            } catch (JSONException f) {
-                f.printStackTrace();
+                mControlWrapper.setSpeed(3.0f);
+            } catch (JSONException ex) {
+                ex.printStackTrace();
             }
         }
     }
 
-    @SuppressLint("ClickableViewAccessibility")
     @Override
     public boolean onTouchEvent(MotionEvent e) {
-        if (e.getAction() == MotionEvent.ACTION_UP) {
-            if (fromLongPress) {
-                fromLongPress =false;
-                try {
-                    float speed = speed_old;
-                    mPlayerConfig.put("sp", speed);
-                    updatePlayerCfgView();
-                    listener.updatePlayerCfg();
-                    mControlWrapper.setSpeed(speed);
-                } catch (JSONException f) {
-                    f.printStackTrace();
-                }
-            }
+        if (e.getAction() == MotionEvent.ACTION_UP && fromLongPress) {
+            fromLongPress = false;
+            mControlWrapper.setSpeed(speed_old);
         }
         return super.onTouchEvent(e);
+    }
+
+    public void Setprogressbark(SeekBar ars, Context context) {
+        Resources res = context.getResources();
+        LayerDrawable progressDrawable = (LayerDrawable) res.getDrawable(R.drawable.shape_player_control_vod_seek_thumba);
+        ClipDrawable proDrawable = new ClipDrawable(new ColorDrawable(getColorByAttrId(context, R.attr.color_theme_80)), Gravity.LEFT, ClipDrawable.HORIZONTAL);
+        progressDrawable.setDrawableByLayerId(android.R.id.progress, proDrawable);
+        Rect bounds = ars.getProgressDrawable().getBounds();
+        ars.setProgressDrawable(progressDrawable);
+        ars.getProgressDrawable().setBounds(bounds);
+    }
+
+    public void Setprogressbar(SeekBar ars, Context context) {
+        LayerDrawable layerDrawable = (LayerDrawable) ars.getProgressDrawable();
+        ClipDrawable clipDrawable = (ClipDrawable) layerDrawable.findDrawableByLayerId(android.R.id.progress);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            clipDrawable.setDrawable(new ColorDrawable(getColorByAttrId(context, R.attr.color_theme_80)));
+        } else {
+            try {
+                Method setDrawableMethod = ClipDrawable.class.getMethod("setDrawable", Drawable.class);
+                setDrawableMethod.invoke(clipDrawable, new ColorDrawable(getColorByAttrId(context, R.attr.color_theme_80)));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        ars.setProgressDrawable(clipDrawable);
+    }
+
+    public void setProgressBar(SeekBar seekBar, Context context) {
+        Resources res = context.getResources();
+        Drawable background = new ColorDrawable(getColorByAttrId(context, R.attr.color_theme_60));
+        ClipDrawable secondary = new ClipDrawable(new ColorDrawable(getColorByAttrId(context, R.attr.color_theme_90)), Gravity.LEFT, ClipDrawable.HORIZONTAL);
+        ClipDrawable progress = new ClipDrawable(new ColorDrawable(getColorByAttrId(context, R.attr.color_theme_80)), Gravity.LEFT, ClipDrawable.HORIZONTAL);
+        LayerDrawable layer = new LayerDrawable(new Drawable[]{background, secondary, progress});
+        layer.setId(0, android.R.id.background);
+        layer.setId(1, android.R.id.secondaryProgress);
+        layer.setId(2, android.R.id.progress);
+        seekBar.setProgressDrawable(layer);
+        GradientDrawable thumb = new GradientDrawable();
+        thumb.setShape(GradientDrawable.OVAL);
+        thumb.setColor(getColorByAttrId(context, R.attr.color_theme_80));
+        thumb.setStroke(4, getColorByAttrId(context, R.attr.color_theme_h));
+        thumb.setSize(25, 25);
+        seekBar.setThumb(thumb);
+    }
+
+    public static void customizeSeekBar(SeekBar seekBar, Context context) {
+        GradientDrawable thumb = new GradientDrawable();
+        thumb.setShape(GradientDrawable.OVAL);
+        thumb.setColor(Color.WHITE);
+        thumb.setStroke(4, Color.parseColor("#FFF68E33"));
+        int size = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 25, context.getResources().getDisplayMetrics());
+        thumb.setSize(size, size);
+        GradientDrawable progress = new GradientDrawable();
+        progress.setColor(Color.parseColor("#FFF68E33"));
+        GradientDrawable track = new GradientDrawable();
+        track.setColor(Color.LTGRAY);
+        LayerDrawable layer = new LayerDrawable(new Drawable[]{track, progress});
+        seekBar.setProgressDrawable(layer);
+        seekBar.setThumb(thumb);
     }
 
     @Override
     public boolean onSingleTapConfirmed(MotionEvent e) {
         myHandle.removeCallbacks(myRunnable);
         if (!isBottomVisible()) {
-            if (!Hawk.get(HawkConfig.SHOW_SSPREVIEW, false)) showBottom();
-            // 闲置计时关闭
+            showBottom();
             myHandle.postDelayed(myRunnable, myHandleSeconds);
         } else {
             hideBottom();
         }
         return true;
     }
+
+    private void toggleHawkConfig(String key, String on, String off, TextView tv) {
+        boolean b = Hawk.get(key, false);
+        Hawk.put(key, !b);
+        tv.setText(b ? off : on);
+    }
+
+    private void showScaleDialog() {
+        try {
+            int sc = mPlayerConfig.getInt("sc");
+            ArrayList<Integer> list = new ArrayList<>();
+            for (int i = 0; i < 6; i++) list.add(i);
+            SelectDialoga<Integer> dialog = new SelectDialoga<>(mActivity);
+            dialog.setTip("请选择画面比例");
+            dialog.setAdapter(new SelectDialogAdapter.SelectDialogInterface<Integer>() {
+                @Override
+                public void click(Integer value, int pos) {
+                    try {
+                        mPlayerConfig.put("sc", value);
+                        mControlWrapper.setScreenScaleType(value);
+                        updatePlayerCfgView();
+                        listener.updatePlayerCfg();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+                @Override
+                public String getDisplay(Integer val) {
+                    return PlayerHelper.getScaleName(val);
+                }
+            }, new DiffUtil.ItemCallback<Integer>() {
+                @Override
+                public boolean areItemsTheSame(@NonNull Integer oldItem, @NonNull Integer newItem) {
+                    return oldItem.equals(newItem);
+                }
+                @Override
+                public boolean areContentsTheSame(@NonNull Integer oldItem, @NonNull Integer newItem) {
+                    return oldItem.equals(newItem);
+                }
+            }, list, sc);
+            dialog.show();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void toggleTimeShow(TextView textView) {
+        showTime = !showTime;
+        Hawk.put(HawkConfig.VIDEO_SHOW_TIME, showTime);
+        textView.setText(showTime ? "屏显开" : "屏显关");
+        tvLogo.setVisibility(showTime ? View.VISIBLE : View.GONE);
+    }
+
+    private void toggleMiniProgress(TextView textView) {
+        mShowMiniProgress = !mShowMiniProgress;
+        Hawk.put(HawkConfig.HOME_PWET_TUMM, mShowMiniProgress);
+        textView.setText(mShowMiniProgress ? "迷你进度开" : "迷你进度关");
+        mMiniProgressTextView.setVisibility(mShowMiniProgress ? View.VISIBLE : View.GONE);
+    }
+
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     protected void destroy() {
         super.destroy();
-        mHandlerCallback = null;
         myHandle.removeCallbacksAndMessages(null);
         mHandler.removeCallbacksAndMessages(null);
     }
+
     @Override
     public boolean onBackPressed() {
         if (super.onBackPressed()) {
+            EventBus.getDefault().unregister(this);
             return true;
         }
-
         if (isBottomVisible()) {
             hideBottom();
             return true;
@@ -1177,7 +1147,93 @@ public class VodController extends BaseController {
         return Hawk.get(HawkConfig.SHOW_SSPREVIEW, false);
     }
 
-    // takagen99 : Check Pause
     private boolean isPaused = false;
     private boolean isKeyUp = false;
+    private boolean mShowMiniProgress;
+
+    public void playM3u8(final String url, final HashMap<String, String> headers) {
+        OkGo.getInstance().cancelTag("m3u8-1");
+        OkGo.getInstance().cancelTag("m3u8-2");
+        final HttpHeaders h = new HttpHeaders();
+        if (headers != null) {
+            for (Map.Entry<String, String> entry : headers.entrySet()) {
+                h.put(entry.getKey(), entry.getValue());
+            }
+        }
+
+        setCurrentVideoKey(url);
+
+        OkGo.<String>get(url).tag("m3u8-1").headers(h).execute(new AbsCallback<String>() {
+            @Override
+            public void onSuccess(Response<String> response) {
+                String content = response.body();
+                if (!content.startsWith("#EXTM3U")) {
+                    listener.startPlayUrl(url, headers);
+                    return;
+                }
+                String forward = extractForwardUrl(url, content);
+                if (forward.isEmpty()) {
+                    processM3u8Content(url, content, headers);
+                } else {
+                    fetchAndProcessForwardUrl(forward, headers, h, url);
+                }
+            }
+            @Override
+            public String convertResponse(okhttp3.Response response) throws Throwable {
+                return response.body().string();
+            }
+            @Override
+            public void onError(Response<String> response) {
+                listener.startPlayUrl(url, headers);
+            }
+        });
+    }
+
+    private String extractForwardUrl(String base, String content) {
+        String[] lines = content.split("\\r?\\n", 50);
+        for (int i = 0; i < lines.length; i++) {
+            String line = lines[i].trim();
+            if (line.startsWith("#EXT-X-STREAM-INF")) {
+                for (int j = i + 1; j < lines.length; j++) {
+                    String target = lines[j].trim();
+                    if (!target.startsWith("#") && (target.endsWith(".m3u8") || target.contains(".m3u8?"))) {
+                        try {
+                            return new URL(new URL(base), target).toString();
+                        } catch (MalformedURLException e) {
+                            return target;
+                        }
+                    }
+                }
+            }
+        }
+        return "";
+    }
+
+    private void processM3u8Content(String url, String content, HashMap<String, String> headers) {
+        String base = url.substring(0, url.lastIndexOf('/') + 1);
+        RemoteServer.m3u8Content = M3u8.purify(base, content);
+        if (RemoteServer.m3u8Content == null) {
+            listener.startPlayUrl(url, headers);
+        } else {
+            listener.startPlayUrl(ControlManager.get().getAddress(true) + "proxyM3u8", headers);
+            Toast.makeText(getContext(), "已移除广告 " + M3u8.currentAdCount + " 条", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void fetchAndProcessForwardUrl(String forward, HashMap<String, String> headers, HttpHeaders h, String fallback) {
+        OkGo.<String>get(forward).tag("m3u8-2").headers(h).execute(new AbsCallback<String>() {
+            @Override
+            public void onSuccess(Response<String> response) {
+                processM3u8Content(forward, response.body(), headers);
+            }
+            @Override
+            public String convertResponse(okhttp3.Response response) throws Throwable {
+                return response.body().string();
+            }
+            @Override
+            public void onError(Response<String> response) {
+                listener.startPlayUrl(fallback, headers);
+            }
+        });
+    }
 }

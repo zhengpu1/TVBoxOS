@@ -247,5 +247,4 @@ public class UrlHttpUtil {
     public static void downloadFile(String url, Map<String, String> paramsMap,Map<String, String> headerMap, CallBackUtil.CallBackFile callBack) {
         get(url, paramsMap, headerMap, callBack);
     }
-
 }

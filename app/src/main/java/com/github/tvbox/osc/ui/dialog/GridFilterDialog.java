@@ -1,6 +1,6 @@
 package com.github.tvbox.osc.ui.dialog;
 
-import static com.github.tvbox.osc.base.BaseActivity.drawableFrameLayout;
+import static com.github.tvbox.osc.base.baseActivity.drawableFrameLayout;
 
 import android.annotation.SuppressLint;
 import android.content.Context;

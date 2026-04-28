@@ -1,6 +1,6 @@
 package com.github.tvbox.osc.ui.fragment;
 
-import static com.github.tvbox.osc.base.BaseActivity.drawableLinearLayout;
+import static com.github.tvbox.osc.base.baseActivity.drawableLinearLayout;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;

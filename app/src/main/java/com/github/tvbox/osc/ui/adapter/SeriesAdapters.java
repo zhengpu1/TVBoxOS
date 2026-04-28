@@ -1,8 +1,9 @@
 package com.github.tvbox.osc.ui.adapter;
 
-import static com.github.tvbox.osc.base.BaseActivity.drawableLinearLayout;
-import static com.github.tvbox.osc.base.BaseActivity.getColorByAttrId;
+import static com.github.tvbox.osc.base.baseActivity.drawableLinearLayout;
+import static com.github.tvbox.osc.base.baseActivity.getColorByAttrId;
 
+import android.content.Context;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -19,8 +20,11 @@ import java.util.ArrayList;
  * @description:
  */
 public class SeriesAdapters extends BaseQuickAdapter<VodInfo.VodSeries, BaseViewHolder> {
-    public SeriesAdapters() {
-        super(R.layout.item_seriess, new ArrayList<>());
+    private Context context;
+
+    public SeriesAdapters(Context context) {
+        super(R.layout.item_series_flag, new ArrayList<>());
+        this.context = context;
     }
 
     @Override
@@ -28,9 +32,9 @@ public class SeriesAdapters extends BaseQuickAdapter<VodInfo.VodSeries, BaseView
         TextView tvSeries = helper.getView(R.id.tvSeries);
         LinearLayout tvSeriesa = helper.getView(R.id.tvSeriesdd);
             if (item.selected) {
-                tvSeries.setTextColor(getColorByAttrId(mContext, R.attr.color_theme));
+                tvSeries.setTextColor(getColorByAttrId(context, R.attr.color_theme));
             } else {
-                tvSeries.setTextColor(mContext.getResources().getColor(R.color.color_80FFFFFF));
+                tvSeries.setTextColor(context.getResources().getColor(R.color.color_80FFFFFF));
             }
         helper.setText(R.id.tvSeries, item.name.replace("-",""));
         LinearLayout[] str = {tvSeriesa};

@@ -1,5 +1,6 @@
 package com.github.tvbox.osc.ui.fragment;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,7 +16,7 @@ import androidx.recyclerview.widget.DiffUtil;
 
 import com.github.tvbox.osc.R;
 import com.github.tvbox.osc.api.ApiConfig;
-import com.github.tvbox.osc.base.BaseActivity;
+import com.github.tvbox.osc.base.baseActivity;
 import com.github.tvbox.osc.base.BaseLazyFragment;
 import com.github.tvbox.osc.bean.IJKCode;
 import com.github.tvbox.osc.bean.SourceBean;
@@ -23,9 +24,11 @@ import com.github.tvbox.osc.event.RefreshEvent;
 import com.github.tvbox.osc.player.thirdparty.RemoteTVBox;
 import com.github.tvbox.osc.ui.activity.HomeActivity;
 import com.github.tvbox.osc.ui.activity.SettingActivity;
+import com.github.tvbox.osc.ui.adapter.ApiHistoryDialogAdapter;
 import com.github.tvbox.osc.ui.adapter.SelectDialogAdapter;
 import com.github.tvbox.osc.ui.dialog.AboutDialog;
 import com.github.tvbox.osc.ui.dialog.ApiDialog;
+import com.github.tvbox.osc.ui.dialog.ApiHistoryDialog;
 import com.github.tvbox.osc.ui.dialog.BackupDialog;
 import com.github.tvbox.osc.ui.dialog.SearchRemoteTvDialog;
 import com.github.tvbox.osc.ui.dialog.SelectDialog;
@@ -93,7 +96,6 @@ public class ModelSettingFragment extends BaseLazyFragment {
     private TextView tvPlayback;
 
     private TextView mForbidDialogText;
-    boolean isForbidDialog = Hawk.get(HawkConfig.FORBID_JAR_DIALOG);
 
     public static ModelSettingFragment newInstance() {
         return new ModelSettingFragment().setArguments();
@@ -138,19 +140,23 @@ public class ModelSettingFragment extends BaseLazyFragment {
         tvPwet = findViewById(R.id.tvPwet);
         tvPwet.setText(Hawk.get(HawkConfig.HOME_PWET_TUMM, false) ? "开" : "关");
         tvDebugOpen.setText(Hawk.get(HawkConfig.DEBUG_OPEN, false) ? "已打开" : "已关闭");
-        tvIjkCachePlay = findViewById(R.id.tvIjkCachePlay);
         tvPlayback = findViewById(R.id.tvPlayback);
         tvMediaCodec.setText(Hawk.get(HawkConfig.IJK_CODEC, ""));
         tvDebugOpen.setText(Hawk.get(HawkConfig.DEBUG_OPEN, false) ? "已打开" : "已关闭");
         tvParseWebView.setText(Hawk.get(HawkConfig.PARSE_WEBVIEW, true) ? "系统自带" : "XWalkView");
         tvApi.setText(Hawk.get(HawkConfig.API_URL, ""));
         findViewById(R.id.forbidJarDialog).setOnClickListener(v -> {
-            isForbidDialog = !isForbidDialog;
-            mForbidDialogText.setText(isForbidDialog ? "开" : "关");
-            Hawk.put(HawkConfig.FORBID_JAR_DIALOG, isForbidDialog);
+            Hawk.put(HawkConfig.FORBID_JAR_DIALOG, !Hawk.get(HawkConfig.FORBID_JAR_DIALOG, false));
+            mForbidDialogText.setText(Hawk.get(HawkConfig.FORBID_JAR_DIALOG, false) ? " 开" : "关");
         });
         mForbidDialogText = findViewById(R.id.forbidJarDialogText);
-        mForbidDialogText.setText(isForbidDialog ? "开" : "关");
+        mForbidDialogText.setText(Hawk.get(HawkConfig.FORBID_JAR_DIALOG, false) ? "开" : "关");
+        findViewById(R.id.llIjkCachePlay).setOnClickListener(v -> {
+            Hawk.put(HawkConfig.PLAYBACK_PLAYS, !Hawk.get(HawkConfig.PLAYBACK_PLAYS, false));
+            tvIjkCachePlay.setText(Hawk.get(HawkConfig.PLAYBACK_PLAYS, false) ? " 开" : "关");
+        });
+        tvIjkCachePlay = findViewById(R.id.tvIjkCachePlay);
+        tvIjkCachePlay.setText(Hawk.get(HawkConfig.PLAYBACK_PLAYS, false) ? "开" : "关");
         tvHomeShow = findViewById(R.id.tvHomeShow);
         tvHomeShow.setText(Hawk.get(HawkConfig.HOME_SHOW_SOURCE, false) ? "数据源" : "LOGO");
         tvHomeImg = findViewById(R.id.tvHomeImg);
@@ -165,7 +171,6 @@ public class ModelSettingFragment extends BaseLazyFragment {
         tvScale.setText(PlayerHelper.getScaleName(Hawk.get(HawkConfig.PLAY_SCALE, 0)));
         tvPlay.setText(PlayerHelper.getPlayerName(Hawk.get(HawkConfig.PLAY_TYPE, 0)));
         tvRender.setText(PlayerHelper.getRenderName(Hawk.get(HawkConfig.PLAY_RENDER, 0)));
-        tvIjkCachePlay.setText(Hawk.get(HawkConfig.IJK_CACHE_PLAY, false) ? "开启" : "关闭");
         tvPlayback.setText(Hawk.get(HawkConfig.PLAYBACK_PLAY, false) ? "开" : "关");
         findViewById(R.id.llHomeApi).requestFocus();
         findViewById(R.id.llDebug).setOnClickListener(new View.OnClickListener() {
@@ -184,7 +189,7 @@ public class ModelSettingFragment extends BaseLazyFragment {
                 findViewById(R.id.llSearchTv), findViewById(R.id.llHistoryNum), findViewById(R.id.llWp), findViewById(R.id.llWpRecovery),
                 findViewById(R.id.llScale), findViewById(R.id.llIjkCachePlay), findViewById(R.id.llClearCache),
                 findViewById(R.id.llBackup), findViewById(R.id.llplayback), findViewById(R.id.llAbout),findViewById(R.id.llXianc), findViewById(R.id.llDadeup), findViewById(R.id.showFastSearch), findViewById(R.id.showPreview)};
-        BaseActivity.drawableLinearLayout(strs, 1);
+        baseActivity.drawableLinearLayout(strs, 1);
         findViewById(R.id.llParseWebVew).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -238,7 +243,7 @@ public class ModelSettingFragment extends BaseLazyFragment {
                     OkGo.<File>get(ApiConfig.get().wallpaper).execute(new FileCallback(requireActivity().getFilesDir().getAbsolutePath(), "wp") {
                         @Override
                         public void onSuccess(Response<File> response) {
-                            ((BaseActivity) requireActivity()).changeWallpaper(true);
+                            ((baseActivity) requireActivity()).changeWallpaper(true);
                         }
 
                         @Override
@@ -260,7 +265,7 @@ public class ModelSettingFragment extends BaseLazyFragment {
                 File wp = new File(requireActivity().getFilesDir().getAbsolutePath() + "/wp");
                 if (wp.exists())
                     wp.delete();
-                ((BaseActivity) requireActivity()).changeWallpaper(true);
+                ((baseActivity) requireActivity()).changeWallpaper(true);
             }
         });
         findViewById(R.id.llHomeApi).setOnClickListener(new View.OnClickListener() {
@@ -385,7 +390,7 @@ public class ModelSettingFragment extends BaseLazyFragment {
                 dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
                     @Override
                     public void onDismiss(DialogInterface dialog) {
-                        ((BaseActivity) mActivity).hideSysBar();
+                        ((baseActivity) mActivity).hideSysBar();
                         EventBus.getDefault().unregister(dialog);
                     }
                 });
@@ -874,9 +879,51 @@ public class ModelSettingFragment extends BaseLazyFragment {
 
             }
         });
-        findViewById(R.id.llIjkCachePlay).setOnClickListener((this::onClickIjkCachePlay));
-        findViewById(R.id.llClearCache).setOnClickListener((this::onClickClearCache));
+        //findViewById(R.id.llIjkCachePlay).setOnClickListener((this::onClickIjkCachePlay));
+       // findViewById(R.id.llClearCache).setOnClickListener((this::onClickClearCache));
+        findViewById(R.id.llClearCache).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ArrayList<String> history = Hawk.get(HawkConfig.API_HISTORY, new ArrayList<String>());
+                if (history.isEmpty())
+                    return;
+                String current = Hawk.get(HawkConfig.API_URL, "");
+                int idx = 0;
+                if (history.contains(current))
+                    idx = history.indexOf(current);
+                ApiHistoryDialog dialog = new ApiHistoryDialog(mActivity);
+                dialog.setTip("历史配置列表");
+                dialog.setAdapter(new ApiHistoryDialogAdapter.SelectDialogInterface() {
+                    @Override
+                    public void click(String value) {
+                        Hawk.put(HawkConfig.API_URL, value);
+                        Hawk.put(HawkConfig.LIVE_API_URL, value);
+                        ArrayList<String> history = Hawk.get(HawkConfig.LIVE_API_HISTORY, new ArrayList<String>());
+                        if (!history.contains(value)) {
+                            history.add(0, value);
+                        }
+                        if (history.size() > 30) {
+                            history.remove(30);
+                        }
+                        Hawk.put(HawkConfig.LIVE_API_HISTORY, history);
+                        tvApi.setText(value);
+                        //  dialog.dismiss();
+                    }
 
+                    @Override
+                    public void del(String value, ArrayList<String> data) {
+                        Hawk.put(HawkConfig.API_HISTORY, data);
+                    }
+                }, history, idx);
+                dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                    @Override
+                    public void onDismiss(DialogInterface dialog) {
+                        restartApp();
+                    }
+                });
+                dialog.show();
+            }
+        });
         // Select App Theme Color -------------------------------------
         findViewById(R.id.llTheme).setOnClickListener(new View.OnClickListener() {
             private final int chkTheme = Hawk.get(HawkConfig.THEME_SELECT, 0);
@@ -1012,8 +1059,19 @@ public class ModelSettingFragment extends BaseLazyFragment {
         if (AppManager.getInstance().isActivity()) {
             Bundle bundle = new Bundle();
             bundle.putBoolean("useCache", true);
-            BaseActivity currActivity = (BaseActivity) AppManager.getInstance().currentActivity();
+            baseActivity currActivity = (baseActivity) AppManager.getInstance().currentActivity();
             currActivity.jumpActivity(HomeActivity.class, bundle);
+        }
+    }
+    private void restartApp() {
+        Context context = getContext();
+        if (context != null) {
+            Intent i = context.getPackageManager().getLaunchIntentForPackage(context.getPackageName());
+            if (i != null) {
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                context.startActivity(i);
+                System.exit(0);
+            }
         }
     }
 }

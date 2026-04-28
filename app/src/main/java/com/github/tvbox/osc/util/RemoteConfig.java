@@ -6,10 +6,8 @@ import static com.blankj.utilcode.util.ActivityUtils.startActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Handler;
 
-import com.github.tvbox.osc.base.BaseActivity;
-import com.github.tvbox.osc.ui.activity.LivePlayActivity;
+import com.github.tvbox.osc.base.baseActivity;
 import com.github.tvbox.osc.ui.dialog.UpdateDialog;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonNull;
@@ -18,7 +16,6 @@ import com.google.gson.JsonParser;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.AbsCallback;
 import com.lzy.okgo.model.Response;
-import com.orhanobut.hawk.Hawk;
 
 
 /*
@@ -33,11 +30,12 @@ public class RemoteConfig {
     private static String NewVersions="1.0.0000.00.00";
     public static void Init(Context mContext){
         RemoteConfig.mContext = mContext;
-        remoteUrl = "http://www.hrystv.top:38/tv/version.php";
+        remoteUrl = "http://192.168.80.10:38/tv/version.php";
         LOG.i("RemoteConfig",
                 ToolUtils.isApkInDebug(mContext) ? "当前处于【调试】模式":"当前处于【正式】模式",
                 "远程配置地址", remoteUrl);
         isRemoteConfigOk = false;
+        String json = "{\"IsRecodeLog\":false,\"Isint\":1,\"ForceChangeAPIUrl\":false,\"APIUrl\":\"http://192.168.80.10:38/tv/200.json\",\"APIEPGUrl\":\"http://192.168.80.10:38/epg/sjcx.php\",\"APILIVEUrl\":\"http://192.168.80.10:38/tv/ba.txt\",\"doubanUrl\":\"http://192.168.80.10:38/dou.php?type=2\",\"IsForceUpdate\":false,\"UpdateData\":{\"NewVersion\":\"1.8.2024122018\",\"ForceUpdate\":false,\"UpdateDesc\":\"安卓4.0特别版特色：\\n1、支持官方视频自动跳过片头片尾;\\n2、支持影片名称推送播放;\\n3、播放页选集;\\n4、对安卓4.4以下的支持);\",\"UpdateDownloadUrl\":\"http://192.168.80.10:38/apk/HRTV_1.8.2024122018.apk\"}}";
         OkGo.<String>get(remoteUrl).execute(new AbsCallback<String>() {
             @Override
             public String convertResponse(okhttp3.Response response) throws Throwable {
@@ -93,19 +91,19 @@ public class RemoteConfig {
             return false;
         }
         try {
-        NewVersions = updateJosn.get("NewVersion").getAsString();
-        CurrVersions = DefaultConfig.getAppVersionName(context);
-        int NewVersionNum = Integer.parseInt(NewVersions.substring(7, 14));
-        int CurrVersionNum = Integer.parseInt(CurrVersions.substring(7, 14));
-        if (NewVersionNum > CurrVersionNum) {
-            return true;
-        }
+            NewVersions = updateJosn.get("NewVersion").getAsString();
+            CurrVersions = DefaultConfig.getAppVersionName(context);
+            int NewVersionNum = Integer.parseInt(NewVersions.substring(7, 14));
+            int CurrVersionNum = Integer.parseInt(CurrVersions.substring(7, 14));
+            if (NewVersionNum > CurrVersionNum) {
+                return true;
+            }
         }catch (Throwable th){
             th.printStackTrace();
         };
         return false;
     }
-    public static void jumpActivity(Class<? extends BaseActivity> clazz) {
+    public static void jumpActivity(Class<? extends baseActivity> clazz) {
         Intent intent = new Intent(mContext, clazz);
         startActivity(intent);
     }
@@ -127,15 +125,9 @@ public class RemoteConfig {
         editor.clear();
         editor.apply();
     }
-
     private static void InitRemoteConfig(String config){
         LOG.i("RemoteConfig", "获取到远端内容", config);
         remoteJsonObject = JsonParser.parseString(config).getAsJsonObject();
-        if (Hawk.get(HawkConfig.HOME_LIVE, false)) {
-            new Handler().postDelayed(() -> {
-                jumpActivity(LivePlayActivity.class);
-            }, 100);
-        }
         // region 默认更新地址
         if (!GetValue("UpdateData").isJsonNull() && GetValue("UpdateData").getAsJsonObject() != null) {
             JsonObject updateData = GetValue("UpdateData").getAsJsonObject();

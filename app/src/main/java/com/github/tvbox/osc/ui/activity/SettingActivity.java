@@ -13,7 +13,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.github.tvbox.osc.R;
 import com.github.tvbox.osc.api.ApiConfig;
-import com.github.tvbox.osc.base.BaseActivity;
+import com.github.tvbox.osc.base.baseActivity;
 import com.github.tvbox.osc.base.BaseLazyFragment;
 import com.github.tvbox.osc.ui.adapter.SettingMenuAdapter;
 import com.github.tvbox.osc.ui.adapter.SettingPageAdapter;
@@ -32,7 +32,7 @@ import java.util.List;
  * @date :2020/12/23
  * @description:
  */
-public class SettingActivity extends BaseActivity {
+public class SettingActivity extends baseActivity {
     private TvRecyclerView mGridView;
     private ViewPager mViewPager;
     private SettingMenuAdapter sortAdapter;

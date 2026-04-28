@@ -29,8 +29,8 @@
         android:layout_marginBottom="@dimen/vs_5"
         android:clipChildren="false"
         android:clipToPadding="false"
-        app:tv_horizontalSpacingWithMargins="@dimen/vs_5"
+        app:tv_horizontalSpacingWithMargins="@dimen/vs_10"
         app:tv_selectedItemIsCentered="true"
-        app:tv_verticalSpacingWithMargins="@dimen/vs_5" />
+        app:tv_verticalSpacingWithMargins="@dimen/vs_20" />
 
 </LinearLayout>

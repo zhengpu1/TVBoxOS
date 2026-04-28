@@ -11,6 +11,10 @@ public class HawkConfig {
     public static final String API_URL = "api_url";
     public static final String EPG_URL = "epg_url";
     public static final String SHOW_PREVIEW = "show_preview";
+    public static final String PLAYER_IS_LIVE = "player_is_live";
+    public static final String LIVE_GROUP_INDEX = "live_group_index";
+    public static final String LIVE_GROUP_LIST = "live_group_list";
+    public static final String LIVE_WEB_HEADER = "live_web_header";
     public static final String API_HISTORY = "api_history";
     public static final String EPG_HISTORY = "epg_history";
     public static final String HOME_API = "home_api";
@@ -74,5 +78,11 @@ public class HawkConfig {
     public static final String HOME_PUSH_POSITION = "home_push_position";     // true=Up, false=Down
     public static final String HOME_DRIVE_POSITION = "home_drive_position";     // true=Up, false=Down
     public static final String HOME_COLLECT_POSITION = "home_collect_position";     // true=Up, false=Down
+    public static final String VIDEO_SHOW_TIME = "video_show_time";
+    public static final String OPENING_AND_ENDING_CREDITS = "opening_and_ending_credits";
+    public static final String PLAYBACK_PLAYS = "PLAYBACK_PLAYS";
+    public static final String LIVE_API_URL = "LIVE_API_URL";
+    public static final String LIVE_API_HISTORY = "live_api_history";
+    public static final String FAST_SEARCH_MODE = "fast_search_mode";
     public static boolean hotVodDelete;
 }

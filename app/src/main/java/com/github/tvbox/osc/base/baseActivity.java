@@ -13,6 +13,7 @@ import android.graphics.Shader;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.LayerDrawable;
 import android.graphics.drawable.StateListDrawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -52,13 +53,13 @@ import me.jessyan.autosize.internal.CustomAdapt;
 import me.jessyan.autosize.utils.AutoSizeUtils;
 import xyz.doikki.videoplayer.util.CutoutUtil;
 
-public abstract class BaseActivity extends AppCompatActivity implements CustomAdapt {
+public abstract class baseActivity extends AppCompatActivity implements CustomAdapt {
     protected Context mContext;
     private LoadService mLoadService;
 
     private static float screenRatio = -100.0f;
     private static WeakReference<BitmapDrawable> globalWp = null;
-
+    public static  int roundRadius = getCornerRadius();
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         mContext = this;
@@ -143,7 +144,9 @@ public abstract class BaseActivity extends AppCompatActivity implements CustomAd
             }
         });
     }
-
+    private static int getCornerRadius() {
+        return 10;
+    }
     public static void drawableTextView(@NonNull TextView[] str, int bg) {
         for (TextView item : str) setBackground(item, bg);
     }
@@ -151,7 +154,9 @@ public abstract class BaseActivity extends AppCompatActivity implements CustomAd
     public static void drawableLinearLayout(@NonNull LinearLayout[] strs, int bg) {
         for (LinearLayout item : strs) setBackground(item, bg);
     }
-
+    public static void drawableLinearLayout(@NonNull LinearLayout strs, int bg) {
+        setBackground(strs, bg);
+    }
     public static void drawableLinearLayouts(@NonNull LinearLayout strs, int bg) {
         setBackground(strs, bg);
     }
@@ -176,6 +181,71 @@ public abstract class BaseActivity extends AppCompatActivity implements CustomAd
         if (view == null || view.getContext() == null) return;
         view.setBackground(createDrawableSelector(view.getContext(), bg));
     }
+    public static void setBackgroundrs(View tvSeries, Context mContext) {
+        StateListDrawable stateDrawable = new StateListDrawable();
+        int color70 = getColorByAttrId(mContext, R.attr.color_theme_70);
+        int color80 = getColorByAttrId(mContext, R.attr.color_theme_80);
+        int colorH = getColorByAttrId(mContext, R.attr.color_theme_h);
+        int stroke2 = AutoSizeUtils.mm2px(mContext, 2);
+        int radius = AutoSizeUtils.mm2px(mContext, 4); // 圆角，可自己改
+        int pL = tvSeries.getPaddingLeft();
+        int pT = tvSeries.getPaddingTop();
+        int pR = tvSeries.getPaddingRight();
+        int pB = tvSeries.getPaddingBottom();
+        // ============= 选中：设置渐变背景 + 边框 =============
+        GradientDrawable pressed = new GradientDrawable();
+        Drawable highlight = e(mContext);
+        stateDrawable.addState(new int[]{android.R.attr.state_pressed}, highlight);
+        stateDrawable.addState(new int[]{android.R.attr.state_focused}, highlight);
+        stateDrawable.addState(new int[]{android.R.attr.state_selected}, highlight);
+        pressed.setOrientation(GradientDrawable.Orientation.RIGHT_LEFT);
+        pressed.setColors(new int[]{color70, color80});
+        pressed.setStroke(stroke2, colorH);
+        pressed.setCornerRadius(radius);
+        tvSeries.setBackground(stateDrawable);
+        // 设置背景后立刻恢复 Padding —— 间距不会丢！
+        tvSeries.setBackground(stateDrawable);
+        tvSeries.setPadding(pL, pT, pR, pB);
+    }
+
+    // ====================== 你要的 e() 方法 已完美加入 ======================
+    public static Drawable e(Context context) {
+        int r = AutoSizeUtils.mm2px(context, 5);
+
+        GradientDrawable back = new GradientDrawable();
+        back.setCornerRadius(r);
+        back.setColor(getColorByAttrId(context, R.attr.color_theme_h));
+
+        // ==============================================
+        // ✅ 改成你截图里的「中心对称渐变」
+        // ==============================================
+        GradientDrawable gradient = new GradientDrawable(
+                GradientDrawable.Orientation.TOP_BOTTOM,
+                new int[]{
+                        getColorByAttrId(context, R.attr.color_theme_70), // 左：暗色
+                        getColorByAttrId(context, R.attr.color_theme_80), // 中：亮色
+                        getColorByAttrId(context, R.attr.color_theme_70)  // 右：暗色
+                }
+        );
+        gradient.setCornerRadius(r);
+        // 关键：设置渐变类型为线性渐变，方向保持左右
+        gradient.setGradientType(GradientDrawable.LINEAR_GRADIENT);
+
+        GradientDrawable stroke = new GradientDrawable();
+        stroke.setCornerRadius(r);
+        stroke.setStroke(AutoSizeUtils.mm2px(context, 1.5f),
+                context.getResources().getColor(R.color.color_theme_s));
+
+        LayerDrawable layer = new LayerDrawable(new Drawable[]{back, gradient, stroke});
+        layer.setLayerInset(1, 2, 2, 2, 2);
+        layer.setLayerInset(2, 3, 3, 3, 3);
+        return layer;
+    }
+
+    public static int dp2px(Context context, float dp) {
+        return AutoSizeUtils.mm2px(context, dp);
+    }
+    // ====================================================================
 
     @NonNull
     public static Drawable createDrawableSelector(Context context, int bg) {
@@ -186,28 +256,22 @@ public abstract class BaseActivity extends AppCompatActivity implements CustomAd
 
         int color70 = getColorByAttrId(context, R.attr.color_theme_70);
         int color80 = getColorByAttrId(context, R.attr.color_theme_80);
-        int[] colorBoth = new int[]{color70, color80};
+        int color71 = getColorByAttrId(context, R.attr.color_theme_70);
+        int[] colorBoth = new int[]{color70, color80, color71};
         int colorH = getColorByAttrId(context, R.attr.color_theme_h);
         int stroke2 = AutoSizeUtils.mm2px(context, 2);
         int radius5 = AutoSizeUtils.mm2px(context, 5);
-
-        switch (bg) {
+       switch (bg) {
             case 1:
-                pressed.setOrientation(GradientDrawable.Orientation.RIGHT_LEFT);
-                pressed.setColors(colorBoth);
-                pressed.setStroke(stroke2, colorH);
-                if (Hawk.get(HawkConfig.THEME_SELECT, 0) == 6) {
-                    normal.setColor(getColorByAttrId(context, R.attr.color_theme_20));
-                    normal.setStroke(1, context.getResources().getColor(R.color.color_33FFFFFF));
-                } else {
-                    normal.setColor(context.getResources().getColor(R.color.color_32364E_40));
-                }
+                    if (Hawk.get(HawkConfig.THEME_SELECT, 0) == 6) {
+                        normal.setColor(getColorByAttrId(context, R.attr.color_theme_20));
+                        normal.setStroke(1, context.getResources().getColor(R.color.color_33FFFFFF));
+                    } else {
+                        normal.setColor(context.getResources().getColor(R.color.color_32364E_40));
+                    }
                 break;
             case 2:
                 normal.setColor(context.getResources().getColor(R.color.color_theme_0));
-                pressed.setOrientation(GradientDrawable.Orientation.RIGHT_LEFT);
-                pressed.setColors(colorBoth);
-                pressed.setStroke(stroke2, colorH);
                 break;
             case 3:
                 if (Hawk.get(HawkConfig.THEME_SELECT, 0) == 6) {
@@ -219,21 +283,14 @@ public abstract class BaseActivity extends AppCompatActivity implements CustomAd
                 } else {
                     normal.setColor(context.getResources().getColor(R.color.color_32364E_80));
                 }
-                pressed.setGradientType(GradientDrawable.RADIAL_GRADIENT);
-                pressed.setGradientCenter(0.5f, 0.5f);
-                pressed.setGradientRadius(AutoSizeUtils.mm2px(context, 100));
-                pressed.setColors(colorBoth);
-                pressed.setStroke(stroke2, colorH);
                 selected.setStroke(stroke2, colorH);
                 selected.setColors(colorBoth);
                 break;
             case 4:
                 return new BitmapDrawable(getRoundBitmap(context, 1000, 720, 20, 4));
             case 5:
-                pressed.setOrientation(GradientDrawable.Orientation.TR_BL);
+               // pressed.setOrientation(GradientDrawable.Orientation.TR_BL);
                 normal.setColor(context.getResources().getColor(R.color.color_32364E_80));
-                pressed.setColors(colorBoth);
-                pressed.setStroke(stroke2, colorH);
                 break;
             case 6:
                 normal.setColor(getColorByAttrId(context, R.attr.color_theme_40));
@@ -246,9 +303,10 @@ public abstract class BaseActivity extends AppCompatActivity implements CustomAd
                 break;
             case 7:
                 normal.setColor(context.getResources().getColor(R.color.color_theme_0));
-                pressed.setOrientation(GradientDrawable.Orientation.RIGHT_LEFT);
-                pressed.setColors(colorBoth);
-                pressed.setStroke(stroke2, colorH);
+                Drawable highlight7 = e(context);
+                stateDrawable.addState(new int[]{android.R.attr.state_pressed}, highlight7);
+                stateDrawable.addState(new int[]{android.R.attr.state_focused}, highlight7);
+                stateDrawable.addState(new int[]{android.R.attr.state_selected}, highlight7);
                 normal.setCornerRadius(AutoSizeUtils.mm2px(context, 10));
                 pressed.setCornerRadius(AutoSizeUtils.mm2px(context, 10));
                 break;
@@ -283,7 +341,14 @@ public abstract class BaseActivity extends AppCompatActivity implements CustomAd
             pressed.setCornerRadius(radius5);
             selected.setCornerRadius(radius5);
         }
-
+        if (bg == 1 || bg == 2 || bg == 3 || bg == 5) {
+            Drawable highlight = e(context);
+            stateDrawable.addState(new int[]{android.R.attr.state_pressed}, highlight);
+            stateDrawable.addState(new int[]{android.R.attr.state_focused}, highlight);
+            stateDrawable.addState(new int[]{android.R.attr.state_selected}, highlight);
+            stateDrawable.addState(new int[]{android.R.attr.state_enabled}, normal);
+            return stateDrawable;
+        }
         stateDrawable.addState(new int[]{android.R.attr.state_pressed}, pressed);
         stateDrawable.addState(new int[]{android.R.attr.state_focused}, pressed);
         stateDrawable.addState(new int[]{android.R.attr.state_selected}, selected);
@@ -406,11 +471,11 @@ public abstract class BaseActivity extends AppCompatActivity implements CustomAd
         AppManager.getInstance().finishActivity(this);
     }
 
-    public void jumpActivity(Class<? extends BaseActivity> clazz) {
+    public void jumpActivity(Class<? extends baseActivity> clazz) {
         startActivity(new Intent(this, clazz));
     }
 
-    public void jumpActivity(Class<? extends BaseActivity> clazz, Bundle bundle) {
+    public void jumpActivity(Class<? extends baseActivity> clazz, Bundle bundle) {
         Intent intent = new Intent(this, clazz);
         intent.putExtras(bundle);
         startActivity(intent);

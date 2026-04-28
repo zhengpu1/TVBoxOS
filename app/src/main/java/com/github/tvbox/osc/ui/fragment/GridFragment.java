@@ -1,13 +1,25 @@
 package com.github.tvbox.osc.ui.fragment;
 
+import android.animation.ObjectAnimator;
+import android.content.Context;
+import android.graphics.Rect;
 import android.os.Bundle;
+import android.util.TypedValue;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.BounceInterpolator;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.github.tvbox.osc.R;
@@ -20,6 +32,7 @@ import com.github.tvbox.osc.ui.activity.DetailActivity;
 import com.github.tvbox.osc.ui.activity.FastSearchActivity;
 import com.github.tvbox.osc.ui.activity.SearchActivity;
 import com.github.tvbox.osc.ui.adapter.GridAdapter;
+import com.github.tvbox.osc.ui.adapter.GridFilterKVAdapter;
 import com.github.tvbox.osc.ui.dialog.GridFilterDialog;
 import com.github.tvbox.osc.ui.tv.widget.LoadMoreView;
 import com.github.tvbox.osc.util.FastClickCheckUtil;
@@ -32,6 +45,7 @@ import com.owen.tvrecyclerview.widget.V7LinearLayoutManager;
 
 import org.greenrobot.eventbus.EventBus;
 
+import java.util.ArrayList;
 import java.util.Stack;
 
 /**
@@ -185,6 +199,13 @@ public class GridFragment extends BaseLazyFragment {
                 }
             }
         }
+        // 延迟执行或确保视图已准备好
+        mGridView.post(new Runnable() {
+            @Override
+            public void run() {
+                setFilterDialogData();
+            }
+        });
         gridAdapter.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {
             @Override
             public void onLoadMoreRequested() {
@@ -321,7 +342,118 @@ public class GridFragment extends BaseLazyFragment {
             EventBus.getDefault().post(new RefreshEvent(RefreshEvent.TYPE_FILTER_CHANGE, count));
         }
     }
+    public void setFilterDialogData() {
+        Context context = getContext();
+        // 1. 动态添加筛选条
+        LinearLayout filterRoot = findViewById(R.id.filterRoot);
+        if(filterRoot ==null) return;
+        filterRoot.removeAllViews(); // 防止重复添加
+        LayoutInflater inflater = LayoutInflater.from(context);
+        assert context != null;
+        final int defaultColor = ContextCompat.getColor(context, R.color.color_FFFFFF);
+        final int selectedColor = ContextCompat.getColor(context, R.color.color_00FF0A);
+        // 遍历过滤条件数据
+        for (MovieSort.SortFilter filter : sortData.filters) {
+            View line = inflater.inflate(R.layout.item_grid_filter, filterRoot, false);
+            TvRecyclerView gridView = line.findViewById(R.id.mFilterKv);
+            gridView.setHasFixedSize(true);
+            GridFilterKVAdapter adapter = new GridFilterKVAdapter();
+            gridView.setAdapter(adapter);
+            // 添加横向间距，30dp
+            gridView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
+            int verticalSpace = (int) TypedValue.applyDimension(
+                    TypedValue.COMPLEX_UNIT_DIP, 20, context.getResources().getDisplayMetrics()); // 20dp 行间距
+            int horizontalSpace = (int) TypedValue.applyDimension(
+                    TypedValue.COMPLEX_UNIT_DIP, 10, context.getResources().getDisplayMetrics()); // 30dp 列间距
+            gridView.addItemDecoration(new RecyclerView.ItemDecoration() {
+                @Override
+                public void getItemOffsets(@NonNull Rect outRect, @NonNull View view,
+                                           @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
+                    int position = parent.getChildAdapterPosition(view);
+                    int spanCount = 0; // 你实际的行数（比如2行剧集）
+                    RecyclerView.LayoutManager layoutManager = parent.getLayoutManager();
+                    if (layoutManager instanceof GridLayoutManager) {
+                        spanCount = ((GridLayoutManager) layoutManager).getSpanCount();
+                    }
+                    // 列间距
+                    outRect.right = horizontalSpace;
+                    // 行间距
+                    if (position >= spanCount) {
+                        outRect.top = verticalSpace;
+                    }
+                }
+            });
+            final String key = filter.key;
+            final ArrayList<String> values = new ArrayList<>(filter.values.keySet());
+            final ArrayList<String> keys = new ArrayList<>(filter.values.values());
+            adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+                // 用于记录上一次选中的 view
+                View previousSelectedView = null;
+                @Override
+                public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                    String currentSelection = sortData.filterSelect.get(key);
+                    String newSelection = keys.get(position);
+                    if (currentSelection == null || !currentSelection.equals(newSelection)) {
+                        // 更新选中状态
+                        sortData.filterSelect.put(key, newSelection);
+                        updateViewStyle(view, selectedColor, true);
+                        if (previousSelectedView != null) {
+                            updateViewStyle(previousSelectedView, defaultColor, true);
+                        }
+                        previousSelectedView = view;
+                    } else {
+                        // 取消选中
+                        sortData.filterSelect.remove(key);
+                        if (previousSelectedView != null) {
+                            updateViewStyle(previousSelectedView, defaultColor, true);
+                        }
+                        previousSelectedView = null;
+                    }
+                    forceRefresh();
+                }
+                private void updateViewStyle(View view, int color, boolean isBold) {
+                    TextView valueTv = view.findViewById(R.id.filterValue);
+                    valueTv.getPaint().setFakeBoldText(isBold);
+                    valueTv.setTextColor(color);
+                }
+            });
+            adapter.setNewData(values);
+            filterRoot.addView(line);
+        }
+    }
+    public void toggleFilterBar() {
+        final LinearLayout filterRoot = getView().findViewById(R.id.filterRoot);
+        if (filterRoot == null) return;
 
+        if (filterRoot.getVisibility() != View.VISIBLE) {
+            // 先显示，初始位置在上方
+            filterRoot.setVisibility(View.VISIBLE);
+            filterRoot.setAlpha(1f);
+            filterRoot.setTranslationY(-filterRoot.getHeight() == 0 ? -200 : -filterRoot.getHeight());
+            filterRoot.post(() -> {
+                int height = filterRoot.getHeight();
+                filterRoot.setTranslationY(-height);
+                ObjectAnimator animator = ObjectAnimator.ofFloat(filterRoot, "translationY", -height, 0);
+                animator.setDuration(1000);
+                animator.setInterpolator(new android.view.animation.OvershootInterpolator(0f)); // 弹性下滑
+                animator.start();
+            });
+        } else {
+            // 向上滑回去并隐藏
+            int height = filterRoot.getHeight();
+            ObjectAnimator animator = ObjectAnimator.ofFloat(filterRoot, "translationY", 0, -height);
+            animator.addListener(new android.animation.AnimatorListenerAdapter() {
+                @Override
+                public void onAnimationEnd(android.animation.Animator animation) {
+                    filterRoot.setVisibility(View.GONE);
+                }
+            });
+            animator.setDuration(500);
+            animator.setInterpolator(new android.view.animation.AnticipateInterpolator(1.2f)); // 弹性上收
+
+            animator.start();
+        }
+    }
     public boolean isTop() {
         return isTop;
     }

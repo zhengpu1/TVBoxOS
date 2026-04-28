@@ -14,7 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.tvbox.osc.R;
-import com.github.tvbox.osc.base.BaseActivity;
+import com.github.tvbox.osc.base.baseActivity;
 import com.github.tvbox.osc.bean.VodInfo;
 import com.github.tvbox.osc.event.RefreshEvent;
 import com.github.tvbox.osc.server.ControlManager;
@@ -32,7 +32,7 @@ import java.util.Map;
 
 import me.jessyan.autosize.utils.AutoSizeUtils;
 
-public class PushActivity extends BaseActivity {
+public class PushActivity extends baseActivity {
     private ImageView ivQRCode;
     private TextView tvAddress;
 

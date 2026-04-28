@@ -1,12 +1,9 @@
 package com.github.tvbox.osc.ui.activity;
 
-import static com.github.tvbox.osc.ui.activity.SearchActivity.searchs;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
-import android.view.animation.BounceInterpolator;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.github.tvbox.osc.R;
 import com.github.tvbox.osc.api.ApiConfig;
-import com.github.tvbox.osc.base.BaseActivity;
+import com.github.tvbox.osc.base.baseActivity;
 import com.github.tvbox.osc.bean.AbsXml;
 import com.github.tvbox.osc.bean.Movie;
 import com.github.tvbox.osc.bean.SourceBean;
@@ -29,16 +26,10 @@ import com.github.tvbox.osc.ui.adapter.FastSearchAdapter;
 import com.github.tvbox.osc.ui.adapter.SearchWordAdapter;
 import com.github.tvbox.osc.util.FastClickCheckUtil;
 import com.github.tvbox.osc.util.HawkConfig;
-import com.github.tvbox.osc.util.HistoryHelper;
 import com.github.tvbox.osc.util.SearchHelper;
 import com.github.tvbox.osc.util.js.JSEngine;
 import com.github.tvbox.osc.viewmodel.SourceViewModel;
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
 import com.lzy.okgo.OkGo;
-import com.lzy.okgo.callback.AbsCallback;
-import com.lzy.okgo.model.Response;
 import com.orhanobut.hawk.Hawk;
 import com.owen.tvrecyclerview.widget.TvRecyclerView;
 import com.owen.tvrecyclerview.widget.V7GridLayoutManager;
@@ -48,7 +39,6 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
-import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -62,7 +52,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @date :2020/12/23
  * @description:
  */
-public class FastSearchActivity extends BaseActivity {
+public class FastSearchActivity extends baseActivity {
     private LinearLayout llLayout;
     private TextView mSearchTitle;
     private TvRecyclerView mGridView;
@@ -75,14 +65,12 @@ public class FastSearchActivity extends BaseActivity {
     private FastSearchAdapter searchAdapterFilter;
     private FastListAdapter spListAdapter;
     private String searchTitle = "";
-    public static String wBpic;
     private HashMap<String, String> spNames;
     private boolean isFilterMode = false;
     private String searchFilterKey = "";    // 过滤的key
     private HashMap<String, ArrayList<Movie.Video>> resultVods; // 搜索结果
     private List<String> quickSearchWord = new ArrayList<>();
     private HashMap<String, String> mCheckSources = null;
-    private final int thread = Integer.parseInt(HistoryHelper.getHistoryNumNamex(Hawk.get(HawkConfig.XIANC_NUM, 0)));
 
     private View.OnFocusChangeListener focusChangeListener = new View.OnFocusChangeListener() {
         @Override
@@ -124,7 +112,7 @@ public class FastSearchActivity extends BaseActivity {
     protected void onResume() {
         super.onResume();
         if (pauseRunnable != null && pauseRunnable.size() > 0) {
-            searchExecutorService = Executors.newFixedThreadPool(thread);
+            searchExecutorService = Executors.newFixedThreadPool(5);
             allRunCount.set(pauseRunnable.size());
             for (Runnable runnable : pauseRunnable) {
                 searchExecutorService.execute(runnable);
@@ -160,7 +148,7 @@ public class FastSearchActivity extends BaseActivity {
                 child.setFocusable(true);
                 child.setOnFocusChangeListener(focusChangeListener);
                 TextView t = (TextView) child;
-                if (t.getText() == "全部显示") {
+                if (t.getText() == "全部") {
                     t.requestFocus();
                 }
 //                if (child.isFocusable() && null == child.getOnFocusChangeListener()) {
@@ -183,10 +171,14 @@ public class FastSearchActivity extends BaseActivity {
         });
 
         mGridView.setHasFixedSize(true);
-        if(Hawk.get(HawkConfig.HOME_LSTIMG, 0) == 1) {
-            mGridView.setLayoutManager(new V7GridLayoutManager(this.mContext, 6));
-        } else{
-            mGridView.setLayoutManager(new V7GridLayoutManager(this.mContext, 5));
+        if(Hawk.get(HawkConfig.SEARCH_VIEW, 0) == 0) {
+            mGridView.setLayoutManager(new V7GridLayoutManager(this.mContext, 2));
+        }else {
+            if (Hawk.get(HawkConfig.HOME_LSTIMG, 0) == 1) {
+                mGridView.setLayoutManager(new V7GridLayoutManager(this.mContext, 6));
+            } else {
+                mGridView.setLayoutManager(new V7GridLayoutManager(this.mContext, 5));
+            }
         }
 
         searchAdapter = new FastSearchAdapter();
@@ -214,28 +206,14 @@ public class FastSearchActivity extends BaseActivity {
                 }
             }
         });
-
-        mGridView.setOnItemListener(new TvRecyclerView.OnItemListener() {
-            @Override
-            public void onItemPreSelected(TvRecyclerView parent, View itemView, int position) {
-                itemView.animate().scaleX(1.0f).scaleY(1.0f).setDuration(300).setInterpolator(new BounceInterpolator()).start();
+        if(Hawk.get(HawkConfig.SEARCH_VIEW, 0) == 0) {
+            mGridViewFilter.setLayoutManager(new V7GridLayoutManager(this.mContext, 2));
+        }else {
+            if (Hawk.get(HawkConfig.HOME_LSTIMG, 0) == 1) {
+                mGridViewFilter.setLayoutManager(new V7GridLayoutManager(this.mContext, 6));
+            } else {
+                mGridViewFilter.setLayoutManager(new V7GridLayoutManager(this.mContext, 5));
             }
-
-            @Override
-            public void onItemSelected(TvRecyclerView parent, View itemView, int position) {
-                itemView.animate().scaleX(1.01f).scaleY(1.01f).setDuration(300).setInterpolator(new BounceInterpolator()).start();
-            }
-
-            @Override
-            public void onItemClick(TvRecyclerView parent, View itemView, int position) {
-
-            }
-        });
-
-        if(Hawk.get(HawkConfig.HOME_LSTIMG, 0) == 1) {
-            mGridViewFilter.setLayoutManager(new V7GridLayoutManager(this.mContext, 6));
-        } else{
-            mGridViewFilter.setLayoutManager(new V7GridLayoutManager(this.mContext, 5));
         }
         searchAdapterFilter = new FastSearchAdapter();
         mGridViewFilter.setAdapter(searchAdapterFilter);
@@ -284,7 +262,7 @@ public class FastSearchActivity extends BaseActivity {
     }
 
     private void filterResult(String spName) {
-        if (spName == "全部显示") {
+        if (spName == "全部") {
             mGridView.setVisibility(View.VISIBLE);
             mGridViewFilter.setVisibility(View.GONE);
             return;
@@ -303,40 +281,43 @@ public class FastSearchActivity extends BaseActivity {
 
     private void fenci() {
         if (!quickSearchWord.isEmpty()) return; // 如果经有分词了，不再进行二次分词
+        quickSearchWord.addAll(SearchHelper.splitWords(searchTitle));
+        List<String> words = new ArrayList<>(new HashSet<>(quickSearchWord));
+        EventBus.getDefault().post(new RefreshEvent(RefreshEvent.TYPE_QUICK_SEARCH_WORD, words));
         // 分词
-        OkGo.<String>get("http://api.pullword.com/get.php?source=" + URLEncoder.encode(searchTitle) + "&param1=0&param2=0&json=1")
-                .tag("fenci")
-                .execute(new AbsCallback<String>() {
-                    @Override
-                    public String convertResponse(okhttp3.Response response) throws Throwable {
-                        if (response.body() != null) {
-                            return response.body().string();
-                        } else {
-                            throw new IllegalStateException("网络请求错误");
-                        }
-                    }
-
-                    @Override
-                    public void onSuccess(Response<String> response) {
-                        String json = response.body();
-                        quickSearchWord.clear();
-                        try {
-                            for (JsonElement je : new Gson().fromJson(json, JsonArray.class)) {
-                                quickSearchWord.add(je.getAsJsonObject().get("t").getAsString());
-                            }
-                        } catch (Throwable th) {
-                            th.printStackTrace();
-                        }
-                        quickSearchWord.addAll(SearchHelper.splitWords(searchTitle));
-                        List<String> words = new ArrayList<>(new HashSet<>(quickSearchWord));
-                        EventBus.getDefault().post(new RefreshEvent(RefreshEvent.TYPE_QUICK_SEARCH_WORD, words));
-                    }
-
-                    @Override
-                    public void onError(Response<String> response) {
-                        super.onError(response);
-                    }
-                });
+//        OkGo.<String>get("http://api.pullword.com/get.php?source=" + URLEncoder.encode(searchTitle) + "&param1=0&param2=0&json=1")
+//                .tag("fenci")
+//                .execute(new AbsCallback<String>() {
+//                    @Override
+//                    public String convertResponse(okhttp3.Response response) throws Throwable {
+//                        if (response.body() != null) {
+//                            return response.body().string();
+//                        } else {
+//                            throw new IllegalStateException("网络请求错误");
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onSuccess(Response<String> response) {
+//                        String json = response.body();
+//                        quickSearchWord.clear();
+//                        try {
+//                            for (JsonElement je : new Gson().fromJson(json, JsonArray.class)) {
+//                                quickSearchWord.add(je.getAsJsonObject().get("t").getAsString());
+//                            }
+//                        } catch (Throwable th) {
+//                            th.printStackTrace();
+//                        }
+//                        quickSearchWord.addAll(SearchHelper.splitWords(searchTitle));
+//                        List<String> words = new ArrayList<>(new HashSet<>(quickSearchWord));
+//                        EventBus.getDefault().post(new RefreshEvent(RefreshEvent.TYPE_QUICK_SEARCH_WORD, words));
+//                    }
+//
+//                    @Override
+//                    public void onError(Response<String> response) {
+//                        super.onError(response);
+//                    }
+//                });
     }
 
     private void initData() {
@@ -344,7 +325,6 @@ public class FastSearchActivity extends BaseActivity {
         Intent intent = getIntent();
         if (intent != null && intent.hasExtra("title")) {
             String title = intent.getStringExtra("title");
-            wBpic = intent.getStringExtra("pic");
             showLoading();
             search(title);
         }
@@ -374,7 +354,8 @@ public class FastSearchActivity extends BaseActivity {
             }
         }
         if (mSearchTitle != null) {
-            mSearchTitle.setText(String.format("搜索站点%d/%d", resultVods.size(), spNames.size()));
+//            mSearchTitle.setText(String.format("搜索(%d/%d)", resultVods.size(), startSearchNum));
+            mSearchTitle.setText(String.format("已搜索( %d )", resultVods.size()));
         }
     }
 
@@ -391,21 +372,20 @@ public class FastSearchActivity extends BaseActivity {
         mGridViewFilter.setVisibility(View.GONE);
         searchAdapter.setNewData(new ArrayList<>());
         searchAdapterFilter.setNewData(new ArrayList<>());
-        if (searchs) {
-            List<String> list = Hawk.get(HawkConfig.SEARCH_HISTORY, new ArrayList<>());
-            if (list.size() > 20) {
-                list.remove(list.size() - 1);
-            }
-            if (!list.contains(title)) {
-                list.add(0, title);
-            }
-            Hawk.put(HawkConfig.SEARCH_HISTORY, list);
-        }
+
         spListAdapter.reset();
         resultVods.clear();
         searchFilterKey = "";
         isFilterMode = false;
         spNames.clear();
+
+        //写入历史记录
+        ArrayList<String> history = Hawk.get(HawkConfig.SEARCH_HISTORY, new ArrayList<String>());
+        if (!history.contains(title))
+            history.add(0, title);
+        if (history.size() > 10)
+            history.remove(10);
+        Hawk.put(HawkConfig.SEARCH_HISTORY, history);
 
         searchResult();
     }
@@ -427,7 +407,7 @@ public class FastSearchActivity extends BaseActivity {
             searchAdapterFilter.setNewData(new ArrayList<>());
             allRunCount.set(0);
         }
-        searchExecutorService = Executors.newFixedThreadPool(thread);
+        searchExecutorService = Executors.newFixedThreadPool(5);
         List<SourceBean> searchRequestList = new ArrayList<>();
         searchRequestList.addAll(ApiConfig.get().getSourceBeanList());
         SourceBean home = ApiConfig.get().getHomeSourceBean();
@@ -439,7 +419,7 @@ public class FastSearchActivity extends BaseActivity {
         ArrayList<String> hots = new ArrayList<>();
 
         spListAdapter.setNewData(hots);
-        spListAdapter.addData("全部显示");
+        spListAdapter.addData("全部");
         for (SourceBean bean : searchRequestList) {
             if (!bean.isSearchable()) {
                 continue;
@@ -451,6 +431,7 @@ public class FastSearchActivity extends BaseActivity {
             this.spNames.put(bean.getName(), bean.getKey());
             allRunCount.incrementAndGet();
         }
+
         for (String key : siteKey) {
             searchExecutorService.execute(new Runnable() {
                 @Override
@@ -517,6 +498,7 @@ public class FastSearchActivity extends BaseActivity {
                     lastSourceKey = this.addWordAdapterIfNeed(video.sourceKey);
                 }
             }
+
             if (searchAdapter.getData().size() > 0) {
                 searchAdapter.addData(data);
             } else {

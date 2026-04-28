@@ -1,7 +1,7 @@
 package com.github.tvbox.osc.ui.dialog;
 
-import static com.github.tvbox.osc.base.BaseActivity.drawableLinearLayout;
-import static com.github.tvbox.osc.base.BaseActivity.drawableTextView;
+import static com.github.tvbox.osc.base.baseActivity.drawableLinearLayout;
+import static com.github.tvbox.osc.base.baseActivity.drawableTextView;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;

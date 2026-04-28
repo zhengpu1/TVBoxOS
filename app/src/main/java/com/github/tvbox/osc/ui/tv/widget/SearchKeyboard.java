@@ -1,6 +1,6 @@
 package com.github.tvbox.osc.ui.tv.widget;
 
-import static com.github.tvbox.osc.base.BaseActivity.drawableFrameLayout;
+import static com.github.tvbox.osc.base.baseActivity.drawableFrameLayout;
 
 import android.content.Context;
 import android.util.AttributeSet;

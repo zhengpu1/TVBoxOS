@@ -44,7 +44,7 @@ import com.github.catvod.crawler.Spider;
 import com.github.tvbox.osc.R;
 import com.github.tvbox.osc.api.ApiConfig;
 import com.github.tvbox.osc.base.App;
-import com.github.tvbox.osc.base.BaseActivity;
+import com.github.tvbox.osc.base.baseActivity;
 import com.github.tvbox.osc.bean.ParseBean;
 import com.github.tvbox.osc.bean.SourceBean;
 import com.github.tvbox.osc.bean.Subtitle;
@@ -115,7 +115,7 @@ import tv.danmaku.ijk.media.player.IjkTimedText;
 import xyz.doikki.videoplayer.player.AbstractPlayer;
 import xyz.doikki.videoplayer.player.ProgressManager;
 
-public class PlayActivity extends BaseActivity {
+public class PlayActivity extends baseActivity {
     private MyVideoView mVideoView;
     private TextView mPlayLoadTip;
     private ImageView mPlayLoadErr;
@@ -178,12 +178,14 @@ public class PlayActivity extends BaseActivity {
         ProgressManager progressManager = new ProgressManager() {
             @Override
             public void saveProgress(String url, long progress) {
-                CacheManager.save(MD5.string2MD5(url), progress);
+                String urls = mVodInfo.name + "_" + mVodInfo.playIndex;
+                CacheManager.save(MD5.string2MD5(urls), progress);
             }
 
             @Override
             public long getSavedProgress(String url) {
-                return PlayActivity.this.getSavedProgress(url);
+                String urls = mVodInfo.name + "_" + mVodInfo.playIndex;
+                return PlayActivity.this.getSavedProgress(urls);
             }
         };
         mVideoView.setProgressManager(progressManager);
@@ -231,7 +233,10 @@ public class PlayActivity extends BaseActivity {
             public void errReplay() {
                 errorWithRetry("视频播放出错", false);
             }
-
+            @Override
+            public void startPlayUrl(String url, HashMap<String, String> headers) {
+                //goPlayUrl(url, headers);
+            }
             @Override
             public void selectSubtitle() {
                 try {
@@ -525,13 +530,14 @@ public class PlayActivity extends BaseActivity {
             url="http://home.jundie.top:666/unBom.php?m3u8="+url;
         }
         final String finalUrl = url;
+
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 stopParse();
                 if (mVideoView != null) {
                     mVideoView.release();
-
+                    mVideoView.setProgressKey(mVodInfo.name + "_" + mVodInfo.playIndex);
                     if (finalUrl != null) {
                         String url =finalUrl;
                         try {
@@ -561,6 +567,8 @@ public class PlayActivity extends BaseActivity {
                         }
                        // PlayerHelper.updateCfg(mVideoView, mVodPlayerCfg);
                         mVideoView.setProgressKey(progressKey);
+                        mController.setCurrentVideoKey(finalUrl);
+
                         if (headers != null) {
                             mVideoView.setUrl(url, headers);
                         } else {

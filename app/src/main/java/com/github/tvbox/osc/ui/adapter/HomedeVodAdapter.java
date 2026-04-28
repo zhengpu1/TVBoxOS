@@ -1,6 +1,6 @@
 package com.github.tvbox.osc.ui.adapter;
 
-import static com.github.tvbox.osc.base.BaseActivity.drawableFrameLayout;
+import static com.github.tvbox.osc.base.baseActivity.drawableFrameLayout;
 
 import android.text.TextUtils;
 import android.view.View;
@@ -47,18 +47,19 @@ public class HomedeVodAdapter extends BaseQuickAdapter<Movie.Video, BaseViewHold
         FrameLayout tvHotvod = helper.getView(R.id.Hotvod);
         FrameLayout[] str = { tvHotvod };
         drawableFrameLayout(str, 9);
-        if (!TextUtils.isEmpty(item.picthumb)) {
-            item.picthumb=item.picthumb.trim();
-                Picasso.get()
-                        .load(DefaultConfig.checkReplaceProxy(item.picthumb))
-                        .transform(new RoundTransformation(MD5.string2MD5(item.picthumb))
-                                .centerCorp(true)
-                                .override(AutoSizeUtils.mm2px(mContext, 300), AutoSizeUtils.mm2px(mContext, 180))
-                                .roundRadius(AutoSizeUtils.mm2px(mContext, 5), RoundTransformation.RoundType.ALL))
-                        .placeholder(R.drawable.img_loading_placeholder)
-                        .noFade()
-                        .error(R.drawable.img_loading_placeholder)
-                        .into(ivThumb);
+        // 先 trim 再判断！顺序必须反过来！
+        String thumbUrl = item.picthumb == null ? "" : item.picthumb.trim();
+        if (!TextUtils.isEmpty(thumbUrl)) {
+            Picasso.get()
+                    .load(DefaultConfig.checkReplaceProxy(thumbUrl))
+                    .transform(new RoundTransformation(MD5.string2MD5(thumbUrl))
+                            .centerCorp(true)
+                            .override(AutoSizeUtils.mm2px(mContext, 300), AutoSizeUtils.mm2px(mContext, 180))
+                            .roundRadius(AutoSizeUtils.mm2px(mContext, 5), RoundTransformation.RoundType.ALL))
+                    .placeholder(R.drawable.img_loading_placeholder)
+                    .noFade()
+                    .error(R.drawable.img_loading_placeholder)
+                    .into(ivThumb);
         } else {
             ivThumb.setImageResource(R.drawable.img_loading_placeholder);
         }

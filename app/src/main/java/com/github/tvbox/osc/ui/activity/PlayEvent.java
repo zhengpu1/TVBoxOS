@@ -2,10 +2,13 @@ package com.github.tvbox.osc.ui.activity;
 
 import com.github.tvbox.osc.bean.VodInfo;
 
-import java.io.Serializable;
+public class PlayEvent {
+    private VodInfo vodInfo;
 
-public class PlayEvent implements Serializable {
-    public VodInfo vodInfo;
+    public PlayEvent(VodInfo vodInfo) {
+        this.vodInfo = vodInfo;
+    }
+
     public VodInfo getVodInfo() {
         return vodInfo;
     }

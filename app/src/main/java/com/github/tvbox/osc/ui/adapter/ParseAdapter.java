@@ -1,6 +1,6 @@
 package com.github.tvbox.osc.ui.adapter;
 
-import static com.github.tvbox.osc.base.BaseActivity.getColorByAttrId;
+import static com.github.tvbox.osc.base.baseActivity.getColorByAttrId;
 
 import android.graphics.Color;
 import android.view.View;

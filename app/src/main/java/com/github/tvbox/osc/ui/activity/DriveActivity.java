@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.DiffUtil;
 
 import com.github.tvbox.osc.R;
 import com.github.tvbox.osc.base.App;
-import com.github.tvbox.osc.base.BaseActivity;
+import com.github.tvbox.osc.base.baseActivity;
 import com.github.tvbox.osc.bean.DriveFolderFile;
 import com.github.tvbox.osc.bean.VodInfo;
 import com.github.tvbox.osc.cache.RoomDataManger;
@@ -65,7 +65,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import me.jessyan.autosize.utils.AutoSizeUtils;
 
-public class DriveActivity extends BaseActivity {
+public class DriveActivity extends baseActivity {
 
     private TextView txtTitle;
     private TvRecyclerView mGridView;

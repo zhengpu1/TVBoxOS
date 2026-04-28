@@ -12,6 +12,7 @@ import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
@@ -37,8 +38,8 @@ import androidx.viewpager.widget.ViewPager;
 import com.github.tvbox.osc.R;
 import com.github.tvbox.osc.api.ApiConfig;
 import com.github.tvbox.osc.base.App;
-import com.github.tvbox.osc.base.BaseActivity;
 import com.github.tvbox.osc.base.BaseLazyFragment;
+import com.github.tvbox.osc.base.baseActivity;
 import com.github.tvbox.osc.bean.AbsSortXml;
 import com.github.tvbox.osc.bean.MovieSort;
 import com.github.tvbox.osc.bean.SourceBean;
@@ -57,6 +58,7 @@ import com.github.tvbox.osc.ui.tv.widget.FixedSpeedScroller;
 import com.github.tvbox.osc.ui.tv.widget.ViewObj;
 import com.github.tvbox.osc.util.AppManager;
 import com.github.tvbox.osc.util.DefaultConfig;
+import com.github.tvbox.osc.util.FastClickCheckUtil;
 import com.github.tvbox.osc.util.FileUtils;
 import com.github.tvbox.osc.util.HawkConfig;
 import com.github.tvbox.osc.util.LOG;
@@ -82,7 +84,7 @@ import java.util.List;
 
 import me.jessyan.autosize.utils.AutoSizeUtils;
 
-public class HomeActivity extends BaseActivity {
+public class HomeActivity extends baseActivity {
     private LinearLayout topLayout;
     private LinearLayout contentLayout;
     private TextView tvDate;
@@ -108,6 +110,9 @@ public class HomeActivity extends BaseActivity {
     public View sortFocusView = null;
     private Handler mHandler = new Handler();
     private long mExitTime = 0;
+    private TextView tViewd;
+    private TextView tViewk;
+    private TextView tViewc;
     View lastView = null;
     private Runnable mRunnable = new Runnable() {
         @SuppressLint({"DefaultLocale", "SetTextI18n"})
@@ -155,6 +160,9 @@ public class HomeActivity extends BaseActivity {
         this.contentLayout = findViewById(R.id.contentLayout);
         this.mGridView = findViewById(R.id.mGridView);
         this.mViewPager = findViewById(R.id.mViewPager);
+        this.tViewd = findViewById(R.id.tViewd);
+        this.tViewk = findViewById(R.id.tViewk);
+        this.tViewc = findViewById(R.id.tViewc);
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -174,7 +182,7 @@ public class HomeActivity extends BaseActivity {
                     lastView.animate().scaleX(1.0f).scaleY(1.0f).setDuration(300).start();
                     TextView textView = lastView.findViewById(R.id.tvTitle);
                     textView.getPaint().setFakeBoldText(false);
-                    textView.setTextColor(HomeActivity.this.getResources().getColor(R.color.color_BBFFFFFF));
+                  //  textView.setTextColor(HomeActivity.this.getResources().getColor(R.color.color_BBFFFFFF));
                     lastView.findViewById(R.id.tvFilter).setVisibility(View.GONE);
                 }
                 lastView = curView;
@@ -245,76 +253,38 @@ public class HomeActivity extends BaseActivity {
                 if (itemView != null && currentSelected == position) {
                     BaseLazyFragment baseLazyFragment = fragments.get(currentSelected);
                     if ((baseLazyFragment instanceof GridFragment) && !sortAdapter.getItem(position).filters.isEmpty()) {// 弹出筛选
-                        ((GridFragment) baseLazyFragment).showFilter();
+                        ((GridFragment) baseLazyFragment).toggleFilterBar();
                     } else if (baseLazyFragment instanceof UserFragment) {
                         showSiteSwitch();
                     }
                 }
             }
         });
-        this.mGridView.setOnInBorderKeyEventListener(new TvRecyclerView.OnInBorderKeyEventListener() {
-            public boolean onInBorderKeyEvent(int direction, View view) {
-                if(direction == View.FOCUS_UP){
-                    BaseLazyFragment baseLazyFragment = fragments.get(sortFocused);
-                    if ((baseLazyFragment instanceof GridFragment) ) {// 弹出筛选
-                        ((GridFragment) baseLazyFragment).forceRefresh();
-                    }
-                }
-                if (direction != View.FOCUS_DOWN) {
-                    return false;
-                }
-                isDownOrUp = true;
+        this.mGridView.setOnInBorderKeyEventListener((direction, view) -> {
+            if(direction == View.FOCUS_UP){
                 BaseLazyFragment baseLazyFragment = fragments.get(sortFocused);
-                if (!(baseLazyFragment instanceof GridFragment)) {
-                    return false;
+                if ((baseLazyFragment instanceof GridFragment) ) {// 弹出筛选
+                    ((GridFragment) baseLazyFragment).forceRefresh();
                 }
-                if (!((GridFragment) baseLazyFragment).isLoad()) {
-                    return true;
-                }
+            }
+            if (direction != View.FOCUS_DOWN) {
                 return false;
             }
+            isDownOrUp = true;
+            BaseLazyFragment baseLazyFragment = fragments.get(sortFocused);
+            if (!(baseLazyFragment instanceof GridFragment)) {
+                return false;
+            }
+            if (!((GridFragment) baseLazyFragment).isLoad()) {
+                return true;
+            }
+            return false;
         });
 
         tvName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                    // ==============================================
-                    // 🔥 终极清缓存：不依赖任何方法，纯系统删除，必生效
-                    // ==============================================
-
-                    // 1. 清除内部缓存目录（必删）
-                    File cacheDir = getCacheDir();
-                    FileUtils.recursiveDelete(cacheDir);
-
-                    // 2. 清除外部缓存目录（必删）
-                    File externalCache = getExternalCacheDir();
-                    if (externalCache != null) {
-                        FileUtils.recursiveDelete(externalCache);
-                    }
-
-                    // 3. 强制删除 cache.db 数据库（VodInfo 缓存所在）
-                    // 直接删文件，不调用任何数据库方法，必成功
-                    try {
-                        String dbName = "tvbox.v3.db";
-                        File dbFile = getDatabasePath(dbName);
-                        if (dbFile.exists()) {
-                            dbFile.delete();
-                        }
-                        File dbShm = new File(dbFile.getParent(), dbName + "-journal");
-                        File dbWal = new File(dbFile.getParent(), dbName + "-wal");
-                        if (dbShm.exists()) dbShm.delete();
-                        if (dbWal.exists()) dbWal.delete();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                FileUtils.cleanPlayerCache();
-                Toast.makeText(HomeActivity.this, "缓存已清除", Toast.LENGTH_SHORT).show();
-                reloadHome();
+                onClickClearCache(v);
             }
         });
         tvName.setOnLongClickListener(new View.OnLongClickListener() {
@@ -465,6 +435,9 @@ public class HomeActivity extends BaseActivity {
                 LOG.e("有存储权限");
             } else {
                 LOG.e("无存储权限");
+            }
+            if (!useCacheConfig && Hawk.get(HawkConfig.HOME_LIVE, false)) {
+                jumpActivity(LivePlayActivity.class);
             }
             return;
         }
@@ -814,11 +787,6 @@ public class HomeActivity extends BaseActivity {
                     ObjectAnimator.ofFloat(this.topLayout, "alpha", 1.0f, 0.0f));
             animatorSet.setDuration(250);
             animatorSet.start();
-            tvName.setFocusable(false);
-            tvFind.setFocusable(false);
-            tvAPush.setFocusable(false);
-            tvStyle.setFocusable(false);
-            tvMenu.setFocusable(false);
             return;
         }
         if (!hide && topHide == 1) {
@@ -831,13 +799,6 @@ public class HomeActivity extends BaseActivity {
                     ObjectAnimator.ofFloat(this.topLayout, "alpha", 0.0f, 1.0f));
             animatorSet.setDuration(250);
             animatorSet.start();
-            animatorSet.start();
-            tvName.setFocusable(true);
-            tvFind.setFocusable(true);
-            tvAPush.setFocusable(true);
-            tvStyle.setFocusable(true);
-            tvMenu.setFocusable(true);
-            return;
         }
     }
 
@@ -891,6 +852,61 @@ public class HomeActivity extends BaseActivity {
             dialog.show();
         }
     }
+    public void onClickClearCache(View v) {
+        FastClickCheckUtil.check(v);
+
+        // 第一步：直接关闭所有数据库连接 + 释放资源（最关键！）
+        try {
+            SQLiteDatabase.releaseMemory();
+            SQLiteDatabase db = null;
+            try {
+                db = openOrCreateDatabase("tvbox.v3.db", Context.MODE_PRIVATE, null);
+                db.close();
+            } catch (Exception e) {
+                // 忽略关闭异常
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // 第二步：后台删除所有缓存 + 数据库
+        new Thread(() -> {
+            try {
+                // 删除内部缓存
+                File cacheDir = new File(FileUtils.getCachePath());
+                if (cacheDir.exists()) {
+                    FileUtils.recursiveDelete(cacheDir);
+                }
+                // 删除外部缓存
+                File externalCache = getExternalCacheDir();
+                if (externalCache != null) {
+                    FileUtils.recursiveDelete(externalCache);
+                }
+
+                // 强制删除数据库（不检查、不等待、直接删）
+                try {
+                    String dbName = "tvbox.v3.db";
+                    File dbFile = getDatabasePath(dbName);
+                    if (dbFile != null && dbFile.exists()) dbFile.delete();
+
+                    File dbJournal = new File(dbFile.getParent(), dbName + "-journal");
+                    File dbWal = new File(dbFile.getParent(), dbName + "-wal");
+                    File dbShm = new File(dbFile.getParent(), dbName + "-shm");
+
+                    if (dbJournal.exists()) dbJournal.delete();
+                    if (dbWal.exists()) dbWal.delete();
+                    if (dbShm.exists()) dbShm.delete();
+                } catch (Exception e) {}
+
+            } catch (Exception e) {}
+
+            // 最后：重启APP（唯一能彻底避免只读报错的方式）
+            runOnUiThread(() -> {
+                Toast.makeText(HomeActivity.this, "缓存已清空，正在重启", Toast.LENGTH_LONG).show();
+                restartApp();
+            });
+        }).start();
+    }
     void reloadHome() {
         Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -900,6 +916,24 @@ public class HomeActivity extends BaseActivity {
         HomeActivity.this.startActivity(intent);
     }
     private void restartApp() {
+        try {
+            // 清理资源
+            ControlManager.get().stopServer();
+            EventBus.getDefault().unregister(this);
+
+            // 重启APP
+            Intent intent = getPackageManager().getLaunchIntentForPackage(getPackageName());
+            if (intent != null) {
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+
+            // 杀死当前进程（彻底重置数据库状态）
+            android.os.Process.killProcess(android.os.Process.myPid());
+            System.exit(0);
+        } catch (Exception e) {}
+    }
+    private void restartApp888() {
         Context context = getContext();
         if (context != null) {
             Intent i = context.getPackageManager().getLaunchIntentForPackage(context.getPackageName());
