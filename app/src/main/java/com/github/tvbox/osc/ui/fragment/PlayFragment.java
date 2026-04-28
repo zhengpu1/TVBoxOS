@@ -138,8 +138,10 @@ public class PlayFragment extends BaseLazyFragment {
     private SourceViewModel sourceViewModel;
     private Handler mHandler;
     private String videoURL;
+    public boolean forceReplayToStart = false;
     private final long videoDuration = -1;
-
+    public static long PLAY_LAST_POSITION = 0;
+    public static final String MY_PLAY_PROGRESS = "my_play_progress";
     @Override
     protected int getLayoutResID() {
         return R.layout.activity_play;
@@ -169,27 +171,42 @@ public class PlayFragment extends BaseLazyFragment {
         });
     }
     public long getSavedProgress(String url) {
-        int st = 0;
-        if(mVodPlayerCfg.optInt("st", 0) > 1)
-            st = mVodPlayerCfg.optInt("st", 0);
-        long skip = st * 1000L;
-        Object theCache=CacheManager.getCache(MD5.string2MD5(url));
-        if (theCache == null) {
-            return skip;
-        }
-        long rec = 0;
-        if (theCache instanceof Long) {
-            rec = (Long) theCache;
-        } else if (theCache instanceof String) {
+        // 1. 用 剧名+集数 作为 key，不靠 URL
+        String key = mVodInfo.name + "_" + mVodInfo.playIndex;
+        Object cache = CacheManager.getCache(MD5.string2MD5(key));
+
+        // 2. 读取本地保存的进度
+        long savedProgress = 0;
+        if (cache != null) {
             try {
-                rec = Long.parseLong((String) theCache);
-            } catch (NumberFormatException e) {
-                System.out.println("String value is not a valid long.");
+                if (cache instanceof Long) {
+                    savedProgress = (Long) cache;
+                } else if (cache instanceof String) {
+                    savedProgress = Long.parseLong((String) cache);
+                }
+            } catch (Exception e) {
+                savedProgress = 0;
             }
-        } else {
-            System.out.println("Value cannot be converted to long.");
         }
-        return Math.max(rec, skip);
+
+        // 3. 读取片头跳过时间
+        int stSecond = mVodPlayerCfg.optInt("st", 0);
+        long skipProgress = stSecond * 1000L;
+
+        // 4. 规则：
+        // - 有进度 → 读进度
+        // - 没进度 → 跳片头
+        if (forceReplayToStart) {
+            forceReplayToStart = false;
+            return skipProgress;
+        }
+
+// 正常逻辑：有进度读进度，没进度读片头跳过
+        if (savedProgress > 0) {
+            return savedProgress;
+        } else {
+            return skipProgress;
+        }
     }
     public int getSavedProgress9(String url) {
         // 从 SharedPreferences 中读取进度
@@ -221,10 +238,14 @@ public class PlayFragment extends BaseLazyFragment {
         ProgressManager progressManager = new ProgressManager() {
             @Override
             public void saveProgress(String url, long progress) {
-                CacheManager.save(MD5.string2MD5(url), progress);
+                // 用 剧名+集数 保存，不靠 URL，完美换源续播
+                String key = mVodInfo.name + "_" + mVodInfo.playIndex;
+                CacheManager.save(MD5.string2MD5(key), progress);
             }
+
             @Override
             public long getSavedProgress(String url) {
+                // 统一走下方的正确读取逻辑
                 return PlayFragment.this.getSavedProgress(url);
             }
         };
@@ -265,7 +286,12 @@ public class PlayFragment extends BaseLazyFragment {
             @Override
             public void replay(boolean replay) {
                 autoRetryCount = 0;
-                play(replay);
+                if(replay){
+                    forceReplayToStart = true;
+                        play(true);
+                }else {
+                    play(false);
+                }
             }
 
             @Override
@@ -273,6 +299,10 @@ public class PlayFragment extends BaseLazyFragment {
                 errorWithRetry("视频播放出错999", false);
             }
 
+            @Override
+            public void startPlayUrl(String url, HashMap<String, String> headers) {
+                //goPlayUrl(url, headers);
+            }
             @Override
             public void selectSubtitle() {
                 try {
@@ -294,12 +324,13 @@ public class PlayFragment extends BaseLazyFragment {
 
             @Override
             public void prepared() {
+
                 initSubtitleView();
             }
         });
         mVideoView.setVideoController(mController);
-    }
 
+    }
     //设置字幕
     void setSubtitle(String path) {
         if (path != null && path .length() > 0) {
@@ -616,6 +647,7 @@ public class PlayFragment extends BaseLazyFragment {
                 stopParse();
                 if (mVideoView != null) {
                     mVideoView.release();
+                    mVideoView.setProgressKey(mVodInfo.name + "_" + mVodInfo.playIndex);
                     if (finalUrl != null) {
                         String url = finalUrl;
                         try {
@@ -634,7 +666,6 @@ public class PlayFragment extends BaseLazyFragment {
                             e.printStackTrace();
                         }
                         hideTip();
-
                         if (url.startsWith("data:application/dash+xml;base64,")) {
                             PlayerHelper.updateCfg(mVideoView, mVodPlayerCfg, 2);
                             App.getInstance().setDashData(url.split("base64,")[1]);
@@ -884,6 +915,17 @@ public class PlayFragment extends BaseLazyFragment {
     @Override
     public void onPause() {
         super.onPause();
+        // ✅ 换源/切解析/退出 都会走这里，100%能读到进度
+        try {
+            // 🔥 这是你项目里【最稳、永远能拿到真实进度】的写法
+            AbstractPlayer mediaPlayer = mVideoView.getMediaPlayer();
+            if (mediaPlayer != null) {
+                String progressKey = "play_progress_" + mVodInfo.name + "_" + mVodInfo.playIndex;
+                Hawk.put(progressKey, mediaPlayer.getCurrentPosition());
+            }
+        } catch (Exception e) {
+            // 防崩溃
+        }
         if (mVideoView != null) {
             mVideoView.pause();
         }
@@ -1214,11 +1256,11 @@ public class PlayFragment extends BaseLazyFragment {
                     @Override
                     public void onSuccess(Response<String> response) {
                         //  Hawk.put(HawkConfig.OPENING_AND_ENDING_CREDITS, response.body());
-                       // EventBus.getDefault().post(new RefreshEvent(RefreshEvent.TYPE_OPENING_AND_ENDING, response.body()));
+                        EventBus.getDefault().post(new RefreshEvent(RefreshEvent.TYPE_OPENING_AND_ENDING, response.body()));
                         // VodController myClassInstance = new VodController(mContext);
                         // 使用实例调用非静态方法
                         // myClassInstance.Openingcredits(response.body());
-                        VodController.Openingcredits(response.body());
+                        //VodController.Openingcredits(response.body());
                     }
 
                     @Override
