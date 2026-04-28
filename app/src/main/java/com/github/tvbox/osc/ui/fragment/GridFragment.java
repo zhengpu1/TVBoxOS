@@ -1,7 +1,9 @@
 package com.github.tvbox.osc.ui.fragment;
 
 import android.animation.ObjectAnimator;
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.util.TypedValue;
@@ -46,6 +48,7 @@ import com.owen.tvrecyclerview.widget.V7LinearLayoutManager;
 import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Stack;
 
 /**
@@ -351,10 +354,22 @@ public class GridFragment extends BaseLazyFragment {
         LayoutInflater inflater = LayoutInflater.from(context);
         assert context != null;
         final int defaultColor = ContextCompat.getColor(context, R.color.color_FFFFFF);
-        final int selectedColor = ContextCompat.getColor(context, R.color.color_00FF0A);
+        @SuppressLint("Recycle") TypedArray a = getContext().obtainStyledAttributes(R.styleable.themeColor);
+        final int selectedColor = a.getColor(R.styleable.themeColor_color_theme, 0);
+
+        // ========== 修复核心 1 ==========
+        if (sortData == null) {
+            sortData = new MovieSort.SortData();
+        }
+        // ========== 修复核心 2：filters 判空 + 初始化 ==========
+        if (sortData.filters == null) {
+            sortData.filters = new ArrayList<>();
+        }
+
         // 遍历过滤条件数据
         for (MovieSort.SortFilter filter : sortData.filters) {
             View line = inflater.inflate(R.layout.item_grid_filter, filterRoot, false);
+
             TvRecyclerView gridView = line.findViewById(R.id.mFilterKv);
             gridView.setHasFixedSize(true);
             GridFilterKVAdapter adapter = new GridFilterKVAdapter();
@@ -365,19 +380,18 @@ public class GridFragment extends BaseLazyFragment {
                     TypedValue.COMPLEX_UNIT_DIP, 20, context.getResources().getDisplayMetrics()); // 20dp 行间距
             int horizontalSpace = (int) TypedValue.applyDimension(
                     TypedValue.COMPLEX_UNIT_DIP, 10, context.getResources().getDisplayMetrics()); // 30dp 列间距
+
             gridView.addItemDecoration(new RecyclerView.ItemDecoration() {
                 @Override
                 public void getItemOffsets(@NonNull Rect outRect, @NonNull View view,
                                            @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
                     int position = parent.getChildAdapterPosition(view);
-                    int spanCount = 0; // 你实际的行数（比如2行剧集）
+                    int spanCount = 0;
                     RecyclerView.LayoutManager layoutManager = parent.getLayoutManager();
                     if (layoutManager instanceof GridLayoutManager) {
                         spanCount = ((GridLayoutManager) layoutManager).getSpanCount();
                     }
-                    // 列间距
                     outRect.right = horizontalSpace;
-                    // 行间距
                     if (position >= spanCount) {
                         outRect.top = verticalSpace;
                     }
@@ -387,25 +401,26 @@ public class GridFragment extends BaseLazyFragment {
             final ArrayList<String> values = new ArrayList<>(filter.values.keySet());
             final ArrayList<String> keys = new ArrayList<>(filter.values.values());
             adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
-                // 用于记录上一次选中的 view
                 View previousSelectedView = null;
                 @Override
                 public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                    // ========== 修复核心 3：filterSelect 也判空 ==========
+                    if (sortData.filterSelect == null) {
+                        sortData.filterSelect = new HashMap<>();
+                    }
                     String currentSelection = sortData.filterSelect.get(key);
                     String newSelection = keys.get(position);
                     if (currentSelection == null || !currentSelection.equals(newSelection)) {
-                        // 更新选中状态
                         sortData.filterSelect.put(key, newSelection);
                         updateViewStyle(view, selectedColor, true);
                         if (previousSelectedView != null) {
-                            updateViewStyle(previousSelectedView, defaultColor, true);
+                            updateViewStyle(previousSelectedView, defaultColor, false);
                         }
                         previousSelectedView = view;
                     } else {
-                        // 取消选中
                         sortData.filterSelect.remove(key);
                         if (previousSelectedView != null) {
-                            updateViewStyle(previousSelectedView, defaultColor, true);
+                            updateViewStyle(previousSelectedView, defaultColor, false);
                         }
                         previousSelectedView = null;
                     }

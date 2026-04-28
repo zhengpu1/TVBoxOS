@@ -16,12 +16,10 @@ import androidx.recyclerview.widget.DiffUtil;
 
 import com.github.tvbox.osc.R;
 import com.github.tvbox.osc.api.ApiConfig;
-import com.github.tvbox.osc.base.baseActivity;
 import com.github.tvbox.osc.base.BaseLazyFragment;
+import com.github.tvbox.osc.base.baseActivity;
 import com.github.tvbox.osc.bean.IJKCode;
 import com.github.tvbox.osc.bean.SourceBean;
-import com.github.tvbox.osc.event.RefreshEvent;
-import com.github.tvbox.osc.player.thirdparty.RemoteTVBox;
 import com.github.tvbox.osc.ui.activity.HomeActivity;
 import com.github.tvbox.osc.ui.activity.SettingActivity;
 import com.github.tvbox.osc.ui.adapter.ApiHistoryDialogAdapter;
@@ -90,6 +88,7 @@ public class ModelSettingFragment extends BaseLazyFragment {
     private TextView tvFastSearchText;
     private TextView tvIjkCachePlay;
     private TextView tvTheme;
+    private TextView tvRemote;
     private TextView tvVersion;
     private TextView tvPwet;
     private TextView tvPtst;
@@ -117,6 +116,7 @@ public class ModelSettingFragment extends BaseLazyFragment {
         tvShowPreviewText = findViewById(R.id.showPreviewText);
         tvShowPreviewText.setText(Hawk.get(HawkConfig.SHOW_PREVIEW, true) ? "开启" : "关闭");
         tvPicsize = findViewById(R.id.tvPicsize);
+        tvRemote = findViewById(R.id.remoteTv);
         tvPicsize.setText(Hawk.get(HawkConfig.PIC_SIZE, false) ? "横向" : "纵向");
         tvDebugOpen = findViewById(R.id.tvDebugOpen);
         tvParseWebView = findViewById(R.id.tvParseWebView);
@@ -137,6 +137,7 @@ public class ModelSettingFragment extends BaseLazyFragment {
         tvHomeLive.setText(Hawk.get(HawkConfig.HOME_LIVE, false) ? "开" : "关");
         tvPtst = findViewById(R.id.tvPtst);
         tvPtst.setText(Hawk.get(HawkConfig.HOME_PTST_TUMM, false) ? "开" : "关");
+        tvRemote.setText(Hawk.get(HawkConfig.FILTER_LOCATION, false) ? "顶部" : "底部");
         tvPwet = findViewById(R.id.tvPwet);
         tvPwet.setText(Hawk.get(HawkConfig.HOME_PWET_TUMM, false) ? "开" : "关");
         tvDebugOpen.setText(Hawk.get(HawkConfig.DEBUG_OPEN, false) ? "已打开" : "已关闭");
@@ -813,7 +814,6 @@ public class ModelSettingFragment extends BaseLazyFragment {
                 tvPwet.setText(Hawk.get(HawkConfig.HOME_PWET_TUMM, false) ? "开" : "关");
             }
         });
-
         findViewById(R.id.llplayback).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -822,63 +822,14 @@ public class ModelSettingFragment extends BaseLazyFragment {
                 tvPlayback.setText(Hawk.get(HawkConfig.PLAYBACK_PLAY, false) ? "开" : "关");
             }
         });
-
-        findViewById(R.id.llSearchTv).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FastClickCheckUtil.check(view);
-                loadingSearchRemoteTvDialog = new SearchRemoteTvDialog(mActivity);
-                EventBus.getDefault().register(loadingSearchRemoteTvDialog);
-                loadingSearchRemoteTvDialog.setTip("搜索附近TVBox");
-                loadingSearchRemoteTvDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-                    @Override
-                    public void onDismiss(DialogInterface dialogInterface) {
-                        EventBus.getDefault().unregister(loadingSearchRemoteTvDialog);
-                    }
-                });
-                loadingSearchRemoteTvDialog.show();
-
-                RemoteTVBox tv = new RemoteTVBox();
-                remoteTvHostList = new ArrayList<>();
-                foundRemoteTv = false;
-                view.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-
-                        new Thread(new Runnable() {
-                            @Override
-                            public void run() {
-                                RemoteTVBox.searchAvalible(tv.new Callback() {
-                                    @Override
-                                    public void found(String viewHost, boolean end) {
-                                        remoteTvHostList.add(viewHost);
-                                        if (end) {
-                                            foundRemoteTv = true;
-                                            EventBus.getDefault().post(new RefreshEvent(RefreshEvent.TYPE_SETTING_SEARCH_TV));
-                                        }
-                                    }
-
-                                    @Override
-                                    public void fail(boolean all, boolean end) {
-                                        if (end) {
-                                            if (all) {
-                                                foundRemoteTv = false;
-                                            } else {
-                                                foundRemoteTv = true;
-                                            }
-                                            EventBus.getDefault().post(new RefreshEvent(RefreshEvent.TYPE_SETTING_SEARCH_TV));
-                                        }
-                                    }
-                                });
-                            }
-                        }).start();
-
-                    }
-                }, 500);
-
-
-            }
-        });
+            findViewById(R.id.llSearchTv).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    FastClickCheckUtil.check(v);
+                    Hawk.put(HawkConfig.FILTER_LOCATION, !Hawk.get(HawkConfig.FILTER_LOCATION, false));
+                    tvRemote.setText(Hawk.get(HawkConfig.FILTER_LOCATION, false) ? "顶部" : "底部");
+                }
+            });
         //findViewById(R.id.llIjkCachePlay).setOnClickListener((this::onClickIjkCachePlay));
        // findViewById(R.id.llClearCache).setOnClickListener((this::onClickClearCache));
         findViewById(R.id.llClearCache).setOnClickListener(new View.OnClickListener() {
@@ -907,7 +858,6 @@ public class ModelSettingFragment extends BaseLazyFragment {
                         }
                         Hawk.put(HawkConfig.LIVE_API_HISTORY, history);
                         tvApi.setText(value);
-                        //  dialog.dismiss();
                     }
 
                     @Override

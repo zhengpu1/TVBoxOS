@@ -84,5 +84,6 @@ public class HawkConfig {
     public static final String LIVE_API_URL = "LIVE_API_URL";
     public static final String LIVE_API_HISTORY = "live_api_history";
     public static final String FAST_SEARCH_MODE = "fast_search_mode";
+    public static final String FILTER_LOCATION = "filter_location" ;
     public static boolean hotVodDelete;
 }

@@ -1048,7 +1048,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="搜索TVBox"
+                            android:text="筛选位置"
                             android:textColor="@color/color_BBFFFFFF"
                             android:textSize="@dimen/ts_24" />
 
