@@ -1,6 +1,6 @@
 <application>
   <component name="Translation.Cache">
-    <option name="lastTrimTime" value="1776511406367" />
+    <option name="lastTrimTime" value="1777533288840" />
   </component>
   <component name="Translation.Settings">
     <option name="baiduTranslateSettings">
@@ -18,6 +18,8 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="set M Checked Sources" />
+      <item value="put Checked Sources" />
       <item value="set On Item Click Listener" />
       <item value="set On Click Listener" />
       <item value="contains" />
@@ -66,8 +68,6 @@
       <item value="Http URL Connection" />
       <item value="get Response Code" />
       <item value="set Request Method" />
-      <item value="request Method" />
-      <item value="get Http URL Connection" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="2" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="8346" />
+        <entry key="CHINESE" value="8348" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="8348" />
+        <entry key="ENGLISH" value="8350" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
