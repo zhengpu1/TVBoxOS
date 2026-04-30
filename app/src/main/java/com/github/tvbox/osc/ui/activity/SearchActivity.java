@@ -1,7 +1,6 @@
 package com.github.tvbox.osc.ui.activity;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -80,8 +79,7 @@ public class SearchActivity extends baseActivity {
     private PinyinAdapter wordAdapter;
     private String searchTitle = "";
     private TextView tvSearchCheckboxBtn;
-
-    private static HashMap<String, String> mCheckSources = null;
+    public static HashMap<String, String> mCheckSources = null;
     private SearchCheckboxDialog mSearchCheckboxDialog = null;
 
     private TextView wordsSwitch;
@@ -217,13 +215,7 @@ public class SearchActivity extends baseActivity {
                 hasKeyBoard = true;
                 String wd = etSearch.getText().toString().trim();
                 if (!TextUtils.isEmpty(wd)) {
-                    if(Hawk.get(HawkConfig.FAST_SEARCH_MODE, false)){
-                        Bundle bundle = new Bundle();
-                        bundle.putString("title", wd);
-                        jumpActivity(FastSearchActivity.class, bundle);
-                    }else {
-                        search(wd);
-                    }
+                    search(wd);
                 } else {
                     Toast.makeText(mContext, "输入内容不能为空", Toast.LENGTH_SHORT).show();
                 }
@@ -288,25 +280,11 @@ public class SearchActivity extends baseActivity {
         keyboard.setOnSearchKeyListener(new SearchKeyboard.OnSearchKeyListener() {
             @Override
             public void onSearchKey(int pos, String key) {
-                if (pos > 1) {
-                    String text = etSearch.getText().toString().trim();
-                    text += key;
-                    etSearch.setText(text);
-                    if (text.length() > 0) {
-                        loadRec(text);
-                    }
-                } else if (pos == 1) {
-                    String text = etSearch.getText().toString().trim();
-                    if (text.length() > 0) {
-                        text = text.substring(0, text.length() - 1);
-                        etSearch.setText(text);
-                    }
-                    if (text.length() > 0) {
-                        loadRec(text);
-                    }
-                } else if (pos == 0) {
-                    remoteDialog = new RemoteDialog(mContext);
-                    remoteDialog.show();
+                String text = etSearch.getText().toString().trim();
+                text += key;
+                etSearch.setText(text);
+                if (text.length() > 0) {
+                    loadRec(text);
                 }
             }
         });
@@ -314,22 +292,13 @@ public class SearchActivity extends baseActivity {
         tvSearchCheckboxBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (mSearchCheckboxDialog == null) {
-                    List<SourceBean> allSourceBean = ApiConfig.get().getSourceBeanList();
-                    List<SourceBean> searchAbleSource = new ArrayList<>();
-                    for(SourceBean sourceBean : allSourceBean) {
-                        if (sourceBean.isSearchable()) {
-                            searchAbleSource.add(sourceBean);
-                        }
-                    }
-                    mSearchCheckboxDialog = new SearchCheckboxDialog(SearchActivity.this, searchAbleSource, mCheckSources);
-                }
-                mSearchCheckboxDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-                    @Override
-                    public void onDismiss(DialogInterface dialog) {
-                        dialog.dismiss();
-                    }
-                });
+                // 每次打开都获取最新勾选（默认全选）
+                mCheckSources = SearchHelper.getSourcesForSearch();
+                mSearchCheckboxDialog = new SearchCheckboxDialog(
+                        SearchActivity.this,
+                        ApiConfig.get().getSearchSourceBeanList(),
+                        mCheckSources
+                );
                 mSearchCheckboxDialog.show();
             }
         });
@@ -412,7 +381,7 @@ public class SearchActivity extends baseActivity {
         }
         // 加载热词
         OkGo.<String>get("https://mesh.if.iqiyi.com/portal/pcw/rankList/comSecRankList?refresh=0&server=false&page_st=0&tag=0&category_id=2&channelId=2&date=&pg_num=1")
-      //  OkGo.<String>get("https://api.web.360kan.com/v1/rank")
+                //  OkGo.<String>get("https://api.web.360kan.com/v1/rank")
 //                .params("cat", "1")
                 .params("channdlId", "0")
                 .params("_", System.currentTimeMillis())
@@ -474,6 +443,7 @@ public class SearchActivity extends baseActivity {
     }
 
     private void initCheckedSourcesForSearch() {
+        // 先从Hawk永久读取
         mCheckSources = SearchHelper.getSourcesForSearch();
     }
 
@@ -499,9 +469,11 @@ public class SearchActivity extends baseActivity {
         Hawk.put(HawkConfig.SEARCH_HISTORY, history);
         this.searchTitle = title;
         mGridView.setVisibility(View.GONE);
+        searchResult();
         Bundle bundle = new Bundle();
         bundle.putString("title", title);
         jumpActivity(FastSearchActivity.class, bundle);
+
     }
 
     private ExecutorService searchExecutorService = null;
@@ -522,7 +494,7 @@ public class SearchActivity extends baseActivity {
         }
         searchExecutorService = Executors.newFixedThreadPool(5);
         List<SourceBean> searchRequestList = new ArrayList<>();
-        searchRequestList.addAll(ApiConfig.get().getSourceBeanList());
+        searchRequestList.addAll(ApiConfig.get().getSearchSourceBeanList());
         SourceBean home = ApiConfig.get().getHomeSourceBean();
         searchRequestList.remove(home);
         searchRequestList.add(0, home);

@@ -360,7 +360,7 @@ public class FastSearchActivity extends baseActivity {
     }
 
     private void initCheckedSourcesForSearch() {
-        mCheckSources = SearchHelper.getSourcesForSearch();
+        mCheckSources = SearchActivity.mCheckSources;
     }
 
     private void search(String title) {
@@ -386,7 +386,6 @@ public class FastSearchActivity extends baseActivity {
         if (history.size() > 10)
             history.remove(10);
         Hawk.put(HawkConfig.SEARCH_HISTORY, history);
-
         searchResult();
     }
 
@@ -409,7 +408,7 @@ public class FastSearchActivity extends baseActivity {
         }
         searchExecutorService = Executors.newFixedThreadPool(5);
         List<SourceBean> searchRequestList = new ArrayList<>();
-        searchRequestList.addAll(ApiConfig.get().getSourceBeanList());
+        searchRequestList.addAll(ApiConfig.get().getSearchSourceBeanList());
         SourceBean home = ApiConfig.get().getHomeSourceBean();
         searchRequestList.remove(home);
         searchRequestList.add(0, home);
@@ -430,6 +429,11 @@ public class FastSearchActivity extends baseActivity {
             siteKey.add(bean.getKey());
             this.spNames.put(bean.getName(), bean.getKey());
             allRunCount.incrementAndGet();
+        }
+        if (siteKey.size() <= 0) {
+            Toast.makeText(mContext, "没有指定搜索源", Toast.LENGTH_SHORT).show();
+            showEmpty();
+            return;
         }
 
         for (String key : siteKey) {

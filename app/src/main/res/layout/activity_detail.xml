@@ -314,7 +314,7 @@
                             android:alpha="0.75"
                             android:duplicateParentState="true"
                             android:src="@drawable/expand"
-                            app:tint="@color/font_deta_color" />
+                            app:tint="@color/font_deta_color1" />
 
                         <TextView
                             android:id="@+id/tvPlays"
@@ -358,7 +358,7 @@
                             android:alpha="0.75"
                             android:duplicateParentState="true"
                             android:src="@drawable/ic_navigation"
-                            app:tint="@color/font_deta_color" />
+                            app:tint="@color/font_deta_color1" />
 
                         <TextView
                             android:id="@+id/tvPushs"
@@ -402,7 +402,7 @@
                             android:alpha="0.75"
                             android:duplicateParentState="true"
                             android:src="@drawable/ic_sort_down"
-                            app:tint="@color/font_deta_color" />
+                            app:tint="@color/font_deta_color1" />
 
                         <TextView
                             android:id="@+id/tvSort2"

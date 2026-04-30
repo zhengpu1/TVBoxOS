@@ -1,7 +1,6 @@
 package com.github.tvbox.osc.ui.adapter;
 
 import static com.github.tvbox.osc.base.baseActivity.drawableLinearLayout;
-import static com.github.tvbox.osc.base.baseActivity.getColorByAttrId;
 import static com.github.tvbox.osc.base.baseActivity.setBackgroundrs;
 
 import android.graphics.drawable.GradientDrawable;
@@ -51,12 +50,13 @@ public class SeriesAdapter extends BaseQuickAdapter<VodInfo.VodSeries, BaseViewH
             });
         }
 
-        if (item.selected) {
-            tvSeries.setTextColor(getColorByAttrId(mContext, R.attr.color_theme));
+        if (item.selected && !DetailActivity.seriesSelect) {
+            tvSeries.setTextColor(mContext.getResources().getColor(R.color.color_00FF0A));
+           // tvSeries.setTextColor(getColorByAttrId(mContext, R.attr.color_theme));
             setBackgroundrs(tvSeries,mContext);
 
         } else {
-            tvSeries.setTextColor(mContext.getResources().getColor(R.color.color_80FFFFFF));
+
 
             GradientDrawable normal = new GradientDrawable();
             normal.setColor(mContext.getResources().getColor(R.color.color_32364E_40));

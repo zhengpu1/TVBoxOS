@@ -54,9 +54,10 @@ public class CheckboxSearchAdapter extends ListAdapter<SourceBean, CheckboxSearc
     }
 
     public void setMCheckedSources() {
-        if (mCheckedSources != null)
-            SearchHelper.putCheckedSources(mCheckedSources, data.size() == mCheckedSources.size());
-    }
+
+            if (mCheckedSources != null)
+                SearchHelper.putCheckedSources(mCheckedSources, data.size() == mCheckedSources.size());
+        }
 
     @Override
     public int getItemCount() {

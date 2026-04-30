@@ -78,7 +78,6 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -153,6 +152,7 @@ public class DetailActivity extends baseActivity {
     public String vodId;
     public String sourceKey;
     public static boolean seriesSelect = false;
+    public static boolean seriesSelectf = false;
     private boolean isReverse;
     private HomedeVodAdapter homedeVodAdapter;
     private QuickSearchAdapter searchAdapter;
@@ -181,7 +181,7 @@ public class DetailActivity extends baseActivity {
     private String preFlag = "";
 
     private void initCheckedSourcesForSearch() {
-        mCheckSources = SearchHelper.getSourcesForSearch();
+        mCheckSources = SearchActivity.mCheckSources;
     }
 
     private List<Runnable> pauseRunnable = null;
@@ -275,7 +275,7 @@ public class DetailActivity extends baseActivity {
         }else{
             tvPlays.setText("全屏播放");
         }
-        //setClickListeners();
+        setClickListeners();
         isReverse = false;
         preFlag = "";
         if (showPreview) {
@@ -438,11 +438,13 @@ public class DetailActivity extends baseActivity {
 
             @Override
             public void onItemSelected(TvRecyclerView parent, View itemView, int position) {
+                seriesSelectf = true;
                 refresh(itemView, position);
             }
 
             @Override
             public void onItemClick(TvRecyclerView parent, View itemView, int position) {
+                seriesSelectf = false;
                 refresh(itemView, position);
                 jumpToPlay();
 
@@ -841,7 +843,12 @@ public class DetailActivity extends baseActivity {
         setTextShow(tvType, "类型", !firstsourceKey.equals(sourceKey)
                 ? "[" + ApiConfig.get().getSource(sourceKey).getName() + "] 解析"
                 : video.type);
-        setTextShow(tvDouban, "豆瓣", getOneDecimal(Double.parseDouble(video.douban)));
+        String doubanScore = video.douban;
+        if (doubanScore != null && !doubanScore.isEmpty() && !doubanScore.equals("0")) {
+            setTextShow(tvDouban, "豆瓣", getOneDecimal(Double.parseDouble(doubanScore)));
+        } else {
+            setTextShow(tvDouban, "豆瓣", "5.0");
+        }
 
         tvWad.setVisibility(!TextUtils.isEmpty(video.writer) || !TextUtils.isEmpty(video.actor) || !TextUtils.isEmpty(video.director)
                 ? View.VISIBLE
@@ -1169,7 +1176,7 @@ public class DetailActivity extends baseActivity {
     private String searchTitle = "";
     private boolean hadQuickStart = false;
     private final List<Movie.Video> quickSearchData = new ArrayList<>();
-    private final List<Movie.Video> quickSearchData3 = new ArrayList<>();
+
     private final List<String> quickSearchWord = new ArrayList<>();
     private ExecutorService searchExecutorService = null;
 
@@ -1189,38 +1196,6 @@ public class DetailActivity extends baseActivity {
         searchTitle = mVideo.name;
         quickSearchData.clear();
         quickSearchWord.addAll(SearchHelper.splitWords(searchTitle));
-        // 分词
-        OkGo.<String>get("http://api.pullword.com/get.php?source=" + URLEncoder.encode(searchTitle) + "&param1=0&param2=0&json=1")
-                .tag("fenci")
-                .execute(new AbsCallback<String>() {
-                    @Override
-                    public String convertResponse(okhttp3.Response response) throws Throwable {
-                        if (response.body() != null) {
-                            return response.body().string();
-                        } else {
-                            throw new IllegalStateException("网络请求错误");
-                        }
-                    }
-
-                    @Override
-                    public void onSuccess(Response<String> response) {
-                        String json = response.body();
-                        try {
-                            for (JsonElement je : new Gson().fromJson(json, JsonArray.class)) {
-                                quickSearchWord.add(je.getAsJsonObject().get("t").getAsString());
-                            }
-                        } catch (Throwable th) {
-                            th.printStackTrace();
-                        }
-                        List<String> words = new ArrayList<>(new HashSet<>(quickSearchWord));
-                        EventBus.getDefault().post(new RefreshEvent(RefreshEvent.TYPE_QUICK_SEARCH_WORD, words));
-                    }
-
-                    @Override
-                    public void onError(Response<String> response) {
-                        super.onError(response);
-                    }
-                });
 
         searchResult();
     }
@@ -1236,7 +1211,7 @@ public class DetailActivity extends baseActivity {
         }
         searchExecutorService = Executors.newFixedThreadPool(thread);
         List<SourceBean> searchRequestList = new ArrayList<>();
-        searchRequestList.addAll(ApiConfig.get().getSourceBeanList());
+        searchRequestList.addAll(ApiConfig.get().getSearchSourceBeanList());
         SourceBean home = ApiConfig.get().getHomeSourceBean();
         searchRequestList.remove(home);
         searchRequestList.add(0, home);
@@ -1503,13 +1478,9 @@ public class DetailActivity extends baseActivity {
 
       //  drawableTextView(tvSite, 1);
     }
-   /* private void setClickListeners() {
+    private void setClickListeners() {
         llPlayerFragmentContainerBlock.setOnClickListener(view -> toggleFullPreview()); // 点击全屏
-        tvPlay.setOnClickListener(view -> {
-            FastClickCheckUtil.check(view);
-            Switchtoplaybacksitek();
-        });
-    }*/
+    }
     private void setClickListeners999() {
         // 点击 → 切换播放源（和你参考代码逻辑完全一致）
         llPlayerFragmentContainerBlock.setOnClickListener(view -> Switchtoplaybacksitek());

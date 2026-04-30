@@ -13,16 +13,26 @@ import java.util.List;
 public class SearchHelper {
 
     public static HashMap<String, String> getSourcesForSearch() {
-        HashMap<String, String> mCheckSources;
+        HashMap<String, String> mCheckSources = null;
         try {
-            String api = Hawk.get(HawkConfig.API_URL, "");
-            if(api.isEmpty())return null;
+            // 先读本地保存的
             HashMap<String, HashMap<String, String>> mCheckSourcesForApi = Hawk.get(HawkConfig.SOURCES_FOR_SEARCH, new HashMap<>());
-            mCheckSources = mCheckSourcesForApi.get(api);
+            // 不依赖api，直接读通用勾选
+            if (!mCheckSourcesForApi.isEmpty()) {
+                // 取第一个，或者直接存一个默认key
+                for (HashMap.Entry<String, HashMap<String, String>> entry : mCheckSourcesForApi.entrySet()) {
+                    mCheckSources = entry.getValue();
+                    break;
+                }
+            }
         } catch (Exception e) {
-            return null;
+            e.printStackTrace();
         }
-        if (mCheckSources == null || mCheckSources.isEmpty()) mCheckSources = getSources();
+
+        // 没读到保存的，才用全选
+        if (mCheckSources == null || mCheckSources.isEmpty()) {
+            mCheckSources = getSources();
+        }
         return mCheckSources;
     }
 

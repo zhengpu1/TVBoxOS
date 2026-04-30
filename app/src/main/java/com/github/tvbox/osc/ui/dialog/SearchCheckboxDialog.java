@@ -15,8 +15,11 @@ import androidx.recyclerview.widget.DiffUtil;
 
 import com.github.tvbox.osc.R;
 import com.github.tvbox.osc.bean.SourceBean;
+import com.github.tvbox.osc.ui.activity.SearchActivity;
 import com.github.tvbox.osc.ui.adapter.CheckboxSearchAdapter;
 import com.github.tvbox.osc.util.FastClickCheckUtil;
+import com.github.tvbox.osc.util.HawkConfig;
+import com.orhanobut.hawk.Hawk;
 import com.owen.tvrecyclerview.widget.TvRecyclerView;
 import com.owen.tvrecyclerview.widget.V7GridLayoutManager;
 
@@ -31,7 +34,8 @@ public class SearchCheckboxDialog extends BaseDialog {
 
     private TvRecyclerView mGridView;
     private CheckboxSearchAdapter checkboxSearchAdapter;
-    private final List<SourceBean> mSourceList;
+    public List<SourceBean> mSourceList;
+
     TextView checkAll;
     TextView clearAll;
     LinearLayout root;
@@ -46,7 +50,7 @@ public class SearchCheckboxDialog extends BaseDialog {
         setCanceledOnTouchOutside(false);
         setCancelable(true);
         mSourceList = sourceList;
-        mCheckSourcees = checkedSources;
+        this.mCheckSourcees = checkedSources;
         setContentView(R.layout.dialog_checkbox_search);
         initView(context);
         LinearLayout[] strl = {root};
@@ -54,13 +58,19 @@ public class SearchCheckboxDialog extends BaseDialog {
         TextView[] str = {checkAll, clearAll};
         drawableTextView(str, 1);
     }
-
     @Override
     public void dismiss() {
         checkboxSearchAdapter.setMCheckedSources();
+        SearchActivity.mCheckSources = mCheckSourcees;
+
+        // 直接保存，不依赖api
+        HashMap<String, HashMap<String, String>> mCheckSourcesForApi = new HashMap<>();
+        // 用一个固定key存，不随api变化
+        mCheckSourcesForApi.put("default", mCheckSourcees);
+        Hawk.put(HawkConfig.SOURCES_FOR_SEARCH, mCheckSourcesForApi);
+
         super.dismiss();
     }
-
     protected void initView(Context context) {
         mGridView = findViewById(R.id.mGridView);
         checkAll = findViewById(R.id.checkAll);
@@ -83,7 +93,7 @@ public class SearchCheckboxDialog extends BaseDialog {
         int size = mSourceList.size();
         int spanCount = (int) Math.floor(size / 10);
         if (spanCount <= 1) spanCount = 2;
-        if (spanCount >= 3) spanCount = 3;
+        if (spanCount >= 3) spanCount = 2;
         mGridView.setLayoutManager(new V7GridLayoutManager(getContext(), spanCount));
         View root = findViewById(R.id.root);
         ViewGroup.LayoutParams clp = root.getLayoutParams();
@@ -128,5 +138,11 @@ public class SearchCheckboxDialog extends BaseDialog {
                 checkboxSearchAdapter.setData(mSourceList, mCheckSourcees);
             }
         });
+
+    }
+
+    public void setMSourceList(List<SourceBean> SourceBeanList) {
+        mSourceList = SourceBeanList;
+        checkboxSearchAdapter.setData(mSourceList, mCheckSourcees);
     }
 }

@@ -82,6 +82,7 @@ public class ApiConfig {
         sourceBeanList = new LinkedHashMap<>();
         liveChannelGroupList = new ArrayList<>();
         parseBeanList = new ArrayList<>();
+        searchSourceBeanList = new ArrayList<>();
     }
 
     public static ApiConfig get() {
@@ -713,6 +714,19 @@ public class ApiConfig {
 
     public List<SourceBean> getSourceBeanList() {
         return new ArrayList<>(sourceBeanList.values());
+    }
+    private List<SourceBean> searchSourceBeanList;
+    public List<SourceBean> getSearchSourceBeanList() {
+        if(searchSourceBeanList.isEmpty()){
+            LOG.i("echo-第一次getSearchSourceBeanList");
+            searchSourceBeanList = new ArrayList<>();
+            for (SourceBean bean : sourceBeanList.values()) {
+                if (bean.isSearchable()) {
+                    searchSourceBeanList.add(bean);
+                }
+            }
+        }
+        return searchSourceBeanList;
     }
 
     public List<ParseBean> getParseBeanList() {
