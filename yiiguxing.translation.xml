@@ -18,6 +18,7 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="set Next Focus Left Id" />
       <item value="ll Player Fragment Container" />
       <item value="set M Checked Sources" />
       <item value="put Checked Sources" />
@@ -67,7 +68,6 @@
       <item value="Thread" />
       <item value="on Seccess" />
       <item value="Http URL Connection" />
-      <item value="get Response Code" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="2" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="8349" />
+        <entry key="CHINESE" value="8350" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="8351" />
+        <entry key="ENGLISH" value="8352" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
