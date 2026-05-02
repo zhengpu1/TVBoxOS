@@ -882,12 +882,12 @@ public class DetailActivity extends baseActivity {
             initHomeHotVod3(homedeVodAdapter);
         }, 3000); // 5秒后执行
         // 读取快速搜索缓存 ← 我加的
-      /*  List<Movie.Video> cacheSearchData = (List<Movie.Video>) CacheManager.getCache("vod_souzd_" + mVideo.name);
+        List<Movie.Video> cacheSearchData = (List<Movie.Video>) CacheManager.getCache("vod_souzd_" + mVideo.name);
         if (cacheSearchData != null && !cacheSearchData.isEmpty()) {
             quickSearchData.clear();
             quickSearchData.addAll(cacheSearchData);
             EventBus.getDefault().post(new RefreshEvent(RefreshEvent.TYPE_QUICK_SEARCH, quickSearchData));
-        }*/
+        }
 // 如果没有缓存才去搜索
         if (quickSearchData == null || quickSearchData.isEmpty()) {
             new Handler(Looper.getMainLooper()).postDelayed(() -> {
@@ -1083,7 +1083,7 @@ public class DetailActivity extends baseActivity {
                 handleQuickSearchResultEvent(event);
                 break;
             case RefreshEvent.TYPE_QUICK_SEARCH:
-                handleQuickSearchEvent(event);
+                    handleQuickSearchEvent(event);
                 break;
             case RefreshEvent.TYPE_SWITCH_SOURCE:
                 onSwitchSourceEvent(event);
@@ -1125,7 +1125,7 @@ public class DetailActivity extends baseActivity {
 
     private void handleQuickSearchEvent(RefreshEvent event) {
         List<Movie.Video> data = (List<Movie.Video>) event.obj;
-        searchAdapter.addData(data);//333333
+        searchAdapter.setNewData(data);
     }
     public void onSwitchSourceEvent(RefreshEvent event) {
 
@@ -1210,7 +1210,7 @@ public class DetailActivity extends baseActivity {
         OkGo.getInstance().cancelTag("quick_search");
         quickSearchData.clear();
         searchTitle = word;
-        searchResult();
+      //  searchResult();
     }
     private void startQuickSearch() {
         initCheckedSourcesForSearch();
@@ -1291,8 +1291,8 @@ public class DetailActivity extends baseActivity {
             }
             quickSearchData.addAll(removeDuplicationByHashSet(data));
             // 保存缓存
-          //  CacheManager.save("vod_souzd_" + mVideo.name, quickSearchData);
-            EventBus.getDefault().post(new RefreshEvent(RefreshEvent.TYPE_QUICK_SEARCH, data));
+            CacheManager.save("vod_souzd_" + mVideo.name, quickSearchData);
+            EventBus.getDefault().post(new RefreshEvent(RefreshEvent.TYPE_QUICK_SEARCH, quickSearchData));
         }
     }
     public static List removeDuplicationByHashSet(List<Movie.Video> list) {
