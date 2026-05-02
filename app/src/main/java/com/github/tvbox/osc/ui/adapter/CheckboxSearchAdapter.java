@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -74,16 +73,13 @@ public class CheckboxSearchAdapter extends ListAdapter<SourceBean, CheckboxSearc
             holder.oneSearchSource.setChecked(mCheckedSources.containsKey(sourceBean.getKey()));
         }
         holder.oneSearchSource.setTag(sourceBean);
-        holder.oneSearchSource.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    mCheckedSources.put(sourceBean.getKey(), "1");
-                } else {
-                    mCheckedSources.remove(sourceBean.getKey());
-                }
-                notifyItemChanged(pos);
+        holder.oneSearchSource.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked) {
+                mCheckedSources.put(sourceBean.getKey(), "1");
+            } else {
+                mCheckedSources.remove(sourceBean.getKey());
             }
+            notifyItemChanged(pos);
         });
         TextView[] str = {holder.oneSearchSource};
         drawableTextView(str, 1);

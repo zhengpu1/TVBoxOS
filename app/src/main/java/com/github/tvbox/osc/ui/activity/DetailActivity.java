@@ -165,7 +165,7 @@ public class DetailActivity extends baseActivity {
     private final ArrayList<String> seriesGroupOptions = new ArrayList<>();
 
     private int thread = Integer.parseInt(HistoryHelper.getHistoryNumNamex(Hawk.get(HawkConfig.XIANC_NUM, 0)));
-
+    private int LOCK_PLAY_INDEX  = 0; // 类顶部声明
     @Override
     protected int getLayoutResID() {
         return R.layout.activity_detail;
@@ -181,10 +181,8 @@ public class DetailActivity extends baseActivity {
     private String preFlag = "";
 
     private void initCheckedSourcesForSearch() {
-        mCheckSources = SearchActivity.mCheckSources;
+        mCheckSources = SearchHelper.getSourcesForSearch();
     }
-
-    private List<Runnable> pauseRunnable = null;
     private int maxRetryCount = 10;        // 最大换源次数a
     private int maxRetryCount1 = 30; // 最大换源次数
     private int currentRetryCount = 0;     // 当前换源次数
@@ -261,7 +259,7 @@ public class DetailActivity extends baseActivity {
         tvHotList5.setAdapter(homedeVodAdapter);
         tvHotList5.setVisibility(View.VISIBLE);
         tvHotList3 = findViewById(R.id.tvHotList3);
-        tvWntj.setVisibility(View.GONE);
+        //tvWntj.setVisibility(View.GONE);
         tvPlay.setVisibility(View.VISIBLE);
         tvHotList3.setVisibility(View.GONE);
         tvHotList3.setAdapter(searchAdapter);
@@ -276,6 +274,19 @@ public class DetailActivity extends baseActivity {
             tvPlays.setText("全屏播放");
         }
         setClickListeners();
+       /* new Handler().postDelayed(() -> {
+            mGridView.post(() -> {
+                // 滚动到第一个
+                mGridView.scrollToPosition(0);
+                // 获取第一个条目
+                View firstItem = mGridView.getChildAt(0);
+                if (firstItem != null) {
+                    // 强制触发焦点+选中（ TvRecyclerView 必生效）
+                    firstItem.requestFocus();
+                    firstItem.setSelected(true);
+                }
+            });
+        }, 1200);*/
         isReverse = false;
         preFlag = "";
         if (showPreview) {
@@ -361,8 +372,8 @@ public class DetailActivity extends baseActivity {
                 if(!Hawk.get(HawkConfig.FORBID_JAR_DIALOG, false)) {
                 tvPlays.setText("手动换源");
                     Switchtoplaybacksitek();
-        }else{
-        tvPlays.setText("全屏播放");
+                }else{
+                tvPlays.setText("全屏播放");
                 if (showPreview) {
                     toggleFullPreview();
                 } else {
@@ -526,11 +537,13 @@ public class DetailActivity extends baseActivity {
 
             @Override
             public void onItemSelected(TvRecyclerView parent, View itemView, int position) {
+                seriesSelectf = true;
                 refresh(itemView, position);
             }
 
             @Override
             public void onItemClick(TvRecyclerView parent, View itemView, int position) {
+                seriesSelectf = false;
                 refresh(itemView, position);
             }
         });
@@ -710,8 +723,10 @@ public class DetailActivity extends baseActivity {
         return info.replaceAll("\\<.*?\\>", "").replaceAll("\\s", "");
     }
     void refreshList() {
-        if (vodInfo.seriesMap.get(vodInfo.playFlag).size() <= vodInfo.playIndex) {
-            vodInfo.playIndex = 0;
+        int seriesSize = vodInfo.seriesMap.get(vodInfo.playFlag).size();
+        if (seriesSize > 0 && vodInfo.playIndex >= seriesSize) {
+            // 越界了，不要设为0，而是设为最后一集！
+            vodInfo.playIndex = seriesSize - 1;
         }
         List<VodInfo.VodSeries> vodSeries = vodInfo.seriesMap.get(vodInfo.playFlag);
         int size = vodSeries.size();
@@ -821,12 +836,18 @@ public class DetailActivity extends baseActivity {
             video.name = "HRTV";
         }
 
-        vodInfo = new VodInfo();
+        // ✅ 永远不重新创建！保留旧对象！
+        if (vodInfo == null) {
+            vodInfo = new VodInfo();
+        }
+
         vodInfo.setVideo(video);
         vodInfo.sourceKey = video.sourceKey;
-        // 保存缓存
+
+        // ✅ 强制把记忆的位置塞进去！绝杀！
+        vodInfo.playIndex = LOCK_PLAY_INDEX ;
+
         CacheManager.save("vod_info_" + vodId, vodInfo);
-        Log.i("VodInfo缓存", "已保存 = " + vodInfo.name);
     }
 
     private void updateUI(Movie.Video video) {
@@ -861,12 +882,12 @@ public class DetailActivity extends baseActivity {
             initHomeHotVod3(homedeVodAdapter);
         }, 3000); // 5秒后执行
         // 读取快速搜索缓存 ← 我加的
-        List<Movie.Video> cacheSearchData = (List<Movie.Video>) CacheManager.getCache("vod_souzd_" + mVideo.name);
+      /*  List<Movie.Video> cacheSearchData = (List<Movie.Video>) CacheManager.getCache("vod_souzd_" + mVideo.name);
         if (cacheSearchData != null && !cacheSearchData.isEmpty()) {
             quickSearchData.clear();
             quickSearchData.addAll(cacheSearchData);
             EventBus.getDefault().post(new RefreshEvent(RefreshEvent.TYPE_QUICK_SEARCH, quickSearchData));
-        }
+        }*/
 // 如果没有缓存才去搜索
         if (quickSearchData == null || quickSearchData.isEmpty()) {
             new Handler(Looper.getMainLooper()).postDelayed(() -> {
@@ -898,7 +919,7 @@ public class DetailActivity extends baseActivity {
             vodInfo.playerCfg = vodInfoRecord.playerCfg;
             vodInfo.reverseSort = vodInfoRecord.reverseSort;
         } else {
-            vodInfo.playIndex = 0;
+            vodInfo.playIndex = LOCK_PLAY_INDEX;
             vodInfo.playFlag = null;
             vodInfo.playerCfg = "";
             vodInfo.reverseSort = false;
@@ -934,9 +955,10 @@ public class DetailActivity extends baseActivity {
             toggleSubtitleTextSize();
         }
         // 🔥 兜底：再给一次焦点，防止第一次没生效
-       /* mGridView.postDelayed(() -> {
+        mGridView.postDelayed(() -> {
             scrollToPlayPosAndRequestFoucuse(vodInfo.playIndex);
-        }, 200);*/
+            vodInfo.playIndex = LOCK_PLAY_INDEX;
+        }, 200);
     }
     private String getHtml(String label, String content) {
         // 处理空内容
@@ -1072,6 +1094,7 @@ public class DetailActivity extends baseActivity {
     private void handleRefreshEvent(RefreshEvent event) {
         if (event.obj instanceof Integer) {
             int freshIndex = (int) event.obj;
+            //mGridView.setSelection(freshIndex);
             handleFreshIndexEvent(freshIndex);
         } else if (event.obj instanceof JSONObject) {
             vodInfo.playerCfg = event.obj.toString();
@@ -1079,8 +1102,11 @@ public class DetailActivity extends baseActivity {
         }
     }
 
+
     private void handleQuickSearchSelectEvent(RefreshEvent event) {
         Movie.Video video = (Movie.Video) event.obj;
+        // 保存位置
+        LOCK_PLAY_INDEX = vodInfo.playIndex;
         loadDetail(video.id, video.sourceKey);
     }
 
@@ -1091,7 +1117,7 @@ public class DetailActivity extends baseActivity {
 
     private void handleQuickSearchResultEvent(RefreshEvent event) {
         try {
-            searchData(event.obj == null ? null : (AbsXml) event.obj);
+                searchData(event.obj == null ? null : (AbsXml) event.obj);
         } catch (Exception e) {
             searchData(null);
         }
@@ -1209,7 +1235,7 @@ public class DetailActivity extends baseActivity {
         } catch (Throwable th) {
             th.printStackTrace();
         }
-        searchExecutorService = Executors.newFixedThreadPool(thread);
+        searchExecutorService = Executors.newFixedThreadPool(5);
         List<SourceBean> searchRequestList = new ArrayList<>();
         searchRequestList.addAll(ApiConfig.get().getSearchSourceBeanList());
         SourceBean home = ApiConfig.get().getHomeSourceBean();
@@ -1221,11 +1247,9 @@ public class DetailActivity extends baseActivity {
             if (!bean.isSearchable() || !bean.isQuickSearch()) {
                 continue;
             }
-
             if (mCheckSources != null && !mCheckSources.containsKey(bean.getKey())) {
                 continue;
             }
-
             siteKey.add(bean.getKey());
         }
         for (String key : siteKey) {
@@ -1236,7 +1260,6 @@ public class DetailActivity extends baseActivity {
                 }
             });
         }
-
     }
 
     private boolean matchSearchResult(String name, String searchTitle) {
@@ -1268,7 +1291,7 @@ public class DetailActivity extends baseActivity {
             }
             quickSearchData.addAll(removeDuplicationByHashSet(data));
             // 保存缓存
-            CacheManager.save("vod_souzd_" + mVideo.name, quickSearchData);
+          //  CacheManager.save("vod_souzd_" + mVideo.name, quickSearchData);
             EventBus.getDefault().post(new RefreshEvent(RefreshEvent.TYPE_QUICK_SEARCH, data));
         }
     }
@@ -1567,7 +1590,7 @@ public class DetailActivity extends baseActivity {
 
     // 修改原有的换源方法
     private void Switchtoplaybacksitek() {
-        List<SourceBean> sourceBeans = ApiConfig.get().getSourceBeanList();
+        List<SourceBean> sourceBeans = ApiConfig.get().getSearchSourceBeanList();
         List<String> sourceKeys = new ArrayList<>();
 
         // 过滤可用源
@@ -1619,7 +1642,6 @@ public class DetailActivity extends baseActivity {
         try {
             Movie.Video video = quickSearchData.get(index);
             String sourceName = ApiConfig.get().getSource(video.sourceKey).getName();
-
             // 发送切换事件
             EventBus.getDefault().post(new RefreshEvent(RefreshEvent.TYPE_QUICK_SEARCH_SELECT, video));
 

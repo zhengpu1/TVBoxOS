@@ -205,7 +205,6 @@ public abstract class baseActivity extends AppCompatActivity implements CustomAd
         tvSeries.setBackground(pressed);
         tvSeries.setPadding(pL, pT, pR, pB);
     }
-
     // ====================== 你要的 e() 方法 已完美加入 ======================
     public static Drawable e(Context context) {
         int r = AutoSizeUtils.mm2px(context, 5);
@@ -226,8 +225,10 @@ public abstract class baseActivity extends AppCompatActivity implements CustomAd
                 getColorByAttrId(context, R.attr.color_theme_80),
                 getColorByAttrId(context, R.attr.color_theme_70)
         };
-        gradient.setColors(colors);
+
+            gradient.setColors(colors);
         gradient.setGradientType(GradientDrawable.LINEAR_GRADIENT);
+
 
         // 第三层 边框
         GradientDrawable stroke = new GradientDrawable();
@@ -366,7 +367,7 @@ public abstract class baseActivity extends AppCompatActivity implements CustomAd
                 stateDrawable.addState(new int[]{android.R.attr.state_pressed}, highlight);
                 stateDrawable.addState(new int[]{android.R.attr.state_focused}, highlight);
                 stateDrawable.addState(new int[]{android.R.attr.state_selected}, highlight);
-                stateDrawable.addState(new int[]{android.R.attr.state_enabled}, normal);
+                stateDrawable.addState(new int[]{}, normal);
                 return stateDrawable;
             }
         }

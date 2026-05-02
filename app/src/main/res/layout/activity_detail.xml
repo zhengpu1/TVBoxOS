@@ -442,8 +442,10 @@
                             android:layout_width="@dimen/vs_40"
                             android:layout_height="@dimen/vs_40"
                             android:layout_gravity="center"
+                            android:duplicateParentState="true"
                             android:alpha="0.75"
-                            android:src="@drawable/ic_shouca" />
+                            android:src="@drawable/ic_shouca"
+                            app:tint="@color/font_deta_color1"/>
 
                         <TextView
                             android:id="@+id/tvCollect2"
@@ -593,7 +595,7 @@
                 <com.owen.tvrecyclerview.widget.TvRecyclerView
                     android:id="@+id/tvHotList3"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/vs_60"
+                    android:layout_height="@dimen/vs_80"
                     android:clipChildren="false"
                     android:clipToPadding="false"
                     android:descendantFocusability="afterDescendants"

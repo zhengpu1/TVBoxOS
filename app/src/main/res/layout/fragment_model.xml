@@ -40,7 +40,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="调试模式"
-                        android:textColor="@color/color_BBFFFFFF"
+                        android:textColor="@color/font_deta_color"
                         android:textSize="@dimen/ts_24" />
 
                 <Space
@@ -62,7 +62,7 @@
                         android:layout_marginStart="@dimen/vs_10"
                         android:layout_marginLeft="@dimen/vs_10"
                         android:text=">"
-                        android:textColor="@color/color_BBFFFFFF"
+                        android:textColor="@color/font_deta_color"
                         android:textSize="@dimen/ts_30" />
             </LinearLayout>
 
@@ -83,7 +83,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="配置地址"
-                        android:textColor="@color/color_BBFFFFFF"
+                        android:duplicateParentState="true"
+                        android:textColor="@color/font_deta_color"
                         android:textSize="@dimen/ts_24" />
 
                 <Space
@@ -106,7 +107,7 @@
                         android:layout_marginStart="@dimen/vs_10"
                         android:layout_marginLeft="@dimen/vs_10"
                         android:text=">"
-                        android:textColor="@color/color_BBFFFFFF"
+                        android:textColor="@color/font_deta_color"
                         android:textSize="@dimen/ts_30" />
             </LinearLayout>
         <LinearLayout
@@ -142,7 +143,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="数据源"
-                    android:textColor="@color/color_BBFFFFFF"
+                    android:textColor="@color/font_deta_color"
+                    android:duplicateParentState="true"
                     android:textSize="@dimen/ts_24" />
 
                 <Space
@@ -165,7 +167,7 @@
                     android:layout_marginStart="@dimen/vs_10"
                     android:layout_marginLeft="@dimen/vs_10"
                     android:text=">"
-                    android:textColor="@color/color_BBFFFFFF"
+                    android:textColor="@color/font_deta_color"
                     android:textSize="@dimen/ts_30" />
             </LinearLayout>
 
@@ -186,8 +188,9 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:duplicateParentState="true"
                         android:text="首页推荐"
-                        android:textColor="@color/color_BBFFFFFF"
+                        android:textColor="@color/font_deta_color"
                         android:textSize="@dimen/ts_24" />
 
                     <TextView
@@ -208,7 +211,7 @@
                         android:layout_marginStart="@dimen/vs_10"
                         android:layout_marginLeft="@dimen/vs_10"
                         android:text=">"
-                        android:textColor="@color/color_BBFFFFFF"
+                        android:textColor="@color/font_deta_color"
                         android:textSize="@dimen/ts_24" />
                 </LinearLayout>
 
@@ -240,8 +243,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:duplicateParentState="true"
                     android:text="搜索线程"
-                    android:textColor="@color/color_BBFFFFFF"
+                    android:textColor="@color/font_deta_color"
                     android:textSize="@dimen/ts_24" />
 
                 <Space
@@ -265,7 +269,7 @@
                     android:layout_marginStart="@dimen/vs_10"
                     android:layout_marginLeft="@dimen/vs_10"
                     android:text=">"
-                    android:textColor="@color/color_BBFFFFFF"
+                    android:textColor="@color/font_deta_color"
                     android:textSize="@dimen/ts_30" />
             </LinearLayout>
                 <LinearLayout
@@ -285,8 +289,9 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:duplicateParentState="true"
                         android:text="开机进入直播"
-                        android:textColor="@color/color_BBFFFFFF"
+                        android:textColor="@color/font_deta_color"
                         android:textSize="@dimen/ts_24" />
 
                     <Space
@@ -307,7 +312,7 @@
                         android:layout_marginStart="@dimen/vs_10"
                         android:layout_marginLeft="@dimen/vs_10"
                         android:text=">"
-                        android:textColor="@color/color_BBFFFFFF"
+                        android:textColor="@color/font_deta_color"
                         android:textSize="@dimen/ts_30" />
                 </LinearLayout>
         </LinearLayout>
@@ -346,8 +351,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:duplicateParentState="true"
                             android:text="自动换源"
-                            android:textColor="@color/color_BBFFFFFF"
+                            android:textColor="@color/font_deta_color"
                             android:textSize="@dimen/ts_24" />
 
                         <Space
@@ -368,7 +374,7 @@
                             android:layout_marginStart="@dimen/vs_10"
                             android:layout_marginLeft="@dimen/vs_10"
                             android:text=">"
-                            android:textColor="@color/color_BBFFFFFF"
+                            android:textColor="@color/font_deta_color"
                             android:textSize="@dimen/ts_30" />
                     </LinearLayout>
 
@@ -389,8 +395,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:duplicateParentState="true"
                             android:text="略缩图大小"
-                            android:textColor="@color/color_BBFFFFFF"
+                            android:textColor="@color/font_deta_color"
                             android:textSize="@dimen/ts_24" />
 
                         <TextView
@@ -412,7 +419,7 @@
                             android:layout_marginStart="@dimen/vs_10"
                             android:layout_marginLeft="@dimen/vs_10"
                             android:text=">"
-                            android:textColor="@color/color_BBFFFFFF"
+                            android:textColor="@color/font_deta_color"
                             android:textSize="@dimen/ts_24" />
                     </LinearLayout>
                 </LinearLayout>
@@ -444,8 +451,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:duplicateParentState="true"
                             android:text="搜索展示"
-                            android:textColor="@color/color_BBFFFFFF"
+                            android:textColor="@color/font_deta_color"
                             android:textSize="@dimen/ts_24" />
 
                         <Space
@@ -466,7 +474,7 @@
                             android:layout_marginStart="@dimen/vs_10"
                             android:layout_marginLeft="@dimen/vs_10"
                             android:text=">"
-                            android:textColor="@color/color_BBFFFFFF"
+                            android:textColor="@color/font_deta_color"
                             android:textSize="@dimen/ts_30" />
                     </LinearLayout>
 
@@ -487,8 +495,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:duplicateParentState="true"
                             android:text="剧集分组"
-                            android:textColor="@color/color_BBFFFFFF"
+                            android:textColor="@color/font_deta_color"
                             android:textSize="@dimen/ts_24" />
 
                         <Space
@@ -509,7 +518,7 @@
                             android:layout_marginStart="@dimen/vs_10"
                             android:layout_marginLeft="@dimen/vs_10"
                             android:text=">"
-                            android:textColor="@color/color_BBFFFFFF"
+                            android:textColor="@color/font_deta_color"
                             android:textSize="@dimen/ts_30" />
                     </LinearLayout>
                 </LinearLayout>
@@ -547,8 +556,9 @@
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                        android:duplicateParentState="true"
                             android:text="播放器"
-                            android:textColor="@color/color_BBFFFFFF"
+                            android:textColor="@color/font_deta_color"
                             android:textSize="@dimen/ts_24" />
 
                     <Space
@@ -569,7 +579,7 @@
                             android:layout_marginStart="@dimen/vs_10"
                             android:layout_marginLeft="@dimen/vs_10"
                             android:text=">"
-                            android:textColor="@color/color_BBFFFFFF"
+                            android:textColor="@color/font_deta_color"
                             android:textSize="@dimen/ts_30" />
                 </LinearLayout>
 
@@ -590,8 +600,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:duplicateParentState="true"
                             android:text="数据源显示"
-                            android:textColor="@color/color_BBFFFFFF"
+                            android:textColor="@color/font_deta_color"
                             android:textSize="@dimen/ts_24" />
 
                         <TextView
@@ -603,7 +614,7 @@
                             android:id="@+id/tvHomeShow"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/color_BBFFFFFF"
+                            android:textColor="@color/font_deta_color"
                             android:textSize="@dimen/ts_24" />
 
                         <TextView
@@ -612,7 +623,7 @@
                             android:layout_marginStart="@dimen/vs_10"
                             android:layout_marginLeft="@dimen/vs_10"
                             android:text=">"
-                            android:textColor="@color/color_BBFFFFFF"
+                            android:textColor="@color/font_deta_color"
                             android:textSize="@dimen/ts_24" />
                     </LinearLayout>
 
@@ -643,8 +654,9 @@
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                        android:duplicateParentState="true"
                             android:text="跳过片头片尾"
-                            android:textColor="@color/color_BBFFFFFF"
+                            android:textColor="@color/font_deta_color"
                             android:textSize="@dimen/ts_24" />
 
                     <Space
@@ -665,7 +677,7 @@
                             android:layout_marginStart="@dimen/vs_10"
                             android:layout_marginLeft="@dimen/vs_10"
                             android:text=">"
-                            android:textColor="@color/color_BBFFFFFF"
+                            android:textColor="@color/font_deta_color"
                             android:textSize="@dimen/ts_30" />
                 </LinearLayout>
                     <LinearLayout
@@ -685,8 +697,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:duplicateParentState="true"
                             android:text="迷你进度条"
-                            android:textColor="@color/color_BBFFFFFF"
+                            android:textColor="@color/font_deta_color"
                             android:textSize="@dimen/ts_24" />
 
                         <View
@@ -707,7 +720,7 @@
                             android:layout_marginStart="@dimen/vs_10"
                             android:layout_marginLeft="@dimen/vs_10"
                             android:text=">"
-                            android:textColor="@color/color_BBFFFFFF"
+                            android:textColor="@color/font_deta_color"
                             android:textSize="@dimen/ts_30" />
                     </LinearLayout>
             </LinearLayout>
@@ -748,8 +761,9 @@
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                        android:duplicateParentState="true"
                             android:text="渲染方式"
-                            android:textColor="@color/color_BBFFFFFF"
+                            android:textColor="@color/font_deta_color"
                             android:textSize="@dimen/ts_24" />
 
                     <Space
@@ -770,7 +784,7 @@
                             android:layout_marginStart="@dimen/vs_10"
                             android:layout_marginLeft="@dimen/vs_10"
                             android:text=">"
-                            android:textColor="@color/color_BBFFFFFF"
+                            android:textColor="@color/font_deta_color"
                             android:textSize="@dimen/ts_30" />
                 </LinearLayout>
 
@@ -791,8 +805,9 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:duplicateParentState="true"
                         android:text="IJK解码方式"
-                        android:textColor="@color/color_BBFFFFFF"
+                        android:textColor="@color/font_deta_color"
                         android:textSize="@dimen/ts_24" />
 
                     <Space
@@ -813,7 +828,7 @@
                         android:layout_marginStart="@dimen/vs_10"
                         android:layout_marginLeft="@dimen/vs_10"
                         android:text=">"
-                        android:textColor="@color/color_BBFFFFFF"
+                        android:textColor="@color/font_deta_color"
                         android:textSize="@dimen/ts_30" />
                 </LinearLayout>
                 </LinearLayout>
@@ -844,8 +859,9 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:duplicateParentState="true"
                         android:text="略缩图显示"
-                        android:textColor="@color/color_BBFFFFFF"
+                        android:textColor="@color/font_deta_color"
                         android:textSize="@dimen/ts_24" />
 
                     <TextView
@@ -866,7 +882,7 @@
                         android:layout_marginStart="@dimen/vs_10"
                         android:layout_marginLeft="@dimen/vs_10"
                         android:text=">"
-                        android:textColor="@color/color_BBFFFFFF"
+                        android:textColor="@color/font_deta_color"
                         android:textSize="@dimen/ts_24" />
                 </LinearLayout>
 
@@ -887,8 +903,9 @@
                         <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                            android:duplicateParentState="true"
                                 android:text="安全DNS"
-                                android:textColor="@color/color_BBFFFFFF"
+                                android:textColor="@color/font_deta_color"
                                 android:textSize="@dimen/ts_24" />
 
                         <Space
@@ -909,7 +926,7 @@
                                 android:layout_marginStart="@dimen/vs_10"
                                 android:layout_marginLeft="@dimen/vs_10"
                                 android:text=">"
-                                android:textColor="@color/color_BBFFFFFF"
+                                android:textColor="@color/font_deta_color"
                                 android:textSize="@dimen/ts_30" />
                     </LinearLayout>
                 </LinearLayout>
@@ -950,8 +967,9 @@
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                        android:duplicateParentState="true"
                             android:text="嗅探"
-                            android:textColor="@color/color_BBFFFFFF"
+                            android:textColor="@color/font_deta_color"
                             android:textSize="@dimen/ts_24" />
 
                     <Space
@@ -973,7 +991,7 @@
                             android:layout_marginStart="@dimen/vs_10"
                             android:layout_marginLeft="@dimen/vs_10"
                             android:text=">"
-                            android:textColor="@color/color_BBFFFFFF"
+                            android:textColor="@color/font_deta_color"
                             android:textSize="@dimen/ts_30" />
                 </LinearLayout>
 
@@ -994,8 +1012,9 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:duplicateParentState="true"
                         android:text="主题"
-                        android:textColor="@color/color_BBFFFFFF"
+                        android:textColor="@color/font_deta_color"
                         android:textSize="@dimen/ts_24" />
 
                     <TextView
@@ -1016,7 +1035,7 @@
                         android:layout_marginStart="@dimen/vs_10"
                         android:layout_marginLeft="@dimen/vs_10"
                         android:text=">"
-                        android:textColor="@color/color_BBFFFFFF"
+                        android:textColor="@color/font_deta_color"
                         android:textSize="@dimen/ts_24" />
                 </LinearLayout>
                 </LinearLayout>
@@ -1048,8 +1067,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:duplicateParentState="true"
                             android:text="筛选位置"
-                            android:textColor="@color/color_BBFFFFFF"
+                            android:textColor="@color/font_deta_color"
                             android:textSize="@dimen/ts_24" />
 
                         <Space
@@ -1070,7 +1090,7 @@
                             android:layout_marginStart="@dimen/vs_10"
                             android:layout_marginLeft="@dimen/vs_10"
                             android:text=">"
-                            android:textColor="@color/color_BBFFFFFF"
+                            android:textColor="@color/font_deta_color"
                             android:textSize="@dimen/ts_30" />
                     </LinearLayout>
                     <LinearLayout
@@ -1090,8 +1110,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:duplicateParentState="true"
                             android:text="历史记录"
-                            android:textColor="@color/color_BBFFFFFF"
+                            android:textColor="@color/font_deta_color"
                             android:textSize="@dimen/ts_24" />
 
                         <Space
@@ -1112,7 +1133,7 @@
                             android:layout_marginStart="@dimen/vs_10"
                             android:layout_marginLeft="@dimen/vs_10"
                             android:text=">"
-                            android:textColor="@color/color_BBFFFFFF"
+                            android:textColor="@color/font_deta_color"
                             android:textSize="@dimen/ts_30" />
                     </LinearLayout>
                 </LinearLayout>
@@ -1153,8 +1174,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:duplicateParentState="true"
                             android:text="换壁纸"
-                            android:textColor="@color/color_BBFFFFFF"
+                            android:textColor="@color/font_deta_color"
                             android:textSize="@dimen/ts_24" />
 
                         <Space
@@ -1168,7 +1190,7 @@
                             android:layout_marginStart="@dimen/vs_10"
                             android:layout_marginLeft="@dimen/vs_10"
                             android:text=">"
-                            android:textColor="@color/color_BBFFFFFF"
+                            android:textColor="@color/font_deta_color"
                             android:textSize="@dimen/ts_30" />
                     </LinearLayout>
 
@@ -1189,8 +1211,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:duplicateParentState="true"
                             android:text="重置壁纸"
-                            android:textColor="@color/color_BBFFFFFF"
+                            android:textColor="@color/font_deta_color"
                             android:textSize="@dimen/ts_24" />
 
                         <Space
@@ -1204,7 +1227,7 @@
                             android:layout_marginStart="@dimen/vs_10"
                             android:layout_marginLeft="@dimen/vs_10"
                             android:text=">"
-                            android:textColor="@color/color_BBFFFFFF"
+                            android:textColor="@color/font_deta_color"
                             android:textSize="@dimen/ts_30" />
                     </LinearLayout>
                 </LinearLayout>
@@ -1235,8 +1258,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:duplicateParentState="true"
                             android:text="画面缩放"
-                            android:textColor="@color/color_BBFFFFFF"
+                            android:textColor="@color/font_deta_color"
                             android:textSize="@dimen/ts_24" />
 
                         <Space
@@ -1257,7 +1281,7 @@
                             android:layout_marginStart="@dimen/vs_10"
                             android:layout_marginLeft="@dimen/vs_10"
                             android:text=">"
-                            android:textColor="@color/color_BBFFFFFF"
+                            android:textColor="@color/font_deta_color"
                             android:textSize="@dimen/ts_30" />
                     </LinearLayout>
 
@@ -1278,8 +1302,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:duplicateParentState="true"
                             android:text="窗口预览"
-                            android:textColor="@color/color_BBFFFFFF"
+                            android:textColor="@color/font_deta_color"
                             android:textSize="@dimen/ts_24" />
 
                         <Space
@@ -1300,7 +1325,7 @@
                             android:layout_marginStart="@dimen/vs_10"
                             android:layout_marginLeft="@dimen/vs_10"
                             android:text=">"
-                            android:textColor="@color/color_BBFFFFFF"
+                            android:textColor="@color/font_deta_color"
                             android:textSize="@dimen/ts_30" />
                     </LinearLayout>
                 </LinearLayout>
@@ -1342,8 +1367,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:duplicateParentState="true"
                             android:text="剧集全屏"
-                            android:textColor="@color/color_BBFFFFFF"
+                            android:textColor="@color/font_deta_color"
                             android:textSize="@dimen/ts_24" />
 
                         <Space
@@ -1364,7 +1390,7 @@
                             android:layout_marginStart="@dimen/vs_10"
                             android:layout_marginLeft="@dimen/vs_10"
                             android:text=">"
-                            android:textColor="@color/color_BBFFFFFF"
+                            android:textColor="@color/font_deta_color"
                             android:textSize="@dimen/ts_30" />
                     </LinearLayout>
 
@@ -1386,8 +1412,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:duplicateParentState="true"
                             android:text="切换线路"
-                            android:textColor="@color/color_BBFFFFFF"
+                            android:textColor="@color/font_deta_color"
                             android:textSize="@dimen/ts_24" />
 
                         <Space
@@ -1401,7 +1428,7 @@
                             android:layout_marginStart="@dimen/vs_10"
                             android:layout_marginLeft="@dimen/vs_10"
                             android:text=">"
-                            android:textColor="@color/color_BBFFFFFF"
+                            android:textColor="@color/font_deta_color"
                             android:textSize="@dimen/ts_30" />
                     </LinearLayout>
                 </LinearLayout>
@@ -1433,8 +1460,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:duplicateParentState="true"
                             android:text="数据备份还原"
-                            android:textColor="@color/color_BBFFFFFF"
+                            android:textColor="@color/font_deta_color"
                             android:textSize="@dimen/ts_24" />
 
                         <Space
@@ -1448,7 +1476,7 @@
                             android:layout_marginStart="@dimen/vs_10"
                             android:layout_marginLeft="@dimen/vs_10"
                             android:text=">"
-                            android:textColor="@color/color_BBFFFFFF"
+                            android:textColor="@color/font_deta_color"
                             android:textSize="@dimen/ts_30" />
                     </LinearLayout>
 
@@ -1469,8 +1497,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:duplicateParentState="true"
                             android:text="自动全屏播放"
-                            android:textColor="@color/color_BBFFFFFF"
+                            android:textColor="@color/font_deta_color"
                             android:textSize="@dimen/ts_24" />
 
                         <Space
@@ -1491,7 +1520,7 @@
                             android:layout_marginStart="@dimen/vs_10"
                             android:layout_marginLeft="@dimen/vs_10"
                             android:text=">"
-                            android:textColor="@color/color_BBFFFFFF"
+                            android:textColor="@color/font_deta_color"
                             android:textSize="@dimen/ts_30" />
                     </LinearLayout>
                 </LinearLayout>
@@ -1526,8 +1555,9 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:duplicateParentState="true"
                         android:text="关于"
-                        android:textColor="@color/color_BBFFFFFF"
+                        android:textColor="@color/font_deta_color"
                         android:textSize="@dimen/ts_24" />
 
                     <Space
@@ -1548,7 +1578,7 @@
                         android:layout_marginStart="@dimen/vs_10"
                         android:layout_marginLeft="@dimen/vs_10"
                         android:text=">"
-                        android:textColor="@color/color_BBFFFFFF"
+                        android:textColor="@color/font_deta_color"
                         android:textSize="@dimen/ts_30" />
                 </LinearLayout>
                 <LinearLayout
@@ -1565,9 +1595,10 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:duplicateParentState="true"
                         android:focusable="true"
                         android:text="检查更新"
-                        android:textColor="@color/color_BBFFFFFF"
+                        android:textColor="@color/font_deta_color"
                         android:textSize="@dimen/ts_24" />
                 </LinearLayout>
             </LinearLayout>

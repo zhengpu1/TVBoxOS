@@ -360,7 +360,7 @@ public class FastSearchActivity extends baseActivity {
     }
 
     private void initCheckedSourcesForSearch() {
-        mCheckSources = SearchActivity.mCheckSources;
+        mCheckSources = SearchHelper.getSourcesForSearch();
     }
 
     private void search(String title) {

@@ -1,9 +1,7 @@
 package com.github.tvbox.osc.ui.adapter;
 
 import static com.github.tvbox.osc.base.baseActivity.drawableLinearLayout;
-import static com.github.tvbox.osc.base.baseActivity.setBackgroundrs;
 
-import android.graphics.drawable.GradientDrawable;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -12,7 +10,6 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.github.tvbox.osc.R;
 import com.github.tvbox.osc.bean.VodInfo;
-import com.github.tvbox.osc.ui.activity.DetailActivity;
 import com.github.tvbox.osc.util.HawkConfig;
 import com.orhanobut.hawk.Hawk;
 
@@ -40,26 +37,11 @@ public class SeriesAdapter extends BaseQuickAdapter<VodInfo.VodSeries, BaseViewH
         TextView tvSeries = helper.getView(R.id.tvSeries);
         LinearLayout tvSeriesa = helper.getView(R.id.tvSeriesdd);
 
-        if (item.selected && !DetailActivity.seriesSelect) {
-            helper.itemView.post(() -> {
-                helper.itemView.setFocusableInTouchMode(true);
-                helper.itemView.setFocusable(true);
-                helper.itemView.requestFocus();
-                // 聚焦后只聚焦一次，防止反复抢焦点
-               // DetailActivity.seriesSelect = true;
-            });
-        }
-
-        if (item.selected && !DetailActivity.seriesSelect) {
+        if (item.selected) {
             tvSeries.setTextColor(mContext.getResources().getColor(R.color.color_00FF0A));
-           // tvSeries.setTextColor(getColorByAttrId(mContext, R.attr.color_theme));
-            setBackgroundrs(tvSeries,mContext);
 
         } else {
-
-
-            GradientDrawable normal = new GradientDrawable();
-            normal.setColor(mContext.getResources().getColor(R.color.color_32364E_40));
+            tvSeries.setTextColor(mContext.getResources().getColor(R.color.color_FFF5E8DC));
         }
         helper.setText(R.id.tvSeries, item.name.replace("-",""));
         if(Hawk.get(HawkConfig.EPISODE_GROUPING, false)) {

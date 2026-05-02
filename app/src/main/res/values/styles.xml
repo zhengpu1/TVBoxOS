@@ -23,8 +23,8 @@
         <item name="color_theme">#F80505</item>
         <item name="color_theme_95">#F21E0102</item>
         <item name="color_theme_90">#E61E0102</item>
-        <item name="color_theme_80">#CCFA2129</item>
-        <item name="color_theme_70">#B37A0208</item>
+        <item name="color_theme_80">#CCEC666B</item>
+        <item name="color_theme_70">#4A0307</item>
         <item name="color_theme_60">#99751317</item>
         <item name="color_theme_50">#80371B1C</item>
         <item name="color_theme_40">#66D81F26</item>
@@ -36,8 +36,8 @@
         <item name="color_theme">#04A1FD</item>
         <item name="color_theme_95">#F2010D19</item>
         <item name="color_theme_90">#E602101E</item>
-        <item name="color_theme_80">#CC508DC8</item>
-        <item name="color_theme_70">#B3023C75</item>
+        <item name="color_theme_80">#CC93BEE8</item>
+        <item name="color_theme_70">#B303284C</item>
         <item name="color_theme_60">#99123F6A</item>
         <item name="color_theme_50">#801E2D3C</item>
         <item name="color_theme_40">#4D204D78</item>
@@ -50,7 +50,7 @@
         <item name="color_theme_95">#F2011C19</item>
         <item name="color_theme_90">#E60D1701</item>
         <item name="color_theme_80">#CC11EFD4</item>
-        <item name="color_theme_70">#B300695C</item>
+        <item name="color_theme_70">#B3012B25</item>
         <item name="color_theme_60">#99018E7C</item>
         <item name="color_theme_50">#80B8740E</item>
         <item name="color_theme_40">#6607433C</item>
@@ -62,8 +62,8 @@
         <item name="color_theme">#F88D03</item>
         <item name="color_theme_95">#F2230B02</item>
         <item name="color_theme_90">#E6220C02</item>
-        <item name="color_theme_80">#CCEF8B61</item>
-        <item name="color_theme_70">#B38A2A02</item>
+        <item name="color_theme_80">#CCE4A488</item>
+        <item name="color_theme_70">#B3652A11</item>
         <item name="color_theme_60">#99FF7439</item>
         <item name="color_theme_50">#80492F25</item>
         <item name="color_theme_40">#663C261C</item>
@@ -102,7 +102,7 @@
         <item name="color_theme_95">#F217010F</item>
         <item name="color_theme_90">#E61B0212</item>
         <item name="color_theme_80">#CCE462B8</item>
-        <item name="color_theme_70">#B3930461</item>
+        <item name="color_theme_70">#930461</item>
         <item name="color_theme_60">#996A124C</item>
         <item name="color_theme_50">#80432238</item>
         <item name="color_theme_40">#66391B2E</item>

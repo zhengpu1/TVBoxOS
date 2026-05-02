@@ -8,5 +8,5 @@
         android:color="@color/color_FFF68E33"/>
     <item
         android:state_focused="false"
-        android:color="@color/color_80FFFFFF"/>
+        android:color="@color/color_FFF5E8DC"/>
 </selector>

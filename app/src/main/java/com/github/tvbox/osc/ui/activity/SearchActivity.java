@@ -469,10 +469,11 @@ public class SearchActivity extends baseActivity {
         Hawk.put(HawkConfig.SEARCH_HISTORY, history);
         this.searchTitle = title;
         mGridView.setVisibility(View.GONE);
-        searchResult();
+       // searchResult();
         Bundle bundle = new Bundle();
         bundle.putString("title", title);
         jumpActivity(FastSearchActivity.class, bundle);
+        finish();
 
     }
 

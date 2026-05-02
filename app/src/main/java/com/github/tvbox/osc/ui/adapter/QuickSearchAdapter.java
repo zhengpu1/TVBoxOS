@@ -2,9 +2,7 @@ package com.github.tvbox.osc.ui.adapter;
 
 import static com.github.tvbox.osc.base.baseActivity.drawableFrameLayout;
 
-import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
@@ -21,7 +19,7 @@ import java.util.ArrayList;
  */
 public class QuickSearchAdapter extends BaseQuickAdapter<Movie.Video, BaseViewHolder> {
     public QuickSearchAdapter() {
-        super(R.layout.item_quick_search_lite, new ArrayList<>());
+        super(R.layout.item_quick_search_lites, new ArrayList<>());
     }
 
     @Override
@@ -33,10 +31,10 @@ public class QuickSearchAdapter extends BaseQuickAdapter<Movie.Video, BaseViewHo
         helper.setText(R.id.tvName, item.name);
         helper.setText(R.id.tvSite, ApiConfig.get().getSource(item.sourceKey).getName());
         //helper.setVisible(R.id.tvNote, item.note != null && !item.note.isEmpty());
-        if (item.note != null && !item.note.isEmpty()) {
+      /*  if (item.note != null && !item.note.isEmpty()) {
             helper.setText(R.id.tvNote, item.note);
-        }
-        TextView tvTyName = helper.getView(R.id.tvTyName);
+        }*/
+      /*  TextView tvTyName = helper.getView(R.id.tvTyName);
         if (item.tyid > 0) {
             if (item.tyid == 1) {
                 tvTyName.setText("电影");
@@ -50,7 +48,7 @@ public class QuickSearchAdapter extends BaseQuickAdapter<Movie.Video, BaseViewHo
             tvTyName.setVisibility(View.VISIBLE);
         } else {
             tvTyName.setVisibility(View.GONE);
-        }
+        }*/
         FrameLayout tvquick = helper.getView(R.id.tvQuick);
         FrameLayout[] str = {tvquick};
         drawableFrameLayout(str, 1);

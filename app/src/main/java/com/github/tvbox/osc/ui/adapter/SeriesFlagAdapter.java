@@ -12,7 +12,6 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.github.tvbox.osc.R;
 import com.github.tvbox.osc.bean.VodInfo;
-import com.github.tvbox.osc.ui.activity.DetailActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -63,16 +62,19 @@ public class SeriesFlagAdapter extends BaseQuickAdapter<VodInfo.VodSeriesFlag, B
         TextView tvSeries = helper.getView(R.id.tvSeriesFlag);
         LinearLayout tvSeriesLayout = helper.getView(R.id.tvSeriesd);
         View selectView = helper.getView(R.id.tvSeriesFlagSelect);
-        if (item.selected && !DetailActivity.seriesSelectf) {
+        if (item.name.contains("-")) {
+            selectView.setVisibility(View.GONE);
+            tvSeries.setTextSize(20);
+            tvSeriesLayout.setPadding(10,1,10,4);
+        }
+        if (item.selected) {
             selectView.setVisibility(View.VISIBLE);
             tvSeries.setTextColor(mContext.getResources().getColor(R.color.color_00FF0A));
-            DetailActivity.seriesSelectf = true;
         } else {
+            tvSeries.setTextColor(mContext.getResources().getColor(R.color.color_FFF5E8DC));
             selectView.setVisibility(View.GONE);
         }
-       // selectView.setVisibility(item.selected && !item.name.contains("-") && !DetailActivity.seriesSelectf ? View.VISIBLE : View.GONE);
-       // tvSeries.setTextColor(item.selected  && item.name.contains("-") ?  mContext.getResources().getColor(R.color.color_FFF68E33) : mContext.getResources().getColor(R.color.color_80FFFFFF));
-        selectView.setBackgroundColor(getColorByAttrId(context, R.attr.color_theme));
+      selectView.setBackgroundColor(getColorByAttrId(context, R.attr.color_theme));
         item.name = formatFlagName(item.name);
         helper.setText(R.id.tvSeriesFlag, cleanFlagName(item.name));
         drawableLinearLayout(tvSeriesLayout, 3);
