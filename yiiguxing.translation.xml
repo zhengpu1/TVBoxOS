@@ -18,6 +18,13 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="m Control Wrapper" />
+      <item value="send Empty Message Delayed" />
+      <item value="is In Playback State" />
+      <item value="m Handler" />
+      <item value="remove Messages" />
+      <item value="show Bottom" />
+      <item value="slide To Change Position" />
       <item value="on Double Tap" />
       <item value="m Change Position" />
       <item value="SHOW SSPREVIEW" />
@@ -61,13 +68,6 @@
       <item value="FOLDER" />
       <item value="TRANSPARENT" />
       <item value="search Title" />
-      <item value="split Words" />
-      <item value="decrypt AES" />
-      <item value="encrypt AES" />
-      <item value="Warning: hex2bin(): Input string must be hexadecimal string in wwwwwwrootpuapijm.php on line 26" />
-      <item value="Warning: hex2bin(): Hexadecimal input string must have an even length in wwwwwwrootpuapijm.php on line 23" />
-      <item value="create Filter Def" />
-      <item value="first-child" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="2" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="8353" />
+        <entry key="CHINESE" value="8360" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="8354" />
+        <entry key="ENGLISH" value="8361" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
