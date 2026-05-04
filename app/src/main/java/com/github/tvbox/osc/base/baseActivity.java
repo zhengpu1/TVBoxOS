@@ -295,13 +295,6 @@ public abstract class baseActivity extends AppCompatActivity implements CustomAd
                     pressed.setGradientType(GradientDrawable.LINEAR_GRADIENT);
                     normal.setColor(context.getResources().getColor(R.color.color_32364E_80));
                 }
-                pressed.setGradientType(GradientDrawable.RADIAL_GRADIENT);
-                pressed.setGradientCenter(0.5f, 0.5f);
-                pressed.setGradientRadius(AutoSizeUtils.mm2px(context, 100));
-                pressed.setColors(colorBoth);
-                pressed.setStroke(stroke2, colorH);
-                selected.setStroke(stroke2, colorH);
-                selected.setColors(colorBoth);
                 break;
             case 4:
                 return new BitmapDrawable(getRoundBitmap(context, 1000, 720, 20, 4));

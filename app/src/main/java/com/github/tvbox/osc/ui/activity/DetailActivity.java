@@ -483,7 +483,9 @@ public class DetailActivity extends baseActivity {
                         seriesAdapter.notifyItemChanged(position);
                         reload = true;
                     }
-
+                    mGridView.postDelayed(() -> {
+                        scrollToPlayPosAndRequestFoucuse(vodInfo.playIndex);
+                    }, 0);
                     //解决当前集不刷新的BUG
                     if (!preFlag.isEmpty() && !vodInfo.playFlag.equals(preFlag)) {
                         reload = true;
@@ -507,21 +509,29 @@ public class DetailActivity extends baseActivity {
         });
         mNumberClassification.setOnItemListener(new TvRecyclerView.OnItemListener() {
             public void refresh(View itemView, int position) {
-
                 VodInfo.VodSeriesFlag item = mClassifyAdapter.getItem(position);
                 if (item != null) {
-                    if (item.selected) {//如果点击的已经是选中的了，return
-                       // return;
+                    if (item.selected) {
+                        return;
                     }
                 }
-                if (GroupIndex != position) {
-                    mClassifyAdapter.getData().get(GroupIndex).selected = false;
-                    mClassifyAdapter.notifyItemChanged(GroupIndex);
-                    mClassifyAdapter.getData().get(position).selected = true;
-                    mClassifyAdapter.notifyItemChanged(position);
-                    GroupIndex = position;
 
+                // 🔥 先把 上一个选中的 selected 重置为 false（和你给的代码风格完全一样）
+                for (int i = 0; i < mClassifyAdapter.getData().size(); i++) {
+                    VodInfo.VodSeriesFlag flag = mClassifyAdapter.getData().get(i);
+                    if (flag.selected) {
+                        flag.selected = false;
+                        mClassifyAdapter.notifyItemChanged(i);
+                        break;
+                    }
                 }
+
+                // 🔥 选中当前点击的 position
+                VodInfo.VodSeriesFlag currItem = mClassifyAdapter.getData().get(position);
+                currItem.selected = true;
+                mClassifyAdapter.notifyItemChanged(position);
+                GroupIndex = position;
+
                 mNumberClassification.setSelection(position);
                 List<VodInfo.VodSeries> vodSeries = mapData.get(item);
                 if (vodSeries != null) {
@@ -880,7 +890,7 @@ public class DetailActivity extends baseActivity {
         setTextShow(tvDes, "简介：", removeHtmlTag(video.des));
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
             initHomeHotVod3(homedeVodAdapter);
-        }, 3000); // 5秒后执行
+        }, 1000); // 5秒后执行
         // 读取快速搜索缓存 ← 我加的
         List<Movie.Video> cacheSearchData = (List<Movie.Video>) CacheManager.getCache("vod_souzd_" + mVideo.name);
         if (cacheSearchData != null && !cacheSearchData.isEmpty()) {
@@ -888,11 +898,11 @@ public class DetailActivity extends baseActivity {
             quickSearchData.addAll(cacheSearchData);
             EventBus.getDefault().post(new RefreshEvent(RefreshEvent.TYPE_QUICK_SEARCH, quickSearchData));
         }
-// 如果没有缓存才去搜索
+        // 如果没有缓存才去搜索
         if (quickSearchData == null || quickSearchData.isEmpty()) {
             new Handler(Looper.getMainLooper()).postDelayed(() -> {
                 startQuickSearch();
-            }, 2000); // 5秒后执行
+            }, 8000); // 5秒后执行
 
         }
     }
@@ -956,8 +966,14 @@ public class DetailActivity extends baseActivity {
         }
         // 🔥 兜底：再给一次焦点，防止第一次没生效
         mGridView.postDelayed(() -> {
-            scrollToPlayPosAndRequestFoucuse(vodInfo.playIndex);
-            vodInfo.playIndex = LOCK_PLAY_INDEX;
+            // 正确计算 组内位置
+            int groupStartPosition = GroupIndex * 20;
+            int innerIndex = vodInfo.playIndex - groupStartPosition;
+
+            // 安全范围判断，绝不崩溃
+            if (innerIndex >= 0 && innerIndex < seriesAdapter.getData().size()) {
+                scrollToPlayPosAndRequestFoucuse(innerIndex);
+            }
         }, 200);
     }
     private String getHtml(String label, String content) {

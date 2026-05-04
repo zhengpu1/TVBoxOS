@@ -39,9 +39,8 @@ public class SeriesAdapter extends BaseQuickAdapter<VodInfo.VodSeries, BaseViewH
 
         if (item.selected) {
             tvSeries.setTextColor(mContext.getResources().getColor(R.color.color_00FF0A));
-
         } else {
-            tvSeries.setTextColor(mContext.getResources().getColor(R.color.color_FFF5E8DC));
+                tvSeries.setTextColor(mContext.getResources().getColor(R.color.color_FFF5E8DC));
         }
         helper.setText(R.id.tvSeries, item.name.replace("-",""));
         if(Hawk.get(HawkConfig.EPISODE_GROUPING, false)) {

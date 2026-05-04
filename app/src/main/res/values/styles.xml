@@ -75,11 +75,11 @@
         <item name="color_theme">#ffff6600</item>
         <item name="color_theme_95">#F2292626</item>
         <item name="color_theme_90">#E6181819</item>
-        <item name="color_theme_80">#14E7EEFA</item>
-        <item name="color_theme_70">#26EFF0F3</item>
-        <item name="color_theme_60">#0FE9EFF8</item>
-        <item name="color_theme_50">#0DE9EFFA</item>
-        <item name="color_theme_40">#26E6E9F1</item>
+        <item name="color_theme_80">#00000409</item>
+        <item name="color_theme_70">#2601011C</item>
+        <item name="color_theme_60">#00E9EFF8</item>
+        <item name="color_theme_50">#00E9EFFA</item>
+        <item name="color_theme_40">#00000207</item>
         <item name="color_theme_20">#14DBE5F4</item>
         <item name="color_theme_dark_70">#F2151414</item>
         <item name="color_theme_h">#80EFF0F3</item>

@@ -1550,12 +1550,15 @@ public class PlayFragment extends BaseLazyFragment {
                             }
                         }
                         if (rs.has("jxFrom")) {
-                            requireActivity().runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    Toast.makeText(mContext, "解析来自:" + rs.optString("jxFrom"), Toast.LENGTH_SHORT).show();
-                                }
-                            });
+                            // 修复：先判断 Fragment 是否还存活，再弹 Toast
+                            if (isAdded() && getActivity() != null) {
+                                requireActivity().runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        Toast.makeText(mContext, "解析来自:" + rs.optString("jxFrom"), Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                            }
                         }
                         playUrl(rs.optString("url", ""), headers);
                     }

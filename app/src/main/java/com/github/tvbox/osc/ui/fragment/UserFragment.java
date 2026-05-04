@@ -381,6 +381,7 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
         setDouBanDatas(adapter);
     }
     private void setDouBanDatas(HomeHotVodAdapterc adapter) {
+
         try {
             String doubanUrl = ApiConfig.get().souyeUrl;
             String Referer = "";
@@ -398,7 +399,7 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
                             mActivity.runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
-                                    if (finalDoubanUrl.contains("192.168")) {
+                                    if (!ApiConfig.get().souyeUrl.isEmpty())  {
                                         adapter.setNewData(loadHotss(netJson));
                                     } else {
                                         adapter.setNewData(loadHotssk(netJson));
@@ -551,14 +552,14 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
             for (JsonElement ele : array) {
                 JsonObject obj = (JsonObject) ele;
                 Movie.Video vod = new Movie.Video();
-                vod.id = ApiConfig.get().getHomeSourceBean().getKey().equals("htv_hrys") ? obj.get("vod_id").getAsString() : "";
+                vod.id = obj.get("vod_id").getAsString();
                 vod.name = obj.get("vod_name").getAsString();
                 vod.note = obj.get("vod_remarks").getAsString();
                 vod.isend = Integer.parseInt(obj.get("vod_isend").getAsString());
                 vod.pic = obj.get("vod_pic").getAsString();
                 vod.picthumb = obj.get("vod_pic_thumb").getAsString();
                 vod.picslide = obj.get("vod_pic_slide").getAsString();
-                vod.sourceKey = ApiConfig.get().getHomeSourceBean().getKey();
+                vod.sourceKey = "htv_hrys";
                 result.add(vod);
             }
         } catch (Throwable th) {
@@ -567,6 +568,16 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
         return result;
     }
     private ArrayList<Movie.Video> loadHotssk(String json) {
+        List<SourceBean> sourceBeans = ApiConfig.get().getSearchSourceBeanList();
+        int bzz = 0;
+        // 过滤可用源
+        for (SourceBean bean : sourceBeans) {
+            if (bean.getKey().contains("htv_360")) {
+                bzz = 1;
+                break;
+            }
+
+        }
         ArrayList<Movie.Video> result = new ArrayList<>();
         try {
             JsonObject infoJson = new Gson().fromJson(json, JsonObject.class);
@@ -575,13 +586,16 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
                 JsonObject obj = (JsonObject) array.get(i);
                 Movie.Video vod = new Movie.Video();
                 JsonArray pict = obj.getAsJsonArray("pic_lists");
+                if (bzz == 1) vod.id = obj.get("cat").getAsString() + "_" + obj.get("ent_id").getAsString();
                 vod.name = obj.get("title").getAsString();
                 vod.note = obj.get("upinfo").getAsString();
+                if (bzz == 1) vod.sourceKey = "htv_360";;
                 for (JsonElement pic : pict) {
                     JsonObject pics = (JsonObject) pic;
                     vod.picthumb = pics.get("url").getAsString();
                     vod.picslide = pics.get("url").getAsString();
                 }
+
                 result.add(vod);
             }
         } catch (Throwable th) {

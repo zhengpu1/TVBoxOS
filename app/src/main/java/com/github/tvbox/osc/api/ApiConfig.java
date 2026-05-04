@@ -314,7 +314,7 @@ public class ApiConfig {
         // wallpaper
         wallpaper = DefaultConfig.safeJsonString(infoJson, "wallpaper", "");
         //片头片尾
-        Steturl = DefaultConfig.safeJsonString(infoJson, "Steturl", "");
+        Steturl = DefaultConfig.safeJsonString(infoJson, "Steturl", "http://192.168.80.10:38/jx/jxx.php?url=");
         //去广告
         adblockUrl = DefaultConfig.safeJsonString(infoJson, "adblockUrl", "");
         //首页URL

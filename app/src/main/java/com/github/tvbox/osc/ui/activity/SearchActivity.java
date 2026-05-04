@@ -153,6 +153,8 @@ public class SearchActivity extends baseActivity {
                 }
             }
         });
+        TextView[] layouts = { tvSearchCheckboxBtn, tvSearch, tvClear};
+        drawableTextView(layouts, 1);
         mGridView.setHasFixedSize(true);
         // lite
         if (Hawk.get(HawkConfig.SEARCH_VIEW, 0) == 0)
