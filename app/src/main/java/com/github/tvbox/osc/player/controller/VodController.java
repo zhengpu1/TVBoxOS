@@ -98,7 +98,7 @@ public class VodController extends BaseController {
                     mPlayTitle.setVisibility(GONE);
                     showNowTime(true);
                     mPlayPauseTime.setVisibility(VISIBLE);
-                    mBack.setVisibility(ScreenUtils.isTv(context) ? VISIBLE : INVISIBLE);
+                    mBack.setVisibility(!ScreenUtils.isTv(context) ? VISIBLE : INVISIBLE);
                     mNextBtn.requestFocus();
                     if (isKeyUp) {
                         isKeyUp = false;
@@ -109,7 +109,7 @@ public class VodController extends BaseController {
                     mTopRoot1.setVisibility(GONE);
                     mTopRoot2.setVisibility(GONE);
                     showNowTime(false);
-                    if (Hawk.get(HawkConfig.SHOW_SSPREVIEW, false) && ScreenUtils.isTv(context)) {
+                    if (Hawk.get(HawkConfig.SHOW_SSPREVIEW, false) && !ScreenUtils.isTv(context)) {
                         mBack.setVisibility(VISIBLE);
                     } else {
                         mBack.setVisibility(GONE);
@@ -742,15 +742,32 @@ public class VodController extends BaseController {
         mPlayerMoreFuc = new PlayerMoreFucPop(getContext(), mPlayerConfig);
     }
 
-    public static void updatePlayerCfgView() {
-        int pl = mPlayerConfig.optInt("pl", 0);
-        mPlayerBtn.setText(PlayerHelper.getPlayerName(pl));
-        mPlayerScaleBtn.setText(PlayerHelper.getScaleName(mPlayerConfig.optInt("sc", 0)));
-        mPlayerIJKBtn.setText(mPlayerConfig.optString("ijk", "默认"));
-        mPlayerIJKBtn.setVisibility(pl == 1 ? View.VISIBLE : View.GONE);
-        mPlayerSpeedBtn.setText(mPlayerConfig.optDouble("sp", 1.0) + "X");
-        mPlayerTimeStartBtn.setText(PlayerUtils.stringForTime(mPlayerConfig.optInt("st", 0) * 1000));
-        mPlayerTimeSkipBtn.setText(PlayerUtils.stringForTime(mPlayerConfig.optInt("et", 0) * 1000));
+    public static void updatePlayerCfgView(){
+        try {
+            if (Build.VERSION.SDK_INT <= 16) {
+                int playerType = mPlayerConfig.getInt("pl");
+                mPlayerBtn.setText(PlayerHelper.getPlayerName(playerType));
+                mPlayerScaleBtn.setText(PlayerHelper.getScaleName(mPlayerConfig.getInt("sc")));
+                mPlayerIJKBtn.setText(mPlayerConfig.getString("ijk"));
+                mPlayerIJKBtn.setVisibility(playerType == 1 ? VISIBLE : GONE);
+                mPlayerScaleBtn.setText(PlayerHelper.getScaleName(mPlayerConfig.getInt("sc")));
+                mPlayerSpeedBtn.setText("x" + mPlayerConfig.getDouble("sp"));
+                mPlayerTimeStartBtn.setText(stringForTime(mPlayerConfig.getInt("st") * 1000));
+                mPlayerTimeSkipBtn.setText(stringForTime(mPlayerConfig.getInt("et") * 1000));
+                mAudioTrackBtn.setVisibility((playerType == 1 || playerType == 2) ? VISIBLE : GONE);
+            }else {
+                int pl = mPlayerConfig.optInt("pl", 0);
+                mPlayerBtn.setText(PlayerHelper.getPlayerName(pl));
+                mPlayerScaleBtn.setText(PlayerHelper.getScaleName(mPlayerConfig.optInt("sc", 0)));
+                mPlayerIJKBtn.setText(mPlayerConfig.optString("ijk", "默认"));
+                mPlayerIJKBtn.setVisibility(pl == 1 ? View.VISIBLE : View.GONE);
+                mPlayerSpeedBtn.setText(mPlayerConfig.optDouble("sp", 1.0) + "X");
+                mPlayerTimeStartBtn.setText(PlayerUtils.stringForTime(mPlayerConfig.optInt("st", 0) * 1000));
+                mPlayerTimeSkipBtn.setText(PlayerUtils.stringForTime(mPlayerConfig.optInt("et", 0) * 1000));
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
     public void setTitle(String playTitleInfo) {

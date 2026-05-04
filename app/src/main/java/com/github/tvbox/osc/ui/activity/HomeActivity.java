@@ -196,7 +196,7 @@ public class HomeActivity extends baseActivity {
         this.mGridView.setLayoutManager(new V7LinearLayoutManager(this.mContext, 0, false));
         this.mGridView.setSpacingWithMargins(0, AutoSizeUtils.dp2px(this.mContext, 5.0f));
         this.mGridView.setAdapter(this.sortAdapter);
-        if (ScreenUtils.isTv(mContext)) {
+        if (!ScreenUtils.isTv(mContext)) {
             tvAPush.setVisibility(View.GONE);
         }
         ImageView[] strls = { tvStyle };
@@ -369,7 +369,7 @@ public class HomeActivity extends baseActivity {
                         UserFragment.tvHotList1.setVisibility(View.VISIBLE);
                         UserFragment.tvHotList4.setVisibility(View.VISIBLE);
                         tvFind.setVisibility(View.VISIBLE);
-                        if (ScreenUtils.isTv(mContext)) {
+                        if (!ScreenUtils.isTv(mContext)) {
                             tvAPush.setVisibility(View.GONE);
                         } else {
                             tvAPush.setVisibility(View.VISIBLE);

@@ -13,6 +13,8 @@ import com.github.tvbox.osc.bean.VodInfo;
 import com.github.tvbox.osc.util.HawkConfig;
 import com.orhanobut.hawk.Hawk;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.ArrayList;
 
 import me.jessyan.autosize.utils.AutoSizeUtils;
@@ -41,6 +43,12 @@ public class SeriesAdapter extends BaseQuickAdapter<VodInfo.VodSeries, BaseViewH
             tvSeries.setTextColor(mContext.getResources().getColor(R.color.color_00FF0A));
         } else {
                 tvSeries.setTextColor(mContext.getResources().getColor(R.color.color_FFF5E8DC));
+        }
+        if (StringUtils.isNumeric(item.name)) {
+            int num = Integer.parseInt(item.name);
+            if (String.valueOf(num).length() < 8) {
+                item.name = "第" + String.format("%02d", num) + "集";
+            }
         }
         helper.setText(R.id.tvSeries, item.name.replace("-",""));
         if(Hawk.get(HawkConfig.EPISODE_GROUPING, false)) {

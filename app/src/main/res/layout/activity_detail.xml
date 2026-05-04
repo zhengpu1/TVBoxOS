@@ -237,7 +237,7 @@
                         android:layout_marginBottom="@dimen/vs_5"
                         android:ellipsize="end"
                         android:singleLine="true"
-                        android:textColor="@color/color_80FFFFFF"
+                        android:textColor="@color/color_03DAC5"
                         android:textSize="@dimen/ts_18" />
 
                     <LinearLayout
@@ -252,7 +252,7 @@
                             android:layout_marginRight="@dimen/vs_20"
                             android:ellipsize="end"
                             android:singleLine="true"
-                            android:textColor="@color/color_80FFFFFF"
+                            android:textColor="@color/color_03DAC5"
                             android:textSize="@dimen/ts_18" />
 
                         <TextView
@@ -261,7 +261,7 @@
                             android:layout_height="wrap_content"
                             android:ellipsize="end"
                             android:singleLine="true"
-                            android:textColor="@color/color_80FFFFFF"
+                            android:textColor="@color/color_03DAC5"
                             android:textSize="@dimen/ts_18" />
                     </LinearLayout>
                 </LinearLayout>
@@ -279,7 +279,7 @@
                     android:paddingRight="@dimen/vs_10"
                     android:paddingBottom="@dimen/vs_1"
                     android:singleLine="true"
-                    android:textColor="@color/color_80FFFFFF"
+                    android:textColor="@color/color_03DAC5"
                     android:textSize="@dimen/ts_18" />
 
                 <View
@@ -490,7 +490,7 @@
                 android:layout_marginLeft="@dimen/vs_10"
                 android:gravity="center"
                 android:text="暂无播放数据"
-                android:textColor="@color/color_80FFFFFF"
+                android:textColor="@color/color_03DAC5"
                 android:textSize="@dimen/ts_24" />
         </LinearLayout>
 
@@ -545,7 +545,7 @@
                         android:shadowRadius="1"
                         android:singleLine="true"
                         android:text="全部影片免费观看，如播放失败，尝试切换解析或选择《更多站点》站点播放。"
-                        android:textColor="@color/color_80FFFFFF"
+                        android:textColor="@color/color_03DAC5"
                         android:textSize="@dimen/ts_18" />
                 </LinearLayout>
 

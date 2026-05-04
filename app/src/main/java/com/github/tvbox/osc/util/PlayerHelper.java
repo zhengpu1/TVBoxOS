@@ -171,12 +171,6 @@ public class PlayerHelper {
             playersInfo.put(0, "系统");
             playersInfo.put(1, "IJK");
             playersInfo.put(2, "Exo");
-            playersInfo.put(3, "阿里");
-            playersInfo.put(10, "MX");
-            playersInfo.put(11, "Reex");
-            playersInfo.put(12, "Kodi");
-            playersInfo.put(13, "附近设备");
-            playersInfo.put(14, "VLC");
             mPlayersInfo = playersInfo;
         }
         return mPlayersInfo;
