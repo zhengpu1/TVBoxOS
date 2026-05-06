@@ -451,6 +451,7 @@ public class DetailActivity extends baseActivity {
             public void onItemSelected(TvRecyclerView parent, View itemView, int position) {
                 seriesSelectf = true;
                 refresh(itemView, position);
+
             }
 
             @Override

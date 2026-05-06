@@ -110,7 +110,7 @@
         android:layout_height="wrap_content">
         <TextView
             android:textSize="@dimen/ts_24"
-            android:textColor="@color/color_80FFFFFF"
+            android:textColor="@color/color_FFFFFF"
             android:ellipsize="end"
             android:layout_gravity="bottom|right"
             android:id="@+id/tiny_progress"
@@ -123,10 +123,10 @@
             android:text="12:/45:00"
             android:maxLines="1"
             android:shadowColor="@color/color_FF000000"
-            android:shadowDx="0"
-            android:shadowDy="0"
-            android:shadowRadius="2"
-            android:alpha="0.6"/>
+            android:shadowDx="1.5"
+            android:shadowDy="1.5"
+            android:shadowRadius="1"/>
+
         <View
             android:layout_gravity="bottom"
             android:id="@+id/line"
@@ -135,7 +135,7 @@
             android:layout_height="@dimen/ts_22"
             android:layout_marginRight="@dimen/vs_10"
             android:layout_marginBottom="@dimen/vs_4"
-            android:alpha="0.6"/>
+            android:alpha="1"/>
         <TextView
             android:textSize="@dimen/ts_24"
             android:textColor="@color/color_FFFFFF"
@@ -150,8 +150,8 @@
             android:text="00:00:00"
             android:maxLines="1"
             android:shadowColor="@color/color_FF000000"
-            android:shadowDx="1"
-            android:shadowDy="1"
+            android:shadowDx="1.5"
+            android:shadowDy="1.5"
             android:shadowRadius="1"/>
         <Space
             android:layout_width="@dimen/vs_10"

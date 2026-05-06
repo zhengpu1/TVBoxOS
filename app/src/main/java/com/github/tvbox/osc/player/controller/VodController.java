@@ -109,6 +109,7 @@ public class VodController extends BaseController {
                     mTopRoot1.setVisibility(GONE);
                     mTopRoot2.setVisibility(GONE);
                     showNowTime(false);
+                    mPlayLoadNetSpeed.setVisibility(View.GONE);
                     if (Hawk.get(HawkConfig.SHOW_SSPREVIEW, false) && !ScreenUtils.isTv(context)) {
                         mBack.setVisibility(VISIBLE);
                     } else {
@@ -250,6 +251,7 @@ public class VodController extends BaseController {
             String speed = PlayerHelper.getDisplaySpeed(mControlWrapper.getTcpSpeed());
             mPlayLoadNetSpeedRightTop.setText(speed);
             mPlayLoadNetSpeed.setText(speed);
+            mMiniProgressTextView.setVisibility(showTime ? View.VISIBLE : View.GONE);
             String width = Integer.toString(mControlWrapper.getVideoSize()[0]);
             String height = Integer.toString(mControlWrapper.getVideoSize()[1]);
             mVideoSize.setText(width + " X " + height);
@@ -743,31 +745,14 @@ public class VodController extends BaseController {
     }
 
     public static void updatePlayerCfgView(){
-        try {
-            if (Build.VERSION.SDK_INT <= 16) {
-                int playerType = mPlayerConfig.getInt("pl");
-                mPlayerBtn.setText(PlayerHelper.getPlayerName(playerType));
-                mPlayerScaleBtn.setText(PlayerHelper.getScaleName(mPlayerConfig.getInt("sc")));
-                mPlayerIJKBtn.setText(mPlayerConfig.getString("ijk"));
-                mPlayerIJKBtn.setVisibility(playerType == 1 ? VISIBLE : GONE);
-                mPlayerScaleBtn.setText(PlayerHelper.getScaleName(mPlayerConfig.getInt("sc")));
-                mPlayerSpeedBtn.setText("x" + mPlayerConfig.getDouble("sp"));
-                mPlayerTimeStartBtn.setText(stringForTime(mPlayerConfig.getInt("st") * 1000));
-                mPlayerTimeSkipBtn.setText(stringForTime(mPlayerConfig.getInt("et") * 1000));
-                mAudioTrackBtn.setVisibility((playerType == 1 || playerType == 2) ? VISIBLE : GONE);
-            }else {
-                int pl = mPlayerConfig.optInt("pl", 0);
-                mPlayerBtn.setText(PlayerHelper.getPlayerName(pl));
-                mPlayerScaleBtn.setText(PlayerHelper.getScaleName(mPlayerConfig.optInt("sc", 0)));
-                mPlayerIJKBtn.setText(mPlayerConfig.optString("ijk", "默认"));
-                mPlayerIJKBtn.setVisibility(pl == 1 ? View.VISIBLE : View.GONE);
-                mPlayerSpeedBtn.setText(mPlayerConfig.optDouble("sp", 1.0) + "X");
-                mPlayerTimeStartBtn.setText(PlayerUtils.stringForTime(mPlayerConfig.optInt("st", 0) * 1000));
-                mPlayerTimeSkipBtn.setText(PlayerUtils.stringForTime(mPlayerConfig.optInt("et", 0) * 1000));
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        int pl = mPlayerConfig.optInt("pl", 0);
+        mPlayerBtn.setText(PlayerHelper.getPlayerName(pl));
+        mPlayerScaleBtn.setText(PlayerHelper.getScaleName(mPlayerConfig.optInt("sc", 0)));
+        mPlayerIJKBtn.setText(mPlayerConfig.optString("ijk", "默认"));
+        mPlayerIJKBtn.setVisibility(pl == 1 ? View.VISIBLE : View.GONE);
+        mPlayerSpeedBtn.setText(mPlayerConfig.optDouble("sp", 1.0) + "X");
+        mPlayerTimeStartBtn.setText(PlayerUtils.stringForTime(mPlayerConfig.optInt("st", 0) * 1000));
+        mPlayerTimeSkipBtn.setText(PlayerUtils.stringForTime(mPlayerConfig.optInt("et", 0) * 1000));
     }
 
     public void setTitle(String playTitleInfo) {
@@ -830,7 +815,7 @@ public class VodController extends BaseController {
         mCurrentTime.setText(curr);
         mTotalTime.setText(total);
         mMiniProgressTextView.setText(curr + "/" + total);
-        mMiniProgressTextView.setVisibility(mShowMiniProgress ? View.VISIBLE : View.GONE);
+       // mMiniProgressTextView.setVisibility(mShowMiniProgress ? View.VISIBLE : View.GONE);
 
         if (duration > 0) {
             mSeekBar.setEnabled(true);
@@ -923,7 +908,6 @@ public class VodController extends BaseController {
             case VideoView.STATE_BUFFERED:
                 mPlayLoadNetSpeed.setVisibility(View.GONE);
                 break;
-            case VideoView.STATE_PREPARING:
             case VideoView.STATE_BUFFERING:
                 if (mProgressRoot.getVisibility() == View.GONE)
                     mPlayLoadNetSpeed.setVisibility(View.VISIBLE);
@@ -1134,6 +1118,7 @@ public class VodController extends BaseController {
         showTime = !showTime;
         Hawk.put(HawkConfig.VIDEO_SHOW_TIME, showTime);
         textView.setText(showTime ? "屏显开" : "屏显关");
+        mControlWrapper.startProgress();
         tvLogo.setVisibility(showTime ? View.VISIBLE : View.GONE);
     }
 
