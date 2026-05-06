@@ -18,6 +18,8 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="tv Ijk Cache Play" />
+      <item value="audio track select" />
       <item value="m Play Pause Time" />
       <item value="on Play State Changed" />
       <item value="m Play Load Net Speed" />
@@ -33,8 +35,6 @@
       <item value="m Player More Fuc" />
       <item value="toggle Time Show" />
       <item value="play scale" />
-      <item value="tv Ijk Cache Play" />
-      <item value="audio track select" />
       <item value="start Fade Out" />
       <item value="start Progress" />
       <item value="toggle Play" />
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="2" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="8394" />
+        <entry key="CHINESE" value="8396" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="8395" />
+        <entry key="ENGLISH" value="8397" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="1" />
