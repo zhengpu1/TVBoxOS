@@ -1,5 +1,7 @@
 package com.github.tvbox.osc.ui.fragment;
 
+import static com.github.tvbox.osc.ui.activity.HomeActivity.clearAllCacheAndHistory;
+
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -22,11 +24,9 @@ import com.github.tvbox.osc.bean.IJKCode;
 import com.github.tvbox.osc.bean.SourceBean;
 import com.github.tvbox.osc.ui.activity.HomeActivity;
 import com.github.tvbox.osc.ui.activity.SettingActivity;
-import com.github.tvbox.osc.ui.adapter.ApiHistoryDialogAdapter;
 import com.github.tvbox.osc.ui.adapter.SelectDialogAdapter;
 import com.github.tvbox.osc.ui.dialog.AboutDialog;
 import com.github.tvbox.osc.ui.dialog.ApiDialog;
-import com.github.tvbox.osc.ui.dialog.ApiHistoryDialog;
 import com.github.tvbox.osc.ui.dialog.BackupDialog;
 import com.github.tvbox.osc.ui.dialog.SearchRemoteTvDialog;
 import com.github.tvbox.osc.ui.dialog.SelectDialog;
@@ -831,8 +831,8 @@ public class ModelSettingFragment extends BaseLazyFragment {
                 }
             });
         //findViewById(R.id.llIjkCachePlay).setOnClickListener((this::onClickIjkCachePlay));
-       // findViewById(R.id.llClearCache).setOnClickListener((this::onClickClearCache));
-        findViewById(R.id.llClearCache).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.llClearCache).setOnClickListener(v -> showResetDialog());
+      /*  findViewById(R.id.llClearCache).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ArrayList<String> history = Hawk.get(HawkConfig.API_HISTORY, new ArrayList<String>());
@@ -873,7 +873,7 @@ public class ModelSettingFragment extends BaseLazyFragment {
                 });
                 dialog.show();
             }
-        });
+        });*/
         // Select App Theme Color -------------------------------------
         findViewById(R.id.llTheme).setOnClickListener(new View.OnClickListener() {
             private final int chkTheme = Hawk.get(HawkConfig.THEME_SELECT, 0);
@@ -1023,5 +1023,38 @@ public class ModelSettingFragment extends BaseLazyFragment {
                 System.exit(0);
             }
         }
+    }
+    private void resetApp() {
+        try {
+            // 1. 清空所有 Hawk 数据（你源码里有这个方法）
+            Hawk.deleteAll();
+            clearAllCacheAndHistory(getContext());
+            String cachePath = FileUtils.getCachePath();
+            File cacheDir = new File(cachePath);
+            if (!cacheDir.exists()) return;
+            new Thread(() -> {
+                try {
+                    FileUtils.cleanDirectory(cacheDir);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }).start();
+            // 2. 标准重启 APP（完全可用）
+            restartApp();
+
+            // 3. 杀死进程
+            android.os.Process.killProcess(android.os.Process.myPid());
+            System.exit(0);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    private void showResetDialog() {
+        new android.app.AlertDialog.Builder(getContext())
+                .setTitle("重置 APP")
+                .setMessage("确定要重置吗？所有设置会清空！")
+                .setPositiveButton("确定", (dialog, which) -> resetApp())
+                .setNegativeButton("取消", null)
+                .show();
     }
 }

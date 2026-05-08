@@ -842,60 +842,68 @@ public class HomeActivity extends baseActivity {
             dialog.show();
         }
     }
-    public void onClickClearCache(View v) {
-        FastClickCheckUtil.check(v);
-
-        // 第一步：直接关闭所有数据库连接 + 释放资源（最关键！）
+    // 公共静态方法：全局清空缓存+历史+数据库
+    public static void clearAllCacheAndHistory(Context context) {
         try {
             SQLiteDatabase.releaseMemory();
             SQLiteDatabase db = null;
             try {
-                db = openOrCreateDatabase("tvbox.v3.db", Context.MODE_PRIVATE, null);
+                db = context.openOrCreateDatabase("tvbox.v3.db", Context.MODE_PRIVATE, null);
                 db.close();
-            } catch (Exception e) {
-                // 忽略关闭异常
-            }
+            } catch (Exception e) {}
+
+            new Thread(() -> {
+                try {
+                    File cacheDir = new File(FileUtils.getCachePath());
+                    if (cacheDir.exists()) {
+                        FileUtils.recursiveDelete(cacheDir);
+                    }
+                    File externalCache = context.getExternalCacheDir();
+                    if (externalCache != null) {
+                        FileUtils.recursiveDelete(externalCache);
+                    }
+
+                    try {
+                        String dbName = "tvbox.v3.db";
+                        File dbFile = context.getDatabasePath(dbName);
+                        if (dbFile != null && dbFile.exists()) dbFile.delete();
+
+                        File dbJournal = new File(dbFile.getParent(), dbName + "-journal");
+                        File dbWal = new File(dbFile.getParent(), dbName + "-wal");
+                        File dbShm = new File(dbFile.getParent(), dbName + "-shm");
+
+                        if (dbJournal.exists()) dbJournal.delete();
+                        if (dbWal.exists()) dbWal.delete();
+                        if (dbShm.exists()) dbShm.delete();
+                    } catch (Exception e) {}
+
+                } catch (Exception e) {}
+
+                ((android.app.Activity) context).runOnUiThread(() -> {
+                    Toast.makeText(context, "重置成功，正在重启", Toast.LENGTH_LONG).show();
+                    restartApp(context);
+                });
+            }).start();
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
 
-        // 第二步：后台删除所有缓存 + 数据库
-        new Thread(() -> {
-            try {
-                // 删除内部缓存
-                File cacheDir = new File(FileUtils.getCachePath());
-                if (cacheDir.exists()) {
-                    FileUtils.recursiveDelete(cacheDir);
-                }
-                // 删除外部缓存
-                File externalCache = getExternalCacheDir();
-                if (externalCache != null) {
-                    FileUtils.recursiveDelete(externalCache);
-                }
-
-                // 强制删除数据库（不检查、不等待、直接删）
-                try {
-                    String dbName = "tvbox.v3.db";
-                    File dbFile = getDatabasePath(dbName);
-                    if (dbFile != null && dbFile.exists()) dbFile.delete();
-
-                    File dbJournal = new File(dbFile.getParent(), dbName + "-journal");
-                    File dbWal = new File(dbFile.getParent(), dbName + "-wal");
-                    File dbShm = new File(dbFile.getParent(), dbName + "-shm");
-
-                    if (dbJournal.exists()) dbJournal.delete();
-                    if (dbWal.exists()) dbWal.delete();
-                    if (dbShm.exists()) dbShm.delete();
-                } catch (Exception e) {}
-
-            } catch (Exception e) {}
-
-            // 最后：重启APP（唯一能彻底避免只读报错的方式）
-            runOnUiThread(() -> {
-                Toast.makeText(HomeActivity.this, "缓存已清空，正在重启", Toast.LENGTH_LONG).show();
-                restartApp();
-            });
-        }).start();
+    // 静态重启APP
+    public static void restartApp(Context context) {
+        try {
+            Intent intent = context.getPackageManager().getLaunchIntentForPackage(context.getPackageName());
+            if (intent != null) {
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                context.startActivity(intent);
+                android.os.Process.killProcess(android.os.Process.myPid());
+                System.exit(0);
+            }
+        } catch (Exception e) {}
+    }
+    public void onClickClearCache(View v) {
+        FastClickCheckUtil.check(v);
+        clearAllCacheAndHistory(this);
     }
     void reloadHome() {
         Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
