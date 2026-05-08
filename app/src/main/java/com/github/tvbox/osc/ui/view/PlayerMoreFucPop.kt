@@ -78,7 +78,7 @@ class PlayerMoreFucPop(context: Context?, private val playConfig: JSONObject?) :
         mTinyProgress?.text = if (Hawk.get(HawkConfig.HOME_PWET_TUMM, false)) "迷你进度开" else "迷你进度关"
         mTinyProgress?.setOnClickListener {
             onClick?.invoke(it as TextView?)
-            Hawk.put(HawkConfig.HOME_PWET_TUMM, Hawk.get(HawkConfig.HOME_PWET_TUMM, true))
+            Hawk.put(HawkConfig.HOME_PWET_TUMM, !Hawk.get(HawkConfig.HOME_PWET_TUMM, false))
         }
         mAudioTrack?.setOnClickListener {
             onClick?.invoke(it as TextView?)
@@ -89,10 +89,14 @@ class PlayerMoreFucPop(context: Context?, private val playConfig: JSONObject?) :
         mIdmDownLoadk?.setOnClickListener {
             onClick?.invoke(it as TextView?)
         }
-        mShowTime?.text = if (Hawk.get(HawkConfig.VIDEO_SHOW_TIME, true)) "屏显开" else "屏显关"
+        mShowTime?.text = if (Hawk.get(HawkConfig.VIDEO_SHOW_TIME, false)) "屏显开" else "屏显关"
         mShowTime?.setOnClickListener {
             onClick?.invoke(it as TextView?)
-            Hawk.put(HawkConfig.VIDEO_SHOW_TIME, Hawk.get(HawkConfig.VIDEO_SHOW_TIME, true))
+            // 重点：必须加 ! 取反
+            val isOpen = Hawk.get(HawkConfig.VIDEO_SHOW_TIME, false)
+            Hawk.put(HawkConfig.VIDEO_SHOW_TIME, !isOpen)
+            // 点击后立刻刷新文字
+            mShowTime?.text = if (!isOpen) "屏显开" else "屏显关"
         }
         initLandscapePortraitBtnInfo()
         (popupWindow?.contentView as? ViewGroup)?.forEach {

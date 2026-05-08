@@ -302,7 +302,9 @@
                     android:layout_height="@dimen/vs_50"
                     android:layout_gravity="center"
                     android:alpha="0.75"
-                    android:src="@drawable/hm_folder" />
+                    android:src="@drawable/hm_folder"
+                    android:duplicateParentState="true"
+                    app:tint="@color/font_deta_color1"/>
 
                 <TextView
                     android:id="@+id/tView"
@@ -310,8 +312,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginLeft="@dimen/vs_10"
-                    android:focusable="false"
-                    android:focusableInTouchMode="false"
+                    android:duplicateParentState="true"
                     android:gravity="center"
                     android:text="文件"
                     android:textAlignment="gravity"

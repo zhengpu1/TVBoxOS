@@ -98,7 +98,12 @@ public class VodController extends BaseController {
                     mPlayTitle.setVisibility(GONE);
                     showNowTime(true);
                     mPlayPauseTime.setVisibility(VISIBLE);
-                    mBack.setVisibility(!ScreenUtils.isTv(context) ? VISIBLE : INVISIBLE);
+                    if (Build.VERSION.SDK_INT <= 16) {
+                        mBack.setVisibility(ScreenUtils.isTv(context) ? INVISIBLE : VISIBLE);
+                    } else {
+                        mBack.setVisibility(ScreenUtils.isTv(context) ? VISIBLE : INVISIBLE);
+                    }
+
                     mNextBtn.requestFocus();
                     if (isKeyUp) {
                         isKeyUp = false;
@@ -109,8 +114,9 @@ public class VodController extends BaseController {
                     mTopRoot1.setVisibility(GONE);
                     mTopRoot2.setVisibility(GONE);
                     showNowTime(false);
+                    mPlayPauseTime.setVisibility(VISIBLE);
                     mPlayLoadNetSpeed.setVisibility(View.GONE);
-                    if (Hawk.get(HawkConfig.SHOW_SSPREVIEW, false) && !ScreenUtils.isTv(context)) {
+                    if (Hawk.get(HawkConfig.SHOW_SSPREVIEW, false)) {
                         mBack.setVisibility(VISIBLE);
                     } else {
                         mBack.setVisibility(GONE);
@@ -239,8 +245,10 @@ public class VodController extends BaseController {
         mPlayPauseTime.setText(timeFormat.format(date));
         if (mTopRoot1.getVisibility() == View.VISIBLE) {
             mPlayPauseTime.setAlpha(1);
+            mMiniProgressTextView.setAlpha(1);
         } else {
-            mPlayPauseTime.setAlpha(0.6f);
+            mPlayPauseTime.setAlpha(0.7f);
+            mMiniProgressTextView.setAlpha(0.7f);
         }
     }
 
@@ -255,7 +263,7 @@ public class VodController extends BaseController {
             String width = Integer.toString(mControlWrapper.getVideoSize()[0]);
             String height = Integer.toString(mControlWrapper.getVideoSize()[1]);
             mVideoSize.setText(width + " X " + height);
-            mSeekBars.setVisibility(SeekBar.VISIBLE);
+            mSeekBars.setVisibility(mShowMiniProgress ? View.VISIBLE : View.GONE);
             mHandler.postDelayed(this, 1000);
         }
     };
@@ -315,7 +323,7 @@ public class VodController extends BaseController {
         mPlayerBtn = findViewById(R.id.play_player);
         mPlayerIJKBtn = findViewById(R.id.play_ijk);
         mMiniProgressTextView = findViewById(R.id.tiny_progress);
-        boolean mShowMiniProgress = Hawk.get(HawkConfig.HOME_PWET_TUMM, false);
+        mShowMiniProgress = Hawk.get(HawkConfig.HOME_PWET_TUMM, false);
         showTime = Hawk.get(HawkConfig.VIDEO_SHOW_TIME, false);
         mPlayerTimeStartBtn = findViewById(R.id.play_time_start);
         mPlayerTimeSkipBtn = findViewById(R.id.play_time_end);
@@ -332,6 +340,7 @@ public class VodController extends BaseController {
             myHandless = true;
             choosePlay(v);
         });
+
         findViewById(R.id.more_fuc).setOnClickListener(v ->
                 mPlayerMoreFuc.setOnItemClickListener(textView -> {
                             switch (textView.getId()) {
@@ -351,6 +360,7 @@ public class VodController extends BaseController {
                                     toggleTimeShow(textView);
                                     break;
                                 case R.id.tiny_progress:
+                                    textView.setText(mShowMiniProgress ? "迷你进度开" : "迷你进度关");
                                     toggleMiniProgress(textView);
                                     break;
                             }
@@ -363,7 +373,7 @@ public class VodController extends BaseController {
         myRunnable = () -> hideBottom();
         mPlayPauseTime.post(() -> mHandler.post(myRunnable2));
 
-        mSeekBars.setVisibility(SeekBar.VISIBLE);
+        mSeekBars.setVisibility(mShowMiniProgress ? View.VISIBLE : View.GONE);
         mPlayPauseTime.setVisibility(View.VISIBLE);
         mBack.setVisibility(View.GONE);
         Hawk.put(HawkConfig.SHOW_SSPREVIEW, false);
@@ -815,7 +825,7 @@ public class VodController extends BaseController {
         mCurrentTime.setText(curr);
         mTotalTime.setText(total);
         mMiniProgressTextView.setText(curr + "/" + total);
-       // mMiniProgressTextView.setVisibility(mShowMiniProgress ? View.VISIBLE : View.GONE);
+       mMiniProgressTextView.setVisibility(mShowMiniProgress ? View.VISIBLE : View.GONE);
 
         if (duration > 0) {
             mSeekBar.setEnabled(true);
@@ -1124,9 +1134,9 @@ public class VodController extends BaseController {
 
     private void toggleMiniProgress(TextView textView) {
         mShowMiniProgress = !mShowMiniProgress;
-        Hawk.put(HawkConfig.HOME_PWET_TUMM, mShowMiniProgress);
         textView.setText(mShowMiniProgress ? "迷你进度开" : "迷你进度关");
-        mMiniProgressTextView.setVisibility(mShowMiniProgress ? View.VISIBLE : View.GONE);
+        Hawk.put(HawkConfig.HOME_PWET_TUMM, mShowMiniProgress);
+        mSeekBars.setVisibility(mShowMiniProgress ? View.VISIBLE : View.GONE);
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)

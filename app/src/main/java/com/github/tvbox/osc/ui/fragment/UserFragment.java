@@ -166,14 +166,16 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
         tvCollects.setOnFocusChangeListener(focusChangeListeners);
         tvHotList1 = findViewById(R.id.tvHotList1);
         tvHotList1.setHasFixedSize(true);
+        tvHotList2 = findViewById(R.id.tvHotList2);
         SourceBean home = ApiConfig.get().getHomeSourceBean();
         if (home != null && home.getKey() != null && !home.getKey().isEmpty()) {
             tvHotList1.setLayoutManager(new V7GridLayoutManager(this.mContext, home.getKey().equals("htv_hrys") ? 5 : 6));
+            tvHotList2.setLayoutManager(new V7GridLayoutManager(this.mContext, 6));
         }
         tvHotList4 = findViewById(R.id.tvHotList4);
         tvHotList4.setHasFixedSize(true);
         tvHotList4.setLayoutManager(new V7GridLayoutManager(this.mContext, 4));
-        tvHotList2 = findViewById(R.id.tvHotList2);
+
         homeHotVodAdapter = new HomeHotVodAdapter();
         homeHotVodAdaptera = new HomeHotVodAdaptera();
         homeHotVodAdapterc = new HomeHotVodAdapterc();
@@ -608,10 +610,10 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
         public void onFocusChange(View v, boolean hasFocus) {
             TextView tView = v.findViewById(R.id.tView);
             if (hasFocus) {
-                tView.setTextColor(getResources().getColor(R.color.color_FFF5E8DC));
+//                tView.setTextColor(getResources().getColor(R.color.color_FFF5E8DC));
                 v.animate().scaleX(1.05f).scaleY(1.05f).setDuration(300).setInterpolator(new BounceInterpolator()).start();
             }else {
-                tView.setTextColor(getResources().getColor(R.color.color_80FFFFFF));
+ //               tView.setTextColor(getResources().getColor(R.color.color_80FFFFFF));
                 v.animate().scaleX(1.0f).scaleY(1.0f).setDuration(300).setInterpolator(new BounceInterpolator()).start();
             }
         }

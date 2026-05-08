@@ -7,8 +7,8 @@
 
     <FrameLayout
         android:id="@+id/Hotvod"
-        android:layout_width="@dimen/vs_300"
-        android:layout_height="390mm"
+        android:layout_width="@dimen/vs_190"
+        android:layout_height="260mm"
         android:background="@drawable/shape_user_focus"
         android:focusable="true"
         android:padding="@dimen/vs_4">
@@ -123,8 +123,8 @@
 
     <FrameLayout
         android:id="@+id/llgrids"
-        android:layout_width="@dimen/vs_300"
-        android:layout_height="430mm">
+        android:layout_width="@dimen/vs_190"
+        android:layout_height="290mm">
 
         <TextView
             android:id="@id/tvName"
