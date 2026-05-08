@@ -36,14 +36,12 @@ import com.github.tvbox.osc.bean.LiveSettingGroup;
 import com.github.tvbox.osc.bean.LiveSettingItem;
 import com.github.tvbox.osc.event.RefreshEvent;
 import com.github.tvbox.osc.player.controller.LiveController;
-import com.github.tvbox.osc.ui.adapter.ApiHistoryDialogAdapter;
 import com.github.tvbox.osc.ui.adapter.LiveChannelGroupAdapter;
 import com.github.tvbox.osc.ui.adapter.LiveChannelItemAdapter;
 import com.github.tvbox.osc.ui.adapter.LiveEpgAdapter;
 import com.github.tvbox.osc.ui.adapter.LiveEpgDateAdapter;
 import com.github.tvbox.osc.ui.adapter.LiveSettingGroupAdapter;
 import com.github.tvbox.osc.ui.adapter.LiveSettingItemAdapter;
-import com.github.tvbox.osc.ui.dialog.ApiHistoryDialog;
 import com.github.tvbox.osc.ui.dialog.LivePasswordDialog;
 import com.github.tvbox.osc.util.EpgUtil;
 import com.github.tvbox.osc.util.FastClickCheckUtil;
@@ -175,7 +173,7 @@ public class LivePlayActivity extends baseActivity {
         hideSystemUI(false);
         epgStringAddress = Hawk.get(HawkConfig.EPG_URL, "");
         if(epgStringAddress == null || epgStringAddress.length()<5)
-            epgStringAddress = "http://epg.51zmt.top:8000/api/diyp/";
+            epgStringAddress = "http://192.168.80.10:38/epg/sjcx.php?ch={name}&date={date}";
 
         EventBus.getDefault().register(this);
         setLoadSir(findViewById(R.id.live_root));
@@ -684,7 +682,6 @@ public class LivePlayActivity extends baseActivity {
             epgTagName = epgInfo[1];
         }
         epgListAdapter.CanBack(currentLiveChannelItem.getinclude_back());
-
         String epgUrl;
         if (epgStringAddress.contains("{name}") && epgStringAddress.contains("{date}")) {
             epgUrl = epgStringAddress.replace("{name}", URLEncoder.encode(epgTagName)).replace("{date}", timeFormat.format(date));
@@ -1376,6 +1373,7 @@ public class LivePlayActivity extends baseActivity {
                 return;
             liveSettingItemAdapter.selectItem(position, true, true);
         }
+
         switch (settingGroupIndex) {
             case 0:
                 currentLiveChannelItem.setSourceIndex(position);
@@ -1422,39 +1420,23 @@ public class LivePlayActivity extends baseActivity {
                 liveSettingItemAdapter.selectItem(position, select, false);
                 break;
             case 5:
-                switch (position) {
-                    case 0:
-                        ArrayList<String> liveHistory = Hawk.get(HawkConfig.LIVE_HISTORY, new ArrayList<>());
-                        if (liveHistory.isEmpty())
-                            return;
-                        String current = Hawk.get(HawkConfig.LIVE_URL, "");
-                        int idx = 0;
-                        if (liveHistory.contains(current))
-                            idx = liveHistory.indexOf(current);
-                        ApiHistoryDialog dialog = new ApiHistoryDialog(LivePlayActivity.this);
-                        dialog.setTip("直播历史列表");
-                        dialog.setAdapter(new ApiHistoryDialogAdapter.SelectDialogInterface() {
-                            @Override
-                            public void click(String liveURL) {
-                                Hawk.put(HawkConfig.LIVE_URL, liveURL);
-                                liveChannelGroupList.clear();
-                                try {
-                                    liveURL = Base64.encodeToString(liveURL.getBytes("UTF-8"), Base64.DEFAULT | Base64.URL_SAFE | Base64.NO_WRAP);
-                                    liveURL = "http://127.0.0.1:9978/proxy?do=live&type=txt&ext=" + liveURL;
-                                    loadProxyLives(liveURL);
-                                } catch (Throwable th) {
-                                    th.printStackTrace();
-                                }
-                                dialog.dismiss();
-                            }
+                // 直接获取历史，根据 position 取对应地址
+                ArrayList<String> liveHistory = Hawk.get(HawkConfig.LIVE_HISTORY, new ArrayList<>());
+                if (position >= liveHistory.size()) return;
 
-                            @Override
-                            public void del(String value, ArrayList<String> data) {
-                                Hawk.put(HawkConfig.LIVE_HISTORY, data);
-                            }
-                        }, liveHistory, idx);
-                        dialog.show();
-                        break;
+                String item = liveHistory.get(position);
+                String realUrl = item.contains("|||") ? item.split("\\|\\|\\|")[1] : item;
+
+                Hawk.put(HawkConfig.LIVE_URL, realUrl);
+                liveChannelGroupList.clear();
+
+                try {
+                    String encodeUrl = Base64.encodeToString(realUrl.getBytes("UTF-8"),
+                            Base64.DEFAULT | Base64.URL_SAFE | Base64.NO_WRAP);
+                    String proxyUrl = "http://127.0.0.1:9978/proxy?do=live&type=txt&ext=" + encodeUrl;
+                    loadProxyLives(proxyUrl);
+                } catch (Throwable th) {
+                    th.printStackTrace();
                 }
                 break;
             case 6:
@@ -1601,7 +1583,22 @@ public class LivePlayActivity extends baseActivity {
         ArrayList<String> playerDecoderItems = new ArrayList<>(Arrays.asList("系统", "ijk硬解", "ijk软解", "exo", "阿里"));
         ArrayList<String> timeoutItems = new ArrayList<>(Arrays.asList("5s", "10s", "15s", "20s", "25s", "30s"));
         ArrayList<String> personalSettingItems = new ArrayList<>(Arrays.asList("显示时间", "显示网速", "换台反转", "跨选分类", "关闭密码"));
-        ArrayList<String> liveAdd = new ArrayList<>(Arrays.asList("列表历史"));
+        ArrayList<String> liveHistory = Hawk.get(HawkConfig.LIVE_HISTORY, new ArrayList<>());
+        if (liveHistory.isEmpty()) return;
+        // 动态构建菜单子项
+        ArrayList<String> itemList = new ArrayList<>();
+        for (int i = 0; i < liveHistory.size(); i++) {
+            String item = liveHistory.get(i);
+            String name = item;
+            if (item.contains("|||")) {
+                name = item.split("\\|\\|\\|")[0];
+            }
+            LiveSettingItem liveItem = new LiveSettingItem();
+            liveItem.setItemIndex(i);
+            liveItem.setItemName(name);
+            itemList.add(name);
+        }
+        ArrayList<String> liveAdd = itemList;
         ArrayList<String> exitConfirm = new ArrayList<>(Arrays.asList("确定"));
         itemsArrayList.add(sourceItems);
         itemsArrayList.add(scaleItems);

@@ -444,6 +444,26 @@ public class ApiConfig {
                     loadLives(infoJson.get("lives").getAsJsonArray());
                 } else {
                     JsonObject fengMiLives = infoJson.get("lives").getAsJsonArray().get(0).getAsJsonObject();
+
+
+                    // 遍历所有直播源，保存 名称 + URL 到历史
+                    if (infoJson.has("lives") && infoJson.get("lives").isJsonArray()) {
+                        JsonArray livesArray = infoJson.getAsJsonArray("lives");
+                        Hawk.put(HawkConfig.LIVE_HISTORY, new ArrayList<String>());
+                        // 遍历所有直播源，保存 名称|||URL 到历史
+                        for (int i = 0; i < livesArray.size(); i++) {
+                            JsonObject liveObj = livesArray.get(i).getAsJsonObject();
+                            if (liveObj.has("type") && liveObj.get("type").getAsInt() == 0) {
+                                String name = liveObj.get("name").getAsString();
+                                String url = liveObj.get("url").getAsString();
+                                if (url.startsWith("http")) {
+                                    // 格式：名称|||地址
+                                    String item = name + "|||" + url;
+                                    putLiveHistory(item);
+                                }
+                            }
+                        }
+                    }
                     String type = fengMiLives.get("type").getAsString();
                     if (type.equals("0")) {
                         String url = fengMiLives.get("url").getAsString();
