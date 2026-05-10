@@ -253,6 +253,7 @@ public class PlayFragment extends BaseLazyFragment {
         mController.setListener(new VodController.VodControlListener() {
             @Override
             public void playNext(boolean rmProgress) {
+                forceReplayToStart = true;
                 if (mVodInfo.reverseSort) {
                     PlayFragment.this.playPrevious();
                 } else {

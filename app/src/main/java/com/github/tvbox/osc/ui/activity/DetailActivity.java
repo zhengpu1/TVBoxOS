@@ -501,6 +501,7 @@ public class DetailActivity extends baseActivity {
                     // 🔥 切换集数 = 强制从头，换源 = 不影响
                     if (isChangeEpisode && playFragment != null) {
                         playFragment.forceReplayToStart = true;
+                        PlayActivity.forceReplayToStart = true;
                     }
                     //选集全屏 想选集不全屏的注释下面一行
                     if (showPreview && !fullWindows && Hawk.get(HawkConfig.PLAYBACK_PLAYS, false)) toggleFullPreview();
