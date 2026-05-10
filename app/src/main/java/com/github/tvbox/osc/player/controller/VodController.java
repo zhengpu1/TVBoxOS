@@ -910,7 +910,6 @@ public class VodController extends BaseController {
                 if(seekPos <= 0){
                     seekPos = getLastProgress();
                 }
-               // mPlayerConfig.put("st", seekPos);
                 // 执行跳转
                 if (seekPos > 0 && seekPos < mControlWrapper.getDuration() - 5000) {
                     mControlWrapper.seekTo((int) seekPos);
@@ -1038,7 +1037,7 @@ public class VodController extends BaseController {
 
     public void setProgressBar(SeekBar seekBar, Context context) {
         Resources res = context.getResources();
-        Drawable background = new ColorDrawable(getColorByAttrId(context, R.attr.color_theme_60));
+        Drawable background = new ColorDrawable(context.getResources().getColor(R.color.color_22FFFFFF));
         ClipDrawable secondary = new ClipDrawable(new ColorDrawable(getColorByAttrId(context, R.attr.color_theme_90)), Gravity.LEFT, ClipDrawable.HORIZONTAL);
         ClipDrawable progress = new ClipDrawable(new ColorDrawable(getColorByAttrId(context, R.attr.color_theme_80)), Gravity.LEFT, ClipDrawable.HORIZONTAL);
         LayerDrawable layer = new LayerDrawable(new Drawable[]{background, secondary, progress});

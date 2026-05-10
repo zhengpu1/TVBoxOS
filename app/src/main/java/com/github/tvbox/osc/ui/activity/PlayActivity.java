@@ -137,10 +137,10 @@ public class PlayActivity extends baseActivity {
         initData();
     }
 
-    public long getSavedProgress(String url) {
+    public long getSavedProgress999(String url) {
         // 1. 用 剧名+集数 作为 key，不靠 URL
         String key = mVodInfo.name + "_" + mVodInfo.playIndex;
-        Object cache = CacheManager.getCache(MD5.string2MD5(key));
+        Object cache = CacheManager.getCache(MD5.string2MD5(url));
 
         // 2. 读取本地保存的进度
         long savedProgress = 0;
@@ -175,7 +175,22 @@ public class PlayActivity extends baseActivity {
             return skipProgress;
         }
     }
-
+    public long getSavedProgress(String url) {
+        int st = 0;
+        try {
+            st = mVodPlayerCfg.getInt("st");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        long skip = st * 1000;
+        if (CacheManager.getCache(MD5.string2MD5(url)) == null) {
+            return skip;
+        }
+        long rec = (long) CacheManager.getCache(MD5.string2MD5(url));
+        if (rec < skip)
+            return skip;
+        return rec;
+    }
     private void initView() {
         mHandler = new Handler(new Handler.Callback() {
             @Override
@@ -199,9 +214,7 @@ public class PlayActivity extends baseActivity {
         mController.setGestureEnabled(true);
         ProgressManager progressManager = new ProgressManager() {
             @Override
-            public void saveProgress(String url, long progress) {
-                // 用 剧名+集数 保存，不靠 URL，完美换源续播
-                String key = mVodInfo.name + "_" + mVodInfo.playIndex;
+            public void saveProgress(String key, long progress) {
                 CacheManager.save(MD5.string2MD5(key), progress);
             }
 
@@ -249,12 +262,7 @@ public class PlayActivity extends baseActivity {
             @Override
             public void replay(boolean replay) {
                 autoRetryCount = 0;
-                if(replay){
-                    forceReplayToStart = true;
-                    play(true);
-                }else {
-                    play(false);
-                }
+                play(replay);
             }
 
             @Override
@@ -565,7 +573,7 @@ public class PlayActivity extends baseActivity {
                 stopParse();
                 if (mVideoView != null) {
                     mVideoView.release();
-                    mVideoView.setProgressKey(mVodInfo.name + "_" + mVodInfo.playIndex);
+                    progressKey = mVodInfo.name + "_" + mVodInfo.playIndex;
                     if (finalUrl != null) {
                         String url =finalUrl;
                         try {
@@ -593,7 +601,6 @@ public class PlayActivity extends baseActivity {
                         } else {
                             PlayerHelper.updateCfg(mVideoView, mVodPlayerCfg);
                         }
-                       // PlayerHelper.updateCfg(mVideoView, mVodPlayerCfg);
                         mVideoView.setProgressKey(progressKey);
                         mController.setCurrentVideoKey(finalUrl);
 
@@ -873,7 +880,6 @@ public class PlayActivity extends baseActivity {
 
     private void playNext(boolean isProgress) {
         boolean hasNext = true;
-        forceReplayToStart = true;
         if (mVodInfo == null || mVodInfo.seriesMap.get(mVodInfo.playFlag) == null) {
             hasNext = false;
         } else {
@@ -953,10 +959,11 @@ public class PlayActivity extends baseActivity {
         initParseLoadFound();
         if(mVideoView!=null) mVideoView.release();
         String subtitleCacheKey = mVodInfo.sourceKey + "-" + mVodInfo.id + "-" + mVodInfo.playFlag + "-" + mVodInfo.playIndex+ "-" + vs.name + "-subt";
-        String progressKey = mVodInfo.sourceKey + mVodInfo.id + mVodInfo.playFlag + mVodInfo.playIndex + vs.name;
+        String progressKey1 = mVodInfo.sourceKey + mVodInfo.id + mVodInfo.playFlag + mVodInfo.playIndex + vs.name;
         //重新播放清除现有进度
         if (reset) {
-            CacheManager.delete(MD5.string2MD5(progressKey),0);
+            CacheManager.delete(MD5.string2MD5(progressKey1),0);
+            CacheManager.delete(MD5.string2MD5(progressKey), 0);
             CacheManager.delete(MD5.string2MD5(subtitleCacheKey),"");
         } else {
             try{

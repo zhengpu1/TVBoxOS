@@ -494,15 +494,7 @@ public class DetailActivity extends baseActivity {
                     // 更新全局选中
                     for (VodInfo.VodSeries s : allSeries) s.selected = false;
                     clicked.selected = true;
-                    // 🔥🔥🔥 关键代码：只有【真正切换了集数】才强制从头
-                    boolean isChangeEpisode = vodInfo.playIndex != globalIndex;
                     vodInfo.playIndex = globalIndex;
-
-                    // 🔥 切换集数 = 强制从头，换源 = 不影响
-                    if (isChangeEpisode && playFragment != null) {
-                        playFragment.forceReplayToStart = true;
-                        PlayActivity.forceReplayToStart = true;
-                    }
                     //选集全屏 想选集不全屏的注释下面一行
                     if (showPreview && !fullWindows && Hawk.get(HawkConfig.PLAYBACK_PLAYS, false)) toggleFullPreview();
                     if (!showPreview || reload) jumpToPlay();
@@ -593,9 +585,6 @@ public class DetailActivity extends baseActivity {
                 });
                 return; // 有缓存直接结束，不发网络请求
             }
-
-            // 2. 无缓存 → 请求网络
-            // --------------- 强制测试模式：所有缓存/判断全关，只走网络 ---------------
             OkGo.<String>get("http://192.168.80.10:38/api.php?wdkkk=" + mVideo.name)
                     .execute(new AbsCallback<String>() {
                         @Override

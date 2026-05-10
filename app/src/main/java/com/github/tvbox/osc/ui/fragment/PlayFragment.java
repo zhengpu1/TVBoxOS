@@ -7,7 +7,6 @@ import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -138,10 +137,7 @@ public class PlayFragment extends BaseLazyFragment {
     private SourceViewModel sourceViewModel;
     private Handler mHandler;
     private String videoURL;
-    public boolean forceReplayToStart = false;
-    private final long videoDuration = -1;
-    public static long PLAY_LAST_POSITION = 0;
-    public static final String MY_PLAY_PROGRESS = "my_play_progress";
+    public static boolean forceReplayToStart = false;
     @Override
     protected int getLayoutResID() {
         return R.layout.activity_play;
@@ -171,50 +167,20 @@ public class PlayFragment extends BaseLazyFragment {
         });
     }
     public long getSavedProgress(String url) {
-        // 1. 用 剧名+集数 作为 key，不靠 URL
-        String key = mVodInfo.name + "_" + mVodInfo.playIndex;
-        Object cache = CacheManager.getCache(MD5.string2MD5(key));
-
-        // 2. 读取本地保存的进度
-        long savedProgress = 0;
-        if (cache != null) {
-            try {
-                if (cache instanceof Long) {
-                    savedProgress = (Long) cache;
-                } else if (cache instanceof String) {
-                    savedProgress = Long.parseLong((String) cache);
-                }
-            } catch (Exception e) {
-                savedProgress = 0;
-            }
+        int st = 0;
+        try {
+            st = mVodPlayerCfg.getInt("st");
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-
-        // 3. 读取片头跳过时间
-        int stSecond = mVodPlayerCfg.optInt("st", 0);
-        long skipProgress = stSecond * 1000L;
-
-        // 4. 规则：
-        // - 有进度 → 读进度
-        // - 没进度 → 跳片头
-        if (forceReplayToStart) {
-            forceReplayToStart = false;
-            return skipProgress;
+        long skip = st * 1000;
+        if (CacheManager.getCache(MD5.string2MD5(url)) == null) {
+            return skip;
         }
-
-// 正常逻辑：有进度读进度，没进度读片头跳过
-        if (savedProgress > 0) {
-            return savedProgress;
-        } else {
-            return skipProgress;
-        }
-    }
-    public int getSavedProgress9(String url) {
-        // 从 SharedPreferences 中读取进度
-        SharedPreferences preferences = requireContext().getSharedPreferences("play_progress", Context.MODE_PRIVATE);
-        if (preferences != null) {
-            return preferences.getInt("progress", 0); // 默认值为 0
-        }
-        return 0; // 如果 preferences 为 null，返回默认值
+        long rec = (long) CacheManager.getCache(MD5.string2MD5(url));
+        if (rec < skip)
+            return skip;
+        return rec;
     }
     private void initView() {
         EventBus.getDefault().register(this);
@@ -222,7 +188,7 @@ public class PlayFragment extends BaseLazyFragment {
             switch (msg.what) {
                 case 100:
                     stopParse();
-                    errorWithRetry("嗅探错误", false);
+                    errorWithRetryk("嗅探错误", false);
                     break;
             }
             return false;
@@ -238,9 +204,7 @@ public class PlayFragment extends BaseLazyFragment {
         ProgressManager progressManager = new ProgressManager() {
             @Override
             public void saveProgress(String url, long progress) {
-                // 用 剧名+集数 保存，不靠 URL，完美换源续播
-                String key = mVodInfo.name + "_" + mVodInfo.playIndex;
-                CacheManager.save(MD5.string2MD5(key), progress);
+                CacheManager.save(MD5.string2MD5(url), progress);
             }
 
             @Override
@@ -253,7 +217,6 @@ public class PlayFragment extends BaseLazyFragment {
         mController.setListener(new VodController.VodControlListener() {
             @Override
             public void playNext(boolean rmProgress) {
-                forceReplayToStart = true;
                 if (mVodInfo.reverseSort) {
                     PlayFragment.this.playPrevious();
                 } else {
@@ -287,17 +250,12 @@ public class PlayFragment extends BaseLazyFragment {
             @Override
             public void replay(boolean replay) {
                 autoRetryCount = 0;
-                if(replay){
-                    forceReplayToStart = true;
-                        play(true);
-                }else {
-                    play(false);
-                }
+                play(replay);
             }
 
             @Override
             public void errReplay() {
-                errorWithRetryk("视频播放出错999", false);
+                errorWithRetryk("视频播放出错", false);
             }
 
             @Override
@@ -651,7 +609,7 @@ public class PlayFragment extends BaseLazyFragment {
                 stopParse();
                 if (mVideoView != null) {
                     mVideoView.release();
-                    mVideoView.setProgressKey(mVodInfo.name + "_" + mVodInfo.playIndex);
+                    progressKey = mVodInfo.name + "_" + mVodInfo.playIndex;
                     if (finalUrl != null) {
                         String url = finalUrl;
                         try {
@@ -679,7 +637,6 @@ public class PlayFragment extends BaseLazyFragment {
                         } else {
                             PlayerHelper.updateCfg(mVideoView, mVodPlayerCfg);
                         }
-                        // PlayerHelper.updateCfg(mVideoView, mVodPlayerCfg);
                         mVideoView.setProgressKey(progressKey);
                         if (headers != null) {
                             mVideoView.setUrl(url, headers);
@@ -1104,7 +1061,6 @@ public class PlayFragment extends BaseLazyFragment {
         if (mVideoView != null) mVideoView.release();
 
         String subtitleCacheKey = generateCacheKey(mVodInfo, vs, "-subt");
-        String progressKey = generateCacheKey(mVodInfo, vs, "");
 
         if (reset) {
             clearCache(progressKey, subtitleCacheKey);
@@ -1140,7 +1096,6 @@ public class PlayFragment extends BaseLazyFragment {
 
     private boolean handleJianpianUrl(String url) {
         if (Jianpian.isJpUrl(url)) {
-            // Inits();
             mController.showParse(false);
             String jpUrl = url.startsWith("tvbox-xg:") ? Jianpian.JPUrlDec(url.substring(9)) : Jianpian.JPUrlDec(url);
             playUrl(jpUrl, null);
@@ -1152,7 +1107,6 @@ public class PlayFragment extends BaseLazyFragment {
     private boolean handleDriveUrl(String url) {
         if (url.startsWith("tvbox-drive://")) {
             mController.showParse(false);
-            //  Inits();
             HashMap<String, String> headers = extractHeaders(mVodInfo.playerCfg);
             playUrl(url.replace("tvbox-drive://", ""), headers);
             return true;
