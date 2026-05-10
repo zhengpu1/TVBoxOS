@@ -296,7 +296,7 @@ public class PlayFragment extends BaseLazyFragment {
 
             @Override
             public void errReplay() {
-                errorWithRetry("视频播放出错999", false);
+                errorWithRetryk("视频播放出错999", false);
             }
 
             @Override
@@ -608,8 +608,11 @@ public class PlayFragment extends BaseLazyFragment {
         this.onSwitchSourceListener = listener;
     }
 
-    private void errorWithRetry(String err, boolean finish) {
+    private void errorWithRetryk(String err, boolean finish) {
         EventBus.getDefault().post(new RefreshEvent(RefreshEvent.TYPE_SWITCH_SOURCE, err));
+    }
+    private void errorWithRetry(String err, boolean finish) {
+        Toast.makeText(App.getInstance(),(CharSequence) err, Toast.LENGTH_SHORT).show();
     }
     /* void playUrl(String url, HashMap<String, String> headers) {
          if(!url.startsWith("data:application"))EventBus.getDefault().post(new RefreshEvent(RefreshEvent.TYPE_REFRESH, url));//更新播放地址
@@ -1423,8 +1426,8 @@ public class PlayFragment extends BaseLazyFragment {
                                 playUrl(rs.getString("url"), headers);
                             } catch (Throwable e) {
                                 e.printStackTrace();
-                                errorWithRetry("解析错误5", false);
-//                                setTip("解析错误", false, true);
+
+                                errorWithRetryk("解析错误5", false);
                             }
                         }
 
@@ -1432,7 +1435,7 @@ public class PlayFragment extends BaseLazyFragment {
                         public void onError(Response<String> response) {
                             super.onError(response);
                             errorWithRetry("解析错误6", false);
-//                            setTip("解析错误", false, true);
+                            setTip("解析错误6", false, true);
                         }
                     });
         } else if (pb.getType() == 2) { // json 扩展
@@ -1515,7 +1518,7 @@ public class PlayFragment extends BaseLazyFragment {
                 JSONObject rs = isSuper? SuperParse.parse(jxs,parseFlag,webUrl):ApiConfig.get().jsonExtMix(parseFlag + "111", pb.getUrl(), finalExtendName, jxs, webUrl);
                 if (rs == null || !rs.has("url") || rs.optString("url").isEmpty()) {
                     errorWithRetry("解析错误8", false);
-                    setTip("解析错误", false, true);
+                    setTip("解析错误8", false, true);
                 } else {
                     if (rs.has("parse") && rs.optInt("parse", 0) == 1) {
                         if (rs.has("ua")) {

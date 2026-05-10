@@ -1147,7 +1147,7 @@ public class DetailActivity extends baseActivity {
     public void onSwitchSourceEvent(RefreshEvent event) {
 
         if(Hawk.get(HawkConfig.FORBID_JAR_DIALOG, false)) {
-            Toast.makeText(App.getInstance(),(CharSequence) "自动换源", Toast.LENGTH_SHORT).show();
+            Toast.makeText(App.getInstance(),(CharSequence) event.obj, Toast.LENGTH_SHORT).show();
             startAutoSourceSwitch();
         }
 

@@ -253,26 +253,40 @@ public class VodController extends BaseController {
             String height = Integer.toString(mControlWrapper.getVideoSize()[1]);
             mVideoSize.setText(width + " X " + height);
             mSeekBars.setVisibility(mShowMiniProgress ? View.VISIBLE : View.GONE);
-            mMiniProgressTextView.setVisibility(showTime ? View.VISIBLE : View.GONE);
+
+            // ============== 核心修改在这里 ==============
+            // 退出全屏时，直接强制隐藏，不读取 showTime
+            if (!mIsFullScreen) {
+                mMiniProgressTextView.setVisibility(View.GONE);
+            } else {
+                // 只有全屏时，才按配置显示
+                boolean showTime = Hawk.get(HawkConfig.VIDEO_SHOW_TIME, false);
+                mMiniProgressTextView.setVisibility(showTime ? View.VISIBLE : View.GONE);
+            }
+
+            // 继续循环定时
             mHandler.postDelayed(this, 1000);
         }
-    };
-
+    };;
     public void setIsFullScreen(boolean isFullScreen) {
-        mIsFullScreen = isFullScreen;
+        mIsFullScreen = isFullScreen; // 这个状态必须更新
+
         if (mPlayPauseTime == null) return;
+
         if (!isFullScreen) {
+            // 退出全屏
             mPlayPauseTime.setVisibility(View.GONE);
-            mMiniProgressTextView.setVisibility(View.GONE);
             tvLogo.setVisibility(View.GONE);
         } else {
+            // 进入全屏
             mPlayPauseTime.setVisibility(View.VISIBLE);
             boolean showTime = Hawk.get(HawkConfig.VIDEO_SHOW_TIME, false);
-            if (showTime) {
-                mMiniProgressTextView.setVisibility(View.VISIBLE);
-                tvLogo.setVisibility(View.VISIBLE);
-            }
+            tvLogo.setVisibility(showTime ? View.VISIBLE : View.GONE);
         }
+
+        // 主动触发一次 UI 刷新，立刻生效，不用等1秒
+        mHandler.removeCallbacks(myRunnable2);
+        mHandler.post(myRunnable2);
     }
 
     @Override
@@ -907,9 +921,9 @@ public class VodController extends BaseController {
             case VideoView.STATE_BUFFERED:
                 mPlayLoadNetSpeed.setVisibility(View.GONE);
                 break;
+            case VideoView.STATE_PREPARING:
             case VideoView.STATE_BUFFERING:
-                if (mProgressRoot.getVisibility() == View.GONE)
-                    mPlayLoadNetSpeed.setVisibility(View.VISIBLE);
+                if(mProgressRoot.getVisibility()==GONE)mPlayLoadNetSpeed.setVisibility(VISIBLE);
                 break;
             case VideoView.STATE_PLAYBACK_COMPLETED:
                 listener.playNext(true);
