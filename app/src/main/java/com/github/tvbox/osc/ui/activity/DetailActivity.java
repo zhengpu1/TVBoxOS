@@ -335,6 +335,9 @@ public class DetailActivity extends baseActivity {
             }
             return true;
         });
+        if (Hawk.get(HawkConfig.EPISODE_GROUPING, false)) {
+            tvSort.setVisibility(View.GONE);
+        }
         searchAdapter.setNewData(new ArrayList<>());
         tvSort.setOnClickListener(v -> {
             if (vodInfo == null || vodInfo.seriesMap.isEmpty()) {
@@ -348,16 +351,6 @@ public class DetailActivity extends baseActivity {
             }
             updateSortUI();
 
-            // 计算新焦点索引
-            List<VodInfo.VodSeries> currentGroup = seriesAdapter.getData();
-            int localIndex = vodInfo.playIndex % GroupCountt;
-            int newLocalIndex = currentGroup.size() - 1 - localIndex;
-
-            // 延迟让剧集区获得焦点
-            new Handler().postDelayed(() -> {
-                scrollToPlayPosAndRequestFoucuse(newLocalIndex);
-                mGridView.requestFocus();
-            }, 120); // 100~150ms都可以
         });
        tvPush.setOnClickListener(v -> {
             FastClickCheckUtil.check(v);
@@ -462,43 +455,40 @@ public class DetailActivity extends baseActivity {
 
             }
         });
-        seriesAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                FastClickCheckUtil.check(view);
-                if (vodInfo != null && vodInfo.seriesMap.get(vodInfo.playFlag).size() > 0) {
-                    // 当前分组的剧集
-                    List<VodInfo.VodSeries> currentGroup = seriesAdapter.getData();
-                    VodInfo.VodSeries clicked = currentGroup.get(position);
-                    List<VodInfo.VodSeries> allData = vodInfo.seriesMap.get(vodInfo.playFlag);
-                    boolean reload = false;
-                    // 找到全局索引
-                    List<VodInfo.VodSeries> allSeries = vodInfo.seriesMap.get(vodInfo.playFlag);
-                    int globalIndex = allSeries.indexOf(clicked);
-                    VodInfo.VodSeries clickItem = seriesAdapter.getData().get(position);
-                    int clickPlayIndex = allData.indexOf(clickItem);
-                    //解决倒叙不刷新
-                    if (vodInfo.playIndex != clickPlayIndex) {
-                        seriesAdapter.notifyItemChanged(vodInfo.playIndex);
-                        clickItem.selected = true;
-                        seriesAdapter.notifyItemChanged(position);
-                        reload = true;
-                    }
-                    mGridView.postDelayed(() -> {
-                        scrollToPlayPosAndRequestFoucuse(vodInfo.playIndex);
-                    }, 0);
-                    //解决当前集不刷新的BUG
-                    if (!preFlag.isEmpty() && !vodInfo.playFlag.equals(preFlag)) {
-                        reload = true;
-                    }
-                    // 更新全局选中
-                    for (VodInfo.VodSeries s : allSeries) s.selected = false;
-                    clicked.selected = true;
-                    vodInfo.playIndex = globalIndex;
-                    //选集全屏 想选集不全屏的注释下面一行
-                    if (showPreview && !fullWindows && Hawk.get(HawkConfig.PLAYBACK_PLAYS, false)) toggleFullPreview();
-                    if (!showPreview || reload) jumpToPlay();
+        seriesAdapter.setOnItemClickListener((adapter, view, position) -> {
+            FastClickCheckUtil.check(view);
+            if (vodInfo != null && vodInfo.seriesMap.get(vodInfo.playFlag).size() > 0) {
+                // 当前分组的剧集
+                List<VodInfo.VodSeries> currentGroup = seriesAdapter.getData();
+                VodInfo.VodSeries clicked = currentGroup.get(position);
+                List<VodInfo.VodSeries> allData = vodInfo.seriesMap.get(vodInfo.playFlag);
+                boolean reload = false;
+                // 找到全局索引
+                List<VodInfo.VodSeries> allSeries = vodInfo.seriesMap.get(vodInfo.playFlag);
+                int globalIndex = allSeries.indexOf(clicked);
+                VodInfo.VodSeries clickItem = seriesAdapter.getData().get(position);
+                int clickPlayIndex = allData.indexOf(clickItem);
+                //解决倒叙不刷新
+                if (vodInfo.playIndex != clickPlayIndex) {
+                    seriesAdapter.notifyItemChanged(vodInfo.playIndex);
+                    clickItem.selected = true;
+                    seriesAdapter.notifyItemChanged(position);
+                    reload = true;
                 }
+                mGridView.postDelayed(() -> {
+                    scrollToPlayPosAndRequestFoucuse(vodInfo.playIndex);
+                }, 0);
+                //解决当前集不刷新的BUG
+                if (!preFlag.isEmpty() && !vodInfo.playFlag.equals(preFlag)) {
+                    reload = true;
+                }
+                // 更新全局选中
+                for (VodInfo.VodSeries s : allSeries) s.selected = false;
+                clicked.selected = true;
+                vodInfo.playIndex = globalIndex;
+                //选集全屏 想选集不全屏的注释下面一行
+                if (showPreview && !fullWindows && Hawk.get(HawkConfig.PLAYBACK_PLAYS, false)) toggleFullPreview();
+                if (!showPreview || reload) jumpToPlay();
             }
         });
         mNumberClassification.setOnItemListener(new TvRecyclerView.OnItemListener() {
@@ -1452,8 +1442,9 @@ public class DetailActivity extends baseActivity {
         // 重新选中
         if (newPos >= 0 && newPos < currentGroup.size()) {
             currentGroup.get(newPos).selected = true;
+            int finalNewPos1 = newPos;
+            scrollToPlayPosAndRequestFoucuse(finalNewPos1);
         }
-
         seriesAdapter.setNewData(currentGroup);
         seriesAdapter.notifyDataSetChanged();
 
@@ -1469,7 +1460,7 @@ public class DetailActivity extends baseActivity {
         }
     }
     private void toggleSortOrder() {
-        isReverse = !isReverse;
+        vodInfo.isReverse = !vodInfo.isReverse; // 👈 改这里
 
         List<VodInfo.VodSeries> allData = vodInfo.seriesMap.get(vodInfo.playFlag);
         int oldIndex = vodInfo.playIndex;
@@ -1489,12 +1480,16 @@ public class DetailActivity extends baseActivity {
         // 计算新索引
         int newIndex = totalCount - 1 - oldIndex;
         vodInfo.playIndex = newIndex;
-
+        for (int i = 0; i < allData.size(); i++) {
+            allData.get(i).selected = (i == newIndex);
+        }
+        seriesSelect = false;
         // 更新selected状态
         for (int i = 0; i < allData.size(); i++) {
             allData.get(i).selected = (i == newIndex);
             if(i == newIndex) seriesSelect = false;
         }
+            scrollToPlayPosAndRequestFoucuse(newIndex);
 
         // 更新Adapter
         seriesAdapter.setNewData(allData);

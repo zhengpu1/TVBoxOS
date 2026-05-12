@@ -67,7 +67,7 @@ public class VodInfo implements Serializable {
     public boolean reverseSort = false;
     public String vodlist;
     public String sourceName;//视频来源
-
+    public boolean isReverse = false;
     @Override
     public String toString() {
         return "VodInfo{" +

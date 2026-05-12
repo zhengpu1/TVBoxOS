@@ -939,26 +939,34 @@ public class PlayFragment extends BaseLazyFragment {
 
     private void playNext(boolean inProgress) {
         boolean hasNext;
+
         if (mVodInfo == null || mVodInfo.seriesMap.get(mVodInfo.playFlag) == null) {
             hasNext = false;
         } else {
-            hasNext = mVodInfo.playIndex + 1 < mVodInfo.seriesMap.get(mVodInfo.playFlag).size();
+            int totalSize = mVodInfo.seriesMap.get(mVodInfo.playFlag).size();
+
+            // 倒序判断
+            if (mVodInfo.isReverse) {
+                hasNext = mVodInfo.playIndex - 1 >= 0;
+            } else {
+                hasNext = mVodInfo.playIndex + 1 < totalSize;
+            }
         }
+
         if (!hasNext) {
             Toast.makeText(requireContext(), "已经是最后一集了!", Toast.LENGTH_SHORT).show();
             if (inProgress && ((DetailActivity) mActivity).fullWindows) {
                 ((DetailActivity) mActivity).toggleFullPreview();
-//                ((DetailActivity) mActivity).setScreenOff();
             }
             return;
-        }else {
-            mVodInfo.playIndex++;
+        } else {
+            if (mVodInfo.isReverse) {
+                mVodInfo.playIndex--;
+            } else {
+                mVodInfo.playIndex++;
+            }
         }
-        long startTime = System.currentTimeMillis();
         play(false);
-        // 执行操作
-        long endTime = System.currentTimeMillis();
-        Log.d("PlayFragment", "操作耗时1: " + (endTime - startTime) + "ms");
     }
 
     private void playPrevious() {

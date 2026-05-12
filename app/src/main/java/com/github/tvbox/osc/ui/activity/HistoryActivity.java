@@ -8,7 +8,6 @@ import android.view.animation.BounceInterpolator;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.github.tvbox.osc.R;
 import com.github.tvbox.osc.base.baseActivity;
 import com.github.tvbox.osc.bean.VodInfo;
@@ -79,12 +78,7 @@ public class HistoryActivity extends baseActivity {
         mGridView.setAdapter(historyAdapter);
         TextView[] str = { tvDel, tvDelAll };
         drawableTextView(str, 2);
-        tvDel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                toggleDelMode();
-            }
-        });
+        tvDel.setOnClickListener(v -> toggleDelMode());
         tvDelAll.setOnClickListener(v -> {
             AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
             builder.setPositiveButton("确定", (dialog, which) -> {
@@ -128,63 +122,27 @@ public class HistoryActivity extends baseActivity {
 
             }
         });
-        historyAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                FastClickCheckUtil.check(view);
-                if (position == -1) return;
-                VodInfo vodInfo = historyAdapter.getData().get(position);
+        historyAdapter.setOnItemClickListener((adapter, view, position) -> {
+            FastClickCheckUtil.check(view);
+            if (position == -1) return;
+            VodInfo vodInfo = historyAdapter.getData().get(position);
 
-//                HistoryDialog historyDialog = new HistoryDialog().build(mContext, vodInfo).setOnHistoryListener(new HistoryDialog.OnHistoryListener() {
-//                    @Override
-//                    public void onLook(VodInfo vodInfo) {
-//                        if (vodInfo != null) {
-//                            Bundle bundle = new Bundle();
-//                            bundle.putInt("id", vodInfo.id);
-//                            bundle.putString("sourceKey", vodInfo.sourceKey);
-//                            jumpActivity(DetailActivity.class, bundle);
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onDelete(VodInfo vodInfo) {
-//                        if (vodInfo != null) {
-//                               for (int i = 0; i < historyAdapter.getData().size(); i++) {
-//                                    if (vodInfo.id == historyAdapter.getData().get(i).id) {
-//                                        historyAdapter.remove(i);
-//                                        break;
-//                                    }
-//                                }
-//                                RoomDataManger.deleteVodRecord(vodInfo.sourceKey, vodInfo);
-//                        }
-//                    }
-//                });
-//                historyDialog.show();
-
-                if (vodInfo != null) {
-                    if (delMode) {
-                        historyAdapter.remove(position);
-                        RoomDataManger.deleteVodRecord(vodInfo.sourceKey, vodInfo);
-                    } else {
-                        Bundle bundle = new Bundle();
-                        bundle.putString("id", vodInfo.id);
-                        bundle.putString("sourceKey", vodInfo.sourceKey);
-                        jumpActivity(DetailActivity.class, bundle);
-                    }
+            if (vodInfo != null) {
+                if (delMode) {
+                    historyAdapter.remove(position);
+                    RoomDataManger.deleteVodRecord(vodInfo.sourceKey, vodInfo);
+                } else {
+                    Bundle bundle = new Bundle();
+                    bundle.putString("id", vodInfo.id);
+                    bundle.putString("sourceKey", vodInfo.sourceKey);
+                    jumpActivity(DetailActivity.class, bundle);
                 }
             }
         });
-        historyAdapter.setOnItemLongClickListener(new BaseQuickAdapter.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(BaseQuickAdapter adapter, View view, int position) {
-//                FastClickCheckUtil.check(view);
-//                VodInfo vodInfo = historyAdapter.getData().get(position);
-//                historyAdapter.remove(position);
-//                RoomDataManger.deleteVodRecord(vodInfo.sourceKey, vodInfo);
-                tvDel.setFocusable(true);
-                toggleDelMode();
-                return true;
-            }
+        historyAdapter.setOnItemLongClickListener((adapter, view, position) -> {
+            tvDel.setFocusable(true);
+            toggleDelMode();
+            return true;
         });
     }
 
