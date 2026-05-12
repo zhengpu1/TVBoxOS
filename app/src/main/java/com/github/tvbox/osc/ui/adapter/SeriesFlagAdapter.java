@@ -68,7 +68,7 @@ public class SeriesFlagAdapter extends BaseQuickAdapter<VodInfo.VodSeriesFlag, B
             tvSeriesLayout.setPadding(10,1,10,4);
         }
         if (item.selected) {
-            selectView.setVisibility(View.VISIBLE);
+            selectView.setVisibility(item.name.contains("-") ? View.GONE : View.VISIBLE);
             tvSeries.setTextColor(mContext.getResources().getColor(R.color.color_00FF0A));
         } else {
             tvSeries.setTextColor(mContext.getResources().getColor(R.color.color_FFF5E8DC));

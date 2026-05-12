@@ -31,9 +31,9 @@ public class QuickSearchAdapter extends BaseQuickAdapter<Movie.Video, BaseViewHo
         helper.setText(R.id.tvName, item.name);
         helper.setText(R.id.tvSite, ApiConfig.get().getSource(item.sourceKey).getName());
         //helper.setVisible(R.id.tvNote, item.note != null && !item.note.isEmpty());
-      /*  if (item.note != null && !item.note.isEmpty()) {
+        if (item.note != null && !item.note.isEmpty()) {
             helper.setText(R.id.tvNote, item.note);
-        }*/
+        }
       /*  TextView tvTyName = helper.getView(R.id.tvTyName);
         if (item.tyid > 0) {
             if (item.tyid == 1) {

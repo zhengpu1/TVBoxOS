@@ -15,6 +15,7 @@ import android.net.http.SslError;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -117,7 +118,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Timer;
-import java.util.TimerTask;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -137,7 +137,7 @@ public class PlayFragment extends BaseLazyFragment {
     private SourceViewModel sourceViewModel;
     private Handler mHandler;
     private String videoURL;
-    public static boolean forceReplayToStart = false;
+
     @Override
     protected int getLayoutResID() {
         return R.layout.activity_play;
@@ -149,7 +149,8 @@ public class PlayFragment extends BaseLazyFragment {
             mController.mSubtitleView.setTextSize((int) event.obj);
         }
     }
-    private static final long PLAY_TIMEOUT = 15_000; // 5 秒超时
+    // 5 秒超时
+
     @Override
     protected void init() {
         initView();
@@ -158,14 +159,6 @@ public class PlayFragment extends BaseLazyFragment {
 
     }
 
-    // 处理播放错误
-    private void handlePlayError(String errorMsg) {
-        if (mActivity == null) return;
-
-        mActivity.runOnUiThread(() -> {
-            Toast.makeText(mActivity, errorMsg, Toast.LENGTH_SHORT).show();
-        });
-    }
     public long getSavedProgress(String url) {
         int st = 0;
         try {
@@ -320,31 +313,28 @@ public class PlayFragment extends BaseLazyFragment {
                 setSubtitleViewTextStyle(style);
             }
         });
-        subtitleDialog.setSearchSubtitleListener(new SubtitleDialog.SearchSubtitleListener() {
-            @Override
-            public void openSearchSubtitleDialog() {
-                SearchSubtitleDialog searchSubtitleDialog = new SearchSubtitleDialog(requireActivity());
-                searchSubtitleDialog.setSubtitleLoader(new SearchSubtitleDialog.SubtitleLoader() {
-                    @Override
-                    public void loadSubtitle(Subtitle subtitle) {
-                        if (!isAdded()) return;
-                        requireActivity().runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                String zimuUrl = subtitle.getUrl();
-                                setSubtitle(zimuUrl);//设置字幕
-                                searchSubtitleDialog.dismiss();
-                            }
-                        });
-                    }
-                });
-                if(mVodInfo.playFlag.contains("Ali")||mVodInfo.playFlag.contains("parse")){
-                    searchSubtitleDialog.setSearchWord(mVodInfo.playNote);
-                }else {
-                    searchSubtitleDialog.setSearchWord(mVodInfo.name);
+        subtitleDialog.setSearchSubtitleListener(() -> {
+            SearchSubtitleDialog searchSubtitleDialog = new SearchSubtitleDialog(requireActivity());
+            searchSubtitleDialog.setSubtitleLoader(new SearchSubtitleDialog.SubtitleLoader() {
+                @Override
+                public void loadSubtitle(Subtitle subtitle) {
+                    if (!isAdded()) return;
+                    requireActivity().runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            String zimuUrl = subtitle.getUrl();
+                            setSubtitle(zimuUrl);//设置字幕
+                            searchSubtitleDialog.dismiss();
+                        }
+                    });
                 }
-                searchSubtitleDialog.show();
+            });
+            if(mVodInfo.playFlag.contains("Ali")||mVodInfo.playFlag.contains("parse")){
+                searchSubtitleDialog.setSearchWord(mVodInfo.playNote);
+            }else {
+                searchSubtitleDialog.setSearchWord(mVodInfo.name);
             }
+            searchSubtitleDialog.show();
         });
         subtitleDialog.setLocalFileChooserListener(new SubtitleDialog.LocalFileChooserListener() {
             @Override
@@ -571,7 +561,12 @@ public class PlayFragment extends BaseLazyFragment {
         EventBus.getDefault().post(new RefreshEvent(RefreshEvent.TYPE_SWITCH_SOURCE, err));
     }
     private void errorWithRetry(String err, boolean finish) {
-        Toast.makeText(App.getInstance(),(CharSequence) err, Toast.LENGTH_SHORT).show();
+        new Handler(Looper.getMainLooper()).post(new Runnable() {
+            @Override
+            public void run() {
+                Toast.makeText(App.getInstance(), err, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
     /* void playUrl(String url, HashMap<String, String> headers) {
          if(!url.startsWith("data:application"))EventBus.getDefault().post(new RefreshEvent(RefreshEvent.TYPE_REFRESH, url));//更新播放地址
@@ -790,11 +785,9 @@ public class PlayFragment extends BaseLazyFragment {
                         }
                     } catch (Throwable th) {
                         errorWithRetry("获取播放信息错误", true);
-//                        Toast.makeText(mContext, "获取播放信息错误1", Toast.LENGTH_SHORT).show();
                     }
                 } else {
                     errorWithRetry("获取播放信息错误333", false);
-//                    Toast.makeText(mContext, "获取播放信息错误", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -876,17 +869,6 @@ public class PlayFragment extends BaseLazyFragment {
     @Override
     public void onPause() {
         super.onPause();
-        // ✅ 换源/切解析/退出 都会走这里，100%能读到进度
-        try {
-            // 🔥 这是你项目里【最稳、永远能拿到真实进度】的写法
-            AbstractPlayer mediaPlayer = mVideoView.getMediaPlayer();
-            if (mediaPlayer != null) {
-                String progressKey = "play_progress_" + mVodInfo.name + "_" + mVodInfo.playIndex;
-                Hawk.put(progressKey, mediaPlayer.getCurrentPosition());
-            }
-        } catch (Exception e) {
-            // 防崩溃
-        }
         if (mVideoView != null) {
             mVideoView.pause();
         }
@@ -981,34 +963,7 @@ public class PlayFragment extends BaseLazyFragment {
             return;
         }
         mVodInfo.playIndex--;
-        long startTime = System.currentTimeMillis();
         play(false);
-        // 执行操作
-        long endTime = System.currentTimeMillis();
-        Log.d("PlayFragment", "操作耗时3: " + (endTime - startTime) + "ms");
-    }
-    private void startProgressUpdate() {//
-        TimerTask updateProgressTask = new TimerTask() {
-            @Override
-            public void run() {
-                requireActivity().runOnUiThread(() -> {
-
-                    if (isAdded() && getView() != null && mVideoView != null) {
-                        long currentPosition = mVideoView.getCurrentPosition();
-                        long duration = mVideoView.getDuration();
-                        if(currentPosition != 0 && currentPosition< 30000){
-                            EventBus.getDefault().post(new RefreshEvent(RefreshEvent.TYPE_SWITCH_SOURCE, 9));
-                        }
-                        Log.d("PlayFragment", "当前播放进度: " + currentPosition + "ms");
-                    } else {
-                        Log.e("PlayFragment", "Fragment 未附加或 mVideoView 为 null");
-                    }
-                });
-            }
-        };
-        // 开始更新
-        timer.schedule(updateProgressTask, 0, 10000); // 0 表示立即执行，1000 表示每隔 1 秒执行一次
-
     }
     @Override
     public void onDestroy() {
@@ -1049,7 +1004,7 @@ public class PlayFragment extends BaseLazyFragment {
     void initParseLoadFound() {
         loadFoundCount.set(0);
         loadFoundVideoUrls = new LinkedList<String>();
-        loadFoundVideoUrlsHeader = new HashMap<String, HashMap<String, String>>();
+        loadFoundVideoUrlsHeader = new HashMap<>();
     }
 
     public void play(boolean reset) {
@@ -1195,16 +1150,7 @@ public class PlayFragment extends BaseLazyFragment {
         }
         doParse(parseBean);
     }
-    public String geturlInfo(String url) {
-        String[] Urlbsites = {"youku.com", "mgtv.com", "le.com", "cctv.com", "sohu.com", "pptv.com", "v.qq.com", "qiyi.com"};
-        String purl = null;
-        for (String vipWebsite : Urlbsites) {
-            if (url.contains(vipWebsite) && !url.contains("|")) {
-                purl = url;
-            }
-        }
-        return purl;
-    }
+
     //TODO 这是控制
     private void Inits() {
 

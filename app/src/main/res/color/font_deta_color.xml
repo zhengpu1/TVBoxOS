@@ -7,5 +7,5 @@
         android:state_focused="true"
         android:color="@color/color_FFF68E33"/>
     <item
-        android:color="@color/color_03DAC5"/>
+        android:color="@color/color_FFF5E8DC"/>
 </selector>

@@ -150,7 +150,9 @@ public abstract class baseActivity extends AppCompatActivity implements CustomAd
     public static void drawableTextView(@NonNull TextView[] str, int bg) {
         for (TextView item : str) setBackground(item, bg);
     }
-
+    public static void drawableTextView(@NonNull TextView str, int bg) {
+        setBackground(str, bg);
+    }
     public static void drawableLinearLayout(@NonNull LinearLayout[] strs, int bg) {
         for (LinearLayout item : strs) setBackground(item, bg);
     }
