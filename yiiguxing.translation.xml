@@ -18,6 +18,8 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="toggle Full Preview" />
+      <item value="toggle Sort Order" />
       <item value="horizontal" />
       <item value="center vertical" />
       <item value="vertical" />
@@ -28,7 +30,6 @@
       <item value="notify Data Set Changed" />
       <item value="request Focus" />
       <item value="toggle Sort Orderk" />
-      <item value="toggle Sort Order" />
       <item value="delete Drive" />
       <item value="delete Vod Collect" />
       <item value="progress" />
@@ -67,7 +68,6 @@
       <item value="m Player Retry" />
       <item value="m Playrefresh" />
       <item value="finish" />
-      <item value="force Replay To Start" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="2" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="8465" />
+        <entry key="CHINESE" value="8467" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="8466" />
+        <entry key="ENGLISH" value="8468" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="2" />
