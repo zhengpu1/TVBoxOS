@@ -18,6 +18,8 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="handle Series Data" />
+      <item value="find Current Flag Index" />
       <item value="set Visible" />
       <item value="set Text Color" />
       <item value="set Background Res" />
@@ -43,7 +45,6 @@
       <item value="set Has Fixed Size" />
       <item value="handle Ungrouped Episode Selection" />
       <item value="notify Data Set Changed" />
-      <item value="handle Series Data" />
       <item value="firstsource Key" />
       <item value="insert Vod" />
       <item value="show Preview" />
@@ -67,7 +68,6 @@
       <item value="delete Drive" />
       <item value="delete Vod Collect" />
       <item value="progress" />
-      <item value="secondary" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="2" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="8513" />
+        <entry key="CHINESE" value="8515" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="8514" />
+        <entry key="ENGLISH" value="8516" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="2" />
