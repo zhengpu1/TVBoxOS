@@ -61,9 +61,11 @@ public class SeriesFlagAdapter extends BaseQuickAdapter<VodInfo.VodSeriesFlag, B
         TextView tvSeries = helper.getView(R.id.tvSeriesFlag);
         LinearLayout tvSeriesLayout = helper.getView(R.id.tvSeriesd);
         View selectView = helper.getView(R.id.tvSeriesFlagSelect);
-        selectView.setVisibility(View.GONE);
+
         if (item.selected) {
             selectView.setVisibility(View.VISIBLE);
+        }else{
+            selectView.setVisibility(View.GONE);
         }
       selectView.setBackgroundColor(context.getResources().getColor(R.color.color_theme_h));
         item.name = formatFlagName(item.name);

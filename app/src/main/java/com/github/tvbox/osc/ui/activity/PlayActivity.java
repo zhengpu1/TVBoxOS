@@ -1,6 +1,8 @@
 package com.github.tvbox.osc.ui.activity;
 
-import static com.github.tvbox.osc.ui.activity.DetailActivity.TEMP_PLAY_INDEX;
+import static com.github.tvbox.osc.ui.activity.DetailActivity.isReverse;
+import static com.github.tvbox.osc.ui.activity.DetailActivity.isSortToggle;
+import static com.github.tvbox.osc.ui.activity.DetailActivity.mCurrentPlayIndex;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
@@ -881,28 +883,29 @@ public class PlayActivity extends baseActivity {
     private SourceBean sourceBean;
 
     private void playNext(boolean inProgress) {
-        if(mVodInfo != null) {
-            mVodInfo.playIndex = TEMP_PLAY_INDEX;
-        }
         List<?> seriesList = mVodInfo.seriesMap.get(mVodInfo.playFlag);
         if (mVodInfo == null || seriesList == null) return;
         boolean hasNext;
-        if (mVodInfo.reverseSort){
+        if (isReverse){
             hasNext = mVodInfo.playIndex - 1 >= 0;
         } else {
             hasNext = mVodInfo.playIndex + 1 < mVodInfo.seriesMap.get(mVodInfo.playFlag).size();
+        }
+        if(isSortToggle){
+            mVodInfo.playIndex = mCurrentPlayIndex;
+            isSortToggle = false;
         }
         if (!hasNext) {
             Toast.makeText(this, "已经是最后一集了!", Toast.LENGTH_SHORT).show();
             return;
         } else {
-            if (mVodInfo.reverseSort) {
+            if (isReverse) {
                 mVodInfo.playIndex--;
             } else {
                 mVodInfo.playIndex++;
             }
+
         }
-        LOG.i("下一集索引" + mVodInfo.playIndex);
         play(false);
     }
 
