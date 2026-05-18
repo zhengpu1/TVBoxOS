@@ -2,8 +2,6 @@ package com.github.tvbox.osc.ui.fragment;
 
 import static com.github.tvbox.osc.player.thirdparty.ReexPlayer.TAG;
 import static com.github.tvbox.osc.ui.activity.DetailActivity.isReverse;
-import static com.github.tvbox.osc.ui.activity.DetailActivity.isSortToggle;
-import static com.github.tvbox.osc.ui.activity.DetailActivity.mCurrentPlayIndex;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
@@ -209,6 +207,7 @@ public class PlayFragment extends BaseLazyFragment {
                 return PlayFragment.this.getSavedProgress(url);
             }
         };
+
         mVideoView.setProgressManager(progressManager);
         mController.setListener(new VodController.VodControlListener() {
             @Override
@@ -222,7 +221,6 @@ public class PlayFragment extends BaseLazyFragment {
                         CacheManager.delete(MD5.string2MD5(preProgressKey), 0);
                 }
             }
-
             @Override
             public void playPre() {
                 if (mVodInfo.reverseSort) {
@@ -916,7 +914,7 @@ public class PlayFragment extends BaseLazyFragment {
         Objects.requireNonNull(App.getInstance()).setDashData(null);
 
     }
-
+    private DetailActivity mActivity;
     private VodInfo mVodInfo;
     private JSONObject mVodPlayerCfg;
     private String sourceKey;
@@ -926,20 +924,16 @@ public class PlayFragment extends BaseLazyFragment {
         List<?> seriesList = mVodInfo.seriesMap.get(mVodInfo.playFlag);
         if (mVodInfo == null || seriesList == null) return;
         boolean hasNext;
-        LOG.i("传索引是444" + isReverse);
         if (isReverse){
             hasNext = mVodInfo.playIndex - 1 >= 0;
         } else {
             hasNext = mVodInfo.playIndex + 1 < mVodInfo.seriesMap.get(mVodInfo.playFlag).size();
         }
-        if(isSortToggle){
-            mVodInfo.playIndex = mCurrentPlayIndex;
-            isSortToggle = false;
-        }
+            mVodInfo.playIndex = mActivity.vodInfo.playIndex;
         if (!hasNext) {
             Toast.makeText(requireContext(), "已经是最后一集了!", Toast.LENGTH_SHORT).show();
-            if (inProgress && ((DetailActivity) mActivity).fullWindows) {
-                ((DetailActivity) mActivity).toggleFullPreview();
+            if (inProgress && mActivity.fullWindows) {
+                 mActivity.toggleFullPreview();
             }
             return;
         } else {
@@ -950,26 +944,25 @@ public class PlayFragment extends BaseLazyFragment {
             }
 
         }
-        LOG.i("传索引是" + mCurrentPlayIndex);
-        LOG.i("下一集索引是" + mVodInfo.playIndex);
         play(false);
     }
-
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        mActivity = (DetailActivity) context;
+    }
     private void playPrevious() {
         boolean hasPre;
         if (mVodInfo == null || mVodInfo.seriesMap.get(mVodInfo.playFlag) == null) {
             hasPre = false;
         } else {
-            if (mVodInfo.reverseSort){
+            if (isReverse){
                 hasPre = mVodInfo.playIndex + 1 < mVodInfo.seriesMap.get(mVodInfo.playFlag).size();
             } else {
                 hasPre = mVodInfo.playIndex - 1 >= 0;
             }
         }
-        if(isSortToggle){
-            mVodInfo.playIndex = mCurrentPlayIndex;
-            isSortToggle = false;
-        }
+            mVodInfo.playIndex = mActivity.vodInfo.playIndex;
         if (!hasPre) {
             Toast.makeText(requireContext(), "已经是最后一集了!", Toast.LENGTH_SHORT).show();
             return;
@@ -1025,7 +1018,7 @@ public class PlayFragment extends BaseLazyFragment {
 
     public void play(boolean reset) {
         if (mVodInfo == null) return;
-
+        LOG.i("播放索引是" + mVodInfo.playIndex);
         VodInfo.VodSeries vs = mVodInfo.seriesMap.get(mVodInfo.playFlag).get(mVodInfo.playIndex);
         EventBus.getDefault().post(new RefreshEvent(RefreshEvent.TYPE_REFRESH, mVodInfo.playIndex));
         long startTime = System.currentTimeMillis();

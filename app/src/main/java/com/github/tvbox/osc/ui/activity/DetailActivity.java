@@ -54,7 +54,6 @@ import com.github.tvbox.osc.util.EpisodeGroupHelper;
 import com.github.tvbox.osc.util.FastClickCheckUtil;
 import com.github.tvbox.osc.util.HawkConfig;
 import com.github.tvbox.osc.util.HistoryHelper;
-import com.github.tvbox.osc.util.LOG;
 import com.github.tvbox.osc.util.SearchHelper;
 import com.github.tvbox.osc.util.SubtitleHelper;
 import com.github.tvbox.osc.util.TVInstance;
@@ -146,7 +145,7 @@ public class DetailActivity extends baseActivity {
     private SourceViewModel sourceViewModel;
     public static Movie.Video mVideo;
     private TextView tvSeriesSort;
-    private VodInfo vodInfo;
+    public VodInfo vodInfo;
     private List<List<VodInfo.VodSeries>> uu;
     private SeriesFlagAdapter seriesFlagAdapter;
     public static SeriesFlagAdapter seriesFlagAdaptera;
@@ -287,7 +286,7 @@ public class DetailActivity extends baseActivity {
             getSupportFragmentManager().beginTransaction().show(playFragment).commitAllowingStateLoss();
             tvPlays.setText(!Hawk.get(HawkConfig.FORBID_JAR_DIALOG, false) ? "手动换源" :"全屏播放");
         }
-
+        isReverse = false;
         seriesGroupAdapter = new BaseQuickAdapter<String, BaseViewHolder>(R.layout.item_series_group, seriesGroupOptions) {
             @Override
             protected void convert(BaseViewHolder helper, String item) {
@@ -362,6 +361,8 @@ public class DetailActivity extends baseActivity {
                 if (vodInfo == null || vodInfo.seriesMap.isEmpty()) {
                     return;
                 }
+            isReverse = !isReverse;
+
                 vodInfo.reverseSort = !vodInfo.reverseSort;
                 if (Hawk.get(HawkConfig.EPISODE_GROUPING, false)) {
                     toggleSortOrderk();
@@ -391,8 +392,8 @@ public class DetailActivity extends baseActivity {
             }
         });
         tvCollect.setOnClickListener(v -> {
-            String text = tvCollect2.getText().toString();
-            if ("加入收藏".equals(text)) {
+            String text1 = tvCollect2.getText().toString();
+            if ("加入收藏".equals(text1)) {
                 RoomDataManger.insertVodCollect(sourceKey, vodInfo);
                 Toast.makeText(DetailActivity.this, "已加入收藏夹", Toast.LENGTH_SHORT).show();
                 tvCollect2.setText("取消收藏");
@@ -488,7 +489,6 @@ public class DetailActivity extends baseActivity {
                     seriesAdapter.notifyItemChanged(vodInfo.playIndex);
                     clickItem.selected = true;
                     seriesAdapter.notifyItemChanged(position);
-                    vodInfo.playIndex = position;
                     reload = true;
                 }
                 mGridView.postDelayed(() -> {
@@ -501,7 +501,7 @@ public class DetailActivity extends baseActivity {
                 // 更新全局选中
                 for (VodInfo.VodSeries s : allSeries) s.selected = false;
                 clicked.selected = true;
-                //vodInfo.playIndex = globalIndex;
+                vodInfo.playIndex = globalIndex;
                 //选集全屏 想选集不全屏的注释下面一行
                 if (showPreview && !fullWindows && Hawk.get(HawkConfig.PLAYBACK_PLAYS, false)) toggleFullPreview();
                 if (!showPreview || reload) jumpToPlay();
@@ -547,13 +547,13 @@ public class DetailActivity extends baseActivity {
 
             @Override
             public void onItemSelected(TvRecyclerView parent, View itemView, int position) {
-                seriesSelectf = true;
+
                 refresh(itemView, position);
             }
 
             @Override
             public void onItemClick(TvRecyclerView parent, View itemView, int position) {
-                seriesSelectf = false;
+
                 refresh(itemView, position);
             }
         });
@@ -785,9 +785,9 @@ public class DetailActivity extends baseActivity {
     }
     private void loadVodInfo() {
         List<VodInfo.VodSeries> allSeries = vodInfo.seriesMap.get(vodInfo.playFlag);
-        //if (allSeries.size() > 30 ) {
+        if (allSeries.size() > 30 ) {
             tvSeriesSort.setVisibility(Hawk.get(HawkConfig.EPISODE_GROUPING, false) ? View.GONE : View.VISIBLE);
-       // }
+        }
         if (allSeries.size() > 20 && Hawk.get(HawkConfig.EPISODE_GROUPING, false)) {
             handleClassifyData();
         } else {
@@ -935,7 +935,9 @@ public class DetailActivity extends baseActivity {
         }
 
         if (vodInfo.reverseSort) {
-            vodInfo.reverse();
+            List<VodInfo.VodSeries> allData = vodInfo.seriesMap.get(vodInfo.playFlag);
+            // 反转数据
+            Collections.reverse(allData);
         }
 
         if (vodInfo.playFlag == null || !vodInfo.seriesMap.containsKey(vodInfo.playFlag)) {
@@ -1425,7 +1427,6 @@ public class DetailActivity extends baseActivity {
         }, 120);
     }
     private void toggleSortOrderk() {
-        vodInfo.reverseSort = !vodInfo.reverseSort; // 👈 改这里
         List<VodInfo.VodSeries> currentGroup = seriesAdapter.getData();
         int totalCount = currentGroup.size();
         int oldPos = -1;
@@ -1439,7 +1440,7 @@ public class DetailActivity extends baseActivity {
         }
 
         // 倒序
-        Collections.reverse(currentGroup);
+        vodInfo.reverse();
 
         // 计算新位置
         int newPos = oldPos;
@@ -1469,13 +1470,11 @@ public class DetailActivity extends baseActivity {
         }
     }
     private void toggleSortOrder() {
-        vodInfo.reverseSort = !vodInfo.reverseSort; // 👈 改这里
         List<VodInfo.VodSeries> allData = vodInfo.seriesMap.get(vodInfo.playFlag);
         int oldIndex = vodInfo.playIndex;
         int totalCount = allData.size();
-       // vodInfo.reverse();
         // 反转数据
-        Collections.reverse(allData);
+        vodInfo.reverse();
 
         // 反转分组标签
         if (!CollectionUtils.isEmpty(mClassifyAdapter.getData())) {
@@ -1490,24 +1489,17 @@ public class DetailActivity extends baseActivity {
         for (int i = 0; i < allData.size(); i++) {
             allData.get(i).selected = (i == newIndex);
         }
-        LOG.d("点击倒序索引",newIndex);
         vodInfo.playIndex = newIndex;
-        mCurrentPlayIndex = newIndex;
         // 更新selected状态
         for (int i = 0; i < allData.size(); i++) {
             allData.get(i).selected = (i == newIndex);
             if(i == newIndex) seriesSelect = false;
         }
             scrollToPlayPosAndRequestFoucuse(newIndex);
-
         // 更新Adapter
         seriesAdapter.setNewData(allData);
         seriesAdapter.notifyDataSetChanged();
-
-        insertVod(firstsourceKey, vodInfo);
-
     }
-
     private void initViews() {
         LinearLayout[] layouts = { tvPush, tvSort, tvCollect, tvPlay};
         drawableLinearLayout(layouts, 5);
@@ -1528,16 +1520,7 @@ public class DetailActivity extends baseActivity {
         });
     }
     private void updateSortUI() {
-        String text = tvSeriesSort.getText().toString();
-        if ("正序".equals(text)) {
-            isReverse = true;
-            isSortToggle = true;
-            tvSeriesSort.setText("倒序");
-        } else {
-            isReverse = false;
-            isSortToggle = true;
-            tvSeriesSort.setText("正序");
-        }
+        tvSeriesSort.setText(isReverse?"倒序":"正序");
     }
     void toggleSubtitleTextSize() {
         int subtitleTextSize  = SubtitleHelper.getTextSize(this);
