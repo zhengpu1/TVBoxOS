@@ -377,9 +377,9 @@ public class GridFragment extends BaseLazyFragment {
             // 添加横向间距，30dp
             gridView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
             int verticalSpace = (int) TypedValue.applyDimension(
-                    TypedValue.COMPLEX_UNIT_DIP, 20, context.getResources().getDisplayMetrics()); // 20dp 行间距
+                    TypedValue.COMPLEX_UNIT_DIP, 7, context.getResources().getDisplayMetrics()); // 20dp 行间距
             int horizontalSpace = (int) TypedValue.applyDimension(
-                    TypedValue.COMPLEX_UNIT_DIP, 10, context.getResources().getDisplayMetrics()); // 30dp 列间距
+                    TypedValue.COMPLEX_UNIT_DIP, 7, context.getResources().getDisplayMetrics()); // 30dp 列间距
 
             gridView.addItemDecoration(new RecyclerView.ItemDecoration() {
                 @Override

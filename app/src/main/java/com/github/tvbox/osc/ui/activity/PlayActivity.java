@@ -1,5 +1,7 @@
 package com.github.tvbox.osc.ui.activity;
 
+import static com.github.tvbox.osc.ui.activity.DetailActivity.TEMP_PLAY_INDEX;
+
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -878,25 +880,29 @@ public class PlayActivity extends baseActivity {
     private String sourceKey;
     private SourceBean sourceBean;
 
-    private void playNext(boolean isProgress) {
-        boolean hasNext = true;
-        if (mVodInfo == null || mVodInfo.seriesMap.get(mVodInfo.playFlag) == null) {
-            hasNext = false;
+    private void playNext(boolean inProgress) {
+        if(mVodInfo != null) {
+            mVodInfo.playIndex = TEMP_PLAY_INDEX;
+        }
+        List<?> seriesList = mVodInfo.seriesMap.get(mVodInfo.playFlag);
+        if (mVodInfo == null || seriesList == null) return;
+        boolean hasNext;
+        if (mVodInfo.reverseSort){
+            hasNext = mVodInfo.playIndex - 1 >= 0;
         } else {
             hasNext = mVodInfo.playIndex + 1 < mVodInfo.seriesMap.get(mVodInfo.playFlag).size();
         }
         if (!hasNext) {
-            if(isProgress && mVodInfo!=null){
-                mVodInfo.playIndex=0;
-                Toast.makeText(this, "已经是最后一集了!,即将跳到第一集继续播放", Toast.LENGTH_SHORT).show();
-            }else {
-                Toast.makeText(this, "已经是最后一集了!", Toast.LENGTH_SHORT).show();
-                this.finish();
-                return;
+            Toast.makeText(this, "已经是最后一集了!", Toast.LENGTH_SHORT).show();
+            return;
+        } else {
+            if (mVodInfo.reverseSort) {
+                mVodInfo.playIndex--;
+            } else {
+                mVodInfo.playIndex++;
             }
-        }else {
-            mVodInfo.playIndex++;
         }
+        LOG.i("下一集索引" + mVodInfo.playIndex);
         play(false);
     }
 
@@ -905,13 +911,18 @@ public class PlayActivity extends baseActivity {
         if (mVodInfo == null || mVodInfo.seriesMap.get(mVodInfo.playFlag) == null) {
             hasPre = false;
         } else {
-            hasPre = mVodInfo.playIndex - 1 >= 0;
+            if (mVodInfo.reverseSort){
+                hasPre = mVodInfo.playIndex + 1 < mVodInfo.seriesMap.get(mVodInfo.playFlag).size();
+            } else {
+                hasPre = mVodInfo.playIndex - 1 >= 0;
+            }
         }
         if (!hasPre) {
             Toast.makeText(this, "已经是第一集了!", Toast.LENGTH_SHORT).show();
             return;
         }
-        mVodInfo.playIndex--;
+            mVodInfo.playIndex--;
+
         play(false);
     }
 

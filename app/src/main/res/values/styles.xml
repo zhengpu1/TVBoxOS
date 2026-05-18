@@ -37,7 +37,7 @@
         <item name="color_theme_95">#F2010D19</item>
         <item name="color_theme_90">#E696AABD</item>
         <item name="color_theme_80">#CC93BEE8</item>
-        <item name="color_theme_70">#B303284C</item>
+        <item name="color_theme_70">#0B114E</item>
         <item name="color_theme_60">#99123F6A</item>
         <item name="color_theme_50">#801E2D3C</item>
         <item name="color_theme_40">#4D204D78</item>
@@ -75,8 +75,8 @@
         <item name="color_theme">#ffff6600</item>
         <item name="color_theme_95">#F2292626</item>
         <item name="color_theme_90">#E6181819</item>
-        <item name="color_theme_80">#00000409</item>
-        <item name="color_theme_70">#2601011C</item>
+        <item name="color_theme_80">#660C0C0C</item>
+        <item name="color_theme_70">#E601010B</item>
         <item name="color_theme_60">#00E9EFF8</item>
         <item name="color_theme_50">#00E9EFFA</item>
         <item name="color_theme_40">#00000207</item>
@@ -88,8 +88,8 @@
         <item name="color_theme">#A475FB</item>
         <item name="color_theme_95">#F2191227</item>
         <item name="color_theme_90">#E6D8B2BE</item>
-        <item name="color_theme_80">#CCB391F1</item>
-        <item name="color_theme_70">#B32C1B4C</item>
+        <item name="color_theme_80">#CCC5AEEF</item>
+        <item name="color_theme_70">#B3211635</item>
         <item name="color_theme_60">#99503187</item>
         <item name="color_theme_50">#803D2E59</item>
         <item name="color_theme_40">#66312447</item>
@@ -101,8 +101,8 @@
         <item name="color_theme">#FB056F</item>
         <item name="color_theme_95">#F217010F</item>
         <item name="color_theme_90">#E6BF96B0</item>
-        <item name="color_theme_80">#CCE462B8</item>
-        <item name="color_theme_70">#930461</item>
+        <item name="color_theme_80">#CCE68FC9</item>
+        <item name="color_theme_70">#550338</item>
         <item name="color_theme_60">#996A124C</item>
         <item name="color_theme_50">#80432238</item>
         <item name="color_theme_40">#66391B2E</item>

@@ -21,6 +21,7 @@
         android:shadowDx="2"
         android:shadowDy="2"
         android:shadowRadius="1"
+        android:textColor="@color/font_deta_color"
         android:gravity="center"
         android:padding="@dimen/vs_5"
         android:textSize="@dimen/ts_18" />

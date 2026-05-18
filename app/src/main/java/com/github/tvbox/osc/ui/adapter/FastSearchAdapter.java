@@ -1,8 +1,10 @@
 package com.github.tvbox.osc.ui.adapter;
 
+import static com.github.tvbox.osc.base.baseActivity.drawableFrameLayout;
 import static com.github.tvbox.osc.base.baseActivity.roundRadius;
 
 import android.text.TextUtils;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -66,7 +68,9 @@ public class FastSearchAdapter extends BaseQuickAdapter<Movie.Video, BaseViewHol
             TextView tvSitez = helper.getView(R.id.tvSite);
 
             ImageView ivThumb = helper.getView(R.id.ivThumb);
-
+            FrameLayout tvquickk = helper.getView(R.id.tvQuickk);
+            FrameLayout[] str = {tvquickk};
+            drawableFrameLayout(str, 1);
             if (!TextUtils.isEmpty(item.pic)) {
                 Picasso.get()
                         .load(item.pic)

@@ -267,11 +267,10 @@ public abstract class baseActivity extends AppCompatActivity implements CustomAd
                 pressed.setColors(colorBoth);
                 pressed.setStroke(stroke2, colorH);
                 pressed.setGradientType(GradientDrawable.LINEAR_GRADIENT);
+                normal.setColor(context.getResources().getColor(R.color.color_32364E_40));
                 if (Hawk.get(HawkConfig.THEME_SELECT, 0) == 6) {
                     normal.setColor(getColorByAttrId(context, R.attr.color_theme_20));
                     normal.setStroke(1, context.getResources().getColor(R.color.color_33FFFFFF));
-                } else {
-                    normal.setColor(context.getResources().getColor(R.color.color_32364E_40));
                 }
                 break;
             case 2:
@@ -282,20 +281,14 @@ public abstract class baseActivity extends AppCompatActivity implements CustomAd
                 pressed.setStroke(stroke2, colorH);
                 break;
             case 3:
-                if (Hawk.get(HawkConfig.THEME_SELECT, 0) == 6) {
-                    normal.setGradientType(GradientDrawable.RADIAL_GRADIENT);
-                    normal.setGradientCenter(0.5f, 0.5f);
-                    normal.setGradientRadius(AutoSizeUtils.mm2px(context, 130));
-                    pressed.setGradientType(GradientDrawable.LINEAR_GRADIENT);
-                    pressed.setOrientation(GradientDrawable.Orientation.TOP_BOTTOM);
-                    normal.setColors(colorBoth);
-                    normal.setStroke(1, context.getResources().getColor(R.color.color_33FFFFFF));
-                } else {
                     pressed.setOrientation(GradientDrawable.Orientation.TOP_BOTTOM);
                     pressed.setColors(colorBoth);
                     pressed.setStroke(stroke2, colorH);
                     pressed.setGradientType(GradientDrawable.LINEAR_GRADIENT);
                     normal.setColor(context.getResources().getColor(R.color.color_32364E_80));
+                if (Hawk.get(HawkConfig.THEME_SELECT, 0) == 6) {
+                    normal.setColor(getColorByAttrId(context, R.attr.color_theme_20));
+                    normal.setStroke(1, context.getResources().getColor(R.color.color_33FFFFFF));
                 }
                 break;
             case 4:

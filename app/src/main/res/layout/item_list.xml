@@ -2,6 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:id="@+id/tvQuickk"
     android:orientation="horizontal"
     android:background="@drawable/shape_user_focus"
     android:focusable="true">
@@ -28,7 +29,7 @@
             android:marqueeRepeatLimit="marquee_forever"
             android:padding="@dimen/vs_10"
             android:singleLine="true"
-            android:textColor="@android:color/white"
+            android:textColor="@color/font_deta_color"
             android:textSize="@dimen/ts_20" />
 
         <TextView
@@ -41,7 +42,7 @@
             android:marqueeRepeatLimit="marquee_forever"
             android:padding="@dimen/vs_10"
             android:singleLine="true"
-            android:textColor="@android:color/white"
+            android:textColor="@color/font_deta_color"
             android:textSize="@dimen/ts_20" />
 
 

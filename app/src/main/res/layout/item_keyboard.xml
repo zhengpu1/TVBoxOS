@@ -14,6 +14,10 @@
         android:layout_height="fill_parent"
         android:layout_gravity="center"
         android:gravity="center"
+        android:shadowColor="@color/color_FF000000"
+        android:shadowDx="1.3"
+        android:shadowDy="1.3"
+        android:shadowRadius="1.0"
         android:textColor="@color/font_deta_color"
         android:textSize="@dimen/ts_22" />
 </FrameLayout>

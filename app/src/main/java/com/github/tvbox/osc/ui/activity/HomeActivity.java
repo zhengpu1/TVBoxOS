@@ -198,7 +198,7 @@ public class HomeActivity extends baseActivity {
         ImageView[] strls = { tvStyle };
         drawableImageView(strls, 8);
         LinearLayout[] strlsa = {tvMenu, tvAPush, tvFind};
-        drawableLinearLayout(strlsa, 5);
+        drawableLinearLayout(strlsa, 3);
         this.mGridView.setOnItemListener(new TvRecyclerView.OnItemListener() {
             public void onItemPreSelected(TvRecyclerView tvRecyclerView, View view, int position) {
                 if (view != null && !HomeActivity.this.isDownOrUp) {

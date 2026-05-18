@@ -1,6 +1,9 @@
 package com.github.tvbox.osc.ui.fragment;
 
 import static com.github.tvbox.osc.player.thirdparty.ReexPlayer.TAG;
+import static com.github.tvbox.osc.ui.activity.DetailActivity.isReverse;
+import static com.github.tvbox.osc.ui.activity.DetailActivity.isSortToggle;
+import static com.github.tvbox.osc.ui.activity.DetailActivity.mCurrentPlayIndex;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
@@ -920,21 +923,19 @@ public class PlayFragment extends BaseLazyFragment {
     private SourceBean sourceBean;
 
     private void playNext(boolean inProgress) {
+        List<?> seriesList = mVodInfo.seriesMap.get(mVodInfo.playFlag);
+        if (mVodInfo == null || seriesList == null) return;
         boolean hasNext;
-
-        if (mVodInfo == null || mVodInfo.seriesMap.get(mVodInfo.playFlag) == null) {
-            hasNext = false;
+        LOG.i("传索引是444" + isReverse);
+        if (isReverse){
+            hasNext = mVodInfo.playIndex - 1 >= 0;
         } else {
-            int totalSize = mVodInfo.seriesMap.get(mVodInfo.playFlag).size();
-
-            // 倒序判断
-            if (mVodInfo.isReverse) {
-                hasNext = mVodInfo.playIndex - 1 >= 0;
-            } else {
-                hasNext = mVodInfo.playIndex + 1 < totalSize;
-            }
+            hasNext = mVodInfo.playIndex + 1 < mVodInfo.seriesMap.get(mVodInfo.playFlag).size();
         }
-
+        if(isSortToggle){
+            mVodInfo.playIndex = mCurrentPlayIndex;
+            isSortToggle = false;
+        }
         if (!hasNext) {
             Toast.makeText(requireContext(), "已经是最后一集了!", Toast.LENGTH_SHORT).show();
             if (inProgress && ((DetailActivity) mActivity).fullWindows) {
@@ -942,27 +943,42 @@ public class PlayFragment extends BaseLazyFragment {
             }
             return;
         } else {
-            if (mVodInfo.isReverse) {
+            if (isReverse) {
                 mVodInfo.playIndex--;
             } else {
                 mVodInfo.playIndex++;
             }
+
         }
+        LOG.i("传索引是" + mCurrentPlayIndex);
+        LOG.i("下一集索引是" + mVodInfo.playIndex);
         play(false);
     }
 
     private void playPrevious() {
-        boolean hasPre = true;
+        boolean hasPre;
         if (mVodInfo == null || mVodInfo.seriesMap.get(mVodInfo.playFlag) == null) {
             hasPre = false;
         } else {
-            hasPre = mVodInfo.playIndex - 1 >= 0;
+            if (mVodInfo.reverseSort){
+                hasPre = mVodInfo.playIndex + 1 < mVodInfo.seriesMap.get(mVodInfo.playFlag).size();
+            } else {
+                hasPre = mVodInfo.playIndex - 1 >= 0;
+            }
+        }
+        if(isSortToggle){
+            mVodInfo.playIndex = mCurrentPlayIndex;
+            isSortToggle = false;
         }
         if (!hasPre) {
-            Toast.makeText(requireContext(), "已经是第一集了!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(requireContext(), "已经是最后一集了!", Toast.LENGTH_SHORT).show();
             return;
         }
-        mVodInfo.playIndex--;
+        if (isReverse) {
+            mVodInfo.playIndex++;
+        } else {
+            mVodInfo.playIndex--;
+        }
         play(false);
     }
     @Override

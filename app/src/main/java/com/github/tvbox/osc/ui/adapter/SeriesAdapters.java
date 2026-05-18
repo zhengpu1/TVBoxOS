@@ -1,7 +1,6 @@
 package com.github.tvbox.osc.ui.adapter;
 
 import static com.github.tvbox.osc.base.baseActivity.drawableLinearLayout;
-import static com.github.tvbox.osc.base.baseActivity.getColorByAttrId;
 
 import android.content.Context;
 import android.widget.LinearLayout;
@@ -31,11 +30,7 @@ public class SeriesAdapters extends BaseQuickAdapter<VodInfo.VodSeries, BaseView
     protected void convert(BaseViewHolder helper, VodInfo.VodSeries item) {
         TextView tvSeries = helper.getView(R.id.tvSeries);
         LinearLayout tvSeriesa = helper.getView(R.id.tvSeriesdd);
-            if (item.selected) {
-                tvSeries.setTextColor(getColorByAttrId(context, R.attr.color_theme));
-            } else {
-                tvSeries.setTextColor(context.getResources().getColor(R.color.color_80FFFFFF));
-            }
+
         helper.setText(R.id.tvSeries, item.name.replace("-",""));
         LinearLayout[] str = {tvSeriesa};
         drawableLinearLayout(str, 1);
