@@ -18,6 +18,9 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="reverse Sort" />
+      <item value="preview Vod Info" />
+      <item value="handle Quick Search Select Event" />
       <item value="Group Countt" />
       <item value="handle Classify Data" />
       <item value="group Flags" />
@@ -65,9 +68,6 @@
       <item value="firstsource Key" />
       <item value="show Preview" />
       <item value="init Subtitle View" />
-      <item value="start Progress Update" />
-      <item value="set On Switch Source Listener" />
-      <item value="get Saved Progress" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="2" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="8548" />
+        <entry key="CHINESE" value="8551" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="8549" />
+        <entry key="ENGLISH" value="8552" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="2" />
