@@ -3,6 +3,8 @@ package com.github.tvbox.osc.ui.adapter;
 import static com.github.tvbox.osc.base.baseActivity.drawableTextView;
 
 import android.annotation.SuppressLint;
+import android.graphics.Typeface;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -90,30 +92,29 @@ public class SelectDialogAdapter<T> extends ListAdapter<T, SelectDialogAdapter.S
     public void onBindViewHolder(@NonNull @NotNull SelectDialogAdapter.SelectViewHolder holder, @SuppressLint("RecyclerView") int position) {
         T value = data.get(position);
         String name = dialogInterface.getDisplay(value);
+        TextView tvqname = holder.itemView.findViewById(R.id.tvName);
         if (!muteCheck && position == select)
             name = "√ " + name;
-        ((TextView) holder.itemView.findViewById(R.id.tvName)).setText(name);
-       /* if (position == select) {
-            view.setTextColor(0xff4c1717);
-            view .setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
-        }else {
-            view.setTextColor(Color.WHITE);
-            view .setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
-        }
-        view.setText(name);*/
-        TextView tvqname = holder.itemView.findViewById(R.id.tvName);
+        tvqname.setText(name);
         TextView[] str = {tvqname};
         drawableTextView(str, 1);
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!muteCheck && position == select)
-                    return;
-                notifyItemChanged(select);
-                select = position;
-                notifyItemChanged(select);
-                dialogInterface.click(value, position);
-            }
+        if (position == select) {
+            tvqname .setTypeface(Typeface.defaultFromStyle(Typeface.BOLD_ITALIC));
+        }else {
+            tvqname .setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+        }
+        if (!muteCheck && position == select) {
+            new Handler().postDelayed(() -> {
+                tvqname.requestFocus(); // 强制显示焦点框
+            }, 520);
+        }
+        holder.itemView.setOnClickListener(v -> {
+            if (!muteCheck && position == select)
+                return;
+            notifyItemChanged(select);
+            select = position;
+            notifyItemChanged(select);
+            dialogInterface.click(value, position);
         });
     }
 }

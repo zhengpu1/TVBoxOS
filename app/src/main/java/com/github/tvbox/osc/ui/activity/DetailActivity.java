@@ -571,7 +571,7 @@ public class DetailActivity extends baseActivity {
             String cpContent =  Objects.requireNonNull(vodInfo.seriesMap.get(vodInfo.playFlag)).get(vodInfo.playIndex).url;
             ClipData clipData = ClipData.newPlainText(null, vodInfo.name +","+cpContent);
             clipboard.setPrimaryClip(clipData);
-            Toast.makeText(DetailActivity.this, "已复制" + vodInfo.name, Toast.LENGTH_SHORT).show();
+            Toast.makeText(DetailActivity.this, "已复制" + cpContent, Toast.LENGTH_SHORT).show();
         });
         setLoadSir(llLayout);
     }
