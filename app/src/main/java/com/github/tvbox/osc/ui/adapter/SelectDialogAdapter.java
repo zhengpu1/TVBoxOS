@@ -93,8 +93,7 @@ public class SelectDialogAdapter<T> extends ListAdapter<T, SelectDialogAdapter.S
         T value = data.get(position);
         String name = dialogInterface.getDisplay(value);
         TextView tvqname = holder.itemView.findViewById(R.id.tvName);
-        if (!muteCheck && position == select)
-            name = "√ " + name;
+        if (!muteCheck && position == select) name = "√ " + name;
         tvqname.setText(name);
         TextView[] str = {tvqname};
         drawableTextView(str, 1);

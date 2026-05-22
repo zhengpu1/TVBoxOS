@@ -28,6 +28,7 @@ import com.github.tvbox.osc.ui.adapter.SelectDialogAdapter;
 import com.github.tvbox.osc.ui.dialog.AboutDialog;
 import com.github.tvbox.osc.ui.dialog.ApiDialog;
 import com.github.tvbox.osc.ui.dialog.BackupDialog;
+import com.github.tvbox.osc.ui.dialog.ResetDialog;
 import com.github.tvbox.osc.ui.dialog.SearchRemoteTvDialog;
 import com.github.tvbox.osc.ui.dialog.SelectDialog;
 import com.github.tvbox.osc.ui.dialog.UpdateDialog;
@@ -831,7 +832,14 @@ public class ModelSettingFragment extends BaseLazyFragment {
                 }
             });
         //findViewById(R.id.llIjkCachePlay).setOnClickListener((this::onClickIjkCachePlay));
-        findViewById(R.id.llClearCache).setOnClickListener(v -> showResetDialog());
+        findViewById(R.id.llClearCache).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FastClickCheckUtil.check(v);
+                ResetDialog dialog = new ResetDialog(mActivity);
+                dialog.show();
+            }
+        });
       /*  findViewById(R.id.llClearCache).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
