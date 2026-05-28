@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.MotionEvent;
@@ -12,7 +13,6 @@ import android.view.View;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.blankj.utilcode.util.ScreenUtils;
-import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.github.tvbox.osc.R;
 import com.github.tvbox.osc.base.App;
 import com.github.tvbox.osc.bean.VodInfo;
@@ -24,6 +24,7 @@ import com.github.tvbox.osc.ui.adapter.SeriesAdapter;
 import com.github.tvbox.osc.util.FastClickCheckUtil;
 import com.owen.tvrecyclerview.widget.TvRecyclerView;
 import com.owen.tvrecyclerview.widget.V7GridLayoutManager;
+import com.owen.tvrecyclerview.widget.V7LinearLayoutManager;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -36,14 +37,18 @@ public class ChoosePlayPopUp extends BasePopupWindow {
     private SeriesAdapter seriesAdapter;
     private TvRecyclerView mGridView;
     private final Handler mHandler = new Handler(Looper.getMainLooper());
-
     public ChoosePlayPopUp(Context context, int gg) {
         super(context);
         setContentView(R.layout.choose_play_layout);
         mGridView = findViewById(R.id.mGridView);
         seriesAdapter = new SeriesAdapter();
         mGridView.setHasFixedSize(true);
-        mGridView.setLayoutManager(new V7GridLayoutManager(getContext(), 10));
+       //
+        if (Build.VERSION.SDK_INT <= 16) {
+            mGridView.setLayoutManager(new V7LinearLayoutManager(getContext(), 0, false));
+        } else {
+            mGridView.setLayoutManager(new V7GridLayoutManager(context, 10));
+        }
         mGridView.setAdapter(seriesAdapter);
         mGridView.setFocusable(true);
         mGridView.setFocusableInTouchMode(true);
@@ -54,30 +59,27 @@ public class ChoosePlayPopUp extends BasePopupWindow {
                 ? vodInfo.seriesMap.get(vodInfo.playFlag)
                 : new ArrayList<>();
 
-        seriesAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                FastClickCheckUtil.check(view);
-                if (getContext() instanceof PlayActivity) {
-                    ((PlayActivity) getContext()).finish();
-                }
+        seriesAdapter.setOnItemClickListener((adapter, view, position) -> {
+            FastClickCheckUtil.check(view);
+            if (getContext() instanceof PlayActivity) {
+                getContext().finish();
+            }
 
-                if (list.size() > 0) {
-                    for (int j = 0; j < list.size(); j++) {
-                        seriesAdapter.getData().get(j).selected = false;
-                        seriesAdapter.notifyItemChanged(j);
-                    }
-                    if (vodInfo.playIndex != position) {
-                        seriesAdapter.getData().get(position).selected = true;
-                        seriesAdapter.notifyItemChanged(position);
-                        vodInfo.playIndex = position;
-                    }
-                    seriesAdapter.getData().get(vodInfo.playIndex).selected = true;
-                    seriesAdapter.notifyItemChanged(vodInfo.playIndex);
-                    insertVod(vodInfo);
-                    EventBus.getDefault().post(new PlayEvent(vodInfo));
-                    dismiss();
+            if (list.size() > 0) {
+                for (int j = 0; j < list.size(); j++) {
+                    seriesAdapter.getData().get(j).selected = false;
+                    seriesAdapter.notifyItemChanged(j);
                 }
+                if (vodInfo.playIndex != position) {
+                    seriesAdapter.getData().get(position).selected = true;
+                    seriesAdapter.notifyItemChanged(position);
+                    vodInfo.playIndex = position;
+                }
+                seriesAdapter.getData().get(vodInfo.playIndex).selected = true;
+                seriesAdapter.notifyItemChanged(vodInfo.playIndex);
+                insertVod(vodInfo);
+                EventBus.getDefault().post(new PlayEvent(vodInfo));
+                dismiss();
             }
         });
 
@@ -96,27 +98,20 @@ public class ChoosePlayPopUp extends BasePopupWindow {
         int screenWidth = ScreenUtils.getScreenWidth() / 3;
         int offset = screenWidth / w;
         if (offset <= 1) offset = 1;
-        if (offset > 6) offset = 10;
-        ((V7GridLayoutManager) mGridView.getLayoutManager()).setSpanCount(offset);
+        if (offset >= 9) offset = 10;
+        if (Build.VERSION.SDK_INT > 16) ((V7GridLayoutManager) mGridView.getLayoutManager()).setSpanCount(offset);
         seriesAdapter.setNewData(vodInfo != null && vodInfo.seriesMap != null ? vodInfo.seriesMap.get(vodInfo.playFlag) : null);
-
-        mHandler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                RecyclerView.LayoutManager layoutManager = mGridView.getLayoutManager();
-                if (layoutManager != null) {
-                    int childCount = layoutManager.getChildCount();
-                    for (int i = 0; i < childCount; i++) {
-                        View child = layoutManager.getChildAt(i);
-                        if (child != null) {
-                            child.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-                                @Override
-                                public void onFocusChange(View v, boolean hasFocus) {
-                                    mHandler.removeCallbacksAndMessages(null);
-                                    mHandler.postDelayed(dismissRunnable, 4000);
-                                }
-                            });
-                        }
+        mHandler.postDelayed(() -> {
+            RecyclerView.LayoutManager layoutManager = mGridView.getLayoutManager();
+            if (layoutManager != null) {
+                int childCount = layoutManager.getChildCount();
+                for (int i = 0; i < childCount; i++) {
+                    View child = layoutManager.getChildAt(i);
+                    if (child != null) {
+                        child.setOnFocusChangeListener((v, hasFocus) -> {
+                            mHandler.removeCallbacksAndMessages(null);
+                            mHandler.postDelayed(dismissRunnable, 4000);
+                        });
                     }
                 }
             }
@@ -147,7 +142,7 @@ public class ChoosePlayPopUp extends BasePopupWindow {
     public void showPopupWindow(View anchorView) {
         super.showPopupWindow(anchorView);
         getPopupWindow().setFocusable(true);
-        mHandler.postDelayed(dismissRunnable, 14000);
+        mHandler.postDelayed(dismissRunnable, 4000);
     }
 
     @Override

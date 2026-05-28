@@ -1,6 +1,7 @@
 package com.github.tvbox.osc.ui.adapter;
 
 import static com.github.tvbox.osc.base.baseActivity.drawableLinearLayout;
+import static com.github.tvbox.osc.ui.activity.DetailActivity.offsets;
 
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -10,8 +11,6 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.github.tvbox.osc.R;
 import com.github.tvbox.osc.bean.VodInfo;
-import com.github.tvbox.osc.util.HawkConfig;
-import com.orhanobut.hawk.Hawk;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -30,7 +29,8 @@ public class SeriesAdapter extends BaseQuickAdapter<VodInfo.VodSeries, BaseViewH
     }
     private void LParams(LinearLayout RIDD) {
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        params.width = AutoSizeUtils.mm2px(mContext,112);
+        int kuand =  (1220 - offsets * 10) / offsets;
+        params.width = AutoSizeUtils.mm2px(mContext, (int) kuand);
         RIDD.setLayoutParams(params);
     }
 
@@ -51,9 +51,9 @@ public class SeriesAdapter extends BaseQuickAdapter<VodInfo.VodSeries, BaseViewH
             }
         }
         helper.setText(R.id.tvSeries, item.name.replace("-",""));
-        if(Hawk.get(HawkConfig.EPISODE_GROUPING, false)) {
+       // if(Hawk.get(HawkConfig.EPISODE_GROUPING, false)) {
             LParams(tvSeriesa);
-        }
+       // }
         LinearLayout[] str = {tvSeriesa};
         drawableLinearLayout(str, 1);
     }

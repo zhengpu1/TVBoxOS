@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/vs_0"
         android:background="@color/color_000000_80"
-        android:layout_marginRight="@dimen/vs_0"
+        android:layout_marginTop="@dimen/vs_10"
         android:layout_marginBottom="@dimen/vs_0"
         android:clipChildren="false"
         android:clipToPadding="false"

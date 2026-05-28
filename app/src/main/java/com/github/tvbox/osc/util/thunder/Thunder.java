@@ -258,7 +258,13 @@ public class Thunder {
     }
     public static boolean play(String url, ThunderCallback callback) {
         if (url.startsWith("tvbox-torrent:")) {
+            if (torrentFileInfoArrayList == null || torrentFileInfoArrayList.isEmpty()) {
+                return false;
+            }
             int idx = Integer.parseInt(url.substring(14));
+            if (idx < 0 || idx >= torrentFileInfoArrayList.size()) {
+                idx = 0;
+            }
             TorrentFileInfo info = torrentFileInfoArrayList.get(idx);
             if (currentTask > 0) {
                 XLTaskHelper.instance().stopTask(currentTask);

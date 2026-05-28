@@ -1372,7 +1372,7 @@ public class PlayFragment extends BaseLazyFragment {
                     JSONObject rs = ApiConfig.get().jsonExt(pb.getUrl(), jxs, webUrl);
                     if (rs == null || !rs.has("url") || rs.optString("url").isEmpty()) {
                         errorWithRetry("解析错误7", false);
-                        setTip("解析错误7", false, true);
+                        //setTip("解析错误7", false, true);
                     } else {
                         HashMap<String, String> headers = null;
                         if (rs.has("header")) {
@@ -1436,7 +1436,7 @@ public class PlayFragment extends BaseLazyFragment {
                 JSONObject rs = isSuper? SuperParse.parse(jxs,parseFlag,webUrl):ApiConfig.get().jsonExtMix(parseFlag + "111", pb.getUrl(), finalExtendName, jxs, webUrl);
                 if (rs == null || !rs.has("url") || rs.optString("url").isEmpty()) {
                     errorWithRetry("解析错误8", false);
-                    setTip("解析错误8", false, true);
+                   // setTip("解析错误8", false, true);
                 } else {
                     if (rs.has("parse") && rs.optInt("parse", 0) == 1) {
                         if (rs.has("ua")) {

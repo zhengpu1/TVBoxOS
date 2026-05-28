@@ -43,6 +43,7 @@ import com.github.tvbox.osc.bean.VodInfo;
 import com.github.tvbox.osc.cache.CacheManager;
 import com.github.tvbox.osc.cache.RoomDataManger;
 import com.github.tvbox.osc.event.RefreshEvent;
+import com.github.tvbox.osc.picasso.RoundTransformation;
 import com.github.tvbox.osc.ui.adapter.HomedeVodAdapter;
 import com.github.tvbox.osc.ui.adapter.QuickSearchAdapter;
 import com.github.tvbox.osc.ui.adapter.SeriesAdapter;
@@ -50,10 +51,12 @@ import com.github.tvbox.osc.ui.adapter.SeriesFlagAdapter;
 import com.github.tvbox.osc.ui.dialog.DevDialog;
 import com.github.tvbox.osc.ui.dialog.QuickSearchDialog;
 import com.github.tvbox.osc.ui.fragment.PlayFragment;
+import com.github.tvbox.osc.util.DefaultConfig;
 import com.github.tvbox.osc.util.EpisodeGroupHelper;
 import com.github.tvbox.osc.util.FastClickCheckUtil;
 import com.github.tvbox.osc.util.HawkConfig;
 import com.github.tvbox.osc.util.HistoryHelper;
+import com.github.tvbox.osc.util.MD5;
 import com.github.tvbox.osc.util.SearchHelper;
 import com.github.tvbox.osc.util.SubtitleHelper;
 import com.github.tvbox.osc.util.TVInstance;
@@ -69,6 +72,7 @@ import com.orhanobut.hawk.Hawk;
 import com.owen.tvrecyclerview.widget.TvRecyclerView;
 import com.owen.tvrecyclerview.widget.V7GridLayoutManager;
 import com.owen.tvrecyclerview.widget.V7LinearLayoutManager;
+import com.squareup.picasso.Picasso;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -170,6 +174,7 @@ public class DetailActivity extends baseActivity {
     private int LOCK_PLAY_INDEX  = 0; // 类顶部声明
     public static int mCurrentPlayIndex = 0;
     public static boolean isReverse;
+    public static int offsets;
     public static boolean isSortToggle = false;
     @Override
     protected int getLayoutResID() {
@@ -244,7 +249,7 @@ public class DetailActivity extends baseActivity {
         tvHotList5.setLayoutManager(new V7GridLayoutManager(this.mContext, 5));
         homedeVodAdapter = new HomedeVodAdapter();
         searchAdapter = new QuickSearchAdapter();
-        this.mGridViewLayoutMgr = new V7GridLayoutManager(this.mContext, isBaseOnWidth() ? 10 : 11);
+        mGridViewLayoutMgr = new V7GridLayoutManager(this.mContext, isBaseOnWidth() ? 10 : 11);
         mGridView.setLayoutManager(mGridViewLayoutMgr);
         seriesAdapter = new SeriesAdapter();
         mGridView.setAdapter(seriesAdapter);
@@ -285,6 +290,8 @@ public class DetailActivity extends baseActivity {
             getSupportFragmentManager().beginTransaction().add(R.id.previewPlayer, playFragment).commit();
             getSupportFragmentManager().beginTransaction().show(playFragment).commitAllowingStateLoss();
             tvPlays.setText(!Hawk.get(HawkConfig.FORBID_JAR_DIALOG, false) ? "手动换源" :"全屏播放");
+        } else {
+            tvPlays.setText("全屏播放");
         }
         isReverse = false;
         seriesGroupAdapter = new BaseQuickAdapter<String, BaseViewHolder>(R.layout.item_series_group, seriesGroupOptions) {
@@ -379,7 +386,7 @@ public class DetailActivity extends baseActivity {
         });
         tvPlay.setOnClickListener(v -> {
             FastClickCheckUtil.check(v);
-            if(!Hawk.get(HawkConfig.FORBID_JAR_DIALOG, false)) {
+            if(!Hawk.get(HawkConfig.FORBID_JAR_DIALOG, false) && showPreview) {
             tvPlays.setText("手动换源");
                 Switchtoplaybacksitek();
             }else{
@@ -769,19 +776,11 @@ public class DetailActivity extends baseActivity {
         w += 32;
         int screenWidth = getWindowManager().getDefaultDisplay().getWidth() / 3;
         int offset = screenWidth / w;
-        if(!Hawk.get(HawkConfig.EPISODE_GROUPING, false)) {
-            offset = Math.max(offset, 2);
-            offset = Math.min(offset, 10);
-        } else {
-            offset = 10;
-        }
-        this.mGridViewLayoutMgr.setSpanCount(offset);
+        if (offset <= 2) offset = 2;
+        if (offset >= 9) offset = 10;
+        offsets = offset;
+        mGridViewLayoutMgr.setSpanCount(offset);
         loadVodInfo();
-
-        // 🔥 核心：一进来就给当前集焦点！延迟150ms确保布局渲染完成
-       /* mGridView.postDelayed(() -> {
-            scrollToPlayPosAndRequestFoucuse(vodInfo.playIndex);
-        }, 150);*/
     }
     private void loadVodInfo() {
         List<VodInfo.VodSeries> allSeries = vodInfo.seriesMap.get(vodInfo.playFlag);
@@ -844,17 +843,12 @@ public class DetailActivity extends baseActivity {
         if (TextUtils.isEmpty(video.name)) {
             video.name = "HRTV";
         }
-
-        // ✅ 永远不重新创建！保留旧对象！
         if (vodInfo == null) {
             vodInfo = new VodInfo();
         }
 
         vodInfo.setVideo(video);
         vodInfo.sourceKey = video.sourceKey;
-
-        // ✅ 强制把记忆的位置塞进去！绝杀！
-        //vodInfo.playIndex = LOCK_PLAY_INDEX ;
 
         CacheManager.save("vod_info_" + vodId, vodInfo);
     }
@@ -890,6 +884,20 @@ public class DetailActivity extends baseActivity {
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
             initHomeHotVod3(homedeVodAdapter);
         }, 1000); // 5秒后执行
+        if (!TextUtils.isEmpty(mVideo.pic)) {
+            Picasso.get()
+                    .load(DefaultConfig.checkReplaceProxy(mVideo.pic))
+                    .transform(new RoundTransformation(MD5.string2MD5(mVideo.pic))
+                            .centerCorp(true)
+                            .override(AutoSizeUtils.mm2px(mContext, 300), AutoSizeUtils.mm2px(mContext, 400))
+                            .roundRadius(AutoSizeUtils.mm2px(mContext, 10), RoundTransformation.RoundType.ALL))
+                    .placeholder(R.drawable.img_loading_placeholder)
+                    .noFade()
+                    .error(R.drawable.img_loading_placeholder)
+                    .into(ivThumb);
+        } else {
+            ivThumb.setImageResource(R.drawable.img_loading_placeholder);
+        }
         // 读取快速搜索缓存 ← 我加的
         List<Movie.Video> cacheSearchData = (List<Movie.Video>) CacheManager.getCache("vod_souzd_" + mVideo.name);
         if (cacheSearchData != null && !cacheSearchData.isEmpty()) {
