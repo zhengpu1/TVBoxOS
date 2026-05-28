@@ -18,6 +18,10 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="add On Scroll Listener" />
+      <item value="show Popup Window" />
+      <item value="dismiss Runnable" />
+      <item value="dismiss" />
       <item value="show Preview" />
       <item value="toggle Full Preview" />
       <item value="tv top r_container" />
@@ -28,7 +32,6 @@
       <item value="EPISODE GROUPING" />
       <item value="horizontal" />
       <item value="set Shadow Layer" />
-      <item value="dismiss Runnable" />
       <item value="V 7 Grid Layout Manager" />
       <item value="marquee Repeat Limit" />
       <item value="choose Play" />
@@ -65,9 +68,6 @@
       <item value="notify Item Changed" />
       <item value="handle Detail Result" />
       <item value="handle Series Data" />
-      <item value="reverse" />
-      <item value="reverse Sort" />
-      <item value="toggle Sort Order" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="2" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="8614" />
+        <entry key="CHINESE" value="8618" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="8615" />
+        <entry key="ENGLISH" value="8619" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="2" />
