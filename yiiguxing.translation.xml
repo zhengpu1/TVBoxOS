@@ -18,6 +18,17 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="search Result" />
+      <item value="filter Result" />
+      <item value="search Title" />
+      <item value="match Search Result" />
+      <item value="switch Search Word" />
+      <item value="instanceof" />
+      <item value="set Tv Play Url" />
+      <item value="picture" />
+      <item value="vod picture" />
+      <item value="get Vod Collect Dao" />
+      <item value="is Vod Collect" />
       <item value="add On Scroll Listener" />
       <item value="show Popup Window" />
       <item value="dismiss Runnable" />
@@ -57,17 +68,6 @@
       <item value="BOLD ITALIC" />
       <item value="ITALIC" />
       <item value="BOLD" />
-      <item value="BLUE" />
-      <item value="GREEN" />
-      <item value="WHITE" />
-      <item value="GRAY" />
-      <item value="LTGRAY" />
-      <item value="set Typeface" />
-      <item value="default From Style" />
-      <item value="request Focus" />
-      <item value="notify Item Changed" />
-      <item value="handle Detail Result" />
-      <item value="handle Series Data" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,17 +78,17 @@
         <entry key="BOSNIAN" value="2" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="8618" />
+        <entry key="CHINESE" value="8629" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="8619" />
+        <entry key="ENGLISH" value="8630" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="2" />
         <entry key="FINNISH" value="4" />
         <entry key="FRENCH" value="14" />
-        <entry key="GALICIAN" value="26" />
+        <entry key="GALICIAN" value="27" />
         <entry key="GERMAN" value="13" />
         <entry key="GREEK" value="1" />
         <entry key="GUJARATI" value="1" />
