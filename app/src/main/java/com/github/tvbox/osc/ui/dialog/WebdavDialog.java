@@ -67,10 +67,15 @@ public class WebdavDialog extends BaseDialog {
             @Override
             public void onClick(View view) {
                 String name = etName.getText().toString();
+                if(name.isEmpty())name = "默认";
                 String url = etUrl.getText().toString();
+                if(url.isEmpty())url = "http://192.168.80.10:5244";
                 String initPath = etInitPath.getText().toString();
+                if(initPath.isEmpty())initPath = "dav";
                 String username = etUsername.getText().toString();
+                if(username.isEmpty())username = "guest";
                 String password = etPassword.getText().toString();
+                if(password.isEmpty())password = "123456";
                 if(name == null || name.length() == 0)
                 {
                     Toast.makeText(WebdavDialog.this.getContext(), "请赋予一个空间名称", Toast.LENGTH_SHORT).show();
@@ -78,6 +83,7 @@ public class WebdavDialog extends BaseDialog {
                 }
                 if(url == null || url.length() == 0)
                 {
+
                     Toast.makeText(WebdavDialog.this.getContext(), "请务必填入WebDav地址", Toast.LENGTH_SHORT).show();
                     return;
                 }

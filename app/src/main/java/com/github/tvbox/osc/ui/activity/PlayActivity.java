@@ -1015,6 +1015,7 @@ public class PlayActivity extends baseActivity {
                     }
                 }
             }
+            LOG.d("DDDDDDD",vs.url+headers);
             playUrl(vs.url.replace("tvbox-drive://", ""), headers);
             return;
         }

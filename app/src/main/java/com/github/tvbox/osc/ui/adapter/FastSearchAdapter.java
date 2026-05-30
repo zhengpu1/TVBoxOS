@@ -55,7 +55,7 @@ public class FastSearchAdapter extends BaseQuickAdapter<Movie.Video, BaseViewHol
                             .into(ivThumb);
                 }
             } else {
-//                ivThumb.setImageResource(R.drawable.img_loading_placeholder);
+//                 ivThumb.setImageDrawable(ImgUtil.createTextDrawable(item.name));
                 ivThumb.setImageDrawable(ImgUtil.createTextDrawable(item.name));
             }
         } else {
@@ -78,12 +78,12 @@ public class FastSearchAdapter extends BaseQuickAdapter<Movie.Video, BaseViewHol
                                 .centerCorp(true)
                                 .override(AutoSizeUtils.mm2px(mContext, ImgUtil.defaultWidth), AutoSizeUtils.mm2px(mContext, ImgUtil.defaultHeight))
                                 .roundRadius(AutoSizeUtils.mm2px(mContext, roundRadius), RoundTransformation.RoundType.ALL))
-                        .placeholder(ImgUtil.decodeBase64ToDrawable(ImgUtil.FOLDER))
+                        .placeholder(ImgUtil.createTextDrawable(item.name))
                         .noFade()
                         .error(R.drawable.img_loading_placeholder)
                         .into(ivThumb);
             } else {
-                ivThumb.setImageResource(R.drawable.img_loading_placeholder);
+                 ivThumb.setImageDrawable(ImgUtil.createTextDrawable(item.name));
             }
 
         }

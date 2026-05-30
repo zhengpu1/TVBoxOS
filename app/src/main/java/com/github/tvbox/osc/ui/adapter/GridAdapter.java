@@ -2,11 +2,13 @@ package com.github.tvbox.osc.ui.adapter;
 
 import static com.github.tvbox.osc.base.baseActivity.LParams;
 import static com.github.tvbox.osc.base.baseActivity.drawableFrameLayout;
+import static com.github.tvbox.osc.base.baseActivity.drawableLinearLayout;
 
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -16,6 +18,7 @@ import com.github.tvbox.osc.bean.Movie;
 import com.github.tvbox.osc.picasso.RoundTransformation;
 import com.github.tvbox.osc.util.DefaultConfig;
 import com.github.tvbox.osc.util.HawkConfig;
+import com.github.tvbox.osc.util.ImgUtil;
 import com.github.tvbox.osc.util.MD5;
 import com.orhanobut.hawk.Hawk;
 import com.squareup.picasso.Picasso;
@@ -40,6 +43,9 @@ public class GridAdapter extends BaseQuickAdapter<Movie.Video, BaseViewHolder> {
     @Override
     protected void convert(BaseViewHolder helper, Movie.Video item) {
         if(this.mShowList) {
+            LinearLayout tvGridsr = helper.getView(R.id.Gridsr);
+            LinearLayout[] str = {tvGridsr};
+            drawableLinearLayout(str, 1);
             helper.setText(R.id.tvNote, item.note);
             helper.setText(R.id.tvName, item.name);
             ImageView ivThumb = helper.getView(R.id.ivThumb);
@@ -53,12 +59,12 @@ public class GridAdapter extends BaseQuickAdapter<Movie.Video, BaseViewHolder> {
                                     .centerCorp(true)
                                     .override(AutoSizeUtils.mm2px(mContext, 300), AutoSizeUtils.mm2px(mContext, 180))
                                     .roundRadius(AutoSizeUtils.mm2px(mContext, 6), RoundTransformation.RoundType.ALL))
-                            .placeholder(R.drawable.img_loading_placeholder)
+                            .placeholder(ImgUtil.decodeBase64ToDrawable(ImgUtil.FOLDER))
                             .noFade()
 //                            .error(R.drawable.img_loading_placeholder)
                             .into(ivThumb);
                 } else {
-                    ivThumb.setImageResource(R.drawable.img_loading_placeholder);
+                    ivThumb.setImageDrawable(ImgUtil.createTextDrawable(item.name));
                 }
             } else {
                 if (!TextUtils.isEmpty(item.pic)) {
@@ -69,12 +75,12 @@ public class GridAdapter extends BaseQuickAdapter<Movie.Video, BaseViewHolder> {
                                     .centerCorp(true)
                                     .override(AutoSizeUtils.mm2px(mContext, 300), AutoSizeUtils.mm2px(mContext, 400))
                                     .roundRadius(AutoSizeUtils.mm2px(mContext, 6), RoundTransformation.RoundType.ALL))
-                            .placeholder(R.drawable.img_loading_placeholder)
+                            .placeholder(ImgUtil.createTextDrawable(item.name))
                             .noFade()
 //                            .error(R.drawable.img_loading_placeholder)
                             .into(ivThumb);
                 } else {
-                    ivThumb.setImageResource(R.drawable.img_loading_placeholder);
+                    ivThumb.setImageDrawable(ImgUtil.createTextDrawable(item.name));
                 }
             }
             return;
@@ -134,12 +140,12 @@ public class GridAdapter extends BaseQuickAdapter<Movie.Video, BaseViewHolder> {
                                 .centerCorp(true)
                                 .override(AutoSizeUtils.mm2px(mContext, 300), AutoSizeUtils.mm2px(mContext, 180))
                                 .roundRadius(AutoSizeUtils.mm2px(mContext, 6), RoundTransformation.RoundType.ALL))
-                        .placeholder(R.drawable.img_loading_placeholder)
+                        .placeholder(ImgUtil.decodeBase64ToDrawable(ImgUtil.FOLDER))
                         .noFade()
 //                        .error(R.drawable.img_loading_placeholder)
                         .into(ivThumb);
             } else {
-                ivThumb.setImageResource(R.drawable.img_loading_placeholder);
+                 ivThumb.setImageDrawable(ImgUtil.createTextDrawable(item.name));
             }
         } else {
             if (TextUtils.isEmpty(item.note)) {
@@ -173,12 +179,12 @@ public class GridAdapter extends BaseQuickAdapter<Movie.Video, BaseViewHolder> {
                                 .centerCorp(true)
                                 .override(AutoSizeUtils.mm2px(mContext, 300), AutoSizeUtils.mm2px(mContext, 400))
                                 .roundRadius(AutoSizeUtils.mm2px(mContext, 6), RoundTransformation.RoundType.ALL))
-                        .placeholder(R.drawable.img_loading_placeholder)
+                        .placeholder(ImgUtil.decodeBase64ToDrawable(ImgUtil.FOLDER))
                         .noFade()
  //                       .error(R.drawable.img_loading_placeholder)
                         .into(ivThumb);
             } else {
-               ivThumb.setImageResource(R.drawable.img_loading_placeholder);
+                ivThumb.setImageDrawable(ImgUtil.createTextDrawable(item.name));
             }
         }
     }

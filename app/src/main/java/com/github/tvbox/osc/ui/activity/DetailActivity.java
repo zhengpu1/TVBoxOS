@@ -1294,10 +1294,7 @@ public class DetailActivity extends baseActivity {
             List<Movie.Video> data = new ArrayList<>();
             for (Movie.Video video : absXml.movie.videoList) {
                 // 去除当前相同的影片
-                if (video.sourceKey.equals(sourceKey)) {
-                    continue;
-                }
-                if (video.id.equals(vodId)) {
+                if (video.sourceKey.equals(sourceKey) && video.id.equals(vodId)) {
                     continue;
                 }
                 if (video.name.equals(mVideo.name)) {

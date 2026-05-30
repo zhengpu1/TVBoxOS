@@ -54,7 +54,7 @@
                     android:layout_height="wrap_content"
                     android:duplicateParentState="true"
                     android:text="关"
-                    android:textColor="@color/font_deta_color1"
+                    android:textColor="@color/font_deta_color2"
                     android:textSize="@dimen/ts_24" />
 
                 <TextView
@@ -104,7 +104,7 @@
                     android:duplicateParentState="true"
                     android:ellipsize="middle"
                     android:singleLine="true"
-                    android:textColor="@color/font_deta_color1"
+                    android:textColor="@color/font_deta_color2"
                     android:textSize="@dimen/ts_24" />
 
                 <TextView
@@ -170,7 +170,7 @@
                             android:layout_height="wrap_content"
                             android:ellipsize="middle"
                             android:singleLine="true"
-                            android:textColor="@color/font_deta_color1"
+                            android:textColor="@color/font_deta_color2"
                             android:textSize="@dimen/ts_24" />
 
                         <TextView
@@ -219,7 +219,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:duplicateParentState="true"
-                            android:textColor="@color/font_deta_color1"
+                            android:textColor="@color/font_deta_color2"
                             android:textSize="@dimen/ts_24" />
 
                         <TextView
@@ -282,7 +282,7 @@
                             android:ellipsize="middle"
                             android:singleLine="true"
                             android:text="5"
-                            android:textColor="@color/font_deta_color1"
+                            android:textColor="@color/font_deta_color2"
                             android:textSize="@dimen/ts_24" />
 
                         <TextView
@@ -331,7 +331,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:duplicateParentState="true"
-                            android:textColor="@color/font_deta_color1"
+                            android:textColor="@color/font_deta_color2"
                             android:textSize="@dimen/ts_24" />
 
                         <TextView
@@ -398,7 +398,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:duplicateParentState="true"
-                            android:textColor="@color/font_deta_color1"
+                            android:textColor="@color/font_deta_color2"
                             android:textSize="@dimen/ts_24" />
 
                         <TextView
@@ -448,7 +448,7 @@
                             android:layout_height="wrap_content"
                             android:duplicateParentState="true"
                             android:text="大"
-                            android:textColor="@color/font_deta_color1"
+                            android:textColor="@color/font_deta_color2"
                             android:textSize="@dimen/ts_24" />
 
                         <TextView
@@ -508,7 +508,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:duplicateParentState="true"
-                            android:textColor="@color/font_deta_color1"
+                            android:textColor="@color/font_deta_color2"
                             android:textSize="@dimen/ts_24" />
 
                         <TextView
@@ -557,7 +557,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:duplicateParentState="true"
-                            android:textColor="@color/font_deta_color1"
+                            android:textColor="@color/font_deta_color2"
                             android:textSize="@dimen/ts_24" />
 
                         <TextView
@@ -624,7 +624,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:duplicateParentState="true"
-                            android:textColor="@color/font_deta_color1"
+                            android:textColor="@color/font_deta_color2"
                             android:textSize="@dimen/ts_24" />
 
                         <TextView
@@ -732,7 +732,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:duplicateParentState="true"
-                            android:textColor="@color/font_deta_color1"
+                            android:textColor="@color/font_deta_color2"
                             android:textSize="@dimen/ts_24" />
 
                         <TextView
@@ -781,7 +781,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:duplicateParentState="true"
-                            android:textColor="@color/font_deta_color1"
+                            android:textColor="@color/font_deta_color2"
                             android:textSize="@dimen/ts_24" />
 
                         <TextView
@@ -850,7 +850,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:duplicateParentState="true"
-                            android:textColor="@color/font_deta_color1"
+                            android:textColor="@color/font_deta_color2"
                             android:textSize="@dimen/ts_24" />
 
                         <TextView
@@ -899,7 +899,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:duplicateParentState="true"
-                            android:textColor="@color/font_deta_color1"
+                            android:textColor="@color/font_deta_color2"
                             android:textSize="@dimen/ts_24" />
 
                         <TextView
@@ -958,7 +958,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:duplicateParentState="true"
-                            android:textColor="@color/font_deta_color1"
+                            android:textColor="@color/font_deta_color2"
                             android:textSize="@dimen/ts_24" />
 
                         <TextView
@@ -1007,7 +1007,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:duplicateParentState="true"
-                            android:textColor="@color/font_deta_color1"
+                            android:textColor="@color/font_deta_color2"
                             android:textSize="@dimen/ts_24" />
 
                         <TextView
@@ -1077,7 +1077,7 @@
                             android:layout_height="wrap_content"
                             android:duplicateParentState="true"
                             android:text="系统自带"
-                            android:textColor="@color/font_deta_color1"
+                            android:textColor="@color/font_deta_color2"
                             android:textSize="@dimen/ts_24" />
 
                         <TextView
@@ -1126,7 +1126,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:duplicateParentState="true"
-                            android:textColor="@color/font_deta_color1"
+                            android:textColor="@color/font_deta_color2"
                             android:textSize="@dimen/ts_24" />
 
                         <TextView
@@ -1186,7 +1186,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:duplicateParentState="true"
-                            android:textColor="@color/font_deta_color1"
+                            android:textColor="@color/font_deta_color2"
                             android:textSize="@dimen/ts_24" />
 
                         <TextView
@@ -1235,7 +1235,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:duplicateParentState="true"
-                            android:textColor="@color/font_deta_color1"
+                            android:textColor="@color/font_deta_color2"
                             android:textSize="@dimen/ts_24" />
 
                         <TextView
@@ -1396,7 +1396,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:duplicateParentState="true"
-                            android:textColor="@color/font_deta_color1"
+                            android:textColor="@color/font_deta_color2"
                             android:textSize="@dimen/ts_24" />
 
                         <TextView
@@ -1445,7 +1445,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:duplicateParentState="true"
-                            android:textColor="@color/font_deta_color1"
+                            android:textColor="@color/font_deta_color2"
                             android:textSize="@dimen/ts_24" />
 
                         <TextView
@@ -1515,7 +1515,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:duplicateParentState="true"
-                            android:textColor="@color/font_deta_color1"
+                            android:textColor="@color/font_deta_color2"
                             android:textSize="@dimen/ts_24" />
 
                         <TextView
@@ -1658,7 +1658,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:duplicateParentState="true"
-                            android:textColor="@color/font_deta_color1"
+                            android:textColor="@color/font_deta_color2"
                             android:textSize="@dimen/ts_24" />
 
                         <TextView
@@ -1723,7 +1723,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:duplicateParentState="true"
-                            android:textColor="@color/font_deta_color1"
+                            android:textColor="@color/font_deta_color2"
                             android:textSize="@dimen/ts_24" />
 
                         <TextView

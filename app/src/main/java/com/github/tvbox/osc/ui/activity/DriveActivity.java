@@ -31,6 +31,7 @@ import com.github.tvbox.osc.ui.dialog.WebdavDialog;
 import com.github.tvbox.osc.util.FastClickCheckUtil;
 import com.github.tvbox.osc.util.HawkConfig;
 import com.github.tvbox.osc.util.HistoryHelper;
+import com.github.tvbox.osc.util.LOG;
 import com.github.tvbox.osc.util.StorageDriveType;
 import com.github.tvbox.osc.viewmodel.drive.AbstractDriveViewModel;
 import com.github.tvbox.osc.viewmodel.drive.AlistDriveViewModel;
@@ -83,11 +84,6 @@ public class DriveActivity extends baseActivity {
     private View footLoading;
     private boolean isInSearch = false;
 
-    private boolean isRight;
-    private boolean sortChange = false;
-
-    private int currentSelected = 0;
-    private int sortFocused = 0;
     private boolean delMode = false;
     public View sortFocusView = null;
     private final int thread = Integer.parseInt(HistoryHelper.getHistoryNumNamex(Hawk.get(HawkConfig.XIANC_NUM, 0)));
@@ -212,6 +208,7 @@ public class DriveActivity extends baseActivity {
                 btnAddServer.setVisibility(View.GONE);
                 btnRemoveServer.setVisibility(View.GONE);
                 DriveFolderFile selectedItem = DriveActivity.this.adapter.getItem(position);
+
                 if ((selectedItem == selectedItem.parentFolder || selectedItem.parentFolder == null) && selectedItem.name == null) {
                     returnPreviousFolder();
                     return;
@@ -230,6 +227,7 @@ public class DriveActivity extends baseActivity {
                         return;
                     }
                 }
+
                 if (!selectedItem.isFile) {
                     viewModel.setCurrentDriveNote(selectedItem);
                     loadDriveData();
@@ -238,20 +236,21 @@ public class DriveActivity extends baseActivity {
                     if (StorageDriveType.isVideoType(selectedItem.fileType)) {
                         DriveFolderFile currentDrive = viewModel.getCurrentDrive();
                         if (currentDrive.getDriveType() == StorageDriveType.TYPE.LOCAL)
-                            playFile(currentDrive.name + selectedItem.getAccessingPathStr() + selectedItem.name, selectedItem.name);
+                            playFile(currentDrive.name + selectedItem.getAccessingPathStr() + selectedItem.name);
                         else if (currentDrive.getDriveType() == StorageDriveType.TYPE.WEBDAV) {
                             JsonObject config = currentDrive.getConfig();
-                            String targetPath = selectedItem.name;
-                            playFile(config.get("url").getAsString() + targetPath, targetPath);
+                            String targetPath = selectedItem.getAccessingPathStr() + selectedItem.name;
+                            playFile(config.get("url").getAsString() + targetPath);
                         } else if (currentDrive.getDriveType() == StorageDriveType.TYPE.ALISTWEB) {
                             AlistDriveViewModel boxedViewModel = (AlistDriveViewModel) viewModel;
+
                             boxedViewModel.loadFile(selectedItem, new AlistDriveViewModel.LoadFileCallback() {
                                 @Override
                                 public void callback(String fileUrl) {
                                     mHandler.post(new Runnable() {
                                         @Override
                                         public void run() {
-                                            playFile(fileUrl, fileUrl);
+                                            playFile(fileUrl);
                                         }
                                     });
                                 }
@@ -277,10 +276,11 @@ public class DriveActivity extends baseActivity {
         setLoadSir(findViewById(R.id.mLayout));
     }
 
-    private void playFile(String fileUrl, String names) {
+    private void playFile(String fileUrl) {
         VodInfo vodInfo = new VodInfo();
-
-        vodInfo.name = names.substring(0, names.indexOf("."));
+        String fileName = fileUrl.substring(fileUrl.lastIndexOf("/") + 1);
+        vodInfo.name = fileName.substring(0, fileName.lastIndexOf("."));
+       // vodInfo.name = fileUrl.substring(0, fileUrl.indexOf("."));
         vodInfo.playFlag = "drive";
         DriveFolderFile currentDrive = viewModel.getCurrentDrive();
         if (currentDrive.getDriveType() == StorageDriveType.TYPE.WEBDAV) {
@@ -291,6 +291,7 @@ public class DriveActivity extends baseActivity {
                 JsonElement authorization = JsonParser.parseString(
                         "{ \"name\": \"authorization\", \"value\": \"Basic " + credentialStr + "\" }");
                 headers.add(authorization);
+                LOG.d("UUUUUUUU",headers);
                 playerConfig.add("headers", headers);
                 vodInfo.playerCfg = playerConfig.toString();
             }
@@ -306,7 +307,7 @@ public class DriveActivity extends baseActivity {
         bundle.putBoolean("newSource", true);
         bundle.putString("sourceKey", "_drive");
         bundle.putSerializable("VodInfo", vodInfo);
-        // takagen99 - to play file here
+        // takagen99 - to play file here zzzzzzzzzzzzzzz
         jumpActivity(PlayActivity.class, bundle);
     }
 

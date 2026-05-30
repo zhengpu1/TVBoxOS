@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- 焦点 → 橙色 -->
-    <item
-        android:state_focused="true"
-        android:color="@color/color_FFF68E33"/>
-
-    <!-- 没焦点 → 白色 -->
-    <item
-        android:color="@color/color_FFF5E8DC"/>
+    <item android:color="@color/color_00FF0A" android:state_focused="true" />
+    <item android:color="@color/color_00FF0A" android:state_selected="true" />
+    <item android:color="@color/color_theme_h" android:state_focused="false" />
 </selector>
