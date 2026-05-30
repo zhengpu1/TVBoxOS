@@ -18,6 +18,10 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="ANTI ALIAS FLAG" />
+      <item value="equals" />
+      <item value="folder" />
+      <item value="is Folder" />
       <item value="create Text Drawable" />
       <item value="FOLDER" />
       <item value="marquee" />
@@ -64,10 +68,6 @@
       <item value="get File Prefix Name" />
       <item value="get File Suffix" />
       <item value="get App Version Name" />
-      <item value="get Package Name" />
-      <item value="clear Private" />
-      <item value="clear Public" />
-      <item value="reset App" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="2" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="8638" />
+        <entry key="CHINESE" value="8642" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="8639" />
+        <entry key="ENGLISH" value="8643" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="2" />
