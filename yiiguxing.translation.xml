@@ -18,6 +18,10 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="find Pass" />
+      <item value="iterator" />
+      <item value="contains" />
+      <item value="is Directory" />
       <item value="placeholder" />
       <item value="ANTI ALIAS FLAG" />
       <item value="equals" />
@@ -64,10 +68,6 @@
       <item value="set Popup Gravity" />
       <item value="tvrecyclerview" />
       <item value="Constraint Layout" />
-      <item value="Tv Recycler View" />
-      <item value="recursive Delete" />
-      <item value="get File Prefix Name" />
-      <item value="get File Suffix" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="2" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="8643" />
+        <entry key="CHINESE" value="8648" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="8644" />
+        <entry key="ENGLISH" value="8649" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="2" />
