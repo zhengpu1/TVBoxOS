@@ -18,10 +18,10 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="get Version" />
       <item value="is Folder" />
       <item value="is Media" />
       <item value="ignore" />
-      <item value="get Version" />
       <item value="is New" />
       <item value="substring" />
       <item value="Guest user is disabled" />
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="2" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="8657" />
+        <entry key="CHINESE" value="8658" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="8658" />
+        <entry key="ENGLISH" value="8659" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="2" />
