@@ -18,9 +18,11 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="is Folder" />
+      <item value="is Media" />
+      <item value="ignore" />
       <item value="get Version" />
       <item value="is New" />
-      <item value="ignore" />
       <item value="substring" />
       <item value="Guest user is disabled" />
       <item value="find Pass" />
@@ -31,7 +33,6 @@
       <item value="ANTI ALIAS FLAG" />
       <item value="equals" />
       <item value="folder" />
-      <item value="is Folder" />
       <item value="create Text Drawable" />
       <item value="FOLDER" />
       <item value="marquee" />
@@ -39,7 +40,6 @@
       <item value="is Foleder Mode" />
       <item value="Vod Series" />
       <item value="to play file here" />
-      <item value="is Media" />
       <item value="update Drive Record" />
       <item value="Unsupported" />
       <item value="search Result" />
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="2" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="8654" />
+        <entry key="CHINESE" value="8657" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="8655" />
+        <entry key="ENGLISH" value="8658" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="2" />
