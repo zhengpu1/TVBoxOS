@@ -18,6 +18,9 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="starts With" />
+      <item value="Gets a directory listing using WebDAV PROPFIND.&#10;形参:&#10;url – Path to the resource including protocol and hostname&#10;返回值:&#10;List of resources for this URI including the parent resource itself&#10;抛出:&#10;IOException – IO error or HTTP response validation failure" />
+      <item value="iterator" />
       <item value="insert Drive Record" />
       <item value="get Version" />
       <item value="is Folder" />
@@ -27,7 +30,6 @@
       <item value="substring" />
       <item value="Guest user is disabled" />
       <item value="find Pass" />
-      <item value="iterator" />
       <item value="contains" />
       <item value="is Directory" />
       <item value="placeholder" />
@@ -66,8 +68,6 @@
       <item value="act app" />
       <item value="set rest fail hk" />
       <item value="EPISODE GROUPING" />
-      <item value="horizontal" />
-      <item value="set Shadow Layer" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="2" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="8659" />
+        <entry key="CHINESE" value="8661" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="8660" />
+        <entry key="ENGLISH" value="8663" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="2" />
