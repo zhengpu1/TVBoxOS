@@ -1,6 +1,6 @@
 <application>
   <component name="Translation.Cache">
-    <option name="lastTrimTime" value="1780116941958" />
+    <option name="lastTrimTime" value="1780648012378" />
   </component>
   <component name="Translation.Settings">
     <option name="baiduTranslateSettings">
@@ -18,6 +18,12 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="m Number Classification" />
+      <item value="set Horizontal Spacing" />
+      <item value="span Count" />
+      <item value="space H" />
+      <item value="tv horizontal Spacing With Margins" />
+      <item value="tv vertical Spacing With Margins" />
       <item value="Guest user is disabled" />
       <item value="starts With" />
       <item value="Gets a directory listing using WebDAV PROPFIND.&#10;形参:&#10;url – Path to the resource including protocol and hostname&#10;返回值:&#10;List of resources for this URI including the parent resource itself&#10;抛出:&#10;IOException – IO error or HTTP response validation failure" />
@@ -62,12 +68,6 @@
       <item value="dismiss" />
       <item value="show Preview" />
       <item value="toggle Full Preview" />
-      <item value="tv top r_container" />
-      <item value="Workaround Fix : SurfaceView" />
-      <item value="act app sel" />
-      <item value="act app" />
-      <item value="set rest fail hk" />
-      <item value="EPISODE GROUPING" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="2" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="8662" />
+        <entry key="CHINESE" value="8668" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="8664" />
+        <entry key="ENGLISH" value="8670" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="2" />
