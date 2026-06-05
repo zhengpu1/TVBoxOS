@@ -73,7 +73,7 @@ public class WebdavDialog extends BaseDialog {
                 String initPath = etInitPath.getText().toString();
                 if(initPath.isEmpty())initPath = "dav";
                 String username = etUsername.getText().toString();
-                if(username.isEmpty())username = "guest";
+                if(username.isEmpty())username = "admin";
                 String password = etPassword.getText().toString();
                 if(password.isEmpty())password = "123456";
                 if(name == null || name.length() == 0)

@@ -51,9 +51,7 @@ public class SeriesAdapter extends BaseQuickAdapter<VodInfo.VodSeries, BaseViewH
             }
         }
         helper.setText(R.id.tvSeries, item.name.replace("-",""));
-       // if(Hawk.get(HawkConfig.EPISODE_GROUPING, false)) {
             LParams(tvSeriesa);
-       // }
         LinearLayout[] str = {tvSeriesa};
         drawableLinearLayout(str, 1);
     }

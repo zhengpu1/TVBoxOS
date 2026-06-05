@@ -54,6 +54,7 @@ import com.github.tvbox.osc.ui.fragment.PlayFragment;
 import com.github.tvbox.osc.util.DefaultConfig;
 import com.github.tvbox.osc.util.EpisodeGroupHelper;
 import com.github.tvbox.osc.util.FastClickCheckUtil;
+import com.github.tvbox.osc.util.GridSpaceDecoration;
 import com.github.tvbox.osc.util.HawkConfig;
 import com.github.tvbox.osc.util.HistoryHelper;
 import com.github.tvbox.osc.util.MD5;
@@ -251,6 +252,8 @@ public class DetailActivity extends baseActivity {
         searchAdapter = new QuickSearchAdapter();
         mGridViewLayoutMgr = new V7GridLayoutManager(this.mContext, isBaseOnWidth() ? 10 : 11);
         mGridView.setLayoutManager(mGridViewLayoutMgr);
+        int space = getResources().getDimensionPixelSize(R.dimen.vs_10);
+        mGridView.addItemDecoration(new GridSpaceDecoration(space));
         seriesAdapter = new SeriesAdapter();
         mGridView.setAdapter(seriesAdapter);
         mGridView.setFocusable(true);

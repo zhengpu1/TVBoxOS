@@ -140,7 +140,7 @@ public class GridAdapter extends BaseQuickAdapter<Movie.Video, BaseViewHolder> {
                                 .centerCorp(true)
                                 .override(AutoSizeUtils.mm2px(mContext, 300), AutoSizeUtils.mm2px(mContext, 180))
                                 .roundRadius(AutoSizeUtils.mm2px(mContext, 6), RoundTransformation.RoundType.ALL))
-                        .placeholder(ImgUtil.decodeBase64ToDrawable(ImgUtil.FOLDER))
+                        .placeholder(ImgUtil.createTextDrawable(item.name))
                         .noFade()
 //                        .error(R.drawable.img_loading_placeholder)
                         .into(ivThumb);
@@ -179,7 +179,7 @@ public class GridAdapter extends BaseQuickAdapter<Movie.Video, BaseViewHolder> {
                                 .centerCorp(true)
                                 .override(AutoSizeUtils.mm2px(mContext, 300), AutoSizeUtils.mm2px(mContext, 400))
                                 .roundRadius(AutoSizeUtils.mm2px(mContext, 6), RoundTransformation.RoundType.ALL))
-                        .placeholder(ImgUtil.decodeBase64ToDrawable(ImgUtil.FOLDER))
+                        .placeholder(ImgUtil.createTextDrawable(item.name))
                         .noFade()
  //                       .error(R.drawable.img_loading_placeholder)
                         .into(ivThumb);
