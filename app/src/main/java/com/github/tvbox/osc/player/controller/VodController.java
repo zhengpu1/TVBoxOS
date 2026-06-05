@@ -904,18 +904,9 @@ public class VodController extends BaseController {
                 listener.errReplay();
                 break;
             case VideoView.STATE_PREPARED:
-                // 1.优先换源临时进度（切解析/换源优先）
-                long seekPos = getTempSeekProgress();
-                // 2.没有换源进度 再读取本地记忆进度
-                if(seekPos <= 0){
-                    seekPos = getLastProgress();
-                }
-                // 执行跳转
-                if (seekPos > 0 && seekPos < mControlWrapper.getDuration() - 5000) {
-                    mControlWrapper.seekTo((int) seekPos);
-                    // 跳转完清空，避免下次串集
-                    tempSeekProgress = 0;
-                }
+                mPlayLoadNetSpeed.setVisibility(GONE);
+                hideLiveAboutBtn();
+                listener.prepared();
                 break;
             case VideoView.STATE_BUFFERED:
                 mPlayLoadNetSpeed.setVisibility(View.GONE);
