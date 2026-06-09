@@ -534,13 +534,15 @@ public class VodController extends BaseController {
                             listener.updatePlayerCfg();
                             listener.replay(false);
                             hideBottom();
+                            dialog.dismiss();
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
                     }
                     @Override
                     public String getDisplay(Integer val) {
-                        return PlayerHelper.getPlayerName(players.get(val));
+//                         直接通过 播放器类型 获取名称，不需要走 list.get()
+                        return PlayerHelper.getPlayerName(val);
                     }
                 }, new DiffUtil.ItemCallback<Integer>() {
                     @Override

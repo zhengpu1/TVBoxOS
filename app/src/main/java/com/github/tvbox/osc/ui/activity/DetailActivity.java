@@ -252,7 +252,7 @@ public class DetailActivity extends baseActivity {
         searchAdapter = new QuickSearchAdapter();
         mGridViewLayoutMgr = new V7GridLayoutManager(this.mContext, isBaseOnWidth() ? 10 : 11);
         mGridView.setLayoutManager(mGridViewLayoutMgr);
-        int space = getResources().getDimensionPixelSize(R.dimen.vs_10);
+        int space = getResources().getDimensionPixelSize(R.dimen.vs_12);
         mGridView.addItemDecoration(new GridSpaceDecoration(space));
         seriesAdapter = new SeriesAdapter();
         mGridView.setAdapter(seriesAdapter);

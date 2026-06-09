@@ -485,7 +485,8 @@ public class SourceViewModel extends ViewModel {
         String id = urlid;
 
         SourceBean sourceBean = ApiConfig.get().getSource(sourceKey);
-        int type = sourceBean.getType();
+
+           int  type = sourceBean.getType();
         if (type == 3) {
             spThreadPool.execute(new Runnable() {
                 @Override

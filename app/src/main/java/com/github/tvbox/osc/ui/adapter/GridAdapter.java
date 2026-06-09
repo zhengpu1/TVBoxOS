@@ -48,6 +48,13 @@ public class GridAdapter extends BaseQuickAdapter<Movie.Video, BaseViewHolder> {
             drawableLinearLayout(str, 1);
             helper.setText(R.id.tvNote, item.note);
             helper.setText(R.id.tvName, item.name);
+            TextView tvLang = helper.getView(R.id.tvLang);
+            if (TextUtils.isEmpty(item.lang)) {
+                tvLang.setVisibility(View.GONE);
+             } else {
+                tvLang.setText(item.lang);
+                tvLang.setVisibility(View.VISIBLE);
+            }
             ImageView ivThumb = helper.getView(R.id.ivThumb);
             //由于部分电视机使用glide报错
             if(Hawk.get(HawkConfig.PIC_SIZE, false)) {
