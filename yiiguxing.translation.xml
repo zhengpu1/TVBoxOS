@@ -18,6 +18,10 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="get Style Default Width" />
+      <item value="span Count By Style" />
+      <item value="CENTER" />
+      <item value="ANTI ALIAS FLAG" />
       <item value="FOLDER" />
       <item value="ACCEPT" />
       <item value="CHROME" />
@@ -64,10 +68,6 @@
       <item value="get Display" />
       <item value="clear Progress" />
       <item value="STATE ERROR" />
-      <item value="prepared" />
-      <item value="set Next Focus Left Id" />
-      <item value="get Duration" />
-      <item value="m Control Wrapper" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="2" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="8751" />
+        <entry key="CHINESE" value="8756" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="8753" />
+        <entry key="ENGLISH" value="8758" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="2" />
