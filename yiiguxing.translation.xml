@@ -18,6 +18,9 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="is File" />
+      <item value="txt Item Name" />
+      <item value="txt Media Name" />
       <item value="is Video Type" />
       <item value="Storage Drive Type" />
       <item value="     Sets a drawable as the content of this ImageView.&#10;      &lt;p class=&quot;note&quot;&gt;This does Bitmap reading and decoding on the UI&#10;      thread, which can cause a latency hiccup.  If that's a concern,&#10;      consider using {@link setImageDrawable(android.graphics.drawable.Drawable)} or&#10;      {@link setImageBitmap(android.graphics.Bitmap)} and&#10;      {@link android.graphics.BitmapFactory} instead.&lt;p&gt;&#10;     &#10;      @param resId the resource identifier of the drawable&#10;     &#10;      @attr ref android.R.styleableImageView_src" />
@@ -61,13 +64,10 @@
       <item value="create" />
       <item value="file Type" />
       <item value="txt Modified Date" />
-      <item value="txt Item Name" />
       <item value="  Sets a drawable as the content of this ImageView.&#10;      &lt;p class=&quot;note&quot;&gt;This does Bitmap reading and decoding on the UI&#10;      thread, which can cause a latency hiccup.  If that's a concern,&#10;      consider using {@link setImageDrawable(android.graphics.drawable.Drawable)} or&#10;      {@link setImageBitmap(android.graphics.Bitmap)} and&#10;      {@link android.graphics.BitmapFactory} instead.&lt;p&gt;&#10;     &#10;      @param resId the resource identifier of the drawable&#10;     &#10;      @attr ref android.R.styleableImageView_src" />
       <item value="children" />
       <item value="get Children" />
       <item value="parent Folder" />
-      <item value="last Modified Date" />
-      <item value="is Directory" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="3" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="8781" />
+        <entry key="CHINESE" value="8784" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="8782" />
+        <entry key="ENGLISH" value="8785" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="2" />
