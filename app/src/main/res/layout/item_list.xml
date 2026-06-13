@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/tvQuickk"
@@ -12,13 +13,30 @@
         android:id="@+id/Gridsr"
         android:layout_width="match_parent"
         android:layout_height="@dimen/vs_50" >
-
+        <FrameLayout
+            android:layout_width="@dimen/vs_60"
+            android:layout_height="match_parent">
         <ImageView
             android:id="@+id/ivThumb"
-            android:layout_width="@dimen/vs_50"
-            android:layout_height="match_parent"
-            android:padding="@dimen/vs_1"
-            android:scaleType="fitXY" />
+            android:layout_width="@dimen/vs_60"
+            android:layout_height="@dimen/vs_50"/>
+            <TextView
+                android:id="@+id/txtMediaName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_marginBottom="@dimen/vs_15"
+                android:layout_marginEnd="@dimen/vs_2"
+                android:layout_marginRight="@dimen/vs_2"
+                android:background="@color/color_FFF68E33"
+                android:maxWidth="@dimen/vs_50"
+                android:padding="@dimen/vs_1"
+                android:singleLine="true"
+                android:textColor="@color/color_FFFFFF"
+                android:textSize="@dimen/vs_10"
+                tools:visibility="gone" />
+
+        </FrameLayout>
 
         <TextView
             android:id="@+id/tvName"

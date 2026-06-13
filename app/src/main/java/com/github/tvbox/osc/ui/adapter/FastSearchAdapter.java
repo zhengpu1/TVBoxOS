@@ -33,6 +33,9 @@ public class FastSearchAdapter extends BaseQuickAdapter<Movie.Video, BaseViewHol
     @Override
     protected void convert(BaseViewHolder helper, Movie.Video item) {
         if (Hawk.get(HawkConfig.SEARCH_VIEW, 0) == 0) {
+            FrameLayout tvquick = helper.getView(R.id.tvQuickk);
+            FrameLayout[] str = {tvquick};
+            drawableFrameLayout(str, 1);
             helper.setText(R.id.tvNote, item.note);
             helper.setText(R.id.tvName, item.name);
             ImageView ivThumb = helper.getView(R.id.ivThumb);
@@ -55,7 +58,6 @@ public class FastSearchAdapter extends BaseQuickAdapter<Movie.Video, BaseViewHol
                             .into(ivThumb);
                 }
             } else {
-//                 ivThumb.setImageDrawable(ImgUtil.createTextDrawable(item.name));
                 ivThumb.setImageDrawable(ImgUtil.createTextDrawable(item.name));
             }
         } else {

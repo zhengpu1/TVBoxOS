@@ -10,6 +10,7 @@ public class HawkConfig {
     public static final String PUSH_TO_PORT = "push_to_port"; // 推送到地址的端口
     public static final String API_URL = "api_url";
     public static final String EPG_URL = "epg_url";
+    public static final String LOGO_URL = "logo_url";
     public static final String SHOW_PREVIEW = "show_preview";
     public static final String PLAYER_IS_LIVE = "player_is_live";
     public static final String LIVE_GROUP_INDEX = "live_group_index";

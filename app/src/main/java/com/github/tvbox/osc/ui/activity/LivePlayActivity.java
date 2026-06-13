@@ -23,6 +23,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.blankj.utilcode.util.ToastUtils;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
 import com.github.tvbox.osc.R;
 import com.github.tvbox.osc.api.ApiConfig;
 import com.github.tvbox.osc.base.App;
@@ -56,7 +59,6 @@ import com.lzy.okgo.model.Response;
 import com.orhanobut.hawk.Hawk;
 import com.owen.tvrecyclerview.widget.TvRecyclerView;
 import com.owen.tvrecyclerview.widget.V7LinearLayoutManager;
-import com.squareup.picasso.Picasso;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -274,6 +276,7 @@ public class LivePlayActivity extends baseActivity {
                 return false;
             }
         });
+        EpgUtil.refresh();
         mBack.setOnClickListener(view -> finish());
     }
 
@@ -631,7 +634,13 @@ public class LivePlayActivity extends baseActivity {
             String savedEpgKey = channel_Name.getChannelName() + "_" + epgDateAdapter.getItem(epgDateAdapter.getSelectedIndex()).getDatePresented();
             if (hsEpg.containsKey(savedEpgKey)) {
                 String[] epgInfo = EpgUtil.getEpgInfo(channel_Name.getChannelName());
-                getTvLogo(channel_Name.getChannelName(), epgInfo == null ? null : epgInfo[0]);
+                String logoUrl = Hawk.get(HawkConfig.LOGO_URL, "");
+                if (logoUrl==null || logoUrl.isEmpty()) {
+                    getTvLogo(channel_Name.getChannelName(), epgInfo == null ? null : epgInfo[0]);
+                }else {
+                    String logo = logoUrl.replace("{name}",channel_Name.getChannelName());
+                    getTvLogo(channel_Name.getChannelName(), epgInfo == null ? null : logo);
+                }
                 ArrayList arrayList = (ArrayList) hsEpg.get(savedEpgKey);
                 if (arrayList != null && arrayList.size() > 0) {
                     Date date = new Date();
@@ -668,16 +677,29 @@ public class LivePlayActivity extends baseActivity {
     private List<Epginfo> epgdata = new ArrayList<>();
 
     private void getTvLogo(String channelName, String logoUrl) {
-        Picasso.get().load(logoUrl).placeholder(R.drawable.img_logo_placeholder).into(tv_logo);
+        RequestOptions options = new RequestOptions();
+        options.diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
+                .placeholder(R.drawable.img_logo_placeholder);
+        Glide.with(App.getInstance())
+                .load(logoUrl)
+                .apply(options)
+                .into(tv_logo);
     }
 
     public void getEpg(Date date) {
+
         String channelName = channel_Name.getChannelName();
         SimpleDateFormat timeFormat = new SimpleDateFormat("yyyy-MM-dd");
         timeFormat.setTimeZone(TimeZone.getTimeZone("GMT+8:00"));
         String[] epgInfo = EpgUtil.getEpgInfo(channelName);
         String epgTagName = channelName;
-        getTvLogo(channelName, epgInfo == null ? null : epgInfo[0]);
+        String logoUrl = Hawk.get(HawkConfig.LOGO_URL, "");
+        if (logoUrl==null || logoUrl.isEmpty()) {
+            getTvLogo(channelName, epgInfo == null ? null : epgInfo[0]);
+        }else {
+            String logo = logoUrl.replace("{name}",epgTagName);
+            getTvLogo(channelName, epgInfo == null ? null : logo);
+        }
         if (epgInfo != null && !epgInfo[1].isEmpty()) {
             epgTagName = epgInfo[1];
         }

@@ -2,13 +2,13 @@ package com.github.tvbox.osc.ui.adapter;
 
 import static com.github.tvbox.osc.base.baseActivity.LParams;
 import static com.github.tvbox.osc.base.baseActivity.drawableFrameLayout;
-import static com.github.tvbox.osc.base.baseActivity.drawableLinearLayout;
+import static com.github.tvbox.osc.base.baseActivity.getColorByAttrId;
+import static com.github.tvbox.osc.base.baseActivity.roundRadius;
 
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -24,6 +24,8 @@ import com.orhanobut.hawk.Hawk;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import me.jessyan.autosize.utils.AutoSizeUtils;
 
@@ -40,12 +42,13 @@ public class GridAdapter extends BaseQuickAdapter<Movie.Video, BaseViewHolder> {
         super( l ? R.layout.item_list : R.layout.item_grid, new ArrayList<>());
         this.mShowList = l;
     }
+    public static final List<String> SUBM = Arrays.asList("mp4", "mkv", "rmvb", "ts");
     @Override
     protected void convert(BaseViewHolder helper, Movie.Video item) {
         if(this.mShowList) {
-            LinearLayout tvGridsr = helper.getView(R.id.Gridsr);
-            LinearLayout[] str = {tvGridsr};
-            drawableLinearLayout(str, 1);
+            FrameLayout tvquick = helper.getView(R.id.tvQuickk);
+            FrameLayout[] str = {tvquick};
+            drawableFrameLayout(str, 1);
             helper.setText(R.id.tvNote, item.note);
             helper.setText(R.id.tvName, item.name);
             TextView tvLang = helper.getView(R.id.tvLang);
@@ -55,41 +58,38 @@ public class GridAdapter extends BaseQuickAdapter<Movie.Video, BaseViewHolder> {
                 tvLang.setText(item.lang);
                 tvLang.setVisibility(View.VISIBLE);
             }
+
             ImageView ivThumb = helper.getView(R.id.ivThumb);
-            //由于部分电视机使用glide报错
-            if(Hawk.get(HawkConfig.PIC_SIZE, false)) {
-                if (!TextUtils.isEmpty(item.picthumb)) {
-                    item.picthumb=item.picthumb.trim();
-                    Picasso.get()
-                            .load(DefaultConfig.checkReplaceProxy(item.picthumb))
-                            .transform(new RoundTransformation(MD5.string2MD5(item.picthumb))
-                                    .centerCorp(true)
-                                    .override(AutoSizeUtils.mm2px(mContext, 300), AutoSizeUtils.mm2px(mContext, 180))
-                                    .roundRadius(AutoSizeUtils.mm2px(mContext, 6), RoundTransformation.RoundType.ALL))
-                            .placeholder(ImgUtil.decodeBase64ToDrawable(ImgUtil.FOLDER))
-                            .noFade()
-//                            .error(R.drawable.img_loading_placeholder)
-                            .into(ivThumb);
-                } else {
-                    ivThumb.setImageDrawable(ImgUtil.createTextDrawable(item.name));
-                }
-            } else {
-                if (!TextUtils.isEmpty(item.pic)) {
-                    item.pic=item.pic.trim();
-                    Picasso.get()
-                            .load(DefaultConfig.checkReplaceProxy(item.pic))
-                            .transform(new RoundTransformation(MD5.string2MD5(item.pic))
-                                    .centerCorp(true)
-                                    .override(AutoSizeUtils.mm2px(mContext, 300), AutoSizeUtils.mm2px(mContext, 400))
-                                    .roundRadius(AutoSizeUtils.mm2px(mContext, 6), RoundTransformation.RoundType.ALL))
-                            .placeholder(ImgUtil.createTextDrawable(item.name))
-                            .noFade()
-//                            .error(R.drawable.img_loading_placeholder)
-                            .into(ivThumb);
-                } else {
-                    ivThumb.setImageDrawable(ImgUtil.createTextDrawable(item.name));
-                }
+            TextView txtMediaName = helper.getView(R.id.txtMediaName);
+            txtMediaName.setVisibility(View.GONE);
+           String name = null;
+            if(item.name.contains("."))name = item.name.substring(item.name.lastIndexOf(".") + 1);
+            if(SUBM.contains(name)) {
+                txtMediaName.setText(name);
+                txtMediaName.setVisibility(View.VISIBLE);
+                txtMediaName.setBackgroundColor(getColorByAttrId(mContext, R.attr.color_theme_70));
             }
+                //由于部分电视机使用glide报错
+                if (!TextUtils.isEmpty(item.pic)) {
+                    item.pic = item.pic.trim();
+                    if (ImgUtil.isBase64Image(item.pic)) {
+                        // 如果是 Base64 图片，解码并设置
+                        ivThumb.setImageBitmap(ImgUtil.decodeBase64ToBitmap(item.pic));
+                    } else {
+                        Picasso.get()
+                                .load(DefaultConfig.checkReplaceProxy(item.pic))
+                                .transform(new RoundTransformation(MD5.string2MD5(item.pic))
+                                        .centerCorp(true)
+                                        .override(AutoSizeUtils.mm2px(mContext, 300), AutoSizeUtils.mm2px(mContext, 180))
+                                        .roundRadius(AutoSizeUtils.mm2px(mContext, roundRadius), RoundTransformation.RoundType.ALL))
+                                .placeholder(ImgUtil.decodeBase64ToDrawable(ImgUtil.FOLDER))
+                                .noFade()
+                                .error(ImgUtil.createTextDrawable(item.name))
+                                .into(ivThumb);
+                    }
+                } else {
+                    ivThumb.setImageDrawable(ImgUtil.createTextDrawable(item.name));
+                }
             return;
         }
 
@@ -145,7 +145,7 @@ public class GridAdapter extends BaseQuickAdapter<Movie.Video, BaseViewHolder> {
                         .load(DefaultConfig.checkReplaceProxy(item.picthumb))
                         .transform(new RoundTransformation(MD5.string2MD5(item.picthumb))
                                 .centerCorp(true)
-                                .override(AutoSizeUtils.mm2px(mContext, 300), AutoSizeUtils.mm2px(mContext, 180))
+                                .override(AutoSizeUtils.mm2px(mContext, 300), AutoSizeUtils.mm2px(mContext, 400))
                                 .roundRadius(AutoSizeUtils.mm2px(mContext, 6), RoundTransformation.RoundType.ALL))
                         .placeholder(ImgUtil.createTextDrawable(item.name))
                         .noFade()

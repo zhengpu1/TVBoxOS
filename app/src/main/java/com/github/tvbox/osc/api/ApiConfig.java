@@ -430,13 +430,18 @@ public class ApiConfig {
                 }
                 if (livesOBJ.has("epg")) {
                     String epg = livesOBJ.get("epg").getAsString();
-                    System.out.println("EPG URL :" + epg);
+                    System.out.println("EPG URL444 :" + epg);
                     putEPGHistory(epg);
                     if (StringUtils.isBlank(epgURL)) {
                         Hawk.put(HawkConfig.EPG_URL, epg);
                     } else {
                         Hawk.put(HawkConfig.EPG_URL, epgURL);
                     }
+                }
+                if (livesOBJ.has("logo")) {
+                    String logo = livesOBJ.get("logo").getAsString();
+                    System.out.println("LOGO URL222 :" + logo);
+                        Hawk.put(HawkConfig.LOGO_URL, logo);
                 }
 
             } else {
@@ -477,6 +482,11 @@ public class ApiConfig {
                             } else {
                                 Hawk.put(HawkConfig.EPG_URL, epgURL);
                             }
+                        }
+                        if (fengMiLives.has("logo")) {
+                            String logo = fengMiLives.get("logo").getAsString();
+                            System.out.println("LOGO URL :" + logo);
+                                Hawk.put(HawkConfig.LOGO_URL, logo);
                         }
 
                         if (url.startsWith("http")) {

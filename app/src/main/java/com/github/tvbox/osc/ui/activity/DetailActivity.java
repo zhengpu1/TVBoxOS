@@ -338,7 +338,6 @@ public class DetailActivity extends baseActivity {
             return true;
         });
         searchAdapter.setNewData(new ArrayList<>());
-
             tvSort2.setText("快速搜索");
             tvSort1.setImageResource(R.drawable.ic_zoom_in);
             tvSort.setOnClickListener(v -> {

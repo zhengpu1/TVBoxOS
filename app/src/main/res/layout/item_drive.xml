@@ -47,7 +47,7 @@
                     android:layout_gravity="bottom|end"
                     android:layout_marginEnd="@dimen/vs_2"
                     android:layout_marginRight="@dimen/vs_2"
-                    android:background="@color/color_000000_80"
+                    android:background="@color/color_FFF68E33"
                     android:maxWidth="@dimen/vs_60"
                     android:padding="@dimen/vs_1"
                     android:singleLine="true"

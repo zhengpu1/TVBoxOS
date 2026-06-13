@@ -2,6 +2,7 @@ package com.github.tvbox.osc.ui.adapter;
 
 import static com.github.tvbox.osc.base.baseActivity.drawableImageView;
 import static com.github.tvbox.osc.base.baseActivity.drawableLinearLayout;
+import static com.github.tvbox.osc.base.baseActivity.getColorByAttrId;
 
 import android.view.View;
 import android.widget.ImageView;
@@ -29,6 +30,7 @@ public class DriveAdapter extends BaseQuickAdapter<DriveFolderFile, BaseViewHold
     public DriveAdapter() {
         super(R.layout.item_drive, new ArrayList<>());
     }
+
 
     public void toggleDelMode(boolean isDelMode) {
         for (int pos = 0; pos < this.getItemCount(); pos++) {
@@ -65,6 +67,7 @@ public class DriveAdapter extends BaseQuickAdapter<DriveFolderFile, BaseViewHold
         LinearLayout[] strl = { mItemLayout };
         drawableImageView(strm, 1);
         drawableLinearLayout(strl, 1);
+
         mItemLayout.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean b) {
@@ -108,7 +111,7 @@ public class DriveAdapter extends BaseQuickAdapter<DriveFolderFile, BaseViewHold
             lastModified.setVisibility(View.VISIBLE);
             if(item.isFile) {
                 if(item.fileType != null) {
-
+                    txtMediaName.setBackgroundColor(getColorByAttrId(mContext, R.attr.color_theme_70));
                     txtMediaName.setText(item.fileType);
                     txtMediaName.setVisibility(View.VISIBLE);
                 }

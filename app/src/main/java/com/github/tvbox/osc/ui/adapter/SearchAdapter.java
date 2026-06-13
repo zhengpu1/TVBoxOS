@@ -56,7 +56,7 @@ public class SearchAdapter extends BaseQuickAdapter<Movie.Video, BaseViewHolder>
             } else {
                 tvTyName.setVisibility(View.GONE);
             }
-            FrameLayout tvquick = helper.getView(R.id.tvQuick);
+            FrameLayout tvquick = helper.getView(R.id.tvQuickk);
             FrameLayout[] str = {tvquick};
             drawableFrameLayout(str, 1);
         } else {// with preview
