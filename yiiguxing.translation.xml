@@ -18,6 +18,11 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="get Formatted Last Modified" />
+      <item value="config Json" />
+      <item value="Drive Folder File" />
+      <item value="get Current Drive" />
+      <item value="new Source" />
       <item value="toggle Full Preview" />
       <item value="set On Item Long Click Listener" />
       <item value="Fast Search Activity" />
@@ -54,7 +59,6 @@
       <item value="txt Item Name" />
       <item value="  Sets a drawable as the content of this ImageView.&#10;      &lt;p class=&quot;note&quot;&gt;This does Bitmap reading and decoding on the UI&#10;      thread, which can cause a latency hiccup.  If that's a concern,&#10;      consider using {@link setImageDrawable(android.graphics.drawable.Drawable)} or&#10;      {@link setImageBitmap(android.graphics.Bitmap)} and&#10;      {@link android.graphics.BitmapFactory} instead.&lt;p&gt;&#10;     &#10;      @param resId the resource identifier of the drawable&#10;     &#10;      @attr ref android.R.styleableImageView_src" />
       <item value="toggle Del Mode" />
-      <item value="get Formatted Last Modified" />
       <item value="children" />
       <item value="get Children" />
       <item value="parent Folder" />
@@ -64,10 +68,6 @@
       <item value="remove" />
       <item value="Returns a string that is a substring of this string. The substring begins at the specified beginIndex and extends to the character at index endIndex - 1. Thus the length of the substring is endIndex-beginIndex.&#10;Examples:&#10;  &quot;hamburger&quot;.substring(4, 8) returns &quot;urge&quot;&#10;  &quot;smiles&quot;.substring(1, 5) returns &quot;mile&quot;&#10;  &#10;形参:&#10;beginIndex – the beginning index, inclusive. endIndex – the ending index, exclusive.&#10;返回值:&#10;the specified substring.&#10;抛出:&#10;IndexOutOfBoundsException – if the beginIndex is negative, or endIndex is larger than the length of this String object, or beginIndex is larger than endIndex." />
       <item value="index Of" />
-      <item value="last Index Of" />
-      <item value="contains" />
-      <item value="contains Key" />
-      <item value="order" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="3" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="8768" />
+        <entry key="CHINESE" value="8774" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="8769" />
+        <entry key="ENGLISH" value="8775" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="2" />
