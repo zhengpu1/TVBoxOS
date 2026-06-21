@@ -1122,7 +1122,7 @@ public class ModelSettingFragment extends BaseLazyFragment {
             public void run() {
                 restartApp();
             }
-        }, 3000);
+        }, 1000);
     }
     private void refreshApiLineText() {
         if (tvApiLine == null) return;

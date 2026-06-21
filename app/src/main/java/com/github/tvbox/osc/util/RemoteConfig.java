@@ -14,8 +14,8 @@ import com.google.gson.JsonNull;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.lzy.okgo.OkGo;
-import com.lzy.okgo.callback.AbsCallback;
-import com.lzy.okgo.model.Response;
+
+import okhttp3.Response;
 
 
 /*
@@ -28,32 +28,26 @@ public class RemoteConfig {
     private static Context mContext;
     private static String CurrVersions="1.0.0000.00.00";
     private static String NewVersions="1.0.0000.00.00";
-    public static void Init(Context mContext){
+    public static void Init(Context mContext) {
         RemoteConfig.mContext = mContext;
-        remoteUrl = "http://192.168.80.10:38/tv/version.php";
+        String remoteUrl = "http://192.168.80.10:38/tv/version.php";
         LOG.i("RemoteConfig",
-                ToolUtils.isApkInDebug(mContext) ? "当前处于【调试】模式":"当前处于【正式】模式",
+                ToolUtils.isApkInDebug(mContext) ? "当前处于【调试】模式" : "当前处于【正式】模式",
                 "远程配置地址", remoteUrl);
         isRemoteConfigOk = false;
-        String json = "{\"IsRecodeLog\":false,\"Isint\":1,\"ForceChangeAPIUrl\":false,\"APIUrl\":\"http://192.168.80.10:38/tv/200.json\",\"APIEPGUrl\":\"http://192.168.80.10:38/epg/sjcx.php\",\"APILIVEUrl\":\"http://192.168.80.10:38/tv/ba.txt\",\"doubanUrl\":\"http://192.168.80.10:38/dou.php?type=2\",\"IsForceUpdate\":false,\"UpdateData\":{\"NewVersion\":\"1.8.2024122018\",\"ForceUpdate\":false,\"UpdateDesc\":\"安卓4.0特别版特色：\\n1、支持官方视频自动跳过片头片尾;\\n2、支持影片名称推送播放;\\n3、播放页选集;\\n4、对安卓4.4以下的支持);\",\"UpdateDownloadUrl\":\"http://192.168.80.10:38/apk/HRTV_1.8.2024122018.apk\"}}";
-        OkGo.<String>get(remoteUrl).execute(new AbsCallback<String>() {
-            @Override
-            public String convertResponse(okhttp3.Response response) throws Throwable {
-                return response.body().string();
-            }
-            @Override
-            public void onSuccess(Response<String> response) {
-                isRemoteConfigOk = true;
-                InitRemoteConfig(response.body());
-            }
-            @Override
-            public void onError(Response<String> response){
-                LOG.e(this.getClass().getName(), "初始化地址拉取失败：",remoteUrl, "错误详情：",  response.getException() != null ? response.getException().getMessage() : "");
-            }
-        });
-
+        try {
+            Response response = OkGo.<String>get(remoteUrl).execute();
+            String result = response.body().string();
+            // 先标记配置拉取成功
+            isRemoteConfigOk = true;
+            //remoteJsonObject = JsonParser.parseString(result).getAsJsonObject();
+            InitRemoteConfig(result);
+        } catch (Exception e) {
+            LOG.e("RemoteConfig", "拉取配置异常：" + e.getMessage(), e);
+            isRemoteConfigOk = false;
+            remoteJsonObject = null;
+        }
     }
-
 
     public static boolean IsOk(){
         return isRemoteConfigOk;
@@ -126,19 +120,27 @@ public class RemoteConfig {
         editor.apply();
     }
     private static void InitRemoteConfig(String config){
-        LOG.i("RemoteConfig", "获取到远端内容", config);
-        remoteJsonObject = JsonParser.parseString(config).getAsJsonObject();
-        // region 默认更新地址
-        if (!GetValue("UpdateData").isJsonNull() && GetValue("UpdateData").getAsJsonObject() != null) {
-            JsonObject updateData = GetValue("UpdateData").getAsJsonObject();
-            LOG.i("RemoteConfig", "★远端设置", "默认更新数据", updateData.toString());
-            if (!GetValue("IsForceUpdate").isJsonNull() && GetValue("IsForceUpdate").getAsBoolean()){
-                LOG.i("RemoteConfig", "★远端设置", "启动强制显示更新");
-                UpdateDialog.checkUpdate(AppManager.getInstance().currentActivity(), false);
-            }else {
-                LOG.i("RemoteConfig", "★远端设置", "启动非强制显示更新");
+        try {
+            remoteJsonObject = JsonParser.parseString(config).getAsJsonObject();
+            // 只调用一次，存到变量里，避免多次重复调用
+            JsonElement updateDataElement = GetValue("UpdateData");
+            if (!updateDataElement.isJsonNull() && updateDataElement.isJsonObject()) {
+                JsonObject updateData = updateDataElement.getAsJsonObject();
+
+                JsonElement forceUpdateElement = GetValue("IsForceUpdate");
+                boolean forceUpdate = false;
+                if (!forceUpdateElement.isJsonNull() && forceUpdateElement.isJsonPrimitive()) {
+                    forceUpdate = forceUpdateElement.getAsBoolean();
+                }
+
+                if (forceUpdate){
+                    UpdateDialog.checkUpdate(AppManager.getInstance().currentActivity(), false);
+                }else {
+                    LOG.i("RemoteConfig", "★远端设置", "启动非强制显示更新");
+                }
             }
+        } catch (Exception e) {
+            LOG.e("RemoteConfig", "InitRemoteConfig异常", e);
         }
     }
-
 }

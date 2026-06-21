@@ -136,7 +136,7 @@ public class ApiConfig {
         return "".getBytes();
     }
     public void loadConfig(boolean useCache, LoadConfigCallback callback, Activity activity) {
-        String apiUrl = Hawk.get(HawkConfig.API_URL, "http://192.168.80.10:38/tv/dc.json");
+        String apiUrl = Hawk.get(HawkConfig.API_URL, RemoteConfig.checkUpdateA("APIUrl"));
         LOG.i("ApiConfig: loadConfig: "+apiUrl);
         if (apiUrl.isEmpty()) {
             callback.error("-1");
