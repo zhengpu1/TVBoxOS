@@ -8,6 +8,7 @@ import com.github.tvbox.osc.server.ControlManager;
 import com.github.tvbox.osc.startup.DatabaseTask;
 import com.github.tvbox.osc.startup.HawkTask;
 import com.github.tvbox.osc.startup.PlayerTask;
+import com.github.tvbox.osc.startup.RemoteConfigTask;
 import com.github.tvbox.osc.startup.ServerTask;
 import com.github.tvbox.osc.startup.UITask;
 import com.github.tvbox.osc.util.FileUtils;
@@ -29,15 +30,14 @@ public class App extends MultiDexApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-        RemoteConfig.Init(this);
+
         instance = this;
         FloatingWindowManager.init(this);
         ControlManager.init(this);
         FileUtils.cleanPlayerCache();
         JSEngine.getInstance().create();
-        RemoteConfig.isFirstdlde(this);
-
         new StartupManager.Builder()
+                .addStartup(new RemoteConfigTask())
                 .addStartup(new UITask())
                 .addStartup(new HawkTask())
                 .addStartup(new DatabaseTask())
@@ -46,6 +46,8 @@ public class App extends MultiDexApplication {
                 .build(this)
                 .start()
                 .await();
+       // RemoteConfig.Init(this);
+        RemoteConfig.isFirstdlde(this);
     }
 
     public static App getInstance() {
