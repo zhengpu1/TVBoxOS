@@ -1,6 +1,6 @@
 <application>
   <component name="Translation.Cache">
-    <option name="lastTrimTime" value="1781310049564" />
+    <option name="lastTrimTime" value="1782021549770" />
   </component>
   <component name="Translation.Settings">
     <option name="baiduTranslateSettings">
@@ -18,6 +18,16 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="is Started Play State" />
+      <item value="hide Tip On Ui Thread" />
+      <item value="mark Playback Started" />
+      <item value="web Play Url" />
+      <item value="progress" />
+      <item value="saved Progress" />
+      <item value="get Saved Progress" />
+      <item value="pre Progress Key" />
+      <item value="pre Progress" />
+      <item value="SYSTEM UI FLAG IMMERSIVE STICKY" />
       <item value="contains Key" />
       <item value="is Blank" />
       <item value="String Utils" />
@@ -58,16 +68,6 @@
       <item value="get Bytes" />
       <item value="get Absolute Path" />
       <item value="is Directory" />
-      <item value="is Foleder Mode" />
-      <item value="VIDEO" />
-      <item value="FOLDER" />
-      <item value="current Drive Note" />
-      <item value="search" />
-      <item value="Super Parse" />
-      <item value="FAST SEARCH MODE" />
-      <item value="last Retry Time" />
-      <item value="allow Switch Player" />
-      <item value="unregister" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="3" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="8883" />
+        <entry key="CHINESE" value="8895" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="8884" />
+        <entry key="ENGLISH" value="8896" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="3" />
