@@ -18,7 +18,9 @@ import com.github.tvbox.osc.server.ControlManager;
 import com.github.tvbox.osc.util.AES;
 import com.github.tvbox.osc.util.AdBlocker;
 import com.github.tvbox.osc.util.DefaultConfig;
+import com.github.tvbox.osc.util.FileUtils;
 import com.github.tvbox.osc.util.HawkConfig;
+import com.github.tvbox.osc.util.HistoryHelper;
 import com.github.tvbox.osc.util.LOG;
 import com.github.tvbox.osc.util.MD5;
 import com.github.tvbox.osc.util.RemoteConfig;
@@ -75,7 +77,7 @@ public class ApiConfig {
     private final JsLoader jsLoader = new JsLoader();
 
     private final String userAgent = "okhttp/3.15";
-
+    private final Gson gson;
     private final String requestAccept = "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9";
 
     private ApiConfig() {
@@ -83,6 +85,7 @@ public class ApiConfig {
         liveChannelGroupList = new ArrayList<>();
         parseBeanList = new ArrayList<>();
         searchSourceBeanList = new ArrayList<>();
+        gson = new Gson();
     }
 
     public static ApiConfig get() {
@@ -133,7 +136,7 @@ public class ApiConfig {
         return "".getBytes();
     }
     public void loadConfig(boolean useCache, LoadConfigCallback callback, Activity activity) {
-        String apiUrl = Hawk.get(HawkConfig.API_URL, "http://192.168.80.10:38/tv/60.json");
+        String apiUrl = Hawk.get(HawkConfig.API_URL, "http://192.168.80.10:38/tv/dc.json");
         LOG.i("ApiConfig: loadConfig: "+apiUrl);
         if (apiUrl.isEmpty()) {
             callback.error("-1");
@@ -142,6 +145,12 @@ public class ApiConfig {
         File cache = new File(App.getInstance().getFilesDir().getAbsolutePath() + "/" + MD5.encode(apiUrl));
         if (useCache && cache.exists()) {
             try {
+                String json = readConfigFile(cache);
+                if (switchApiCollectionIfNeeded(apiUrl, json)) {
+                    loadConfig(false, callback, activity);
+                    return;
+                }
+                clearApiLinesIfUnmatched(apiUrl);
                 parseJson(apiUrl, cache);
                 callback.success();
                 return;
@@ -179,6 +188,12 @@ public class ApiConfig {
                     public void onSuccess(Response<String> response) {
                         try {
                             String json = response.body();
+                           if (switchApiCollectionIfNeeded(finalApiUrl, json)) {
+                                FileUtils.saveCache(cache,json);
+                                loadConfig(false, callback, activity);
+                                return;
+                            }
+                            clearApiLinesIfUnmatched(finalApiUrl);
                             parseJson(finalApiUrl, json);
                             try {
                                 File cacheDir = cache.getParentFile();
@@ -205,6 +220,12 @@ public class ApiConfig {
                         super.onError(response);
                         if (cache.exists()) {
                             try {
+                                String json = readConfigFile(cache);
+                                if (switchApiCollectionIfNeeded(finalApiUrl, json)) {
+                                    loadConfig(false, callback, activity);
+                                    return;
+                                }
+                                clearApiLinesIfUnmatched(finalApiUrl);
                                 parseJson(finalApiUrl, cache);
                                 callback.success();
                                 return;
@@ -296,7 +317,9 @@ public class ApiConfig {
     }
 
     private void parseJson(String apiUrl, File f) throws Throwable {
-        System.out.println("从本地缓存加载" + f.getAbsolutePath());
+        parseJson(apiUrl, readConfigFile(f));
+    }
+    private String readConfigFile(File f) throws Throwable {
         BufferedReader bReader = new BufferedReader(new InputStreamReader(new FileInputStream(f), "UTF-8"));
         StringBuilder sb = new StringBuilder();
         String s = "";
@@ -304,7 +327,88 @@ public class ApiConfig {
             sb.append(s + "\n");
         }
         bReader.close();
-        parseJson(apiUrl, sb.toString());
+        return sb.toString();
+    }
+
+    private boolean switchApiCollectionIfNeeded(String apiUrl, String jsonStr) {
+        ArrayList<String> apiLines = parseApiCollection(jsonStr);
+        if (apiLines.isEmpty()) {
+            return false;
+        }
+        String firstApi = HistoryHelper.getApiLineUrl(apiLines.get(0));
+        if (TextUtils.isEmpty(firstApi) || firstApi.equals(apiUrl)) {
+            return false;
+        }
+        Hawk.put(HawkConfig.API_LINE_LIST, apiLines);
+        Hawk.put(HawkConfig.API_LINE_SOURCE, apiUrl);
+        Hawk.put(HawkConfig.API_URL, firstApi);
+        HistoryHelper.setApiHistory(apiUrl);
+        String liveApiUrl = Hawk.get(HawkConfig.LIVE_API_URL, "");
+        if (TextUtils.isEmpty(liveApiUrl) || liveApiUrl.equals(apiUrl)) {
+            Hawk.put(HawkConfig.LIVE_API_URL, firstApi);
+            HistoryHelper.setLiveApiHistory(firstApi);
+        }
+        return true;
+    }
+
+    private ArrayList<String> parseApiCollection(String jsonStr) {
+        ArrayList<String> apiLines = new ArrayList<>();
+        try {
+            String json = trimJsonObject(jsonStr);
+            if (TextUtils.isEmpty(json)) {
+                return apiLines;
+            }
+            JsonObject infoJson = gson.fromJson(json, JsonObject.class);
+            if (infoJson == null || infoJson.has("sites") || !infoJson.has("urls") || !infoJson.get("urls").isJsonArray()) {
+                return apiLines;
+            }
+            JsonArray urls = infoJson.get("urls").getAsJsonArray();
+            for (JsonElement element : urls) {
+                String name = "";
+                String url = "";
+                if (element.isJsonObject()) {
+                    JsonObject item = element.getAsJsonObject();
+                    name = DefaultConfig.safeJsonString(item, "name", "");
+                    url = DefaultConfig.safeJsonString(item, "url", "");
+                    if (TextUtils.isEmpty(url)) {
+                        url = DefaultConfig.safeJsonString(item, "api", "");
+                    }
+                } else if (element.isJsonPrimitive()) {
+                    url = element.getAsString();
+                }
+                if (!TextUtils.isEmpty(url)) {
+                    apiLines.add(HistoryHelper.buildApiLine(name, url));
+                }
+            }
+        } catch (Throwable ignored) {
+        }
+        return apiLines;
+    }
+
+    private String trimJsonObject(String content) {
+        if (content == null) {
+            return "";
+        }
+        String trimContent = content.trim();
+        int start = trimContent.indexOf("{");
+        int end = trimContent.lastIndexOf("}");
+        if (start >= 0 && end > start) {
+            return trimContent.substring(start, end + 1);
+        }
+        return trimContent;
+    }
+
+    private void clearApiLinesIfUnmatched(String apiUrl) {
+        ArrayList<String> apiLines = Hawk.get(HawkConfig.API_LINE_LIST, new ArrayList<String>());
+        if (apiLines.isEmpty()) {
+            return;
+        }
+        for (String apiLine : apiLines) {
+            if (apiUrl.equals(HistoryHelper.getApiLineUrl(apiLine))) {
+                return;
+            }
+        }
+        HistoryHelper.clearApiLineList();
     }
     private void parseJson(String apiUrl, String jsonStr) {
 
@@ -376,6 +480,7 @@ public class ApiConfig {
                 pb.setType(DefaultConfig.safeJsonInt(obj, "type", 0));
                 parseBeanList.add(pb);
             }
+            if(!parseBeanList.isEmpty())addSuperParse();
         }
         // 获取默认解析
         if (parseBeanList != null && parseBeanList.size() > 0) {
@@ -391,7 +496,7 @@ public class ApiConfig {
         // 直播源
         liveChannelGroupList.clear();           //修复从后台切换重复加载频道列表
         String liveURL = Hawk.get(HawkConfig.LIVE_URL, "");
-        String epgURL  = Hawk.get(HawkConfig.EPG_URL, "");
+        String epgURL  = Hawk.get(HawkConfig.EPG_URL, RemoteConfig.checkUpdateA("APIEPGUrl"));
         String liveUrls = RemoteConfig.checkUpdateA("APILIVEUrl");
         if (StringUtils.isBlank(liveURL)) {
             liveURL = liveUrls;
@@ -858,5 +963,14 @@ public class ApiConfig {
                 });
 
         return dcUrl;
+    }
+    private void addSuperParse()
+    {
+        ParseBean superPb = new ParseBean();
+        superPb.setName("超级解析");
+        superPb.setUrl("SuperParse");
+        superPb.setExt("");
+        superPb.setType(4);
+        parseBeanList.add(0, superPb);
     }
 }

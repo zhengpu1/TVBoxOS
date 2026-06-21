@@ -43,7 +43,7 @@
                     android:textColor="@color/font_deta_color"
                     android:textSize="@dimen/ts_24" />
 
-                <Space
+                <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
@@ -66,15 +66,22 @@
                     android:textColor="@color/font_deta_color"
                     android:textSize="@dimen/ts_30" />
             </LinearLayout>
-
-
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/vs_60"
+            android:layout_marginBottom="@dimen/vs_10"
+            android:focusable="false"
+            android:orientation="horizontal">
             <LinearLayout
                 android:id="@+id/llApi"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/vs_60"
-                android:layout_marginBottom="@dimen/vs_10"
+                android:layout_width="@dimen/vs_0"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/vs_5"
+                android:layout_marginRight="@dimen/vs_5"
+                android:layout_marginBottom="@dimen/vs_0"
                 android:background="@drawable/button_dialog_main"
                 android:focusable="true"
+                android:layout_weight="2"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:paddingLeft="@dimen/vs_20"
@@ -92,7 +99,7 @@
                     android:textColor="@color/font_deta_color"
                     android:textSize="@dimen/ts_24" />
 
-                <Space
+                <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
@@ -110,6 +117,63 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:duplicateParentState="true"
+                    android:layout_marginStart="@dimen/vs_10"
+                    android:layout_marginLeft="@dimen/vs_10"
+                    android:text=">"
+                    android:textColor="@color/font_deta_color"
+                    android:textSize="@dimen/ts_30" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llApiRightGroup"
+                android:layout_width="@dimen/vs_0"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/vs_5"
+                android:layout_marginLeft="@dimen/vs_5"
+                android:layout_weight="2"
+                android:focusable="false"
+                android:orientation="horizontal">
+            <LinearLayout
+                android:id="@+id/llApiHistory"
+                android:layout_width="@dimen/vs_0"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/vs_0"
+                android:layout_marginLeft="@dimen/vs_5"
+                android:layout_weight="1"
+                android:background="@drawable/button_dialog_main"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/vs_20"
+                android:paddingRight="@dimen/vs_20">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:duplicateParentState="true"
+                    android:shadowColor="@color/color_FF000000"
+                    android:shadowDx="2"
+                    android:shadowDy="2"
+                    android:shadowRadius="1"
+                    android:text="配置历史"
+                    android:textColor="@color/font_deta_color"
+                    android:textSize="@dimen/ts_24" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/tvMediaCodec1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/font_deta_color"
+                    android:textSize="@dimen/ts_24" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/vs_10"
                     android:layout_marginLeft="@dimen/vs_10"
                     android:text=">"
@@ -117,6 +181,59 @@
                     android:textSize="@dimen/ts_30" />
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/llApiLine"
+                android:layout_width="@dimen/vs_0"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/vs_10"
+                android:layout_marginLeft="@dimen/vs_5"
+                android:layout_weight="1"
+                android:background="@drawable/button_dialog_main"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/vs_20"
+                android:paddingRight="@dimen/vs_20">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:duplicateParentState="true"
+                    android:shadowColor="@color/color_FF000000"
+                    android:shadowDx="2"
+                    android:shadowDy="2"
+                    android:shadowRadius="1"
+                    android:text="线路选择"
+                    android:textColor="@color/font_deta_color"
+                    android:textSize="@dimen/ts_24" />
+
+                <Space
+                    android:layout_width="@dimen/vs_10"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/tvApiLine"
+                    android:layout_width="@dimen/vs_0"
+                    android:layout_height="wrap_content"
+                    android:duplicateParentState="true"
+                    android:layout_weight="1"
+                    android:ellipsize="middle"
+                    android:gravity="right"
+                    android:singleLine="true"
+                    android:textColor="@color/font_deta_color2"
+                    android:textSize="@dimen/ts_24" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/vs_10"
+                    android:layout_marginLeft="@dimen/vs_10"
+                    android:text=">"
+                    android:textColor="@color/font_deta_color"
+                    android:textSize="@dimen/ts_30" />
+                </LinearLayout>
+        </LinearLayout>
+        </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/vs_60"
@@ -159,7 +276,7 @@
                             android:textColor="@color/font_deta_color"
                             android:textSize="@dimen/ts_24" />
 
-                        <Space
+                        <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1" />

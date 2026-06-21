@@ -24,7 +24,7 @@ import com.lzy.okgo.model.Response;
 public class RemoteConfig {
     private static String remoteUrl = "";
     private static JsonObject remoteJsonObject;
-    private static boolean isRemoteConfigOk;
+    public static boolean isRemoteConfigOk;
     private static Context mContext;
     private static String CurrVersions="1.0.0000.00.00";
     private static String NewVersions="1.0.0000.00.00";

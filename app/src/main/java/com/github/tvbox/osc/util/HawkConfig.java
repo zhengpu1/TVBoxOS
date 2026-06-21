@@ -16,6 +16,8 @@ public class HawkConfig {
     public static final String LIVE_GROUP_INDEX = "live_group_index";
     public static final String LIVE_GROUP_LIST = "live_group_list";
     public static final String LIVE_WEB_HEADER = "live_web_header";
+    public static final String API_LINE_LIST = "api_line_list";
+    public static final String API_LINE_SOURCE = "api_line_source";
     public static final String API_HISTORY = "api_history";
     public static final String EPG_HISTORY = "epg_history";
     public static final String HOME_API = "home_api";
@@ -86,5 +88,11 @@ public class HawkConfig {
     public static final String LIVE_API_HISTORY = "live_api_history";
     public static final String FAST_SEARCH_MODE = "fast_search_mode";
     public static final String FILTER_LOCATION = "filter_location" ;
+    public static final String DANMU_OPEN = "danmu_open";
+    public static final String DANMU_MAX_LINE = "danmu_max_line";
+    public static final String DANMU_SPEED = "danmu_speed";
+    public static final String DANMU_ALPHA = "danmu_alpha";
+    public static final String DANMU_SIZE_SCALE = "danmu_size_scale";
+    public static final String DANMU_RANDOM_COLOR = "danmu_random_color";
     public static boolean hotVodDelete;
 }

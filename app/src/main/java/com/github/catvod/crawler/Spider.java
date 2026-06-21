@@ -16,7 +16,7 @@ import okhttp3.Dns;
 public abstract class Spider {
 
     public static JSONObject empty = new JSONObject();
-
+    public String siteKey;
     protected static Context mContext;
 
     public void init(Context context) {
@@ -26,7 +26,8 @@ public abstract class Spider {
     public void init(Context context, String extend) {
         init(context);
     }
-
+    public void initApi(SpiderApi api) {
+    }
     /**
      * 首页数据内容
      *

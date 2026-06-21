@@ -5,7 +5,9 @@ import static com.github.tvbox.osc.ui.activity.HomeActivity.clearAllCacheAndHist
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -24,9 +26,11 @@ import com.github.tvbox.osc.bean.IJKCode;
 import com.github.tvbox.osc.bean.SourceBean;
 import com.github.tvbox.osc.ui.activity.HomeActivity;
 import com.github.tvbox.osc.ui.activity.SettingActivity;
+import com.github.tvbox.osc.ui.adapter.ApiHistoryDialogAdapter;
 import com.github.tvbox.osc.ui.adapter.SelectDialogAdapter;
 import com.github.tvbox.osc.ui.dialog.AboutDialog;
 import com.github.tvbox.osc.ui.dialog.ApiDialog;
+import com.github.tvbox.osc.ui.dialog.ApiHistoryDialog;
 import com.github.tvbox.osc.ui.dialog.BackupDialog;
 import com.github.tvbox.osc.ui.dialog.ResetDialog;
 import com.github.tvbox.osc.ui.dialog.SearchRemoteTvDialog;
@@ -77,6 +81,10 @@ public class ModelSettingFragment extends BaseLazyFragment {
     private TextView tvHomeApi;
     private TextView tvHomeShow;
     private TextView tvHomeImg;
+    private TextView tvApiLine;
+    private View llApi;
+    private View llApiHistory;
+    private View llApiLine;
     private TextView tvHomeLive;
     private TextView tvDns;
     private TextView tvXianc;
@@ -130,6 +138,9 @@ public class ModelSettingFragment extends BaseLazyFragment {
         tvDns = findViewById(R.id.tvDns);
         tvXianc = findViewById(R.id.tvXianc);
         tvHomeRec = findViewById(R.id.tvHomeRec);
+        llApiHistory = findViewById(R.id.llApiHistory);
+        llApiLine = findViewById(R.id.llApiLine);
+        tvApiLine = findViewById(R.id.tvApiLine);
         tvHistoryNum = findViewById(R.id.tvHistoryNum);
         tvSearchView = findViewById(R.id.tvSearchView);
         tvVersion = findViewById(R.id.tvVersion);
@@ -151,6 +162,7 @@ public class ModelSettingFragment extends BaseLazyFragment {
             Hawk.put(HawkConfig.FORBID_JAR_DIALOG, !Hawk.get(HawkConfig.FORBID_JAR_DIALOG, false));
             mForbidDialogText.setText(Hawk.get(HawkConfig.FORBID_JAR_DIALOG, false) ? " 开" : "关");
         });
+        refreshApiLineText();
         mForbidDialogText = findViewById(R.id.forbidJarDialogText);
         mForbidDialogText.setText(Hawk.get(HawkConfig.FORBID_JAR_DIALOG, false) ? "开" : "关");
         findViewById(R.id.llIjkCachePlay).setOnClickListener(v -> {
@@ -190,7 +202,8 @@ public class ModelSettingFragment extends BaseLazyFragment {
                 findViewById(R.id.llDns), findViewById(R.id.llParseWebVew), findViewById(R.id.llTheme),
                 findViewById(R.id.llSearchTv), findViewById(R.id.llHistoryNum), findViewById(R.id.llWp), findViewById(R.id.llWpRecovery),
                 findViewById(R.id.llScale), findViewById(R.id.llIjkCachePlay), findViewById(R.id.llClearCache),
-                findViewById(R.id.llBackup), findViewById(R.id.llplayback), findViewById(R.id.llAbout),findViewById(R.id.llXianc), findViewById(R.id.llDadeup), findViewById(R.id.showFastSearch), findViewById(R.id.showPreview)};
+                findViewById(R.id.llBackup), findViewById(R.id.llplayback), findViewById(R.id.llAbout),findViewById(R.id.llXianc), findViewById(R.id.llDadeup), findViewById(R.id.showFastSearch),
+                findViewById(R.id.showPreview),findViewById(R.id.llApiLine),findViewById(R.id.llApiHistory)};
         baseActivity.drawableLinearLayout(strs, 1);
         findViewById(R.id.llParseWebVew).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -385,8 +398,16 @@ public class ModelSettingFragment extends BaseLazyFragment {
                 dialog.setOnListener(new ApiDialog.OnListener() {
                     @Override
                     public void onchange(String api) {
+                        String oldApi = Hawk.get(HawkConfig.API_URL, "");
                         Hawk.put(HawkConfig.API_URL, api);
+                        if (!HistoryHelper.isApiLineHistory(api)) {
+                            HistoryHelper.clearApiLineList();
+                        }
                         tvApi.setText(api);
+                        refreshApiLineText();
+                        if (!oldApi.equals(api)) {
+                            restartAppAfterConfigChanged();
+                        }
                     }
                 });
                 dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
@@ -400,7 +421,89 @@ public class ModelSettingFragment extends BaseLazyFragment {
             }
         });
 
+        findViewById(R.id.llApiHistory).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ArrayList<String> history = Hawk.get(HawkConfig.API_HISTORY, new ArrayList<String>());
+                if (history.isEmpty())
+                    return;
+                String current = Hawk.get(HawkConfig.API_URL, "");
+                int idx = 0;
+                if (history.contains(current))
+                    idx = history.indexOf(current);
+                ApiHistoryDialog dialog = new ApiHistoryDialog(mActivity);
+                dialog.setTip("历史配置列表");
+                dialog.setAdapter(new ApiHistoryDialogAdapter.SelectDialogInterface() {
+                    @Override
+                    public void click(String value) {
+                        String oldApi = Hawk.get(HawkConfig.API_URL, "");
+                        if (!HistoryHelper.isApiLineHistory(value)) {
+                            HistoryHelper.clearApiLineList();
+                        }
+                        Hawk.put(HawkConfig.API_URL, value);
+                        Hawk.put(HawkConfig.LIVE_API_URL, value);
+                        HistoryHelper.setLiveApiHistory(value);
+                        tvApi.setText(value);
+                        refreshApiLineText();
+                        dialog.dismiss();
+                        if (!oldApi.equals(value)) {
+                            restartAppAfterConfigChanged();
+                        }
+                    }
 
+                    @Override
+                    public void del(String value, ArrayList<String> data) {
+                        Hawk.put(HawkConfig.API_HISTORY, data);
+                    }
+                }, history, idx);
+                dialog.show();
+            }
+        });
+        findViewById(R.id.llApiLine).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ArrayList<String> apiLines = Hawk.get(HawkConfig.API_LINE_LIST, new ArrayList<String>());
+                if (apiLines.isEmpty()) {
+                    Toast.makeText(mContext, "线路列表为空", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                String current = Hawk.get(HawkConfig.API_URL, "");
+                int idx = 0;
+                for (int i = 0; i < apiLines.size(); i++) {
+                    if (current.equals(HistoryHelper.getApiLineUrl(apiLines.get(i)))) {
+                        idx = i;
+                        break;
+                    }
+                }
+                SelectDialog<String> dialog = new SelectDialog<>(mActivity);
+                dialog.setTip("线路选择");
+                dialog.setAdapter(new SelectDialogAdapter.SelectDialogInterface<String>() {
+                    @Override
+                    public void click(String value, int pos) {
+                        String newApi = HistoryHelper.getApiLineUrl(value);
+                        String oldApi = Hawk.get(HawkConfig.API_URL, "");
+                        if (newApi.isEmpty()) {
+                            return;
+                        }
+                        Hawk.put(HawkConfig.API_URL, newApi);
+                        Hawk.put(HawkConfig.LIVE_API_URL, newApi);
+                        HistoryHelper.setLiveApiHistory(newApi);
+                        tvApi.setText(newApi);
+                        refreshApiLineText();
+                        dialog.dismiss();
+                        if (!oldApi.equals(newApi)) {
+                            restartAppAfterConfigChanged();
+                        }
+                    }
+
+                    @Override
+                    public String getDisplay(String val) {
+                        return HistoryHelper.getApiLineName(val);
+                    }
+                }, SelectDialogAdapter.stringDiff, apiLines, idx);
+                dialog.show();
+            }
+        });
 
         findViewById(R.id.llMediaCodec).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -1010,6 +1113,51 @@ public class ModelSettingFragment extends BaseLazyFragment {
             return "蝶恋";
         } else {
             return "玻璃";
+        }
+    }
+    private void restartAppAfterConfigChanged() {
+        Toast.makeText(mContext, "配置已切换,即将自动重启应用!", Toast.LENGTH_SHORT).show();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                restartApp();
+            }
+        }, 3000);
+    }
+    private void refreshApiLineText() {
+        if (tvApiLine == null) return;
+        ArrayList<String> apiLines = Hawk.get(HawkConfig.API_LINE_LIST, new ArrayList<String>());
+        String current = Hawk.get(HawkConfig.API_URL, "");
+        boolean showLine = HistoryHelper.isApiLineUrl(current);
+        if (llApiLine != null) {
+            llApiLine.setVisibility(showLine ? View.VISIBLE : View.GONE);
+        }
+        updateApiRowWeight(showLine);
+        String lineName = "";
+        if (showLine) {
+            for (String apiLine : apiLines) {
+                if (current.equals(HistoryHelper.getApiLineUrl(apiLine))) {
+                    lineName = HistoryHelper.getApiLineName(apiLine);
+                    break;
+                }
+            }
+        }
+        tvApiLine.setText(lineName);
+    }
+
+    private void updateApiRowWeight(boolean showLine) {
+        if (llApi == null) return;
+        LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) llApi.getLayoutParams();
+        params.weight = showLine ? 1.0f : 3.08f;
+        llApi.setLayoutParams(params);
+        if (llApiHistory != null) {
+            LinearLayout.LayoutParams historyParams = (LinearLayout.LayoutParams) llApiHistory.getLayoutParams();
+            int margin = showLine ? getResources().getDimensionPixelSize(R.dimen.vs_5) : 0;
+            historyParams.rightMargin = margin;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                historyParams.setMarginEnd(margin);
+            }
+            llApiHistory.setLayoutParams(historyParams);
         }
     }
 

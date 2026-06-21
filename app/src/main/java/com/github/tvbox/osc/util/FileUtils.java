@@ -33,7 +33,12 @@ public class FileUtils {
         }
         return false;
     }
-
+    public static boolean isWeekAgo(File file)
+    {
+        long oneWeekMillis = 3L * 24 * 60 * 60 * 1000;
+        long timeDiff = System.currentTimeMillis() - file.lastModified();
+        return timeDiff > oneWeekMillis;
+    }
     public static byte[] readSimple(File src) {
         try {
             BufferedInputStream bis = new BufferedInputStream(new FileInputStream(src));
@@ -47,7 +52,21 @@ public class FileUtils {
         }
         return null;
     }
-
+    public static void saveCache(File cache,String json){
+        try {
+            File cacheDir = cache.getParentFile();
+            if (!cacheDir.exists())
+                cacheDir.mkdirs();
+            if (cache.exists())
+                cache.delete();
+            FileOutputStream fos = new FileOutputStream(cache);
+            fos.write(json.getBytes("UTF-8"));
+            fos.flush();
+            fos.close();
+        } catch (Throwable th) {
+            th.printStackTrace();
+        }
+    }
     public static void copyFile(File source, File dest) throws IOException {
         InputStream is = null;
         OutputStream os = null;
