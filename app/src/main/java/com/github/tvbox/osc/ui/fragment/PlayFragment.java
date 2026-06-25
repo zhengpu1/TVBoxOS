@@ -1352,7 +1352,7 @@ public class PlayFragment extends BaseLazyFragment {
                         @Override
                         public void onError(Response<String> response) {
                             super.onError(response);
-                            errorWithRetry("解析错误6", false);
+                            errorWithRetryk("解析错误6", false);
                             setTip("解析错误6", false, true);
                         }
                     });

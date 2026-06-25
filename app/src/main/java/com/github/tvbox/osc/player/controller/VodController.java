@@ -88,11 +88,7 @@ public class VodController extends BaseController {
                     mPlayTitle.setVisibility(GONE);
                     showNowTime(true);
                     mPlayPauseTime.setVisibility(VISIBLE);
-                    if (Build.VERSION.SDK_INT <= 16) {
-                        mBack.setVisibility(ScreenUtils.isTv(context) ? INVISIBLE : VISIBLE);
-                    } else {
-                        mBack.setVisibility(ScreenUtils.isTv(context) ? VISIBLE : INVISIBLE);
-                    }
+                    mBack.setVisibility(ScreenUtils.isTvOrBox(context) ? INVISIBLE : VISIBLE);
 
                     mNextBtn.requestFocus();
                     if (isKeyUp) {

@@ -57,6 +57,7 @@ import com.github.tvbox.osc.util.FastClickCheckUtil;
 import com.github.tvbox.osc.util.GridSpaceDecoration;
 import com.github.tvbox.osc.util.HawkConfig;
 import com.github.tvbox.osc.util.HistoryHelper;
+import com.github.tvbox.osc.util.LOG;
 import com.github.tvbox.osc.util.MD5;
 import com.github.tvbox.osc.util.SearchHelper;
 import com.github.tvbox.osc.util.SubtitleHelper;
@@ -683,6 +684,7 @@ public class DetailActivity extends baseActivity {
         if (vodInfo != null && vodInfo.seriesMap.get(vodInfo.playFlag).size() > 0) {
             preFlag = vodInfo.playFlag;
             //更新播放地址
+            LOG.i("播放地址：",vodInfo.seriesMap.get(vodInfo.playFlag).get(vodInfo.playIndex).url);
             Bundle bundle = new Bundle();
             startStatusCheck();
             //保存历史
@@ -1066,7 +1068,7 @@ public class DetailActivity extends baseActivity {
             loadDetail(id, sourceKey);
         }
     }
-    private void initDatass() {
+    private void initData999() {
         Hawk.put("sqlCache", true); // ← 就加这一句
         Intent intent = getIntent();
         if (intent != null && intent.getExtras() != null) {
@@ -1537,7 +1539,7 @@ public class DetailActivity extends baseActivity {
         EventBus.getDefault().post(new RefreshEvent(RefreshEvent.TYPE_SUBTITLE_SIZE_CHANGE, subtitleTextSize));
     }
     // 状态检查相关
-    private static final long PLAY_TIMEOUT = 30_000; // 30秒
+    private static final long PLAY_TIMEOUT = 5_000; // 30秒
     private Handler statusCheckHandler = new Handler(Looper.getMainLooper());
     private Runnable statusCheckRunnable = new Runnable() {
         @Override

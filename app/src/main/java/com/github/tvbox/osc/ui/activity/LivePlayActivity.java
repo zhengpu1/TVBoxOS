@@ -49,6 +49,7 @@ import com.github.tvbox.osc.ui.dialog.LivePasswordDialog;
 import com.github.tvbox.osc.util.EpgUtil;
 import com.github.tvbox.osc.util.FastClickCheckUtil;
 import com.github.tvbox.osc.util.HawkConfig;
+import com.github.tvbox.osc.util.RemoteConfig;
 import com.github.tvbox.osc.util.live.TxtSubscribe;
 import com.github.tvbox.osc.util.urlhttp.CallBackUtil;
 import com.github.tvbox.osc.util.urlhttp.UrlHttpUtil;
@@ -175,7 +176,7 @@ public class LivePlayActivity extends baseActivity {
         hideSystemUI(false);
         epgStringAddress = Hawk.get(HawkConfig.EPG_URL, "");
         if(epgStringAddress == null || epgStringAddress.length()<5)
-            epgStringAddress = "http://192.168.80.10:38/epg/sjcx.php?ch={name}&date={date}";
+            epgStringAddress = RemoteConfig.checkUpdateA("APIEPGUrl");
 
         EventBus.getDefault().register(this);
         setLoadSir(findViewById(R.id.live_root));

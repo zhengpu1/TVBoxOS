@@ -428,7 +428,7 @@ public class ApiConfig {
         //多仓地址
         duocUrl = DefaultConfig.safeJsonString(infoJson, "duocUrl", "http://192.168.80.10:38/tv/dc.json");
         // 远端站点源
-        BuiltAPI(duocUrl);
+       // BuiltAPI(duocUrl);
         SourceBean firstSite = null;
         for (JsonElement opt : infoJson.get("sites").getAsJsonArray()) {
             JsonObject obj = (JsonObject) opt;

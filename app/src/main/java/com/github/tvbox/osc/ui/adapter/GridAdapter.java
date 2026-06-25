@@ -80,7 +80,7 @@ public class GridAdapter extends BaseQuickAdapter<Movie.Video, BaseViewHolder> {
                                 .load(DefaultConfig.checkReplaceProxy(item.pic))
                                 .transform(new RoundTransformation(MD5.string2MD5(item.pic))
                                         .centerCorp(true)
-                                        .override(AutoSizeUtils.mm2px(mContext, 300), AutoSizeUtils.mm2px(mContext, 180))
+                                        .override(AutoSizeUtils.mm2px(mContext, 180), AutoSizeUtils.mm2px(mContext, 120))
                                         .roundRadius(AutoSizeUtils.mm2px(mContext, roundRadius), RoundTransformation.RoundType.ALL))
                                 .placeholder(ImgUtil.decodeBase64ToDrawable(ImgUtil.FOLDER))
                                 .noFade()
@@ -102,13 +102,6 @@ public class GridAdapter extends BaseQuickAdapter<Movie.Video, BaseViewHolder> {
         }
         TextView tvLang = helper.getView(R.id.tvLang);
         tvLang.setVisibility(View.GONE);
-        /*if (TextUtils.isEmpty(item.lang)) {
-            tvLang.setVisibility(View.GONE);
-        } else {
-            tvLang.setText(item.lang);
-            tvLang.setVisibility(View.VISIBLE);
-        }*/
-
         helper.setVisible(R.id.tvYear, false);
         helper.setText(R.id.tvName, item.name);
         helper.setText(R.id.tvActor, item.actor);
@@ -149,7 +142,6 @@ public class GridAdapter extends BaseQuickAdapter<Movie.Video, BaseViewHolder> {
                                 .roundRadius(AutoSizeUtils.mm2px(mContext, 6), RoundTransformation.RoundType.ALL))
                         .placeholder(ImgUtil.createTextDrawable(item.name))
                         .noFade()
-//                        .error(R.drawable.img_loading_placeholder)
                         .into(ivThumb);
             } else {
                  ivThumb.setImageDrawable(ImgUtil.createTextDrawable(item.name));
@@ -188,7 +180,6 @@ public class GridAdapter extends BaseQuickAdapter<Movie.Video, BaseViewHolder> {
                                 .roundRadius(AutoSizeUtils.mm2px(mContext, 6), RoundTransformation.RoundType.ALL))
                         .placeholder(ImgUtil.createTextDrawable(item.name))
                         .noFade()
- //                       .error(R.drawable.img_loading_placeholder)
                         .into(ivThumb);
             } else {
                 ivThumb.setImageDrawable(ImgUtil.createTextDrawable(item.name));
