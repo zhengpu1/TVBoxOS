@@ -18,6 +18,7 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="start Switch Line Play Timeout" />
       <item value="is Tv Or Box" />
       <item value="set Class Loader Fields" />
       <item value="inject Protected Class Loader" />
@@ -53,7 +54,6 @@
       <item value="JELLY BEAN MR 1" />
       <item value="restart App After Config Changed" />
       <item value="refresh Api Line Text" />
-      <item value="start Switch Line Play Timeout" />
       <item value="cancel Play Timeout" />
       <item value="start Resolve Play Url Timeout" />
       <item value="Sends a Message containing only the what value, to be delivered after the specified amount of time elapses.&#10;返回值:&#10;Returns true if the message was successfully placed in to the message queue. Returns false on failure, usually because the looper processing the message queue is exiting." />
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="3" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="8903" />
+        <entry key="CHINESE" value="8904" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="8904" />
+        <entry key="ENGLISH" value="8905" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="3" />
