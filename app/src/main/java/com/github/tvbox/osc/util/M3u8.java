@@ -12,8 +12,8 @@ import java.util.regex.Pattern;
 
 
 /**
- * @author asdfgh、FongMi
- * 参考 FongMi/TV 的代码
+ * @author asdfgh, FongMi
+ * Based on FongMi/TV.
  * https://github.com/FongMi/TV
  */
 public class M3u8 {

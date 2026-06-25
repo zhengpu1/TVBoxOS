@@ -22,6 +22,7 @@ import com.github.tvbox.osc.util.FileUtils;
 import com.github.tvbox.osc.util.HawkConfig;
 import com.github.tvbox.osc.util.HistoryHelper;
 import com.github.tvbox.osc.util.LOG;
+import com.github.tvbox.osc.util.M3u8;
 import com.github.tvbox.osc.util.MD5;
 import com.github.tvbox.osc.util.RemoteConfig;
 import com.github.tvbox.osc.util.VideoParseRuler;
@@ -651,17 +652,21 @@ public class ApiConfig {
                         }
                     }
                 }
+                //广告过滤规则
                 if (obj.has("hosts") && obj.has("regex")) {
                     ArrayList<String> rule = new ArrayList<>();
+                    ArrayList<String> ads = new ArrayList<>();
                     JsonArray regexArray = obj.getAsJsonArray("regex");
                     for (JsonElement one : regexArray) {
-                        rule.add(one.getAsString());
+                        String regex = one.getAsString();
+                        if (M3u8.isAd(regex)) ads.add(regex);
+                        else rule.add(regex);
                     }
-
                     JsonArray array = obj.getAsJsonArray("hosts");
                     for (JsonElement one : array) {
                         String host = one.getAsString();
                         VideoParseRuler.addHostRule(host, rule);
+                        VideoParseRuler.addHostRegex(host, ads);
                     }
                 }
             }

@@ -62,6 +62,7 @@ import com.github.tvbox.osc.util.FastClickCheckUtil;
 import com.github.tvbox.osc.util.FileUtils;
 import com.github.tvbox.osc.util.HawkConfig;
 import com.github.tvbox.osc.util.LOG;
+import com.github.tvbox.osc.util.ScreenUtils;
 import com.github.tvbox.osc.viewmodel.SourceViewModel;
 import com.orhanobut.hawk.Hawk;
 import com.owen.tvrecyclerview.widget.TvRecyclerView;
@@ -195,6 +196,9 @@ public class HomeActivity extends baseActivity {
         this.mGridView.setLayoutManager(new V7LinearLayoutManager(this.mContext, 0, false));
         this.mGridView.setSpacingWithMargins(0, AutoSizeUtils.dp2px(this.mContext, 5.0f));
         this.mGridView.setAdapter(this.sortAdapter);
+        if (!ScreenUtils.isTvOrBox(mContext)) {
+            tvAPush.setVisibility(View.GONE);
+        }
         ImageView[] strls = { tvStyle };
         drawableImageView(strls, 8);
         LinearLayout[] strlsa = {tvMenu, tvAPush, tvFind};
@@ -365,7 +369,8 @@ public class HomeActivity extends baseActivity {
                         UserFragment.tvHotList1.setVisibility(View.VISIBLE);
                         UserFragment.tvHotList4.setVisibility(View.VISIBLE);
                         tvFind.setVisibility(View.VISIBLE);
-                            tvAPush.setVisibility(View.VISIBLE);
+                          //  tvAPush.setVisibility(View.VISIBLE);
+                        tvAPush.setVisibility(ScreenUtils.isTvOrBox(mContext) ? View.GONE : View.VISIBLE);
                         UserFragment.tvHotList2.setVisibility(View.GONE);
                         UserFragment.tvSearch.setVisibility(View.GONE);
                         UserFragment.tvSetting.setVisibility(View.GONE);
@@ -444,7 +449,9 @@ public class HomeActivity extends baseActivity {
         } else {
             tvStyle.setImageResource(R.drawable.hm_up_down);
             tvFind.setVisibility(View.VISIBLE);
-            tvAPush.setVisibility(View.VISIBLE);
+            if (!ScreenUtils.isTvOrBox(mContext)) {
+                tvAPush.setVisibility(View.VISIBLE);
+            }
         }
         showLoading();
         if (dataInitOk && !jarInitOk) {

@@ -37,6 +37,8 @@ import com.github.tvbox.osc.api.ApiConfig;
 import com.github.tvbox.osc.bean.IJKCode;
 import com.github.tvbox.osc.bean.ParseBean;
 import com.github.tvbox.osc.event.RefreshEvent;
+import com.github.tvbox.osc.server.ControlManager;
+import com.github.tvbox.osc.server.RemoteServer;
 import com.github.tvbox.osc.subtitle.widget.SimpleSubtitleView;
 import com.github.tvbox.osc.ui.adapter.ParseAdapter;
 import com.github.tvbox.osc.ui.adapter.SelectDialogAdapter;
@@ -45,11 +47,16 @@ import com.github.tvbox.osc.ui.dialog.SpeedPlayDialog;
 import com.github.tvbox.osc.ui.view.ChoosePlayPopUp;
 import com.github.tvbox.osc.ui.view.PlayerMoreFucPop;
 import com.github.tvbox.osc.util.HawkConfig;
+import com.github.tvbox.osc.util.M3u8;
 import com.github.tvbox.osc.util.PlayerHelper;
 import com.github.tvbox.osc.util.ScreenUtils;
 import com.github.tvbox.osc.util.SubtitleHelper;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.lzy.okgo.OkGo;
+import com.lzy.okgo.callback.AbsCallback;
+import com.lzy.okgo.model.HttpHeaders;
+import com.lzy.okgo.model.Response;
 import com.orhanobut.hawk.Hawk;
 import com.owen.tvrecyclerview.widget.TvRecyclerView;
 
@@ -61,11 +68,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.lang.reflect.Method;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import xyz.doikki.videoplayer.player.VideoView;
 import xyz.doikki.videoplayer.util.PlayerUtils;
@@ -1158,4 +1168,93 @@ public class VodController extends BaseController {
     private boolean isKeyUp = false;
     private boolean mShowMiniProgress;
 
+    public void playM3u8(final String url, final HashMap<String, String> headers) {
+        if(url.contains("url=")){
+            listener.startPlayUrl(url, headers);
+            return;
+        }
+        OkGo.getInstance().cancelTag("m3u8-1");
+        OkGo.getInstance().cancelTag("m3u8-2");
+        final HttpHeaders h = new HttpHeaders();
+        if (headers != null) {
+            for (Map.Entry<String, String> entry : headers.entrySet()) {
+                h.put(entry.getKey(), entry.getValue());
+            }
+        }
+
+        setCurrentVideoKey(url);
+
+        OkGo.<String>get(url).tag("m3u8-1").headers(h).execute(new AbsCallback<String>() {
+            @Override
+            public void onSuccess(Response<String> response) {
+                String content = response.body();
+                if (!content.startsWith("#EXTM3U")) {
+                    listener.startPlayUrl(url, headers);
+                    return;
+                }
+                String forward = extractForwardUrl(url, content);
+                if (forward.isEmpty()) {
+                    processM3u8Content(url, content, headers);
+                } else {
+                    fetchAndProcessForwardUrl(forward, headers, h, url);
+                }
+            }
+            @Override
+            public String convertResponse(okhttp3.Response response) throws Throwable {
+                return response.body().string();
+            }
+            @Override
+            public void onError(Response<String> response) {
+                listener.startPlayUrl(url, headers);
+            }
+        });
+    }
+
+    private String extractForwardUrl(String base, String content) {
+        String[] lines = content.split("\\r?\\n", 50);
+        for (int i = 0; i < lines.length; i++) {
+            String line = lines[i].trim();
+            if (line.startsWith("#EXT-X-STREAM-INF")) {
+                for (int j = i + 1; j < lines.length; j++) {
+                    String target = lines[j].trim();
+                    if (!target.startsWith("#") && (target.endsWith(".m3u8") || target.contains(".m3u8?"))) {
+                        try {
+                            return new URL(new URL(base), target).toString();
+                        } catch (MalformedURLException e) {
+                            return target;
+                        }
+                    }
+                }
+            }
+        }
+        return "";
+    }
+
+    private void processM3u8Content(String url, String content, HashMap<String, String> headers) {
+        String base = url.substring(0, url.lastIndexOf('/') + 1);
+        RemoteServer.m3u8Content = M3u8.purify(base, content);
+        if (RemoteServer.m3u8Content == null) {
+            listener.startPlayUrl(url, headers);
+        } else {
+            listener.startPlayUrl(ControlManager.get().getAddress(true) + "proxyM3u8", headers);
+            Toast.makeText(getContext(), "已移除广告 " + M3u8.currentAdCount + " 条", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void fetchAndProcessForwardUrl(String forward, HashMap<String, String> headers, HttpHeaders h, String fallback) {
+        OkGo.<String>get(forward).tag("m3u8-2").headers(h).execute(new AbsCallback<String>() {
+            @Override
+            public void onSuccess(Response<String> response) {
+                processM3u8Content(forward, response.body(), headers);
+            }
+            @Override
+            public String convertResponse(okhttp3.Response response) throws Throwable {
+                return response.body().string();
+            }
+            @Override
+            public void onError(Response<String> response) {
+                listener.startPlayUrl(fallback, headers);
+            }
+        });
+    }
 }

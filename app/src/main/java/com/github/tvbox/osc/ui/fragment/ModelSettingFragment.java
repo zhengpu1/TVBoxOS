@@ -151,7 +151,7 @@ public class ModelSettingFragment extends BaseLazyFragment {
         tvPtst.setText(Hawk.get(HawkConfig.HOME_PTST_TUMM, false) ? "开" : "关");
         tvRemote.setText(Hawk.get(HawkConfig.FILTER_LOCATION, false) ? "顶部" : "底部");
         tvPwet = findViewById(R.id.tvPwet);
-        tvPwet.setText(Hawk.get(HawkConfig.HOME_PWET_TUMM, false) ? "开" : "关");
+        tvPwet.setText(Hawk.get(HawkConfig.VIDEO_PURIFY, false) ? "开" : "关");
         tvDebugOpen.setText(Hawk.get(HawkConfig.DEBUG_OPEN, false) ? "已打开" : "已关闭");
         tvPlayback = findViewById(R.id.tvPlayback);
         tvMediaCodec.setText(Hawk.get(HawkConfig.IJK_CODEC, ""));
@@ -914,8 +914,8 @@ public class ModelSettingFragment extends BaseLazyFragment {
             @Override
             public void onClick(View v) {
                 FastClickCheckUtil.check(v);
-                Hawk.put(HawkConfig.HOME_PWET_TUMM, !Hawk.get(HawkConfig.HOME_PWET_TUMM, false));
-                tvPwet.setText(Hawk.get(HawkConfig.HOME_PWET_TUMM, false) ? "开" : "关");
+                Hawk.put(HawkConfig.VIDEO_PURIFY, !Hawk.get(HawkConfig.VIDEO_PURIFY, false));
+                tvPwet.setText(Hawk.get(HawkConfig.VIDEO_PURIFY, false) ? "开" : "关");
             }
         });
         findViewById(R.id.llplayback).setOnClickListener(new View.OnClickListener() {

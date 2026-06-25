@@ -19,6 +19,7 @@ import com.google.gson.JsonObject;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
@@ -250,5 +251,16 @@ public class DefaultConfig {
             return urlOri.replace("proxy://", ControlManager.get().getAddress(true) + "proxy?");
         return urlOri;
     }
-
+    private static final List<String> NO_AD_KEYWORDS = Arrays.asList(
+            "tx", "youku", "qq","qiyi", "letv", "leshi","sohu", "mgtv", "bilibili", "imgo","优酷", "芒果", "腾讯", "奇艺"
+    );
+    public static boolean noAd(String flag) {
+        if (flag == null || flag.isEmpty()) return false;
+        for (String keyword : NO_AD_KEYWORDS) {
+            if (flag.equals(keyword) || flag.contains(keyword)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

@@ -565,11 +565,26 @@ public class PlayActivity extends baseActivity {
             });
         }
     }
-
     void playUrl(String url, HashMap<String, String> headers) {
-        if(autoRetryCount>1 && url.contains(".m3u8")){
-            url="http://home.jundie.top:666/unBom.php?m3u8="+url;
+        url = attachProxySiteKey(url);
+        if(!url.startsWith("data:application"))EventBus.getDefault().post(new RefreshEvent(RefreshEvent.TYPE_REFRESH, url));//更新播放地址
+        if (!Hawk.get(HawkConfig.VIDEO_PURIFY, false)) {
+            goPlayUrl(url,headers);
+            return;
         }
+        if (url.startsWith("http://127.0.0.1") || !url.contains(".m3u8")) {
+            goPlayUrl(url,headers);
+            return;
+        }
+        if(DefaultConfig.noAd(mVodInfo.playFlag)){
+            goPlayUrl(url,headers);
+            return;
+        }
+        LOG.i("echo-playM3u8:" + url);
+        mController.playM3u8(url,headers);
+    }
+    void goPlayUrl(String url, HashMap<String, String> headers) {
+
         final String finalUrl = url;
 
         runOnUiThread(new Runnable() {
@@ -621,7 +636,16 @@ public class PlayActivity extends baseActivity {
             }
         });
     }
-
+    private String attachProxySiteKey(String url) {
+        if (TextUtils.isEmpty(url) || TextUtils.isEmpty(sourceKey)) return url;
+        if (!url.startsWith(ControlManager.get().getAddress(true) + "proxy?")) return url;
+        if (url.contains("siteKey=")) return url;
+        try {
+            return url + (url.contains("?") ? "&" : "?") + "siteKey=" + URLEncoder.encode(sourceKey, "UTF-8");
+        } catch (Throwable th) {
+            return url + (url.contains("?") ? "&" : "?") + "siteKey=" + sourceKey;
+        }
+    }
     private void initSubtitleView() {
         TrackInfo trackInfo = null;
         if (mVideoView.getMediaPlayer() instanceof IjkMediaPlayer) {

@@ -44,7 +44,7 @@ public class ScreenUtils {
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.R) {
             return false;
         }
-        // SDK <= Android 9 直接认为是 TV / 机顶盒
+        // SDK <= Android 9 直接认为是 TV / 机顶盒9999
         if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.P) {
             return true;
         }
