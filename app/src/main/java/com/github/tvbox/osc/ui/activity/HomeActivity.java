@@ -478,13 +478,16 @@ public class HomeActivity extends baseActivity {
                     @Override
                     public void error(String msg) {
                         jarInitOk = true;
-                        mHandler.post(new Runnable() {
+                        mHandler.postDelayed(new Runnable() {
                             @Override
                             public void run() {
-                                Toast.makeText(HomeActivity.this, "jar加载失败", Toast.LENGTH_SHORT).show();
+                                if ("".equals(msg))
+                                    Toast.makeText(HomeActivity.this, "jar加载错误", Toast.LENGTH_SHORT).show();
+                                else
+                                    Toast.makeText(HomeActivity.this, msg, Toast.LENGTH_SHORT).show();
                                 initData();
                             }
-                        });
+                        },50);
                     }
 
                 });

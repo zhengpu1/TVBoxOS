@@ -122,4 +122,6 @@ public abstract class Spider {
     public static Dns safeDns() {
         return OkGoHelper.dnsOverHttps;
     }
+
+    public void destroy() {}
 }

@@ -3,6 +3,7 @@ package com.github.tvbox.osc.startup
 import android.content.Context
 import android.text.TextUtils
 import com.github.tvbox.osc.util.HawkConfig
+import com.github.tvbox.osc.util.RemoteConfig
 import com.orhanobut.hawk.Hawk
 import com.rousetime.android_startup.AndroidStartup
 import com.rousetime.android_startup.executor.ExecutorManager
@@ -33,14 +34,15 @@ class HawkTask : AndroidStartup<String>() {
         if (!Hawk.contains(HawkConfig.IMMERSIVE_SWITCH)) {
             Hawk.put(HawkConfig.IMMERSIVE_SWITCH, true)
         }
-        //禁止jar弹框 去广告开关
-        if (!Hawk.contains(HawkConfig.FORBID_JAR_DIALOG)) {
-            Hawk.put(HawkConfig.FORBID_JAR_DIALOG, true)
-            Hawk.put(HawkConfig.VIDEO_PURIFY, true)
+        //去广告开关
+        if (!Hawk.contains(HawkConfig.VIDEO_PURIFY)) {
+            val remoteStr = RemoteConfig.checkUpdateA("Removeads")
+            val removeAds = "true".equals(remoteStr, ignoreCase = true)
+            Hawk.put(HawkConfig.VIDEO_PURIFY, removeAds)
         }
         //调试模式开关
         if (!Hawk.contains(HawkConfig.DEBUG_OPEN)) {
-            Hawk.put(HawkConfig.DEBUG_OPEN, false)
+            Hawk.put(HawkConfig.DEBUG_OPEN, true)
         }
         //数据源显示
         if (!Hawk.contains(HawkConfig.HOME_SHOW_SOURCE)) {
@@ -52,7 +54,7 @@ class HawkTask : AndroidStartup<String>() {
         }
         // 0 列表 1 缩略图
         if (!Hawk.contains(HawkConfig.SEARCH_VIEW)) {
-            Hawk.put(HawkConfig.SEARCH_VIEW, 1)
+            Hawk.put(HawkConfig.SEARCH_VIEW, 0)
         }
         //略缩图大小
         if (!Hawk.contains(HawkConfig.HOME_LSTIMG)) {
@@ -62,15 +64,27 @@ class HawkTask : AndroidStartup<String>() {
         if (!Hawk.contains(HawkConfig.HOME_PTST_TUMM)) {
             Hawk.put(HawkConfig.HOME_PTST_TUMM, true)
         }
+        //剧集分组
+        if (!Hawk.contains(HawkConfig.EPISODE_GROUPING)) {
+            val remoteStr = RemoteConfig.checkUpdateA("Grouping")
+            val removeAds = "true".equals(remoteStr, ignoreCase = true)
+            Hawk.put(HawkConfig.EPISODE_GROUPING, removeAds)
+        }
+        //自动换源
+        if (!Hawk.contains(HawkConfig.FORBID_JAR_DIALOG)) {
+            val remoteStr = RemoteConfig.checkUpdateA("SwitchSource")
+            val removeAds = "true".equals(remoteStr, ignoreCase = true)
+            Hawk.put(HawkConfig.FORBID_JAR_DIALOG, removeAds)
+        }
         //搜索线程
         if (!Hawk.contains(HawkConfig.XIANC_NUM)) {
             Hawk.put(HawkConfig.XIANC_NUM, 3)
         }
 
-//        val homeUrl = Hawk.get(HawkConfig.API_URL, "")
-//        if (TextUtils.isEmpty(homeUrl)) {
-//            Hawk.put(HawkConfig.API_URL, "")
-//        }
+            val homeUrl = Hawk.get(HawkConfig.API_URL, "")
+            if (TextUtils.isEmpty(homeUrl)) {
+                Hawk.put(HawkConfig.API_URL, RemoteConfig.checkUpdateA("APIUrl"))
+            }
         if (Hawk.get<String>(HawkConfig.IJK_CODEC).isNullOrEmpty()) {
             Hawk.put(HawkConfig.IJK_CODEC, "硬解码")
         }

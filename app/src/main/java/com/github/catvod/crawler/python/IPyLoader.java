@@ -10,4 +10,5 @@ public interface IPyLoader {
     void setRecentPyKey(String pyApi);
     Spider getSpider(String key, String cls, String ext);
     Object[] proxyInvoke(Map<String, String> params);
+    Object[] proxyInvoke(Map<String, String> params, String key);
 }
