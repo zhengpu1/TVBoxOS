@@ -18,6 +18,9 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="jar Init Ok" />
+      <item value="data Init Ok" />
+      <item value="use Cache Config" />
       <item value="LIVE GROUP LIST" />
       <item value="IMMERSIVE SWITCH" />
       <item value="tv Debug Open" />
@@ -65,9 +68,6 @@
       <item value="Count Down Latch" />
       <item value="Is Ok" />
       <item value="on Create" />
-      <item value="read Config File" />
-      <item value="switch Api Collection If Needed" />
-      <item value="clear Api Lines If Unmatched" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="3" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="8930" />
+        <entry key="CHINESE" value="8933" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="8931" />
+        <entry key="ENGLISH" value="8934" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="3" />
