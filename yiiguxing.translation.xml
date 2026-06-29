@@ -18,6 +18,10 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="action" />
+      <item value="FLAG ACTIVITY CLEAR TASK" />
+      <item value="Super Parse" />
+      <item value="DEFAULT PARSE" />
       <item value="init Exo Ok Http Client" />
       <item value="Ok Go Helper" />
       <item value="build Tools Version" />
@@ -64,10 +68,6 @@
       <item value="pre Progress Key" />
       <item value="pre Progress" />
       <item value="SYSTEM UI FLAG IMMERSIVE STICKY" />
-      <item value="contains Key" />
-      <item value="is Blank" />
-      <item value="String Utils" />
-      <item value="is Firstdlde" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="3" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="8936" />
+        <entry key="CHINESE" value="8940" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="8937" />
+        <entry key="ENGLISH" value="8941" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="3" />
