@@ -18,6 +18,13 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="on Play State Changed" />
+      <item value="prepared" />
+      <item value="mark Playback Started" />
+      <item value="hide Tip On Ui Thread" />
+      <item value="is Started Play State" />
+      <item value="get Current Series" />
+      <item value="check Danmu" />
       <item value="invoke Danmaku" />
       <item value="danmu Started Seq" />
       <item value="SYSTEM UI FLAG IMMERSIVE STICKY" />
@@ -61,13 +68,6 @@
       <item value="is Added" />
       <item value="auto Retry Count" />
       <item value="HOSTS SCRIPT" />
-      <item value="SEARCH MAX THREAD COUNT" />
-      <item value="M 3 U 8_PURIFY" />
-      <item value="get Support Fragment Manager" />
-      <item value="is Forbid Dialog" />
-      <item value="is Tv Or Box" />
-      <item value="set Class Loader Fields" />
-      <item value="inject Protected Class Loader" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="3" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="8954" />
+        <entry key="CHINESE" value="8959" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="8954" />
+        <entry key="ENGLISH" value="8960" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="3" />
@@ -93,7 +93,7 @@
         <entry key="GREEK" value="1" />
         <entry key="GUJARATI" value="1" />
         <entry key="HUNGARIAN" value="1" />
-        <entry key="INDONESIAN" value="3" />
+        <entry key="INDONESIAN" value="4" />
         <entry key="IRISH" value="3" />
         <entry key="ITALIAN" value="6" />
         <entry key="JAVANESE" value="1" />
