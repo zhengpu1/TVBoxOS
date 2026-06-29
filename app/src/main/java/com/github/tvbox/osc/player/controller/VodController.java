@@ -46,6 +46,7 @@ import com.github.tvbox.osc.ui.dialog.SelectDialoga;
 import com.github.tvbox.osc.ui.dialog.SpeedPlayDialog;
 import com.github.tvbox.osc.ui.view.ChoosePlayPopUp;
 import com.github.tvbox.osc.ui.view.PlayerMoreFucPop;
+import com.github.tvbox.osc.util.FastClickCheckUtil;
 import com.github.tvbox.osc.util.HawkConfig;
 import com.github.tvbox.osc.util.M3u8;
 import com.github.tvbox.osc.util.PlayerHelper;
@@ -92,6 +93,7 @@ public class VodController extends BaseController {
                     mProgressRoot.setVisibility(GONE);
                     break;
                 case 1002:
+                    updateDanmuSearchUiBtn();
                     mBottomRoot.setVisibility(VISIBLE);
                     mTopRoot1.setVisibility(VISIBLE);
                     mTopRoot2.setVisibility(VISIBLE);
@@ -181,10 +183,13 @@ public class VodController extends BaseController {
     private TextView mMiniProgressTextView;
     private long tempSeekProgress = 0;
     public static long PLAY_LAST_POSITION = 0;
+    TextView mDanmuSettingBtn;
+    private boolean hasDanmu = false;
     Handler myHandle;
     Runnable myRunnable;
     int myHandleSeconds = 6000;
     int videoPlayState = 0;
+    TextView mDanmuSearchUiBtn;
 
     // ======================【记忆播放】======================
     private String currentVideoKey = "";
@@ -345,6 +350,9 @@ public class VodController extends BaseController {
         mBack = findViewById(R.id.tvBackButton);
         mBackBimg = findViewById(R.id.tvBackBimg);
         mZimuBtn = findViewById(R.id.zimu_select);
+        updateDanmuSearchUiBtn();
+        mDanmuSettingBtn = findViewById(R.id.danmu_setting);
+        mDanmuSearchUiBtn = findViewById(R.id.danmu_search_ui);
         mLandscapePortraitBtn = findViewById(R.id.landscape_portrait);
         TextView choosePlay = findViewById(R.id.choose_play);
         choosePlay.setOnClickListener(v -> {
@@ -652,7 +660,20 @@ public class VodController extends BaseController {
             setLandscapePortrait();
             hideBottom();
         });
-
+        mDanmuSettingBtn.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FastClickCheckUtil.check(view);
+                listener.showDanmuSetting();
+            }
+        });
+        mDanmuSearchUiBtn.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.searchDanmuUi(false);
+                hideBottom();
+            }
+        });
         mNextBtn.setNextFocusLeftId(R.id.play_time_start);
     }
 
@@ -775,6 +796,20 @@ public class VodController extends BaseController {
         mPlayerTimeStartBtn.setText(PlayerUtils.stringForTime(mPlayerConfig.optInt("st", 0) * 1000));
         mPlayerTimeSkipBtn.setText(PlayerUtils.stringForTime(mPlayerConfig.optInt("et", 0) * 1000));
     }
+    private String getPlayerShortName(int playerType) {
+        String playerName = PlayerHelper.getPlayerName(playerType);
+        return playerName;
+    }
+
+    private String getCodecShortName(String codecName) {
+        if ("硬解码".equals(codecName)) {
+            return "硬解";
+        }
+        if ("软解码".equals(codecName)) {
+            return "软解";
+        }
+        return codecName;
+    }
 
     public void setTitle(String playTitleInfo) {
         mPlayTitle.setText(playTitleInfo);
@@ -790,7 +825,19 @@ public class VodController extends BaseController {
         mHandler.removeMessages(1004);
         mHandler.sendEmptyMessageDelayed(1004, 100);
     }
+    public void setHasDanmu(boolean hasDanmu) {
+        this.hasDanmu = hasDanmu;
+        updateDanmuBtn();
+    }
 
+    public void updateDanmuBtn() {
+       // if (mDanmuSettingBtn == null) return;
+        mDanmuSettingBtn.setVisibility(VISIBLE);
+    }
+    public void updateDanmuSearchUiBtn() {
+        if (mDanmuSearchUiBtn == null) return;
+        mDanmuSearchUiBtn.setVisibility(VISIBLE);
+    }
     public interface VodControlListener {
         void playNext(boolean rmProgress);
         void playPre();
@@ -801,8 +848,13 @@ public class VodController extends BaseController {
         void replay(boolean replay);
         void errReplay();
         void selectSubtitle();
+        void showDanmuSetting();
+
+        void searchDanmuUi(boolean longClick);
+
         void startPlayUrl(String url, HashMap<String, String> headers);
         void selectAudioTrack();
+
     }
 
     private static VodControlListener listener;

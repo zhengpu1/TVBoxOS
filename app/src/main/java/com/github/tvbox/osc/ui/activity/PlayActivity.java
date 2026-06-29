@@ -47,6 +47,7 @@ import androidx.recyclerview.widget.DiffUtil;
 import com.github.catvod.crawler.Spider;
 import com.github.tvbox.osc.R;
 import com.github.tvbox.osc.api.ApiConfig;
+import com.github.tvbox.osc.api.DanmakuApi;
 import com.github.tvbox.osc.base.App;
 import com.github.tvbox.osc.base.baseActivity;
 import com.github.tvbox.osc.bean.ParseBean;
@@ -60,12 +61,16 @@ import com.github.tvbox.osc.player.MyVideoView;
 import com.github.tvbox.osc.player.TrackInfo;
 import com.github.tvbox.osc.player.TrackInfoBean;
 import com.github.tvbox.osc.player.controller.VodController;
+import com.github.tvbox.osc.player.danmu.DanmuLoadController;
+import com.github.tvbox.osc.player.danmu.Parser;
 import com.github.tvbox.osc.server.ControlManager;
 import com.github.tvbox.osc.ui.adapter.SelectDialogAdapter;
+import com.github.tvbox.osc.ui.dialog.DanmuSettingDialog;
 import com.github.tvbox.osc.ui.dialog.SearchSubtitleDialog;
 import com.github.tvbox.osc.ui.dialog.SelectDialog;
 import com.github.tvbox.osc.ui.dialog.SubtitleDialog;
 import com.github.tvbox.osc.util.AdBlocker;
+import com.github.tvbox.osc.util.DanmuHelper;
 import com.github.tvbox.osc.util.DefaultConfig;
 import com.github.tvbox.osc.util.FileUtils;
 import com.github.tvbox.osc.util.HawkConfig;
@@ -89,6 +94,8 @@ import com.obsez.android.lib.filechooser.ChooserDialog;
 import com.orhanobut.hawk.Hawk;
 
 import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -114,6 +121,10 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import master.flame.danmaku.danmaku.model.BaseDanmaku;
+import master.flame.danmaku.danmaku.model.IDisplayer;
+import master.flame.danmaku.danmaku.model.android.DanmakuContext;
+import master.flame.danmaku.ui.widget.DanmakuView;
 import me.jessyan.autosize.AutoSize;
 import tv.danmaku.ijk.media.player.IMediaPlayer;
 import tv.danmaku.ijk.media.player.IjkTimedText;
@@ -129,56 +140,132 @@ public class PlayActivity extends baseActivity {
     private SourceViewModel sourceViewModel;
     private Handler mHandler;
     private String videoURL;
+    private ExecutorService danmuExecutor;
+    private DanmakuView mDanmuView;
+    private DanmakuContext mDanmakuContext;
+    private String danmuText;
+    private final AtomicInteger danmuLoadSeq = new AtomicInteger();
     public static boolean forceReplayToStart = false;
+    private DanmuLoadController danmuLoadController;
     @Override
     protected int getLayoutResID() {
         return R.layout.activity_play;
     }
-
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void refresh(RefreshEvent event) {
+        if (event.type == RefreshEvent.TYPE_SET_DANMU_SETTINGS) {
+            setDanmuViewSettings(event.obj instanceof Boolean && (Boolean) event.obj);
+        }
+    }
     @Override
     protected void init() {
         initView();
+        initDanmuView();
         initViewModel();
         initData();
     }
+    private void initDanmuView() {
+        mDanmuView = findViewById(R.id.danmaku);
+        mDanmakuContext = DanmakuContext.create();
+        mVideoView.setDanmuView(mDanmuView);
+        setDanmuViewSettings(false);
+    }
 
-    public long getSavedProgress999(String url) {
-        // 1. 用 剧名+集数 作为 key，不靠 URL
-        String key = mVodInfo.name + "_" + mVodInfo.playIndex;
-        Object cache = CacheManager.getCache(MD5.string2MD5(url));
+    private void setDanmuViewSettings(boolean reload) {
+        if (mDanmuView == null || mDanmakuContext == null) return;
+        if (!DanmuHelper.isOpen()) {
+            releaseDanmuView();
+            if (mController != null) mController.setHasDanmu(!TextUtils.isEmpty(danmuText));
+            return;
+        }
+        HashMap<Integer, Integer> maxLines = new HashMap<>();
+        int maxLine = DanmuHelper.getMaxLine();
+        maxLines.put(BaseDanmaku.TYPE_FIX_TOP, maxLine);
+        maxLines.put(BaseDanmaku.TYPE_SCROLL_RL, maxLine);
+        maxLines.put(BaseDanmaku.TYPE_SCROLL_LR, maxLine);
+        maxLines.put(BaseDanmaku.TYPE_FIX_BOTTOM, maxLine);
+        mDanmakuContext.setMaximumLines(maxLines)
+                .setScrollSpeedFactor(DanmuHelper.getSpeed())
+                .setDanmakuTransparency(DanmuHelper.getAlpha())
+                .setScaleTextSize(DanmuHelper.getSizeScale());
+        mDanmakuContext.setDanmakuStyle(IDisplayer.DANMAKU_STYLE_STROKEN, 3)
+                .setDanmakuMargin(8);
+        if (reload && !TextUtils.isEmpty(danmuText) && DanmuHelper.isOpen()) {
+            prepareDanmu(danmuText);
+        }
+    }
 
-        // 2. 读取本地保存的进度
-        long savedProgress = 0;
-        if (cache != null) {
-            try {
-                if (cache instanceof Long) {
-                    savedProgress = (Long) cache;
-                } else if (cache instanceof String) {
-                    savedProgress = Long.parseLong((String) cache);
+    private void checkDanmu(String danmu) {
+        danmuText = TextUtils.isEmpty(danmu) ? "" : danmu.trim();
+        releaseDanmuView();
+        boolean hasDanmu = !TextUtils.isEmpty(danmuText);
+        mController.setHasDanmu(hasDanmu);
+        if (!hasDanmu || !DanmuHelper.isOpen()) {
+            if (mDanmuView != null) mDanmuView.setVisibility(View.GONE);
+            return;
+        }
+        if (mDanmuView != null) mDanmuView.setVisibility(View.VISIBLE);
+        prepareDanmu(danmuText);
+    }
+    private void startDanmuIfReady() {
+        if (danmuLoadController != null) danmuLoadController.startIfReady();
+    }
+    private void prepareDanmu(String danmu) {
+        if (TextUtils.isEmpty(danmu)) return;
+        int seq = danmuLoadSeq.incrementAndGet();
+        if (danmuExecutor == null || danmuExecutor.isShutdown()) {
+            danmuExecutor = Executors.newSingleThreadExecutor();
+        }
+        danmuExecutor.execute(() -> {
+            Parser parser = new Parser(danmu);
+            int danmuCount = parser.getDanmuCount();
+            LOG.i("echo-danmu parsed count: " + danmuCount);
+            runOnUiThread(() -> {
+                if (seq != danmuLoadSeq.get() || mDanmuView == null || mDanmakuContext == null) return;
+                try {
+                    mDanmuView.release();
+                    if (mVideoView != null) mVideoView.setDanmuView(mDanmuView);
+                    if (danmuCount <= 0) {
+                        LOG.e("echo-danmu empty after parse");
+                        mDanmuView.setVisibility(View.GONE);
+                        return;
+                    }
+                    mDanmuView.prepare(parser, mDanmakuContext);
+                    mDanmuView.setVisibility(DanmuHelper.isOpen() ? View.VISIBLE : View.GONE);
+                    if (mVideoView != null && mVideoView.isPlaying()) {
+                        mDanmuView.seekTo(mVideoView.getCurrentPosition());
+                    }
+                    mDanmuView.postDelayed(() -> {
+                        if (seq == danmuLoadSeq.get()
+                                && mVideoView != null
+                                && mVideoView.isPlaying()
+                                && mDanmuView != null
+                                && mDanmuView.isPrepared()) {
+                            mDanmuView.start(mVideoView.getCurrentPosition());
+                        }
+                    }, 300);
+                } catch (Throwable th) {
+                    LOG.e("echo-danmu prepare error: " + th.getMessage());
+                    mDanmuView.setVisibility(View.GONE);
                 }
-            } catch (Exception e) {
-                savedProgress = 0;
-            }
-        }
+            });
+        });
+    }
 
-        // 3. 读取片头跳过时间
-        int stSecond = mVodPlayerCfg.optInt("st", 0);
-        long skipProgress = stSecond * 1000L;
+    private void resetDanmuState() {
+        danmuText = "";
+        danmuLoadSeq.incrementAndGet();
+        if (mController != null) mController.setHasDanmu(false);
+        releaseDanmuView();
+    }
 
-        // 4. 规则：
-        // - 有进度 → 读进度
-        // - 没进度 → 跳片头
-        if (forceReplayToStart) {
-            forceReplayToStart = false;
-            return skipProgress;
+    private void releaseDanmuView() {
+        if (mDanmuView == null) return;
+        try {
+            mDanmuView.release();
+        } catch (Throwable ignored) {
         }
-
-// 正常逻辑：有进度读进度，没进度读片头跳过
-        if (savedProgress > 0) {
-            return savedProgress;
-        } else {
-            return skipProgress;
-        }
+        mDanmuView.setVisibility(View.GONE);
     }
     public long getSavedProgress(String url) {
         int st = 0;
@@ -231,6 +318,17 @@ public class PlayActivity extends baseActivity {
         };
         mVideoView.setProgressManager(progressManager);
         mController.setListener(new VodController.VodControlListener() {
+            @Override
+            public void showDanmuSetting() {
+                DanmuSettingDialog dialog = new DanmuSettingDialog(PlayActivity.this, mDanmuView);
+                dialog.show();
+            }
+            @Override
+            public void searchDanmuUi(boolean longClick) {
+                VodInfo.VodSeries series = mVodInfo == null ? null : getCurrentSeries(mVodInfo.playFlag, mVodInfo.playIndex);
+                ApiConfig.get().searchDanmuUi(mVodInfo == null ? "" : mVodInfo.name, series == null ? "" : series.name, longClick);
+            }
+
             @Override
             public void playNext(boolean rmProgress) {
                 if (mVodInfo.reverseSort) {
@@ -300,6 +398,8 @@ public class PlayActivity extends baseActivity {
             @Override
             public void prepared() {
                 initSubtitleView();
+                if (mVideoView != null) mVideoView.prepared();
+                startDanmuIfReady();
             }
         });
         mVideoView.setVideoController(mController);
@@ -744,6 +844,7 @@ public class PlayActivity extends baseActivity {
                         }
                         String flag = info.optString("flag");
                         String url = info.getString("url");
+                        String danmaku = info.optString("danmaku", "");
                         if (!Hawk.get(HawkConfig.VIDEO_PURIFY, true)) {
                             if (url.contains(".lz") || url.contains(".ff")) {
                                 url = ApiConfig.get().adblockUrl + url;
@@ -779,6 +880,8 @@ public class PlayActivity extends baseActivity {
                             mController.showParse(false);
                             playUrl(playUrl + url, headers);
                         }
+                        checkDanmu(danmaku);
+                        searchDanmu(danmaku);
                     } catch (Throwable th) {
 //                        errorWithRetry("获取播放信息错误", true);
 //                        Toast.makeText(mContext, "获取播放信息错误1", Toast.LENGTH_SHORT).show();
@@ -790,7 +893,24 @@ public class PlayActivity extends baseActivity {
             }
         });
     }
+    private void searchDanmu(String danmaku) {
+        if (!TextUtils.isEmpty(danmaku) || !DanmakuApi.canSearch() || mVodInfo == null) return;
+        VodInfo.VodSeries series = getCurrentSeries(mVodInfo.playFlag, mVodInfo.playIndex);
+        String key = progressKey;
+        DanmakuApi.search(mVodInfo.name, series == null ? "" : series.name, new DanmakuApi.SearchCallback() {
+            @Override
+            public void onFound(String url) {
+                if (!TextUtils.equals(key, progressKey)) return;
+                checkDanmu(url);
+            }
 
+            @Override
+            public void onNotFound() {
+                if (!TextUtils.equals(key, progressKey)) return;
+                checkDanmu("");
+            }
+        });
+    }
     private void initData() {
         Intent intent = getIntent();
         if (intent != null && intent.getExtras() != null) {
@@ -891,6 +1011,12 @@ public class PlayActivity extends baseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        EventBus.getDefault().unregister(this);
+        resetDanmuState();
+        if (danmuExecutor != null) {
+            danmuExecutor.shutdownNow();
+            danmuExecutor = null;
+        }
         if (mVideoView != null) {
             mVideoView.release();
             mVideoView = null;
@@ -996,6 +1122,7 @@ public class PlayActivity extends baseActivity {
         setTip("正在获取播放信息", true, false);
         stopParse();
         initParseLoadFound();
+        resetDanmuState();
         if(mVideoView!=null) mVideoView.release();
         String subtitleCacheKey = mVodInfo.sourceKey + "-" + mVodInfo.id + "-" + mVodInfo.playFlag + "-" + mVodInfo.playIndex+ "-" + vs.name + "-subt";
         String progressKey1 = mVodInfo.sourceKey + mVodInfo.id + mVodInfo.playFlag + mVodInfo.playIndex + vs.name;
@@ -1530,7 +1657,17 @@ public class PlayActivity extends baseActivity {
             }
         });
     }
-
+    private VodInfo.VodSeries getCurrentSeries(String flag, int index) {
+        if (flag == null || mVodInfo == null || mVodInfo.seriesMap == null) {
+            return null;
+        }
+        List<VodInfo.VodSeries> currentList = mVodInfo.seriesMap.get(flag);
+        if (currentList == null || currentList.isEmpty()) {
+            return null;
+        }
+        int safeIndex = Math.max(0, Math.min(index, currentList.size() - 1));
+        return currentList.get(safeIndex);
+    }
     boolean checkVideoFormat(String url) {
         if (url.contains("url=http") || url.contains(".html")) {
             return false;

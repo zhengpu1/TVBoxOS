@@ -32,12 +32,14 @@ import com.github.tvbox.osc.ui.dialog.AboutDialog;
 import com.github.tvbox.osc.ui.dialog.ApiDialog;
 import com.github.tvbox.osc.ui.dialog.ApiHistoryDialog;
 import com.github.tvbox.osc.ui.dialog.BackupDialog;
+import com.github.tvbox.osc.ui.dialog.DanmuApiDialog;
 import com.github.tvbox.osc.ui.dialog.ResetDialog;
 import com.github.tvbox.osc.ui.dialog.SearchRemoteTvDialog;
 import com.github.tvbox.osc.ui.dialog.SelectDialog;
 import com.github.tvbox.osc.ui.dialog.UpdateDialog;
 import com.github.tvbox.osc.ui.dialog.XWalkInitDialog;
 import com.github.tvbox.osc.util.AppManager;
+import com.github.tvbox.osc.util.DanmuHelper;
 import com.github.tvbox.osc.util.DefaultConfig;
 import com.github.tvbox.osc.util.FastClickCheckUtil;
 import com.github.tvbox.osc.util.FileUtils;
@@ -102,7 +104,8 @@ public class ModelSettingFragment extends BaseLazyFragment {
     private TextView tvPwet;
     private TextView tvPtst;
     private TextView tvPlayback;
-
+    private TextView tvDanmuOpenText;
+    private TextView tvDanmuApiText;
     private TextView mForbidDialogText;
 
     public static ModelSettingFragment newInstance() {
@@ -121,6 +124,9 @@ public class ModelSettingFragment extends BaseLazyFragment {
     @Override
     protected void init() {
         tvFastSearchText = findViewById(R.id.showFastSearchText);
+        tvDanmuOpenText = findViewById(R.id.danmuOpenText);
+        tvDanmuOpenText.setText(DanmuHelper.isOpen() ? "开启" : "关闭");
+        tvDanmuApiText = findViewById(R.id.danmuApiText);
         tvFastSearchText.setText(Hawk.get(HawkConfig.EPISODE_GROUPING, false) ? "开启" : "关闭");
         tvShowPreviewText = findViewById(R.id.showPreviewText);
         tvShowPreviewText.setText(Hawk.get(HawkConfig.SHOW_PREVIEW, true) ? "开启" : "关闭");
@@ -203,7 +209,7 @@ public class ModelSettingFragment extends BaseLazyFragment {
                 findViewById(R.id.llSearchTv), findViewById(R.id.llHistoryNum), findViewById(R.id.llWp), findViewById(R.id.llWpRecovery),
                 findViewById(R.id.llScale), findViewById(R.id.llIjkCachePlay), findViewById(R.id.llClearCache),
                 findViewById(R.id.llBackup), findViewById(R.id.llplayback), findViewById(R.id.llAbout),findViewById(R.id.llXianc), findViewById(R.id.llDadeup), findViewById(R.id.showFastSearch),
-                findViewById(R.id.showPreview),findViewById(R.id.llApiLine),findViewById(R.id.llApiHistory)};
+                findViewById(R.id.showPreview),findViewById(R.id.llApiLine),findViewById(R.id.llApiHistory),findViewById(R.id.danmuOpen),findViewById(R.id.danmuApi)};
         baseActivity.drawableLinearLayout(strs, 1);
         findViewById(R.id.llParseWebVew).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -588,7 +594,29 @@ public class ModelSettingFragment extends BaseLazyFragment {
                 dialog.show();
             }
         });
-
+        findViewById(R.id.danmuOpen).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FastClickCheckUtil.check(v);
+                boolean open = !DanmuHelper.isOpen();
+                DanmuHelper.setOpen(open);
+                tvDanmuOpenText.setText(open ? "开启" : "关闭");
+            }
+        });
+        findViewById(R.id.danmuApi).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FastClickCheckUtil.check(v);
+                DanmuApiDialog dialog = new DanmuApiDialog(mActivity);
+                dialog.setOnListener(new DanmuApiDialog.OnListener() {
+                    @Override
+                    public void onChange(String api) {
+                        refreshDanmuApiText();
+                    }
+                });
+                dialog.show();
+            }
+        });
         findViewById(R.id.llHomeImg).setOnClickListener(new View.OnClickListener() {
             private final int chkTheme = Hawk.get(HawkConfig.HOME_LSTIMG, 0);
 
@@ -1070,6 +1098,11 @@ public class ModelSettingFragment extends BaseLazyFragment {
     public void onDestroyView() {
         super.onDestroyView();
         SettingActivity.callback = null;
+    }
+    private void refreshDanmuApiText() {
+        if (tvDanmuApiText == null) return;
+        String api = Hawk.get(HawkConfig.DANMU_API, "");
+        tvDanmuApiText.setText(api.isEmpty() ? "默认" : api);
     }
 
     String getHomeRecName(int type) {

@@ -14,6 +14,7 @@ public class SourceBean {
     private int hide; // 设置的选择列表里隐藏
     private String ext; // 扩展数据
     private String jar; // 自定义jar
+    private int timeout; // 站点播放信息获取超时，单位秒
     private ArrayList<String> categories = null; // 分类&排序
     private int playerType; // 0 system 1 ikj 2 exo 10 mxplayer -1 以参数设置页面的为准
     private String clickSelector; // 需要点击播放的嗅探站点selector   ddrk.me;#id
@@ -84,7 +85,9 @@ public class SourceBean {
     public int getFilterable() {
         return filterable;
     }
-
+    public int getPlayTimeoutSeconds() {
+        return timeout > 0 ? Math.max(5, Math.min(60, timeout)) : 15;
+    }
     public void setFilterable(int filterable) {
         this.filterable = filterable;
     }

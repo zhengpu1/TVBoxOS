@@ -80,7 +80,9 @@ public abstract class Spider {
     public String searchContent(String key, boolean quick) {
         return "";
     }
-
+    public String searchContent(String key, boolean quick, String pg) {
+        return searchContent(key, quick);
+    }
     /**
      * 播放信息
      *
@@ -124,4 +126,7 @@ public abstract class Spider {
     }
 
     public void destroy() {}
+    public String action(String action) {
+        return null;
+    }
 }
