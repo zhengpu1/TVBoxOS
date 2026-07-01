@@ -18,6 +18,15 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="configure Subtitle View" />
+      <item value="on Destroy View" />
+      <item value="is Prepared" />
+      <item value="is Playing" />
+      <item value="prepared" />
+      <item value="start Play Url" />
+      <item value="start Danmu If Ready" />
+      <item value="reset Danmu State" />
+      <item value="set Danmu View Settings" />
       <item value="init Parse Load Found" />
       <item value="set On Click Listener" />
       <item value="synchronized" />
@@ -39,18 +48,13 @@
       <item value="has Auto Switched Player" />
       <item value="add On State Change Listener" />
       <item value="select Subtitle" />
-      <item value="start Play Url" />
       <item value="search Danmu Ui" />
       <item value="show Danmu Setting" />
       <item value="play Previous" />
       <item value="play Pre" />
-      <item value="reset Danmu State" />
-      <item value="on Destroy View" />
       <item value="get Saved Progress" />
       <item value="start If Ready" />
       <item value="hide Tip On Ui Thread" />
-      <item value="prepared" />
-      <item value="start Danmu If Ready" />
       <item value="is Playback Started" />
       <item value="pause For Hidden" />
       <item value="allow Switch Player" />
@@ -64,10 +68,6 @@
       <item value="normalize Danmaku Param" />
       <item value="comment Json To Xml" />
       <item value="extract Number" />
-      <item value="parse Episode Number" />
-      <item value="find Episodes" />
-      <item value="find Episode Id" />
-      <item value="find Anime Id" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="3" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="9037" />
+        <entry key="CHINESE" value="9046" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="9038" />
+        <entry key="ENGLISH" value="9047" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="4" />
