@@ -832,11 +832,11 @@ public class VodController extends BaseController {
 
     public void updateDanmuBtn() {
        // if (mDanmuSettingBtn == null) return;
-        mDanmuSettingBtn.setVisibility(VISIBLE);
+        mDanmuSettingBtn.setVisibility(hasDanmu ? VISIBLE : GONE);
     }
     public void updateDanmuSearchUiBtn() {
         if (mDanmuSearchUiBtn == null) return;
-        mDanmuSearchUiBtn.setVisibility(VISIBLE);
+        mDanmuSearchUiBtn.setVisibility(ApiConfig.get().hasDanmuSearchUi() ? VISIBLE : GONE);
     }
     public interface VodControlListener {
         void playNext(boolean rmProgress);

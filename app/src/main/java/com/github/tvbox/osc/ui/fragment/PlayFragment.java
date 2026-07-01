@@ -163,6 +163,8 @@ public class PlayFragment extends BaseLazyFragment {
         }
         if (event.type == RefreshEvent.TYPE_SET_DANMU_SETTINGS) {
             setDanmuViewSettings(event.obj instanceof Boolean && (Boolean) event.obj);
+        }else if (event.type == RefreshEvent.TYPE_DANMU_REFRESH) {
+            checkDanmu(event.obj instanceof String ? (String) event.obj : "");
         }
     }
     // 5 秒超时
@@ -195,11 +197,9 @@ public class PlayFragment extends BaseLazyFragment {
     private void startDanmuIfReady() {
         if (danmuLoadController != null) danmuLoadController.startIfReady();
     }
-
     private void resetDanmuState() {
         if (danmuLoadController != null) danmuLoadController.reset();
     }
-
     public long getSavedProgress(String url) {
         int st = 0;
         try {

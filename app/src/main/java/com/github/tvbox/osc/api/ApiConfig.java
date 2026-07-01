@@ -2,6 +2,8 @@ package com.github.tvbox.osc.api;
 
 import android.app.Activity;
 import android.net.Uri;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.TextUtils;
 import android.util.Base64;
 
@@ -22,7 +24,6 @@ import com.github.tvbox.osc.util.FileUtils;
 import com.github.tvbox.osc.util.HawkConfig;
 import com.github.tvbox.osc.util.HistoryHelper;
 import com.github.tvbox.osc.util.LOG;
-import com.github.tvbox.osc.util.M3u8;
 import com.github.tvbox.osc.util.MD5;
 import com.github.tvbox.osc.util.RemoteConfig;
 import com.github.tvbox.osc.util.VideoParseRuler;
@@ -42,12 +43,16 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -72,11 +77,14 @@ public class ApiConfig {
     public String  souyeUrl = "";
     public String  tuijUrl = "";
     public String duocUrl = "";
+    private String danmaku = "";
     private final SourceBean emptyHome = new SourceBean();
-
+    private final Handler mainHandler = new Handler(Looper.getMainLooper());
+    private final ExecutorService jarLoadExecutor = Executors.newSingleThreadExecutor();
+    private final ExecutorService danmuSearchExecutor = Executors.newSingleThreadExecutor();
     private final JarLoader jarLoader = new JarLoader();
     private final JsLoader jsLoader = new JsLoader();
-
+    private static final int LOAD_JAR_MAX_RETRY = 1;
     private final String userAgent = "okhttp/3.15";
     private final Gson gson;
     private final String requestAccept = "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9";
@@ -137,7 +145,7 @@ public class ApiConfig {
         return "".getBytes();
     }
     public void loadConfig(boolean useCache, LoadConfigCallback callback, Activity activity) {
-        String apiUrl = Hawk.get(HawkConfig.API_URL, RemoteConfig.checkUpdateA("APIUrl"));
+        String apiUrl = Hawk.get(HawkConfig.API_URL, "");
         LOG.i("ApiConfig: loadConfig: "+apiUrl);
         if (apiUrl.isEmpty()) {
             callback.error("-1");
@@ -189,7 +197,7 @@ public class ApiConfig {
                     public void onSuccess(Response<String> response) {
                         try {
                             String json = response.body();
-                           if (switchApiCollectionIfNeeded(finalApiUrl, json)) {
+                            if (switchApiCollectionIfNeeded(finalApiUrl, json)) {
                                 FileUtils.saveCache(cache,json);
                                 loadConfig(false, callback, activity);
                                 return;
@@ -251,21 +259,26 @@ public class ApiConfig {
                     }
                 });
     }
-
     public void loadJar(boolean useCache, String spider, LoadConfigCallback callback) {
         String[] urls = spider.split(";md5;");
         String jarUrl = urls[0];
         String md5 = urls.length > 1 ? urls[1].trim() : "";
-        File cache = new File(App.getInstance().getFilesDir().getAbsolutePath() + "/csp.jar");
-
+        File cache = new File(App.getInstance().getFilesDir().getAbsolutePath() + "/csp/"+MD5.string2MD5(jarUrl)+".jar");
         if (!md5.isEmpty() || useCache) {
             if (cache.exists() && (useCache || MD5.getFileMd5(cache).equalsIgnoreCase(md5))) {
                 if (jarLoader.load(cache.getAbsolutePath())) {
                     callback.success();
                 } else {
-                    callback.error("");
+                    callback.error("从缓存加载jar失败");
                 }
                 return;
+            }
+        }else {
+            if (Boolean.parseBoolean(jarCache) && cache.exists() && !FileUtils.isWeekAgo(cache)) {
+                if (jarLoader.load(cache.getAbsolutePath())) {
+                    callback.success();
+                    return;
+                }
             }
         }
 
@@ -277,46 +290,72 @@ public class ApiConfig {
                 .execute(new AbsCallback<File>() {
 
                     @Override
-                    public File convertResponse(okhttp3.Response response) throws Throwable {
+                    public File convertResponse(okhttp3.Response response){
                         File cacheDir = cache.getParentFile();
-                        if (!cacheDir.exists())
-                            cacheDir.mkdirs();
-                        if (cache.exists())
-                            cache.delete();
-                        FileOutputStream fos = new FileOutputStream(cache);
-                        if (isJarInImg) {
-                            String respData = response.body().string();
-                            byte[] imgJar = getImgJar(respData);
-                            fos.write(imgJar);
-                        } else {
-                            fos.write(response.body().bytes());
+                        assert cacheDir != null;
+                        if (!cacheDir.exists()) cacheDir.mkdirs();
+                        if (cache.exists()) cache.delete();
+                        // 3. 使用 try-with-resources 确保流关闭
+                        assert response.body() != null;
+                        try (FileOutputStream fos = new FileOutputStream(cache)) {
+                            if (isJarInImg) {
+                                String respData = response.body().string();
+                                LOG.i("echo---jar Response: " + respData);
+                                byte[] imgJar = getImgJar(respData);
+                                if (imgJar == null || imgJar.length == 0) {
+                                    LOG.e("echo---Generated JAR data is empty");
+                                    callback.error("JAR data is empty");
+                                }
+                                fos.write(imgJar);
+                            } else {
+                                // 使用流式传输避免内存溢出
+                                InputStream inputStream = response.body().byteStream();
+                                byte[] buffer = new byte[4096];
+                                int bytesRead;
+                                while ((bytesRead = inputStream.read(buffer)) != -1) {
+                                    fos.write(buffer, 0, bytesRead);
+                                }
+                            }
+                            fos.flush();
+                        } catch (IOException e) {
+                            return null;
                         }
-                        fos.flush();
-                        fos.close();
                         return cache;
                     }
 
                     @Override
                     public void onSuccess(Response<File> response) {
-                        if (response.body().exists()) {
-                            if (jarLoader.load(response.body().getAbsolutePath())) {
-                                callback.success();
-                            } else {
-                                callback.error("");
+                        File file = response.body();
+                        if (file != null && file.exists()) {
+                            try {
+                                if (jarLoader.load(file.getAbsolutePath())) {
+                                    callback.success();
+                                } else {
+                                    LOG.e("echo---jar Loader returned false");
+                                    callback.error("从网络上加载jar写入缓存后加载失败");
+                                }
+                            } catch (Exception e) {
+                                LOG.e("echo---jar Loader threw exception: " + e.getMessage());
+                                callback.error("JAR加载异常: " + e.getMessage());
                             }
                         } else {
-                            callback.error("");
+                            LOG.e("echo---jar File not found");
+                            callback.error("从网络上加载jar地址字节数据为空");
                         }
                     }
 
                     @Override
                     public void onError(Response<File> response) {
-                        super.onError(response);
-                        callback.error("");
+                        Throwable ex = response.getException();
+                        if (ex != null) {
+                            LOG.i("echo---jar Request failed: " + ex.getMessage());
+                        }
+                        if(cache.exists())jarLoader.load(cache.getAbsolutePath());
+                        callback.error(ex != null ? "从网络上加载jar失败：" + ex.getMessage() : "未知网络错误");
                     }
                 });
     }
-
+    private static  String jarCache ="true";
     private void parseJson(String apiUrl, File f) throws Throwable {
         parseJson(apiUrl, readConfigFile(f));
     }
@@ -411,9 +450,11 @@ public class ApiConfig {
         }
         HistoryHelper.clearApiLineList();
     }
+
     private void parseJson(String apiUrl, String jsonStr) {
 
         JsonObject infoJson = new Gson().fromJson(jsonStr, JsonObject.class);
+        jarCache = DefaultConfig.safeJsonString(infoJson, "jarCache", "true");
         // spider
         spider = DefaultConfig.safeJsonString(infoJson, "spider", "");
         // wallpaper
@@ -428,6 +469,7 @@ public class ApiConfig {
         tuijUrl = DefaultConfig.safeJsonString(infoJson, "tuijUrl", "");
         //多仓地址
         duocUrl = DefaultConfig.safeJsonString(infoJson, "duocUrl", "http://192.168.80.10:38/tv/dc.json");
+        danmaku = DefaultConfig.safeJsonString(infoJson, "danmaku", "");
         // 远端站点源
        // BuiltAPI(duocUrl);
         SourceBean firstSite = null;
@@ -547,7 +589,7 @@ public class ApiConfig {
                 if (livesOBJ.has("logo")) {
                     String logo = livesOBJ.get("logo").getAsString();
                     System.out.println("LOGO URL222 :" + logo);
-                        Hawk.put(HawkConfig.LOGO_URL, logo);
+                    Hawk.put(HawkConfig.LOGO_URL, logo);
                 }
 
             } else {
@@ -592,7 +634,7 @@ public class ApiConfig {
                         if (fengMiLives.has("logo")) {
                             String logo = fengMiLives.get("logo").getAsString();
                             System.out.println("LOGO URL :" + logo);
-                                Hawk.put(HawkConfig.LOGO_URL, logo);
+                            Hawk.put(HawkConfig.LOGO_URL, logo);
                         }
 
                         if (url.startsWith("http")) {
@@ -652,21 +694,17 @@ public class ApiConfig {
                         }
                     }
                 }
-                //广告过滤规则
                 if (obj.has("hosts") && obj.has("regex")) {
                     ArrayList<String> rule = new ArrayList<>();
-                    ArrayList<String> ads = new ArrayList<>();
                     JsonArray regexArray = obj.getAsJsonArray("regex");
                     for (JsonElement one : regexArray) {
-                        String regex = one.getAsString();
-                        if (M3u8.isAd(regex)) ads.add(regex);
-                        else rule.add(regex);
+                        rule.add(one.getAsString());
                     }
+
                     JsonArray array = obj.getAsJsonArray("hosts");
                     for (JsonElement one : array) {
                         String host = one.getAsString();
                         VideoParseRuler.addHostRule(host, rule);
-                        VideoParseRuler.addHostRegex(host, ads);
                     }
                 }
             }
@@ -968,6 +1006,23 @@ public class ApiConfig {
                 });
 
         return dcUrl;
+    }
+    public void searchDanmuUi(String name, String episode, boolean longClick) {
+        danmuSearchExecutor.execute(() -> {
+            try {
+                jarLoader.searchDanmuUi(name, episode, longClick);
+            } catch (Throwable th) {
+                LOG.e("ApiConfig searchDanmuUi error: " + th.getMessage());
+                th.printStackTrace();
+            }
+        });
+    }
+
+    public boolean hasDanmuSearchUi() {
+        return jarLoader.hasDanmuSearchUi();
+    }
+    public String getDanmaku() {
+        return danmaku == null ? "" : danmaku;
     }
     private void addSuperParse()
     {

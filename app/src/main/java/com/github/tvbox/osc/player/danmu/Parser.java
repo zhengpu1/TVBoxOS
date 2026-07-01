@@ -9,6 +9,7 @@ import com.github.tvbox.osc.util.FileUtils;
 import com.github.tvbox.osc.util.LOG;
 import com.github.tvbox.osc.util.OkGoHelper;
 import com.github.tvbox.osc.util.SSL.SSLSocketFactoryCompat;
+import com.google.gson.Gson;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -311,10 +312,8 @@ public class Parser extends BaseDanmakuParser {
     private boolean setSpecial(BaseDanmaku item) {
         String[] textArr;
         try {
-            JSONArray jsonArray = null;
-            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
-                jsonArray = new JSONArray(item.text);
-            }
+            Gson gson = new Gson();
+            JSONArray jsonArray = gson.fromJson((String) item.text, JSONArray.class);
             textArr = new String[jsonArray.length()];
             for (int i = 0; i < textArr.length; i++) {
                 textArr[i] = jsonArray.getString(i);

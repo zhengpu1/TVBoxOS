@@ -159,11 +159,13 @@ public class PlayActivity extends baseActivity {
     }
     @Override
     protected void init() {
+        EventBus.getDefault().register(this);
         initView();
         initDanmuView();
         initViewModel();
         initData();
     }
+
     private void initDanmuView() {
         mDanmuView = findViewById(R.id.danmaku);
         mDanmakuContext = DanmakuContext.create();
@@ -207,9 +209,7 @@ public class PlayActivity extends baseActivity {
         if (mDanmuView != null) mDanmuView.setVisibility(View.VISIBLE);
         prepareDanmu(danmuText);
     }
-    private void startDanmuIfReady() {
-        if (danmuLoadController != null) danmuLoadController.startIfReady();
-    }
+
     private void prepareDanmu(String danmu) {
         if (TextUtils.isEmpty(danmu)) return;
         int seq = danmuLoadSeq.incrementAndGet();
@@ -253,6 +253,7 @@ public class PlayActivity extends baseActivity {
     }
 
     private void resetDanmuState() {
+        DanmakuApi.cancel();
         danmuText = "";
         danmuLoadSeq.incrementAndGet();
         if (mController != null) mController.setHasDanmu(false);
@@ -404,7 +405,9 @@ public class PlayActivity extends baseActivity {
         });
         mVideoView.setVideoController(mController);
     }
-
+    private void startDanmuIfReady() {
+        if (danmuLoadController != null) danmuLoadController.startIfReady();
+    }
     //设置字幕
     void setSubtitle(String path) {
         if (path != null && path .length() > 0) {

@@ -6,6 +6,8 @@ import android.graphics.Bitmap;
 import com.github.tvbox.osc.base.App;
 import com.github.tvbox.osc.picasso.MyOkhttpDownLoader;
 import com.github.tvbox.osc.util.SSL.SSLSocketFactoryCompat;
+import com.github.tvbox.osc.util.net.OkProxySelector;
+import com.github.tvbox.osc.util.net.ProxyAuthenticator;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.https.HttpsUtils;
 import com.lzy.okgo.interceptor.HttpLoggingInterceptor;
@@ -36,7 +38,18 @@ public class OkGoHelper {
     public static final long DEFAULT_MILLISECONDS = 5 * 1000;      //默认的超时时间
 
     public static boolean isInit = false;
+    public static OkHttpClient ItvClient;
+    private static OkProxySelector proxySelector = null;
+    private static ProxyAuthenticator proxyAuthenticator = null;
 
+    public static synchronized OkProxySelector proxySelector() {
+        if (proxySelector == null) proxySelector = new OkProxySelector();
+        return proxySelector;
+    }
+    public static synchronized ProxyAuthenticator proxyAuthenticator() {
+        if (proxyAuthenticator == null) proxyAuthenticator = new ProxyAuthenticator(proxySelector());
+        return proxyAuthenticator;
+    }
     static void initExoOkHttpClient() {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
         HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor("OkExoPlayer");

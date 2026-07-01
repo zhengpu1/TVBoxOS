@@ -29,6 +29,7 @@ public class RefreshEvent {
     public static final int ALI_TOKEN = 26;//接收到阿里token
     public static final int TYPE_OPENING_AND_ENDING = 29 ;
     public static final int TYPE_SET_DANMU_SETTINGS = 18;
+    public static final int TYPE_DANMU_REFRESH = 19;
     public int type;
     public Object obj;
 
