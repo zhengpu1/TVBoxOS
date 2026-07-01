@@ -18,6 +18,11 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="require Activity" />
+      <item value="auto Retry" />
+      <item value="auto Retry Count" />
+      <item value="m Pre Btn" />
+      <item value="has Auto Switched Player" />
       <item value="init Parse Load Found" />
       <item value="add On State Change Listener" />
       <item value="select Subtitle" />
@@ -35,9 +40,7 @@
       <item value="start Danmu If Ready" />
       <item value="is Playback Started" />
       <item value="pause For Hidden" />
-      <item value="has Auto Switched Player" />
       <item value="allow Switch Player" />
-      <item value="auto Retry Count" />
       <item value="playback Started" />
       <item value="cancel Play Timeout" />
       <item value="mark Playback Started" />
@@ -65,9 +68,6 @@
       <item value="set Danmu View Settings" />
       <item value="hide Bottom" />
       <item value="set Has Danmu" />
-      <item value="on Play State Changed" />
-      <item value="get Current Series" />
-      <item value="invoke Danmaku" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="3" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="9018" />
+        <entry key="CHINESE" value="9024" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="9019" />
+        <entry key="ENGLISH" value="9025" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="4" />
