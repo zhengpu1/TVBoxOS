@@ -18,6 +18,10 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="has Auto Switched Player" />
+      <item value="tried Line Flags" />
+      <item value="change Parse" />
+      <item value="add On State Change Listener" />
       <item value="configure Subtitle View" />
       <item value="on Destroy View" />
       <item value="is Prepared" />
@@ -45,8 +49,6 @@
       <item value="auto Retry" />
       <item value="auto Retry Count" />
       <item value="m Pre Btn" />
-      <item value="has Auto Switched Player" />
-      <item value="add On State Change Listener" />
       <item value="select Subtitle" />
       <item value="search Danmu Ui" />
       <item value="show Danmu Setting" />
@@ -66,8 +68,6 @@
       <item value="parse Url" />
       <item value="is Color Value" />
       <item value="normalize Danmaku Param" />
-      <item value="comment Json To Xml" />
-      <item value="extract Number" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="3" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="9046" />
+        <entry key="CHINESE" value="9050" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="9047" />
+        <entry key="ENGLISH" value="9051" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="4" />
