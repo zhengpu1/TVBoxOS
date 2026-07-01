@@ -18,6 +18,11 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="on Found" />
+      <item value="progress Key" />
+      <item value="equals" />
+      <item value="check" />
+      <item value="on Not Found" />
       <item value="require Activity" />
       <item value="auto Retry" />
       <item value="auto Retry Count" />
@@ -63,11 +68,6 @@
       <item value="m Controller" />
       <item value="check Danmu" />
       <item value="prepare Danmu" />
-      <item value="                    togglePlay();&#10;" />
-      <item value="Connection refused: connect" />
-      <item value="set Danmu View Settings" />
-      <item value="hide Bottom" />
-      <item value="set Has Danmu" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="3" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="9024" />
+        <entry key="CHINESE" value="9029" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="9025" />
+        <entry key="ENGLISH" value="9030" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="4" />
