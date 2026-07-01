@@ -130,6 +130,7 @@ import tv.danmaku.ijk.media.player.IMediaPlayer;
 import tv.danmaku.ijk.media.player.IjkTimedText;
 import xyz.doikki.videoplayer.player.AbstractPlayer;
 import xyz.doikki.videoplayer.player.ProgressManager;
+import xyz.doikki.videoplayer.player.VideoView;
 
 public class PlayActivity extends baseActivity {
     private MyVideoView mVideoView;
@@ -318,6 +319,12 @@ public class PlayActivity extends baseActivity {
             }
         };
         mVideoView.setProgressManager(progressManager);
+        mVideoView.addOnStateChangeListener(new VideoView.SimpleOnStateChangeListener() {
+            @Override
+            public void onPlayStateChanged(int playState) {
+                startDanmuIfReady();
+            }
+        });
         mController.setListener(new VodController.VodControlListener() {
             @Override
             public void showDanmuSetting() {
@@ -1125,7 +1132,6 @@ public class PlayActivity extends baseActivity {
         setTip("正在获取播放信息", true, false);
         stopParse();
         initParseLoadFound();
-        resetDanmuState();
         if(mVideoView!=null) mVideoView.release();
         String subtitleCacheKey = mVodInfo.sourceKey + "-" + mVodInfo.id + "-" + mVodInfo.playFlag + "-" + mVodInfo.playIndex+ "-" + vs.name + "-subt";
         String progressKey1 = mVodInfo.sourceKey + mVodInfo.id + mVodInfo.playFlag + mVodInfo.playIndex + vs.name;

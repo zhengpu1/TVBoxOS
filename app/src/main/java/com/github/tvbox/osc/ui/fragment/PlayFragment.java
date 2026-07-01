@@ -149,7 +149,9 @@ public class PlayFragment extends BaseLazyFragment {
     private ExecutorService danmuExecutor;
 
     private DanmakuContext mDanmakuContext;
+    private boolean playbackStarted = false;
     private String danmuText;
+    private String webPlayUrl;
     private final AtomicInteger danmuLoadSeq = new AtomicInteger();
     @Override
     protected int getLayoutResID() {
@@ -301,7 +303,7 @@ public class PlayFragment extends BaseLazyFragment {
             @Override
             public void replay(boolean replay) {
                 autoRetryCount = 0;
-                play(replay);
+                    play(replay);
             }
 
             @Override
@@ -311,7 +313,7 @@ public class PlayFragment extends BaseLazyFragment {
 
             @Override
             public void startPlayUrl(String url, HashMap<String, String> headers) {
-                //goPlayUrl(url, headers);
+               // startDanmuIfReady();
             }
             @Override
             public void selectSubtitle() {
@@ -571,6 +573,15 @@ public class PlayFragment extends BaseLazyFragment {
         mPlayLoading.setVisibility(View.GONE);
         mPlayLoadErr.setVisibility(View.GONE);
     }
+    void hideTipOnUiThread() {
+        if (!isAdded()) return;
+        requireActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                hideTip();
+            }
+        });
+    }
 
     // ... existing code ...
 
@@ -647,12 +658,13 @@ public class PlayFragment extends BaseLazyFragment {
          LOG.i("echo-playM3u8:" + url);
          mController.playM3u8(url, headers);
      }
-    void goPlayUrl(String url, HashMap<String, String> headers) {
+    public void goPlayUrl(String url, HashMap<String, String> headers) {
 
         LOG.i("echo-goPlayUrl:" + url);
         if (mActivity == null) return;
         if (!isAdded()) return;
         final String finalUrl = url;
+        if(autoRetryCount==0)webPlayUrl=url;
         requireActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -776,6 +788,7 @@ public class PlayFragment extends BaseLazyFragment {
             public void onChanged(JSONObject info) {
                 if (info != null) {
                     try {
+                        webPlayUrl = null;
                         progressKey = info.optString("proKey", null);
                         boolean parse = info.optString("parse", "1").equals("1");
                         boolean jx = info.optString("jx", "0").equals("1");
@@ -1115,8 +1128,10 @@ public class PlayFragment extends BaseLazyFragment {
         setTip("正在获取播放信息" + startTime, true, false);
         String playTitleInfo = vs.url.startsWith("tvbox-drive://") ? mVodInfo.name : mVodInfo.name + " " + vs.name;
         mController.setTitle(playTitleInfo);
-
         stopParse();
+        playbackStarted = false;
+        webPlayUrl = null;
+        webHeaderMap = null;
         initParseLoadFound();
         resetDanmuState();
         if (mVideoView != null) mVideoView.release();
@@ -1227,7 +1242,7 @@ public class PlayFragment extends BaseLazyFragment {
     private String parseFlag;
     private String webUrl;
     private String webUserAgent;
-    private Map<String, String > webHeaderMap;
+    private HashMap<String, String > webHeaderMap;
 
     private void initParse(String flag, boolean useParse, String playUrl, final String url) {
         parseFlag = flag;
@@ -1289,7 +1304,6 @@ public class PlayFragment extends BaseLazyFragment {
                     }
                 });
     }
-
     public static String getVipUrl(String url) {
         List<String> hosts = Arrays.asList(
                 "iqiyi.com", "v.qq.com", "youku.com", "le.com", "tudou.com",
