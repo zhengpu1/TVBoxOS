@@ -10,7 +10,7 @@
     </option>
     <option name="keepFormat" value="true" />
     <option name="primaryLanguage" value="CHINESE" />
-    <option name="translator" value="BAIDU" />
+    <option name="translator" value="MICROSOFT" />
   </component>
   <component name="Translation.States">
     <option name="newTranslationDialogHeight" value="256" />
@@ -18,13 +18,14 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="set Play State" />
+      <item value="start Switch Line Play Timeout" />
       <item value="hide Pause Root" />
       <item value="hide Tip On Ui Thread" />
       <item value="cancel Play Timeout" />
       <item value="has Playback Progress" />
       <item value="play Timeout Base Position" />
       <item value="reset Speed" />
-      <item value="start Switch Line Play Timeout" />
       <item value="error With Retry" />
       <item value="MSG RESOLVE PLAY URL TIMEOUT" />
       <item value="MSG SWITCH LINE PLAY TIMEOUT" />
@@ -67,7 +68,6 @@
       <item value="set Danmu View Settings" />
       <item value="init Parse Load Found" />
       <item value="set On Click Listener" />
-      <item value="synchronized" />
     </histories>
     <option name="languageScores">
       <map>
