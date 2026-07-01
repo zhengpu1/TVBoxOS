@@ -18,14 +18,17 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="stop Other" />
+      <item value="m Controller" />
+      <item value="allow Switch Player" />
+      <item value="reset Danmu State" />
+      <item value="check Danmu" />
+      <item value="prepare Danmu" />
       <item value="                    togglePlay();&#10;" />
       <item value="play Pre" />
-      <item value="reset Danmu State" />
       <item value="Connection refused: connect" />
-      <item value="prepare Danmu" />
       <item value="cancel Play Timeout" />
       <item value="mark Playback Started" />
-      <item value="check Danmu" />
       <item value="set Danmu View Settings" />
       <item value="hide Bottom" />
       <item value="set Has Danmu" />
@@ -65,9 +68,6 @@
       <item value="FORBID JAR DIALOG" />
       <item value="is Empty" />
       <item value="EPISODE GROUPING" />
-      <item value="is Json Object" />
-      <item value="is Json Null" />
-      <item value="VIDEO PURIFY" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="3" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="8969" />
+        <entry key="CHINESE" value="8973" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="8969" />
+        <entry key="ENGLISH" value="8974" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="4" />
@@ -93,7 +93,7 @@
         <entry key="GREEK" value="1" />
         <entry key="GUJARATI" value="1" />
         <entry key="HUNGARIAN" value="1" />
-        <entry key="INDONESIAN" value="5" />
+        <entry key="INDONESIAN" value="6" />
         <entry key="IRISH" value="3" />
         <entry key="ITALIAN" value="6" />
         <entry key="JAVANESE" value="1" />
