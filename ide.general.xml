@@ -1,5 +1,6 @@
 <application>
   <component name="GeneralSettings">
+    <option name="confirmExit" value="false" />
     <option name="processCloseConfirmation" value="TERMINATE" />
   </component>
   <component name="Registry">
@@ -7,5 +8,12 @@
     <entry key="external.system.auto.import.disabled" value="true" />
     <entry key="ide.images.show.chessboard" value="true" />
     <entry key="gradle.version.catalogs.dynamic.support" value="true" />
+  </component>
+  <component name="StatusBar">
+    <option name="widgets">
+      <map>
+        <entry key="PowerSaveMode" value="true" />
+      </map>
+    </option>
   </component>
 </application>
