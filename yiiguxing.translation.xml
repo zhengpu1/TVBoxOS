@@ -18,6 +18,8 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="init Parse Load Found" />
+      <item value="set On Click Listener" />
       <item value="synchronized" />
       <item value="fetch Config Async" />
       <item value="source Bean List" />
@@ -35,7 +37,6 @@
       <item value="auto Retry Count" />
       <item value="m Pre Btn" />
       <item value="has Auto Switched Player" />
-      <item value="init Parse Load Found" />
       <item value="add On State Change Listener" />
       <item value="select Subtitle" />
       <item value="start Play Url" />
@@ -67,7 +68,6 @@
       <item value="find Episodes" />
       <item value="find Episode Id" />
       <item value="find Anime Id" />
-      <item value="normalize Base Url" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="3" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="9035" />
+        <entry key="CHINESE" value="9037" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="9036" />
+        <entry key="ENGLISH" value="9038" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="4" />
