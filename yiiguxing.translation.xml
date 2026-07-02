@@ -18,6 +18,13 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="prepare" />
+      <item value="start If Ready" />
+      <item value="is Video Ready" />
+      <item value="release View" />
+      <item value="get Source Summary" />
+      <item value="stop Other" />
+      <item value="get Saved Progress" />
       <item value="error With Retry" />
       <item value="set Has Danmu" />
       <item value="update Danmu Btn" />
@@ -47,14 +54,12 @@
       <item value="MSG RESOLVE PLAY URL TIMEOUT" />
       <item value="MSG SWITCH LINE PLAY TIMEOUT" />
       <item value="mark Playback Started" />
-      <item value="get Saved Progress" />
       <item value="danmu Load Controller" />
       <item value="init Danmu View" />
       <item value="on Play State Changed" />
       <item value="reset Danmu State" />
       <item value="warm Search Spiders Once" />
       <item value="pending Prepare" />
-      <item value="start If Ready" />
       <item value="TYPE SUBTITLE SIZE CHANGE" />
       <item value="m Video View" />
       <item value="Subscribe" />
@@ -63,11 +68,6 @@
       <item value="m Handler" />
       <item value="show Lock View" />
       <item value="my Handle" />
-      <item value="m Danmu Setting Btn" />
-      <item value="play Pre" />
-      <item value="m Danmu Search Ui Btn" />
-      <item value="m Player Speed Btn" />
-      <item value="m Playrefresh" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="3" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="9104" />
+        <entry key="CHINESE" value="9111" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="9105" />
+        <entry key="ENGLISH" value="9112" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="5" />
