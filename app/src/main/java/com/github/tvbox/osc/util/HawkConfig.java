@@ -13,6 +13,7 @@ public class HawkConfig {
     public static final String DOH_JSON = "doh_json";
     public static final String M3U8_PURIFY = "m3u8_purify";
     public static final String LOGO_URL = "logo_url";
+    public static final int DEFAULT_HOME_REC = 1;
     public static final String SHOW_PREVIEW = "show_preview";
     public static final String PLAYER_IS_LIVE = "player_is_live";
     public static final String LIVE_GROUP_INDEX = "live_group_index";

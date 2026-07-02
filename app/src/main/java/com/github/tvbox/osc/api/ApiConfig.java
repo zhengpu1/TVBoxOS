@@ -25,6 +25,7 @@ import com.github.tvbox.osc.util.HawkConfig;
 import com.github.tvbox.osc.util.HistoryHelper;
 import com.github.tvbox.osc.util.LOG;
 import com.github.tvbox.osc.util.MD5;
+import com.github.tvbox.osc.util.OkGoHelper;
 import com.github.tvbox.osc.util.RemoteConfig;
 import com.github.tvbox.osc.util.VideoParseRuler;
 import com.google.gson.Gson;
@@ -75,10 +76,10 @@ public class ApiConfig {
     private String spider = null;
     public String wallpaper = "";
     public String Steturl = "";
-    public String  adblockUrl = "";
-    public String  souyeUrl = "";
-    public String  tuijUrl = "";
-    public String duocUrl = "";
+    private String currentPyKey = "";
+    private String currentLivePyKey = "";
+    private String currentPlaySourceKey = "";
+    private String loadedLiveConfigUrl = "";
     private String danmaku = "";
     private final SourceBean emptyHome = new SourceBean();
     private final Handler mainHandler = new Handler(Looper.getMainLooper());
@@ -192,76 +193,104 @@ public class ApiConfig {
         }
         System.out.println("API URL :" + configUrl);
         String configKey = TempKey;
-        String finalApiUrl = apiUrl;
-        OkGo.<String>get(configUrl)
-                .headers("User-Agent", userAgent)
-                .headers("Accept", requestAccept)
-                .execute(new AbsCallback<String>() {
-                    @Override
-                    public void onSuccess(Response<String> response) {
-                        try {
-                            String json = response.body();
-                            if (switchApiCollectionIfNeeded(finalApiUrl, json)) {
-                                FileUtils.saveCache(cache,json);
-                                loadConfig(false, callback, activity);
-                                return;
-                            }
-                            clearApiLinesIfUnmatched(finalApiUrl);
-                            parseJson(finalApiUrl, json);
-                            try {
-                                File cacheDir = cache.getParentFile();
-                                if (!cacheDir.exists())
-                                    cacheDir.mkdirs();
-                                if (cache.exists())
-                                    cache.delete();
-                                FileOutputStream fos = new FileOutputStream(cache);
-                                fos.write(json.getBytes("UTF-8"));
-                                fos.flush();
-                                fos.close();
-                            } catch (Throwable th) {
-                                th.printStackTrace();
-                            }
-                            callback.success();
-                        } catch (Throwable th) {
-                            th.printStackTrace();
-                            callback.error("解析配置失败");
-                        }
-                    }
 
-                    @Override
-                    public void onError(Response<String> response) {
-                        super.onError(response);
-                        if (cache.exists()) {
-                            try {
-                                String json = readConfigFile(cache);
-                                if (switchApiCollectionIfNeeded(finalApiUrl, json)) {
-                                    loadConfig(false, callback, activity);
-                                    return;
-                                }
-                                clearApiLinesIfUnmatched(finalApiUrl);
-                                parseJson(finalApiUrl, cache);
-                                callback.success();
-                                return;
-                            } catch (Throwable th) {
-                                th.printStackTrace();
-                            }
-                        }
+        String finalApiUrl1 = apiUrl;
+        fetchConfigAsync(apiUrl, configUrl, configKey, new ConfigFetchCallback() {
+            @Override
+            public void success(String json) {
+                try {
+//                            LOG.longI("echo-ConfigJson", json);
+                    if (switchApiCollectionIfNeeded(finalApiUrl1, json)) {
+                        FileUtils.saveCache(cache,json);
+                        loadConfig(false, callback, activity);
+                        return;
                     }
+                    clearApiLinesIfUnmatched(finalApiUrl1);
+                    parseJson(finalApiUrl1, json);
+                    FileUtils.saveCache(cache,json);
+                    callback.success();
+                } catch (Throwable th) {
+                    th.printStackTrace();
+                    callback.error("配置解析失败");
+                }
+            }
+            @Override
+            public void error(String error) {
+                if (cache.exists()) {
+                    try {
+                        String json = readConfigFile(cache);
+                        if (switchApiCollectionIfNeeded(finalApiUrl1, json)) {
+                            loadConfig(false, callback, activity);
+                            return;
+                        }
+                        clearApiLinesIfUnmatched(finalApiUrl1);
+                        parseJson(finalApiUrl1, json);
+                        callback.success();
+                        return;
+                    } catch (Throwable th) {
+                        th.printStackTrace();
+                    }
+                }
+                callback.error("拉取配置失败\n" + error);
+            }
+        });
+    }
+    private interface ConfigFetchCallback {
+        void success(String body);
 
-                    public String convertResponse(okhttp3.Response response) throws Throwable {
-                        String result = "";
-                        if (response.body() == null) {
-                            result = "";
+        void error(String error);
+    }
+    private void fetchConfigAsync(final String apiUrl, final String requestUrl, final String configKey, final ConfigFetchCallback callback) {
+        configLoadExecutor.execute(new Runnable() {
+            @Override
+            public void run() {
+                String result = "";
+                String error = "";
+                okhttp3.Response response = null;
+                try {
+                    okhttp3.Request request = new okhttp3.Request.Builder()
+                            .url(requestUrl)
+                            .build();
+                    okhttp3.OkHttpClient client = OkGoHelper.getDefaultClient();
+                    if (client == null) client = com.github.catvod.net.OkHttp.client();
+                    response = client.newCall(request).execute();
+                    if (!response.isSuccessful()) {
+                        error = "HTTP " + response.code();
+                    } else if (response.body() == null) {
+                        error = "empty body";
+                    } else {
+                        result = FindResult(response.body().string(), configKey);
+                        if (apiUrl.startsWith("clan")) {
+                            result = clanContentFix(clanToAddress(apiUrl), result);
+                        }
+                        result = fixContentPath(apiUrl, result);
+                    }
+                } catch (Throwable th) {
+                    error = th.getMessage();
+                    if (TextUtils.isEmpty(error)) error = th.toString();
+                } finally {
+                    if (response != null) closeQuietly(response.body());
+                }
+                final String finalResult = result;
+                final String finalError = error;
+                mainHandler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (TextUtils.isEmpty(finalError)) {
+                            callback.success(finalResult);
                         } else {
-                            result = FindResult(response.body().string(), configKey);
+                            callback.error(finalError);
                         }
-                        if (finalApiUrl.startsWith("clan")) {
-                            result = clanContentFix(clanToAddress(finalApiUrl), result);
-                        }
-                        result = fixContentPath(finalApiUrl, result);
-                        return result;
                     }
                 });
+            }
+        });
+    }
+    private void closeQuietly(java.io.Closeable closeable) {
+        try {
+            if (closeable != null) closeable.close();
+        } catch (Throwable ignored) {
+        }
     }
     public void loadJar(boolean useCache, String spider, LoadConfigCallback callback) {
         String[] urls = spider.split(";md5;");
@@ -456,7 +485,7 @@ public class ApiConfig {
     }
 
     private void parseJson(String apiUrl, String jsonStr) {
-
+        resetConfigData();
         JsonObject infoJson = new Gson().fromJson(jsonStr, JsonObject.class);
         jarCache = DefaultConfig.safeJsonString(infoJson, "jarCache", "true");
         // spider
@@ -1033,6 +1062,28 @@ public class ApiConfig {
                 }
             }
         });
+    }
+    public void clearLoader(){
+        jarLoader.clear();
+        jsLoader.clear();
+        synchronized (warmedSearchSpiderKeys) {
+            warmedSearchSpiderKeys.clear();
+        }
+    }
+
+    public void clearSpiderCache() {
+        currentPyKey = "";
+        currentLivePyKey = "";
+        clearLoader();
+    }
+    private void resetConfigData() {
+        clearSpiderCache();
+        currentPlaySourceKey = "";
+        sourceBeanList.clear();
+        liveChannelGroupList.clear();
+        parseBeanList.clear();
+        searchSourceBeanList = new ArrayList<>();
+        Hawk.put(HawkConfig.LIVE_GROUP_LIST,new JsonArray());
     }
     public boolean hasDanmuSearchUi() {
         return jarLoader.hasDanmuSearchUi();

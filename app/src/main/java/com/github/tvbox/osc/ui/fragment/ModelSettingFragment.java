@@ -1149,11 +1149,13 @@ public class ModelSettingFragment extends BaseLazyFragment {
         }
     }
     private void restartAppAfterConfigChanged() {
-        Toast.makeText(mContext, "配置已切换,即将自动重启应用!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(mContext, "配置已切换,即将重新加载!", Toast.LENGTH_SHORT).show();
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                restartApp();
+                if (mActivity != null && !mActivity.isFinishing()) {
+                    mActivity.onBackPressed();
+                }
             }
         }, 1000);
     }

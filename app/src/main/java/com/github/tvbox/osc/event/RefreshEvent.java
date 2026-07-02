@@ -28,6 +28,7 @@ public class RefreshEvent {
     public static final int RE_LOAD_HOME_DATA = 25;//重新加载首页数据
     public static final int ALI_TOKEN = 26;//接收到阿里token
     public static final int TYPE_OPENING_AND_ENDING = 29 ;
+    public static final int TYPE_HOME_SOURCE_CHANGE = 17;
     public static final int TYPE_SET_DANMU_SETTINGS = 18;
     public static final int TYPE_DANMU_REFRESH = 19;
     public int type;

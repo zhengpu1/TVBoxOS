@@ -7,6 +7,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class JsLoader {
     private ConcurrentHashMap<String, Spider> spiders = new ConcurrentHashMap<>();
+    private static final ConcurrentHashMap<String, Class<?>> classes = new ConcurrentHashMap<>();
 
     public Spider getSpider(String key, String cls, String ext, String jar) {
         if (spiders.containsKey(key))
@@ -20,5 +21,9 @@ public class JsLoader {
             th.printStackTrace();
         }
         return new SpiderNull();
+    }
+    public void clear() {
+        spiders.clear();
+        classes.clear();
     }
 }

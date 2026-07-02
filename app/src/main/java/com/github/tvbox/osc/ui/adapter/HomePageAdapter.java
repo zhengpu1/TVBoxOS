@@ -34,17 +34,17 @@ public class HomePageAdapter extends FragmentPagerAdapter {
         list.clear();
         notifyDataSetChanged();
     }
-    public void setFragments(List<BaseLazyFragment> fragments) {
-        if (list != null) {
-            FragmentTransaction ft = fragmentManager.beginTransaction();
-            for (Fragment f : this.list) {
-                ft.remove(f);
+    public void removeAll() {
+        if (list == null || fragmentManager == null) return;
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        for (BaseLazyFragment fragment : list) {
+            if (fragment != null && fragment.isAdded()) {
+                transaction.remove(fragment);
             }
-            ft.commit();
-            ft = null;
-            fragmentManager.executePendingTransactions();
         }
-        this.list = fragments;
+        transaction.commitAllowingStateLoss();
+        fragmentManager.executePendingTransactions();
+        list.clear();
         notifyDataSetChanged();
     }
 

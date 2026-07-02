@@ -282,7 +282,7 @@
                     android:gravity="center"
                     android:focusable="true"
                     android:text="+"
-                    android:textColor="@color/dialog_text_primary"
+                    android:textColor="@color/font_deta_color"
                     android:textSize="@dimen/ts_24" />
             </LinearLayout>
         </LinearLayout>
