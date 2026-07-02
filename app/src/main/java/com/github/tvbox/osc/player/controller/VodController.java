@@ -713,7 +713,7 @@ public class VodController extends BaseController {
     }
 
     public static void Openingcredits(String body) {
-        if (ApiConfig.get().Steturl.isEmpty() || body.isEmpty()) return;
+        if (body.isEmpty()) return;
         try {
             JsonObject json = JsonParser.parseString(body).getAsJsonObject();
             if (Hawk.get(HawkConfig.HOME_PTST_TUMM, false)) {
@@ -831,7 +831,7 @@ public class VodController extends BaseController {
     }
 
     public void updateDanmuBtn() {
-       // if (mDanmuSettingBtn == null) return;
+       if (mDanmuSettingBtn == null) return;
         mDanmuSettingBtn.setVisibility(hasDanmu ? VISIBLE : GONE);
     }
     public void updateDanmuSearchUiBtn() {

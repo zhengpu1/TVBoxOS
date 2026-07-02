@@ -48,9 +48,11 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.regex.Matcher;
@@ -85,6 +87,8 @@ public class ApiConfig {
     private final JarLoader jarLoader = new JarLoader();
     private final JsLoader jsLoader = new JsLoader();
     private static final int LOAD_JAR_MAX_RETRY = 1;
+    private final ExecutorService configLoadExecutor = Executors.newSingleThreadExecutor();
+    private final Set<String> warmedSearchSpiderKeys = new HashSet<>();
     private final String userAgent = "okhttp/3.15";
     private final Gson gson;
     private final String requestAccept = "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9";
@@ -459,16 +463,6 @@ public class ApiConfig {
         spider = DefaultConfig.safeJsonString(infoJson, "spider", "");
         // wallpaper
         wallpaper = DefaultConfig.safeJsonString(infoJson, "wallpaper", "");
-        //片头片尾
-        Steturl = DefaultConfig.safeJsonString(infoJson, "Steturl", "http://192.168.80.10:38/jx/jxx.php?url=");
-        //去广告
-        adblockUrl = DefaultConfig.safeJsonString(infoJson, "adblockUrl", "");
-        //首页URL
-        souyeUrl = DefaultConfig.safeJsonString(infoJson, "souyeUrl", "");
-        //详情页推荐URL
-        tuijUrl = DefaultConfig.safeJsonString(infoJson, "tuijUrl", "");
-        //多仓地址
-        duocUrl = DefaultConfig.safeJsonString(infoJson, "duocUrl", "http://192.168.80.10:38/tv/dc.json");
         danmaku = DefaultConfig.safeJsonString(infoJson, "danmaku", "");
         // 远端站点源
        // BuiltAPI(duocUrl);
@@ -1017,7 +1011,29 @@ public class ApiConfig {
             }
         });
     }
-
+    public void warmSearchSpiders() {
+        final ArrayList<SourceBean> sources = new ArrayList<>(sourceBeanList.values());
+        configLoadExecutor.execute(new Runnable() {
+            @Override
+            public void run() {
+                LOG.i("echo-warm-spider start");
+                for (SourceBean source : sources) {
+                    if (source == null || source.getType() != 3 || !source.isSearchable()) continue;
+                    String warmKey = source.getKey() + "|" + source.getApi() + "|" + source.getJar() + "|" + source.getExt();
+                    synchronized (warmedSearchSpiderKeys) {
+                        if (warmedSearchSpiderKeys.contains(warmKey)) continue;
+                        warmedSearchSpiderKeys.add(warmKey);
+                    }
+                    try {
+                        LOG.i("echo-warm-spider load:" + warmKey);
+                        getCSP(source);
+                    } catch (Throwable th) {
+                        LOG.e("echo-warm-search-spider-error " + source.getKey() + ":" + th.getMessage());
+                    }
+                }
+            }
+        });
+    }
     public boolean hasDanmuSearchUi() {
         return jarLoader.hasDanmuSearchUi();
     }

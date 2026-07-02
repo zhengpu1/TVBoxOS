@@ -77,6 +77,7 @@ import com.github.tvbox.osc.util.HawkConfig;
 import com.github.tvbox.osc.util.LOG;
 import com.github.tvbox.osc.util.MD5;
 import com.github.tvbox.osc.util.PlayerHelper;
+import com.github.tvbox.osc.util.RemoteConfig;
 import com.github.tvbox.osc.util.VideoParseRuler;
 import com.github.tvbox.osc.util.XWalkUtils;
 import com.github.tvbox.osc.util.parser.SuperParse;
@@ -133,7 +134,6 @@ import tv.danmaku.ijk.media.player.IMediaPlayer;
 import tv.danmaku.ijk.media.player.IjkTimedText;
 import xyz.doikki.videoplayer.player.AbstractPlayer;
 import xyz.doikki.videoplayer.player.ProgressManager;
-import xyz.doikki.videoplayer.player.VideoView;
 
 public class PlayFragment extends BaseLazyFragment {
     private MyVideoView mVideoView;
@@ -150,6 +150,7 @@ public class PlayFragment extends BaseLazyFragment {
 
     private DanmakuContext mDanmakuContext;
     private boolean playbackStarted = false;
+    private long playTimeoutBasePosition = 0;
     private String danmuText;
     private String webPlayUrl;
     private final AtomicInteger danmuLoadSeq = new AtomicInteger();
@@ -169,7 +170,6 @@ public class PlayFragment extends BaseLazyFragment {
             checkDanmu(event.obj instanceof String ? (String) event.obj : "");
         }
     }
-    // 5 秒超时
 
     @Override
     protected void init() {
@@ -177,6 +177,7 @@ public class PlayFragment extends BaseLazyFragment {
         initDanmuView();
         initViewModel();
         initData();
+        startDanmuIfReady();
 
     }
 
@@ -203,6 +204,7 @@ public class PlayFragment extends BaseLazyFragment {
         if (danmuLoadController != null) danmuLoadController.reset();
     }
     public long getSavedProgress(String url) {
+        String key = mVodInfo.name + "_" + mVodInfo.playIndex;
         int st = 0;
         try {
             st = mVodPlayerCfg.getInt("st");
@@ -210,10 +212,10 @@ public class PlayFragment extends BaseLazyFragment {
             e.printStackTrace();
         }
         long skip = st * 1000;
-        if (CacheManager.getCache(MD5.string2MD5(url)) == null) {
+        if (CacheManager.getCache(MD5.string2MD5(key)) == null) {
             return skip;
         }
-        long rec = (long) CacheManager.getCache(MD5.string2MD5(url));
+        long rec = (long) CacheManager.getCache(MD5.string2MD5(key));
         if (rec < skip)
             return skip;
         return rec;
@@ -240,7 +242,8 @@ public class PlayFragment extends BaseLazyFragment {
         ProgressManager progressManager = new ProgressManager() {
             @Override
             public void saveProgress(String url, long progress) {
-                CacheManager.save(MD5.string2MD5(url), progress);
+                String key = mVodInfo.name + "_" + mVodInfo.playIndex;
+                CacheManager.save(MD5.string2MD5(key), progress);
             }
 
             @Override
@@ -251,12 +254,6 @@ public class PlayFragment extends BaseLazyFragment {
         };
 
         mVideoView.setProgressManager(progressManager);
-        mVideoView.addOnStateChangeListener(new VideoView.SimpleOnStateChangeListener() {
-            @Override
-            public void onPlayStateChanged(int playState) {
-                startDanmuIfReady();
-            }
-        });
         mController.setListener(new VodController.VodControlListener() {
             @Override
             public void showDanmuSetting() {
@@ -336,7 +333,6 @@ public class PlayFragment extends BaseLazyFragment {
 
             @Override
             public void prepared() {
-
                 initSubtitleView();
                 if (mVideoView != null) mVideoView.prepared();
                 startDanmuIfReady();
@@ -671,7 +667,7 @@ public class PlayFragment extends BaseLazyFragment {
                 stopParse();
                 if (mVideoView != null) {
                     mVideoView.release();
-                    progressKey = mVodInfo.name + "_" + mVodInfo.playIndex;
+                   // progressKey = mVodInfo.name + "_" + mVodInfo.playIndex;
                     if (finalUrl != null) {
                         String url = finalUrl;
                         try {
@@ -690,6 +686,7 @@ public class PlayFragment extends BaseLazyFragment {
                             e.printStackTrace();
                         }
                         hideTip();
+                        playTimeoutBasePosition = getSavedProgress(progressKey);
                         if (url.startsWith("data:application/dash+xml;base64,")) {
                             PlayerHelper.updateCfg(mVideoView, mVodPlayerCfg, 2);
                             App.getInstance().setDashData(url.split("base64,")[1]);
@@ -699,6 +696,7 @@ public class PlayFragment extends BaseLazyFragment {
                         } else {
                             PlayerHelper.updateCfg(mVideoView, mVodPlayerCfg);
                         }
+                        mController.hidePauseRoot();
                         mVideoView.setProgressKey(progressKey);
                         if (headers != null) {
                             mVideoView.setUrl(url, headers);
@@ -831,6 +829,7 @@ public class PlayFragment extends BaseLazyFragment {
                         String flag = info.optString("flag");
                         String url = info.getString("url");
                         String danmaku = info.optString("danmaku", "");
+                        LOG.e("DANMU99999",danmaku);
                         HashMap<String, String> headers = null;
                         webUserAgent = null;
                         webHeaderMap = null;
@@ -1119,17 +1118,16 @@ public class PlayFragment extends BaseLazyFragment {
 
     public void play(boolean reset) {
         if (mVodInfo == null) return;
-        LOG.i("播放索引是" + mVodInfo.playIndex);
         VodInfo.VodSeries vs = mVodInfo.seriesMap.get(mVodInfo.playFlag).get(mVodInfo.playIndex);
         EventBus.getDefault().post(new RefreshEvent(RefreshEvent.TYPE_REFRESH, mVodInfo.playIndex));
         long startTime = System.currentTimeMillis();
         Inits();
-
         setTip("正在获取播放信息" + startTime, true, false);
         String playTitleInfo = vs.url.startsWith("tvbox-drive://") ? mVodInfo.name : mVodInfo.name + " " + vs.name;
         mController.setTitle(playTitleInfo);
         stopParse();
         playbackStarted = false;
+        playTimeoutBasePosition = 0;
         webPlayUrl = null;
         webHeaderMap = null;
         initParseLoadFound();
@@ -1281,7 +1279,7 @@ public class PlayFragment extends BaseLazyFragment {
         String purl = getVipUrl(url);
         String sname = purl != null ? "" : "&sname=" + mVodInfo.name;
 
-        OkGo.<String>get(ApiConfig.get().Steturl + purl +  sname)
+        OkGo.<String>get(RemoteConfig.checkUpdateA("Steturl") + purl +  sname)
                 .execute(new AbsCallback<String>() {
                     @Override
                     public String convertResponse(okhttp3.Response response) throws Throwable {

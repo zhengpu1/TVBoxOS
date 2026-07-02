@@ -35,6 +35,7 @@ import com.github.tvbox.osc.ui.adapter.HomeHotVodAdaptera;
 import com.github.tvbox.osc.ui.adapter.HomeHotVodAdapterc;
 import com.github.tvbox.osc.util.FastClickCheckUtil;
 import com.github.tvbox.osc.util.HawkConfig;
+import com.github.tvbox.osc.util.RemoteConfig;
 import com.github.tvbox.osc.util.UA;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -385,10 +386,10 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
     private void setDouBanDatas(HomeHotVodAdapterc adapter) {
 
         try {
-            String doubanUrl = ApiConfig.get().souyeUrl;
+            String doubanUrl = RemoteConfig.checkUpdateA("souyeUrl");
             String Referer = "";
             if (doubanUrl.isEmpty()){
-                doubanUrl = "https://api.web.360kan.com/v1/block?blockid=503";
+                doubanUrl = RemoteConfig.checkUpdateA("doubanUrl");;
                 Referer = "https://www.360kan.com/";
             }
             String finalDoubanUrl = doubanUrl;
@@ -401,7 +402,7 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
                             mActivity.runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
-                                    if (!ApiConfig.get().souyeUrl.isEmpty())  {
+                                    if (!RemoteConfig.checkUpdateA("souyeUrl").isEmpty())  {
                                         adapter.setNewData(loadHotss(netJson));
                                     } else {
                                         adapter.setNewData(loadHotssk(netJson));

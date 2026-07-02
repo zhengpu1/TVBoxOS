@@ -2,7 +2,6 @@ package com.github.tvbox.osc.ui.activity;
 
 import static com.github.tvbox.osc.util.RemoteConfig.checkUpdatess;
 import static com.github.tvbox.osc.util.RemoteConfig.isFirstStart;
-import static com.tencent.bugly.crashreport.CrashReport.getContext;
 
 import android.Manifest;
 import android.animation.Animator;
@@ -417,6 +416,8 @@ public class HomeActivity extends baseActivity {
     }
 
     private boolean dataInitOk = false;
+    private boolean searchSpiderWarmStarted = false;
+
     private boolean jarInitOk = false;
     boolean HomeShow = Hawk.get(HawkConfig.HOME_SHOW_SOURCE, false);
 
@@ -431,6 +432,7 @@ public class HomeActivity extends baseActivity {
         }
         if (dataInitOk && jarInitOk) {
             showLoading();
+            warmSearchSpidersOnce();
             sourceViewModel.getSort(ApiConfig.get().getHomeSourceBean().getKey());
             if (hasPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
                 LOG.e("有存储权限");
@@ -582,6 +584,11 @@ public class HomeActivity extends baseActivity {
                 });
             }
         }, this);
+    }
+    private void warmSearchSpidersOnce() {
+        if (searchSpiderWarmStarted) return;
+        searchSpiderWarmStarted = true;
+        ApiConfig.get().warmSearchSpiders();
     }
 
     private void initViewPager(AbsSortXml absXml) {
@@ -779,25 +786,25 @@ public class HomeActivity extends baseActivity {
         });
         if (hide && topHide == 0) {
             animatorSet.playTogether(ObjectAnimator.ofObject(viewObj, "marginTop", new IntEvaluator(),
-                            Integer.valueOf(AutoSizeUtils.mm2px(this.mContext, 20.0f)),
-                            Integer.valueOf(AutoSizeUtils.mm2px(this.mContext, 0.0f))),
+                            AutoSizeUtils.mm2px(this.mContext, 10.0f),
+                            AutoSizeUtils.mm2px(this.mContext, 0.0f)),
                     ObjectAnimator.ofObject(viewObj, "height", new IntEvaluator(),
-                            Integer.valueOf(AutoSizeUtils.mm2px(this.mContext, 50.0f)),
-                            Integer.valueOf(AutoSizeUtils.mm2px(this.mContext, 1.0f))),
+                            AutoSizeUtils.mm2px(this.mContext, 50.0f),
+                            AutoSizeUtils.mm2px(this.mContext, 1.0f)),
                     ObjectAnimator.ofFloat(this.topLayout, "alpha", 1.0f, 0.0f));
-            animatorSet.setDuration(250);
+            animatorSet.setDuration(200);
             animatorSet.start();
             return;
         }
         if (!hide && topHide == 1) {
             animatorSet.playTogether(ObjectAnimator.ofObject(viewObj, "marginTop", new IntEvaluator(),
-                            Integer.valueOf(AutoSizeUtils.mm2px(this.mContext, 0.0f)),
-                            Integer.valueOf(AutoSizeUtils.mm2px(this.mContext, 20.0f))),
+                            AutoSizeUtils.mm2px(this.mContext, 0.0f),
+                            AutoSizeUtils.mm2px(this.mContext, 10.0f)),
                     ObjectAnimator.ofObject(viewObj, "height", new IntEvaluator(),
-                            Integer.valueOf(AutoSizeUtils.mm2px(this.mContext, 1.0f)),
-                            Integer.valueOf(AutoSizeUtils.mm2px(this.mContext, 50.0f))),
+                            AutoSizeUtils.mm2px(this.mContext, 1.0f),
+                            AutoSizeUtils.mm2px(this.mContext, 50.0f)),
                     ObjectAnimator.ofFloat(this.topLayout, "alpha", 0.0f, 1.0f));
-            animatorSet.setDuration(250);
+            animatorSet.setDuration(200);
             animatorSet.start();
         }
     }
@@ -940,16 +947,5 @@ public class HomeActivity extends baseActivity {
             android.os.Process.killProcess(android.os.Process.myPid());
             System.exit(0);
         } catch (Exception e) {}
-    }
-    private void restartApp888() {
-        Context context = getContext();
-        if (context != null) {
-            Intent i = context.getPackageManager().getLaunchIntentForPackage(context.getPackageName());
-            if (i != null) {
-                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                context.startActivity(i);
-                System.exit(0);
-            }
-        }
     }
 }

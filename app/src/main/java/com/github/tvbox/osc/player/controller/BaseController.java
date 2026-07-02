@@ -212,7 +212,11 @@ public abstract class BaseController extends BaseVideoController implements Gest
             mCanSlide = true;
         }
     }
-
+    public void hidePauseRoot() {
+        if (mPauseRoot != null) {
+            mPauseRoot.setVisibility(GONE);
+        }
+    }
     @Override
     public void setPlayState(int playState) {
         super.setPlayState(playState);

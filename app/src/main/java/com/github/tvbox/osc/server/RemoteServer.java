@@ -1,18 +1,24 @@
 package com.github.tvbox.osc.server;
 
+import static com.github.tvbox.osc.util.RegexUtils.getPattern;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.wifi.WifiManager;
 import android.os.Environment;
+import android.text.TextUtils;
 import android.util.Base64;
 
 import com.github.tvbox.osc.R;
 import com.github.tvbox.osc.api.ApiConfig;
 import com.github.tvbox.osc.base.App;
+import com.github.tvbox.osc.bean.VodInfo;
 import com.github.tvbox.osc.event.RefreshEvent;
 import com.github.tvbox.osc.event.ServerEvent;
 import com.github.tvbox.osc.util.FileUtils;
+import com.github.tvbox.osc.util.LOG;
 import com.github.tvbox.osc.util.OkGoHelper;
+import com.github.tvbox.osc.util.Proxy;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
@@ -57,9 +63,10 @@ public class RemoteServer extends NanoHTTPD {
     public static int serverPort = 9978;
     private boolean isStarted = false;
     private DataReceiver mDataReceiver;
+    public static String m3u8Content;
     private ArrayList<RequestProcess> getRequestList = new ArrayList<>();
     private ArrayList<RequestProcess> postRequestList = new ArrayList<>();
-    public static String m3u8Content;
+
     public RemoteServer(int port, Context context) {
         super(port);
         mContext = context;
@@ -74,11 +81,13 @@ public class RemoteServer extends NanoHTTPD {
         getRequestList.add(new RawRequestProcess(this.mContext, "/ui.css", R.raw.ui, "text/css"));
         getRequestList.add(new RawRequestProcess(this.mContext, "/jquery.js", R.raw.jquery, "application/x-javascript"));
         getRequestList.add(new RawRequestProcess(this.mContext, "/script.js", R.raw.script, "application/x-javascript"));
-        getRequestList.add(new RawRequestProcess(this.mContext, "/favicon.ico", R.drawable.button_detail_collect, "image/x-icon"));
+        getRequestList.add(new RawRequestProcess(this.mContext, "/favicon.ico", R.drawable.app_icon, "image/x-icon"));
+        getRequestList.add(new CacheRequestProcess());
     }
 
     private void addPostRequestProcess() {
         postRequestList.add(new InputRequestProcess(this));
+        postRequestList.add(new CacheRequestProcess());
     }
 
     @Override
@@ -92,6 +101,38 @@ public class RemoteServer extends NanoHTTPD {
     public void stop() {
         super.stop();
         isStarted = false;
+    }
+
+    private Response getProxy(Object[] rs){
+        try {
+            if (rs == null || rs.length < 3) {
+                LOG.e("echo-proxy error: empty proxy result");
+                return NanoHTTPD.newFixedLengthResponse(Response.Status.INTERNAL_ERROR, NanoHTTPD.MIME_PLAINTEXT, "500");
+            }
+            if (rs[0] instanceof NanoHTTPD.Response) return (NanoHTTPD.Response) rs[0];
+            int code = (int) rs[0];
+            String mime = (String) rs[1];
+            InputStream stream = rs[2] != null ? (InputStream) rs[2] : null;
+            Response response = NanoHTTPD.newChunkedResponse(
+                    Response.Status.lookup(code),
+                    mime,
+                    stream
+            );
+            // 添加头部信息
+            if (rs.length >= 4 && rs[3] instanceof Map) {
+                @SuppressWarnings("unchecked")
+                Map<String, String> mapHeader = (Map<String, String>) rs[3];
+                if(!mapHeader.isEmpty()){
+                    for (String key : mapHeader.keySet()) {
+                        response.addHeader(key, mapHeader.get(key));
+                    }
+                }
+            }
+            return response;
+        } catch (Throwable th) {
+            LOG.e("echo-proxy error: " + th.getMessage());
+            return NanoHTTPD.newFixedLengthResponse(Response.Status.INTERNAL_ERROR, NanoHTTPD.MIME_PLAINTEXT, "500");
+        }
     }
 
     @Override
@@ -110,21 +151,17 @@ public class RemoteServer extends NanoHTTPD {
                 }
                 if (fileName.equals("/proxy")) {
                     Map<String, String> params = session.getParms();
+                    params.putAll(session.getHeaders());
                     if (params.containsKey("do")) {
+                        boolean isDanmuProxy = "danmu".equals(params.get("do"));
+                        if (isDanmuProxy) normalizeDanmuParams(params);
+                        if (isDanmuProxy) LOG.i("echo-proxy-danmu params: " + params.toString());
                         Object[] rs = ApiConfig.get().proxyLocal(params);
-                        try {
-                            int code = (int) rs[0];
-                            String mime = (String) rs[1];
-                            InputStream stream = rs[2] != null ? (InputStream) rs[2] : null;
-                            Response response = NanoHTTPD.newChunkedResponse(
-                                    NanoHTTPD.Response.Status.lookup(code),
-                                    mime,
-                                    stream
-                            );
-                            return response;
-                        } catch (Throwable th) {
-                            return NanoHTTPD.newFixedLengthResponse(NanoHTTPD.Response.Status.INTERNAL_ERROR, NanoHTTPD.MIME_PLAINTEXT, "500");
-                        }
+                        return getProxy(rs);
+                    }
+                    if (params.containsKey("go")) {
+                        Object[] rs = Proxy.proxy(params);
+                        return getProxy(rs);
                     }
                 } else if (fileName.startsWith("/file/")) {
                     try {
@@ -166,7 +203,13 @@ public class RemoteServer extends NanoHTTPD {
                     }
                     EventBus.getDefault().post(new RefreshEvent(RefreshEvent.TYPE_PUSH_URL, url));
                     return NanoHTTPD.newFixedLengthResponse(NanoHTTPD.Response.Status.OK, NanoHTTPD.MIME_PLAINTEXT, "ok");
-                } else if (fileName.startsWith("/dash/")) {
+                } else if (fileName.equals("/action")) {
+                    return handleAction(session.getParms());
+                }  else if (fileName.startsWith("/proxyM3u8")) {
+//                    com.github.tvbox.osc.util.LOG.i("echo-proxyM3u8 length:" + (m3u8Content == null ? 0 : m3u8Content.length()));
+                    return NanoHTTPD.newFixedLengthResponse(Response.Status.OK, "application/vnd.apple.mpegurl", m3u8Content == null ? "" : m3u8Content);
+                }
+                else if (fileName.startsWith("/dash/")) {
                     String dashData = App.getInstance().getDashData();
                     try {
                         String data = new String(Base64.decode(dashData, Base64.DEFAULT | Base64.NO_WRAP), "UTF-8");
@@ -178,8 +221,6 @@ public class RemoteServer extends NanoHTTPD {
                     } catch (Throwable th) {
                         return NanoHTTPD.newFixedLengthResponse(NanoHTTPD.Response.Status.INTERNAL_ERROR, NanoHTTPD.MIME_PLAINTEXT, dashData);
                     }
-                } else if (fileName.equals("/m3u8")) {
-                    return NanoHTTPD.newFixedLengthResponse(NanoHTTPD.Response.Status.OK, NanoHTTPD.MIME_PLAINTEXT, m3u8Content);
                 }
             } else if (session.getMethod() == Method.POST) {
                 Map<String, String> files = new HashMap<String, String>();
@@ -189,7 +230,7 @@ public class RemoteServer extends NanoHTTPD {
                         if (hd != null) {
                             // cuke: 修正中文乱码问题
                             if (hd.toLowerCase().contains("multipart/form-data") && !hd.toLowerCase().contains("charset=")) {
-                                Matcher matcher = Pattern.compile("[ |\t]*(boundary[ |\t]*=[ |\t]*['|\"]?[^\"^'^;^,]*['|\"]?)", Pattern.CASE_INSENSITIVE).matcher(hd);
+                                Matcher matcher = getPattern("[ |\t]*(boundary[ |\t]*=[ |\t]*['|\"]?[^\"^'^;^,]*['|\"]?)", Pattern.CASE_INSENSITIVE).matcher(hd);
                                 String boundary = matcher.find() ? matcher.group(1) : null;
                                 if (boundary != null) {
                                     session.getHeaders().put("content-type", "multipart/form-data; charset=utf-8; " + boundary);
@@ -269,6 +310,61 @@ public class RemoteServer extends NanoHTTPD {
         }
         //default page: index.html
         return getRequestList.get(0).doResponse(session, "", null, null);
+    }
+
+    private Response handleAction(Map<String, String> params) {
+        if (params == null) return createPlainTextResponse(Response.Status.OK, "ok");
+        String action = params.get("do");
+        if ("refresh".equals(action)) {
+            handleRefreshAction(params);
+        }
+        return createPlainTextResponse(Response.Status.OK, "ok");
+    }
+
+    private void handleRefreshAction(Map<String, String> params) {
+        String type = params.get("type");
+        if ("danmaku".equals(type)) {
+            String path = params.get("path");
+            EventBus.getDefault().post(new RefreshEvent(RefreshEvent.TYPE_DANMU_REFRESH, path == null ? "" : path));
+        }
+    }
+
+    private void normalizeDanmuParams(Map<String, String> params) {
+        try {
+            VodInfo vodInfo = App.getInstance().getVodInfo();
+            if (vodInfo == null) return;
+            if (!TextUtils.isEmpty(vodInfo.name)) params.put("vodName", vodInfo.name);
+            if (!isNumeric(params.get("vodIndex"))) {
+                String episode = getCurrentEpisodeIndex(vodInfo);
+                if (!TextUtils.isEmpty(episode)) params.put("vodIndex", episode);
+            }
+        } catch (Throwable th) {
+            LOG.e("echo-proxy-danmu normalize error: " + th.getMessage());
+        }
+    }
+
+    private String getCurrentEpisodeIndex(VodInfo vodInfo) {
+        if (vodInfo.seriesMap != null && !TextUtils.isEmpty(vodInfo.playFlag)) {
+            java.util.List<VodInfo.VodSeries> series = vodInfo.seriesMap.get(vodInfo.playFlag);
+            if (series != null && vodInfo.playIndex >= 0 && vodInfo.playIndex < series.size()) {
+                VodInfo.VodSeries current = series.get(vodInfo.playIndex);
+                if (current != null && !TextUtils.isEmpty(current.name)) {
+                    String number = extractNumber(current.name);
+                    return TextUtils.isEmpty(number) ? current.name : number;
+                }
+            }
+        }
+        return String.valueOf(Math.max(0, vodInfo.playIndex) + 1);
+    }
+
+    private boolean isNumeric(String text) {
+        return !TextUtils.isEmpty(text) && text.matches("\\d+");
+    }
+
+    private String extractNumber(String text) {
+        if (TextUtils.isEmpty(text)) return "";
+        Matcher matcher = getPattern("\\d+").matcher(text);
+        return matcher.find() ? matcher.group() : "";
     }
 
     public void setDataReceiver(DataReceiver receiver) {
