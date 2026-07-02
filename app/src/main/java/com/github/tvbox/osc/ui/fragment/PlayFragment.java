@@ -203,8 +203,7 @@ public class PlayFragment extends BaseLazyFragment {
     private void resetDanmuState() {
         if (danmuLoadController != null) danmuLoadController.reset();
     }
-    public long getSavedProgress(String url) {
-        String key = mVodInfo.name + "_" + mVodInfo.playIndex;
+    public long getSavedProgress(String key) {
         int st = 0;
         try {
             st = mVodPlayerCfg.getInt("st");
@@ -212,12 +211,12 @@ public class PlayFragment extends BaseLazyFragment {
             e.printStackTrace();
         }
         long skip = st * 1000;
-        if (CacheManager.getCache(MD5.string2MD5(key)) == null) {
+        Object theCache=CacheManager.getCache(MD5.string2MD5(key));
+        if (theCache == null) {
             return skip;
         }
-        long rec = (long) CacheManager.getCache(MD5.string2MD5(key));
-        if (rec < skip)
-            return skip;
+        long rec = (long) theCache;
+        if (rec < skip) return skip;
         return rec;
     }
     private void initView() {
@@ -241,8 +240,8 @@ public class PlayFragment extends BaseLazyFragment {
         mController.setGestureEnabled(true);
         ProgressManager progressManager = new ProgressManager() {
             @Override
-            public void saveProgress(String url, long progress) {
-                String key = mVodInfo.name + "_" + mVodInfo.playIndex;
+            public void saveProgress(String key, long progress) {
+                //String key = mVodInfo.name + "_" + mVodInfo.playIndex;
                 CacheManager.save(MD5.string2MD5(key), progress);
             }
 
@@ -667,7 +666,6 @@ public class PlayFragment extends BaseLazyFragment {
                 stopParse();
                 if (mVideoView != null) {
                     mVideoView.release();
-                   // progressKey = mVodInfo.name + "_" + mVodInfo.playIndex;
                     if (finalUrl != null) {
                         String url = finalUrl;
                         try {
@@ -787,7 +785,8 @@ public class PlayFragment extends BaseLazyFragment {
                 if (info != null) {
                     try {
                         webPlayUrl = null;
-                        progressKey = info.optString("proKey", null);
+                       // progressKey = info.optString("proKey", null);
+                        progressKey = mVodInfo.name + "_" + mVodInfo.playIndex;
                         boolean parse = info.optString("parse", "1").equals("1");
                         boolean jx = info.optString("jx", "0").equals("1");
                         playSubtitle = info.optString("subt", /*"https://dash.akamaized.net/akamai/test/caption_test/ElephantsDream/ElephantsDream_en.vtt"*/"");

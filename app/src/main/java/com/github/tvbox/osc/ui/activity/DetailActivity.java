@@ -1798,4 +1798,9 @@ public class DetailActivity extends baseActivity {
             autoSwitchHandler.removeCallbacksAndMessages(null);
         }
     }
+    void ensurePlayFragment() {
+        if (playFragment != null) return;
+        playFragment = new PlayFragment();
+        getSupportFragmentManager().beginTransaction().add(R.id.previewPlayer, playFragment).commitNowAllowingStateLoss();
+    }
 }

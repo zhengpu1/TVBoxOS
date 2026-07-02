@@ -613,7 +613,7 @@ public class PlayActivity extends baseActivity {
                 stopParse();
                 if (mVideoView != null) {
                     mVideoView.release();
-                    progressKey = mVodInfo.name + "_" + mVodInfo.playIndex;
+                   // progressKey = mVodInfo.name + "_" + mVodInfo.playIndex;
                     if (finalUrl != null) {
                         String url =finalUrl;
                         try {
