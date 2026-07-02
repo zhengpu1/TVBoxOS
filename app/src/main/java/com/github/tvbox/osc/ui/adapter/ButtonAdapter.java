@@ -1,5 +1,8 @@
 package com.github.tvbox.osc.ui.adapter;
 
+import static com.github.tvbox.osc.base.baseActivity.drawableTextView;
+import static com.github.tvbox.osc.server.ControlManager.mContext;
+
 import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -66,9 +69,10 @@ public class ButtonAdapter<T> extends ListAdapter<T, ButtonAdapter.SelectViewHol
     public void onBindViewHolder(@NonNull @NotNull SelectViewHolder holder, @SuppressLint("RecyclerView") int position) {
         T value = data.get(position);
         TextView item = holder.itemView.findViewById(R.id.tvName);
+        drawableTextView(item, 1);
         item.setText(dialogInterface.getDisplay(value));
         if (position == select) {
-            item.setTextColor(0xff02f8e1);
+            item.setTextColor(mContext.getResources().getColor(R.color.color_00FF0A));
             item.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
         } else {
             item.setTextColor(Color.WHITE);

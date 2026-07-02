@@ -8,7 +8,7 @@
         android:layout_width="@dimen/vs_530"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:background="@drawable/shape_danmu_setting_bg"
+        android:background="@drawable/shape_play_bottom"
         android:orientation="vertical"
         android:paddingLeft="@dimen/vs_30"
         android:paddingTop="@dimen/vs_24"
@@ -22,7 +22,7 @@
             android:layout_marginBottom="@dimen/vs_20"
             android:singleLine="true"
             android:text="弹幕设置"
-            android:textColor="@color/dialog_text_primary"
+            android:textColor="@color/font_deta_color"
             android:textSize="@dimen/ts_26"
             android:textStyle="bold" />
 
@@ -39,7 +39,7 @@
                 android:layout_height="@dimen/vs_50"
                 android:gravity="center_vertical|right"
                 android:text="弹幕开关"
-                android:textColor="@color/dialog_text_primary"
+                android:textColor="@color/font_deta_color"
                 android:textSize="@dimen/ts_20" />
 
             <com.owen.tvrecyclerview.widget.TvRecyclerView
@@ -68,7 +68,7 @@
                 android:layout_height="@dimen/vs_50"
                 android:gravity="center_vertical|right"
                 android:text="弹幕颜色"
-                android:textColor="@color/dialog_text_primary"
+                android:textColor="@color/font_deta_color"
                 android:textSize="@dimen/ts_20" />
 
             <com.owen.tvrecyclerview.widget.TvRecyclerView
@@ -98,7 +98,7 @@
                 android:layout_height="@dimen/vs_50"
                 android:gravity="center_vertical|right"
                 android:text="弹幕速度"
-                android:textColor="@color/dialog_text_primary"
+                android:textColor="@color/font_deta_color"
                 android:textSize="@dimen/ts_20" />
 
             <com.owen.tvrecyclerview.widget.TvRecyclerView
@@ -127,7 +127,7 @@
                 android:layout_height="@dimen/vs_50"
                 android:gravity="center_vertical|right"
                 android:text="弹幕大小"
-                android:textColor="@color/dialog_text_primary"
+                android:textColor="@color/font_deta_color"
                 android:textSize="@dimen/ts_20" />
 
             <LinearLayout
@@ -146,7 +146,7 @@
                     android:gravity="center"
                     android:focusable="true"
                     android:text="-"
-                    android:textColor="@color/dialog_text_primary"
+                    android:textColor="@color/font_deta_color"
                     android:textSize="@dimen/ts_24" />
 
                 <TextView
@@ -155,7 +155,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:textColor="@color/dialog_text_primary"
+                    android:textColor="@color/font_deta_color"
                     android:textSize="@dimen/ts_20" />
 
                 <TextView
@@ -167,7 +167,7 @@
                     android:gravity="center"
                     android:focusable="true"
                     android:text="+"
-                    android:textColor="@color/dialog_text_primary"
+                    android:textColor="@color/font_deta_color"
                     android:textSize="@dimen/ts_24" />
             </LinearLayout>
         </LinearLayout>
@@ -185,7 +185,7 @@
                 android:layout_height="@dimen/vs_50"
                 android:gravity="center_vertical|right"
                 android:text="弹幕行数"
-                android:textColor="@color/dialog_text_primary"
+                android:textColor="@color/font_deta_color"
                 android:textSize="@dimen/ts_20" />
 
             <LinearLayout
@@ -204,7 +204,7 @@
                     android:gravity="center"
                     android:focusable="true"
                     android:text="-"
-                    android:textColor="@color/dialog_text_primary"
+                    android:textColor="@color/font_deta_color"
                     android:textSize="@dimen/ts_24" />
 
                 <TextView
@@ -213,7 +213,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:textColor="@color/dialog_text_primary"
+                    android:textColor="@color/font_deta_color"
                     android:textSize="@dimen/ts_20" />
 
                 <TextView
@@ -225,7 +225,7 @@
                     android:gravity="center"
                     android:focusable="true"
                     android:text="+"
-                    android:textColor="@color/dialog_text_primary"
+                    android:textColor="@color/font_deta_color"
                     android:textSize="@dimen/ts_24" />
             </LinearLayout>
         </LinearLayout>
@@ -242,7 +242,7 @@
                 android:layout_height="@dimen/vs_50"
                 android:gravity="center_vertical|right"
                 android:text="弹幕透明"
-                android:textColor="@color/dialog_text_primary"
+                android:textColor="@color/font_deta_color"
                 android:textSize="@dimen/ts_20" />
 
             <LinearLayout
@@ -261,7 +261,7 @@
                     android:gravity="center"
                     android:focusable="true"
                     android:text="-"
-                    android:textColor="@color/dialog_text_primary"
+                    android:textColor="@color/font_deta_color"
                     android:textSize="@dimen/ts_24" />
 
                 <TextView
@@ -270,7 +270,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:textColor="@color/dialog_text_primary"
+                    android:textColor="@color/font_deta_color"
                     android:textSize="@dimen/ts_20" />
 
                 <TextView

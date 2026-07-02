@@ -177,8 +177,6 @@ public class PlayFragment extends BaseLazyFragment {
         initDanmuView();
         initViewModel();
         initData();
-        startDanmuIfReady();
-
     }
 
     private void initDanmuView() {
@@ -309,7 +307,7 @@ public class PlayFragment extends BaseLazyFragment {
 
             @Override
             public void startPlayUrl(String url, HashMap<String, String> headers) {
-               // startDanmuIfReady();
+                startDanmuIfReady();
             }
             @Override
             public void selectSubtitle() {

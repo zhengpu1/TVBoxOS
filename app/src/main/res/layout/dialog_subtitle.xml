@@ -29,7 +29,7 @@
                 android:shadowDy="0"
                 android:shadowRadius="5"
                 android:singleLine="true"
-                android:textColor="@color/color_FFFFFF"
+                android:textColor="@color/font_deta_color"
                 android:textSize="@dimen/ts_26"
                 android:textStyle="bold"
                 android:text="字幕选项" />
@@ -60,7 +60,7 @@
                     android:gravity="center"
                     android:padding="@dimen/vs_10"
                     android:text="内置"
-                    android:textColor="@color/color_FFFFFF"
+                    android:textColor="@color/font_deta_color"
                     android:textSize="@dimen/ts_20" />
 
                 <TextView
@@ -77,7 +77,7 @@
                     android:gravity="center"
                     android:padding="@dimen/vs_10"
                     android:text="本地"
-                    android:textColor="@color/color_FFFFFF"
+                    android:textColor="@color/font_deta_color"
                     android:textSize="@dimen/ts_20" />
 
                 <TextView
@@ -94,7 +94,7 @@
                     android:gravity="center"
                     android:padding="@dimen/vs_10"
                     android:text="搜索"
-                    android:textColor="@color/color_FFFFFF"
+                    android:textColor="@color/font_deta_color"
                     android:textSize="@dimen/ts_20" />
             </LinearLayout>
 
@@ -291,7 +291,7 @@
                     android:focusable="true"
                     android:gravity="center"
                     android:padding="@dimen/vs_10"
-                    android:shadowColor="@color/color_FFF5E8DC"
+                    android:shadowColor="@color/color_000000_80"
                     android:shadowDx="1.0"
                     android:shadowDy="1.0"
                     android:shadowRadius="2.0"

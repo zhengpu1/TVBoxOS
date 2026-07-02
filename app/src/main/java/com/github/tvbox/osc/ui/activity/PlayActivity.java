@@ -723,7 +723,7 @@ public class PlayActivity extends baseActivity {
             public void onChanged(JSONObject info) {
                 if (info != null) {
                     try {
-                        progressKey = info.optString("proKey", null);
+                        progressKey = mVodInfo.name + "_" + mVodInfo.playIndex;
                         boolean parse = info.optString("parse", "1").equals("1");
                         boolean jx = info.optString("jx", "0").equals("1");
                         playSubtitle = info.optString("subt", /*"https://dash.akamaized.net/akamai/test/caption_test/ElephantsDream/ElephantsDream_en.vtt"*/"");
@@ -907,17 +907,6 @@ public class PlayActivity extends baseActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        // ✅ 换源/切解析/退出 都会走这里，100%能读到进度
-        try {
-            // 🔥 这是你项目里【最稳、永远能拿到真实进度】的写法
-            AbstractPlayer mediaPlayer = mVideoView.getMediaPlayer();
-            if (mediaPlayer != null) {
-                String progressKey = "play_progress_" + mVodInfo.name + "_" + mVodInfo.playIndex;
-                Hawk.put(progressKey, mediaPlayer.getCurrentPosition());
-            }
-        } catch (Exception e) {
-            // 防崩溃
-        }
         if (mVideoView != null) {
             mVideoView.pause();
         }

@@ -83,9 +83,6 @@ public class QuickSearchDialog extends BaseDialog {
         });
         searchAdapter.setNewData(new ArrayList<>());
         searchWordAdapter = new SearchWordAdapter();
-//        mGridViewWord = findViewById(R.id.mGridViewWord);
-//        mGridViewWord.setAdapter(searchWordAdapter);
-//        mGridViewWord.setLayoutManager(new V7LinearLayoutManager(context, 0, false));
         searchWordAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {

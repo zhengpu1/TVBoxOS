@@ -1,5 +1,8 @@
 package com.github.tvbox.osc.ui.dialog;
 
+import static com.github.tvbox.osc.base.baseActivity.drawableImageView;
+import static com.github.tvbox.osc.base.baseActivity.drawableTextView;
+
 import android.app.Activity;
 import android.content.Context;
 import android.view.View;
@@ -54,7 +57,10 @@ public class SubtitleDialog extends BaseDialog {
         subtitleTimePlus = findViewById(R.id.subtitleTimePlus);
         subtitleStyleOne = findViewById(R.id.subtitleStyleOne);
         subtitleStyleTwo = findViewById(R.id.subtitleStyleTwo);
-
+        TextView[] srt = {selectInternal,selectLocal,selectRemote,subtitleTimeText,subtitleSizeText,subtitleStyleOne,subtitleStyleTwo};
+        ImageView[] sst = {subtitleTimeMinus,subtitleSizeMinus,subtitleSizePlus,subtitleTimePlus};
+        drawableTextView(srt, 1);
+        drawableImageView(sst, 1);
 
         selectLocal.setOnClickListener(new View.OnClickListener() {
             @Override

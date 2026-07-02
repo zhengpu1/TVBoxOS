@@ -24,11 +24,6 @@ public class SelectDialoga<T> extends BaseDialog {
         setContentView(R.layout.dialog_selecta);
     }
 
-    public SelectDialoga(@NonNull @NotNull Context context, int resId) {
-        super(context);
-        setContentView(resId);
-    }
-
     public void setItemCheckDisplay(boolean shouldShowCheck) {
         muteCheck = !shouldShowCheck;
     }

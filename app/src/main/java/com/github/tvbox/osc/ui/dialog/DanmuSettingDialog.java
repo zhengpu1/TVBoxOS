@@ -1,5 +1,7 @@
 package com.github.tvbox.osc.ui.dialog;
 
+import static com.github.tvbox.osc.base.baseActivity.drawableTextView;
+
 import android.content.Context;
 import android.widget.TextView;
 
@@ -98,6 +100,8 @@ public class DanmuSettingDialog extends BaseDialog {
         TextView sizeText = findViewById(R.id.size);
         TextView sizeSub = findViewById(R.id.sizeSub);
         TextView sizeAdd = findViewById(R.id.sizeAdd);
+        TextView[] srt = {sizeText,sizeSub,sizeAdd};
+        drawableTextView(srt, 1);
         AtomicInteger size = new AtomicInteger(Math.round(DanmuHelper.getSizeScale() * 10));
         renderSize(sizeText, size.get());
         sizeSub.setOnClickListener(v -> {
@@ -120,6 +124,8 @@ public class DanmuSettingDialog extends BaseDialog {
         TextView lineText = findViewById(R.id.line);
         TextView lineSub = findViewById(R.id.lineSub);
         TextView lineAdd = findViewById(R.id.lineAdd);
+        TextView[] srt = {lineText,lineSub,lineAdd};
+        drawableTextView(srt, 1);
         AtomicInteger line = new AtomicInteger(DanmuHelper.getMaxLine());
         renderLine(lineText, line.get());
         lineSub.setOnClickListener(v -> {
@@ -142,6 +148,8 @@ public class DanmuSettingDialog extends BaseDialog {
         TextView alphaText = findViewById(R.id.alpha);
         TextView alphaSub = findViewById(R.id.alphaSub);
         TextView alphaAdd = findViewById(R.id.alphaAdd);
+        TextView[] srt = {alphaText,alphaSub,alphaAdd};
+        drawableTextView(srt, 1);
         AtomicInteger alpha = new AtomicInteger(Math.round(DanmuHelper.getAlpha() * 100));
         renderAlpha(alphaText, alpha.get());
         alphaSub.setOnClickListener(v -> {
