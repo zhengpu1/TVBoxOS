@@ -18,6 +18,8 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="LOAD JAR MAX RETRY" />
+      <item value="download Jar Async" />
       <item value="Google Play requires that apps target API level 31 or higher" />
       <item value=" Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the android.os.Build" />
       <item value="tv Name Animation" />
@@ -66,8 +68,6 @@
       <item value="release View" />
       <item value="get Source Summary" />
       <item value="stop Other" />
-      <item value="get Saved Progress" />
-      <item value="error With Retry" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="3" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="9157" />
+        <entry key="CHINESE" value="9159" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="9158" />
+        <entry key="ENGLISH" value="9160" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="5" />
