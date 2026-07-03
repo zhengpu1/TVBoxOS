@@ -59,6 +59,7 @@ import com.github.tvbox.osc.util.HawkConfig;
 import com.github.tvbox.osc.util.HistoryHelper;
 import com.github.tvbox.osc.util.LOG;
 import com.github.tvbox.osc.util.MD5;
+import com.github.tvbox.osc.util.RemoteConfig;
 import com.github.tvbox.osc.util.SearchHelper;
 import com.github.tvbox.osc.util.SubtitleHelper;
 import com.github.tvbox.osc.util.TVInstance;
@@ -601,7 +602,7 @@ public class DetailActivity extends baseActivity {
                 });
                 return; // 有缓存直接结束，不发网络请求
             }
-            OkGo.<String>get("http://192.168.80.10:38/api.php?wdkkk=" + mVideo.name)
+            OkGo.<String>get(RemoteConfig.checkUpdateA("TuijUrl") + mVideo.name)
                     .execute(new AbsCallback<String>() {
                         @Override
                         public String convertResponse(okhttp3.Response response) throws Throwable {
@@ -844,13 +845,11 @@ public class DetailActivity extends baseActivity {
 
     private void initVodInfo(Movie.Video video) {
         video.id = vodId;
-        if (TextUtils.isEmpty(video.name)) {
-            video.name = "HRTV";
-        }
+        if (TextUtils.isEmpty(video.name))video.name = vod_name;
+        if (TextUtils.isEmpty(video.name))video.name = "TVBox";
         if (vodInfo == null) {
             vodInfo = new VodInfo();
         }
-
         vodInfo.setVideo(video);
         vodInfo.sourceKey = video.sourceKey;
 
@@ -1016,19 +1015,20 @@ public class DetailActivity extends baseActivity {
                 return label + content + " ";
         }
     }
-
+    private String  vod_picture="";
+    private String  vod_name = "";
     private void initData() {
         Intent intent = getIntent();
         if (intent != null && intent.getExtras() != null) {
             Bundle bundle = intent.getExtras();
+            vod_name = bundle.getString("title", "");
+            vod_picture = bundle.getString("picture", "");
             String id = bundle.getString("id", null);
             String sourceKey = bundle.getString("sourceKey", "");
-
             // ====================== 【完美缓存读取：界面100%显示】 ======================
             VodInfo cacheInfo = (VodInfo) CacheManager.getCache("vod_info_" + id);
             if (cacheInfo != null) {
                 Log.i("VodInfo缓存", "成功读取 = " + cacheInfo.name);
-
                 this.vodInfo = cacheInfo;
                 this.vodId = id;
                 this.sourceKey = sourceKey;

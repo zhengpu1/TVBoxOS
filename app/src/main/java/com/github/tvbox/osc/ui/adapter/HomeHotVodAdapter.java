@@ -13,13 +13,9 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import com.github.tvbox.osc.R;
 import com.github.tvbox.osc.api.ApiConfig;
 import com.github.tvbox.osc.bean.Movie;
-import com.github.tvbox.osc.picasso.RoundTransformation;
-import com.github.tvbox.osc.util.DefaultConfig;
 import com.github.tvbox.osc.util.HawkConfig;
-import com.github.tvbox.osc.util.ImgUtil;
-import com.github.tvbox.osc.util.MD5;
+import com.github.tvbox.osc.util.ImgUtils;
 import com.orhanobut.hawk.Hawk;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -68,20 +64,15 @@ public class HomeHotVodAdapter extends BaseQuickAdapter<Movie.Video, BaseViewHol
         FrameLayout tvHotvod = helper.getView(R.id.Hotvod);
         FrameLayout[] str = { tvHotvod };
         drawableFrameLayout(str, 9);
-        if (!TextUtils.isEmpty(item.pic)) {
-            item.pic=item.pic.trim();
-                Picasso.get()
-                        .load(DefaultConfig.checkReplaceProxy(item.pic))
-                        .transform(new RoundTransformation(MD5.string2MD5(item.pic))
-                                .centerCorp(true)
-                                .override(AutoSizeUtils.mm2px(mContext, 300), AutoSizeUtils.mm2px(mContext, 400))
-                                .roundRadius(AutoSizeUtils.mm2px(mContext, 6), RoundTransformation.RoundType.ALL))
-                        .placeholder(ImgUtil.createTextDrawable(item.name))
-                        .noFade()
-                        .error(R.drawable.img_loading_placeholder)
-                        .into(ivThumb);
+        String pic = item.pic == null ? "" : item.pic.trim();
+        if (!TextUtils.isEmpty(pic)) {
+            if (ImgUtils.isBase64Image(pic)) {
+                ivThumb.setImageBitmap(ImgUtils.decodeBase64ToBitmap(pic));
+            } else {
+                ImgUtils.load(pic, ivThumb, AutoSizeUtils.mm2px(mContext, 6), AutoSizeUtils.mm2px(mContext, 300), AutoSizeUtils.mm2px(mContext, 400), item.name);
+            }
         } else {
-             ivThumb.setImageDrawable(ImgUtil.createTextDrawable(item.name));
+            ivThumb.setImageDrawable(ImgUtils.createTextDrawable(item.name));
         }
     }
 }

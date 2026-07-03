@@ -12,11 +12,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.github.tvbox.osc.R;
 import com.github.tvbox.osc.bean.Movie;
-import com.github.tvbox.osc.picasso.RoundTransformation;
-import com.github.tvbox.osc.util.DefaultConfig;
-import com.github.tvbox.osc.util.ImgUtil;
-import com.github.tvbox.osc.util.MD5;
-import com.squareup.picasso.Picasso;
+import com.github.tvbox.osc.util.ImgUtils;
 
 import java.util.ArrayList;
 
@@ -49,20 +45,15 @@ public class HomedeVodAdapter extends BaseQuickAdapter<Movie.Video, BaseViewHold
         FrameLayout[] str = { tvHotvod };
         drawableFrameLayout(str, 9);
         // 先 trim 再判断！顺序必须反过来！
-        String thumbUrl = item.picthumb == null ? "" : item.picthumb.trim();
-        if (!TextUtils.isEmpty(thumbUrl)) {
-            Picasso.get()
-                    .load(DefaultConfig.checkReplaceProxy(thumbUrl))
-                    .transform(new RoundTransformation(MD5.string2MD5(thumbUrl))
-                            .centerCorp(true)
-                            .override(AutoSizeUtils.mm2px(mContext, 300), AutoSizeUtils.mm2px(mContext, 180))
-                            .roundRadius(AutoSizeUtils.mm2px(mContext, 5), RoundTransformation.RoundType.ALL))
-                    .placeholder(ImgUtil.createTextDrawable(item.name))
-                    .noFade()
-                    .error(R.drawable.img_loading_placeholder)
-                    .into(ivThumb);
+        String pic = item.picthumb == null ? "" : item.picthumb.trim();
+        if (!TextUtils.isEmpty(pic)) {
+            if (ImgUtils.isBase64Image(pic)) {
+                ivThumb.setImageBitmap(ImgUtils.decodeBase64ToBitmap(pic));
+            } else {
+                ImgUtils.load(pic, ivThumb, AutoSizeUtils.mm2px(mContext, 5), AutoSizeUtils.mm2px(mContext, 300), AutoSizeUtils.mm2px(mContext, 180), item.name);
+            }
         } else {
-             ivThumb.setImageDrawable(ImgUtil.createTextDrawable(item.name));
+            ivThumb.setImageDrawable(ImgUtils.createTextDrawable(item.name));
         }
     }
 }

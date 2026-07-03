@@ -1,6 +1,6 @@
 package com.github.tvbox.osc.util;
 
-import static com.github.tvbox.osc.util.ImgUtil.clearCache;
+import static com.github.tvbox.osc.util.ImgUtils.clearCache;
 
 import android.content.res.AssetManager;
 

@@ -15,13 +15,9 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import com.github.tvbox.osc.R;
 import com.github.tvbox.osc.api.ApiConfig;
 import com.github.tvbox.osc.bean.Movie;
-import com.github.tvbox.osc.picasso.RoundTransformation;
-import com.github.tvbox.osc.util.DefaultConfig;
 import com.github.tvbox.osc.util.HawkConfig;
-import com.github.tvbox.osc.util.ImgUtil;
-import com.github.tvbox.osc.util.MD5;
+import com.github.tvbox.osc.util.ImgUtils;
 import com.orhanobut.hawk.Hawk;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -75,38 +71,27 @@ public class HomeHotVodAdapterc extends BaseQuickAdapter<Movie.Video, BaseViewHo
             LParams(tvHotvods, 607, 260);
             if (!TextUtils.isEmpty(item.picslide)) { item.picthumb = item.picslide; }
             if (TextUtils.isEmpty(item.picthumb)) { item.picthumb = item.pic; }
-            if (!TextUtils.isEmpty(item.picthumb)) {
-                item.picthumb=item.picthumb.trim();
-                Picasso.get()
-                        .load(DefaultConfig.checkReplaceProxy(item.picthumb.replace("480_270","610_260")))
-                        .transform(new RoundTransformation(MD5.string2MD5(item.picthumb.replace("480_270","610_260")))
-                                .centerCorp(true)
-                                .override(AutoSizeUtils.mm2px(mContext, 610), AutoSizeUtils.mm2px(mContext, 260))
-                                .roundRadius(AutoSizeUtils.mm2px(mContext, 8), RoundTransformation.RoundType.ALL))
-                        .placeholder(ImgUtil.decodeBase64ToDrawable(ImgUtil.FOLDER))
-                        .noFade()
-                        .error(R.drawable.img_loading_placeholder)
-                        .into(ivThumb);
+            String pic = item.picthumb == null ? "" : item.picthumb.trim();
+            if (!TextUtils.isEmpty(pic)) {
+                if (ImgUtils.isBase64Image(pic)) {
+                    ivThumb.setImageBitmap(ImgUtils.decodeBase64ToBitmap(pic));
+                } else {
+                    ImgUtils.load(pic, ivThumb, AutoSizeUtils.mm2px(mContext, 10), AutoSizeUtils.mm2px(mContext, 610), AutoSizeUtils.mm2px(mContext, 260), item.name);
+                }
             } else {
-                 ivThumb.setImageDrawable(ImgUtil.createTextDrawable(item.name));
+                ivThumb.setImageDrawable(ImgUtils.createTextDrawable(item.name));
             }
         } else {
             LParams(tvHotvods, 298, 170);
-            if (TextUtils.isEmpty(item.picthumb)) { item.picthumb = item.pic; }
-            if (!TextUtils.isEmpty(item.picthumb)) {
-                item.picthumb=item.picthumb.trim();
-                Picasso.get()
-                        .load(DefaultConfig.checkReplaceProxy(item.picthumb))
-                        .transform(new RoundTransformation(MD5.string2MD5(item.picthumb))
-                                .centerCorp(true)
-                                .override(AutoSizeUtils.mm2px(mContext, 300), AutoSizeUtils.mm2px(mContext, 180))
-                                .roundRadius(AutoSizeUtils.mm2px(mContext, 8), RoundTransformation.RoundType.ALL))
-                        .placeholder(ImgUtil.createTextDrawable(item.name))
-                        .noFade()
-                        .error(R.drawable.img_loading_placeholder)
-                        .into(ivThumb);
+            String pic = item.picthumb == null ? "" : item.picthumb.trim();
+            if (!TextUtils.isEmpty(pic)) {
+                if (ImgUtils.isBase64Image(pic)) {
+                    ivThumb.setImageBitmap(ImgUtils.decodeBase64ToBitmap(pic));
+                } else {
+                    ImgUtils.load(pic, ivThumb, AutoSizeUtils.mm2px(mContext, 10), AutoSizeUtils.mm2px(mContext, 300), AutoSizeUtils.mm2px(mContext, 180), item.name);
+                }
             } else {
-                 ivThumb.setImageDrawable(ImgUtil.createTextDrawable(item.name));
+                ivThumb.setImageDrawable(ImgUtils.createTextDrawable(item.name));
             }
         }
     }

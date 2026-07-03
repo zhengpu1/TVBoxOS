@@ -463,7 +463,7 @@ public class SourceViewModel extends ViewModel {
             OkGo.<String>get(homeSourceBean.getApi())
                     .tag(homeSourceBean.getApi())
                     .params("ac", type == 0 ? "videolist" : "detail")
-                    .params("t", sortData.id)
+                    .params("t", sortData.id == null ? "" : sortData.id)
                     .params("pg", page)
                     .params(sortData.filterSelect)
                     .params("f", (sortData.filterSelect == null || sortData.filterSelect.size() <= 0) ? "" : new JSONObject(sortData.filterSelect).toString())

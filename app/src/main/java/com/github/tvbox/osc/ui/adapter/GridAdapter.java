@@ -3,7 +3,6 @@ package com.github.tvbox.osc.ui.adapter;
 import static com.github.tvbox.osc.base.baseActivity.LParams;
 import static com.github.tvbox.osc.base.baseActivity.drawableFrameLayout;
 import static com.github.tvbox.osc.base.baseActivity.getColorByAttrId;
-import static com.github.tvbox.osc.base.baseActivity.roundRadius;
 
 import android.text.TextUtils;
 import android.view.View;
@@ -15,13 +14,9 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.github.tvbox.osc.R;
 import com.github.tvbox.osc.bean.Movie;
-import com.github.tvbox.osc.picasso.RoundTransformation;
-import com.github.tvbox.osc.util.DefaultConfig;
 import com.github.tvbox.osc.util.HawkConfig;
-import com.github.tvbox.osc.util.ImgUtil;
-import com.github.tvbox.osc.util.MD5;
+import com.github.tvbox.osc.util.ImgUtils;
 import com.orhanobut.hawk.Hawk;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -69,27 +64,16 @@ public class GridAdapter extends BaseQuickAdapter<Movie.Video, BaseViewHolder> {
                 txtMediaName.setVisibility(View.VISIBLE);
                 txtMediaName.setBackgroundColor(getColorByAttrId(mContext, R.attr.color_theme_70));
             }
-                //由于部分电视机使用glide报错
-                if (!TextUtils.isEmpty(item.pic)) {
-                    item.pic = item.pic.trim();
-                    if (ImgUtil.isBase64Image(item.pic)) {
-                        // 如果是 Base64 图片，解码并设置
-                        ivThumb.setImageBitmap(ImgUtil.decodeBase64ToBitmap(item.pic));
-                    } else {
-                        Picasso.get()
-                                .load(DefaultConfig.checkReplaceProxy(item.pic))
-                                .transform(new RoundTransformation(MD5.string2MD5(item.pic))
-                                        .centerCorp(true)
-                                        .override(AutoSizeUtils.mm2px(mContext, 180), AutoSizeUtils.mm2px(mContext, 120))
-                                        .roundRadius(AutoSizeUtils.mm2px(mContext, roundRadius), RoundTransformation.RoundType.ALL))
-                                .placeholder(ImgUtil.decodeBase64ToDrawable(ImgUtil.FOLDER))
-                                .noFade()
-                                .error(ImgUtil.createTextDrawable(item.name))
-                                .into(ivThumb);
-                    }
+            String pic = item.pic == null ? "" : item.pic.trim();
+            if (!TextUtils.isEmpty(pic)) {
+                if (ImgUtils.isBase64Image(pic)) {
+                    ivThumb.setImageBitmap(ImgUtils.decodeBase64ToBitmap(pic));
                 } else {
-                    ivThumb.setImageDrawable(ImgUtil.createTextDrawable(item.name));
+                    ImgUtils.load(pic, ivThumb, AutoSizeUtils.mm2px(mContext, 10), AutoSizeUtils.mm2px(mContext, 240), AutoSizeUtils.mm2px(mContext, 336), item.name);
                 }
+            } else {
+                ivThumb.setImageDrawable(ImgUtils.createTextDrawable(item.name));
+            }
             return;
         }
 
@@ -132,20 +116,17 @@ public class GridAdapter extends BaseQuickAdapter<Movie.Video, BaseViewHolder> {
                 tvArea.setTextSize(14);
                 tvArea.setPadding(5,15,5,0);
             }
-            if (!TextUtils.isEmpty(item.picthumb)) {
-                item.picthumb=item.picthumb.trim();
-                Picasso.get()
-                        .load(DefaultConfig.checkReplaceProxy(item.picthumb))
-                        .transform(new RoundTransformation(MD5.string2MD5(item.picthumb))
-                                .centerCorp(true)
-                                .override(AutoSizeUtils.mm2px(mContext, 300), AutoSizeUtils.mm2px(mContext, 400))
-                                .roundRadius(AutoSizeUtils.mm2px(mContext, 6), RoundTransformation.RoundType.ALL))
-                        .placeholder(ImgUtil.createTextDrawable(item.name))
-                        .noFade()
-                        .into(ivThumb);
+            String pic = item.picthumb == null ? "" : item.picthumb.trim();
+            if (!TextUtils.isEmpty(pic)) {
+                if (ImgUtils.isBase64Image(pic)) {
+                    ivThumb.setImageBitmap(ImgUtils.decodeBase64ToBitmap(pic));
+                } else {
+                    ImgUtils.load(pic, ivThumb, AutoSizeUtils.mm2px(mContext, 10), AutoSizeUtils.mm2px(mContext, 300), AutoSizeUtils.mm2px(mContext, 400), item.name);
+                }
             } else {
-                 ivThumb.setImageDrawable(ImgUtil.createTextDrawable(item.name));
+                ivThumb.setImageDrawable(ImgUtils.createTextDrawable(item.name));
             }
+
         } else {
             if (TextUtils.isEmpty(item.note)) {
                 helper.setVisible(R.id.tvNote, false);
@@ -170,20 +151,18 @@ public class GridAdapter extends BaseQuickAdapter<Movie.Video, BaseViewHolder> {
                 LParams(llgrid, 197, 260);
                 LParams(llgrids, 197,295);
             }
-            if (!TextUtils.isEmpty(item.pic)) {
-                item.pic=item.pic.trim();
-                Picasso.get()
-                        .load(DefaultConfig.checkReplaceProxy(item.pic))
-                        .transform(new RoundTransformation(MD5.string2MD5(item.pic))
-                                .centerCorp(true)
-                                .override(AutoSizeUtils.mm2px(mContext, 300), AutoSizeUtils.mm2px(mContext, 400))
-                                .roundRadius(AutoSizeUtils.mm2px(mContext, 6), RoundTransformation.RoundType.ALL))
-                        .placeholder(ImgUtil.createTextDrawable(item.name))
-                        .noFade()
-                        .into(ivThumb);
+            String pic = item.pic == null ? "" : item.pic.trim();
+            if (!TextUtils.isEmpty(pic)) {
+                if (ImgUtils.isBase64Image(pic)) {
+                    ivThumb.setImageBitmap(ImgUtils.decodeBase64ToBitmap(pic));
+                } else {
+                    ImgUtils.load(pic, ivThumb, AutoSizeUtils.mm2px(mContext, 10), AutoSizeUtils.mm2px(mContext, 300), AutoSizeUtils.mm2px(mContext, 400), item.name);
+                }
             } else {
-                ivThumb.setImageDrawable(ImgUtil.createTextDrawable(item.name));
+                ivThumb.setImageDrawable(ImgUtils.createTextDrawable(item.name));
             }
+
         }
     }
+
 }
