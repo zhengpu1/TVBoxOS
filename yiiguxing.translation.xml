@@ -18,6 +18,8 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="danmu Click Methods" />
+      <item value="danmu Long Click Methods" />
       <item value="create Bundle" />
       <item value="LOAD JAR MAX RETRY" />
       <item value="download Jar Async" />
@@ -66,8 +68,6 @@
       <item value="prepare" />
       <item value="start If Ready" />
       <item value="is Video Ready" />
-      <item value="release View" />
-      <item value="get Source Summary" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="3" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="9160" />
+        <entry key="CHINESE" value="9162" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="9161" />
+        <entry key="ENGLISH" value="9163" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="5" />
