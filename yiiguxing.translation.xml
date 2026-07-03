@@ -18,6 +18,8 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="tv Name Animation" />
+      <item value="start Activity" />
       <item value="pre Progress" />
       <item value="SYSTEM UI FLAG IMMERSIVE STICKY" />
       <item value="AUTO SWITCH LINE" />
@@ -66,8 +68,6 @@
       <item value="error With Retry" />
       <item value="set Has Danmu" />
       <item value="update Danmu Btn" />
-      <item value="search Danmu Ui" />
-      <item value="show Danmu Setting" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="3" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="9152" />
+        <entry key="CHINESE" value="9155" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="9153" />
+        <entry key="ENGLISH" value="9156" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="5" />
