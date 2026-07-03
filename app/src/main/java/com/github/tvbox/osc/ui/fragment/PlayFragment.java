@@ -304,11 +304,6 @@ public class PlayFragment extends BaseLazyFragment {
             public void errReplay() {
                 errorWithRetryk("视频播放出错", false);
             }
-
-            @Override
-            public void startPlayUrl(String url, HashMap<String, String> headers) {
-                startDanmuIfReady();
-            }
             @Override
             public void selectSubtitle() {
                 try {
@@ -333,6 +328,10 @@ public class PlayFragment extends BaseLazyFragment {
                 initSubtitleView();
                 if (mVideoView != null) mVideoView.prepared();
                 startDanmuIfReady();
+            }
+            @Override
+            public void startPlayUrl(String url, HashMap<String, String> headers) {
+                goPlayUrl(url, headers);
             }
         });
         mVideoView.setVideoController(mController);
@@ -633,11 +632,12 @@ public class PlayFragment extends BaseLazyFragment {
         });
     }
      void playUrl(String url, HashMap<String, String> headers) {
-        // url = attachProxySiteKey(url);
+         LOG.i("echo-PlayUrl000:" + url);
+         url = attachProxySiteKey(url);
+         LOG.i("echo-PlayUrl:" + url);
          if(!url.startsWith("data:application"))EventBus.getDefault().post(new RefreshEvent(RefreshEvent.TYPE_REFRESH, url));//更新播放地址
          if (!Hawk.get(HawkConfig.VIDEO_PURIFY, false)) {
              goPlayUrl(url, headers);
-             LOG.i("99999999000", url+headers);
              return;
          }
          if (url.startsWith("http://127.0.0.1") || !url.contains(".m3u8")) {
@@ -707,7 +707,6 @@ public class PlayFragment extends BaseLazyFragment {
         });
     }
     private Timer timer;
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

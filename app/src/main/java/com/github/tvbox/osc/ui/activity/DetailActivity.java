@@ -292,8 +292,8 @@ public class DetailActivity extends baseActivity {
         preFlag = "";
         if (showPreview) {
             playFragment = new PlayFragment();
-            getSupportFragmentManager().beginTransaction().add(R.id.previewPlayer, playFragment).commit();
-            getSupportFragmentManager().beginTransaction().show(playFragment).commitAllowingStateLoss();
+            getSupportFragmentManager().beginTransaction().add(R.id.previewPlayer, playFragment).commitNowAllowingStateLoss();
+           // getSupportFragmentManager().beginTransaction().show(playFragment).commitAllowingStateLoss();
             tvPlays.setText(!Hawk.get(HawkConfig.FORBID_JAR_DIALOG, false) ? "手动换源" :"全屏播放");
         } else {
             tvPlays.setText("全屏播放");
