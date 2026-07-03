@@ -18,6 +18,7 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="SEARCH MAX THREAD COUNT" />
       <item value="PLAYBACK PLAY" />
       <item value="fetch Config Async" />
       <item value="Cache Manager" />
@@ -67,7 +68,6 @@
       <item value="search Danmu" />
       <item value="m Controller" />
       <item value="set Player Config" />
-      <item value="m Player Config" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="3" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="9143" />
+        <entry key="CHINESE" value="9144" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="9144" />
+        <entry key="ENGLISH" value="9145" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="5" />
