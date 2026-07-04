@@ -86,6 +86,11 @@ public class ControlManager {
                 public void onEpgReceived(String url) {
                     EventBus.getDefault().post(new RefreshEvent(RefreshEvent.TYPE_EPG_URL_CHANGE, url));
                 }
+                @Override
+                public void onDanmuApiReceived(String url) {
+                    Hawk.put(HawkConfig.DANMU_API, TextUtils.isEmpty(url) ? "" : url);
+                    EventBus.getDefault().post(new RefreshEvent(RefreshEvent.TYPE_SET_DANMU_SETTINGS, false));
+                }
 
                 @Override
                 public void onPushReceived(String url) {

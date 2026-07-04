@@ -13,6 +13,9 @@ function live() {
 function epg() {
     doAction('epg', { url: $('#diy_epg_url').val() });
 }
+function danmuApi() {
+    doAction('danmuApi', { url: $('#diy_danmu_api_url').val() });
+}
 
 function push() {
     doAction('push', { url: $('#push_url').val() });

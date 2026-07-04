@@ -220,9 +220,7 @@ public class SourceViewModel extends ViewModel {
                         @Override
                         public String call() throws Exception {
                             Spider sp = ApiConfig.get().getCSP(sourceBean);
-                            String json = sp.homeContent(true);
-//                            LOG.i("echo--getSort :" + json);
-                            return json;
+                            return sp.homeContent(true);
                         }
                     });
                     String sortJson = null;
@@ -602,7 +600,7 @@ public class SourceViewModel extends ViewModel {
                     }
                 }
             };
-            spThreadPool.execute(waitResponse);
+            httpPrepareThreadPool.execute(waitResponse);
         } else if (type == 0 || type == 1) {
             OkGo.<String>get(sourceBean.getApi())
                     .tag("detail")

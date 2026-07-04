@@ -93,5 +93,6 @@ lint/tmp/
 /LTDecodeSpace
 /adb.exe
 /LTDecodeNew3.exe
-
+*.md
+output-metadata.json
 .idea/

@@ -14,7 +14,6 @@ import com.google.gson.JsonNull;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.lzy.okgo.OkGo;
-import com.orhanobut.hawk.Hawk;
 
 import okhttp3.Response;
 
@@ -123,12 +122,6 @@ public class RemoteConfig {
     private static void InitRemoteConfig(String config){
         try {
             remoteJsonObject = JsonParser.parseString(config).getAsJsonObject();
-            Hawk.put(HawkConfig.VIDEO_PURIFY, remoteJsonObject.has("Removeads") && Boolean.parseBoolean(checkUpdateA("Removeads")));
-            Hawk.put(HawkConfig.EPISODE_GROUPING, remoteJsonObject.has("Grouping") && Boolean.parseBoolean(checkUpdateA("Grouping")));
-            if (remoteJsonObject.has("Grouping")) {
-                boolean Grouping = Boolean.parseBoolean(checkUpdateA("Grouping"));
-                Hawk.put(HawkConfig.EPISODE_GROUPING, Grouping);
-            }
             // 只调用一次，存到变量里，避免多次重复调用
             JsonElement updateDataElement = GetValue("UpdateData");
             if (!updateDataElement.isJsonNull() && updateDataElement.isJsonObject()) {

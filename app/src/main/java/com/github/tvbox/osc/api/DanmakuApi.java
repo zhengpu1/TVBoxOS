@@ -28,7 +28,7 @@ import okhttp3.Response;
 
 public class DanmakuApi {
     private static final String TAG = DanmakuApi.class.getSimpleName();
-    private static final String BUILTIN_API = "https://saas-oa.shyeguang.cn";
+    private static final String BUILTIN_API = "http://192.168.80.10:9321";
     private static final String USE_DEFAULT_KEY = "danmu_api_use_default";
     private static final long BUILTIN_TIMEOUT = TimeUnit.SECONDS.toMillis(20);
     private static final int BUILTIN_MAX_RETRY = 2;

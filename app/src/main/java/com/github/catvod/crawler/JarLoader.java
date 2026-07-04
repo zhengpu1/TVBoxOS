@@ -48,18 +48,6 @@ public class JarLoader {
         return success;
     }
 
-    public void setRecentJarKey(String key) {
-        if (TextUtils.isEmpty(key)) return;
-        recent = realKey(key);
-        injectProxyPort(loaders.get(recent));
-    }
-
-    public void loadLiveJar(String jar) {
-        String key = jarKey(jar);
-        parseJar(key, jar);
-        setRecentJarKey(key);
-    }
-
     public void clear() {
         for (Spider spider : spiders.values()) {
             try {
@@ -167,17 +155,6 @@ public class JarLoader {
             } else if (source.startsWith("clan://")) {
                 load(key, download(clanToAddress(source), file));
             }
-        }
-    }
-
-    public DexClassLoader dex(String jar) {
-        try {
-            String key = jarKey(jar);
-            parseJar(key, jar);
-            return loaders.get(key);
-        } catch (Throwable e) {
-            e.printStackTrace();
-            return null;
         }
     }
 
