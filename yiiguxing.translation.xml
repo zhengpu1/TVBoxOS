@@ -18,6 +18,8 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="start Danmu If Ready" />
+      <item value="search Builtin" />
       <item value="normalize Color" />
       <item value="is Color Value" />
       <item value="simple Name" />
@@ -29,7 +31,6 @@
       <item value="echo-danmaku builtin search error" />
       <item value="BUILTIN MAX RETRY" />
       <item value="search Builtin Anime" />
-      <item value="search Builtin" />
       <item value="BUILTIN TIMEOUT" />
       <item value="invoke Danmaku" />
       <item value="has Danmu Search Ui" />
@@ -67,7 +68,6 @@
       <item value="m Danmu Setting Btn" />
       <item value="m Danmu Search Ui Btn" />
       <item value="EPISODE QUERY EMPTY" />
-      <item value="full Windows" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="3" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="9178" />
+        <entry key="CHINESE" value="9181" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="9179" />
+        <entry key="ENGLISH" value="9182" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="5" />
