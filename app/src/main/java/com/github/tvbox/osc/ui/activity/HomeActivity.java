@@ -42,6 +42,7 @@ import com.github.tvbox.osc.base.App;
 import com.github.tvbox.osc.base.BaseLazyFragment;
 import com.github.tvbox.osc.base.baseActivity;
 import com.github.tvbox.osc.bean.AbsSortXml;
+import com.github.tvbox.osc.bean.Movie;
 import com.github.tvbox.osc.bean.MovieSort;
 import com.github.tvbox.osc.bean.SourceBean;
 import com.github.tvbox.osc.event.RefreshEvent;
@@ -63,6 +64,7 @@ import com.github.tvbox.osc.util.FastClickCheckUtil;
 import com.github.tvbox.osc.util.FileUtils;
 import com.github.tvbox.osc.util.HawkConfig;
 import com.github.tvbox.osc.util.LOG;
+import com.github.tvbox.osc.util.MD5;
 import com.github.tvbox.osc.util.ScreenUtils;
 import com.github.tvbox.osc.viewmodel.SourceViewModel;
 import com.orhanobut.hawk.Hawk;
@@ -116,6 +118,7 @@ public class HomeActivity extends baseActivity {
     private String loadingSourceKey;
     private String previousHomeName;
     private boolean homeSortLoading = false;
+    private boolean refreshHomeRec = false;
     View lastView = null;
     private Runnable mRunnable = new Runnable() {
         @SuppressLint({"DefaultLocale", "SetTextI18n"})
@@ -270,8 +273,13 @@ public class HomeActivity extends baseActivity {
         this.mGridView.setOnInBorderKeyEventListener((direction, view) -> {
             if(direction == View.FOCUS_UP){
                 BaseLazyFragment baseLazyFragment = fragments.get(sortFocused);
+                if (baseLazyFragment instanceof UserFragment) {
+                    refreshHomeSort();
+                    return true;
+                }
                 if ((baseLazyFragment instanceof GridFragment) ) {// 弹出筛选
                     ((GridFragment) baseLazyFragment).forceRefresh();
+                    return true;
                 }
             }
             if (direction != View.FOCUS_DOWN) {
@@ -291,9 +299,33 @@ public class HomeActivity extends baseActivity {
         tvName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onClickClearCache(v);
+                FastClickCheckUtil.check(v);
+                if(dataInitOk && jarInitOk){
+                    String jar=ApiConfig.get().getHomeSourceBean().getJar();
+                    String jarUrl=!jar.isEmpty()?jar:ApiConfig.get().getSpider();
+                    String jarSource = jarUrl.split(";md5;")[0];
+                    File cspCacheDir = new File(FileUtils.getFilePath() + "/csp/" + MD5.string2MD5(jarSource) + ".jar");
+                    File jarCacheDir = new File(FileUtils.getCachePath() + "/jar/" + MD5.string2MD5(jarSource) + ".jar");
+                    File jarFullCacheDir = new File(FileUtils.getCachePath() + "/jar/" + MD5.string2MD5(jarUrl) + ".jar");
+                    Toast.makeText(mContext, "缓存已清除", Toast.LENGTH_LONG).show();
+                    new Thread(() -> {
+                        try {
+                            FileUtils.deleteFile(cspCacheDir);
+                            FileUtils.deleteFile(jarCacheDir);
+                            FileUtils.deleteFile(jarFullCacheDir);
+                            FileUtils.clearSpiderCacheFiles();
+                            ApiConfig.get().clearSpiderCache();
+                            refreshHome();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }).start();
+
+                }else {
+                    jumpActivity(SettingActivity.class);
+                }
             }
-        });
+        });;
         tvName.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
@@ -429,6 +461,7 @@ public class HomeActivity extends baseActivity {
                 }
                 updateSortData(newSortData);
                 initViewPager(absXml);
+                updateHomeRec(absXml);
                 if (home != null && home.getName() != null && !home.getName().isEmpty()) tvName.setText(home.getName());
                 tvName.clearAnimation();
                 homeSortLoading = false;
@@ -655,7 +688,7 @@ public class HomeActivity extends baseActivity {
         if (sortAdapter.getData().size() > 0) {
             for (MovieSort.SortData data : sortAdapter.getData()) {
                 if (data.id.equals("my0")) {
-                    if (Hawk.get(HawkConfig.HOME_REC, 0) == 1 && absXml != null && absXml.videoList != null && absXml.videoList.size() > 0) {
+                    if (Hawk.get(HawkConfig.HOME_REC, HawkConfig.DEFAULT_HOME_REC) == 1 && absXml != null && absXml.videoList != null && absXml.videoList.size() > 0) {
                         fragments.add(UserFragment.newInstance(absXml.videoList));
                     } else {
                         fragments.add(UserFragment.newInstance(null));
@@ -1110,6 +1143,26 @@ public class HomeActivity extends baseActivity {
         intent.putExtras(bundle);
         HomeActivity.this.startActivity(intent);
     }
+    private void refreshHomeSort() {
+        refreshHomeRec = true;
+        if (UserFragment.homeHotVodAdapter != null) {
+            UserFragment.homeHotVodAdapter.setNewData(new ArrayList<Movie.Video>());
+        }
+        SourceBean home = ApiConfig.get().getHomeSourceBean();
+        if (home != null) {
+            SourceViewModel.clearSortCache(home.getKey());
+        }
+        refreshHome(false);
+    }
+
+    private void updateHomeRec(AbsSortXml absXml) {
+        if (!refreshHomeRec) return;
+        refreshHomeRec = false;
+        if (Hawk.get(HawkConfig.HOME_REC, HawkConfig.DEFAULT_HOME_REC) != 1) return;
+        if (absXml == null || absXml.videoList == null || UserFragment.homeHotVodAdapter == null) return;
+        UserFragment.homeHotVodAdapter.setNewData(absXml.videoList);
+    }
+
     private void tvNameAnimation()
     {
         tvName.clearAnimation();

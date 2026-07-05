@@ -61,6 +61,7 @@ public class GridFragment extends BaseLazyFragment {
     private TvRecyclerView mGridView;
     private SourceViewModel sourceViewModel;
     private GridFilterDialog gridFilterDialog;
+
     private GridAdapter gridAdapter;
     public int page = 1;
     private int maxPage = 1;

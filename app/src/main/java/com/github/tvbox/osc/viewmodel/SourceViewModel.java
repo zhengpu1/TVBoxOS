@@ -458,10 +458,14 @@ public class SourceViewModel extends ViewModel {
                 }
             });
         } else if (type == 0 || type == 1) {
+            String tid = "";
+            if (sortData != null) {
+                tid = sortData.id != null ? sortData.id : "";
+            }
             OkGo.<String>get(homeSourceBean.getApi())
                     .tag(homeSourceBean.getApi())
                     .params("ac", type == 0 ? "videolist" : "detail")
-                    .params("t", sortData.id == null ? "" : sortData.id)
+                    .params("t", tid)
                     .params("pg", page)
                     .params(sortData.filterSelect)
                     .params("f", (sortData.filterSelect == null || sortData.filterSelect.size() <= 0) ? "" : new JSONObject(sortData.filterSelect).toString())

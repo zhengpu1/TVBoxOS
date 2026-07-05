@@ -238,7 +238,6 @@ public class DanmakuApi {
                     if (episodeMatch != null && !TextUtils.isEmpty(episodeMatch.id)) {
                         loadBuiltinComment(baseUrl, "", episode, episodeMatch, callback, seq);
                     } else {
-//                        LOG.i("echo-danmaku builtin bangumi episode not matched, episode: " + safeLog(episode));
                         notifyNotFound(callback, seq);
                     }
                 } catch (Throwable th) {

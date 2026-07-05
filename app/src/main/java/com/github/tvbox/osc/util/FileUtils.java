@@ -138,7 +138,13 @@ public class FileUtils {
         }
         return false;
     }
-
+    public static void clearSpiderCacheFiles() {
+        cleanDirectory(new File(getFilePath() + "/csp/"));
+        cleanDirectory(new File(getCachePath() + "/jar/"));
+        cleanDirectory(new File(getCachePath() + "/py/"));
+        cleanDirectory(new File(getCachePath() + "/catvod_jsapi/"));
+        clearJsModuleCache();
+    }
     public static String getRootPath() {
         return Environment.getExternalStorageDirectory().getAbsolutePath();
     }
@@ -154,7 +160,9 @@ public class FileUtils {
     public static String getCachePath() {
         return getCacheDir().getAbsolutePath();
     }
-
+    public static String getFilePath() {
+        return App.getInstance().getFilesDir().getAbsolutePath();
+    }
     public static void cleanDirectory(File dir) {
         if (!dir.exists()) return;
         File[] files = dir.listFiles();
@@ -203,7 +211,16 @@ public class FileUtils {
             e.printStackTrace();
         }
     }
-
+    private static void clearJsModuleCache() {
+        File externalCacheDir = new File(getExternalCachePath());
+        File[] files = externalCacheDir.listFiles();
+        if (files == null) return;
+        for (File file : files) {
+            if (file != null && file.getName().startsWith("qjscache_")) {
+                deleteFile(file);
+            }
+        }
+    }
     public static String read(String path) {
         try {
             BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(getLocal(path))));
@@ -270,5 +287,12 @@ public class FileUtils {
         int lastSlashIndex = Math.max(path.lastIndexOf("/"), path.lastIndexOf("\\"));
         // 如果路径中有点号，并且点号在最后一个斜杠之后，认为有后缀
         return lastDotIndex > lastSlashIndex && lastDotIndex < path.length() - 1;
+    }
+    public static String getExternalCachePath() {
+        File externalCacheDir = App.getInstance().getExternalCacheDir();
+        if (externalCacheDir == null){
+            return getCachePath();
+        }
+        return externalCacheDir.getAbsolutePath();
     }
 }
