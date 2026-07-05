@@ -462,13 +462,27 @@ public class SourceViewModel extends ViewModel {
             if (sortData != null) {
                 tid = sortData.id != null ? sortData.id : "";
             }
-            OkGo.<String>get(homeSourceBean.getApi())
-                    .tag(homeSourceBean.getApi())
+            HashMap<String, String> filterMap = null;
+            String fParam = "";
+            if (sortData != null) {
+                filterMap = sortData.filterSelect;
+                if (filterMap != null && filterMap.size() > 0) {
+                    fParam = new JSONObject(filterMap).toString();
+                }
+            }
+            String apiUrl = homeSourceBean.getApi();
+            if (apiUrl == null || apiUrl.trim().isEmpty()) {
+                // 可以给页面返回空数据/错误提示
+                listResult.setValue(null);
+                return;
+            }
+            OkGo.<String>get(apiUrl)
+                    .tag(apiUrl)
                     .params("ac", type == 0 ? "videolist" : "detail")
                     .params("t", tid)
                     .params("pg", page)
-                    .params(sortData.filterSelect)
-                    .params("f", (sortData.filterSelect == null || sortData.filterSelect.size() <= 0) ? "" : new JSONObject(sortData.filterSelect).toString())
+                    .params(filterMap != null ? filterMap : new HashMap<>())
+                    .params("f", fParam)
                     .execute(new AbsCallback<String>() {
 
                         @Override
