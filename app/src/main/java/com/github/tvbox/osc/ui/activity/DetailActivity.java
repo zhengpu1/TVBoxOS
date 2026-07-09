@@ -580,9 +580,9 @@ public class DetailActivity extends baseActivity {
         tvName.setOnClickListener(v -> {
             ClipboardManager clipboard = (ClipboardManager) DetailActivity.this.getSystemService(Context.CLIPBOARD_SERVICE);
             String cpContent =  Objects.requireNonNull(vodInfo.seriesMap.get(vodInfo.playFlag)).get(vodInfo.playIndex).url;
-            ClipData clipData = ClipData.newPlainText(null, vodInfo.name +","+cpContent);
+            ClipData clipData = ClipData.newPlainText(null, cpContent + "#" + vodInfo.name);
             clipboard.setPrimaryClip(clipData);
-            Toast.makeText(DetailActivity.this, "已复制" + cpContent, Toast.LENGTH_SHORT).show();
+            Toast.makeText(DetailActivity.this, "已复制" + cpContent + "#" + vodInfo.name, Toast.LENGTH_SHORT).show();
         });
         setLoadSir(llLayout);
     }
@@ -853,7 +853,7 @@ public class DetailActivity extends baseActivity {
         vodInfo.setVideo(video);
         vodInfo.sourceKey = video.sourceKey;
 
-        CacheManager.save("vod_info_" + vodId, vodInfo);
+       // CacheManager.save("vod_info_" + vodId, vodInfo);
     }
 
     private void updateUI(Movie.Video video) {
@@ -1026,7 +1026,7 @@ public class DetailActivity extends baseActivity {
             String id = bundle.getString("id", null);
             String sourceKey = bundle.getString("sourceKey", "");
             // ====================== 【完美缓存读取：界面100%显示】 ======================
-            VodInfo cacheInfo = (VodInfo) CacheManager.getCache("vod_info_" + id);
+          /*  VodInfo cacheInfo = (VodInfo) CacheManager.getCache("vod_info_" + id);
             if (cacheInfo != null) {
                 Log.i("VodInfo缓存", "成功读取 = " + cacheInfo.name);
                 this.vodInfo = cacheInfo;
@@ -1062,7 +1062,7 @@ public class DetailActivity extends baseActivity {
                     showSuccess();
                 });
                 return;
-            }
+            }*/
 
             // 无缓存才请求网络
             loadDetail(id, sourceKey);

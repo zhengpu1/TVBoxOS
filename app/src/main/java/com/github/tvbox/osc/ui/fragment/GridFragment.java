@@ -8,7 +8,9 @@ import android.graphics.Rect;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.animation.BounceInterpolator;
 import android.widget.LinearLayout;
@@ -68,6 +70,12 @@ public class GridFragment extends BaseLazyFragment {
     private boolean isLoad = false;
     private boolean isTop = true;
     private View focusedView = null;
+    private float pullRefreshStartX;
+    private float pullRefreshStartY;
+    private boolean pullRefreshStartAtTop = false;
+    private boolean pullRefreshReady = false;
+    private int pullRefreshThreshold = 0;
+    private View loadSirView = null;
     private class GridInfo{
         public String sortID="";
         public TvRecyclerView mGridView;
@@ -289,6 +297,82 @@ public class GridFragment extends BaseLazyFragment {
         });
         gridAdapter.setLoadMoreView(new LoadMoreView());
         setLoadSir2(mGridView);
+    }
+    private void initPullRefresh() {
+        pullRefreshThreshold = ViewConfiguration.get(mContext).getScaledTouchSlop() * 6;
+        mGridView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
+            @Override
+            public boolean onInterceptTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent event) {
+                return handlePullRefreshTouch(rv, event);
+            }
+
+            @Override
+            public void onTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent event) {
+            }
+
+            @Override
+            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+            }
+        });
+        loadSirView = (View) mGridView.getParent();
+        if (loadSirView != null) {
+            loadSirView.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    return handlePullRefreshTouch(v, event);
+                }
+            });
+        }
+    }
+
+    private void bindPullRefreshTouch(View view) {
+        if (view == null || view == mGridView) return;
+        view.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return handlePullRefreshTouch(v, event);
+            }
+        });
+        if (view instanceof ViewGroup) {
+            ViewGroup group = (ViewGroup) view;
+            for (int i = 0; i < group.getChildCount(); i++) {
+                bindPullRefreshTouch(group.getChildAt(i));
+            }
+        }
+    }
+
+    private boolean handlePullRefreshTouch(View view, MotionEvent event) {
+        switch (event.getActionMasked()) {
+            case MotionEvent.ACTION_DOWN:
+                pullRefreshStartX = event.getX();
+                pullRefreshStartY = event.getY();
+                pullRefreshStartAtTop = !view.canScrollVertically(-1);
+                pullRefreshReady = false;
+                break;
+            case MotionEvent.ACTION_MOVE:
+                float diffX = Math.abs(event.getX() - pullRefreshStartX);
+                float diffY = event.getY() - pullRefreshStartY;
+                pullRefreshReady = pullRefreshStartAtTop && diffY > pullRefreshThreshold && diffY > diffX;
+                break;
+            case MotionEvent.ACTION_UP:
+                if (pullRefreshReady) {
+                    pullRefreshReady = false;
+                    forceRefresh();
+                    return true;
+                }
+                break;
+            case MotionEvent.ACTION_CANCEL:
+                pullRefreshReady = false;
+                break;
+        }
+        return false;
+    }
+
+    @Override
+    protected void showEmpty() {
+        super.showEmpty();
+        bindPullRefreshTouch(loadSirView);
+        initPullRefresh();
     }
 
     private void initViewModel() {

@@ -117,6 +117,7 @@ public class GridAdapter extends BaseQuickAdapter<Movie.Video, BaseViewHolder> {
                 tvArea.setPadding(5,15,5,0);
             }
             String pic = item.picthumb == null ? "" : item.picthumb.trim();
+
             if (!TextUtils.isEmpty(pic)) {
                 if (ImgUtils.isBase64Image(pic)) {
                     ivThumb.setImageBitmap(ImgUtils.decodeBase64ToBitmap(pic));

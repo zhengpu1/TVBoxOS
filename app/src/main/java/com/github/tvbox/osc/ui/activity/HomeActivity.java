@@ -12,6 +12,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
@@ -64,7 +65,6 @@ import com.github.tvbox.osc.util.FastClickCheckUtil;
 import com.github.tvbox.osc.util.FileUtils;
 import com.github.tvbox.osc.util.HawkConfig;
 import com.github.tvbox.osc.util.LOG;
-import com.github.tvbox.osc.util.MD5;
 import com.github.tvbox.osc.util.ScreenUtils;
 import com.github.tvbox.osc.viewmodel.SourceViewModel;
 import com.orhanobut.hawk.Hawk;
@@ -273,13 +273,17 @@ public class HomeActivity extends baseActivity {
         this.mGridView.setOnInBorderKeyEventListener((direction, view) -> {
             if(direction == View.FOCUS_UP){
                 BaseLazyFragment baseLazyFragment = fragments.get(sortFocused);
-                if (baseLazyFragment instanceof UserFragment) {
-                    refreshHomeSort();
-                    return true;
+                if (Build.VERSION.SDK_INT >= 19) {
+                    if (baseLazyFragment instanceof UserFragment) {
+                        refreshHomeSort();
+                        return true;
+                    }
                 }
                 if ((baseLazyFragment instanceof GridFragment) ) {// 弹出筛选
                     ((GridFragment) baseLazyFragment).forceRefresh();
-                    return true;
+                    if (Build.VERSION.SDK_INT >= 19) {
+                        return true;
+                    }
                 }
             }
             if (direction != View.FOCUS_DOWN) {
@@ -299,33 +303,9 @@ public class HomeActivity extends baseActivity {
         tvName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FastClickCheckUtil.check(v);
-                if(dataInitOk && jarInitOk){
-                    String jar=ApiConfig.get().getHomeSourceBean().getJar();
-                    String jarUrl=!jar.isEmpty()?jar:ApiConfig.get().getSpider();
-                    String jarSource = jarUrl.split(";md5;")[0];
-                    File cspCacheDir = new File(FileUtils.getFilePath() + "/csp/" + MD5.string2MD5(jarSource) + ".jar");
-                    File jarCacheDir = new File(FileUtils.getCachePath() + "/jar/" + MD5.string2MD5(jarSource) + ".jar");
-                    File jarFullCacheDir = new File(FileUtils.getCachePath() + "/jar/" + MD5.string2MD5(jarUrl) + ".jar");
-                    Toast.makeText(mContext, "缓存已清除", Toast.LENGTH_LONG).show();
-                    new Thread(() -> {
-                        try {
-                            FileUtils.deleteFile(cspCacheDir);
-                            FileUtils.deleteFile(jarCacheDir);
-                            FileUtils.deleteFile(jarFullCacheDir);
-                            FileUtils.clearSpiderCacheFiles();
-                            ApiConfig.get().clearSpiderCache();
-                            refreshHome();
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    }).start();
-
-                }else {
-                    jumpActivity(SettingActivity.class);
-                }
+                onClickClearCache(v);
             }
-        });;
+        });
         tvName.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
