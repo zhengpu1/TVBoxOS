@@ -1,6 +1,6 @@
 <application>
   <component name="Translation.Cache">
-    <option name="lastTrimTime" value="1784180599715" />
+    <option name="lastTrimTime" value="1787268580188" />
   </component>
   <component name="Translation.Settings">
     <option name="baiduTranslateSettings">
@@ -18,6 +18,10 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="init Protected Jar" />
+      <item value="get Method" />
+      <item value="echo-load initProtectedJar" />
+      <item value="protected Init Jar.check" />
       <item value="Tip Dialog" />
       <item value="top Hide" />
       <item value="set On Long Click Listener" />
@@ -64,10 +68,6 @@
       <item value="Google Play requires that apps target API level 31 or higher" />
       <item value=" Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the android.os.Build" />
       <item value="tv Name Animation" />
-      <item value="start Activity" />
-      <item value="pre Progress" />
-      <item value="SYSTEM UI FLAG IMMERSIVE STICKY" />
-      <item value="AUTO SWITCH LINE" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="3" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="9206" />
+        <entry key="CHINESE" value="9209" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="9207" />
+        <entry key="ENGLISH" value="9210" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="5" />
