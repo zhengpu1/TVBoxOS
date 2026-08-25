@@ -18,6 +18,7 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="aes Encrypt" />
       <item value="Concurrent Hash Map" />
       <item value="init Protected Jar" />
       <item value="get Method" />
@@ -67,7 +68,6 @@
       <item value="LOAD JAR MAX RETRY" />
       <item value="download Jar Async" />
       <item value="Google Play requires that apps target API level 31 or higher" />
-      <item value=" Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the android.os.Build" />
     </histories>
     <option name="languageScores">
       <map>
