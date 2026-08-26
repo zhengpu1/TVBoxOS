@@ -18,6 +18,7 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="safe Object" />
       <item value="aes Encrypt" />
       <item value="Concurrent Hash Map" />
       <item value="init Protected Jar" />
@@ -67,7 +68,6 @@
       <item value="create Bundle" />
       <item value="LOAD JAR MAX RETRY" />
       <item value="download Jar Async" />
-      <item value="Google Play requires that apps target API level 31 or higher" />
     </histories>
     <option name="languageScores">
       <map>
