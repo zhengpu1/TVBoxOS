@@ -1,6 +1,6 @@
 <application>
   <component name="Translation.Cache">
-    <option name="lastTrimTime" value="1787268580188" />
+    <option name="lastTrimTime" value="1788240049482" />
   </component>
   <component name="Translation.Settings">
     <option name="baiduTranslateSettings">
@@ -18,6 +18,7 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="Base 64 getencoder" />
       <item value="safe Object" />
       <item value="aes Encrypt" />
       <item value="Concurrent Hash Map" />
@@ -67,7 +68,6 @@
       <item value="danmu Click Methods" />
       <item value="create Bundle" />
       <item value="LOAD JAR MAX RETRY" />
-      <item value="download Jar Async" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="3" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="9210" />
+        <entry key="CHINESE" value="9211" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="9211" />
+        <entry key="ENGLISH" value="9212" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="5" />
