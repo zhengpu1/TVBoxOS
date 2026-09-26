@@ -3,9 +3,9 @@
     <option name="nonFavorites">
       <list>
         <option value="package:mine " />
+        <option value="package:com.github.catvod.demo" />
         <option value="package:com.github.tvbox.tkkkk " />
         <option value="package:com.github.tvbox.tk" />
-        <option value="package:com.github.catvod.demo" />
       </list>
     </option>
   </component>
