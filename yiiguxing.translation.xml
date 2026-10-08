@@ -18,6 +18,7 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="show Popup Window" />
       <item value="on Play State Changed" />
       <item value="listener" />
       <item value="Push object to the bottom of its container, not changing its size." />
@@ -67,7 +68,6 @@
       <item value="top Hide" />
       <item value="USE DEFAULT KEY" />
       <item value="set Custom Api" />
-      <item value="set Use Default" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="3" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="9262" />
+        <entry key="CHINESE" value="9263" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="9263" />
+        <entry key="ENGLISH" value="9264" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="5" />
