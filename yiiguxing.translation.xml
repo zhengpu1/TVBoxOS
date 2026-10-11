@@ -18,6 +18,19 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="detail Fallback Timeout" />
+      <item value="show Loading" />
+      <item value="source View Model" />
+      <item value="load Next Detail Fallback Source" />
+      <item value="handle No Playable Detail" />
+      <item value="stop Detail Fallback Search Executor" />
+      <item value="DETAIL FALLBACK MAX SEARCH" />
+      <item value="schedule Detail Fallback Search" />
+      <item value="start Detail Fallback" />
+      <item value="load Detail" />
+      <item value="fallback" />
+      <item value="detail Fallback Active" />
+      <item value="detail Fallback Detail Timeout" />
       <item value="on Item Long Click" />
       <item value="notify Data Set Changed" />
       <item value="open Search Video" />
@@ -29,18 +42,14 @@
       <item value="m Grid View Word Fenci" />
       <item value="TYPE QUICK SEARCH WORD" />
       <item value="detail Fallback Pending Sources" />
-      <item value="source View Model" />
       <item value="observe" />
       <item value="detail Fallback Search Result" />
       <item value="on Detail Fallback Search Result" />
       <item value="load Detail Fallback Cache" />
-      <item value="load Next Detail Fallback Source" />
       <item value="detail Fallback Tried Keys" />
       <item value="is Detail Fallback Source Used" />
       <item value="detail Fallback Candidates" />
       <item value="detail Fallback Loading Candidate" />
-      <item value="detail Fallback Active" />
-      <item value="handle No Playable Detail" />
       <item value="detail Fallback Search Results" />
       <item value="search Result" />
       <item value="put Serializable" />
@@ -59,15 +68,6 @@
       <item value="search Timeout Executor" />
       <item value="filter Result" />
       <item value="get Result Count" />
-      <item value="show Empty" />
-      <item value="finish Search If Done" />
-      <item value="pause Search Tasks" />
-      <item value="start Detail Fallback From Menu" />
-      <item value="start Detail Fallback After Lines Exhausted" />
-      <item value="start Detail Fallback" />
-      <item value="cache Detail Fallback Candidates" />
-      <item value="candidates" />
-      <item value="EXTRA DETAIL FALLBACK CANDIDATES" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="4" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="9419" />
+        <entry key="CHINESE" value="9434" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="9420" />
+        <entry key="ENGLISH" value="9435" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="7" />
