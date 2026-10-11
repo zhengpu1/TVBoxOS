@@ -18,6 +18,13 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="m Grid View Filter" />
+      <item value="search Adapter Filter" />
+      <item value="folder History Filter" />
+      <item value="folder Filter Mode" />
+      <item value="equals" />
+      <item value="SEARCH ALL NAME" />
+      <item value="filter Mode" />
       <item value="folder History" />
       <item value="search Timeout Executor" />
       <item value="filter Result" />
@@ -61,13 +68,6 @@
       <item value="focus Channel From Selected Group" />
       <item value="div Load Epg Right" />
       <item value="div Load Epg Left" />
-      <item value="m Right Epg List" />
-      <item value="m Live Channel View" />
-      <item value="KEYCODE DPAD RIGHT" />
-      <item value="KEYCODE INFO" />
-      <item value="KEYCODE DPAD DOWN" />
-      <item value="KEYCODE ENTER" />
-      <item value="KEYCODE MEDIA PLAY PAUSE" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="4" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="9378" />
+        <entry key="CHINESE" value="9386" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="9379" />
+        <entry key="ENGLISH" value="9387" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="7" />
