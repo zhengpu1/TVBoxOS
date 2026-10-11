@@ -18,6 +18,9 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="search Word Adapter" />
+      <item value="m Grid View Word Fenci" />
+      <item value="TYPE QUICK SEARCH WORD" />
       <item value="detail Fallback Pending Sources" />
       <item value="source View Model" />
       <item value="observe" />
@@ -65,9 +68,6 @@
       <item value="DEFAULT HOME REC" />
       <item value="show Channel Info" />
       <item value="focus Current Group In Menu" />
-      <item value="show Setting Group" />
-      <item value="play Previous" />
-      <item value="is VOD" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="4" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="9408" />
+        <entry key="CHINESE" value="9411" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="9409" />
+        <entry key="ENGLISH" value="9412" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="7" />
