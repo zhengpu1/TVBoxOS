@@ -18,6 +18,10 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="on Item Long Click" />
+      <item value="notify Data Set Changed" />
+      <item value="open Search Video" />
+      <item value="set On Item Long Click Listener" />
       <item value="Switchtoplaybacksitek" />
       <item value="set Flags" />
       <item value="delete Vod Record" />
@@ -58,16 +62,12 @@
       <item value="show Empty" />
       <item value="finish Search If Done" />
       <item value="pause Search Tasks" />
-      <item value="open Search Video" />
       <item value="start Detail Fallback From Menu" />
       <item value="start Detail Fallback After Lines Exhausted" />
       <item value="start Detail Fallback" />
       <item value="cache Detail Fallback Candidates" />
       <item value="candidates" />
       <item value="EXTRA DETAIL FALLBACK CANDIDATES" />
-      <item value="homede Vod Adapter" />
-      <item value="on Item Long Click" />
-      <item value="on Item Click" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="4" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="9414" />
+        <entry key="CHINESE" value="9419" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="9415" />
+        <entry key="ENGLISH" value="9420" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="7" />
