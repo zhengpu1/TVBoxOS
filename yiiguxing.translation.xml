@@ -18,6 +18,19 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="detail Fallback Candidates" />
+      <item value="detail Fallback Source Order" />
+      <item value="quick Search Data" />
+      <item value="TYPE QUICK SEARCH SELECT" />
+      <item value="TYPE SEARCH RESULT" />
+      <item value="TYPE QUICK SEARCH RESULT" />
+      <item value="cache Detail Fallback Candidate" />
+      <item value="detail Fallback Loading Candidate" />
+      <item value="schedule Detail Fallback Search" />
+      <item value="on Detail Fallback Search Result" />
+      <item value="load Next Detail Fallback Source" />
+      <item value="detail Fallback Active" />
+      <item value="DETAIL FALLBACK DETAIL TIMEOUT MS" />
       <item value="detail Fallback Search Result" />
       <item value="highlight" />
       <item value="TOP BOTTOM" />
@@ -36,8 +49,6 @@
       <item value="show Detail Fallback Empty If Needed" />
       <item value="finish Detail Fallback Without Result" />
       <item value="finish Detail Fallback Search On Timeout" />
-      <item value="on Detail Fallback Search Result" />
-      <item value="detail Fallback Active" />
       <item value="start Detail Fallback" />
       <item value="start Detail Fallback From Menu" />
       <item value="find Matching Episode Index" />
@@ -49,7 +60,6 @@
       <item value="insert Vod" />
       <item value="match Search Result" />
       <item value="switch Search Word" />
-      <item value="quick Search Data" />
       <item value="had Quick Start" />
       <item value="center vertical" />
       <item value="horizontal" />
@@ -58,16 +68,6 @@
       <item value="center" />
       <item value="home Source Rec" />
       <item value="init Checked Sources For Search" />
-      <item value="on Resume" />
-      <item value="open Search Video" />
-      <item value="TYPE QUICK SEARCH RESULT" />
-      <item value="start Quick Search" />
-      <item value="show Empty" />
-      <item value="show Success" />
-      <item value="search Content" />
-      <item value="get Detail" />
-      <item value="DETAIL FALLBACK MAX SEARCH" />
-      <item value="detail Fallback Timeout" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="4" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="9491" />
+        <entry key="CHINESE" value="9506" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="9492" />
+        <entry key="ENGLISH" value="9507" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="7" />
