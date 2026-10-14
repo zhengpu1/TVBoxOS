@@ -18,6 +18,10 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="finish Detail Fallback Without Result" />
+      <item value="show Detail Fallback Empty If Needed" />
+      <item value="load Next Detail Fallback Source" />
+      <item value="detail Fallback Batch Index" />
       <item value="new Fixed Thread Pool" />
       <item value="DETAIL FALLBACK MAX SEARCH" />
       <item value="is Searchable" />
@@ -25,7 +29,6 @@
       <item value="detail Fallback Source Order" />
       <item value="detail Fallback Next Source Index" />
       <item value="detail Fallback Active" />
-      <item value="load Next Detail Fallback Source" />
       <item value="detail Fallback Candidates" />
       <item value="cache Detail Fallback Candidate" />
       <item value="handle No Playable Detail" />
@@ -51,8 +54,6 @@
       <item value="try Next Line" />
       <item value="start Detail Fallback After Lines Exhausted" />
       <item value="reset Detail Fallback" />
-      <item value="show Detail Fallback Empty If Needed" />
-      <item value="finish Detail Fallback Without Result" />
       <item value="finish Detail Fallback Search On Timeout" />
       <item value="start Detail Fallback" />
       <item value="start Detail Fallback From Menu" />
@@ -67,7 +68,6 @@
       <item value="switch Search Word" />
       <item value="had Quick Start" />
       <item value="center vertical" />
-      <item value="horizontal" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="4" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="9520" />
+        <entry key="CHINESE" value="9525" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="9521" />
+        <entry key="ENGLISH" value="9526" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="7" />
