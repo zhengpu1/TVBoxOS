@@ -18,12 +18,18 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="detail Fallback Tried Keys" />
+      <item value="finish Detail Fallback Search Collection" />
+      <item value="schedule Detail Fallback Search" />
+      <item value="load Next Detail Fallback Source" />
+      <item value="detail Fallback Loading Candidate" />
+      <item value="detail Fallback Active" />
+      <item value="STATE FULL WINDOWS" />
       <item value="observe" />
       <item value="        sourceViewModel.detailFallbackSearchResult.observe(this, new Observer&lt;AbsXml&gt;() {&#10;" />
       <item value="show Loading" />
       <item value="finish Detail Fallback Without Result" />
       <item value="show Detail Fallback Empty If Needed" />
-      <item value="load Next Detail Fallback Source" />
       <item value="detail Fallback Batch Index" />
       <item value="new Fixed Thread Pool" />
       <item value="DETAIL FALLBACK MAX SEARCH" />
@@ -31,7 +37,6 @@
       <item value="detail Fallback Search Timeout Scheduled" />
       <item value="detail Fallback Source Order" />
       <item value="detail Fallback Next Source Index" />
-      <item value="detail Fallback Active" />
       <item value="detail Fallback Candidates" />
       <item value="cache Detail Fallback Candidate" />
       <item value="handle No Playable Detail" />
@@ -40,8 +45,6 @@
       <item value="TYPE QUICK SEARCH SELECT" />
       <item value="TYPE SEARCH RESULT" />
       <item value="TYPE QUICK SEARCH RESULT" />
-      <item value="detail Fallback Loading Candidate" />
-      <item value="schedule Detail Fallback Search" />
       <item value="on Detail Fallback Search Result" />
       <item value="DETAIL FALLBACK DETAIL TIMEOUT MS" />
       <item value="detail Fallback Search Result" />
@@ -65,9 +68,6 @@
       <item value="remove Callbacks And Messages" />
       <item value="reset Auto Switchs" />
       <item value="max Retry Count 1" />
-      <item value="equals Ignore Case" />
-      <item value="insert Vod" />
-      <item value="match Search Result" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="4" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="9528" />
+        <entry key="CHINESE" value="9535" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="9529" />
+        <entry key="ENGLISH" value="9536" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="7" />
