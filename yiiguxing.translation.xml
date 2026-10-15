@@ -18,6 +18,7 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="TYPE QUICK SEARCH SELECT" />
       <item value="quick Search Result" />
       <item value="TYPE QUICK SEARCH RESULT" />
       <item value="detail Result" />
@@ -50,7 +51,6 @@
       <item value="handle No Playable Detail" />
       <item value="handle Empty Detail" />
       <item value="quick Search Data" />
-      <item value="TYPE QUICK SEARCH SELECT" />
       <item value="TYPE SEARCH RESULT" />
       <item value="on Detail Fallback Search Result" />
       <item value="DETAIL FALLBACK DETAIL TIMEOUT MS" />
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="4" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="9543" />
+        <entry key="CHINESE" value="9544" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="9544" />
+        <entry key="ENGLISH" value="9545" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="7" />
