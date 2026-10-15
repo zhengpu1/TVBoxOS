@@ -18,6 +18,11 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="quick Search Result" />
+      <item value="TYPE QUICK SEARCH RESULT" />
+      <item value="detail Result" />
+      <item value="check Thunder" />
+      <item value="check Push" />
       <item value="single Jump Mode" />
       <item value="hot Vod Delete" />
       <item value="set On Item Long Click Listener" />
@@ -47,7 +52,6 @@
       <item value="quick Search Data" />
       <item value="TYPE QUICK SEARCH SELECT" />
       <item value="TYPE SEARCH RESULT" />
-      <item value="TYPE QUICK SEARCH RESULT" />
       <item value="on Detail Fallback Search Result" />
       <item value="DETAIL FALLBACK DETAIL TIMEOUT MS" />
       <item value="detail Fallback Search Result" />
@@ -64,10 +68,6 @@
       <item value="start Detail Fallback After Lines Exhausted" />
       <item value="reset Detail Fallback" />
       <item value="finish Detail Fallback Search On Timeout" />
-      <item value="start Detail Fallback" />
-      <item value="start Detail Fallback From Menu" />
-      <item value="find Matching Episode Index" />
-      <item value="clear" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="4" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="9538" />
+        <entry key="CHINESE" value="9543" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="9539" />
+        <entry key="ENGLISH" value="9544" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="7" />
