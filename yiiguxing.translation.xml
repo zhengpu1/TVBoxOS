@@ -18,6 +18,14 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="DETAIL FALLBACK SEARCH TAG" />
+      <item value="detail Fallback Timeout" />
+      <item value="remove Callbacks" />
+      <item value="get Playing Series" />
+      <item value="sync Playing Vod Info" />
+      <item value="detail Fallback Loading Candidate" />
+      <item value="load Next Detail Fallback Source" />
+      <item value="detail Fallback Active" />
       <item value="scroll To Position" />
       <item value="detail Fallback Source Order" />
       <item value="total Task Count" />
@@ -35,9 +43,6 @@
       <item value="detail Fallback Tried Keys" />
       <item value="finish Detail Fallback Search Collection" />
       <item value="schedule Detail Fallback Search" />
-      <item value="load Next Detail Fallback Source" />
-      <item value="detail Fallback Loading Candidate" />
-      <item value="detail Fallback Active" />
       <item value="STATE FULL WINDOWS" />
       <item value="observe" />
       <item value="        sourceViewModel.detailFallbackSearchResult.observe(this, new Observer&lt;AbsXml&gt;() {&#10;" />
@@ -63,11 +68,6 @@
       <item value="TOP BOTTOM" />
       <item value="LINEAR GRADIENT" />
       <item value="set Corner Radius" />
-      <item value="radius 5" />
-      <item value="set Colors" />
-      <item value="set Stroke" />
-      <item value="set On Item Click Listener" />
-      <item value="from Collect" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="4" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="9550" />
+        <entry key="CHINESE" value="9559" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="9551" />
+        <entry key="ENGLISH" value="9560" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="7" />
