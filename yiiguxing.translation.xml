@@ -17,6 +17,15 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="FORBID JAR DIALOG" />
+      <item value="STATE IDLE" />
+      <item value="STATE PLAYBACK COMPLETED" />
+      <item value="STATE START ABORT" />
+      <item value="STATE PREPARING" />
+      <item value="STATE ERROR" />
+      <item value="STATE PAUSED" />
+      <item value="get Current Play State" />
+      <item value="start Status Check" />
       <item value="RETRY DELAY" />
       <item value="PLAY TIMEOUT" />
       <item value="start Auto Source Switch" />
@@ -58,15 +67,6 @@
       <item value="remove Callbacks" />
       <item value="from Collect" />
       <item value="detail Fallback Active" />
-      <item value="DETAIL FALLBACK SEARCH TIMEOUT MS" />
-      <item value="detail Fallback Search Collecting" />
-      <item value="finish Detail Fallback Search Collection" />
-      <item value="detail Fallback Searching" />
-      <item value="schedule Detail Fallback Search" />
-      <item value="show Loading" />
-      <item value="equals Ignore Case" />
-      <item value="find Matching Episode Index" />
-      <item value="get Episode Match Score" />
     </histories>
     <option name="languageScores">
       <map>
@@ -77,11 +77,11 @@
         <entry key="BOSNIAN" value="4" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="9633" />
+        <entry key="CHINESE" value="9644" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="9634" />
+        <entry key="ENGLISH" value="9645" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="7" />
