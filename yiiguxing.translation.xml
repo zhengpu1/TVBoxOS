@@ -19,13 +19,21 @@
     <option name="newTranslationDialogY" value="416" />
     <histories>
       <item value="detail Fallback Active" />
+      <item value="load Detail Fallback Cache" />
+      <item value="detail Fallback Timeout" />
+      <item value="finish Detail Fallback Detail On Timeout" />
+      <item value="schedule Detail Fallback Search" />
+      <item value="detail Fallback Search Executor" />
+      <item value="fallback" />
       <item value="detail Fallback Detail Timeout" />
+      <item value="post Delayed" />
+      <item value="remove Callbacks" />
+      <item value="SECONDS" />
+      <item value="Time Unit" />
       <item value="DETAIL FALLBACK DETAIL TIMEOUT MS" />
       <item value="detail Fallback Loading Candidate" />
       <item value="start Detail Fallback" />
       <item value="DETAIL FALLBACK SEARCH TAG" />
-      <item value="detail Fallback Timeout" />
-      <item value="remove Callbacks" />
       <item value="get Playing Series" />
       <item value="sync Playing Vod Info" />
       <item value="load Next Detail Fallback Source" />
@@ -45,7 +53,6 @@
       <item value="set On Item Long Click Listener" />
       <item value="detail Fallback Tried Keys" />
       <item value="finish Detail Fallback Search Collection" />
-      <item value="schedule Detail Fallback Search" />
       <item value="STATE FULL WINDOWS" />
       <item value="observe" />
       <item value="        sourceViewModel.detailFallbackSearchResult.observe(this, new Observer&lt;AbsXml&gt;() {&#10;" />
@@ -61,13 +68,6 @@
       <item value="detail Fallback Candidates" />
       <item value="cache Detail Fallback Candidate" />
       <item value="handle No Playable Detail" />
-      <item value="handle Empty Detail" />
-      <item value="quick Search Data" />
-      <item value="TYPE SEARCH RESULT" />
-      <item value="on Detail Fallback Search Result" />
-      <item value="detail Fallback Search Result" />
-      <item value="highlight" />
-      <item value="TOP BOTTOM" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="4" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="9566" />
+        <entry key="CHINESE" value="9579" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="9567" />
+        <entry key="ENGLISH" value="9580" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="7" />
