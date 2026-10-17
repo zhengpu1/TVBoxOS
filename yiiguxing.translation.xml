@@ -18,6 +18,7 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="show Empty" />
       <item value="scroll To Position" />
       <item value="protected Init Jar" />
       <item value="ignored" />
@@ -36,7 +37,6 @@
       <item value="is Detail Loading" />
       <item value="Deque" />
       <item value="detail Fallback Candidates" />
-      <item value="show Empty" />
       <item value="cache Detail Fallback Candidate" />
       <item value="load Thumbnail" />
       <item value="equals" />
