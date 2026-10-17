@@ -10,6 +10,7 @@
     </option>
     <option name="keepFormat" value="true" />
     <option name="primaryLanguage" value="CHINESE" />
+    <option name="translator" value="BAIDU" />
   </component>
   <component name="Translation.States">
     <option name="newTranslationDialogHeight" value="256" />
@@ -17,6 +18,17 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="reset Auto Switch" />
+      <item value="current Retry Count" />
+      <item value="is Auto Switching" />
+      <item value="is Detail Loading" />
+      <item value="Deque" />
+      <item value="detail Fallback Candidates" />
+      <item value="show Empty" />
+      <item value="cache Detail Fallback Candidate" />
+      <item value="load Thumbnail" />
+      <item value="equals" />
+      <item value="stop Status Check" />
       <item value="FORBID JAR DIALOG" />
       <item value="STATE IDLE" />
       <item value="STATE PLAYBACK COMPLETED" />
@@ -29,7 +41,6 @@
       <item value="RETRY DELAY" />
       <item value="PLAY TIMEOUT" />
       <item value="start Auto Source Switch" />
-      <item value="stop Status Check" />
       <item value="hash Code" />
       <item value="single Line" />
       <item value="center" />
@@ -57,16 +68,6 @@
       <item value="set Focusable" />
       <item value="status Check Runnable" />
       <item value="request Detail Fallback After Lines Exhausted" />
-      <item value="try Next Line If Enabled" />
-      <item value="handle Quick Search Word Change Event" />
-      <item value="start Detail Fallback After Lines Exhausted" />
-      <item value="show Empty" />
-      <item value="detail Fallback Loading Candidate" />
-      <item value="load Next Detail Fallback Source" />
-      <item value="detail Fallback Detail Timed Out" />
-      <item value="remove Callbacks" />
-      <item value="from Collect" />
-      <item value="detail Fallback Active" />
     </histories>
     <option name="languageScores">
       <map>
@@ -77,11 +78,11 @@
         <entry key="BOSNIAN" value="4" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="9644" />
+        <entry key="CHINESE" value="9650" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="9645" />
+        <entry key="ENGLISH" value="9651" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="7" />
