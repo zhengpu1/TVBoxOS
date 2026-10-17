@@ -18,6 +18,10 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="scroll To Position" />
+      <item value="protected Init Jar" />
+      <item value="ignored" />
+      <item value="Class Not Found Exception" />
       <item value="start Play" />
       <item value="is In Idle State" />
       <item value="STATE IDLE" />
@@ -64,10 +68,6 @@
       <item value="ssearch Key" />
       <item value="new Fixed Thread Pool" />
       <item value="DETAIL FALLBACK MAX SEARCH" />
-      <item value="remove Duplication By Hash Set" />
-      <item value="m Grid View Quality" />
-      <item value="set On Item Listener" />
-      <item value="set Adapter" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="4" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="9658" />
+        <entry key="CHINESE" value="9662" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="9659" />
+        <entry key="ENGLISH" value="9663" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="7" />
