@@ -18,6 +18,14 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="start Play" />
+      <item value="is In Idle State" />
+      <item value="STATE IDLE" />
+      <item value="STATE ERROR" />
+      <item value="remove Callbacks" />
+      <item value="post Delayed" />
+      <item value="is Paused" />
+      <item value="is Playing" />
       <item value="reset Auto Switch" />
       <item value="current Retry Count" />
       <item value="is Auto Switching" />
@@ -30,11 +38,9 @@
       <item value="equals" />
       <item value="stop Status Check" />
       <item value="FORBID JAR DIALOG" />
-      <item value="STATE IDLE" />
       <item value="STATE PLAYBACK COMPLETED" />
       <item value="STATE START ABORT" />
       <item value="STATE PREPARING" />
-      <item value="STATE ERROR" />
       <item value="STATE PAUSED" />
       <item value="get Current Play State" />
       <item value="start Status Check" />
@@ -62,12 +68,6 @@
       <item value="m Grid View Quality" />
       <item value="set On Item Listener" />
       <item value="set Adapter" />
-      <item value="set Layout Manager" />
-      <item value="m Number Classification" />
-      <item value="set Scroll Bar Fade Duration" />
-      <item value="set Focusable" />
-      <item value="status Check Runnable" />
-      <item value="request Detail Fallback After Lines Exhausted" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="4" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="9650" />
+        <entry key="CHINESE" value="9658" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="9651" />
+        <entry key="ENGLISH" value="9659" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="7" />
