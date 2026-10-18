@@ -18,6 +18,9 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="set Focusable" />
+      <item value="set Focusable In Touch Mode" />
+      <item value="single Line" />
       <item value=" Clears the storage, note that crypto data won't be deleted such as salt key etc.&#10;    Use resetCrypto in order to deleteAll crypto information&#10;   &#10;    @return true if deleteAll is successful" />
       <item value="cancel Home Sort Loading" />
       <item value="refresh Empty" />
@@ -65,9 +68,6 @@
       <item value="STATE PAUSED" />
       <item value="get Current Play State" />
       <item value="start Status Check" />
-      <item value="RETRY DELAY" />
-      <item value="PLAY TIMEOUT" />
-      <item value="start Auto Source Switch" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="4" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="9678" />
+        <entry key="CHINESE" value="9681" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="9679" />
+        <entry key="ENGLISH" value="9682" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="7" />
