@@ -18,6 +18,8 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="tv Series Flag Select" />
+      <item value="m Grid View Quality" />
       <item value="set Has Fixed Size" />
       <item value="set Scroll Bar Fade Duration" />
       <item value="set Focusable In Touch Mode" />
@@ -66,8 +68,6 @@
       <item value="detail Fallback Candidates" />
       <item value="cache Detail Fallback Candidate" />
       <item value="load Thumbnail" />
-      <item value="equals" />
-      <item value="stop Status Check" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="4" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="9691" />
+        <entry key="CHINESE" value="9693" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="9692" />
+        <entry key="ENGLISH" value="9694" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="7" />
