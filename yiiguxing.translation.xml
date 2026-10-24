@@ -18,6 +18,22 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="  Scale the image uniformly (maintain the image's aspect ratio) so&#10;          that both dimensions (width and height) of the image will be equal&#10;          to or less than the corresponding dimension of the view&#10;          (minus padding). The image is then centered in the view.&#10;          From XML, use this syntax: &lt;code&gt;android:scaleType=&quot;centerInside&quot;&lt;code&gt;." />
+      <item value="   Scale the image uniformly (maintain the image's aspect ratio) so&#10;          that both dimensions (width and height) of the image will be equal&#10;          to or larger than the corresponding dimension of the view&#10;          (minus padding). The image is then centered in the view.&#10;          From XML, use this syntax: &lt;code&gt;android:scaleType=&quot;centerCrop&quot;&lt;code&gt;." />
+      <item value="    Scale the image uniformly (maintain the image's aspect ratio) so&#10;          that both dimensions (width and height) of the image will be equal&#10;          to or less than the corresponding dimension of the view&#10;          (minus padding). The image is then centered in the view.&#10;          From XML, use this syntax: &lt;code&gt;android:scaleType=&quot;centerInside&quot;&lt;code&gt;.&#10;         " />
+      <item value="CENTER CROP" />
+      <item value="CENTER INSIDE" />
+      <item value="override" />
+      <item value="round Radius" />
+      <item value="set Image Resource" />
+      <item value="  Scale the image so that either the width of the image matches the given width and the height of&#10;  the image is greater than the given height or vice versa, and then crop the larger dimension to&#10;  match the given dimension.&#10; &#10;  &lt;p&gt;Does not maintain the image's aspect ratio" />
+      <item value="  Scales the image uniformly (maintaining the image's aspect ratio) so that one of the dimensions&#10;  of the image will be equal to the given dimension and the other will be less than the given&#10;  dimension." />
+      <item value="Round Transformation" />
+      <item value="transform" />
+      <item value=" Scale the image so that either the width of the image matches the given width and the height of&#10;  the image is greater than the given height or vice versa, and then crop the larger dimension to&#10;  match the given dimension.&#10; &#10;  &lt;p&gt;Does not maintain the image's aspect ratio" />
+      <item value=" Scales the image uniformly (maintaining the image's aspect ratio) so that one of the dimensions&#10;  of the image will be equal to the given dimension and the other will be less than the given&#10;  dimension." />
+      <item value="Center Crop" />
+      <item value="Fit Center" />
       <item value="Fast Search Adapter" />
       <item value="Fast List Adapter" />
       <item value="placeholder" />
@@ -52,22 +68,6 @@
       <item value="DETAIL FALLBACK MAX SEARCH" />
       <item value="is Foleder Mode" />
       <item value="show Empty" />
-      <item value="scroll To Position" />
-      <item value="protected Init Jar" />
-      <item value="ignored" />
-      <item value="Class Not Found Exception" />
-      <item value="start Play" />
-      <item value="is In Idle State" />
-      <item value="STATE IDLE" />
-      <item value="STATE ERROR" />
-      <item value="remove Callbacks" />
-      <item value="post Delayed" />
-      <item value="is Paused" />
-      <item value="is Playing" />
-      <item value="reset Auto Switch" />
-      <item value="current Retry Count" />
-      <item value="is Auto Switching" />
-      <item value="is Detail Loading" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="4" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="9698" />
+        <entry key="CHINESE" value="9716" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="9699" />
+        <entry key="ENGLISH" value="9717" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="7" />
