@@ -18,6 +18,7 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="center Crop" />
       <item value="artwork View" />
       <item value="set Artwork" />
       <item value="  Scale the image uniformly (maintain the image's aspect ratio) so&#10;          that both dimensions (width and height) of the image will be equal&#10;          to or less than the corresponding dimension of the view&#10;          (minus padding). The image is then centered in the view.&#10;          From XML, use this syntax: &lt;code&gt;android:scaleType=&quot;centerInside&quot;&lt;code&gt;." />
@@ -67,7 +68,6 @@
       <item value="m Desk IO" />
       <item value="new Fixed Thread Pool" />
       <item value="get History Num Namex" />
-      <item value="DETAIL FALLBACK MAX SEARCH" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="4" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="9718" />
+        <entry key="CHINESE" value="9719" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="9719" />
+        <entry key="ENGLISH" value="9720" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="7" />
