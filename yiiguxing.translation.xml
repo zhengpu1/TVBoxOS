@@ -18,6 +18,8 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="Fast Search Adapter" />
+      <item value="Fast List Adapter" />
       <item value="placeholder" />
       <item value="rounding Radius" />
       <item value="set Has Fixed Size" />
@@ -66,8 +68,6 @@
       <item value="current Retry Count" />
       <item value="is Auto Switching" />
       <item value="is Detail Loading" />
-      <item value="Deque" />
-      <item value="detail Fallback Candidates" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="4" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="9696" />
+        <entry key="CHINESE" value="9698" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="9697" />
+        <entry key="ENGLISH" value="9699" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="7" />
