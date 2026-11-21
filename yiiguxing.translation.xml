@@ -18,6 +18,8 @@
     <option name="newTranslationDialogX" value="374" />
     <option name="newTranslationDialogY" value="416" />
     <histories>
+      <item value="starts With" />
+      <item value="contains" />
       <item value="notify Item Changed" />
       <item value="get Span Count" />
       <item value="item Margin" />
@@ -66,8 +68,6 @@
       <item value="set Focusable In Touch Mode" />
       <item value="set Focusable" />
       <item value="tv selected Item Is Centered" />
-      <item value="tv vertical Spacing With Margins" />
-      <item value="next Focus Up" />
     </histories>
     <option name="languageScores">
       <map>
@@ -78,11 +78,11 @@
         <entry key="BOSNIAN" value="4" />
         <entry key="BULGARIAN" value="2" />
         <entry key="CATALAN" value="7" />
-        <entry key="CHINESE" value="9740" />
+        <entry key="CHINESE" value="9742" />
         <entry key="CZECH" value="21" />
         <entry key="DANISH" value="1" />
         <entry key="DUTCH" value="1" />
-        <entry key="ENGLISH" value="9741" />
+        <entry key="ENGLISH" value="9743" />
         <entry key="ESPERANTO" value="4" />
         <entry key="ESTONIAN" value="1" />
         <entry key="FILIPINO" value="7" />
